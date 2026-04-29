@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "the engineer's discriminative judgment — the prajñā cultivated across architectural decisions and on-call rotations — is consequently carried off course",
+      "objection": "Lexically accurate (prajñā as discriminative judgment is well-attested) but the engineering rendering treats prajñā as an intra-career-cultivated faculty. Shankara reads prajñā in 2.67 specifically as ātma-anātma-viveka — the discrimination of Self from not-Self. The engineering analog narrows prajñā to 'engineering judgment' without naming the narrowing. This is a tradition-neutral compression for the engineering layer (Prabhupada and Mukundananda also flatten to 'intelligence' / 'intellect') and the source pack preserves Shankara's specific reading explicitly. Acceptable simplification but flagged."
+    },
+    {
+      "severity": "minor",
+      "claim": "The mechanism the verse names is structural, not merely behavioural",
+      "objection": "The verse's structural mechanism (anuvidhīyate as passive — the mind is led along by the senses, not the inverse) is preserved correctly. The engineering analog renders 'the mind, un-yoked, is drawn along behind any one of them' — this preserves the passive-being-led directionality that the source pack flagged. No misreading. Minor caveat: the analog uses 'un-yoked' as a metaphor for the mind without the senses being yoked, which is the chapter's own metaphor (yoga = yoking) and is consistent."
+    }
+  ],
+  "notes": "Engineering layer correctly preserves: (a) the wind-boat metaphor structurally — a moving boat with intent (the engineer in deep work) deflected by wind that need not be a storm (a single un-restrained input stream); (b) the directionality that the verse names — mind passively led by sense, not actively grasping; (c) prajñā as discriminative judgment, with explicit Sanskrit term retention in the body ('That faculty is what the verse calls prajñā'); (d) the falsifiability guards against the misread that this verse advocates total isolation (an on-call engineer who silences PagerDuty 'has misread the verse entirely'); (e) the counter-example correctly identifies in-task engagement (incident's own dashboards) as not-the-verse. The Sanskrit term prajñā is invoked in its specific yogic-technical sense without flattening. Two minor framing caveats; neither is critical. Pass."
+}

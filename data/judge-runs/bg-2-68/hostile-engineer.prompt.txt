@@ -1,0 +1,236 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.68",
+  "sanskrit_devanagari": "तस्माद्यस्य महाबाहो निगृहीतानि सर्वशः ।\nइन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता ॥ ६८ ॥",
+  "sanskrit_iast": "tasmād yasya mahā-bāho nigṛhītāni sarvaśaḥ |\nindriyāṇīndriyārthebhyas tasya prajñā pratiṣṭhitā || 68 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "यस्य",
+      "iast": "yasya",
+      "meaning": "of whom"
+    },
+    {
+      "sanskrit": "महाबाहो",
+      "iast": "mahā-bāho",
+      "meaning": "O mighty-armed (Arjuna), vocative"
+    },
+    {
+      "sanskrit": "महा",
+      "iast": "mahā",
+      "meaning": "great (in compound mahā-bāho)"
+    },
+    {
+      "sanskrit": "बाहो",
+      "iast": "bāho",
+      "meaning": "armed (in compound mahā-bāho)"
+    },
+    {
+      "sanskrit": "निगृहीतानि",
+      "iast": "nigṛhītāni",
+      "meaning": "are restrained / withdrawn"
+    },
+    {
+      "sanskrit": "सर्वशः",
+      "iast": "sarvaśaḥ",
+      "meaning": "from every side / completely"
+    },
+    {
+      "sanskrit": "इन्द्रियाणि",
+      "iast": "indriyāṇi",
+      "meaning": "the senses"
+    },
+    {
+      "sanskrit": "इन्द्रियार्थेभ्यः",
+      "iast": "indriyārthebhyaḥ",
+      "meaning": "from the sense-objects"
+    },
+    {
+      "sanskrit": "इन्द्रिय",
+      "iast": "indriya",
+      "meaning": "sense (in compound indriya-arthebhyaḥ)"
+    },
+    {
+      "sanskrit": "अर्थेभ्यः",
+      "iast": "arthebhyaḥ",
+      "meaning": "from the objects (in compound indriya-arthebhyaḥ)"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "of him / theirs"
+    },
+    {
+      "sanskrit": "प्रज्ञा",
+      "iast": "prajñā",
+      "meaning": "discriminative wisdom"
+    },
+    {
+      "sanskrit": "प्रतिष्ठिता",
+      "iast": "pratiṣṭhitā",
+      "meaning": "is established / firmly fixed"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/68/",
+      "fetched_at": "2026-04-29T07:15:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Therefore, O mighty-armed, one whose senses are restrained from their objects is certainly of steady intelligence."
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/68",
+      "fetched_at": "2026-04-29T07:15:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Therefore, one who has restrained the senses from their objects, O mighty armed Arjun, is firmly established in transcendental knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/68/",
+      "fetched_at": "2026-04-29T07:15:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "One can curb the forces of sense gratification only by means of Kṛṣṇa consciousness, or engaging all the senses in the transcendental loving service of the Lord. As enemies are curbed by superior force, the senses can similarly be curbed, not by any human endeavor, but only by keeping them engaged in the service of the Lord.",
+      "summary_paraphrase": "The verse closes the immediate restatement triggered by 2.67. Where 2.67 named the loss-mechanism (mind drawn behind even one un-restrained sense), 2.68 names the positive: complete withdrawal of the senses from their objects yields established prajñā. Prabhupada specifically reads 'restraint' as engagement of the senses in devotional service rather than mere suppression — a Gaudiya Vaishnava reading that rejects pure negative renunciation."
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-68/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:15:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Tasmat, therefore — for the reason given in the previous verse; mahabaho, O mighty-armed one; yasya, of him whose; indriyani, senses; are nigrhitani, restrained, withdrawn; sarvasah, from every side, completely; indriyarthebhyah, from their objects — sound and the rest; tasya, his, of that very man's; prajna, knowledge — discrimination of the Self; is pratisthita, established, steady.",
+      "summary_paraphrase": "Shankara reads 2.68 as the necessary positive corollary of 2.67's negative. The conjunction tasmāt is load-bearing: this verse is restating 2.61 in the form 2.67 has just demanded. The complete withdrawal (nigṛhītāni sarvaśaḥ) is what permits prajñā to be pratiṣṭhitā — etymologically 'standing-firmly-on'. The same word pratiṣṭhitā recurs through the sthita-prajña block (2.55, 2.57, 2.58, 2.61, 2.68) as the chapter's defining technical term."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-68/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:15:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "summary-captured (paraphrase from JS-rendered page)",
+      "verbatim_excerpt": "For the reasons given, the aspirant whose senses are entirely held back from their objects has prajñā that is pratiṣṭhitā — established. Without such withdrawal there can be no firmness in the discrimination of the Self that is the locus of devotion to the Lord; the verse therefore states a structural prerequisite, not an aesthetic ideal.",
+      "summary_paraphrase": "Ramanuja agrees with Shankara on the structural reading: complete sense-withdrawal is the prerequisite, not the goal. Vishishtadvaita then adds the further specification that the established prajñā is itself oriented toward the Lord; pratiṣṭhitā is the firmness within which devotion can occur. The mighty-armed (mahā-bāho) vocative is read as honoring Arjuna's actual capacity for the discipline; it is not flattery but a statement that the addressee is capable of the restraint just prescribed."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "nigṛhītāni sarvaśaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "restrained from their objects (with the Gaudiya gloss: restraint = engagement in devotional service, not negative suppression)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "restrained the senses from their objects"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "withdrawn from every side, completely (sarvaśaḥ as totality, not partial)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "entirely held back, as the structural prerequisite for prajñā established in devotion"
+        }
+      ],
+      "explanation": "All four agree the verb is restraint/withdrawal and that sarvaśaḥ qualifies it as complete. They differ on the mechanism by which this restraint is achieved: Prabhupada (Gaudiya Vaishnava) explicitly rejects suppression-only and prescribes positive engagement of all senses in the Lord's service. Shankara reads it more strictly as withdrawal proper, on the path to ātma-anātma-viveka. Ramanuja sits between: withdrawal is the prerequisite, but the goal is firm devotion. Mukundananda flattens to the standard 'restrained the senses', tradition-neutral."
+    },
+    {
+      "word": "prajñā pratiṣṭhitā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "of steady intelligence"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "firmly established in transcendental knowledge"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "knowledge — discrimination of the Self — established, steady"
+        }
+      ],
+      "explanation": "pratiṣṭhitā is the chapter's load-bearing technical term: the same root verb appears in sthita-prajña itself, in 2.55 ('sthita-prajñasya kā bhāṣā'), in 2.57 (sthitā tasya prajñā), in 2.58 (tasya prajñā pratiṣṭhitā), and now in 2.68. The repetition is structural — 2.68 is closing the immediate sub-argument by restating the chapter's defining state in the exact same lexical form. Translators preserve 'established' / 'firm' but generally do not flag the cross-verse repetition of the same compound; the source pack flags it for the doctrine-coherence check."
+    }
+  ],
+  "literal_meaning": "Therefore, O mighty-armed, of him whose senses are restrained on every side from sense-objects, his discriminative wisdom is established.",
+  "traditional_meaning": "Krishna restates the conclusion that 2.61 first formulated and that 2.67 has just demanded in negative form: when the senses are withdrawn completely (sarvaśaḥ) from their objects, the discriminative wisdom (prajñā) is pratiṣṭhitā — firmly established. The conjunction tasmāt (therefore) makes the verse's logical position explicit: this is the positive corollary of the negative case-statement just given. Shankara reads prajñā here as ātma-anātma-viveka established as a stable state. Ramanuja preserves the same structural reading and adds that the established prajñā is the locus of devotion. Prabhupada (Gaudiya Vaishnava) further specifies that 'restraint' must be understood as positive engagement in the Lord's service, not mere suppression. The recurrence of pratiṣṭhitā ties this verse to 2.55, 2.57, 2.58, 2.61 — the chapter's defining technical term for the steady-mind state.",
+  "engineering": {
+    "translation": "Therefore — and the conjunction is load-bearing — the engineer whose attention surfaces have been architected, deliberately and on every side, so that no un-restrained input stream can intrude on deep work, has discriminative judgment that is established. The verse closes the immediate sub-argument 2.67 opened: where 2.67 named the loss-mechanism, 2.68 names the positive structural condition under which prajñā stabilises. The architecture is not heroic willpower; it is environmental. PagerDuty filtered to genuine production-severity events. Slack do-not-disturb during model-loading hours. Sentry alerting tuned so noisy channels do not ring identically to outages. Notifications muted on the second monitor. The engineer is not pretending the world is silent — the world is configured. The Sanskrit term that returns here, pratiṣṭhitā, is the same one running through 2.55, 2.57, 2.58, 2.61. The chapter is naming a single state in repeated lexical form: discriminative judgment that stands firmly because the conditions for its standing are present.",
+    "concrete_scenario": "On her quietest Wednesday, a staff engineer at a mid-stage company has her environment configured so that during the four hours she has blocked for redesigning the order-fulfillment state machine — a change spanning Postgres transactional boundaries, the Redis cache invalidation flow, and the Kafka topic her warehouse-management service consumes — only three channels can interrupt her: PagerDuty for genuine production outages on her own services, an explicit 911 keyword from her direct reports, and a phone call from her partner. Slack notifications are off; Linear digest fires only at 12:00 and 17:00; the GitHub mentions are batched into a single email; Twitter and the news site she likes are blocked at the DNS layer for that window. The architecture is mundane, not heroic. What it produces, however, is what the verse names. With no un-restrained channel drawing the mind off course, her discriminative judgment loads; she sees, three commits in, that the FSM transition for partial-shipment-then-cancellation is structurally wrong and the correct fix is to re-model the cancellation as a state-machine event rather than a status-column write. The reviewer next morning agrees on the first read. That clarity is not talent — it is what prajñā looks like when the conditions for prajñā being pratiṣṭhitā are present. The conditions, in this verse's lexicon, are sense-withdrawal on every side, sarvaśaḥ; in the engineer's lexicon, it is the deliberately architected attention surface.",
+    "falsifiability": "The analog fails if a reader treats this verse as license to ignore on-call rotations or muteable-but-genuine alerts. The verse does not name attention-isolation as a permanent state — it names it as the structural condition under which prajñā can stabilise. An engineer who 'establishes' herself by silencing genuine production pages has confused the verse with a different one. The architecture restrains the noise; it does not restrain the signal.",
+    "counter_example": "When the engineer is the on-call rotation, the architecture inverts: every channel must be live, every alert audible. The verse's reading does not apply at the moment when the operator's whole role is to be perceptive to incoming signals. Sense-withdrawal is the precondition for some kinds of work — model-loading, architectural reasoning, multi-system design — and the wrong precondition for others, including incident response.",
+    "implication": "Architect your attention surfaces deliberately for model-loading work. Map each channel against its actual signal value; mute the ones whose noise-to-signal ratio is below a threshold you can defend in writing. The state the verse names becomes available not by trying harder, but by removing the conditions that make it impossible.",
+    "quotable_line": "The state the verse names is not heroic willpower; it is the deliberately configured environment.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

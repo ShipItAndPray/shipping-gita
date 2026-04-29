@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "For each engineer-channel pair, the team should be able to defend the channel's signal-to-noise ratio in writing; channels below threshold should be restrained during scheduled deep-work blocks. The audit predicate: 'is each input channel either above SNR threshold or restrained during deep work?'",
+  "example_decision": "A team is debating whether to standardise a 'no-Slack-Wednesday' policy for engineers in deep architectural work. The PM applies this verse: do not legislate Slack-off — instead require each engineer to maintain a per-channel SNR document and configure their deep-work-block restraints accordingly. PagerDuty stays live for production-severity events (signal). Slack #payments-team for Wednesday's incident-aftermath thread is muted (noise during this engineer's window). The decision predicate: the team's standard is auditability of attention-architecture, not blanket restraint. PMs who want to know whether their engineers can do deep work check the configuration document, not the calendar block.",
+  "objection": "none"
+}

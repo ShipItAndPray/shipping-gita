@@ -1,0 +1,274 @@
+# Judge persona: Sanskrit scholar
+
+You are a senior scholar of classical Sanskrit and the Bhagavad Gita commentarial tradition (Shankara, Ramanuja, Madhva, Sridhara, Madhusudana). You read this verse package and find any misrepresentation of the traditional meaning.
+
+## Inputs you will receive
+- `sanskrit_devanagari`
+- `sanskrit_iast`
+- `anvaya` (word-by-word)
+- `translations` (verbatim quotes from canonical translators)
+- `commentaries` (verbatim or summarised commentary content per tradition)
+- `engineering.translation` and `engineering.concrete_scenario` (the modern adaptation)
+
+## Your task
+Identify any place where the engineering layer:
+
+1. Inverts or weakens the Sanskrit's actual claim.
+2. Conflates positions held by different commentarial traditions (e.g. attributing a Vishishtadvaita reading to Shankara's Advaita).
+3. Drops a doctrinally load-bearing word (e.g. *adhikāra*, *dharma*, *yoga*, *yajña*, *sannyāsa*) without acknowledgment.
+4. Imports a connotation the Sanskrit does not support.
+5. Makes the verse say something Krishna does not say.
+
+## Output format (strict JSON, no commentary outside it)
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "severity": "critical" | "minor",
+      "claim": "<the engineering claim being judged>",
+      "objection": "<your objection, citing the Sanskrit or commentary>"
+    }
+  ],
+  "notes": "<one paragraph, optional>"
+}
+```
+
+## Calibration
+- One critical issue ⇒ FAIL.
+- Three or more minor issues ⇒ FAIL.
+- A successful PASS does not mean the engineering analog is "right" — only that the original meaning has not been falsified or distorted.
+- Your job is preservation, not generosity. Err toward FAIL if uncertain.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.70",
+  "sanskrit_devanagari": "आपूर्यमाणमचलप्रतिष्ठं\nसमुद्रमापः प्रविशन्ति यद्वत् ।\nतद्वत्कामा यं प्रविशन्ति सर्वे\nस शान्तिमाप्नोति न कामकामी ॥ ७० ॥",
+  "sanskrit_iast": "āpūryamāṇam acala-pratiṣṭhaṁ\nsamudram āpaḥ praviśanti yadvat |\ntadvat kāmā yaṁ praviśanti sarve\nsa śāntim āpnoti na kāma-kāmī || 70 ||",
+  "anvaya": [
+    {
+      "sanskrit": "आपूर्यमाणम्",
+      "iast": "āpūryamāṇam",
+      "meaning": "being filled (continuously)"
+    },
+    {
+      "sanskrit": "अचलप्रतिष्ठम्",
+      "iast": "acala-pratiṣṭham",
+      "meaning": "of unmoving foundation / standing-firm-and-unmoved"
+    },
+    {
+      "sanskrit": "अचल",
+      "iast": "acala",
+      "meaning": "unmoving (in compound acala-pratiṣṭham)"
+    },
+    {
+      "sanskrit": "प्रतिष्ठम्",
+      "iast": "pratiṣṭham",
+      "meaning": "foundation, standing (in compound acala-pratiṣṭham)"
+    },
+    {
+      "sanskrit": "समुद्रम्",
+      "iast": "samudram",
+      "meaning": "the ocean"
+    },
+    {
+      "sanskrit": "आपः",
+      "iast": "āpaḥ",
+      "meaning": "waters"
+    },
+    {
+      "sanskrit": "प्रविशन्ति",
+      "iast": "praviśanti",
+      "meaning": "enter"
+    },
+    {
+      "sanskrit": "यद्वत्",
+      "iast": "yadvat",
+      "meaning": "as / just as"
+    },
+    {
+      "sanskrit": "तद्वत्",
+      "iast": "tadvat",
+      "meaning": "so / similarly"
+    },
+    {
+      "sanskrit": "कामाः",
+      "iast": "kāmāḥ",
+      "meaning": "desires"
+    },
+    {
+      "sanskrit": "यम्",
+      "iast": "yam",
+      "meaning": "into whom"
+    },
+    {
+      "sanskrit": "प्रविशन्ति",
+      "iast": "praviśanti",
+      "meaning": "enter"
+    },
+    {
+      "sanskrit": "सर्वे",
+      "iast": "sarve",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he / they"
+    },
+    {
+      "sanskrit": "शान्तिम्",
+      "iast": "śāntim",
+      "meaning": "peace"
+    },
+    {
+      "sanskrit": "आप्नोति",
+      "iast": "āpnoti",
+      "meaning": "attains"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "कामकामी",
+      "iast": "kāma-kāmī",
+      "meaning": "desirer of desires / one who longs for desires"
+    },
+    {
+      "sanskrit": "काम",
+      "iast": "kāma",
+      "meaning": "desire (in compound kāma-kāmī)"
+    },
+    {
+      "sanskrit": "कामी",
+      "iast": "kāmī",
+      "meaning": "the one who longs (in compound kāma-kāmī)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/70/",
+      "fetched_at": "2026-04-29T07:40:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person who is not disturbed by the incessant flow of desires — that enter like rivers into the ocean, which is ever being filled but is always still — can alone achieve peace, and not the man who strives to satisfy such desires."
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/70",
+      "fetched_at": "2026-04-29T07:40:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Just as the ocean remains undisturbed by the incessant flow of waters from rivers merging into it, likewise the sage who is unmoved despite the flow of desirable objects all around him attains peace, and not the man who strives to satisfy desires."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/70/",
+      "fetched_at": "2026-04-29T07:40:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Although the vast ocean is always filled with water, it is always, especially during the rainy season, being filled with much more water. But the ocean remains the same — steady; it is not agitated, nor does it cross beyond the limit of its brink. That is also true of a person fixed in Kṛṣṇa consciousness.",
+      "summary_paraphrase": "The ocean receives the rivers; this is its nature. It does not refuse them. But the level does not rise. That non-rise is the verse's specific point: peace is not the absence of desire-input, it is the absorption of desire-input without level-change. The kāma-kāmī (the desirer-of-desires) is, by contrast, the one whose level rises and falls with each input."
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-70/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:40:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "As the ocean, apuryamanam, getting filled up from all sides; achala-pratistham, having an unmoving foundation, i.e. not transgressing its own limits; — into such an ocean, apah, waters; pravisanti, enter, from all sides without producing any change; tadvat, similarly, the man into whom kamah, desires, of all kinds, enter — assume the form of objects of vision and so on without producing any change in him; sah, that man; apnoti, attains; santim, peace, Liberation; na kama-kami, not the desirer of desires.",
+      "summary_paraphrase": "Shankara is rigorous about the metaphor: the ocean does not push the rivers away (apah pravisanti — the waters enter); it accepts them; what it does not do is be moved by them (acala-pratistham — unmoving foundation). The desires assume the form of objects-of-vision and so on, but produce no change in the realised one. The person who attains peace is not the desire-suppressor; he is the one in whom desires arise without producing modification. The kāma-kāmī is the inverse — the one who actively pursues."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-70/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:40:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "summary-captured (paraphrase from JS-rendered page)",
+      "verbatim_excerpt": "The ocean receives without being increased; the sage receives the impingement of all desirable objects without being increased — i.e. without any motion of pursuit arising in him. He attains peace because the objects, on entering, find no engine of pursuit to engage. The desirer of desires (kāma-kāmī) by contrast has the engine running; for him each new desirable object becomes a new motion.",
+      "summary_paraphrase": "Ramanuja preserves Shankara's structural reading and emphasizes the engine-of-pursuit reading: peace is the state in which the desire-input arrives but finds no engine to engage. This emphasis matters — it is not that desires are absent; the desires arrive normally. What is absent is the pursuit-mechanism that, in the kāma-kāmī, automatically converts every input into motion. Vishishtadvaita locates the source of the absence in steady devotion to the Lord."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "āpūryamāṇam acala-pratiṣṭham",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "ever being filled but always still"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the ocean undisturbed by the incessant flow of waters"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "getting filled up from all sides; having an unmoving foundation, not transgressing its own limits"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "receives without being increased; the engine of pursuit does not engage"
+        }
+      ],
+      "explanation": "All four agree the metaphor is structural: the ocean is FULL and STEADY; the waters ENTER it; the level does not rise. The disagreement is about what 'does not rise' refers to. Shankara: the ocean does not transgress its limits — boundary-preservation under input. Ramanuja: the engine of pursuit does not engage — the response-mechanism is absent. Prabhupada: the ocean is 'always still' — emphasizing static composure. Mukundananda flattens to 'undisturbed' — least specific. The structural reading that survives across all four: the ocean RECEIVES (it does not refuse the rivers); it is not moved by what it receives. This distinction is critical to avoid the misread that the verse advocates impassivity or input-refusal."
+    },
+    {
+      "word": "kāma-kāmī",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the man who strives to satisfy such desires"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the man who strives to satisfy desires"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the desirer of desires (na kama-kami)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the desirer-of-desires; he in whom the engine of pursuit is running for each new object"
+        }
+      ],
+      "explanation": "kāma-kāmī is a Sanskrit reduplicative compound: 'desire-desirer', the one who desires desires (not just objects). The compound names a specific pathology — not the having of desire but the active longing-for-desire-as-such, the cultivation of the wanting-state itself. Prabhupada and Mukundananda flatten to 'striving to satisfy desires', losing the reduplicative force. The traditional readings (Shankara, Ramanuja) preserve it as the active engine of pursuit — the operator whose state IS the pursuit-mechanism, not merely an operator who happens to pursue this or that."
+    }
+  ],
+  "literal_meaning": "As waters enter the ocean which, being filled and unmoving in foundation, remains so; in that same way the one whom all desires enter — he attains peace, not the desirer of desires.",
+  "traditional_meaning": "Krishna gives one of the chapter's most precise structural metaphors. The ocean is FULL and unmoving (acala-pratiṣṭham). Rivers ENTER it (āpaḥ praviśanti) — the ocean does not refuse the input; receiving is its nature. But the level of the ocean does not rise. Similarly, the realised one receives the impingement of all desirable objects (kāmā... praviśanti sarve) without modification of state. Shankara reads this as the desires assuming form-of-vision and so on but producing no change. Ramanuja reads it as the engine of pursuit not engaging. Prabhupada's Gaudiya reading specifies the equilibrium as Kṛṣṇa-consciousness. Critical distinction: the verse does NOT advocate refusing input or being impassive. It distinguishes RECEIVING-WITHOUT-OVERFLOW from the kāma-kāmī's pattern of rising-and-falling with each input. Peace is the absorbed state, not the avoided state.",
+  "engineering": {
+    "translation": "The metaphor is structural and exact. Rivers enter the ocean — the senior engineer receives the feature requests, the on-call alerts, the hostile customer escalations, the management asks, the market changes — and the level of the ocean does not rise. The verse refuses two adjacent misreadings. It is not impassivity: the ocean accepts the rivers, it does not refuse them. The senior who walls herself off from input is not this verse. It is also not endurance-under-stress: the ocean is not gritting its teeth against the inflow. The level simply does not change. What is named is a specific structural property — receiving without overflowing — and a specific contrasting pathology, the kāma-kāmī, the desirer-of-desires, the operator whose state IS the pursuit-mechanism, who rises with every promising input and falls with every disappointment. The senior is the ocean. The kāma-kāmī is the puddle that overflows when it rains and dries when it does not.",
+    "concrete_scenario": "A staff engineer leads platform reliability at a Series-C company. Across one Monday morning between 09:00 and 11:00, the following enter her input field: a Sentry alert for elevated 500s on checkout; a Slack message from the CEO asking whether they can ship a custom integration for a sales prospect by Friday; a Zoom call from the support head describing a hostile escalation; a Linear ticket from product proposing a Postgres-to-Snowflake migration on a six-week timeline; a competitor's Series-D announcement crossing her Twitter feed. She processes each. The Sentry page goes to on-call with the right severity. The CEO gets the actual Friday cost broken into hours. Joining the support call, she identifies which of the customer's three complaints is technically valid. The Snowflake proposal earns three questions exposing its hidden assumption about hot-row contention. The competitor announcement she reads and continues past. Through all five rivers, her state-level does not move. The ocean is not refusing input — she answers everything. The ocean is also not gritting teeth; nothing about her response carries an effortful suppression quality. The kāma-kāmī morning would have looked altogether different: the funding news producing 'are we falling behind?' anxiety; the CEO's ask triggering immediate over-promise; the customer call inviting defensive blame. Same five rivers; the puddle overflows. The verse is naming this difference.",
+    "falsifiability": "The analog fails if a reader uses it to justify ignoring inputs, refusing escalations, or framing emotional response to user pain as immature. The ocean RECEIVES the rivers; it does not refuse them. An engineer who answers no Slack messages and silences PagerDuty in the name of 'being the ocean' is not the ocean — she is a closed valve. The verse is named by what the ocean DOES (absorbs without overflow), not by what it does not do.",
+    "counter_example": "When the input the operator is receiving is genuinely catastrophic — production data loss, a real ethics breach, an actual existential threat to the company — the verse's reading does not require flat affect. The ocean has limits in the metaphor (acala-pratiṣṭham — boundary-preservation), but those limits exist precisely because what enters is bounded. A genuine catastrophic input is not a normal river; the appropriate response is action proportional to the input, not equanimity for its own sake.",
+    "implication": "Track your state-level across one ordinary Monday morning. Note which inputs moved your level and which did not. The kāma-kāmī pattern is recognisable as state-change tracking input-content; the ocean pattern is recognisable as state-stability across content. The work is not to refuse the rivers — it is to widen the basin until ordinary inputs no longer change the level.",
+    "quotable_line": "The senior is the ocean: receives the rivers, does not rise with them.",
+    "tags": [
+      "operator-system-coupling",
+      "non-attachment-to-praise",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

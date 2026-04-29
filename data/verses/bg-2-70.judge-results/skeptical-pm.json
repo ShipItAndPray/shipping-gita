@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "An operator's state-level should not track input-content during normal operating cadence. The audit predicate: across one ordinary working day, does the engineer's state move with each input (kāma-kāmī pattern) or remain at level (ocean pattern)? If the former, widen the basin (i.e. process more inputs without state-change) until ordinary inputs no longer produce level-change.",
+  "example_decision": "A team is deciding whether to give a senior engineer additional reports, a larger product surface, a higher-stakes on-call rotation, or a more ambiguous strategic mandate. The PM applies this verse: which of these would push the engineer past her current basin? An engineer whose state-level moves with each Slack ping cannot absorb additional reports (more rivers, the level rises). An engineer whose state is at the ocean-level can absorb additional surface area without level change. The decision predicate is not 'is she ready for promotion' but 'is her current basin already wide enough to absorb the additional inputs without overflow?' If the audit shows level-change with current load, the basin is the constraint, not the additional load.",
+  "objection": "none"
+}

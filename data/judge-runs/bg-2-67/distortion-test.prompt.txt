@@ -1,0 +1,233 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.67",
+  "sanskrit_devanagari": "इन्द्रियाणां हि चरतां यन्मनोऽनुविधीयते ।\nतदस्य हरति प्रज्ञां वायुर्नावमिवाम्भसि ॥ ६७ ॥",
+  "sanskrit_iast": "indriyāṇāṁ hi caratāṁ yan mano 'nuvidhīyate |\ntad asya harati prajñāṁ vāyur nāvam ivāmbhasi || 67 ||",
+  "anvaya": [
+    {
+      "sanskrit": "इन्द्रियाणाम्",
+      "iast": "indriyāṇām",
+      "meaning": "of the senses"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed / for"
+    },
+    {
+      "sanskrit": "चरताम्",
+      "iast": "caratām",
+      "meaning": "wandering / roving"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "which"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "अनुविधीयते",
+      "iast": "anuvidhīyate",
+      "meaning": "is led along / follows"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that (mind)"
+    },
+    {
+      "sanskrit": "अस्य",
+      "iast": "asya",
+      "meaning": "of him (the unsteady one)"
+    },
+    {
+      "sanskrit": "हरति",
+      "iast": "harati",
+      "meaning": "carries away / steals"
+    },
+    {
+      "sanskrit": "प्रज्ञाम्",
+      "iast": "prajñām",
+      "meaning": "discriminative wisdom / steady insight"
+    },
+    {
+      "sanskrit": "वायुः",
+      "iast": "vāyuḥ",
+      "meaning": "wind"
+    },
+    {
+      "sanskrit": "नावम्",
+      "iast": "nāvam",
+      "meaning": "boat"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "like / as"
+    },
+    {
+      "sanskrit": "अम्भसि",
+      "iast": "ambhasi",
+      "meaning": "in the water / on the waters"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/67/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As a strong wind sweeps away a boat on the water, even one of the senses on which the mind focuses can carry away a man's intelligence."
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/67",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Just as a strong wind sweeps a boat off its chartered course on the water, even one of the senses on which the mind focuses can lead the intellect astray."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/67/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Unless all of the senses are engaged in the service of the Lord, even one of them engaged in sense gratification can deviate the devotee from the path of transcendental advancement. As mentioned in the life of Mahārāja Ambarīṣa, all of the senses must be employed in Kṛṣṇa consciousness, for that is the correct technique for controlling the mind.",
+      "summary_paraphrase": "Even a single sense, if not yoked, drags the mind, and through the mind, intelligence (prajñā) wanders off course. The mind is the boat; the wind is any one un-restrained sense; the water is the field of action. Total engagement of all senses in devotional service is offered as the correct yoke."
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-67/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Hi, for; yat manas, that mind which; anuvidhiyate, becomes engaged; in following indriyanam, the senses; caratam, that move among their objects, which (mind) becomes engaged in thinking of the qualities of those (sense-objects); tat, that (mind); harati, deprives, takes away; asya, his, the yogi's who is striving for liberation; prajnam, knowledge — the discriminating knowledge that has arisen with regard to the Self and the not-Self.",
+      "summary_paraphrase": "Shankara reads prajñā specifically as ātma-anātma-viveka — the discriminating knowledge that distinguishes Self from not-Self. The mind that follows even one wandering sense erodes this knowledge in the very yogi who has begun to attain it. The verse is the negative side of 2.68's positive statement: where 2.68 names what stable prajñā looks like, 2.67 names the precise mechanism by which it is lost — mind-following-sense as the prajñā-thief."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-67/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "summary-captured (page renders bhashya in JS; paraphrase recovered)",
+      "verbatim_excerpt": "When the mind follows even a single sense roving among its objects, it draws the discrimination of the aspirant away — as the wind, by entering the sail, drags a boat off its desired course on the waters. Hence the absolute necessity of withdrawing the senses for one who would meditate upon the Self and the Lord.",
+      "summary_paraphrase": "Ramanuja preserves the metaphor structurally: the boat is the aspirant's prajñā moving toward its goal (the Lord); the wind is the un-yoked sense that intrudes through the mind. The verse is presented as the engineering necessity behind sense-withdrawal — not asceticism for its own sake, but the structural prevention of course-deviation. The Vishishtadvaita reading specifically locates the goal as devotion to the Supreme; the wind-boat metaphor is the same."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "prajñām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "intelligence"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "intellect"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "discriminating knowledge of Self and not-Self (ātma-anātma-viveka)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the aspirant's discrimination directed toward the Lord"
+        }
+      ],
+      "explanation": "All four agree prajñā here is the higher discriminative faculty, not mere cognition. They diverge on what prajñā discriminates: Shankara names the Self / not-Self distinction (Advaita's central viveka); Ramanuja names the aspirant's directed discrimination toward the Supreme; Prabhupada and Mukundananda translate broadly as 'intelligence' / 'intellect', losing the specifically yogic technical sense. The wind-boat metaphor is preserved identically across all four."
+    },
+    {
+      "word": "anuvidhīyate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "focuses on (the senses)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the mind focuses on"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "becomes engaged in following / thinking of the qualities of sense-objects"
+        }
+      ],
+      "explanation": "anuvidhīyate is a passive of vi-dhā with anu- prefix: 'is led along after / is regulated by'. The mind is the subject — it is the one being led, not the one leading. Shankara expands the passive: the mind that becomes engaged in (anu-) following the senses' contemplation of their objects' qualities. The English translations preserve the directionality but compress to 'focuses on', losing the sense that the mind is the passive party here. This matters: the verse is naming a passivity-failure, not an active grasping."
+    }
+  ],
+  "literal_meaning": "For when the mind follows the wandering senses, that mind carries away his discriminative wisdom — like the wind a boat upon the waters.",
+  "traditional_meaning": "Krishna gives the structural mechanism by which sense-control matters: it is not that uncontrolled senses are merely unaesthetic — it is that the un-yoked mind, drawn behind even one of them, actively erodes prajñā, the discriminating knowledge the yogi has been cultivating. The wind-boat metaphor is concrete: the boat is moving across waters with intent (the aspirant moving toward the goal); the wind that enters does not need to be a storm — even a single un-restrained sense is enough to deflect the course. Shankara reads prajñā as ātma-anātma-viveka. Ramanuja reads it as the aspirant's directed discrimination. Both agree the verse names a precise causal chain: sense-object → un-yoked mind → drawn-along consciousness → eroded prajñā. This verse is the negative case-statement; the very next verse (2.68) restates the positive — whose senses are restrained from sense-objects, their prajñā is established.",
+  "engineering": {
+    "translation": "The mechanism the verse names is structural, not merely behavioural. The senses move toward their objects; the mind, un-yoked, is drawn along behind any one of them; the engineer's discriminative judgment — the prajñā cultivated across architectural decisions and on-call rotations — is consequently carried off course. The verse does not require a tempest. A single un-restrained channel suffices. The Slack notification firing for every pull request. The Twitter mention announcing an unrelated competitor release. The Datadog alert tuned so coarsely that p99 spikes from a backfill ring identically to genuine production outages. The boat is not weak — the boat is moving with intent. The wind has only to enter the sail. What is stolen is not throughput (that is a lesser casualty); what is stolen is discrimination. An engineer whose attention follows each interruption has lost more than minutes; she has lost the seasoned sense that would have flagged, several commits earlier, that the design she is now defending is structurally mistaken.",
+    "concrete_scenario": "It is Wednesday afternoon. A senior engineer is two hours into rebuilding the payments-reconciliation module — a change touching the Postgres ledger schema, the Kafka topic her downstream finance service consumes, and the GitHub Actions deploy pipeline. She has been holding the consistency model entirely in working memory: writer order, isolation level, what the Datadog dashboard should look like immediately post-cutover. Her phone vibrates. A Slack reply about an unrelated incident. She reads it; replies; returns. Her cursor sits in the same file but the model has evaporated — not paused, gone. She rebuilds it; minutes later a Linear notification surfaces a JIRA ticket she does not own; she dismisses it, returns. The third interruption is a Twitter mention. The model never reassembles fully. Two days afterward, her reviewer flags a subtle defect in lock-ordering — precisely the class of error she would normally catch in the opening hour. The wind required no storm. One un-restrained channel — Slack, Linear, Twitter, Sentry's noisy-tier alerts, a colleague's shoulder-tap — drew the mind along behind it, and the boat moving toward its architectural destination drifted from course. What evaporated is not the two hours; it is the discriminative faculty that would have caught the lock-ordering defect. That faculty is what the verse calls prajñā.",
+    "falsifiability": "The analog fails if a reader concludes from this verse that engineers should stop reading their dashboards, ignore Slack entirely, or refuse all interrupts on principle. The verse names a structural mechanism — un-yoked mind drawn behind un-restrained sense — not an injunction toward total isolation. An on-call engineer who silences PagerDuty in the name of 'sense-control' has misread the verse entirely. Restraint is a yoke on the mind's drift, not a wall around the operator.",
+    "counter_example": "When the input stream is the work itself — the runbook for the active incident, the PR review thread for the open release, the customer-impact ticket that the engineer is currently triaging — the verse does not apply. The wind in the metaphor is the un-restrained, off-task sense; the sail is the mind drawn behind it. An engineer reading her own incident's Datadog graphs is not the boat being deflected — she is the boat moving toward shore. The verse names drift, not engagement.",
+    "implication": "Audit your default input streams when in deep architectural work. Identify the one input stream most likely to be the wind in your sail today. Restrain it for the duration of the model-building work — not forever, just until the model is loaded.",
+    "quotable_line": "The wind does not need to be a storm; one un-restrained input stream is enough.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

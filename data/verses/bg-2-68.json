@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.68",
+  "chapter": 2,
+  "verse": 68,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Therefore — and the conjunction is load-bearing — the engineer whose attention surfaces have been architected, deliberately and on every side, so that no un-restrained input stream can intrude on deep work, has discriminative judgment that is established. The verse closes the immediate sub-argument 2.67 opened: where 2.67 named the loss-mechanism, 2.68 names the positive structural condition under which prajñā stabilises. The architecture is not heroic willpower; it is environmental. PagerDuty filtered to genuine production-severity events. Slack do-not-disturb during model-loading hours. Sentry alerting tuned so noisy channels do not ring identically to outages. Notifications muted on the second monitor. The engineer is not pretending the world is silent — the world is configured. The Sanskrit term that returns here, pratiṣṭhitā, is the same one running through 2.55, 2.57, 2.58, 2.61. The chapter is naming a single state in repeated lexical form: discriminative judgment that stands firmly because the conditions for its standing are present.",
+    "concrete_scenario": "On her quietest Wednesday, a staff engineer at a mid-stage company has her environment configured so that during the four hours she has blocked for redesigning the order-fulfillment state machine — a change spanning Postgres transactional boundaries, the Redis cache invalidation flow, and the Kafka topic her warehouse-management service consumes — only three channels can interrupt her: PagerDuty for genuine production outages on her own services, an explicit 911 keyword from her direct reports, and a phone call from her partner. Slack notifications are off; Linear digest fires only at 12:00 and 17:00; the GitHub mentions are batched into a single email; Twitter and the news site she likes are blocked at the DNS layer for that window. The architecture is mundane, not heroic. What it produces, however, is what the verse names. With no un-restrained channel drawing the mind off course, her discriminative judgment loads; she sees, three commits in, that the FSM transition for partial-shipment-then-cancellation is structurally wrong and the correct fix is to re-model the cancellation as a state-machine event rather than a status-column write. The reviewer next morning agrees on the first read. That clarity is not talent — it is what prajñā looks like when the conditions for prajñā being pratiṣṭhitā are present. The conditions, in this verse's lexicon, are sense-withdrawal on every side, sarvaśaḥ; in the engineer's lexicon, it is the deliberately architected attention surface.",
+    "falsifiability": "The analog fails if a reader treats this verse as license to ignore on-call rotations or muteable-but-genuine alerts. The verse does not name attention-isolation as a permanent state — it names it as the structural condition under which prajñā can stabilise. An engineer who 'establishes' herself by silencing genuine production pages has confused the verse with a different one. The architecture restrains the noise; it does not restrain the signal.",
+    "counter_example": "When the engineer is the on-call rotation, the architecture inverts: every channel must be live, every alert audible. The verse's reading does not apply at the moment when the operator's whole role is to be perceptive to incoming signals. Sense-withdrawal is the precondition for some kinds of work — model-loading, architectural reasoning, multi-system design — and the wrong precondition for others, including incident response.",
+    "implication": "Architect your attention surfaces deliberately for model-loading work. Map each channel against its actual signal value; mute the ones whose noise-to-signal ratio is below a threshold you can defend in writing. The state the verse names becomes available not by trying harder, but by removing the conditions that make it impossible.",
+    "quotable_line": "The state the verse names is not heroic willpower; it is the deliberately configured environment.",
+    "tags": ["focus-practice", "deep-work", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T07:18:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack. Anchored on the verse's structural role as the positive corollary of 2.67 (load-bearing tasmāt), explicitly preserving cross-verse coherence with 2.55 / 2.57 / 2.58 / 2.61 via the recurring technical term pratiṣṭhitā. Engineering analog refuses 'heroic willpower' framing in favor of architected attention surfaces. Named tools: PagerDuty, Slack, Sentry, Linear, GitHub, Postgres, Redis, Kafka, Twitter, DNS-layer blocking. Counter-example explicitly inverts to incident-response, anchoring the falsifiability on signal-vs-noise rather than blanket isolation.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

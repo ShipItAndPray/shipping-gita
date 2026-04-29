@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.72",
+  "chapter": 2,
+  "verse": 72,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "This is the chapter's closing verse and its metaphysical maximum. brāhmī sthiti and brahma-nirvāṇa are not engineering-translatable; they name the state in Brahman and terminal liberation, which sit outside the operational layer. The honest analog scopes deliberately downward. At that layer, eṣā — 'this' — refers back over the chapter's whole argument from 2.11 to 2.71: separate what survives change from implementation; act fully without grasping outcome; architect the senses; stand even-keeled; receive rivers without rising. The state the chapter has been describing is the senior operator's settled disposition that does not collapse under the pressures already named. Krishna's closing claim, scoped operationally, is structural: once attained the state does not unattain itself (na enām prāpya vimuhyati). Even brief establishment carries through to the closing scenes of a career (anta-kāle 'pi). The metaphysical reach exceeds this analog; the engineering layer stays at what is operationally describable.",
+    "concrete_scenario": "Twenty-five years in, an engineer chairs the post-mortem of the worst incident she has owned — a Kubernetes control-plane outage cascading through Postgres connection-pool exhaustion into a four-hour billing-service failure. Datadog red, Sentry climbing, executive Slack asking for status every fifteen minutes. She walks the timeline; names the cascade; does not blame the on-call who paged her at hour two and made the wrong call at hour three; does not defend her architectural decision from five years prior that the cascade exposed as fragile. The room's load passes through her. Four months later the redesigned billing service ships clean; the CEO names her in the all-hands; conference invitations arrive; recruiter outreach spikes. That load passes through her too. Twenty-five years of reviews, migration cycles, and rewrites of prior work have produced an operator-state that does not collapse under failure or success. This stability is not the brāhmī-sthiti the verse names — that reaches further — but it is what the engineering layer can describe from the chapter's closing position. The chapter has argued toward an operator-state since 2.11; this verse names its terminal completion. The senior's settled disposition is the operational rung on a ladder whose top sits past where engineering travels.",
+    "falsifiability": "The analog fails if a reader uses it to claim that engineering tenure produces the brāhmī-sthiti the verse names, or that any senior engineer's composure is the chapter's destination. The metaphysical scope of brāhmī sthiti and brahma-nirvāṇa exceeds anything an operational analog can describe. An engineer who reads this verse as 'become unflappable through experience' has read it half-correctly at the operational layer and entirely incorrectly at the metaphysical layer. The verse's reach is greater than the engineering analog can honor. Anyone claiming otherwise is over-reaching the analog.",
+    "counter_example": "When the operator's stability is in fact rigidity — refusal to update under new evidence, refusal to acknowledge a pattern that prior career experience did not encounter, refusal to treat a junior engineer's correction as legitimate — the verse's reading does not endorse this. brāhmī sthiti, even at the operational layer, is settled-and-receiving (per 2.70's ocean), not settled-and-closed. Stability that has hardened into closure is not the verse; it is the failure mode of trying to inhabit the verse without the practices the chapter has named.",
+    "implication": "Read the chapter's closing verse with explicit scope-honesty. The metaphysical destination is past where this book can travel; the operational rung — the settled state across a career that does not collapse under failure or success — is something the verse names that engineering can recognise. Audit your own career-state across the next major incident and the next major launch. Notice whether the level rises or falls. The chapter's closing claim, scoped operationally, is that this stability is reachable.",
+    "quotable_line": "The chapter closes by naming a destination past where engineering can travel; the operational rung is reachable.",
+    "tags": ["operator-system-coupling", "team-state", "non-attachment-to-praise"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T08:15:00Z",
+      "mutation": "v0 generation: chapter-closing verse drafted from triangulated source pack with maximum scope-honesty. The verse's metaphysical force (brāhmī sthiti, brahma-nirvāṇa) exceeds the operational layer the engineering analog operates at. Therefore: tagged STRETCHED honestly, confidence MEDIUM (not HIGH), engineering analog deliberately scoped downward to the operational rung — the senior operator's settled disposition across a 25-year career that does not collapse under failure or success. Translation explicitly names the scope-mismatch. Falsifiability explicitly guards against the misread that engineering tenure produces brāhmī-sthiti. Counter-example honestly identifies the failure mode (rigidity-as-stability). Cross-references chapter's structural arc from 2.11 to 2.71. Named tools: Kubernetes, Postgres, Datadog, Sentry, Slack. Anchored on the chapter-thesis support: this verse names the destination of the entire chapter's argument; the chapter is now complete.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1 translation 187 (cap 180)", "5.3 FK 14.13 (cap 13)", "5.5 lex 0.541", "11.1 words 705 (cap 600)"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T08:18:00Z",
+      "mutation": "Tightened both fields: removed the 'engineering-analog operates at' wordy passive constructions in favor of tighter 'sit outside the operational layer'; collapsed the 'is, at the operational layer, the senior operator's settled disposition that does not collapse under the pressures the chapter has named' double-clause into a single tighter sentence; removed redundant 'Compare the same engineer' and 'She holds the load of the room and stays at level' / 'She holds that load and stays at level too' parallel-clause stack in favor of 'The room's load passes through her' / 'The launch's load passes through her too'. FK reduction came from breaking the longest sentence in the translation (the 'eṣā — this — refers back ...' enumeration was one extremely long sentence) into two shorter clauses around the colon. Lexical diversity gain came from substituting varied verbs (chairs/walks/names/arrive/spikes/passes) for the prior repetitive 'she + holds + stays' pattern.",
+      "failing_gates_before": ["5.1 translation 187 cap 180", "5.3 FK 14.13", "5.5 lex 0.541", "11.1 words 705 cap 600"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

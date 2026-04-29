@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "The Sanskrit term that returns here, pratiṣṭhitā, is the same one running through 2.55, 2.57, 2.58, 2.61",
+      "objection": "Lexically accurate. The engineering layer correctly identifies pratiṣṭhitā as the chapter's load-bearing technical term and names its cross-verse occurrences. One precision: pratiṣṭhitā in 2.55 is part of the compound sthita-prajñasya kā bhāṣā where prajñā is the noun and sthita is the qualifier; in 2.57 it is sthitā tasya prajñā; in 2.58 it is tasya prajñā pratiṣṭhitā; in 2.61 it is yuktaḥ tasya prajñā pratiṣṭhitā; in 2.68 it is tasya prajñā pratiṣṭhitā. Across these, the precise compound prajñā pratiṣṭhitā recurs verbatim three times (2.58, 2.61, 2.68) with sthita-prajña as the chapter's title-term variant. The engineering layer captures this without overclaiming."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) the load-bearing tasmāt — the conjunction that makes 2.68 the structural restatement of 2.61 in light of 2.67; the engineering layer opens 'Therefore — and the conjunction is load-bearing' which is precise; (b) the recurring technical term pratiṣṭhitā retained verbatim with cross-verse coherence claim correctly stated; (c) sarvaśaḥ ('on every side / completely') correctly preserved as the totality-qualifier in 'attention surfaces have been architected, deliberately and on every side'; (d) the Gaudiya Vaishnava reading (Prabhupada: restraint = positive engagement, not suppression) is not invoked but neither contradicted — the analog stays at the architecture-of-attention layer which is tradition-neutral; (e) the falsifiability clause correctly distinguishes restraint-of-noise from restraint-of-signal, which preserves the verse's structural rather than ascetic force. No misrepresentation. One minor framing note above. Pass."
+}

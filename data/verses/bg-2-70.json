@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.70",
+  "chapter": 2,
+  "verse": 70,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The metaphor is structural and exact. Rivers enter the ocean — the senior engineer receives the feature requests, the on-call alerts, the hostile customer escalations, the management asks, the market changes — and the level of the ocean does not rise. The verse refuses two adjacent misreadings. It is not impassivity: the ocean accepts the rivers, it does not refuse them. The senior who walls herself off from input is not this verse. It is also not endurance-under-stress: the ocean is not gritting its teeth against the inflow. The level simply does not change. What is named is a specific structural property — receiving without overflowing — and a specific contrasting pathology, the kāma-kāmī, the desirer-of-desires, the operator whose state IS the pursuit-mechanism, who rises with every promising input and falls with every disappointment. The senior is the ocean. The kāma-kāmī is the puddle that overflows when it rains and dries when it does not.",
+    "concrete_scenario": "A staff engineer leads platform reliability at a Series-C company. Across one Monday morning between 09:00 and 11:00, the following enter her input field: a Sentry alert for elevated 500s on checkout; a Slack message from the CEO asking whether they can ship a custom integration for a sales prospect by Friday; a Zoom call from the support head describing a hostile escalation; a Linear ticket from product proposing a Postgres-to-Snowflake migration on a six-week timeline; a competitor's Series-D announcement crossing her Twitter feed. She processes each. The Sentry page goes to on-call with the right severity. The CEO gets the actual Friday cost broken into hours. Joining the support call, she identifies which of the customer's three complaints is technically valid. The Snowflake proposal earns three questions exposing its hidden assumption about hot-row contention. The competitor announcement she reads and continues past. Through all five rivers, her state-level does not move. The ocean is not refusing input — she answers everything. The ocean is also not gritting teeth; nothing about her response carries an effortful suppression quality. The kāma-kāmī morning would have looked altogether different: the funding news producing 'are we falling behind?' anxiety; the CEO's ask triggering immediate over-promise; the customer call inviting defensive blame. Same five rivers; the puddle overflows. The verse is naming this difference.",
+    "falsifiability": "The analog fails if a reader uses it to justify ignoring inputs, refusing escalations, or framing emotional response to user pain as immature. The ocean RECEIVES the rivers; it does not refuse them. An engineer who answers no Slack messages and silences PagerDuty in the name of 'being the ocean' is not the ocean — she is a closed valve. The verse is named by what the ocean DOES (absorbs without overflow), not by what it does not do.",
+    "counter_example": "When the input the operator is receiving is genuinely catastrophic — production data loss, a real ethics breach, an actual existential threat to the company — the verse's reading does not require flat affect. The ocean has limits in the metaphor (acala-pratiṣṭham — boundary-preservation), but those limits exist precisely because what enters is bounded. A genuine catastrophic input is not a normal river; the appropriate response is action proportional to the input, not equanimity for its own sake.",
+    "implication": "Track your state-level across one ordinary Monday morning. Note which inputs moved your level and which did not. The kāma-kāmī pattern is recognisable as state-change tracking input-content; the ocean pattern is recognisable as state-stability across content. The work is not to refuse the rivers — it is to widen the basin until ordinary inputs no longer change the level.",
+    "quotable_line": "The senior is the ocean: receives the rivers, does not rise with them.",
+    "tags": ["operator-system-coupling", "non-attachment-to-praise", "team-state"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T07:45:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack with maximum care for the structural metaphor. Anchored explicitly on the receiving-without-overflowing reading rather than the tempting impassivity misread; preserved Shankara's 'desires assume form-of-vision but produce no change' reading and Ramanuja's 'engine of pursuit does not engage' reading. The kāma-kāmī compound preserved as the contrasting pathology. Falsifiability explicitly guards against the 'closed valve' misread. Counter-example honestly acknowledges that genuine catastrophic input requires proportional response, not equanimity. Named tools: Sentry, Slack, Zoom, Linear, Postgres, Snowflake, PagerDuty, Twitter. Five-river morning structured to demonstrate receiving-without-rise.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.5 lexical diversity 0.538", "11.1 total verse words 633"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T07:48:00Z",
+      "mutation": "Tightened concrete_scenario by replacing repeated 'she + verb' subject-stacking with varied predicate phrasing (the Sentry page goes to / the CEO gets / Joining the support call she identifies / earns three questions). Removed 'A Sentry alert for elevated 500s on the checkout API' to 'on checkout', 'an enterprise customer' to nothing, 'about the competitor's funding' to 'the funding news'. Reduced word count under cap and lifted lexical diversity by removing the repeated 'inputs' / 'her' / 'the' chains.",
+      "failing_gates_before": ["5.5 lexical diversity 0.538", "11.1 total verse words 633"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

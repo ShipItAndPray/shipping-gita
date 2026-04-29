@@ -1,0 +1,269 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.72",
+  "sanskrit_devanagari": "एषा ब्राह्मी स्थितिः पार्थ नैनां प्राप्य विमुह्यति ।\nस्थित्वास्यामन्तकालेऽपि ब्रह्मनिर्वाणमृच्छति ॥ ७२ ॥",
+  "sanskrit_iast": "eṣā brāhmī sthitiḥ pārtha naināṁ prāpya vimuhyati |\nsthitvāsyām anta-kāle 'pi brahma-nirvāṇam ṛcchati || 72 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एषा",
+      "iast": "eṣā",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "ब्राह्मी",
+      "iast": "brāhmī",
+      "meaning": "of/in Brahman / pertaining to Brahman"
+    },
+    {
+      "sanskrit": "स्थितिः",
+      "iast": "sthitiḥ",
+      "meaning": "state / standing / abiding"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O son of Pṛthā (Arjuna), vocative"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "एनाम्",
+      "iast": "enām",
+      "meaning": "this (state)"
+    },
+    {
+      "sanskrit": "प्राप्य",
+      "iast": "prāpya",
+      "meaning": "having attained"
+    },
+    {
+      "sanskrit": "विमुह्यति",
+      "iast": "vimuhyati",
+      "meaning": "is deluded / becomes confused"
+    },
+    {
+      "sanskrit": "स्थित्वा",
+      "iast": "sthitvā",
+      "meaning": "having stood / having been established"
+    },
+    {
+      "sanskrit": "अस्याम्",
+      "iast": "asyām",
+      "meaning": "in this (state)"
+    },
+    {
+      "sanskrit": "अन्तकाले",
+      "iast": "anta-kāle",
+      "meaning": "at the end-time / at the time of death"
+    },
+    {
+      "sanskrit": "अन्त",
+      "iast": "anta",
+      "meaning": "end (in compound anta-kāle)"
+    },
+    {
+      "sanskrit": "काले",
+      "iast": "kāle",
+      "meaning": "in time / at the time (in compound anta-kāle)"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "ब्रह्मनिर्वाणम्",
+      "iast": "brahma-nirvāṇam",
+      "meaning": "extinction-into-Brahman / nirvāṇa in Brahman"
+    },
+    {
+      "sanskrit": "ब्रह्म",
+      "iast": "brahma",
+      "meaning": "Brahman (in compound brahma-nirvāṇam)"
+    },
+    {
+      "sanskrit": "निर्वाणम्",
+      "iast": "nirvāṇam",
+      "meaning": "nirvāṇa, extinction (in compound brahma-nirvāṇam)"
+    },
+    {
+      "sanskrit": "ऋच्छति",
+      "iast": "ṛcchati",
+      "meaning": "attains / reaches"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/72/",
+      "fetched_at": "2026-04-29T08:10:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "That is the way of the spiritual and godly life, after attaining which a man is not bewildered. If one is thus situated even at the hour of death, one can enter into the kingdom of God."
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/72",
+      "fetched_at": "2026-04-29T08:10:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Parth, such is the state of an enlightened soul that having attained it, one is never again deluded. Being established in this consciousness even at the hour of death, one is liberated from the cycle of life and death and reaches the Supreme Abode of God."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/72/",
+      "fetched_at": "2026-04-29T08:10:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "One can attain Kṛṣṇa consciousness or divine life at once, within a second — or one may not attain such a state of life even after millions of births. It is only a matter of understanding and accepting the fact. Khaṭvāṅga Mahārāja attained this state of life just a few minutes before his death, by surrendering unto Kṛṣṇa.",
+      "summary_paraphrase": "Prabhupada reads brāhmī-sthiti specifically as Kṛṣṇa consciousness — the Gaudiya Vaishnava equivalent of the unitive state. brahma-nirvāṇa is glossed as 'kingdom of God' / entry into the Supreme Abode. The verse closes the chapter by naming the destination: attaining this state, one is no longer bewildered (vimuhyati), and even attaining it at the hour of death (anta-kāle 'pi) yields the terminal liberation. Prabhupada specifically identifies this verse as the 'perfectional stage' that 2.71's four-fold disposition prepares for."
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-72/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T08:10:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Esa, this — the state described in the foregoing verses; brahmi sthitih, is the state of being established in Brahman, the state which is described as steadfastness in jnana, knowledge — abandoning all desires etc; he, partha, son of Pritha; prapya, attaining; enam, this — the state of one who has the steady wisdom; na vimuhyati, does not become deluded — does not get into the trap of further accepting and rejecting things; sthitva, being established; asyam, in this state — even briefly, even at the close of life; api, even; antakale, at the end-time, the moment of death; rcchati, attains; brahma-nirvanam, identification with Brahman, Liberation, mokṣa.",
+      "summary_paraphrase": "Shankara is precise: brāhmī sthiti is the state of being established in Brahman, identical with steadfastness in jñāna; brahma-nirvāṇa is glossed as identification with Brahman, mokṣa, Liberation. The structural force of the verse: this state, once attained, no longer admits further bewilderment (vimuhyati negated); even brief establishment in it at the moment of death suffices for terminal liberation. The verse explicitly closes the chapter — Shankara reads eṣā as referring back over the entire foregoing description (especially 2.55-2.71). The chapter has been arguing toward this state since 2.11; the closing verse names it."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-72/?cm=ramanuja",
+      "fetched_at": "2026-04-29T08:10:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "summary-captured (paraphrase from JS-rendered page)",
+      "verbatim_excerpt": "This, O Pārtha, is brāhmī sthiti — the state in which the aspirant abides in Brahman, that is, in the Self qualified by devotion to the Supreme Person. Having attained this state the aspirant is no longer bewildered. Established in it even at the moment of death, he attains brahma-nirvāṇa — the cessation of all bondage and the entry into the realm of the Supreme.",
+      "summary_paraphrase": "Ramanuja reads brāhmī sthiti as the state of abiding in Brahman where Brahman is the Self qualified by devotion to the Supreme Person (Vishishtadvaita). brahma-nirvāṇa is glossed as cessation-of-bondage plus entry into the realm of the Supreme. The closing structural force is identical to Shankara's: this verse names the destination of the entire chapter; even momentary establishment at death suffices. The traditions diverge sharply on the metaphysics of the destination but agree precisely on the verse's chapter-closing function."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brāhmī sthitiḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the way of the spiritual and godly life (Gaudiya: Kṛṣṇa-consciousness)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the state of an enlightened soul"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the state of being established in Brahman, identical with steadfastness in jñāna (Advaita: nondual)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the state of abiding in Brahman as Self qualified by devotion to the Supreme Person (Vishishtadvaita)"
+        }
+      ],
+      "explanation": "brāhmī sthiti is the most metaphysically loaded term in the chapter. The four traditional readings diverge sharply on the metaphysics: Advaita reads brāhmī as referring to nondual Brahman; Vishishtadvaita reads brāhmī as Brahman-qualified-by-devotion-to-the-Supreme; Gaudiya Vaishnava reads brāhmī sthiti as the equivalent of Kṛṣṇa-consciousness. Modern translations (Prabhupada, Mukundananda) tend to flatten or specify per their own tradition. The Sanskrit term itself is irreducible — any English rendering must choose a tradition. The source pack therefore preserves all three traditional renderings explicitly. For an engineering layer, this is a hard scope-mismatch: the metaphysics of brāhmī sthiti is not engineering-translatable, and any analog must stay at the operational layer and acknowledge the scope-mismatch honestly."
+    },
+    {
+      "word": "brahma-nirvāṇam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the kingdom of God (Gaudiya: Vaikuṇṭha / supreme abode)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "liberated from the cycle of life and death and reaches the Supreme Abode of God"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "identification with Brahman, Liberation, mokṣa (Advaita: nondual identification)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "cessation of all bondage and entry into the realm of the Supreme (Vishishtadvaita)"
+        }
+      ],
+      "explanation": "brahma-nirvāṇa is also irreducibly traditional. Advaita reads it as Brahman-identification (nondual). Vishishtadvaita reads it as cessation-plus-entry. Gaudiya reads it as entry into the supreme Vaikuṇṭha abode. The compound is a Sanskrit technical term whose force comes from the conjoining of two heavyweight terms: brahma (Brahman, ultimate Reality) and nirvāṇa (extinction, also a major Buddhist term). Any English rendering must choose a frame; the source pack records all three. Engineering analog cannot translate this; honest scope-acknowledgement is required."
+    },
+    {
+      "word": "anta-kāle 'pi",
+      "positions": [
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "even at the end-time, the moment of death; even briefly, even at the close of life suffices"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "established in it even at the moment of death"
+        },
+        {
+          "source": "Prabhupada",
+          "rendering": "if one is thus situated even at the hour of death"
+        }
+      ],
+      "explanation": "All three traditions agree on the surface meaning (even at the moment of death). They diverge on the implication: Shankara emphasises the sufficiency of brief establishment at death for terminal liberation. Ramanuja and Prabhupada read it as the qualifying condition for entry into the supreme abode. The Sanskrit api ('even') carries the structural force — the verse is saying that the state, once attained, remains stable through to death itself, and even momentary attainment at the moment of death yields the terminal result. This anti-deathbed-anxiety force is preserved across all three traditions."
+    }
+  ],
+  "literal_meaning": "This, O son of Pṛthā, is the state in Brahman; having attained this, one is not deluded. Established in it even at the time of death, one attains brahma-nirvāṇa.",
+  "traditional_meaning": "Krishna closes the chapter with the verse that names its destination. eṣā ('this') refers back over the entire foregoing description — especially 2.55-2.71 — and names that state brāhmī sthiti, the state in / pertaining to Brahman. Once attained (prāpya), one is no longer bewildered (vimuhyati negated). Even brief establishment in this state at the moment of death (anta-kāle 'pi) yields brahma-nirvāṇa, the terminal liberation. The three commentarial traditions diverge sharply on the metaphysics of brāhmī sthiti and brahma-nirvāṇa: Advaita reads them nondually (mokṣa, identification with Brahman); Vishishtadvaita reads them as devotion-qualified abiding plus entry into the realm of the Supreme; Gaudiya Vaishnava reads them as Kṛṣṇa-consciousness plus entry into the supreme abode. All three traditions agree precisely on the verse's chapter-closing function: this is the destination Krishna has been arguing toward since 2.11, and it is metaphysically maximally loaded. The chapter is over.",
+  "engineering": {
+    "translation": "This is the chapter's closing verse and its metaphysical maximum. brāhmī sthiti and brahma-nirvāṇa are not engineering-translatable; they name the state in Brahman and terminal liberation, which sit outside the operational layer. The honest analog scopes deliberately downward. At that layer, eṣā — 'this' — refers back over the chapter's whole argument from 2.11 to 2.71: separate what survives change from implementation; act fully without grasping outcome; architect the senses; stand even-keeled; receive rivers without rising. The state the chapter has been describing is the senior operator's settled disposition that does not collapse under the pressures already named. Krishna's closing claim, scoped operationally, is structural: once attained the state does not unattain itself (na enām prāpya vimuhyati). Even brief establishment carries through to the closing scenes of a career (anta-kāle 'pi). The metaphysical reach exceeds this analog; the engineering layer stays at what is operationally describable.",
+    "concrete_scenario": "Twenty-five years in, an engineer chairs the post-mortem of the worst incident she has owned — a Kubernetes control-plane outage cascading through Postgres connection-pool exhaustion into a four-hour billing-service failure. Datadog red, Sentry climbing, executive Slack asking for status every fifteen minutes. She walks the timeline; names the cascade; does not blame the on-call who paged her at hour two and made the wrong call at hour three; does not defend her architectural decision from five years prior that the cascade exposed as fragile. The room's load passes through her. Four months later the redesigned billing service ships clean; the CEO names her in the all-hands; conference invitations arrive; recruiter outreach spikes. That load passes through her too. Twenty-five years of reviews, migration cycles, and rewrites of prior work have produced an operator-state that does not collapse under failure or success. This stability is not the brāhmī-sthiti the verse names — that reaches further — but it is what the engineering layer can describe from the chapter's closing position. The chapter has argued toward an operator-state since 2.11; this verse names its terminal completion. The senior's settled disposition is the operational rung on a ladder whose top sits past where engineering travels.",
+    "falsifiability": "The analog fails if a reader uses it to claim that engineering tenure produces the brāhmī-sthiti the verse names, or that any senior engineer's composure is the chapter's destination. The metaphysical scope of brāhmī sthiti and brahma-nirvāṇa exceeds anything an operational analog can describe. An engineer who reads this verse as 'become unflappable through experience' has read it half-correctly at the operational layer and entirely incorrectly at the metaphysical layer. The verse's reach is greater than the engineering analog can honor. Anyone claiming otherwise is over-reaching the analog.",
+    "counter_example": "When the operator's stability is in fact rigidity — refusal to update under new evidence, refusal to acknowledge a pattern that prior career experience did not encounter, refusal to treat a junior engineer's correction as legitimate — the verse's reading does not endorse this. brāhmī sthiti, even at the operational layer, is settled-and-receiving (per 2.70's ocean), not settled-and-closed. Stability that has hardened into closure is not the verse; it is the failure mode of trying to inhabit the verse without the practices the chapter has named.",
+    "implication": "Read the chapter's closing verse with explicit scope-honesty. The metaphysical destination is past where this book can travel; the operational rung — the settled state across a career that does not collapse under failure or success — is something the verse names that engineering can recognise. Audit your own career-state across the next major incident and the next major launch. Notice whether the level rises or falls. The chapter's closing claim, scoped operationally, is that this stability is reachable.",
+    "quotable_line": "The chapter closes by naming a destination past where engineering can travel; the operational rung is reachable.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

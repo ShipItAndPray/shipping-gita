@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "conflations_found": [],
+  "technical_terms_dropped": [],
+  "verdict_reason": "The engineering layer preserves all four Sanskrit terms (vihāya kāmān / niḥspṛha / nirmama / nirahaṅkāra) verbatim and explicitly attributes Shankara's gloss ('without the conceit of being learned, in Shankara's gloss') by name. The Vishishtadvaita reading (Ramanuja: the four-fold disposition as preparation for brāhmī-sthiti's devotion) is preserved at the source-pack level. The Gaudiya reading (Prabhupada: 'desirelessness' as redirection-of-desire toward the Lord) is not invoked at the engineering layer but the engineering analog stays at the operational layer (artifact-identity-uncoupling) which is tradition-neutral. The technical term ahaṅkāra is preserved verbatim; the engineering scope-down to 'I am the doer / I am the learned' is consistent with Shankara's gloss. No conflation. The falsifiability clause and counter-example both demonstrate the careful guarded reading. Pass."
+}

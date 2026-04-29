@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When an engineer's code is being redesigned by another engineer, the audit predicate is: does the original author respond on technical merits or on identity-bond? If on technical merits (genuine durability-guarantee concerns, observed-traffic-pattern data, historical-context-correction), the verse's reading applies. If on identity-bond (territorial defense, blame routing, defensive thread-flooding), the verse names the pathology, not the practice.",
+  "example_decision": "A team is debating who should lead the next migration of an existing system. The PM applies this verse: identify which engineers have authored substantial parts of the existing system; for each, predict whether their response to a redesign-by-another would be technical-merits or identity-bond. Engineers in the technical-merits column can serve as reviewers without becoming blockers; engineers in the identity-bond column will create defensive review threads that cost weeks. The decision: route the redesign through the technical-merits authors as reviewers; provide the identity-bond authors a graceful exit path (a different concurrent project) so the redesign does not become a personnel conflict.",
+  "objection": "none"
+}

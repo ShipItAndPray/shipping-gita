@@ -1,0 +1,271 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.69",
+  "sanskrit_devanagari": "या निशा सर्वभूतानां तस्यां जागर्ति संयमी ।\nयस्यां जाग्रति भूतानि सा निशा पश्यतो मुनेः ॥ ६९ ॥",
+  "sanskrit_iast": "yā niśā sarva-bhūtānāṁ tasyāṁ jāgarti saṁyamī |\nyasyāṁ jāgrati bhūtāni sā niśā paśyato muneḥ || 69 ||",
+  "anvaya": [
+    {
+      "sanskrit": "या",
+      "iast": "yā",
+      "meaning": "what / which"
+    },
+    {
+      "sanskrit": "निशा",
+      "iast": "niśā",
+      "meaning": "night"
+    },
+    {
+      "sanskrit": "सर्वभूतानाम्",
+      "iast": "sarva-bhūtānām",
+      "meaning": "of all beings"
+    },
+    {
+      "sanskrit": "सर्व",
+      "iast": "sarva",
+      "meaning": "all (in compound sarva-bhūtānām)"
+    },
+    {
+      "sanskrit": "भूतानाम्",
+      "iast": "bhūtānām",
+      "meaning": "of beings (in compound sarva-bhūtānām)"
+    },
+    {
+      "sanskrit": "तस्याम्",
+      "iast": "tasyām",
+      "meaning": "in that (night)"
+    },
+    {
+      "sanskrit": "जागर्ति",
+      "iast": "jāgarti",
+      "meaning": "is awake / is wakeful"
+    },
+    {
+      "sanskrit": "संयमी",
+      "iast": "saṁyamī",
+      "meaning": "the self-controlled / disciplined one"
+    },
+    {
+      "sanskrit": "यस्याम्",
+      "iast": "yasyām",
+      "meaning": "in which"
+    },
+    {
+      "sanskrit": "जाग्रति",
+      "iast": "jāgrati",
+      "meaning": "are awake"
+    },
+    {
+      "sanskrit": "भूतानि",
+      "iast": "bhūtāni",
+      "meaning": "the beings"
+    },
+    {
+      "sanskrit": "सा",
+      "iast": "sā",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "निशा",
+      "iast": "niśā",
+      "meaning": "is night"
+    },
+    {
+      "sanskrit": "पश्यतः",
+      "iast": "paśyataḥ",
+      "meaning": "of the seeing / perceiving"
+    },
+    {
+      "sanskrit": "मुनेः",
+      "iast": "muneḥ",
+      "meaning": "of the sage / silent one"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/69/",
+      "fetched_at": "2026-04-29T07:25:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "What is night for all beings is the time of awakening for the self-controlled; and the time of awakening for all beings is night for the introspective sage."
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/69",
+      "fetched_at": "2026-04-29T07:25:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "What all beings consider as day is the night of ignorance for the wise, and what all creatures see as night is the day for the introspective sage."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/69/",
+      "fetched_at": "2026-04-29T07:25:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "There are two classes of intelligent men. One is intelligent in material activities for sense gratification, and the other is introspective and awake to the cultivation of self-realization. Activities of the introspective sage, or thoughtful man, are night for persons materially absorbed.",
+      "summary_paraphrase": "The verse is not literal day-night reversal — it is a perception inversion. The sage's wakefulness is to the Self (or, in Gaudiya reading, the Lord); the ordinary being's wakefulness is to sense-objects. What absorbs the ordinary mind is darkness to the sage; what absorbs the sage is darkness to the ordinary mind. The verse is naming a real perceptual asymmetry, not asceticism."
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-69/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:25:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Ya, what; is nisa, night — for all beings is the supreme Reality which is the object of vision of the man of realization, since just as in the night what exists is hidden from those who do not see, so too the supreme Reality is hidden from beings ignorant by nature; in that supreme Reality which is night for them, jagarti, is awake; the samyami, self-restrained, the man whose senses are controlled — that is, the yogi who has shaken off the sleep of ignorance. And conversely, yasyam, that ignorance — in which beings are awake, viz the perception of differentiated forms which is itself ignorance — sa nisa, that is night; pasyatah muneh, of the seeing sage, the man who has realized the highest Truth.",
+      "summary_paraphrase": "Shankara's reading is precise: the inversion is between the supreme Reality (paramārtha-sat, the unitive ground) — to which the saṁyamī is awake and ordinary beings are asleep — and the field of differentiated forms (vyāvahārika) — to which ordinary beings are awake and the muni is asleep. The verse is not poetic license but a strict statement of what the sage's prajñā perceives versus what the ordinary mind's prajñā perceives. The same external scene admits two different perceptions; the verse names the inversion of which content fills the perception."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-69/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:25:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "summary-captured (paraphrase from JS-rendered page)",
+      "verbatim_excerpt": "The Self that is the field of meditation for the saṁyamī — that very Self is, for the worldly being absorbed in sense-objects, as if it were night, since they neither perceive nor pursue it. And conversely, the field of sense-objects in which worldly beings are wakeful — that field is night for the muni, who has turned from it as one closes the eyes against an irrelevant light.",
+      "summary_paraphrase": "Ramanuja preserves the structural inversion (saṁyamī awake to A and asleep to B; ordinary beings awake to B and asleep to A) and adds the Vishishtadvaita specification: A is the Self as the field of meditation; B is the field of sense-objects. The closing image is striking — the muni 'closes the eyes against an irrelevant light' — preserving the verse's reading that this is not numbness but a redirected perceptual aperture."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "niśā / jāgarti / paśyataḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "night / awake / introspective sage"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "night of ignorance / day / introspective sage"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "night = the supreme Reality hidden from the ignorant; jāgarti = awake to that Reality; paśyataḥ = of the one who sees the highest Truth"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "night = the field opposed to one's chosen aperture; jāgarti = wakeful in the chosen field; paśyataḥ = of the one who has redirected perception toward the Self / Lord"
+        }
+      ],
+      "explanation": "All four agree the verse is a perceptual inversion, not a literal nocturnal practice. They differ on the content of what is awake-to. Shankara strictly: paramārtha-sat versus vyāvahārika. Ramanuja: the Self (as locus of devotion) versus sense-objects. Prabhupada and Mukundananda render less specifically — the worldly versus the introspective. Mukundananda makes one further move: he glosses the first 'night' as 'night of ignorance', adding interpretive content not strictly present in the Sanskrit. The Sanskrit just says niśā / day-night without explicit interpretive prefix."
+    },
+    {
+      "word": "saṁyamī / muneḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "self-controlled / introspective sage"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "wise / introspective sage"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "samyami = self-restrained, senses controlled; muneḥ = man who has realized the highest Truth"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "saṁyamī = the disciplined aspirant; muneḥ = the realized one"
+        }
+      ],
+      "explanation": "saṁyamī (from sam + yam, 'restrained on every side') and muniḥ (from man, 'one who reflects / is silent') are distinct technical terms. Shankara reads them as pointing to two stages — the saṁyamī is the practitioner of restraint, the muni is the realised one. Ramanuja preserves a similar distinction. English translators tend to flatten both to 'sage' or 'wise', which loses the chapter's careful technical vocabulary about the disciplined-aspirant-versus-realised continuum."
+    }
+  ],
+  "literal_meaning": "What is night for all beings, in that the self-controlled one is awake; that in which beings are awake, that is night for the seeing sage.",
+  "traditional_meaning": "Krishna names a perceptual inversion. The same external scene admits two different fillings of perception. The saṁyamī (the self-controlled one) is awake to what ordinary beings sleep through — the substrate, the Self, the supreme Reality. Ordinary beings are awake to what the muni perceives only as night — the field of differentiated sense-objects and their pursuit. Shankara reads this strictly as the paramārtha versus vyāvahārika inversion. Ramanuja reads the inversion as Self-as-field-of-devotion versus sense-objects. Prabhupada (Gaudiya) reads the awake-content as the Lord rather than impersonal Self. All four traditions agree: the verse describes a real asymmetry of perception, not asceticism, not ironic poetry. The sage and the ordinary mind, looking at the same scene, fill its content with different objects of attention; what one sees fully the other does not see at all.",
+  "engineering": {
+    "translation": "The verse names a perceptual inversion, not a personality difference. The same architecture review, attended by two operators, fills each one's perception with different content. The senior is awake to the trade-off being decided, silent through the status performance happening on its surface. The room reverses this: awake to the posturing, blind to the trade-off. Krishna is precise about which-to-which: what absorbs ordinary attention is the field the practiced engineer moves quietly through; what absorbs her is the substrate her colleagues cannot perceive. None of this is aloofness. She is not declining to attend; her aperture loads with different objects. The proposal document, the load-test graph, the failure-mode chart — these are awake to her with the same vividness that the meeting's politics has for everyone else. Same scene; redirected aperture. What the saṁyamī sees fully, others do not register; what others register fully, the muni does not see.",
+    "concrete_scenario": "Quarterly architecture review. A product VP is presenting the proposed migration of order-fulfillment to an event-driven pattern over Kafka. Around the table, the room's attention fills with one set of contents — who speaks now, whose name authored the proposal, which executive's sponsorship signal was visible last week, what the slide aesthetic communicates about seniority. A junior engineer rehearses her rebuttal under her breath. The chief-of-staff takes notes that read more like political weather than technical content. Across the room, a staff engineer is awake to a different scene. She has the load-test appendix open in Datadog. She has noticed that the proposed topic partitioning will hot-spot under the holiday traffic her team observed two quarters back. She has noticed that the failover path the slide labels 'graceful degradation' relies on a Postgres read replica whose lag SLO cannot permit such degradation at projected load. The room's political weather is night to her — that field she has turned from. The proposal's technical truth is daylight to her. When she speaks, she names the hot-spot and the replica-lag mismatch in two flat sentences and proposes a specific experiment to resolve which path is real. The room reads her intervention as quiet; what they have observed is the inversion this verse names. She is awake in a different field.",
+    "falsifiability": "The analog fails if a reader uses it to justify ignoring team dynamics, dismissing political reality as beneath them, or framing every quiet engineer as a sage. Most quiet engineers are simply unprepared. The inversion the verse names is between two specific fields — substrate and surface — and is recognisable by what the silent one is awake to (the technical truth of the proposal), not merely by silence on the surface field. An engineer who is silent and not awake to anything is not the muni; she is just absent.",
+    "counter_example": "When the actual decision being made in the room is a personnel one — who leads the migration, who reports to whom, who carries the launch pager — the political-weather field IS the technical-truth field, and silence about it is not sage-perception, it is misreading. The verse's inversion presupposes that there is a substrate distinct from surface; when surface and substrate coincide, attending to the surface is the correct move, not a failure of perception.",
+    "implication": "Audit your own attention in the next architecture review you sit in. Note what fills your perception during the meeting. If your attention is loaded with political weather and not with the technical truth of the proposal, you are awake in the room's field and asleep in the field the verse names. The fix is preparation — read the appendix dashboards before the meeting, not the room.",
+    "quotable_line": "The senior is awake to the trade-off being decided, asleep to the status performance happening on its surface.",
+    "tags": [
+      "sattva-clarity",
+      "operator-system-coupling",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,227 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.71",
+  "sanskrit_devanagari": "विहाय कामान्यः सर्वान्पुमांश्चरति निःस्पृहः ।\nनिर्ममो निरहङ्कारः स शान्तिमधिगच्छति ॥ ७१ ॥",
+  "sanskrit_iast": "vihāya kāmān yaḥ sarvān pumāṁś carati niḥspṛhaḥ |\nnirmamo nirahaṅkāraḥ sa śāntim adhigacchati || 71 ||",
+  "anvaya": [
+    {
+      "sanskrit": "विहाय",
+      "iast": "vihāya",
+      "meaning": "having abandoned / having given up"
+    },
+    {
+      "sanskrit": "कामान्",
+      "iast": "kāmān",
+      "meaning": "desires"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "सर्वान्",
+      "iast": "sarvān",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "पुमान्",
+      "iast": "pumān",
+      "meaning": "person / man"
+    },
+    {
+      "sanskrit": "चरति",
+      "iast": "carati",
+      "meaning": "moves about / lives / acts"
+    },
+    {
+      "sanskrit": "निःस्पृहः",
+      "iast": "niḥspṛhaḥ",
+      "meaning": "without longing / free of craving"
+    },
+    {
+      "sanskrit": "निर्ममः",
+      "iast": "nirmamaḥ",
+      "meaning": "without 'mine-ness' / without possessiveness"
+    },
+    {
+      "sanskrit": "निरहङ्कारः",
+      "iast": "nirahaṅkāraḥ",
+      "meaning": "without ego / without 'I-ness'"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he / they"
+    },
+    {
+      "sanskrit": "शान्तिम्",
+      "iast": "śāntim",
+      "meaning": "peace"
+    },
+    {
+      "sanskrit": "अधिगच्छति",
+      "iast": "adhigacchati",
+      "meaning": "attains / reaches"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/71/",
+      "fetched_at": "2026-04-29T07:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person who has given up all desires for sense gratification, who lives free from desires, who has given up all sense of proprietorship and is devoid of false ego — he alone can attain real peace."
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/71",
+      "fetched_at": "2026-04-29T07:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "That person, who gives up all material desires and lives free from a sense of greed, proprietorship, and egoism, attains perfect peace."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/71/",
+      "fetched_at": "2026-04-29T07:55:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "To become desireless means not to desire anything for sense gratification. In other words, desire for becoming Kṛṣṇa conscious is actually desirelessness. The perfectional stage of being a Kṛṣṇa conscious person is called the brāhmī-sthiti stage, attaining which one is not bewildered.",
+      "summary_paraphrase": "Prabhupada specifically identifies this verse as setting up the brāhmī-sthiti named in 2.72. The progression is: vihāya kāmān (giving up sense-desires), niḥspṛha (without craving), nirmama (without 'mine'), nirahaṅkāra (without 'I' as agent) → śānti. The Gaudiya reading specifies that 'desirelessness' here is not absence-of-desire but redirection of desire toward the Lord."
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-71/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:55:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use excerpt)",
+      "verbatim_excerpt": "Vihaya, abandoning; kaman, desires; sarvan, all of them; the puman, person; who carati, moves about, makes effort for the mere maintenance of the body; nihsprhah, free from longings; nirmamah, without the idea of 'mine' even when there is acceptance of objects necessary for life; nirahankarah, without the egoistic idea — without the conceit of being learned and so on; sah, that man, the man of steady wisdom, the knower of Brahman; adhigacchati, attains; santim, peace, called Liberation, which is the cessation of all the sorrows of mundane existence.",
+      "summary_paraphrase": "Shankara is precise about the four conditions: (1) vihāya kāmān — abandoning all desires (the prajñā-thieving kind, per 2.67); (2) niḥspṛha — without longing even for objects necessary to maintain the body when those objects arise; (3) nirmama — without 'mine' even with respect to objects accepted for survival; (4) nirahaṅkāra — without the 'I' that takes itself to be the doer/learned/etc. The man so freed attains śānti, which Shankara explicitly glosses as Liberation (mokṣa) — cessation of saṁsāric sorrow. This is the chapter's destination, with 2.72 naming it brāhmī-sthiti."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-71/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:55:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "summary-captured (paraphrase from JS-rendered page)",
+      "verbatim_excerpt": "The aspirant who has abandoned all desires of the kind that obstruct meditation upon the Self / the Lord, who moves through the world without any longing of his own, without the sense that any object is 'mine', without the sense that he is the agent — that aspirant attains peace, the peace which is the precondition for the steady devotion that 2.72 will name as brāhmī-sthiti.",
+      "summary_paraphrase": "Ramanuja preserves Shankara's structural reading of the four conditions and Vishishtadvaita-specifies that the aim is steady devotion to the Lord. The four-fold negation (vihāya kāmān / niḥspṛha / nirmama / nirahaṅkāra) is treated as the lived disposition that prepares the aspirant for the brāhmī-sthiti named in the next verse — the verse is the rung immediately below the chapter's terminal rung."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "nirmama",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "given up all sense of proprietorship"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "free from a sense of proprietorship"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "without the idea of 'mine' even when there is acceptance of objects necessary for life"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "without the sense that any object is 'mine'"
+        }
+      ],
+      "explanation": "nirmama (literally 'without mama' — without 'mine') is grammatically an adjective formed by the privative prefix nir- on mama (genitive of 'I' = 'mine'). Shankara's nuance is critical: the verse is NOT requiring renunciation of objects necessary to survive — it is requiring the absence of the 'mine'-thought even when such objects are accepted. The English 'proprietorship' approximates this but loses Shankara's specific concession. Ramanuja preserves the same nuance. The Sanskrit compound is what carries the precision."
+    },
+    {
+      "word": "nirahaṅkāra",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "devoid of false ego"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "free from egoism"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "without the egoistic idea — without the conceit of being learned and so on"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "without the sense that he is the agent"
+        }
+      ],
+      "explanation": "ahaṅkāra is the Sanskrit technical term for the 'I'-maker, the function of mind that produces the sense of being the agent / the knower / the experiencer. Shankara reads it specifically as the 'I am learned, I am the doer' conceit. Ramanuja reads it as the agent-self-identification. Prabhupada's 'false ego' renders it in standard Gaudiya / Theosophical English. Mukundananda's 'egoism' is the most flattened. The Sanskrit term is irreducibly technical — it names a structural feature of mind, not a moral failing of personality."
+    }
+  ],
+  "literal_meaning": "The person who, abandoning all desires, moves about without longing, without 'mine', without ego — he attains peace.",
+  "traditional_meaning": "Krishna gives the four-fold disposition of the verse just before the chapter's terminal verse: (1) vihāya kāmān — having abandoned desires; (2) niḥspṛha — moving without longing; (3) nirmama — without 'mine'-thought; (4) nirahaṅkāra — without the 'I am the doer' identification. He attains śānti — peace, which Shankara explicitly glosses as Liberation. The verse is the rung immediately below 2.72's brāhmī-sthiti. Shankara and Ramanuja both note the verse does NOT require object-renunciation — it requires the absence of the four mental functions even when objects necessary to life are accepted. Prabhupada specifies that 'desirelessness' here is not absence-of-desire but redirection toward the Lord, and explicitly identifies 2.72 as the perfectional stage. All three traditions agree this verse is the chapter's penultimate state-description, with 2.72 naming the destination.",
+  "engineering": {
+    "translation": "The Sanskrit names four conditions: vihāya kāmān (desires abandoned), niḥspṛha (longing absent), nirmama (without 'mine'), nirahaṅkāra (without 'I'-as-doer). The third and fourth carry the engineering weight. Nirmama — the senior whose code can be edited, deprecated, replaced without ego-collapse. The architect whose pattern unwinds gracefully when the next architect perceives something the original did not. The author whose RFC absorbs reviewer rewrites without producing a defensive thread. Nirahaṅkāra — without the conceit of being learned, in Shankara's gloss; without 'I am the only one who can fix this', without 'I am the principal who decided this', without 'I am the engineer who shipped this'. The verse does not require absence of contribution. It requires absence of the I-claim on the contribution. She still authors the RFC; she is not bound by it. She still merges the pull request; she does not become it. Shipped artifact and operator identity are uncoupled. Peace, says Krishna, follows.",
+    "concrete_scenario": "A staff engineer four years into the company has authored most of the payments service — the original Postgres schema, the Stripe integration layer, the idempotency-key design that survived three migration cycles. A new senior engineer joins the team and proposes redesigning the idempotency layer to use Redis as the deduplication store, on grounds she cannot immediately refute. The original author feels the predictable pull: 'this is MY design'; 'I am the engineer who shipped this'; the GitHub blame layer is mostly her commits; the proposal feels like erasure. She watches the pull begin and lets it pass through. The new proposal earns her careful reading. Two genuine problems surface — the Redis approach loses the durability guarantee under network partition that the Postgres-row approach preserves — and she names those problems flatly. Not as authority defending territory; as the engineer who happens to carry the historical context. The new senior accepts both, adjusts the design, and the redesigned system ships under his name next quarter. The original author reviews the launch with quiet attention. Nothing in her affect betrays loss because nothing was lost. The artifact moved; her identity did not move with it. Nirmama — the code was never 'hers'. Nirahaṅkāra — the shipping was never 'her' shipping. What survives the migration is the running system, demonstrably improved. Śānti is the morning's actual report-out.",
+    "falsifiability": "The analog fails if a reader uses it to justify abandoning ownership of bad code, refusing accountability for past decisions, or evading the genuine work of carrying a system through its lifecycle. The verse names the absence of the EGO-bond to the artifact, not the absence of the work-bond. An engineer who lets a critical service rot because 'it is not mine' has confused nirmama with abandonment. The verse asks for the dropping of the 'I' attached to the work, not the dropping of the work.",
+    "counter_example": "When the artifact's structural integrity genuinely depends on the original author's continued involvement — domain knowledge that only she carries, decisions whose context only she remembers, on-call rotations only she can credibly cover — the verse's reading does not require disengagement. Nirmama applies to the 'mine'-thought, not to the actual stewardship responsibility. Sometimes the author is irreplaceable for legitimate reasons, and disowning the work in those moments is misreading.",
+    "implication": "Notice the next time you feel an edit to your code as an erasure of you. That feeling is mama and ahaṅkāra showing up in the work. Read the proposed edit on its merits. If it improves the artifact, accept it; if it does not, refuse it on technical grounds, not on identity ones. The work is not you.",
+    "quotable_line": "The artifact moved; the operator's identity did not move with it.",
+    "tags": [
+      "non-attachment-to-praise",
+      "deprecation-management",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.
