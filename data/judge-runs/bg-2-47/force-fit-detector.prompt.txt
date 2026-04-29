@@ -1,0 +1,209 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.47",
+  "sanskrit_devanagari": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥ ४७ ॥",
+  "sanskrit_iast": "karmaṇy evādhikāras te mā phaleṣu kadācana |\nmā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi || 47 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कर्मणि",
+      "iast": "karmaṇi",
+      "meaning": "in prescribed duty / in action"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "only / certainly"
+    },
+    {
+      "sanskrit": "अधिकारः",
+      "iast": "adhikāraḥ",
+      "meaning": "right / entitlement"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "of you / yours"
+    },
+    {
+      "sanskrit": "मा",
+      "iast": "mā",
+      "meaning": "never"
+    },
+    {
+      "sanskrit": "फलेषु",
+      "iast": "phaleṣu",
+      "meaning": "in the fruits"
+    },
+    {
+      "sanskrit": "कदाचन",
+      "iast": "kadācana",
+      "meaning": "at any time"
+    },
+    {
+      "sanskrit": "मा",
+      "iast": "mā",
+      "meaning": "do not"
+    },
+    {
+      "sanskrit": "कर्मफलहेतुः",
+      "iast": "karma-phala-hetuḥ",
+      "meaning": "the cause of the fruits of action"
+    },
+    {
+      "sanskrit": "भूः",
+      "iast": "bhūḥ",
+      "meaning": "be / become"
+    },
+    {
+      "sanskrit": "मा",
+      "iast": "mā",
+      "meaning": "let not"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "of you"
+    },
+    {
+      "sanskrit": "सङ्गः",
+      "iast": "saṅgaḥ",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "अस्तु",
+      "iast": "astu",
+      "meaning": "let there be"
+    },
+    {
+      "sanskrit": "अकर्मणि",
+      "iast": "akarmaṇi",
+      "meaning": "in inaction"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/47/",
+      "fetched_at": "2026-04-29T05:23:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, and never be attached to not doing your duty.",
+      "raw_capture_path": "data/sources/raw/bg-2-47-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/47",
+      "fetched_at": "2026-04-29T00:05:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/47/",
+      "fetched_at": "2026-04-29T05:23:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, 280 chars of 1552-char full purport)",
+      "verbatim_excerpt": "There are three considerations here: prescribed duties, capricious work, and inaction. Prescribed duties are activities enjoined in terms of one's acquired modes of material nature. Capricious work means actions without the sanction of authority, and inaction means not performing one's prescribed duties.",
+      "raw_full_path": "data/sources/raw/bg-2-47-vedabase.json (purport_full_length: 1552)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-47/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T00:05:00Z",
+      "verbatim_excerpt_status": "summary-only (raw text behind JS-rendered page)",
+      "summary_paraphrase": "The right pertains to action alone, not to steadfastness in Knowledge. Even when acting, one must not crave the results, because desire for fruits binds the actor as the agent of those results. Aversion to action is also rejected; one is to perform duty without becoming the agent of its fruit and without inclining toward inaction."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-47/?cm=ramanuja",
+      "fetched_at": "2026-04-29T00:05:00Z",
+      "verbatim_excerpt_status": "summary-only (raw text behind JS-rendered page)",
+      "summary_paraphrase": "The aspirant established in sattva has a right to obligatory, occasional, and desiderative acts taught in the Veda, but no right to their fruits. Acts performed with fruit-desire create bondage; the same acts performed without such attachment become worship and enable liberation. Agency and the desire for results belong to the gunas or the Lord. Inaction (as Arjuna proposed by abandoning his warrior duty) is also rejected."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "adhikāraḥ",
+      "positions": [
+        {
+          "source": "Mukundananda",
+          "rendering": "right (to perform)"
+        },
+        {
+          "source": "Prabhupada",
+          "rendering": "right"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "right pertains to action, not Knowledge"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "right pertains to Vedic-prescribed acts"
+        }
+      ],
+      "explanation": "All translators render adhikāraḥ as 'right' or 'entitlement' but differ on its scope. Shankara reads it as a contrast with jnana-niṣṭhā (steadfastness in Knowledge) — the verse applies to those who act, not those who have realised non-doership. Ramanuja reads it as scoped to specific Vedic-prescribed action categories (obligatory, occasional, desiderative). Prabhupada and Mukundananda flatten this nuance into 'prescribed duty', a phrasing general enough to be uncontroversial across traditions."
+    }
+  ],
+  "literal_meaning": "Your right is to action alone, never to its fruits. Do not be the cause of action's fruit, nor be attached to inaction.",
+  "traditional_meaning": "Krishna establishes the doctrine of niṣkāma-karma — action without attachment to its results — as the resolution of Arjuna's paralysis. The actor's only legitimate domain is the action itself. The fruits are governed by impersonal forces (gunas, the Lord, dharma) outside the actor's control. Importantly, this is not a license for inaction; renunciation of action altogether is also rejected. The middle path is engaged action plus released outcome.",
+  "engineering": {
+    "translation": "Your jurisdiction extends only to the action itself — the function you can refactor, the migration you can execute, the deploy you can run through the pipeline. Authority over consequences does not extend to outcomes that emerge once your code is in the hands of users, customers, the market, or your colleagues. Make the work itself the motive; refuse to make outcome the work's reason. And do not use 'I cannot control the outcome' as cover for refusing to act, because retreating from action is the more dangerous trap. Inaction disguised as caution is still abandonment of duty.",
+    "concrete_scenario": "It is the night before a Postgres schema migration. The pull request on GitHub has been reviewed, tests pass under CI, the rollback plan sits in the runbook, observability for the new endpoint is wired through Datadog and Sentry. You have already done the work that is genuinely yours to do. Now the temptation arrives: the launch tweet might flop, the conversion metric might not move, a competitor's release might eclipse yours next morning. Your hand hesitates above `git push` — not because the code is wrong, but because the outcome feels uncertain. Or consider the inverse failure: across two recent weeks you have been rewriting an internal CLI nobody asked for, telling yourself the rewrite is more elegant than the customer-facing schema migration languishing on the queue. You congratulate yourself on the technical purity of the rewrite while drifting into a more comfortable form of inaction. Both behaviors are this verse. Your right is to the action — the merge, the deploy, the migration. The tweet's reception, the dashboard reading, your peer's reaction — those belong elsewhere.",
+    "falsifiability": "The analog fails if a reader uses it to justify shipping without reading Datadog dashboards, ignoring Sentry error reports, or skipping post-launch instrumentation. Detachment from outcome is not detachment from feedback. Anyone who concludes from this verse that they should stop looking at metrics has misread it entirely.",
+    "counter_example": "When the genuinely correct action is to NOT ship — to kill a project, decline a feature request, or hold a release because incident data is incomplete — this verse does not contradict that. Krishna rejects inaction used as cover for fear of consequences; he does not reject the disciplined no. Chapter 5 and the closing instruction at 18.66 carry that complement, where right-renunciation is named explicitly.",
+    "implication": "Read your dashboards as honestly as you read your code reviews. Let outcomes inform future actions; do not let outcome-anxiety determine present ones.",
+    "quotable_line": "Your right is to the deploy, not to the launch metrics.",
+    "tags": [
+      "shipping-discipline",
+      "outcome-detachment",
+      "iteration-loop"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.
