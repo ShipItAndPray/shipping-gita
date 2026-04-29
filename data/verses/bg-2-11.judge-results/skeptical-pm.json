@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "If a deprecation document is unusually long and grief-toned while citing first-principles, freeze the PR and require the author to write a one-line statement of the customer requirement the deprecated module implemented; if they cannot, the deprecation reasoning is unstable.",
+  "example_decision": "Roadmap review: a senior engineer is opposing the migration of an internal billing tool because 'the original schema is more elegant and the team has institutional knowledge.' Apply the verse: ask whether the customer billing requirement (invoices reconcile to within one cent against bank statements) is preserved by the new system. If yes, the opposition is grief over implementation — proceed with the migration on schedule. If no, the opposition has surfaced a real spec gap — pause to address.",
+  "objection": "none — the predicate is concretely applicable. Two PMs could legitimately disagree about whether a specific case is grief-over-implementation or genuine-spec-loss; the disagreement is over evidence, which is what makes the predicate actionable rather than vacuous."
+}

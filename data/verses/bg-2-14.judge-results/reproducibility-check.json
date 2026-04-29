@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "named_artifact": "On-call training curriculum: 'Read-without-becoming' practice — recurring drills where on-call engineers read mock incident dashboards (Sentry stack, Datadog percentiles, conversion deltas) and respond per runbook, with explicit attention to nervous-system reactivity. Pulse / posture observability is part of the retro: did your reading of the signal cause your stress response, or did the response stay decoupled?",
+  "secondary_artifacts": [
+    "Post-incident review template field: 'Were operators reacting to signals or to their reflexive coupling to signal-polarity? If reactive, schedule decoupling practice for next rotation.'",
+    "Alert configuration discipline: alerts are tuned for genuine information, not for emotional urgency. If an alert reliably fires the operator's stress response without containing actionable information, the alert is misconfigured.",
+    "On-call rotation onboarding checklist: 'You will be exposed to repeated signals that arrive (āgama) and depart (apāya). The practice is to read them as instruments, not as identity-events. Drill this before you are paged on production.'"
+  ],
+  "verdict_reason": "The verse's claim is reproducible as concrete on-call training curricula and post-incident review templates. The decoupling discipline is teachable, observable (operator pulse / posture during incidents), and improvable. PASS."
+}

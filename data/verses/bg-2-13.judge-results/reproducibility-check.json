@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "named_artifact": "Conformance test suite — versioned alongside the spec, not the implementation. Mandatory deploy gate: any rewrite must pass the conformance suite before the cutover is approved. If the suite cannot be written, the system has no spec, and 'rewrite' is misnomer for 'replacement.'",
+  "secondary_artifacts": [
+    "Rewrite proposal template field: 'Which conformance tests will the rewrite pass? List them. If you cannot list them, define them before the rewrite begins.'",
+    "Architecture review checklist item: 'Is there a versioned conformance suite for this system? If not, schedule its creation as a precondition for any future rewrite.'",
+    "Pre-deprecation gate: legacy implementation cannot be removed until v_next has passed the conformance suite v_legacy passed."
+  ],
+  "verdict_reason": "The verse's claim is reproducible as a concrete deploy-gate predicate: pass the conformance suite, or the rewrite is a replacement. This is not a slogan; it is an auditable artifact that institutionalizes the discipline of observed-and-verified continuity. PASS."
+}

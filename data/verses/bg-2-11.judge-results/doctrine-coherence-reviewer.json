@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "same_tag_doctrine_consistency": {
+    "architectural-invariant": "Tag is consistent with the verse's claim. No prior verse in the chapter uses this tag; this is the chapter's first invocation, and it correctly establishes the doctrine that what is invariant under implementation change is the spec/customer requirement. Future verses in the sāṅkhya block (2.12-2.30) will sharpen and elaborate this; the doctrine here is the foundation, not an outlier.",
+    "deprecation-management": "Tag is correctly applied — the verse describes the operator's relationship to a deprecation event. No drift from any prior usage.",
+    "spec-vs-behavior": "Tag is consistently used with the verse's central claim (spec is the durable invariant; the current rendering — Postgres tables, Kafka topic — is behavior, not spec). No drift.",
+    "essence-vs-implementation": "Tag is correctly used."
+  },
+  "cross_reference_check": "No cross-references declared in this verse — n/a.",
+  "verdict_reason": "Tags applied consistently with the engineering claim. The verse establishes the architectural-invariant doctrine for the chapter; later verses tagged with the same labels (in subsequent blocks) should remain consistent with the substrate-survives-implementation-doesn't structure named here. PASS."
+}

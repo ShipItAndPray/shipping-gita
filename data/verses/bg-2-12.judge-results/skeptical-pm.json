@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a roadmap's planning horizon is shorter than the requirement's expected horizon, prefer architectural choices that defend custodianship under team turnover over choices that maximize current-team velocity.",
+  "example_decision": "Five-year ledger migration roadmap review: the team is leaning toward a custom in-house event-store because the current team is highly skilled at it. Apply the verse: the requirement (audited transaction history with regulatory continuity) has a 40-year horizon; the team's tenure is on average 4 years. Choose the more boring, more documented, more replaceable choice (Postgres + standard Kafka) because it is the better custodianship of a requirement that survives the team. The verse changes the decision.",
+  "objection": "none — the predicate is concretely actionable. Two PMs could legitimately disagree about the requirement's horizon estimate, which is exactly the kind of evidence-based disagreement the predicate is designed to surface."
+}

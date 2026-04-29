@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "A rewrite is a transition only if it passes the conformance test suite; absent the suite, the rewrite is a replacement and should be approved (or not) on those terms, not on continuity-language.",
+  "example_decision": "RFC review: a team is proposing a v4 rewrite of an internal feature-flag service. Apply the verse: ask for the conformance test suite. If yes, ask what it tests. If no, ask the team to either (a) build the suite first as the substrate definition, or (b) re-scope the proposal as a 'new system' with explicit migration plan, not as a 'transition.' Either response changes the next quarter's roadmap.",
+  "objection": "none — the predicate is a falsifiable check (is there a conformance suite, does v4 pass it). The PM can apply this without expert technical judgment because the existence of a suite is a binary observable."
+}

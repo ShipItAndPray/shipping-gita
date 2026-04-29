@@ -1,0 +1,314 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.12",
+  "sanskrit_devanagari": "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः ।\nन चैव न भविष्यामः सर्वे वयमतः परम् ॥ १२ ॥",
+  "sanskrit_iast": "na tv evāhaṁ jātu nāsaṁ na tvaṁ neme janādhipāḥ |\nna caiva na bhaviṣyāmaḥ sarve vayam ataḥ param || 12 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "जातु",
+      "iast": "jātu",
+      "meaning": "at any time / ever"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "आसम्",
+      "iast": "āsam",
+      "meaning": "did exist (used here with na: did not exist)"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "इमे",
+      "iast": "ime",
+      "meaning": "these"
+    },
+    {
+      "sanskrit": "जनाधिपाः",
+      "iast": "janādhipāḥ",
+      "meaning": "rulers of men / kings"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "भविष्यामः",
+      "iast": "bhaviṣyāmaḥ",
+      "meaning": "we shall exist (used here with na: shall not cease to exist)"
+    },
+    {
+      "sanskrit": "सर्वे",
+      "iast": "sarve",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "वयम्",
+      "iast": "vayam",
+      "meaning": "we"
+    },
+    {
+      "sanskrit": "अतः",
+      "iast": "ataḥ",
+      "meaning": "from this"
+    },
+    {
+      "sanskrit": "परम्",
+      "iast": "param",
+      "meaning": "hereafter / beyond"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/12/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be.",
+      "raw_capture_path": "data/sources/raw/bg-2-12-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/12",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/12/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 4811-char full purport)",
+      "verbatim_excerpt": "In the Vedas — in the Kaṭha Upaniṣad as well as in the Śvetāśvatara Upaniṣad — it is said that the Supreme Personality of Godhead is the maintainer of innumerable living entities, in terms of their different situations according to individual work and reaction of work.",
+      "verbatim_excerpt_length": 273,
+      "verbatim_full_length": 4811,
+      "copyright_holder": "Bhaktivedanta Book Trust International",
+      "raw_full_path": "data/sources/raw/bg-2-12-vedabase.json (purport_full_length: 4811)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:19:27Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Why are they not to be grieved for? Because they are eternal... The meaning is that even in all the three times (past, present and future) we are eternal in our nature as the Self. The plural number (in we) is used following the diversity of the bodies, but not in the sense of the multiplicity of the Self.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 1007,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-12-shankara.json",
+      "summary_paraphrase": "Shankara reads the verse as the formal statement of eternality (nityatva) of the Self. The 'I, you, these kings' triad is significant: Krishna is using grammatical plurality at the level of bodies but asserts singular Self-nature underneath. The plural is concession to the body-level distinction; the doctrine is non-dual. Thus 'we' covers past, present, and future — the three times — but the Self that is being predicated as eternal is not multiple."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-12/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:19:27Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Indeed, I, the Lord of all, who is eternal, was never non-existent, but existed always. It is not that these selves like you, who are subject to My Lordship, did not exist; you have always existed... different terms like 'I', 'you', 'these', 'all' and 'we' have been used by the Lord while explaining the truth of eternality.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 4000,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-12-ramanuja.json",
+      "summary_paraphrase": "Ramanuja reads the verse as a direct refutation of Advaita non-dualism. The plural and the distinct pronouns ('I', 'you', 'these kings') are taken as ontologically real — there is genuine multiplicity of selves, all eternal, all distinct from each other and from the Lord. The Lord is the Supreme Self; the embodied selves (jīvas) are eternal but ontologically subordinate. Ramanuja reads the verse as foundational for Vishishtadvaita's qualified non-dualism: real distinctions, eternally preserved, within an integrated whole."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "neme janādhipāḥ / sarve vayam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "nor all these kings; ... nor in the future shall any of us cease to be"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "nor all these kings; nor in the future shall any of us cease to be"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "the plurals refer to the diversity of bodies, not to multiplicity of the Self — the Self predicated is non-dual"
+        },
+        {
+          "source": "Ramanuja (per Adidevananda)",
+          "rendering": "the plurals are real ontologically — distinct selves are each eternal, all distinct from the Lord and from each other"
+        }
+      ],
+      "explanation": "The verse's plural pronouns are the central commentarial battleground: Shankara reads them as concession to body-level plurality with a non-dual Self underneath; Ramanuja reads them as real ontological distinctions, with eternally distinct individual selves under one Supreme Self. Modern translators preserve the surface plural without taking a position. The engineering layer must not flatten this — must remain at the level both traditions accept (the eternality of what is being pointed at, however one counts it), and not make a doctrinal commitment to either reading."
+    },
+    {
+      "word": "ataḥ param",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "in the future"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "in the future"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "after this, even after the destruction of this body"
+        },
+        {
+          "source": "Literal",
+          "rendering": "hereafter / beyond this point"
+        }
+      ],
+      "explanation": "Modern translators render ataḥ param as 'in the future', which is correct but loses the specific anchoring — the 'beyond this' is beyond the destruction of the present body, the very destruction that was the source of Arjuna's grief. Shankara makes this explicit. The engineering layer benefits from preserving the specific anchor: the eternality is not a vague future-tense, it is a survival across the specific event the operator fears."
+    }
+  ],
+  "literal_meaning": "Never was there a time when I did not exist, nor you, nor these kings; nor will any of us cease to exist hereafter.",
+  "traditional_meaning": "The first formal sāṅkhya statement of the chapter: a doctrinal claim of eternality across past, present, and future, applied to the speaker (Krishna), the addressee (Arjuna), and the kings on the battlefield. The verse establishes the imperishable substrate (nityam) that the rest of the sāṅkhya block elaborates. Major commentarial traditions diverge sharply on what the plural pronouns commit to: Shankara reads them as Advaita-compatible (plurality at the body level, non-dual Self underneath), Ramanuja reads them as Vishishtadvaita-foundational (real ontological distinctions, eternally preserved). The engineering layer should remain at the level both traditions accept — the eternality of what is being pointed at — and avoid implying a position on the Advaita/Vishishtadvaita question.",
+  "engineering": {
+    "translation": "There has never been an instant when I did not exist, nor you, nor any of these kings; nor will any of us terminate hereafter. Read engineering-side: the customer requirement driving this codebase did not begin when the team was hired; it predates the founders, predates the first repository, and will outlast the language the service is presently written in. Today's owners did not summon the underlying need into being, and will not pack it away when they leave. The same applies to whoever reads this paragraph. Whatever durable demand anchors the work — settlements that reconcile, latencies beneath threshold, identity that is who it claims to be — was already there. Source files are one transient expression. Teams are another. The framing the śloka establishes is not metaphysical bravado; it is a discipline of recognition: locate what does not commence or terminate with this repository, and stake the work on it. That part is what gets shipped against. Everything else is currently-loaded rendering.",
+    "concrete_scenario": "A platform group at a payments company is sketching a five-year roadmap on a Notion page. Halfway through, the staff engineer drawing the architecture pauses and says: 'we keep planning as if the requirement starts with our org and ends with our retention curve. The merchant's demand — chargeback disputes resolvable, with audit trail, within network rules — was already there before we wrote a line. The Visa rulebook predates this company. Stripe's first iteration implemented the same need we are writing the fourth version of. Adyen runs a parallel solution right now. There has never been a moment when this demand did not exist; there will not be a moment after our tenure when it ceases to.' The PM grasps the consequence: the roadmap stops being scoped to the team's tenure and begins being scoped to the underlying need's actual horizon. The architecture stops getting designed for a five-year owner; it gets shaped for a forty-year requirement under shifting custodianship. Postgres-vs-Spanner, monolith-vs-microservices, on-prem-vs-AWS — these become custodianship choices for a thing the team did not initiate and cannot dismiss.",
+    "falsifiability": "The analog fails if a reader uses 'eternal requirement' to refuse genuine product evolution — to keep building the same thing in the same way because 'the requirement is eternal'. Krishna does not claim implementations are eternal. He claims the substrate is. If a team treats the current scoping of the requirement (today's edge cases, today's regulatory regime, today's user expectations) as itself eternal, they have confused the substrate with the current rendering and will ossify. The verse is about durability of the underlying need, not stasis in how the need is met.",
+    "counter_example": "When the requirement itself is genuinely new — a feature category that did not exist five years ago, a market that has just emerged, a regulatory regime that is being invented — this verse's framing is misleading. Not all engineering work serves an eternal substrate; some is genuinely novel. The verse applies to the bulk of established platform work where the underlying need has decades of prior implementations behind it. It does not apply to greenfield product invention, where part of the engineering work is identifying what the substrate even is.",
+    "implication": "Find the part of the work that did not start with your team and will not end with you, and design the architecture to be a custodian of it rather than an owner of it. The architecture review question is not 'is this elegant for our team' but 'is this a defensible custodianship of a need that survives us'.",
+    "quotable_line": "Code is one rendering of a requirement that did not start with you and will not end with you.",
+    "tags": [
+      "architectural-invariant",
+      "first-principles",
+      "long-term-thinking",
+      "spec-vs-behavior"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.14",
+  "chapter": 2,
+  "verse": 14,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Sensor-contacts, son of Kuntī, are the producers of cold-heat and pleasure-pain pairs; they arrive, they depart, they are impermanent — endure them. The discipline named here is titikṣā: not numbness, not suppression, but the operator's refusal to couple their stability to the polarity of the incoming signal. Each instrumentation event — the Datadog dashboard climbing, the same dashboard collapsing, the PagerDuty alert firing, the alert subsequently clearing, the launch tweet trending, the same tweet flopping — constitutes a sensor reading: a contact between an instrumented surface and the operator's nervous system, possessing a definite temporal shape (arrival, brief persistence, departure). The verse names that shape and assigns the corresponding practice. Read the dashboard, acknowledge the alert, but refuse identification with either. The operator who has internalised this discipline is not detached from feedback; the verse is precise that contacts are genuinely informative. They are simply not the operator's identity, and not the level on which the operator's professional stability resides.",
+    "concrete_scenario": "Friday afternoon at a mid-stage startup. The lead engineer has been on-call for forty consecutive hours. Sentry surfaces a fresh error spike originating from a third-party SDK on iOS 18.4. Datadog reports p95 latency on the checkout endpoint creeping from 380ms toward 510ms. The growth dashboard registers a 6% overnight decline in signup conversion. Slack illuminates: PM, designer, CEO, congregating in a single thread, each carrying their respective alarm. The lead engineer examines every signal methodically. They open the Sentry stack trace, identify the offending SDK version, post a one-line workaround into the incident channel. They inspect Datadog's percentile breakdown, confirm the regression is contained to a single route, and queue an appropriate fix for the next deploy. They consider the conversion decline, recognise that the affected cohort overlaps yesterday's experimentation rollout, and forward the question to the experimentation owner. None of these readings shifts the engineer's posture. They are not anaesthetised; their pulse remains normal because deliberate practice has trained the reflexive coupling away. Signals arrive (āgama). Signals depart (apāya). The investigative work — examine, acknowledge, delegate — proceeds through the operator, not over them. This is precisely what titikṣasva looks like under production conditions.",
+    "falsifiability": "The analog fails if a reader uses titikṣā to justify ignoring the dashboard, suppressing the alert, or going silent in the incident channel. Endurance is not avoidance. The verse explicitly names that sense-contacts produce real information about cold/heat/pleasure/pain — they are signals, not noise. If an operator stops reading Datadog because 'sensations are impermanent', they have inverted the verse. The instruction is to endure the signal without coupling identity to it, not to disconnect from the signal.",
+    "counter_example": "When the sensor is itself broken — when the dashboard is reading from a stale time-series, when the alert is firing on a misconfigured threshold, when the conversion drop is measurement noise from an analytics pipeline issue — this verse does not apply. Titikṣā assumes the contact is genuine. If the operator's job in this moment is to fix the sensor rather than endure its reading, that is a different verse. The discipline of dashboard-as-instrument includes the discipline of knowing when the instrument has failed.",
+    "implication": "Train the coupling away. The dashboard's movement is information; your nervous system's response to the dashboard is configuration you can adjust. The operator who reads metrics without becoming them is not stoic — they are practiced. The practice is repeated exposure to the signal arriving and departing, until the polarity stops translating into identity-event.",
+    "quotable_line": "Read the dashboard. Acknowledge the alert. Do not become the dashboard. Do not become the alert.",
+    "tags": ["observability", "metrics-discipline", "alerting-discipline", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:00:00Z",
+      "mutation": "v0 generation: BG 2.14 establishes titikṣā — the discipline of enduring sense-contacts without coupling stability to their polarity. Per chapter-2 thesis, the engineering analog is the operator who reads dashboards/alerts without becoming them — sensor-inputs are real and informative but not identity-events. Engineering layer anchors on Friday-afternoon on-call reading Sentry, Datadog, growth-dashboard signals during multi-source incident pressure. Falsifiability rules out using titikṣā as cover for ignoring signals; counter-example rules out the verse when the sensor itself is broken (the discipline of dashboard-as-instrument includes recognising sensor failure).",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.3 Flesch-Kincaid grade 6.93 (target 9-13)"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T19:05:00Z",
+      "mutation": "Lifted Flesch-Kincaid grade by combining short staccato sentences (e.g. 'The Datadog dashboard moves up. The Datadog dashboard moves down.') into longer subordinated structures with multisyllabic vocabulary (instrumentation event, congregating, methodically, anaesthetised, deliberate practice, reflexive coupling, investigative work, etc.). Single mutation: sentence consolidation + register elevation, no doctrinal change.",
+      "failing_gates_before": ["5.3 Flesch-Kincaid grade 6.93 (target 9-13)"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "named_artifact": "Architecture review checklist item: 'Estimate the requirement's expected horizon vs. the team's expected tenure. If horizon >> tenure, prefer architectural choices that maximize defensibility under custodianship change over choices that maximize current-team velocity.' Add as required field on every architecture decision record (ADR) for systems serving long-horizon requirements.",
+  "secondary_artifacts": [
+    "ADR template prompt: 'Name the durable need this decision serves. Estimate its horizon. Distinguish it from current-team preference.'",
+    "Roadmap-review predicate: 'Is this roadmap scoped to the team's tenure or to the requirement's horizon? If the former, what is the explicit handoff plan to future custodians?'",
+    "Onboarding doc: every system has a 'durable_requirement.md' file naming the customer requirement, its origin, its expected horizon, and its history of implementations."
+  ],
+  "verdict_reason": "The verse's claim is reproducible as multiple concrete artifacts: ADR template field, architecture-review checklist item, durable_requirement.md per system, roadmap-review predicate. These are not slogans; they are auditable artifacts that institutionalize the custodianship discipline. PASS."
+}

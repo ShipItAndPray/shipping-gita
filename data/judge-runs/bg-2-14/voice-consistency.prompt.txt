@@ -1,0 +1,241 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.14",
+  "sanskrit_devanagari": "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।\nआगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत ॥ १४ ॥",
+  "sanskrit_iast": "mātrā-sparśās tu kaunteya śītoṣṇa-sukha-duḥkha-dāḥ |\nāgamāpāyino 'nityās tāṁs titikṣasva bhārata || 14 ||",
+  "anvaya": [
+    {
+      "sanskrit": "मात्रास्पर्शाः",
+      "iast": "mātrā-sparśāḥ",
+      "meaning": "sense-contacts (contacts of the sense-organs with their objects)"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but / however"
+    },
+    {
+      "sanskrit": "कौन्तेय",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī (Arjuna)"
+    },
+    {
+      "sanskrit": "शीत",
+      "iast": "śīta",
+      "meaning": "cold"
+    },
+    {
+      "sanskrit": "उष्ण",
+      "iast": "uṣṇa",
+      "meaning": "heat"
+    },
+    {
+      "sanskrit": "सुख",
+      "iast": "sukha",
+      "meaning": "pleasure"
+    },
+    {
+      "sanskrit": "दुःख",
+      "iast": "duḥkha",
+      "meaning": "pain"
+    },
+    {
+      "sanskrit": "दाः",
+      "iast": "dāḥ",
+      "meaning": "givers / producers"
+    },
+    {
+      "sanskrit": "आगम",
+      "iast": "āgama",
+      "meaning": "appearing / arrival"
+    },
+    {
+      "sanskrit": "अपायिनः",
+      "iast": "apāyinaḥ",
+      "meaning": "going / departure"
+    },
+    {
+      "sanskrit": "अनित्याः",
+      "iast": "anityāḥ",
+      "meaning": "impermanent"
+    },
+    {
+      "sanskrit": "तान्",
+      "iast": "tān",
+      "meaning": "them"
+    },
+    {
+      "sanskrit": "तितिक्षस्व",
+      "iast": "titikṣasva",
+      "meaning": "endure / bear / forbear"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata (Arjuna)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/14/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O son of Kuntī, the nonpermanent appearance of happiness and distress, and their disappearance in due course, are like the appearance and disappearance of winter and summer seasons. They arise from sense perception, O scion of Bharata, and one must learn to tolerate them without being disturbed.",
+      "raw_capture_path": "data/sources/raw/bg-2-14-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/14",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O son of Kunti, the contact between the senses and the sense objects gives rise to fleeting perceptions of happiness and distress. These are non-permanent, and come and go like the winter and summer seasons. O descendent of Bharat, one must learn to tolerate them without being disturbed."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/14/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1407-char full purport)",
+      "verbatim_excerpt": "In the proper discharge of duty, one has to learn to tolerate nonpermanent appearances and disappearances of happiness and distress. According to Vedic injunction, one has to take his bath early in the morning even during the month of Māgha (January-February).",
+      "verbatim_excerpt_length": 263,
+      "verbatim_full_length": 1407,
+      "copyright_holder": "Bhaktivedanta Book Trust International",
+      "raw_full_path": "data/sources/raw/bg-2-14-vedabase.json (purport_full_length: 1407)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-14/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:19:29Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Mātrās means those by which are marked off (measured up) sounds etc., i.e. the organs of hearing etc. The sparsah, contacts, of the organs with sound etc. are mātrā-sparśāḥ... Since they have a beginning and an end, are by nature subject to origination and destruction; therefore, they are anityāḥ, transient.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 1479,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-14-shankara.json",
+      "summary_paraphrase": "Shankara reads the verse as anticipating an objection: even one who knows the Self is eternal still experiences cold, heat, pleasure, pain. Krishna's response: these are sense-contacts (mātrā-sparśās), not Self-events. They have a beginning and an end (āgamāpāyinaḥ), they are impermanent (anityāḥ). The instruction titikṣasva — endure them — is precise: do not become happy or sorrowful regarding them. The Self-knowledge does not eliminate the sensations; it relocates them to a level that does not destabilise the operator."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-14/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:19:29Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "As sound, touch, form, taste and smell with their bases, are the effects of subtle elements (Tanmatras), they are called Matras... Endure these with courage till you have discharged your duties as prescribed by the scriptures. The brave must endure them patiently, as they 'come and go'.",
+      "verbatim_excerpt_length": 281,
+      "verbatim_full_length": 663,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-14-ramanuja.json",
+      "summary_paraphrase": "Ramanuja gives titikṣā an action-discipline framing: endure sensations with courage *until you have discharged your scriptural duties*. The endurance is not stoic detachment; it is the practical capacity required to keep performing duty when sensations would otherwise pull the operator off-task. The transience of sensations (āgamāpāyinaḥ) is the doctrinal ground; the duty-discharge is the practical reason endurance is required."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mātrā-sparśāḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "they arise from sense perception (translates as 'sense perception', loosely)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the contact between the senses and the sense objects"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "the contacts of the organs (mātrā = measuring/marking organ) with their objects (sound etc.)"
+        },
+        {
+          "source": "Ramanuja (per Adidevananda)",
+          "rendering": "the matras are subtle elements (tanmātras); the contact through ear and other senses produces feelings"
+        }
+      ],
+      "explanation": "Shankara and Ramanuja take different etymological paths: Shankara derives mātrā from 'measuring/marking' and identifies it with the sense-organs; Ramanuja identifies mātrā with the tanmātras (subtle elemental causes of sense-objects). Both arrive at 'sense-contact' as the operative meaning, but the underlying ontology differs. Modern translators flatten both into 'sense perception' or 'contact between senses and objects'. The engineering analog should preserve 'contact' as the operative — sensor-input as a real event — without committing to either ontology of what the sensor or the input ultimately is."
+    },
+    {
+      "word": "titikṣasva",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "tolerate"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "tolerate without being disturbed"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "bear them — do not be happy or sorry with regard to them"
+        },
+        {
+          "source": "Ramanuja (per Adidevananda)",
+          "rendering": "endure with courage until duties are discharged"
+        }
+      ],
+      "explanation": "Titikṣā is more specific than 'tolerate'. Shankara reads it as the active discipline of not being moved (positively or negatively) by the sensation; Ramanuja reads it as duty-enabling endurance. Both readings agree that the verse is not asking for suppression of sensation, but for the operator's stability not to be coupled to the sensation's polarity. The engineering analog is the operator who reads dashboards but does not become them."
+    }
+  ],
+  "literal_meaning": "But the contacts of the senses [with their objects], O son of Kuntī, are givers of cold, heat, pleasure, and pain; they have arrival and departure, are impermanent. Endure them, O descendant of Bharata.",
+  "traditional_meaning": "The verse on titikṣā (forbearance / endurance). Krishna names the structure of the sensory event: sense-contacts produce cold/heat/pleasure/pain pairs. These have a temporal structure — they arrive (āgama) and depart (apāya); they are impermanent (anitya). The instruction is titikṣasva: endure them. Both major commentarial traditions agree on the doctrinal claim (sensations are real events but transient and not Self-events) and on the practical instruction (do not become happy or sorrowful with them). Shankara reads it as the discipline of not coupling stability to polarity; Ramanuja reads it as duty-enabling endurance. The verse establishes the operator's relationship to incoming sensation as one of acknowledged-but-not-coupled. This sets up 2.15: the one who is so undisturbed is fit for the imperishable.",
+  "engineering": {
+    "translation": "Sensor-contacts, son of Kuntī, are the producers of cold-heat and pleasure-pain pairs; they arrive, they depart, they are impermanent — endure them. The discipline named here is titikṣā: not numbness, not suppression, but the operator's refusal to couple their stability to the polarity of the incoming signal. Each instrumentation event — the Datadog dashboard climbing, the same dashboard collapsing, the PagerDuty alert firing, the alert subsequently clearing, the launch tweet trending, the same tweet flopping — constitutes a sensor reading: a contact between an instrumented surface and the operator's nervous system, possessing a definite temporal shape (arrival, brief persistence, departure). The verse names that shape and assigns the corresponding practice. Read the dashboard, acknowledge the alert, but refuse identification with either. The operator who has internalised this discipline is not detached from feedback; the verse is precise that contacts are genuinely informative. They are simply not the operator's identity, and not the level on which the operator's professional stability resides.",
+    "concrete_scenario": "Friday afternoon at a mid-stage startup. The lead engineer has been on-call for forty consecutive hours. Sentry surfaces a fresh error spike originating from a third-party SDK on iOS 18.4. Datadog reports p95 latency on the checkout endpoint creeping from 380ms toward 510ms. The growth dashboard registers a 6% overnight decline in signup conversion. Slack illuminates: PM, designer, CEO, congregating in a single thread, each carrying their respective alarm. The lead engineer examines every signal methodically. They open the Sentry stack trace, identify the offending SDK version, post a one-line workaround into the incident channel. They inspect Datadog's percentile breakdown, confirm the regression is contained to a single route, and queue an appropriate fix for the next deploy. They consider the conversion decline, recognise that the affected cohort overlaps yesterday's experimentation rollout, and forward the question to the experimentation owner. None of these readings shifts the engineer's posture. They are not anaesthetised; their pulse remains normal because deliberate practice has trained the reflexive coupling away. Signals arrive (āgama). Signals depart (apāya). The investigative work — examine, acknowledge, delegate — proceeds through the operator, not over them. This is precisely what titikṣasva looks like under production conditions.",
+    "falsifiability": "The analog fails if a reader uses titikṣā to justify ignoring the dashboard, suppressing the alert, or going silent in the incident channel. Endurance is not avoidance. The verse explicitly names that sense-contacts produce real information about cold/heat/pleasure/pain — they are signals, not noise. If an operator stops reading Datadog because 'sensations are impermanent', they have inverted the verse. The instruction is to endure the signal without coupling identity to it, not to disconnect from the signal.",
+    "counter_example": "When the sensor is itself broken — when the dashboard is reading from a stale time-series, when the alert is firing on a misconfigured threshold, when the conversion drop is measurement noise from an analytics pipeline issue — this verse does not apply. Titikṣā assumes the contact is genuine. If the operator's job in this moment is to fix the sensor rather than endure its reading, that is a different verse. The discipline of dashboard-as-instrument includes the discipline of knowing when the instrument has failed.",
+    "implication": "Train the coupling away. The dashboard's movement is information; your nervous system's response to the dashboard is configuration you can adjust. The operator who reads metrics without becoming them is not stoic — they are practiced. The practice is repeated exposure to the signal arriving and departing, until the polarity stops translating into identity-event.",
+    "quotable_line": "Read the dashboard. Acknowledge the alert. Do not become the dashboard. Do not become the alert.",
+    "tags": [
+      "observability",
+      "metrics-discipline",
+      "alerting-discipline",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

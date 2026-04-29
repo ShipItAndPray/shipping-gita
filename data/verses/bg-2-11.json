@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.11",
+  "chapter": 2,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "You have been grieving for what does not deserve grief, all the while speaking the language of wisdom. Both halves of that sentence cannot stand together. The operator who knows what survives change does not lament the deprecated module, and does not lament the implementation slated to replace it. The deprecated CLI was never the system itself; it was a transient expression of the underlying contract. The replacement shipping next quarter will be another expression of the same contract. Those who genuinely understand — paṇḍitāḥ, whose knowledge concerns specifically what is invariant under implementation churn — mourn neither side of a deprecation. They mourn neither yesterday's rolled-back deploy nor today's successor. Grief signals that the substrate has been confused with one of its instances. Wisdom-talk paired with such grief becomes a tell: the operator borrows architectural vocabulary while reasoning at implementation depth. The diagnosis lands sharply. Correction means locating the genuine invariant and refusing to mistake either rendering for it.",
+    "concrete_scenario": "Morning of a planned cutover from a legacy Postgres-backed billing service to a new Kafka-driven event-sourced rewrite. The principal engineer who built the legacy stack over four years opens the deprecation PR on GitHub with an unusually long description: paragraphs eulogising the elegance of the original schema, the on-call runbooks meticulously refined, the Datadog dashboards that 'will never look the same'. In the same paragraph, they cite first-principles arguments about service evolution and event-sourcing tradeoffs. The lead architect responds with a single review comment: 'You are mourning the wrong thing. The billing requirement — invoices reconcile within one cent against bank statements — predates this codebase and survives the rewrite. That is the spec. The Postgres tables were one rendering of it. The Kafka topic is another. Grieving an implementation while invoking first-principles is the exact contradiction Krishna names. Your beloved dashboard was an instrument that read the spec; rebuild it in an afternoon. Land the deprecation.' The engineer does not need consolation; they need the diagnostic that pinpoints the misplacement.",
+    "falsifiability": "The analog fails if a reader uses it to suppress legitimate engineering grief: the loss of institutional knowledge in a hasty migration, the breakage of dependent systems whose contracts were undocumented, the regression of capability the rewrite has not yet recovered. Krishna does not reject the recognition that things change; he rejects the misidentification of what is being lost. If the operator is mourning a real capability loss — a feature the rewrite does not yet match — that is not what the verse corrects. The verse corrects the operator who confuses implementation-loss with spec-loss.",
+    "counter_example": "When the deprecation is itself wrong — when the 'replacement' does not actually satisfy the original requirement, when the team is moving for novelty rather than necessity, when the legacy system encodes hard-won knowledge the rewrite has not yet recovered — this verse does not apply. Krishna's rebuke presupposes that Arjuna's wisdom-talk is genuinely wisdom-talk; the diagnosis is the contradiction between knowing and grieving. If the engineer is right that the deprecation is premature, the right verse is not 2.11 — it is the discipline of the disciplined no, articulated later in the chapter and in chapter 5.",
+    "implication": "When you find yourself grieving a deprecated module while citing first-principles arguments, stop and locate the actual invariant. If you can name the customer requirement the module was implementing, the grief belongs to the implementation, not the spec — and the grief is misplaced. The wise operator does not mourn the version; they mourn nothing the rewrite preserves.",
+    "quotable_line": "Grief for a deprecated module while citing first-principles is the contradiction Krishna names in 2.11.",
+    "tags": ["architectural-invariant", "deprecation-management", "spec-vs-behavior", "essence-vs-implementation"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:30:00Z",
+      "mutation": "v0 generation: BG 2.11 is Krishna's first direct teaching utterance and the chapter's pivot from corrective sharpness to philosophical instruction. Per chapter-2 thesis, the sāṅkhya block opens with the doctrine of architectural invariants — what survives implementation change is real; what does not is not. Engineering layer anchors on the principal engineer mourning a deprecated billing service while citing first-principles, and the architect's corrective: the customer's billing requirement is the spec, the legacy Postgres tables and the Kafka rewrite are both implementations. Falsifiability rules out using the verse to suppress legitimate capability-loss grief; counter-example rules out applying it when the deprecation itself is wrong.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.5 lexical diversity 0.526", "11.1 total words 611"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T18:35:00Z",
+      "mutation": "Lifted lexical diversity by replacing repeated vocabulary ('be true at once', 'lament', 'mourn', 'expression', 'they mourn neither', etc.) with varied synonyms (cannot stand together, eulogising, rendering, meticulously, pinpoints) and tightened the prose to bring total verse words from 611 to under cap 600. Single mutation: vocabulary substitution + light pruning, no doctrinal change.",
+      "failing_gates_before": ["5.5 lexical diversity 0.526", "11.1 total words 611"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

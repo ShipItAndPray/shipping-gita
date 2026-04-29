@@ -1,0 +1,350 @@
+{
+  "verse_id": "BG 2.14",
+  "mode": "human-as-persona",
+  "generated_at": "2026-04-29T18:56:20.938Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge",
+          "sthita-prajña / steady mind (early form)"
+        ],
+        "anchoring_evidence": "BG 2.14 transitions from the sāṅkhya block's substrate-doctrine into the operator-stability discipline that will become the sthita-prajña block. The engineering layer correctly anchors on both: titikṣā is the discipline that flows from the Self-knowledge of 2.11-2.13. Tags ['observability', 'metrics-discipline', 'alerting-discipline', 'operator-system-coupling'] are at the steady-mind / operator-stance edge of the chapter.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge that 'non-attachment ≠ not caring' is preserved. The engineering layer is precise: 'they are not detached from feedback; the verse is precise that contacts are genuinely informative.' Falsifiability rules out the 'ignore the dashboard' misreading.",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the scenario explicitly involves customer impact and routing the work appropriately), does not absent consequence-weight (signals are read, not denied), does not flatten svadharma into arbitrary work.",
+        "progressive_build": "PASS — at position 14, the verse correctly transitions from the substrate-doctrine of 2.11-2.13 toward the operator-stance teaching that 2.15 will cap. Pedagogical position correct. The voice is appropriate: the doctrine has been established (substrate is real), and now the operator's relationship to incoming sensation is being taught."
+      },
+      "ts": "2026-04-29T18:56:20.931Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge",
+          "sthita-prajña / steady mind (early form)"
+        ],
+        "anchoring_evidence": "BG 2.14 transitions from the sāṅkhya block's substrate-doctrine into the operator-stability discipline that will become the sthita-prajña block. The engineering layer correctly anchors on both: titikṣā is the discipline that flows from the Self-knowledge of 2.11-2.13. Tags ['observability', 'metrics-discipline', 'alerting-discipline', 'operator-system-coupling'] are at the steady-mind / operator-stance edge of the chapter.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge that 'non-attachment ≠ not caring' is preserved. The engineering layer is precise: 'they are not detached from feedback; the verse is precise that contacts are genuinely informative.' Falsifiability rules out the 'ignore the dashboard' misreading.",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the scenario explicitly involves customer impact and routing the work appropriately), does not absent consequence-weight (signals are read, not denied), does not flatten svadharma into arbitrary work.",
+        "progressive_build": "PASS — at position 14, the verse correctly transitions from the substrate-doctrine of 2.11-2.13 toward the operator-stance teaching that 2.15 will cap. Pedagogical position correct. The voice is appropriate: the doctrine has been established (substrate is real), and now the operator's relationship to incoming sensation is being taught."
+      },
+      "ts": "2026-04-29T18:56:20.933Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "satire_attempt": "Tech lead in vintage Patagonia explains to junior that the SEV-1 page is 'just a sensor-contact, anityā, impermanent.' Junior watches as customers churn and the company misses payroll. Lead's pulse remains normal. They have decoupled their nervous system from the polarity of the signal. They have also decoupled the company from its revenue. Subscribe for more 'how I learned to read dashboards without responding to them.'",
+        "satire_lands": false,
+        "verdict_reason": "The satire only works by inverting the verse's explicit falsifiability ('endurance is not avoidance' — the verse rules out the satire's premise). The verse names that the work *proceeds through* the operator — examination, acknowledgment, delegation — which is the opposite of what the satire mocks. To make the satire land, you have to ignore what the verse actually claims. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.933Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "total_disagreements": 2,
+        "defective_entries": [],
+        "notes": "Both disagreement entries name the doctrinal axis substantively. The 'mātrā-sparśāḥ' entry distinguishes Shankara's etymological derivation (mātrā = measuring/marking organ; mātrā-sparśāḥ = sense-organs in contact with objects) from Ramanuja's derivation (mātrās = subtle elements / tanmātras), and explains why the underlying ontology differs while both arrive at 'sense-contact' as the operative meaning. The 'titikṣasva' entry distinguishes Shankara's reading (don't be moved positively or negatively) from Ramanuja's reading (duty-enabling endurance) and explains the practical convergence: stability not coupled to sensation polarity. Both entries pass."
+      },
+      "ts": "2026-04-29T18:56:20.933Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.934Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.934Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "observability": "First use of this tag in the chapter; correctly applied — the verse is about observability discipline (read the signal, do not become it).",
+          "metrics-discipline": "First use; correctly applied.",
+          "alerting-discipline": "First use; correctly applied.",
+          "operator-system-coupling": "First use; correctly applied — the verse names the coupling as the failure mode and the decoupling as the discipline."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a. The implicit linkage to 2.15 (the qualifier verse) is structurally correct: 2.14 names the discipline, 2.15 names the qualifier the discipline produces.",
+        "verdict_reason": "Tags are first uses for the chapter; all are correctly applied to the verse's central claim. Coherent with the sāṅkhya block's progression. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.934Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "observability": "First use of this tag in the chapter; correctly applied — the verse is about observability discipline (read the signal, do not become it).",
+          "metrics-discipline": "First use; correctly applied.",
+          "alerting-discipline": "First use; correctly applied.",
+          "operator-system-coupling": "First use; correctly applied — the verse names the coupling as the failure mode and the decoupling as the discipline."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a. The implicit linkage to 2.15 (the qualifier verse) is structurally correct: 2.14 names the discipline, 2.15 names the qualifier the discipline produces.",
+        "verdict_reason": "Tags are first uses for the chapter; all are correctly applied to the verse's central claim. Coherent with the sāṅkhya block's progression. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.934Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the pair structure: cold/heat, pleasure/pain — preserved as polarity pairs of dashboard-up/dashboard-down, alert-fire/alert-clear",
+          "the temporal structure: āgama/apāya (arrival/departure) — preserved as 'signals arrive, signals depart'",
+          "titikṣā as active discipline — preserved as 'refusal to couple stability to polarity', 'deliberate practice has trained the reflexive coupling away'",
+          "anityāḥ (impermanent) — preserved as the temporal shape of sensor readings"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 7, 13, and 17: BG 7.16 (catur-vidhā bhajante māṁ — four kinds worship me), BG 13.7 (amānitvam adambhitvam — humility, non-pretentiousness), BG 17.14 (deva-dvija-guru-prājña — worship of gods, brahmins, teachers). The 2.14 engineering analog (decoupling stability from sensor-input polarity) cannot equally apply to any of these. The polarity-pair structure plus the arrival-departure temporal shape is uniquely a 2.14 reading — neither the worship-categorization verses nor the qualities-of-knowledge verse have this sensor-impermanence structure. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.934Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the pair structure: cold/heat, pleasure/pain — preserved as polarity pairs of dashboard-up/dashboard-down, alert-fire/alert-clear",
+          "the temporal structure: āgama/apāya (arrival/departure) — preserved as 'signals arrive, signals depart'",
+          "titikṣā as active discipline — preserved as 'refusal to couple stability to polarity', 'deliberate practice has trained the reflexive coupling away'",
+          "anityāḥ (impermanent) — preserved as the temporal shape of sensor readings"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 7, 13, and 17: BG 7.16 (catur-vidhā bhajante māṁ — four kinds worship me), BG 13.7 (amānitvam adambhitvam — humility, non-pretentiousness), BG 17.14 (deva-dvija-guru-prājña — worship of gods, brahmins, teachers). The 2.14 engineering analog (decoupling stability from sensor-input polarity) cannot equally apply to any of these. The polarity-pair structure plus the arrival-departure temporal shape is uniquely a 2.14 reading — neither the worship-categorization verses nor the qualities-of-knowledge verse have this sensor-impermanence structure. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.934Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "real_insight": "The senior on-call's stability is decoupled from the dashboard's polarity — not because they're suppressing reaction, but because deliberate practice has trained the reflexive coupling away; this is a learnable nervous-system discipline, not a personality trait.",
+        "could_act_on_tomorrow": "Yes — at the next on-call retro, name explicitly which signals are genuine information vs. which signals are reflexive activations of the operator's stress response. Build the practice of reading-without-becoming as an explicit on-call training, not an unspoken expectation.",
+        "is_new_or_sharply_named": "The claim that decoupling is *trained* (and trainable) rather than possessed is sharper than the usual stoicism content. The verse explicitly distinguishes titikṣā from numbness ('they are not anaesthetised; their pulse remains normal because deliberate practice has trained the reflexive coupling away'), which is more precise than the typical 'don't let alerts stress you out' advice.",
+        "objection": "none. The falsifiability section explicitly rules out using the verse as cover for ignoring signals — endurance is not avoidance — which closes the most common misreading.",
+        "verdict_reason": "Specific phenomenon (operator-system polarity coupling), specific corrective (decouple via deliberate practice), specific observable (operator's pulse and posture do not register on the team's emotional barometer despite reading the same signals everyone else reads). Senior engineer would recognize this."
+      },
+      "ts": "2026-04-29T18:56:20.935Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.14 is the titikṣā verse, and the engineering layer preserves the term's technical specificity. Both Shankara (the discipline of not coupling stability to polarity, grounded in Self-realization) and Ramanuja (duty-enabling endurance until duties are discharged) read titikṣā as active discipline, not stoic suppression. The engineering layer's 'refusal to couple stability to polarity' captures the Shankara reading; the implication ('the work — examine, acknowledge, delegate — proceeds through the operator, not over them') captures the Ramanuja reading. The two readings are compatible at the engineering level — duty-enabling endurance and polarity-decoupling are mutually reinforcing — and the engineering layer wisely incorporates both without committing to either ontology of the Self that grounds them. The technical Sanskrit terms āgama/apāya are preserved verbatim with translations in parentheses. The mātrā-sparśāḥ disagreement (Shankara: organs-with-objects; Ramanuja: subtle-elements-via-senses) is preserved at the source-pack level; engineering layer remains at the level both readings accept (sense-contact). PASS."
+      },
+      "ts": "2026-04-29T18:56:20.935Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.14 is the titikṣā verse, and the engineering layer preserves the term's technical specificity. Both Shankara (the discipline of not coupling stability to polarity, grounded in Self-realization) and Ramanuja (duty-enabling endurance until duties are discharged) read titikṣā as active discipline, not stoic suppression. The engineering layer's 'refusal to couple stability to polarity' captures the Shankara reading; the implication ('the work — examine, acknowledge, delegate — proceeds through the operator, not over them') captures the Ramanuja reading. The two readings are compatible at the engineering level — duty-enabling endurance and polarity-decoupling are mutually reinforcing — and the engineering layer wisely incorporates both without committing to either ontology of the Self that grounds them. The technical Sanskrit terms āgama/apāya are preserved verbatim with translations in parentheses. The mātrā-sparśāḥ disagreement (Shankara: organs-with-objects; Ramanuja: subtle-elements-via-senses) is preserved at the source-pack level; engineering layer remains at the level both readings accept (sense-contact). PASS."
+      },
+      "ts": "2026-04-29T18:56:20.935Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.14",
+            "confidence": 0.9,
+            "reasoning": "The engineering layer's signature is the polarity-pair structure (cold/heat, pleasure/pain → dashboard-up/dashboard-down) plus the temporal arrival-departure shape (āgama/apāya → signals arrive, signals depart) plus the titikṣā instruction (endure them — preserved verbatim). The verse explicitly invokes 'titikṣasva' and uses the Sanskrit terms āgama and apāya in the text. This is a near-direct rendering. The on-call dashboard scenario is a clean engineering analog of sense-contacts producing transient pleasure/pain pairs."
+          },
+          {
+            "verse_id": "BG 5.20",
+            "confidence": 0.2,
+            "reasoning": "BG 5.20 (na prahṛṣyet priyaṁ prāptvā — does not rejoice on attaining the pleasing) makes a similar claim about equanimity in pleasure-pain pairs. Could host a similar 'don't get hyped on green dashboards' analog. But 5.20 lacks the temporal arrival-departure structure that 2.14 anchors on."
+          },
+          {
+            "verse_id": "BG 6.7",
+            "confidence": 0.1,
+            "reasoning": "BG 6.7 (jitātmanaḥ praśāntasya — for the self-controlled, peaceful one) describes the equanimous operator. Could host a tangential analog, but lacks the sense-contact-impermanence framing."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.936Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.14",
+            "confidence": 0.9,
+            "reasoning": "The engineering layer's signature is the polarity-pair structure (cold/heat, pleasure/pain → dashboard-up/dashboard-down) plus the temporal arrival-departure shape (āgama/apāya → signals arrive, signals depart) plus the titikṣā instruction (endure them — preserved verbatim). The verse explicitly invokes 'titikṣasva' and uses the Sanskrit terms āgama and apāya in the text. This is a near-direct rendering. The on-call dashboard scenario is a clean engineering analog of sense-contacts producing transient pleasure/pain pairs."
+          },
+          {
+            "verse_id": "BG 5.20",
+            "confidence": 0.2,
+            "reasoning": "BG 5.20 (na prahṛṣyet priyaṁ prāptvā — does not rejoice on attaining the pleasing) makes a similar claim about equanimity in pleasure-pain pairs. Could host a similar 'don't get hyped on green dashboards' analog. But 5.20 lacks the temporal arrival-departure structure that 2.14 anchors on."
+          },
+          {
+            "verse_id": "BG 6.7",
+            "confidence": 0.1,
+            "reasoning": "BG 6.7 (jitātmanaḥ praśāntasya — for the self-controlled, peaceful one) describes the equanimous operator. Could host a tangential analog, but lacks the sense-contact-impermanence framing."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.936Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verdict_reason": "Removing 2.14 and giving a writer 2.11-2.13 + 2.15 + chapter thesis, the writer would predict a verse on operator stability or sensation-handling — but they would NOT be likely to land on the specific sense-contact-impermanence structure with its arrival/departure temporal shape. They could plausibly write a generic 'stay calm under pressure' analog, but the polarity-pair structure (cold/heat → dashboard-up/dashboard-down), the explicit anchoring on Sanskrit titikṣā/āgama/apāya, and the on-call scenario with multiple simultaneous sensor readings depend on the verse's specific framing. The verse contributes specific signal: the sensor-input is real and informative (not denied), and the discipline is decoupling stability from polarity (not suppressing sensation).",
+        "specific_signal_contributed": [
+          "the polarity-pair structure (cold/heat, pleasure/pain) preserved as dashboard polarity-pairs",
+          "the temporal arrival-departure shape (āgama/apāya) as the structure of every sensor reading",
+          "titikṣā as active trained discipline (decoupling), explicitly distinguished from numbness or suppression"
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.936Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "named_artifact": "On-call training curriculum: 'Read-without-becoming' practice — recurring drills where on-call engineers read mock incident dashboards (Sentry stack, Datadog percentiles, conversion deltas) and respond per runbook, with explicit attention to nervous-system reactivity. Pulse / posture observability is part of the retro: did your reading of the signal cause your stress response, or did the response stay decoupled?",
+        "secondary_artifacts": [
+          "Post-incident review template field: 'Were operators reacting to signals or to their reflexive coupling to signal-polarity? If reactive, schedule decoupling practice for next rotation.'",
+          "Alert configuration discipline: alerts are tuned for genuine information, not for emotional urgency. If an alert reliably fires the operator's stress response without containing actionable information, the alert is misconfigured.",
+          "On-call rotation onboarding checklist: 'You will be exposed to repeated signals that arrive (āgama) and depart (apāya). The practice is to read them as instruments, not as identity-events. Drill this before you are paged on production.'"
+        ],
+        "verdict_reason": "The verse's claim is reproducible as concrete on-call training curricula and post-incident review templates. The decoupling discipline is teachable, observable (operator pulse / posture during incidents), and improvable. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.936Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": [
+          {
+            "severity": "minor",
+            "claim": "The discipline named here is titikṣā: not numbness, not suppression, but the operator's refusal to couple their stability to the polarity of the incoming signal.",
+            "objection": "Titikṣā in the Sanskrit and in Shankara's reading is the active discipline of bearing — 'do not be happy or sorry with regard to them.' The engineering rendering 'refusal to couple stability to polarity' is register-faithful and avoids the common misreading of titikṣā as stoic suppression. Shankara's commentary explicitly addresses the objection that even the Self-knower experiences cold/heat/pleasure/pain, which the engineering layer preserves ('they are not numb; their pulse remains normal because deliberate practice has trained the reflexive coupling away'). No distortion."
+          }
+        ],
+        "notes": "The engineering layer accurately preserves the verse's two distinct claims: (1) sense-contacts produce real pairs (cold/heat, pleasure/pain) — these are not denied; (2) they are impermanent (āgamāpāyinaḥ, anityāḥ) and must be endured (titikṣasva). The analog rightly anchors on the operator who reads dashboards (genuine sensor-input) but does not become them (refusal of polarity-coupling). The Sanskrit pair structure (cold/heat, pleasure/pain) is preserved as 'pairs' in the engineering analog. The temporal structure (āgama/apāya — arrival/departure) is preserved verbatim. The verse's instruction that endurance is duty-enabling (Ramanuja) is preserved in the implication ('the work — examine, acknowledge, delegate — proceeds through the operator, not over them'). PASS at high confidence."
+      },
+      "ts": "2026-04-29T18:56:20.937Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "When evaluating an on-call rotation or product-launch incident response, distinguish between signal-quality and operator-coupling: a high-quality signal poorly endured wastes operator capacity, while a low-quality signal poorly endured wastes the team's confidence in the operator.",
+        "example_decision": "Sprint planning: after a noisy incident week, the team is debating whether to add on-call rotation training or whether to dedupe alerts. Apply the verse: ask whether the operators have the trained capacity to read alerts without becoming them (titikṣā), and ask whether the alerts are themselves genuine information. If alerts are good but operators are coupling, training is the answer; if alerts are noisy and operators are fine, dedupe is the answer. The verse separates these two failure modes.",
+        "objection": "none — the predicate yields a concrete diagnostic (training vs. dedupe) for a real PM decision. Two PMs could disagree about which failure mode is dominant in a given week, but the disagreement is over evidence, which is the productive kind."
+      },
+      "ts": "2026-04-29T18:56:20.937Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "When evaluating an on-call rotation or product-launch incident response, distinguish between signal-quality and operator-coupling: a high-quality signal poorly endured wastes operator capacity, while a low-quality signal poorly endured wastes the team's confidence in the operator.",
+        "example_decision": "Sprint planning: after a noisy incident week, the team is debating whether to add on-call rotation training or whether to dedupe alerts. Apply the verse: ask whether the operators have the trained capacity to read alerts without becoming them (titikṣā), and ask whether the alerts are themselves genuine information. If alerts are good but operators are coupling, training is the answer; if alerts are noisy and operators are fine, dedupe is the answer. The verse separates these two failure modes.",
+        "objection": "none — the predicate yields a concrete diagnostic (training vs. dedupe) for a real PM decision. Two PMs could disagree about which failure mode is dominant in a given week, but the disagreement is over evidence, which is the productive kind."
+      },
+      "ts": "2026-04-29T18:56:20.937Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "violations": [],
+        "notes": "The engineering layer is consistently additive. The verse names the discipline (titikṣā) with its Sanskrit term and translates it register-faithfully into the engineering domain. The phrase 'this is precisely what titikṣasva looks like under production conditions' frames the engineering scenario as one instance of titikṣā in production, not as the verse's 'real' meaning. The disagreement section preserves the commentarial divergence on mātrā-sparśāḥ (Shankara/Ramanuja etymological paths), which signals to the reader that the verse has its own depth not exhausted by the dashboard-reading analog."
+      },
+      "ts": "2026-04-29T18:56:20.937Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "trivialization_severity": 1,
+        "specific_concerns": [],
+        "verdict_reason": "The engineering layer treats titikṣā with appropriate technical care. It does not collapse the discipline into 'don't stress about alerts'; it names the specific decoupling at issue and explicitly distinguishes it from numbness or suppression. A serious practitioner would recognize that the verse's structure (sense-contacts → impermanent → endure) is preserved with its full doctrinal weight. The Sanskrit terms titikṣā, āgama, apāya, anityāḥ are preserved in the engineering layer where doctrinally load-bearing. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.938Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verses_off_tone": [],
+        "chapter_voice_summary": "BG 2.14's voice is instructional — Krishna anticipates an objection (the Self-knower still feels cold/heat) and answers with a precise discipline (titikṣā). The engineering layer matches this register: the on-call scenario is described instructively, the discipline is named precisely, the falsifiability and counter-example carve out the misreadings. The chapter's didactic-corrective arc is preserved — neither consoling nor motivational. The Friday-afternoon on-call scenario delivers concreteness without abandoning the instructional voice. Voice consistent."
+      },
+      "ts": "2026-04-29T18:56:20.938Z"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "named_artifact": "Deprecation PR template field: 'In one sentence, name the customer requirement this module currently implements. (If you cannot, the deprecation reasoning is unstable and should be reviewed before approval.)'",
+  "secondary_artifacts": [
+    "Architecture-review checklist item: 'Is the team mourning implementation-specific properties (schema elegance, schema-specific dashboards, runbook familiarity) while citing first-principles arguments? If yes, request explicit naming of the customer requirement before approval.'",
+    "ADR template prompt: 'Name the durable need this decision serves. Distinguish it from the current implementation rendering it.'"
+  ],
+  "verdict_reason": "The verse's claim is reproducible as a concrete merge-gate predicate (the 'name the customer requirement in one sentence' field on a deprecation PR). It is also reproducible as an architecture-review checklist item and as an ADR template prompt. These are not slogans; they are auditable artifacts that enforce the diagnostic the verse names. PASS."
+}

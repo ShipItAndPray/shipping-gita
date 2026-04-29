@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.13",
+  "chapter": 2,
+  "verse": 13,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Just as the embodied one passes through childhood, youth, and old age within a single body, so the same one transitions to another body. The steady-minded — dhīra — is not bewildered by that passage. In engineering terms: the service that has been v1, v2, v3 of itself, and is now being rewritten as v4 on different runtime, in a different language, by a different team, has not ceased being the same service. What survives is the contract: that evaluate(flag, context) returns a rule-engine result under 5ms, with an audit record durable enough to defend a customer dispute. The dhīra — steady, not abstractly 'wise' — is the operator whose nervous system does not flare at rewrite-time, because they have located the level on which professional identity-of-the-system actually lives. Implementations swap. The contract endures, and is what gets shipped against.",
+    "concrete_scenario": "Consider an internal feature-flag service inside a mid-sized SaaS company. v1: a Redis-backed library the founder wrote on a flight. v2: a Postgres-backed gRPC service the platform team built when the library hit limits. v3: a sharded version with a Kafka audit stream, rebuilt during multi-region migration. v4 (planned): Cloudflare Workers + SQLite-on-the-edge, owned by a newly hired team. The principal engineer who has been present through every transition reviews the v4 RFC and writes a single note: 'Do not get attached to the v3 schema; it is not the system. The contract is. Read the conformance test suite — that is the surviving artifact across these passages. Build v4 against it. The dashboards will move; runbooks will rewrite themselves; senior on-call will recognise the service underneath because the contract is recognisable.' The new team receives this not as discouraging but as orienting. They have been shown the layer where identity lives, and the layer where it merely renders.",
+    "falsifiability": "The analog fails if a reader uses the 'something always survives' framing to justify rewriting without recovering capability — to hand off a half-functional v4 and call it 'a different rendering of the same contract' when in fact the contract is silently regressing. Krishna's claim is that the substrate is preserved across transition; he does not claim that any rewrite is itself a successful preservation. Conformance must be tested. The 'state transition' is an observed-and-verified continuity, not a self-narrated one. Engineers who skip the conformance test suite and assert continuity are not in this verse.",
+    "counter_example": "When the rewrite is genuinely changing what the system does — when v4 has redefined the contract because the underlying business need shifted — this verse does not apply at full strength. The verse describes continuity through implementation transitions; it does not describe redefinitions of purpose. If the company has decided that the feature-flag service should also do experiment routing and progressive rollout, that is a new contract, not a transition of the old one. The dhīra would name the new contract honestly rather than smuggling it in under continuity-language.",
+    "implication": "Maintain a conformance test suite that survives implementation rewrites. The conformance suite is the engineering analog of the substrate the verse names. If the next rewrite cannot pass the conformance suite, the rewrite has not transitioned the system; it has replaced it. The dhīra runs the suite; they do not narrate continuity unverified.",
+    "quotable_line": "Conformance tests are the part of the system that survives the rewrite — your dhīra discipline.",
+    "tags": ["architectural-invariant", "spec-vs-behavior", "interface-stability", "essence-vs-implementation"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:50:00Z",
+      "mutation": "v0 generation: BG 2.13 is the verse on state transitions — childhood/youth/old age and then body-to-body. Per chapter-2 thesis, the engineering analog is the system that has been v1/v2/v3/v4 of itself without identity-collapse. Dhīra is preserved as a technical term meaning 'steady-minded', not 'wise in the abstract'. Engineering layer anchors on a feature-flag service tracked across four implementations, with the conformance test suite as the surviving artifact across transitions. Falsifiability rules out asserting continuity without verifying it; counter-example rules out applying the verse when the rewrite redefines the contract.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1 translation 194 words (cap 180)", "5.5 lexical diversity 0.487", "11.1 total 658 (cap 600)"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T18:55:00Z",
+      "mutation": "Compressed translation from 194→ ~140 words and concrete_scenario from over-long to ~190 words; replaced repeated vocabulary (rewrote/rewrites/rewriting → mixed with passage/transitions/rendering, system → service/codebase/contract alternation) to lift lexical diversity above 0.55 and bring total verse word count under 600. Single mutation: prose compression + vocabulary substitution, no doctrinal change.",
+      "failing_gates_before": ["5.1 translation 194 words (cap 180)", "5.5 lexical diversity 0.487", "11.1 total 658 (cap 600)"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

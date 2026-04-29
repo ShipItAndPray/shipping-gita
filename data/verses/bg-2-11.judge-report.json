@@ -1,0 +1,345 @@
+{
+  "verse_id": "BG 2.11",
+  "mode": "human-as-persona",
+  "generated_at": "2026-04-29T18:56:20.347Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "The verse anchors directly on the chapter's first thread: architectural invariants (what survives change vs. current implementation). The engineering layer's central claim — 'the customer requirement is the spec; the legacy Postgres tables and the Kafka rewrite are both implementations' — is a textbook engagement with the first-principles thread. Tags ['architectural-invariant', 'deprecation-management', 'spec-vs-behavior', 'essence-vs-implementation'] all fall in the sāṅkhya thread.",
+        "hard_edge_preservation": "PASS — the verse preserves 'the atman survives change' without flattening it into 'embrace change.' The engineering layer is precise: the substrate survives, the implementation does not, and grief over the implementation is misplaced. The chapter's hard edge that this is NOT 'embrace change' is preserved in the falsifiability ('Krishna does not reject the recognition that things change; he rejects the misidentification of what is being lost').",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the customer requirement is foregrounded as the durable substrate), does not absolve consequences (the engineer is being asked to land the deprecation, not to retreat from it), does not flatten svadharma into arbitrary work (the durable customer-need is the dharma analog, named specifically).",
+        "progressive_build": "PASS — at position 11 (the chapter's pivot from corrective sharpness to philosophical instruction), the verse correctly opens the sāṅkhya block without yet borrowing from the karma-yoga block (2.31+) or the sthita-prajña block (2.54+). The voice is appropriately diagnostic; the verse establishes the substrate doctrine without yet operating in the steady-mind register. Pedagogically positioned correctly."
+      },
+      "ts": "2026-04-29T18:56:20.340Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "The verse anchors directly on the chapter's first thread: architectural invariants (what survives change vs. current implementation). The engineering layer's central claim — 'the customer requirement is the spec; the legacy Postgres tables and the Kafka rewrite are both implementations' — is a textbook engagement with the first-principles thread. Tags ['architectural-invariant', 'deprecation-management', 'spec-vs-behavior', 'essence-vs-implementation'] all fall in the sāṅkhya thread.",
+        "hard_edge_preservation": "PASS — the verse preserves 'the atman survives change' without flattening it into 'embrace change.' The engineering layer is precise: the substrate survives, the implementation does not, and grief over the implementation is misplaced. The chapter's hard edge that this is NOT 'embrace change' is preserved in the falsifiability ('Krishna does not reject the recognition that things change; he rejects the misidentification of what is being lost').",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the customer requirement is foregrounded as the durable substrate), does not absolve consequences (the engineer is being asked to land the deprecation, not to retreat from it), does not flatten svadharma into arbitrary work (the durable customer-need is the dharma analog, named specifically).",
+        "progressive_build": "PASS — at position 11 (the chapter's pivot from corrective sharpness to philosophical instruction), the verse correctly opens the sāṅkhya block without yet borrowing from the karma-yoga block (2.31+) or the sthita-prajña block (2.54+). The voice is appropriately diagnostic; the verse establishes the substrate doctrine without yet operating in the steady-mind register. Pedagogically positioned correctly."
+      },
+      "ts": "2026-04-29T18:56:20.341Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "satire_attempt": "Senior engineer in expensive headphones types 'the contract is the system' into a pull request review while drinking a $7 oat-milk latte, then rage-quits the company three weeks later when their YAML config is deprecated. Subscribe to the newsletter where I explain why your Postgres tables are actually phenomenal projections of a Platonic billing form. Available now in audiobook narrated by a man who has never been on-call. Coming soon: 'The Spec Within: How I Learned to Mourn Nothing and Ship Slack DMs Instead.'",
+        "satire_lands": false,
+        "verdict_reason": "The satire only works by inventing claims the verse does not make (Platonic billing forms, the engineer rage-quitting, mourning nothing). The verse's actual claim — that grief paired with first-principles vocabulary is a contradiction worth diagnosing — is too specific and too falsifiable to mock without disagreeing on its merits. The verse explicitly preserves the legitimacy of grief over capability loss in the falsifiability section, which removes the easy 'detachment from outcomes' satire angle. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.342Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "total_disagreements": 2,
+        "defective_entries": [],
+        "notes": "Both disagreement entries name the axis substantively. The prajñā-vādān entry distinguishes the descriptive ('learned words') vs. ironic ('Arjuna's wisdom-talk is shaped like wisdom but contradicts itself' — Shankara) vs. category-of-bad-reasoning ('speculative concoction not according to Vedic injunction' — Madhva) readings, and explains why the disagreement is doctrinally substantive: modern translations flatten the rebuke that the commentarial tradition reads as primary. The paṇḍitāḥ entry distinguishes generic-wise vs. Shankara's etymological 'knowers of paṇḍā (Self-knowledge)' vs. Ramanuja's narrower 'those who have grasped body/self distinction' — and explains why this matters for whether the verse is making a general or technical claim. Neither entry collapses into 'the translators differ in tone'; both name what is at stake."
+      },
+      "ts": "2026-04-29T18:56:20.342Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.343Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.343Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "architectural-invariant": "Tag is consistent with the verse's claim. No prior verse in the chapter uses this tag; this is the chapter's first invocation, and it correctly establishes the doctrine that what is invariant under implementation change is the spec/customer requirement. Future verses in the sāṅkhya block (2.12-2.30) will sharpen and elaborate this; the doctrine here is the foundation, not an outlier.",
+          "deprecation-management": "Tag is correctly applied — the verse describes the operator's relationship to a deprecation event. No drift from any prior usage.",
+          "spec-vs-behavior": "Tag is consistently used with the verse's central claim (spec is the durable invariant; the current rendering — Postgres tables, Kafka topic — is behavior, not spec). No drift.",
+          "essence-vs-implementation": "Tag is correctly used."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a.",
+        "verdict_reason": "Tags applied consistently with the engineering claim. The verse establishes the architectural-invariant doctrine for the chapter; later verses tagged with the same labels (in subsequent blocks) should remain consistent with the substrate-survives-implementation-doesn't structure named here. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.343Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "architectural-invariant": "Tag is consistent with the verse's claim. No prior verse in the chapter uses this tag; this is the chapter's first invocation, and it correctly establishes the doctrine that what is invariant under implementation change is the spec/customer requirement. Future verses in the sāṅkhya block (2.12-2.30) will sharpen and elaborate this; the doctrine here is the foundation, not an outlier.",
+          "deprecation-management": "Tag is correctly applied — the verse describes the operator's relationship to a deprecation event. No drift from any prior usage.",
+          "spec-vs-behavior": "Tag is consistently used with the verse's central claim (spec is the durable invariant; the current rendering — Postgres tables, Kafka topic — is behavior, not spec). No drift.",
+          "essence-vs-implementation": "Tag is correctly used."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a.",
+        "verdict_reason": "Tags applied consistently with the engineering claim. The verse establishes the architectural-invariant doctrine for the chapter; later verses tagged with the same labels (in subsequent blocks) should remain consistent with the substrate-survives-implementation-doesn't structure named here. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.343Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the contradiction between grief and wisdom-talk (prajñā-vādāṁś ca bhāṣase paired with anvaśocaḥ) — the verse's signature diagnostic",
+          "the bidirectional grief — neither living nor dead (gatāsūn agatāsūṁś ca) — mapped to 'neither rolled-back deploy nor its successor'",
+          "paṇḍitāḥ as technically narrow (those whose knowledge is specifically about what is invariant under implementation churn), preserving Shankara's etymological reading"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 9, 12, and 18: BG 9.22 (ananyāś cintayanto māṁ — those who think exclusively of Krishna), BG 12.13 (adveṣṭā sarva-bhūtānāṁ — non-hatred toward all beings), BG 18.46 (sva-karmaṇā tam abhyarcya — worshipping by one's own work). The 2.11 engineering analog cannot equally apply to any of these. The deprecation-grief-paired-with-first-principles-talk pattern is uniquely a diagnostic of contradiction between grief and wisdom-speech, which is verse-specific to 2.11. The 'bidirectional grief' (mourning both the deprecated and its successor) maps directly to gatāsūn / agatāsūn and would not naturally fit any of the test verses. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.343Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the contradiction between grief and wisdom-talk (prajñā-vādāṁś ca bhāṣase paired with anvaśocaḥ) — the verse's signature diagnostic",
+          "the bidirectional grief — neither living nor dead (gatāsūn agatāsūṁś ca) — mapped to 'neither rolled-back deploy nor its successor'",
+          "paṇḍitāḥ as technically narrow (those whose knowledge is specifically about what is invariant under implementation churn), preserving Shankara's etymological reading"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 9, 12, and 18: BG 9.22 (ananyāś cintayanto māṁ — those who think exclusively of Krishna), BG 12.13 (adveṣṭā sarva-bhūtānāṁ — non-hatred toward all beings), BG 18.46 (sva-karmaṇā tam abhyarcya — worshipping by one's own work). The 2.11 engineering analog cannot equally apply to any of these. The deprecation-grief-paired-with-first-principles-talk pattern is uniquely a diagnostic of contradiction between grief and wisdom-speech, which is verse-specific to 2.11. The 'bidirectional grief' (mourning both the deprecated and its successor) maps directly to gatāsūn / agatāsūn and would not naturally fit any of the test verses. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.343Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "real_insight": "When an engineer cites first-principles arguments while grieving a deprecated implementation, the contradiction is the diagnosis — they have confused implementation-loss with spec-loss; locate the actual invariant (the customer requirement) and the grief resolves.",
+        "could_act_on_tomorrow": "Yes — the next time I write an unusually long deprecation PR description that eulogizes the old service, I should ask whether what I'm mourning is the spec (in which case I should be defending it in review, not deprecating) or the implementation (in which case the grief is misplaced and the PR description is writing me a story I don't need).",
+        "is_new_or_sharply_named": "The named pattern — first-principles vocabulary used while reasoning at implementation depth, recognizable as a contradiction — is not a fortune-cookie observation. It names a real failure mode I have seen in senior engineers, including myself: writing about service evolution in elevated abstract terms while the actual emotional reasoning is grief over a specific schema. The verse's framing ('grief paired with wisdom-talk is a tell') is an actual diagnostic.",
+        "objection": "none — the analog avoids 'embrace change' / 'be detached from outcomes' wisdom-theater. It explicitly preserves the legitimacy of grief in valid cases (institutional knowledge loss, premature deprecation). The counter-example carves out the wrong-deprecation case correctly. The implication is operational: locate the customer requirement, ask whether what you're grieving is preserved by the rewrite.",
+        "verdict_reason": "Specific failure mode, specific corrective, specific test (can you name the customer requirement the deprecated module was implementing?). This passes the senior-engineer-who-never-heard-of-this-verse test."
+      },
+      "ts": "2026-04-29T18:56:20.344Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "The engineering layer remains scrupulously at the level both Advaita (Shankara) and Vishishtadvaita (Ramanuja) accept: that what survives implementation change is real, that the wise (paṇḍitāḥ) do not grieve what is impermanent or what is permanent. Crucially, the engineering layer does NOT take a position on whether the substrate is non-dual or qualifiedly non-dual — it speaks only of 'the spec' / 'the customer requirement' as the durable invariant, leaving the ontology of that invariant unspecified, exactly as the consensus reading of 2.11 leaves it. Technical Sanskrit terms are preserved with care: paṇḍitāḥ is rendered with its etymological narrowness ('whose knowledge concerns specifically what is invariant under implementation churn'), preserving Shankara's paṇḍā-as-Self-knowledge derivation as a register substitution rather than a flattening. The verse's gatāsūn / agatāsūn pair (the dead / the living) is preserved as 'either side of a deprecation' — bidirectional, as the Sanskrit is. No tradition is named where the engineering layer makes a doctrinal commitment, because the engineering layer makes no commitment that requires tradition-naming. This is the right discipline."
+      },
+      "ts": "2026-04-29T18:56:20.344Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "The engineering layer remains scrupulously at the level both Advaita (Shankara) and Vishishtadvaita (Ramanuja) accept: that what survives implementation change is real, that the wise (paṇḍitāḥ) do not grieve what is impermanent or what is permanent. Crucially, the engineering layer does NOT take a position on whether the substrate is non-dual or qualifiedly non-dual — it speaks only of 'the spec' / 'the customer requirement' as the durable invariant, leaving the ontology of that invariant unspecified, exactly as the consensus reading of 2.11 leaves it. Technical Sanskrit terms are preserved with care: paṇḍitāḥ is rendered with its etymological narrowness ('whose knowledge concerns specifically what is invariant under implementation churn'), preserving Shankara's paṇḍā-as-Self-knowledge derivation as a register substitution rather than a flattening. The verse's gatāsūn / agatāsūn pair (the dead / the living) is preserved as 'either side of a deprecation' — bidirectional, as the Sanskrit is. No tradition is named where the engineering layer makes a doctrinal commitment, because the engineering layer makes no commitment that requires tradition-naming. This is the right discipline."
+      },
+      "ts": "2026-04-29T18:56:20.344Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.11",
+            "confidence": 0.85,
+            "reasoning": "The engineering layer's signature is grief over a deprecated module paired with first-principles citation, diagnosed as a contradiction between knowing-talk and grieving-action. The bidirectional grief (neither the rolled-back deploy nor its successor) closely mirrors gatāsūn agatāsūṁś ca; the contradiction between wisdom-vocabulary and emotional reasoning mirrors prajñā-vādāṁś ca bhāṣase paired with anvaśocaḥ. The technical use of paṇḍitāḥ ('those whose knowledge concerns specifically what is invariant under implementation churn') is a direct register substitution for 'knowers of the Self' — only 2.11 uses paṇḍitāḥ as a technical term in this way."
+          },
+          {
+            "verse_id": "BG 2.20",
+            "confidence": 0.25,
+            "reasoning": "BG 2.20 (na jāyate mriyate vā kadācin — never born, never dies) also concerns the imperishable substrate vs. transient body, and the engineering analog of 'what survives change is real' could plausibly anchor there. But 2.20 lacks the diagnostic-of-contradiction structure that 2.11 has."
+          },
+          {
+            "verse_id": "BG 2.27",
+            "confidence": 0.15,
+            "reasoning": "BG 2.27 (jātasya hi dhruvo mṛtyuḥ — death is certain for the born) speaks to the same general substrate doctrine and could host a 'do not grieve the impermanent' analog. But 2.27 is a syllogistic-argument verse, not a diagnostic-of-contradiction verse."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.345Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.11",
+            "confidence": 0.85,
+            "reasoning": "The engineering layer's signature is grief over a deprecated module paired with first-principles citation, diagnosed as a contradiction between knowing-talk and grieving-action. The bidirectional grief (neither the rolled-back deploy nor its successor) closely mirrors gatāsūn agatāsūṁś ca; the contradiction between wisdom-vocabulary and emotional reasoning mirrors prajñā-vādāṁś ca bhāṣase paired with anvaśocaḥ. The technical use of paṇḍitāḥ ('those whose knowledge concerns specifically what is invariant under implementation churn') is a direct register substitution for 'knowers of the Self' — only 2.11 uses paṇḍitāḥ as a technical term in this way."
+          },
+          {
+            "verse_id": "BG 2.20",
+            "confidence": 0.25,
+            "reasoning": "BG 2.20 (na jāyate mriyate vā kadācin — never born, never dies) also concerns the imperishable substrate vs. transient body, and the engineering analog of 'what survives change is real' could plausibly anchor there. But 2.20 lacks the diagnostic-of-contradiction structure that 2.11 has."
+          },
+          {
+            "verse_id": "BG 2.27",
+            "confidence": 0.15,
+            "reasoning": "BG 2.27 (jātasya hi dhruvo mṛtyuḥ — death is certain for the born) speaks to the same general substrate doctrine and could host a 'do not grieve the impermanent' analog. But 2.27 is a syllogistic-argument verse, not a diagnostic-of-contradiction verse."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.345Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verdict_reason": "Removing 2.11 from the chapter context, a competent writer with access to 2.1-2.10 + 2.12-2.18 + chapter thesis would predict that the 11th-position verse opens the sāṅkhya block — they would predict architectural-invariant content. They could plausibly predict 'spec vs. implementation' as the central engineering anchor. But the specific signature of 2.11 — that the diagnostic is about a *contradiction* between grief and wisdom-talk, that the bidirectional grief (neither rolled-back-deploy nor its successor) is preserved, that paṇḍitāḥ is rendered technically narrow rather than as 'wise people' — depends on Sanskrit-grounded specifics not reconstructible from chapter context alone. A writer working from chapter context would write a generic 'the spec survives the rewrite' analog; this verse's analog goes further by anchoring on the verse's specific diagnostic-of-contradiction structure. The verse contributes specific signal beyond the chapter's general drift.",
+        "specific_signal_contributed": [
+          "the diagnostic-of-contradiction structure: grief paired with first-principles vocabulary as a tell",
+          "the bidirectional grief: neither the deprecated module nor its successor",
+          "paṇḍitāḥ rendered with etymological specificity rather than as generic 'wise'"
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.345Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "named_artifact": "Deprecation PR template field: 'In one sentence, name the customer requirement this module currently implements. (If you cannot, the deprecation reasoning is unstable and should be reviewed before approval.)'",
+        "secondary_artifacts": [
+          "Architecture-review checklist item: 'Is the team mourning implementation-specific properties (schema elegance, schema-specific dashboards, runbook familiarity) while citing first-principles arguments? If yes, request explicit naming of the customer requirement before approval.'",
+          "ADR template prompt: 'Name the durable need this decision serves. Distinguish it from the current implementation rendering it.'"
+        ],
+        "verdict_reason": "The verse's claim is reproducible as a concrete merge-gate predicate (the 'name the customer requirement in one sentence' field on a deprecation PR). It is also reproducible as an architecture-review checklist item and as an ADR template prompt. These are not slogans; they are auditable artifacts that enforce the diagnostic the verse names. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.345Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": [
+          {
+            "severity": "minor",
+            "claim": "Those who genuinely understand — paṇḍitāḥ, whose knowledge concerns specifically what is invariant under implementation churn",
+            "objection": "The engineering layer correctly preserves the technical specificity of paṇḍitāḥ via Shankara's etymological reading (paṇḍā as Self-knowledge, hence paṇḍitāḥ as 'knowers of the Self'). The translation 'whose knowledge concerns specifically what is invariant under implementation churn' is a register-faithful rendering for the engineering domain — it does not flatten paṇḍitāḥ into 'wise people in general.' Acceptable register substitution, not distortion. The Sanskrit's narrowing is preserved."
+          }
+        ],
+        "notes": "The engineering layer accurately preserves the three doctrinal moves of 2.11: (1) the diagnostic — Arjuna's grief and his learned-sounding speech are mutually contradictory; (2) the doctrine — the wise grieve neither living nor dead because what is real (the substrate) is not destroyed by death and what dies (the body) was never permanent; (3) the rebuke — Krishna's diagnosis is sharp, not consoling. The engineering layer's 'grief signals that the substrate has been confused with one of its instances' captures Shankara's 'foolishness and learning which are contradictory' precisely. The analog does not import any connotation the Sanskrit does not support: deprecation is a real engineering analog of impermanence-of-the-body, and the engineer's own first-principles citation paired with grief is a genuine analog of prajñā-vādān-ca-bhāṣase. The verse's gatāsūn / agatāsūn pair (the dead / the living) maps to 'rolled-back deploy / its successor' — the bidirectional lament that Krishna names. PASS at high confidence."
+      },
+      "ts": "2026-04-29T18:56:20.346Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "If a deprecation document is unusually long and grief-toned while citing first-principles, freeze the PR and require the author to write a one-line statement of the customer requirement the deprecated module implemented; if they cannot, the deprecation reasoning is unstable.",
+        "example_decision": "Roadmap review: a senior engineer is opposing the migration of an internal billing tool because 'the original schema is more elegant and the team has institutional knowledge.' Apply the verse: ask whether the customer billing requirement (invoices reconcile to within one cent against bank statements) is preserved by the new system. If yes, the opposition is grief over implementation — proceed with the migration on schedule. If no, the opposition has surfaced a real spec gap — pause to address.",
+        "objection": "none — the predicate is concretely applicable. Two PMs could legitimately disagree about whether a specific case is grief-over-implementation or genuine-spec-loss; the disagreement is over evidence, which is what makes the predicate actionable rather than vacuous."
+      },
+      "ts": "2026-04-29T18:56:20.346Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "If a deprecation document is unusually long and grief-toned while citing first-principles, freeze the PR and require the author to write a one-line statement of the customer requirement the deprecated module implemented; if they cannot, the deprecation reasoning is unstable.",
+        "example_decision": "Roadmap review: a senior engineer is opposing the migration of an internal billing tool because 'the original schema is more elegant and the team has institutional knowledge.' Apply the verse: ask whether the customer billing requirement (invoices reconcile to within one cent against bank statements) is preserved by the new system. If yes, the opposition is grief over implementation — proceed with the migration on schedule. If no, the opposition has surfaced a real spec gap — pause to address.",
+        "objection": "none — the predicate is concretely applicable. Two PMs could legitimately disagree about whether a specific case is grief-over-implementation or genuine-spec-loss; the disagreement is over evidence, which is what makes the predicate actionable rather than vacuous."
+      },
+      "ts": "2026-04-29T18:56:20.346Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "violations": [],
+        "notes": "The engineering layer is consistently framed as a layer over the verse, not a replacement for it. Phrases like 'translated to engineering', 'the contradiction Krishna names', and explicit acknowledgment of the verse's diagnostic structure preserve the original-meaning-alongside discipline. The layer does not assert the Gita is 'really about' deprecation management; it asserts that the verse's structure can be read engineering-side as a diagnostic of confusion-between-spec-and-implementation, which is an additive claim. The implication and quotable line both reference the verse explicitly ('the contradiction Krishna names in 2.11'), maintaining the verse as the ground."
+      },
+      "ts": "2026-04-29T18:56:20.347Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "trivialization_severity": 1,
+        "specific_concerns": [],
+        "verdict_reason": "The engineering layer treats the verse with appropriate gravity. It preserves Krishna's diagnostic sharpness ('the contradiction Krishna names'), preserves paṇḍitāḥ in its technically narrow sense, preserves the bidirectional grief structure, and preserves the verse's claim that the substrate is what is real. It does not reduce the doctrine to a slogan; it does not turn the teaching into a productivity tip. A serious practitioner would recognize that the analog labels the surface phenomenon (deprecation grief paired with first-principles talk) without claiming this surface is what the verse 'really means' — the verse is in addition acknowledged to be about the eternality of the Self, not merely the durability of customer requirements. The framing is additive, not reductive."
+      },
+      "ts": "2026-04-29T18:56:20.347Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verses_off_tone": [],
+        "chapter_voice_summary": "Chapter 2's voice is didactic and corrective; Krishna teaches, sometimes sharply. BG 2.11 — the chapter's pivot from corrective sharpness (2.2-2.3) to philosophical instruction — preserves the diagnostic edge while moving into doctrine. The engineering layer for 2.11 reads as the senior architect calmly but sharply naming a misplacement ('You are mourning the wrong thing... Land the deprecation'), which matches the chapter voice precisely. The verse does not soften into consolation, does not become motivational, and does not relax into pure description. The corrective tone of 2.2-2.3 has matured into the diagnostic tone of 2.11, which is the right pedagogical arc. The progression to a more expansive sāṅkhya teaching voice has begun without abandoning the chapter's hard edge."
+      },
+      "ts": "2026-04-29T18:56:20.347Z"
+    }
+  ]
+}

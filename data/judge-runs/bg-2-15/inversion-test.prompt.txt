@@ -1,0 +1,248 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.15",
+  "sanskrit_devanagari": "यं हि न व्यथयन्त्येते पुरुषं पुरुषर्षभ ।\nसमदुःखसुखं धीरं सोऽमृतत्वाय कल्पते ॥ १५ ॥",
+  "sanskrit_iast": "yaṁ hi na vyathayanty ete puruṣaṁ puruṣarṣabha |\nsama-duḥkha-sukhaṁ dhīraṁ so 'mṛtatvāya kalpate || 15 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यम्",
+      "iast": "yam",
+      "meaning": "whom"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed / certainly"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "व्यथयन्ति",
+      "iast": "vyathayanti",
+      "meaning": "they distress / disturb"
+    },
+    {
+      "sanskrit": "एते",
+      "iast": "ete",
+      "meaning": "these (sense-contacts)"
+    },
+    {
+      "sanskrit": "पुरुषम्",
+      "iast": "puruṣam",
+      "meaning": "person"
+    },
+    {
+      "sanskrit": "पुरुषर्षभ",
+      "iast": "puruṣarṣabha",
+      "meaning": "O best among men (Arjuna)"
+    },
+    {
+      "sanskrit": "सम",
+      "iast": "sama",
+      "meaning": "equal / same"
+    },
+    {
+      "sanskrit": "दुःख",
+      "iast": "duḥkha",
+      "meaning": "in pain"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "in pleasure"
+    },
+    {
+      "sanskrit": "धीरम्",
+      "iast": "dhīram",
+      "meaning": "the steady-minded"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he / that one"
+    },
+    {
+      "sanskrit": "अमृतत्वाय",
+      "iast": "amṛtatvāya",
+      "meaning": "for immortality"
+    },
+    {
+      "sanskrit": "कल्पते",
+      "iast": "kalpate",
+      "meaning": "is fit / qualifies / becomes eligible"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/15/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O best among men [Arjuna], the person who is not disturbed by happiness and distress and is steady in both is certainly eligible for liberation.",
+      "raw_capture_path": "data/sources/raw/bg-2-15-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/15",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Arjun, noblest amongst men, that person who is not affected by happiness and distress, and remains steady in both, becomes eligible for liberation."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/15/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1150-char full purport)",
+      "verbatim_excerpt": "Anyone who is steady in his determination for the advanced stage of spiritual realization and can equally tolerate the onslaughts of distress and happiness is certainly a person eligible for liberation.",
+      "verbatim_excerpt_length": 204,
+      "verbatim_full_length": 1150,
+      "copyright_holder": "Bhaktivedanta Book Trust International",
+      "raw_full_path": "data/sources/raw/bg-2-15-vedabase.json (purport_full_length: 1150)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-15/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:19:30Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The person whom these — cold and heat mentioned above — do not torment, do not perturb; the wise man, to whom sorrow and happiness are the same, who is free from happiness and sorrow when subjected to pleasure and pain, because of his realization of the eternal Self; he becomes fit for Immortality.",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 644,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-15-shankara.json",
+      "summary_paraphrase": "Shankara reads the verse as the explicit qualifier statement: realization of the eternal Self is what makes the operator non-disturbed by sense-contacts; that non-disturbance is what makes the operator fit (kalpate) for immortality (amṛtatvāya). The structure is: Self-knowledge → equanimity → fitness for the imperishable. Equanimity is the diagnostic, not the goal."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-15/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:19:30Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "That person endowed with courage, who considers pain as inevitable as pleasure, and who performs war and such other acts suited to his station in life without attachment to the results and only as a means of attaining immortality — one whom the impact of weapons in war etc., which involve soft or harsh contacts, do not trouble, that person only attains immortality.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 761,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-15-ramanuja.json",
+      "summary_paraphrase": "Ramanuja reads the verse as the immediate practical qualifier: the courageous person who endures pain as inevitable as pleasure, who performs duty without attachment to results, attains immortality. The endurance is duty-functional; the immortality is the result of the integrated practice. Ramanuja explicitly applies this to the warrior in battle: not theoretical, but the operator under fire."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "amṛtatvāya kalpate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "is certainly eligible for liberation"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "becomes eligible for liberation"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "becomes fit for Immortality, for the state of Immortality, i.e. for Liberation"
+        },
+        {
+          "source": "Ramanuja (per Adidevananda)",
+          "rendering": "attains immortality (amṛtatva) — read as the soteriological goal of integrated duty + endurance + non-attachment"
+        },
+        {
+          "source": "Literal",
+          "rendering": "is fit/qualifies (kalpate) for immortality (amṛtatva)"
+        }
+      ],
+      "explanation": "Modern translators render amṛtatva as 'liberation', conflating it with mokṣa. The Sanskrit term is more specific: amṛtatva is 'the state of not-dying', the imperishable condition. Shankara explicitly identifies it with mokṣa (Liberation); Ramanuja reads it as the soteriological goal accessible through integrated practice. The verb kalpate is 'is fit' or 'qualifies' — the verse names a precondition, not a guarantee. The engineering layer must preserve 'fitness for' rather than collapsing it into achievement."
+    },
+    {
+      "word": "sama-duḥkha-sukham",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "steady in both [happiness and distress]"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "remains steady in both"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "to whom sorrow and happiness are the same"
+        },
+        {
+          "source": "Ramanuja (per Adidevananda)",
+          "rendering": "considers pain as inevitable as pleasure"
+        }
+      ],
+      "explanation": "Sama means 'equal' or 'same' — the operator regards pain and pleasure as equal in the relevant sense, not as identical experiences. Shankara's 'are the same' is closest to literal but ambiguous in English (suggesting they feel the same, which is not the claim). Ramanuja's 'pain as inevitable as pleasure' captures the operative meaning: the categorical equivalence is in their status as transient sensations, not in their phenomenology. Modern translators choose 'steady' to avoid the misreading. The engineering layer should preserve sama as the categorical equivalence, not the experiential identity."
+    }
+  ],
+  "literal_meaning": "The person whom these [sense-contacts] do not disturb, O best among men, [the one who is] equal in pain and pleasure, the steady-minded — that one is fit for immortality.",
+  "traditional_meaning": "The capping verse of the sāṅkhya block A. Krishna names the qualifier: the person undisturbed by the sense-contacts named in 2.14, equal-minded toward pain and pleasure, steady-minded (dhīra), is fit (kalpate) for the imperishable (amṛtatva). All major commentarial traditions read this as a precondition statement: equanimity is the diagnostic of fitness for the imperishable, not the imperishable itself. Shankara grounds the equanimity in Self-realization; Ramanuja grounds it in duty-functional endurance plus non-attachment to results. The verse establishes that the discipline of titikṣā (2.14) is not therapeutic detachment — it is the precondition for everything that follows in the chapter and the book. The dhīra named here is the operator the rest of Chapter 2 and Chapter 3 will address as a working agent.",
+  "engineering": {
+    "translation": "The operator whom these sensor-contacts do not disturb, equal-minded toward pain and pleasure, steady-minded — that one is fit for the imperishable. The verse states a qualifier, not an outcome. Equanimity in front of dashboard movement is the diagnostic of fitness, not the achievement itself. The engineer who has internalised 2.14 — read the alert, do not become the alert — is the operator who can hold long-running systems, run multi-year migrations, sit through funding rounds, ship the version that follows three failed predecessors, and respond to a 3 AM page on Year Six of an on-call rotation as professionally as on Year One. That person is fit (kalpate) for the imperishable work — work whose horizon is longer than any single sprint, longer than any single team, sometimes longer than any single career. Without the equanimity discipline, the operator is fit only for short-horizon work, where sensation-driven response is survivable. The verse names the precondition for the durable kind. It is not a personality trait. It is a trained capacity.",
+    "concrete_scenario": "A staff engineer at a regulated fintech is being considered for the technical lead role on a five-year ledger migration. The migration will move billions of historical transactions from a legacy DB2 mainframe onto a new Postgres-plus-Kafka architecture, must satisfy SOX-2 audit continuity, must not interrupt customer-facing operations once during the transition, and will outlive at least two CTOs. The hiring panel reviews three internal candidates. Candidate A is technically brilliant but visibly fluctuates in posture across the year — euphoric after a successful deploy, despondent after a regression, vocal in incidents in ways that destabilise the on-call channel. Candidate B is technically solid and consistent, with a documented record of carrying multi-year projects through funding crunches, leadership turnover, and two failed predecessor attempts at the same migration; their incident-channel posture is the same on Year Six as on Year One; their pulse does not register on the team's emotional barometer. Candidate C is excellent but newer and untested through a long-horizon project. The panel selects Candidate B. They are not selecting on titikṣā as a personality trait. They are selecting on the demonstrated trained capacity that 2.15 names: the qualifier for the imperishable kind of work.",
+    "falsifiability": "The analog fails if a reader uses 'fitness for the imperishable' to justify selecting cold or unempathetic operators. Krishna names equanimity, not absence of feeling. The dhīra in 2.15 is the operator whose stability is internal — and whose external care for users, teammates, and systems is undiminished. If a hiring panel selects on the basis of 'unflappable in incidents' but fails to check whether the candidate cares about the customer or the team, they have selected on a different trait. The verse's qualifier is equanimity-with-care, not flatness.",
+    "counter_example": "When the work is genuinely short-horizon — a one-off migration that will be done in two weeks, a one-month consulting engagement, a hackathon — the verse's framing is overweight. The qualifier of fitness-for-the-imperishable is a precondition for long-horizon work; it is not a universal selection criterion. Sometimes the right operator for a two-week project is the high-energy reactive engineer who would burn out in a five-year migration. The verse names a specific qualifier for a specific kind of work, not a general superiority.",
+    "implication": "When staffing long-horizon, identity-bearing work, select on the trained equanimity 2.15 names — and verify it has not arrived at the cost of care. The qualifier is internal stability without external coldness. The operator who has it is the one who can carry the imperishable kind of project across the inevitable storms.",
+    "quotable_line": "Equanimity at sensor-contact is the qualifier for long-horizon work — kalpate, fitness, not personality.",
+    "tags": [
+      "sattva-clarity",
+      "deep-work",
+      "long-term-thinking",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

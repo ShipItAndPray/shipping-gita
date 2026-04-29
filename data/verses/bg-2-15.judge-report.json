@@ -1,0 +1,350 @@
+{
+  "verse_id": "BG 2.15",
+  "mode": "human-as-persona",
+  "generated_at": "2026-04-29T18:56:21.189Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sthita-prajña / steady mind",
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "BG 2.15 caps the sāṅkhya block A and prefigures the sthita-prajña thread that will be elaborated in 2.54-2.72. The engineering layer correctly anchors on both: the qualifier (trained equanimity) flows from the substrate-doctrine of 2.11-2.13 and the discipline of 2.14, and is the precondition for the seasoned-operator state of mind. Tags ['sattva-clarity', 'deep-work', 'long-term-thinking', 'operator-system-coupling'] span the sāṅkhya / sthita-prajña edge.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge ('the steady mind is a real state, not an aspiration') is preserved. The engineering layer is precise: 'It is not a personality trait. It is a trained capacity.' Falsifiability rules out the cold-detached misreading.",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (care is verified explicitly), does not absent consequence-weight (the long-horizon work the verse names is high-consequence), does not flatten svadharma (the verse explicitly applies to specific kinds of work, not all work).",
+        "progressive_build": "PASS — at position 15, the verse correctly caps the sāṅkhya block A by stating the qualifier the prior verses have built toward. The progression is: 2.11 (diagnostic), 2.12 (eternality), 2.13 (analogical proof), 2.14 (discipline), 2.15 (qualifier). This is the right pedagogical arc. The verse prefigures the sthita-prajña block (2.54-2.72) without yet operating in its full vocabulary, which is the right restraint."
+      },
+      "ts": "2026-04-29T18:56:21.185Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sthita-prajña / steady mind",
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "BG 2.15 caps the sāṅkhya block A and prefigures the sthita-prajña thread that will be elaborated in 2.54-2.72. The engineering layer correctly anchors on both: the qualifier (trained equanimity) flows from the substrate-doctrine of 2.11-2.13 and the discipline of 2.14, and is the precondition for the seasoned-operator state of mind. Tags ['sattva-clarity', 'deep-work', 'long-term-thinking', 'operator-system-coupling'] span the sāṅkhya / sthita-prajña edge.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge ('the steady mind is a real state, not an aspiration') is preserved. The engineering layer is precise: 'It is not a personality trait. It is a trained capacity.' Falsifiability rules out the cold-detached misreading.",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (care is verified explicitly), does not absent consequence-weight (the long-horizon work the verse names is high-consequence), does not flatten svadharma (the verse explicitly applies to specific kinds of work, not all work).",
+        "progressive_build": "PASS — at position 15, the verse correctly caps the sāṅkhya block A by stating the qualifier the prior verses have built toward. The progression is: 2.11 (diagnostic), 2.12 (eternality), 2.13 (analogical proof), 2.14 (discipline), 2.15 (qualifier). This is the right pedagogical arc. The verse prefigures the sthita-prajña block (2.54-2.72) without yet operating in its full vocabulary, which is the right restraint."
+      },
+      "ts": "2026-04-29T18:56:21.186Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "satire_attempt": "Hiring panel sits in the conference room comparing candidates A, B, C. They have a printout of someone's heart-rate variability data taped to the whiteboard. They are looking for 'kalpate-grade equanimity.' They reject the empathic engineer who actually responded to the customer outage with appropriate urgency, and select the one whose pulse stayed normal because they were thinking about lunch. The migration ships on time. The customers leave anyway.",
+        "satire_lands": false,
+        "verdict_reason": "The satire only works by inverting the verse's explicit falsifiability ('the verse's qualifier is equanimity-with-care, not flatness'). The verse rules out the satire's premise — selecting on equanimity without verifying care is named as the failure mode. To make the satire land, you have to ignore what the verse explicitly forbids. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.187Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "total_disagreements": 2,
+        "defective_entries": [],
+        "notes": "Both disagreement entries name the doctrinal axis substantively. The 'amṛtatvāya kalpate' entry distinguishes the modern translators' collapse into 'liberation' from the Sanskrit's specific 'amṛtatva = the state of not-dying' (the imperishable condition), and identifies kalpate as 'is fit / qualifies' — naming a precondition, not a guarantee. The explanation makes the doctrinal stake explicit: the engineering layer must preserve 'fitness for' rather than collapse into achievement. The 'sama-duḥkha-sukham' entry distinguishes Shankara's 'are the same' (potentially misread as phenomenal identity in English) from Ramanuja's 'pain as inevitable as pleasure' (categorical equivalence in transient-status). Both entries pass."
+      },
+      "ts": "2026-04-29T18:56:21.187Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "sattva-clarity": "First use of this tag in the chapter; correctly applied — equanimity-with-care is sattva-clarity engineering-side. Will need to remain consistent across other verses tagged similarly.",
+          "deep-work": "First use; correctly applied — long-horizon, identity-bearing work is deep work in the relevant sense.",
+          "long-term-thinking": "Consistent with 2.12. The two verses build coherently: 2.12 names the durable substrate; 2.15 names the operator qualified to custodian the durable substrate.",
+          "operator-system-coupling": "Consistent with 2.14. Both verses concern decoupling-without-disconnection."
+        },
+        "cross_reference_check": "No explicit cross-references declared in this verse, but the implicit chain to 2.14 (discipline) and 2.54-2.72 (sthita-prajña) is structurally correct. The engineering layer signals this without overclaiming.",
+        "verdict_reason": "Tags consistent with prior chapter usage. The sāṅkhya block A teaching closes coherently: substrate is real, eternal, preserved across transitions; the discipline is decoupling stability from polarity; the qualifier is trained equanimity-with-care. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "sattva-clarity": "First use of this tag in the chapter; correctly applied — equanimity-with-care is sattva-clarity engineering-side. Will need to remain consistent across other verses tagged similarly.",
+          "deep-work": "First use; correctly applied — long-horizon, identity-bearing work is deep work in the relevant sense.",
+          "long-term-thinking": "Consistent with 2.12. The two verses build coherently: 2.12 names the durable substrate; 2.15 names the operator qualified to custodian the durable substrate.",
+          "operator-system-coupling": "Consistent with 2.14. Both verses concern decoupling-without-disconnection."
+        },
+        "cross_reference_check": "No explicit cross-references declared in this verse, but the implicit chain to 2.14 (discipline) and 2.54-2.72 (sthita-prajña) is structurally correct. The engineering layer signals this without overclaiming.",
+        "verdict_reason": "Tags consistent with prior chapter usage. The sāṅkhya block A teaching closes coherently: substrate is real, eternal, preserved across transitions; the discipline is decoupling stability from polarity; the qualifier is trained equanimity-with-care. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "amṛtatvāya kalpate ('is fit for the imperishable') preserved as 'fit for the imperishable kind of work — long-horizon'",
+          "sama-duḥkha-sukham preserved as 'equal-minded toward pain and pleasure' — categorical equivalence, not phenomenal identity",
+          "the qualifier-not-outcome structure: 'kalpate, fitness, not personality' — direct rendering of the verse's precondition framing",
+          "yam hi na vyathayanty ete ('whom these do not disturb') — preserved as 'whom these sensor-contacts do not disturb'"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 6, 11, and 16: BG 6.34 (cañcalaṁ hi manaḥ — the mind is restless), BG 11.41 (sakheti matvā — having considered you a friend), BG 16.21 (tri-vidhaṁ narakasyedaṁ — the threefold gate of hell). The 2.15 engineering analog (qualifier for long-horizon work via trained equanimity) cannot equally apply to any of these. The kalpate-as-qualifier structure is uniquely a 2.15 reading; it depends on the precondition framing the test verses lack. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "amṛtatvāya kalpate ('is fit for the imperishable') preserved as 'fit for the imperishable kind of work — long-horizon'",
+          "sama-duḥkha-sukham preserved as 'equal-minded toward pain and pleasure' — categorical equivalence, not phenomenal identity",
+          "the qualifier-not-outcome structure: 'kalpate, fitness, not personality' — direct rendering of the verse's precondition framing",
+          "yam hi na vyathayanty ete ('whom these do not disturb') — preserved as 'whom these sensor-contacts do not disturb'"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 6, 11, and 16: BG 6.34 (cañcalaṁ hi manaḥ — the mind is restless), BG 11.41 (sakheti matvā — having considered you a friend), BG 16.21 (tri-vidhaṁ narakasyedaṁ — the threefold gate of hell). The 2.15 engineering analog (qualifier for long-horizon work via trained equanimity) cannot equally apply to any of these. The kalpate-as-qualifier structure is uniquely a 2.15 reading; it depends on the precondition framing the test verses lack. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "real_insight": "When staffing long-horizon work, the qualifier is trained equanimity (decoupling stability from sensor-input polarity), not personality calmness; verify that the operator's equanimity has not arrived at the cost of care.",
+        "could_act_on_tomorrow": "Yes — the next time we are evaluating tech-lead candidates for a multi-year migration, explicitly test for the polarity-decoupling capacity (how does the candidate respond to dashboard movement?) and equally explicitly test for care (does the candidate engage with users, with teammates, with the system itself?). The verse separates these two checks.",
+        "is_new_or_sharply_named": "The 'equanimity-with-care, not flatness' framing is sharper than the usual 'find calm tech leads' content. The verse explicitly distinguishes trained equanimity from cold detachment — and the falsifiability section calls out the failure mode of selecting on calm-without-care, which is a real hiring failure I have seen.",
+        "objection": "none. The counter-example (short-horizon work where reactive operators may be preferable) is correctly carved out — the verse does not claim equanimity is always superior; it claims it is the qualifier for a specific kind of work.",
+        "verdict_reason": "Specific phenomenon (long-horizon work needs trained equanimity), specific corrective (select on it explicitly + verify care has not been sacrificed), specific test (does the candidate's equanimity coexist with their care for users/teammates?). Senior engineer would adopt this in hiring."
+      },
+      "ts": "2026-04-29T18:56:21.188Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.15 is the qualifier-for-amṛtatva verse. The engineering layer preserves both the Shankara reading (Self-realization → equanimity → fitness for Immortality) and the Ramanuja reading (duty-functional endurance + non-attachment → attainment of immortality) at the level both accept: equanimity is a precondition, kalpate ('is fit') is a qualifier-claim not an achievement-claim. The engineering layer explicitly preserves this: 'The verse states a qualifier, not an outcome. Equanimity in front of dashboard movement is the diagnostic of fitness, not the achievement itself.' This is the right discipline. The disagreement on amṛtatvāya kalpate is preserved at the source-pack level, signaling that 'amṛtatva' in the Sanskrit means 'the imperishable / Liberation' and the engineering rendering 'imperishable work' is one register, not the verse's full scope. Sama-duḥkha-sukham is preserved with care: not 'feels the same' but 'categorically equivalent in their status as transient sensations' — Ramanuja's reading. No tradition-conflation. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.15 is the qualifier-for-amṛtatva verse. The engineering layer preserves both the Shankara reading (Self-realization → equanimity → fitness for Immortality) and the Ramanuja reading (duty-functional endurance + non-attachment → attainment of immortality) at the level both accept: equanimity is a precondition, kalpate ('is fit') is a qualifier-claim not an achievement-claim. The engineering layer explicitly preserves this: 'The verse states a qualifier, not an outcome. Equanimity in front of dashboard movement is the diagnostic of fitness, not the achievement itself.' This is the right discipline. The disagreement on amṛtatvāya kalpate is preserved at the source-pack level, signaling that 'amṛtatva' in the Sanskrit means 'the imperishable / Liberation' and the engineering rendering 'imperishable work' is one register, not the verse's full scope. Sama-duḥkha-sukham is preserved with care: not 'feels the same' but 'categorically equivalent in their status as transient sensations' — Ramanuja's reading. No tradition-conflation. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.15",
+            "confidence": 0.86,
+            "reasoning": "The engineering layer's signature is the explicit qualifier-not-outcome framing ('kalpate, fitness, not personality'), the equanimity-toward-pain-and-pleasure pair (sama-duḥkha-sukham), and the dhīra-as-qualifier-for-the-imperishable structure. The hiring scenario explicitly anchors on selecting for the qualifier the verse names. Only 2.15 has the kalpate-amṛtatvāya structure where equanimity is named as the precondition for fitness for the imperishable."
+          },
+          {
+            "verse_id": "BG 12.13",
+            "confidence": 0.2,
+            "reasoning": "BG 12.13 (adveṣṭā sarva-bhūtānāṁ — non-hatred toward all beings) lists qualities of the dear-to-Krishna. Could host an equanimity-as-qualifier analog, but lacks the specific kalpate-amṛtatvāya 'fitness for the imperishable' structure."
+          },
+          {
+            "verse_id": "BG 2.56",
+            "confidence": 0.15,
+            "reasoning": "BG 2.56 (duḥkheṣv anudvigna-manāḥ — undisturbed in mind among sorrows) is the canonical sthita-prajña verse. Could host a similar 'undisturbed by signals' analog. But 2.56 is the steady-mind description; 2.15 is the qualifier statement."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.15",
+            "confidence": 0.86,
+            "reasoning": "The engineering layer's signature is the explicit qualifier-not-outcome framing ('kalpate, fitness, not personality'), the equanimity-toward-pain-and-pleasure pair (sama-duḥkha-sukham), and the dhīra-as-qualifier-for-the-imperishable structure. The hiring scenario explicitly anchors on selecting for the qualifier the verse names. Only 2.15 has the kalpate-amṛtatvāya structure where equanimity is named as the precondition for fitness for the imperishable."
+          },
+          {
+            "verse_id": "BG 12.13",
+            "confidence": 0.2,
+            "reasoning": "BG 12.13 (adveṣṭā sarva-bhūtānāṁ — non-hatred toward all beings) lists qualities of the dear-to-Krishna. Could host an equanimity-as-qualifier analog, but lacks the specific kalpate-amṛtatvāya 'fitness for the imperishable' structure."
+          },
+          {
+            "verse_id": "BG 2.56",
+            "confidence": 0.15,
+            "reasoning": "BG 2.56 (duḥkheṣv anudvigna-manāḥ — undisturbed in mind among sorrows) is the canonical sthita-prajña verse. Could host a similar 'undisturbed by signals' analog. But 2.56 is the steady-mind description; 2.15 is the qualifier statement."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verdict_reason": "Removing 2.15 and giving a writer 2.11-2.14 + chapter thesis, the writer would predict a verse that caps the sāṅkhya block — they could plausibly write a 'steady operator under sensor pressure' analog. However, the specific signature of 2.15 — the qualifier-not-outcome framing (kalpate as 'fitness for', not 'achievement of'), the hiring-decision scenario where equanimity is the disqualifying criterion for long-horizon work, the explicit guard against 'cold operator' misreading — depends on Sanskrit-grounded specifics. A chapter-only writer would write a flatter 'be calm under pressure' analog; the verse-grounded writer makes the qualifier-vs-achievement distinction explicit and ties it to a falsifiable hiring predicate. Verse contributes specific signal.",
+        "specific_signal_contributed": [
+          "the kalpate-as-qualifier framing: equanimity is the precondition, not the achievement",
+          "the equanimity-with-care guard: training equanimity must not arrive at the cost of care for users/teammates",
+          "the long-horizon-vs-short-horizon distinction: the qualifier applies to specific work, not as a universal selection criterion"
+        ]
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "named_artifact": "Tech-lead hiring rubric for long-horizon work: structured interview that explicitly tests (a) polarity-decoupling capacity (how does the candidate respond to dashboard movement during the interview's mock incident exercise?), and (b) verified care (does the candidate engage with users, with teammates, with the system?). Both columns must show evidence; equanimity without care is a disqualifier.",
+        "secondary_artifacts": [
+          "Multi-year project staffing checklist: 'Does the candidate have demonstrated track record across at least one project of comparable horizon? Did their posture remain consistent across the inevitable storms? Did their care for users / team / system remain visibly active?'",
+          "Promotion criteria for staff/principal level on long-horizon platforms: equanimity-with-care is an explicit dimension, evaluated through documented behavior across long incidents and across long projects.",
+          "Postmortem template field: 'Did the operator's equanimity decouple appropriately from incident polarity? If not, what training would build the decoupling? Distinguish from the team's care for users — both must remain.'"
+        ],
+        "verdict_reason": "The verse's claim is reproducible as a concrete hiring rubric and as a long-horizon-staffing predicate. The qualifier (kalpate) is operationalized as a binary observable in interviews and in track records. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": [
+          {
+            "severity": "minor",
+            "claim": "fit (kalpate) for the imperishable work — work whose horizon is longer than any single sprint, longer than any single team, sometimes longer than any single career",
+            "objection": "amṛtatva in the Sanskrit and in Shankara's reading is the imperishable / immortality / liberation. The engineering rendering 'imperishable work' is a register substitution that preserves the scope-of-fitness claim while keeping the analog at the engineering level. The risk would be reading amṛtatva as 'long-term project completion' (a finite achievement); the engineering layer wisely preserves the 'fitness for' framing — kalpate, qualifier — rather than collapsing it into achievement. Acceptable register substitution. The disagreement_among_translators entry explicitly preserves Shankara's amṛtatva-as-Liberation reading at the source-pack level, signaling to the reader that the engineering is one register, not the verse's full scope."
+          }
+        ],
+        "notes": "The engineering layer accurately preserves the verse's three claims: (1) the qualifier — undisturbed by sense-contacts (yam hi na vyathayanti), (2) the trait — equal-minded toward pain and pleasure (sama-duḥkha-sukham), (3) the fitness — for the imperishable (amṛtatvāya kalpate). Importantly, the engineering layer preserves *kalpate* as 'fitness' / 'qualifier', not as 'achievement' — which is the right reading. Shankara: 'becomes fit for Immortality.' The engineering layer's 'is the qualifier for the imperishable work, not the achievement itself' is an accurate restatement. The dhīra is preserved with technical specificity. The hiring-decision scenario is register-faithful: it is selecting on the qualifier, not on the achievement. PASS at high confidence."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "Long-horizon, identity-bearing work (multi-year migrations, regulated platforms, foundational services) requires staffing on trained equanimity (the qualifier kalpate names) plus verified care; absence of the equanimity is a disqualifier, not a deficiency to coach later.",
+        "example_decision": "Tech-lead selection for a five-year ledger migration. Three internal candidates. Apply the verse: rule out Candidate A (visibly fluctuating posture, destabilises on-call channel) on the equanimity check. Rule in Candidate B (consistent posture, demonstrated track record across long-horizon projects) on the equanimity check, then verify care (do they engage with users, with team?) before final selection. Candidate C is excellent but untested through long-horizon — defer until tested. The verse changes the staffing decision.",
+        "objection": "none — the predicate yields a falsifiable, observable check (posture under repeated incidents, demonstrated track record, verification of care). Two PMs could disagree about whether a candidate has 'enough' equanimity, but the disagreement is over evidence, which is the productive kind."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "Long-horizon, identity-bearing work (multi-year migrations, regulated platforms, foundational services) requires staffing on trained equanimity (the qualifier kalpate names) plus verified care; absence of the equanimity is a disqualifier, not a deficiency to coach later.",
+        "example_decision": "Tech-lead selection for a five-year ledger migration. Three internal candidates. Apply the verse: rule out Candidate A (visibly fluctuating posture, destabilises on-call channel) on the equanimity check. Rule in Candidate B (consistent posture, demonstrated track record across long-horizon projects) on the equanimity check, then verify care (do they engage with users, with team?) before final selection. Candidate C is excellent but untested through long-horizon — defer until tested. The verse changes the staffing decision.",
+        "objection": "none — the predicate yields a falsifiable, observable check (posture under repeated incidents, demonstrated track record, verification of care). Two PMs could disagree about whether a candidate has 'enough' equanimity, but the disagreement is over evidence, which is the productive kind."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "violations": [],
+        "notes": "The engineering layer is consistently additive. The phrase 'the verse states a qualifier, not an outcome' explicitly preserves the verse's own structure. The implication ('when staffing long-horizon, identity-bearing work, select on the trained equanimity 2.15 names') frames the engineering use as one application of the verse, not the verse's 'real' meaning. The disagreement section explicitly names that amṛtatva in the Sanskrit means 'the state of not-dying, the imperishable condition' — Liberation in Shankara's reading — and that the engineering rendering must preserve 'fitness for' rather than collapsing it. This is the right framing discipline."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "trivialization_severity": 1,
+        "specific_concerns": [],
+        "verdict_reason": "The engineering layer treats the verse with appropriate gravity. Crucially, the layer preserves kalpate as 'qualifier' rather than collapsing it into 'achievement' — which is the doctrinally correct reading. The amṛtatva claim is acknowledged at the source-pack level as 'the imperishable / Liberation', and the engineering rendering 'imperishable work' is signalled as a register substitution, not a flattening. The hiring scenario is concrete without trivializing the verse's claim: it is using the verse's structure to make a hiring decision visible, not claiming the verse 'really means' hiring criteria. PASS."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verses_off_tone": [],
+        "chapter_voice_summary": "BG 2.15 caps the sāṅkhya block A with the qualifier statement. The engineering layer's voice (the hiring panel deliberating staffing for a long-horizon migration) matches the chapter's didactic register — instructional, precise, distinguishing the qualifier from the trait, distinguishing the trained capacity from personality. The voice is appropriately summative — closing the block — without becoming declarative or motivational. The chapter's progression (rebuke → diagnostic → eternality → analogical proof → discipline → qualifier) reaches its first natural pause here, and the engineering layer signals that pause appropriately ('the precondition for everything that follows'). Voice consistent."
+      },
+      "ts": "2026-04-29T18:56:21.189Z"
+    }
+  ]
+}

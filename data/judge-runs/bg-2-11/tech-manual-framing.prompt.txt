@@ -1,0 +1,249 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.11",
+  "sanskrit_devanagari": "श्रीभगवानुवाच ।\nअशोच्यानन्वशोचस्त्वं प्रज्ञावादांश्च भाषसे ।\nगतासूनगतासूंश्च नानुशोचन्ति पण्डिताः ॥ ११ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca |\naśocyān anvaśocas tvaṁ prajñā-vādāṁś ca bhāṣase |\ngatāsūn agatāsūṁś ca nānuśocanti paṇḍitāḥ || 11 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान्",
+      "iast": "śrī-bhagavān",
+      "meaning": "the Blessed Lord"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "अशोच्यान्",
+      "iast": "aśocyān",
+      "meaning": "those not worthy of grief"
+    },
+    {
+      "sanskrit": "अन्वशोचः",
+      "iast": "anvaśocaḥ",
+      "meaning": "you have grieved"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "प्रज्ञावादान्",
+      "iast": "prajñā-vādān",
+      "meaning": "words of wisdom / talk of the wise"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "भाषसे",
+      "iast": "bhāṣase",
+      "meaning": "you speak"
+    },
+    {
+      "sanskrit": "गतासून्",
+      "iast": "gatāsūn",
+      "meaning": "those whose life-breath has departed (the dead)"
+    },
+    {
+      "sanskrit": "अगतासून्",
+      "iast": "agatāsūn",
+      "meaning": "those whose life-breath has not departed (the living)"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "अनुशोचन्ति",
+      "iast": "anuśocanti",
+      "meaning": "they grieve"
+    },
+    {
+      "sanskrit": "पण्डिताः",
+      "iast": "paṇḍitāḥ",
+      "meaning": "the wise (those who know the Self)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/11/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Personality of Godhead said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor for the dead.",
+      "raw_capture_path": "data/sources/raw/bg-2-11-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/11",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Lord said: While you speak words of wisdom, you are mourning for that which is not worthy of grief. The wise lament neither for the living nor for the dead."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/11/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1174-char full purport)",
+      "verbatim_excerpt": "The Lord at once took the position of the teacher and chastised the student, calling him, indirectly, a fool. The Lord said, \"You are talking like a learned man, but you do not know that one who is learned — one who knows what is body and what is soul — does not lament for any stage of the body, neither in the living n[or in the dead].\"",
+      "verbatim_excerpt_length": 309,
+      "verbatim_full_length": 1174,
+      "copyright_holder": "Bhaktivedanta Book Trust International",
+      "raw_full_path": "data/sources/raw/bg-2-11-vedabase.json (purport_full_length: 1174)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-11/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:19:25Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Bhisma, Drona and others are not to be grieved for, because they are of noble character and are eternal in their real nature. With regard to them, asocyan, who are not to be grieved for; tvam, you; anvasocah, grieve... Like one mad, you show in yourself this foolishness and learning which are contradictory.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1416,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-11-shankara.json",
+      "summary_paraphrase": "Shankara reads Krishna's first teaching utterance as a sharp diagnosis: Arjuna's grief and his learned-sounding speech are contradictory. The wise (paṇḍitāḥ) — those who know the Self — grieve neither for the living nor for the dead, because the Self is eternal. The reproach 'hence you are a fool' is taken at full force; Shankara does not soften the rebuke. The teaching anchors on the eternality of the Self: bodies come and go, but the substrate does not."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-11/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:19:25Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The Lord said — You are grieving for those who do not deserve to be grieved for. You also speak words of wisdom about the nature of the body and the self... Hence, in you this contradiction is visible — your grief at the thought 'I shall slay them?' and at the same time your talk about righteousness and unrighteousness.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1657,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-11-ramanuja.json",
+      "summary_paraphrase": "Ramanuja reads the verse as opening the formal Self-teaching (ātma-vidyā). Arjuna's contradiction is named precisely: he grieves over the death of bodies even while speaking as if he knew the distinction between body and self. The wise — those who possess true knowledge of body and self — do not grieve for either category, dead or living, because the self is not destroyed when the body dies. Ramanuja, characteristically, immediately ties the eternality of the self to the duty of war fought without selfish desire — as a means to self-knowledge."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "prajñā-vādān",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "learned words"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "words of wisdom"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "words of wisdom, words used by men of wisdom, of intelligence — used here ironically: Arjuna's words sound learned but contradict themselves"
+        },
+        {
+          "source": "Madhva (per bhagavad-gita.us)",
+          "rendering": "speculative concoction (prajnavadah) — appealing to the mind but not according to Vedic injunction"
+        }
+      ],
+      "explanation": "All major translators render prajñā-vādān as 'learned words' or 'words of wisdom', but the commentarial traditions diverge sharply on tone. Shankara reads the phrase as ironic — Arjuna's speech is shaped like wisdom-speech but is in fact contradictory, hence the 'fool' charge. Madhva goes further, classifying prajñā-vāda here as a kind of speculative reasoning that bypasses Vedic injunction. Modern translations flatten this into descriptive 'learned words' and lose the rebuke. The engineering layer must preserve the rebuke; this verse opens with Krishna calling Arjuna's reasoning misplaced, not merely 'learned'."
+    },
+    {
+      "word": "paṇḍitāḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "those who are wise"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the wise"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "the learned, the knowers of the Self — paṇḍā means wisdom about the Self; those indeed who have this are paṇḍitāḥ"
+        },
+        {
+          "source": "Ramanuja (per Adidevananda)",
+          "rendering": "those who know the exact truth of body and self as distinct"
+        }
+      ],
+      "explanation": "The Sanskrit paṇḍitāḥ is technically narrow: not 'a learned person in general' but 'one who has paṇḍā — knowledge specifically of the Self.' Shankara grounds this etymologically; Ramanuja restricts it to those who have grasped the body/self distinction. Modern translators render generically as 'wise', losing the technical sense. The engineering analog should preserve the technicality: the operator who has internalized the architectural-invariant doctrine, not merely a 'wise person'."
+    }
+  ],
+  "literal_meaning": "The Blessed Lord said: You have grieved for those not worthy of grief, while at the same time speaking words of wisdom. The wise grieve neither for those whose life has departed nor for those whose life has not departed.",
+  "traditional_meaning": "Krishna's first direct teaching utterance in the Gita. The verse opens with a sharp diagnosis: Arjuna's grief and his learned-sounding reasoning are mutually contradictory. The wise — those who have grasped the body/self distinction — do not grieve for either the living or the dead, because what is real (the imperishable substrate) is not destroyed by death, and what dies (the body) was never permanent in the first place. The verse is the chapter's pivot from corrective sharpness (2.2-2.3) to philosophical instruction. All major commentarial traditions agree on the diagnostic structure (contradiction between grief and wisdom-talk), and on the doctrinal claim (the wise grieve neither living nor dead because the Self is eternal). Tone of the rebuke varies: Shankara reads it as 'hence you are a fool'; Ramanuja reads it as the structured opening of the Self-teaching; Mukundananda and Prabhupada preserve the diagnostic without amplifying the rebuke.",
+  "engineering": {
+    "translation": "You have been grieving for what does not deserve grief, all the while speaking the language of wisdom. Both halves of that sentence cannot stand together. The operator who knows what survives change does not lament the deprecated module, and does not lament the implementation slated to replace it. The deprecated CLI was never the system itself; it was a transient expression of the underlying contract. The replacement shipping next quarter will be another expression of the same contract. Those who genuinely understand — paṇḍitāḥ, whose knowledge concerns specifically what is invariant under implementation churn — mourn neither side of a deprecation. They mourn neither yesterday's rolled-back deploy nor today's successor. Grief signals that the substrate has been confused with one of its instances. Wisdom-talk paired with such grief becomes a tell: the operator borrows architectural vocabulary while reasoning at implementation depth. The diagnosis lands sharply. Correction means locating the genuine invariant and refusing to mistake either rendering for it.",
+    "concrete_scenario": "Morning of a planned cutover from a legacy Postgres-backed billing service to a new Kafka-driven event-sourced rewrite. The principal engineer who built the legacy stack over four years opens the deprecation PR on GitHub with an unusually long description: paragraphs eulogising the elegance of the original schema, the on-call runbooks meticulously refined, the Datadog dashboards that 'will never look the same'. In the same paragraph, they cite first-principles arguments about service evolution and event-sourcing tradeoffs. The lead architect responds with a single review comment: 'You are mourning the wrong thing. The billing requirement — invoices reconcile within one cent against bank statements — predates this codebase and survives the rewrite. That is the spec. The Postgres tables were one rendering of it. The Kafka topic is another. Grieving an implementation while invoking first-principles is the exact contradiction Krishna names. Your beloved dashboard was an instrument that read the spec; rebuild it in an afternoon. Land the deprecation.' The engineer does not need consolation; they need the diagnostic that pinpoints the misplacement.",
+    "falsifiability": "The analog fails if a reader uses it to suppress legitimate engineering grief: the loss of institutional knowledge in a hasty migration, the breakage of dependent systems whose contracts were undocumented, the regression of capability the rewrite has not yet recovered. Krishna does not reject the recognition that things change; he rejects the misidentification of what is being lost. If the operator is mourning a real capability loss — a feature the rewrite does not yet match — that is not what the verse corrects. The verse corrects the operator who confuses implementation-loss with spec-loss.",
+    "counter_example": "When the deprecation is itself wrong — when the 'replacement' does not actually satisfy the original requirement, when the team is moving for novelty rather than necessity, when the legacy system encodes hard-won knowledge the rewrite has not yet recovered — this verse does not apply. Krishna's rebuke presupposes that Arjuna's wisdom-talk is genuinely wisdom-talk; the diagnosis is the contradiction between knowing and grieving. If the engineer is right that the deprecation is premature, the right verse is not 2.11 — it is the discipline of the disciplined no, articulated later in the chapter and in chapter 5.",
+    "implication": "When you find yourself grieving a deprecated module while citing first-principles arguments, stop and locate the actual invariant. If you can name the customer requirement the module was implementing, the grief belongs to the implementation, not the spec — and the grief is misplaced. The wise operator does not mourn the version; they mourn nothing the rewrite preserves.",
+    "quotable_line": "Grief for a deprecated module while citing first-principles is the contradiction Krishna names in 2.11.",
+    "tags": [
+      "architectural-invariant",
+      "deprecation-management",
+      "spec-vs-behavior",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

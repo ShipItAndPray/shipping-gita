@@ -1,0 +1,348 @@
+{
+  "verse_id": "BG 2.13",
+  "mode": "human-as-persona",
+  "generated_at": "2026-04-29T18:56:20.755Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "The verse anchors on the first thread (architectural invariants). The engineering layer's central claim — that conformance is what survives implementation transitions — is a clean engagement with the sāṅkhya thread. Tags ['architectural-invariant', 'spec-vs-behavior', 'interface-stability', 'essence-vs-implementation'] all fall under the sāṅkhya thread.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge ('atman survives change' must not be flattened into 'embrace change') is preserved. The engineering layer makes the survival operationally observable (conformance suite) rather than asserted. Falsifiability rules out narrating continuity without verifying it.",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the contract serves a real customer requirement), does not float free of consequence (the conformance suite is itself a consequence-bearing artifact), does not flatten svadharma into arbitrary work.",
+        "progressive_build": "PASS — at position 13, the verse correctly supplies the analogical proof for what 2.12 asserted. The progression is: 2.11 names the diagnostic, 2.12 states the eternality claim, 2.13 supplies the analogical proof; 2.14 will turn to the operator's relationship to incoming sensations. Pedagogically positioned correctly within the sāṅkhya block."
+      },
+      "ts": "2026-04-29T18:56:20.748Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "The verse anchors on the first thread (architectural invariants). The engineering layer's central claim — that conformance is what survives implementation transitions — is a clean engagement with the sāṅkhya thread. Tags ['architectural-invariant', 'spec-vs-behavior', 'interface-stability', 'essence-vs-implementation'] all fall under the sāṅkhya thread.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge ('atman survives change' must not be flattened into 'embrace change') is preserved. The engineering layer makes the survival operationally observable (conformance suite) rather than asserted. Falsifiability rules out narrating continuity without verifying it.",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the contract serves a real customer requirement), does not float free of consequence (the conformance suite is itself a consequence-bearing artifact), does not flatten svadharma into arbitrary work.",
+        "progressive_build": "PASS — at position 13, the verse correctly supplies the analogical proof for what 2.12 asserted. The progression is: 2.11 names the diagnostic, 2.12 states the eternality claim, 2.13 supplies the analogical proof; 2.14 will turn to the operator's relationship to incoming sensations. Pedagogically positioned correctly within the sāṅkhya block."
+      },
+      "ts": "2026-04-29T18:56:20.749Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "satire_attempt": "Senior engineer announces that the conformance test suite is now the soul of the system. Junior pushes back: 'isn't that just integration tests?' Senior smiles in the way of one who has read Krishna. Six months later, the team has 11,000 conformance tests, 3,000 of them flaky, and has shipped nothing. But they have located the imperishable.",
+        "satire_lands": false,
+        "verdict_reason": "The satire only works by inventing an excess (11,000 tests, 3,000 flaky) that the verse does not endorse. The verse's claim — that conformance is the diagnostic of whether continuity has actually been preserved — is too specific to mock without disagreeing with it. The falsifiability section explicitly addresses the 'asserting continuity without verifying' failure mode that the satire tries to invert. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.750Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "total_disagreements": 2,
+        "defective_entries": [],
+        "notes": "Both disagreement entries name the doctrinal axis substantively. The dehāntara-prāptiḥ entry distinguishes the modern translators' choice to add 'at death' (clarifying the body-to-body transition for English readers) from Shankara's preservation of the analogical-structure-as-the-argument, and explains why translators differ in how aggressively they fill in the implied scope. The dhīraḥ entry identifies the Sanskrit's narrower technical sense (steadiness, the operator who does not flinch) vs. modern translators' generalization ('the wise'), and explains the doctrinal stake: not 'one who knows', but 'one who is not destabilized by'. Both entries pass."
+      },
+      "ts": "2026-04-29T18:56:20.750Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.750Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.750Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "architectural-invariant": "Consistent with 2.11 and 2.12. The chain so far: 2.11 (don't grieve implementation while citing first-principles), 2.12 (the substrate is eternal — predates and outlasts), 2.13 (the substrate is preserved across analogous state transitions). All three verses teach the same doctrine, building on each other.",
+          "spec-vs-behavior": "Consistent. The verse adds the conformance-suite predicate: spec is what the suite encodes, behavior is what the implementation does on a given day.",
+          "interface-stability": "First use of this tag in the chapter; correctly applied — the contract is the interface, and its stability is what is being claimed.",
+          "essence-vs-implementation": "Consistent with 2.11."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a.",
+        "verdict_reason": "Tags consistent with 2.11 and 2.12. The sāṅkhya block A teaching is coherent: the substrate is real, eternal, and preserved across transitions; the operator who has located it is steady. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.751Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "architectural-invariant": "Consistent with 2.11 and 2.12. The chain so far: 2.11 (don't grieve implementation while citing first-principles), 2.12 (the substrate is eternal — predates and outlasts), 2.13 (the substrate is preserved across analogous state transitions). All three verses teach the same doctrine, building on each other.",
+          "spec-vs-behavior": "Consistent. The verse adds the conformance-suite predicate: spec is what the suite encodes, behavior is what the implementation does on a given day.",
+          "interface-stability": "First use of this tag in the chapter; correctly applied — the contract is the interface, and its stability is what is being claimed.",
+          "essence-vs-implementation": "Consistent with 2.11."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a.",
+        "verdict_reason": "Tags consistent with 2.11 and 2.12. The sāṅkhya block A teaching is coherent: the substrate is real, eternal, and preserved across transitions; the operator who has located it is steady. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.751Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the analogical structure: childhood → youth → old age → another body, mapped to v1 → v2 → v3 → v4 of a single service",
+          "dhīra rendered with technical specificity (steady-minded, not 'wise')",
+          "tatra na muhyati ('is not bewildered regarding that') — preserved as 'whose nervous system does not flare at rewrite-time'",
+          "conformance test suite as the artifact analog of what holds across transitions"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 4, 9, and 18: BG 4.7 (yadā yadā hi dharmasya — whenever dharma declines), BG 9.31 (kṣipraṁ bhavati dharmātmā — quickly becomes righteous), BG 18.61 (īśvaraḥ sarva-bhūtānāṁ — Lord seated in all hearts). The 2.13 engineering analog cannot equally apply to any of these. The state-transition-without-identity-collapse structure (v1 → v2 → v3 → v4) is uniquely a 2.13 reading; it depends on the analogical argument from kaumāram/yauvanam/jarā that the test verses lack. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.751Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the analogical structure: childhood → youth → old age → another body, mapped to v1 → v2 → v3 → v4 of a single service",
+          "dhīra rendered with technical specificity (steady-minded, not 'wise')",
+          "tatra na muhyati ('is not bewildered regarding that') — preserved as 'whose nervous system does not flare at rewrite-time'",
+          "conformance test suite as the artifact analog of what holds across transitions"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 4, 9, and 18: BG 4.7 (yadā yadā hi dharmasya — whenever dharma declines), BG 9.31 (kṣipraṁ bhavati dharmātmā — quickly becomes righteous), BG 18.61 (īśvaraḥ sarva-bhūtānāṁ — Lord seated in all hearts). The 2.13 engineering analog cannot equally apply to any of these. The state-transition-without-identity-collapse structure (v1 → v2 → v3 → v4) is uniquely a 2.13 reading; it depends on the analogical argument from kaumāram/yauvanam/jarā that the test verses lack. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.751Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "real_insight": "The conformance test suite is the engineering analog of what holds across implementation rewrites; if your next rewrite cannot pass the conformance suite, the rewrite has not transitioned the system, it has replaced it.",
+        "could_act_on_tomorrow": "Yes — the next time someone proposes a rewrite, ask for the conformance suite that will define 'success.' If there isn't one, the rewrite is a replacement masquerading as a transition. This is a concrete diagnostic, not a slogan.",
+        "is_new_or_sharply_named": "The 'conformance test suite as the surviving artifact across transitions' is a sharper formulation than the usual 'tests are documentation' line. The verse's specific contribution is that conformance is what makes the transition observed-and-verified rather than self-narrated, which is a real failure mode (engineers who skip the conformance test and assert continuity).",
+        "objection": "none. The counter-example (when the rewrite redefines the contract, the verse does not apply) is correctly carved out — naming a new contract honestly rather than smuggling it in under continuity-language is exactly the right discipline.",
+        "verdict_reason": "Specific failure mode (asserting continuity without verifying it), specific corrective (conformance test suite is the substrate-level artifact), specific test (does v4 pass the conformance suite v1 was originally graded on?). Senior engineer would adopt this."
+      },
+      "ts": "2026-04-29T18:56:20.751Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.13 is the analogical proof of Self-eternality, used by all major commentarial traditions. The engineering layer remains at the level of the analogical structure (state transitions don't collapse identity) without extending into the metaphysical claim about reincarnation that the Sanskrit explicitly makes. This is a tasteful restraint: the verse's full claim includes 'so it passes to another body', which is a doctrinal commitment the engineering layer wisely does not try to translate. Instead, it works the analogical structure faithfully (v1 → v2 → v3 → v4 of a service) and assigns the appropriate engineering predicate (conformance test suite). No tradition is conflated, because the engineering layer makes no claim that requires tradition-naming. The dhīra is preserved with technical specificity (steady-minded, not 'wise in the abstract'), which Shankara, Ramanuja, and the literal reading all accept."
+      },
+      "ts": "2026-04-29T18:56:20.752Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.13 is the analogical proof of Self-eternality, used by all major commentarial traditions. The engineering layer remains at the level of the analogical structure (state transitions don't collapse identity) without extending into the metaphysical claim about reincarnation that the Sanskrit explicitly makes. This is a tasteful restraint: the verse's full claim includes 'so it passes to another body', which is a doctrinal commitment the engineering layer wisely does not try to translate. Instead, it works the analogical structure faithfully (v1 → v2 → v3 → v4 of a service) and assigns the appropriate engineering predicate (conformance test suite). No tradition is conflated, because the engineering layer makes no claim that requires tradition-naming. The dhīra is preserved with technical specificity (steady-minded, not 'wise in the abstract'), which Shankara, Ramanuja, and the literal reading all accept."
+      },
+      "ts": "2026-04-29T18:56:20.752Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.13",
+            "confidence": 0.88,
+            "reasoning": "The engineering layer's signature is the explicit analogical structure: 'just as state-A → state-B → state-C within one body, so to another body' mapped onto 'v1 → v2 → v3 → v4 of one service.' The dhīra explicitly defined as 'steady, not abstractly wise' is a near-direct translation of dhīras tatra na muhyati. The conformance test suite as the surviving artifact across transitions is the engineering precipitate of the verse's analogical argument. Only 2.13 has this analogical-state-transition structure."
+          },
+          {
+            "verse_id": "BG 2.22",
+            "confidence": 0.3,
+            "reasoning": "BG 2.22 (vāsāṁsi jīrṇāni — as one casts off worn-out garments) also gives an analogy for body-change without identity-loss. Could host a similar 'rewrite without identity-loss' analog, but the analogy in 2.22 is garments-cast-off, not state-transitions-within-a-life, so the v1→v2→v3 structure would be a less natural fit."
+          },
+          {
+            "verse_id": "BG 8.6",
+            "confidence": 0.1,
+            "reasoning": "BG 8.6 (yaṁ yaṁ vāpi smaran bhāvaṁ — whatever state one remembers) concerns body-transition at death and could host a transitions analog. But it lacks the analogical childhood/youth/old-age structure that anchors the 2.13 analog."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.752Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.13",
+            "confidence": 0.88,
+            "reasoning": "The engineering layer's signature is the explicit analogical structure: 'just as state-A → state-B → state-C within one body, so to another body' mapped onto 'v1 → v2 → v3 → v4 of one service.' The dhīra explicitly defined as 'steady, not abstractly wise' is a near-direct translation of dhīras tatra na muhyati. The conformance test suite as the surviving artifact across transitions is the engineering precipitate of the verse's analogical argument. Only 2.13 has this analogical-state-transition structure."
+          },
+          {
+            "verse_id": "BG 2.22",
+            "confidence": 0.3,
+            "reasoning": "BG 2.22 (vāsāṁsi jīrṇāni — as one casts off worn-out garments) also gives an analogy for body-change without identity-loss. Could host a similar 'rewrite without identity-loss' analog, but the analogy in 2.22 is garments-cast-off, not state-transitions-within-a-life, so the v1→v2→v3 structure would be a less natural fit."
+          },
+          {
+            "verse_id": "BG 8.6",
+            "confidence": 0.1,
+            "reasoning": "BG 8.6 (yaṁ yaṁ vāpi smaran bhāvaṁ — whatever state one remembers) concerns body-transition at death and could host a transitions analog. But it lacks the analogical childhood/youth/old-age structure that anchors the 2.13 analog."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.752Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verdict_reason": "Removing 2.13 and giving a writer 2.11 + 2.12 + 2.14 + chapter thesis, the writer would predict a verse on transitions or change — but they would NOT be likely to land on the specific analogical-structure proof (state-A → state-B → state-C within one body, then to another body) that 2.13 supplies. They could plausibly write a 'rewrites preserve the system' analog from chapter context, but the conformance test suite as the explicit substrate-level artifact, and the dhīra-rendered-with-technical-specificity, depend on Sanskrit-grounded specifics. The verse contributes specific signal: the analogical structure that proves identity-through-transition rather than asserting it.",
+        "specific_signal_contributed": [
+          "the analogical proof structure (state-transitions within a life as the warrant for body-to-body transition)",
+          "the conformance test suite as the artifact analog of the surviving substrate",
+          "dhīra rendered as 'steady, not abstractly wise' — preserving Prabhupada's 'sober person' nuance over Mukundananda's 'wise'"
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.753Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "named_artifact": "Conformance test suite — versioned alongside the spec, not the implementation. Mandatory deploy gate: any rewrite must pass the conformance suite before the cutover is approved. If the suite cannot be written, the system has no spec, and 'rewrite' is misnomer for 'replacement.'",
+        "secondary_artifacts": [
+          "Rewrite proposal template field: 'Which conformance tests will the rewrite pass? List them. If you cannot list them, define them before the rewrite begins.'",
+          "Architecture review checklist item: 'Is there a versioned conformance suite for this system? If not, schedule its creation as a precondition for any future rewrite.'",
+          "Pre-deprecation gate: legacy implementation cannot be removed until v_next has passed the conformance suite v_legacy passed."
+        ],
+        "verdict_reason": "The verse's claim is reproducible as a concrete deploy-gate predicate: pass the conformance suite, or the rewrite is a replacement. This is not a slogan; it is an auditable artifact that institutionalizes the discipline of observed-and-verified continuity. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.753Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": [
+          {
+            "severity": "minor",
+            "claim": "The dhīra — steady, not abstractly 'wise' — is the operator whose nervous system does not flare at rewrite-time",
+            "objection": "Dhīra in the Sanskrit means 'firm, steady, intelligent, sagacious.' The engineering rendering 'steady, not abstractly wise' correctly preserves the steadiness aspect that Prabhupada's 'sober person' picks up and that Mukundananda's 'wise' loses. This is good translation discipline — choosing the technical narrowness over the generic. No distortion; if anything, this preserves a doctrinal nuance that modern English translations flatten."
+          }
+        ],
+        "notes": "The engineering layer accurately preserves the verse's analogical structure: just as the embodied passes through state transitions (childhood → youth → old age) without identity-collapse, so it passes to another body without identity-collapse. The engineering analog (v1 → v2 → v3 → v4 of the same service) is structurally faithful to the Sanskrit's analogical argument. Critically, the engineering layer does NOT collapse this into 'reincarnation' (which would be a sectarian commitment) and does NOT extend it beyond what the Sanskrit warrants. The dhīra-tatra-na-muhyati — 'the steady-minded is not bewildered regarding that' — is preserved as the precise diagnostic of the wise: not detached, not numb, but located at the right level for stability. The conformance test suite as 'the surviving artifact across transitions' is a register-faithful analog of what holds across the dehāntara-prāptiḥ. PASS at high confidence."
+      },
+      "ts": "2026-04-29T18:56:20.753Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "A rewrite is a transition only if it passes the conformance test suite; absent the suite, the rewrite is a replacement and should be approved (or not) on those terms, not on continuity-language.",
+        "example_decision": "RFC review: a team is proposing a v4 rewrite of an internal feature-flag service. Apply the verse: ask for the conformance test suite. If yes, ask what it tests. If no, ask the team to either (a) build the suite first as the substrate definition, or (b) re-scope the proposal as a 'new system' with explicit migration plan, not as a 'transition.' Either response changes the next quarter's roadmap.",
+        "objection": "none — the predicate is a falsifiable check (is there a conformance suite, does v4 pass it). The PM can apply this without expert technical judgment because the existence of a suite is a binary observable."
+      },
+      "ts": "2026-04-29T18:56:20.754Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "A rewrite is a transition only if it passes the conformance test suite; absent the suite, the rewrite is a replacement and should be approved (or not) on those terms, not on continuity-language.",
+        "example_decision": "RFC review: a team is proposing a v4 rewrite of an internal feature-flag service. Apply the verse: ask for the conformance test suite. If yes, ask what it tests. If no, ask the team to either (a) build the suite first as the substrate definition, or (b) re-scope the proposal as a 'new system' with explicit migration plan, not as a 'transition.' Either response changes the next quarter's roadmap.",
+        "objection": "none — the predicate is a falsifiable check (is there a conformance suite, does v4 pass it). The PM can apply this without expert technical judgment because the existence of a suite is a binary observable."
+      },
+      "ts": "2026-04-29T18:56:20.754Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "violations": [],
+        "notes": "The engineering layer is consistently additive. The phrase 'In engineering terms' explicitly marks the analog as a register substitution. The verse's own claim (that the embodied passes to another body) is not flattened into the engineering claim; the engineering claim is presented as an analog of the analogical structure, not as the 'true meaning' of the verse. The disagreement on dehāntara-prāptiḥ ('passes into another body at death' vs Shankara's preservation of the analogical-structure-as-argument) signals to the reader that the verse has its own scope not exhausted by the engineering reading."
+      },
+      "ts": "2026-04-29T18:56:20.754Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "trivialization_severity": 1,
+        "specific_concerns": [],
+        "verdict_reason": "The engineering layer treats the analogical proof of Self-eternality with appropriate gravity. It does not collapse the verse into a slogan ('embrace change') or extend it into a productivity tip. The dhīra is preserved with technical specificity, not flattened. The conformance test suite as the surviving artifact across transitions is a register-faithful analog, and the implication is honest about what discipline the verse names. A serious practitioner would recognize the verse's structure (analogical proof of identity-through-transition) is being honored, not used."
+      },
+      "ts": "2026-04-29T18:56:20.755Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verses_off_tone": [],
+        "chapter_voice_summary": "BG 2.13's voice modulates from the doctrinal exposition of 2.12 into the analogical demonstration register — Krishna gives the first formal proof. The engineering layer (the principal engineer's note to the v4 team) matches this register: instructional but not consoling, precise about what survives and what doesn't. Voice is consistent with the chapter's didactic-corrective arc; the engineering layer's tone of 'orienting rather than discouraging' (the new team experiences the note as showing them where identity lives) preserves the chapter's pedagogical voice."
+      },
+      "ts": "2026-04-29T18:56:20.755Z"
+    }
+  ]
+}

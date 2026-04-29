@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "thread_anchored": ["sāṅkhya / first-principles knowledge"],
+  "anchoring_evidence": "The verse anchors on the first thread (architectural invariants). The engineering layer's central claim — that conformance is what survives implementation transitions — is a clean engagement with the sāṅkhya thread. Tags ['architectural-invariant', 'spec-vs-behavior', 'interface-stability', 'essence-vs-implementation'] all fall under the sāṅkhya thread.",
+  "hard_edge_preservation": "PASS — the chapter's hard edge ('atman survives change' must not be flattened into 'embrace change') is preserved. The engineering layer makes the survival operationally observable (conformance suite) rather than asserted. Falsifiability rules out narrating continuity without verifying it.",
+  "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the contract serves a real customer requirement), does not float free of consequence (the conformance suite is itself a consequence-bearing artifact), does not flatten svadharma into arbitrary work.",
+  "progressive_build": "PASS — at position 13, the verse correctly supplies the analogical proof for what 2.12 asserted. The progression is: 2.11 names the diagnostic, 2.12 states the eternality claim, 2.13 supplies the analogical proof; 2.14 will turn to the operator's relationship to incoming sensations. Pedagogically positioned correctly within the sāṅkhya block."
+}

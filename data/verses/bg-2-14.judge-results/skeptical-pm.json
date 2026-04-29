@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When evaluating an on-call rotation or product-launch incident response, distinguish between signal-quality and operator-coupling: a high-quality signal poorly endured wastes operator capacity, while a low-quality signal poorly endured wastes the team's confidence in the operator.",
+  "example_decision": "Sprint planning: after a noisy incident week, the team is debating whether to add on-call rotation training or whether to dedupe alerts. Apply the verse: ask whether the operators have the trained capacity to read alerts without becoming them (titikṣā), and ask whether the alerts are themselves genuine information. If alerts are good but operators are coupling, training is the answer; if alerts are noisy and operators are fine, dedupe is the answer. The verse separates these two failure modes.",
+  "objection": "none — the predicate yields a concrete diagnostic (training vs. dedupe) for a real PM decision. Two PMs could disagree about which failure mode is dominant in a given week, but the disagreement is over evidence, which is the productive kind."
+}

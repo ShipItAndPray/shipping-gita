@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "real_insight": "The senior on-call's stability is decoupled from the dashboard's polarity — not because they're suppressing reaction, but because deliberate practice has trained the reflexive coupling away; this is a learnable nervous-system discipline, not a personality trait.",
+  "could_act_on_tomorrow": "Yes — at the next on-call retro, name explicitly which signals are genuine information vs. which signals are reflexive activations of the operator's stress response. Build the practice of reading-without-becoming as an explicit on-call training, not an unspoken expectation.",
+  "is_new_or_sharply_named": "The claim that decoupling is *trained* (and trainable) rather than possessed is sharper than the usual stoicism content. The verse explicitly distinguishes titikṣā from numbness ('they are not anaesthetised; their pulse remains normal because deliberate practice has trained the reflexive coupling away'), which is more precise than the typical 'don't let alerts stress you out' advice.",
+  "objection": "none. The falsifiability section explicitly rules out using the verse as cover for ignoring signals — endurance is not avoidance — which closes the most common misreading.",
+  "verdict_reason": "Specific phenomenon (operator-system polarity coupling), specific corrective (decouple via deliberate practice), specific observable (operator's pulse and posture do not register on the team's emotional barometer despite reading the same signals everyone else reads). Senior engineer would recognize this."
+}

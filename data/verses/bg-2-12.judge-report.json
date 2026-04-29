@@ -1,0 +1,348 @@
+{
+  "verse_id": "BG 2.12",
+  "mode": "human-as-persona",
+  "generated_at": "2026-04-29T18:56:20.571Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "The verse anchors directly on the first thread: architectural invariants. The engineering layer's central claim — that the durable customer requirement predates the team and outlasts the language — is a clean engagement with first-principles knowledge applied to engineering. Tags ['architectural-invariant', 'first-principles', 'long-term-thinking', 'spec-vs-behavior'] all fall under the sāṅkhya thread.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge that 'atman survives change' must not be flattened into 'embrace change' is preserved. The engineering layer is precise: it is not embracing change; it is recognising the durable substrate that the change does not affect. Falsifiability rules out the ossification reading ('using eternal requirement to refuse genuine product evolution').",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the durable user need is the central anchor), does not float free of the system (the operator is named as a transient custodian, not a free agent), does not flatten svadharma into arbitrary work (the durable customer requirement is the dharma analog).",
+        "progressive_build": "PASS — at position 12, immediately after the sāṅkhya block opens at 2.11, the verse correctly states the formal eternality claim that 2.11's diagnostic implied. The progression is: 2.11 names the diagnostic of misplaced grief; 2.12 names what the substrate is (the eternal); 2.13 will demonstrate via state-transition analogy. Pedagogical position correct."
+      },
+      "ts": "2026-04-29T18:56:20.564Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "thread_anchored": [
+          "sāṅkhya / first-principles knowledge"
+        ],
+        "anchoring_evidence": "The verse anchors directly on the first thread: architectural invariants. The engineering layer's central claim — that the durable customer requirement predates the team and outlasts the language — is a clean engagement with first-principles knowledge applied to engineering. Tags ['architectural-invariant', 'first-principles', 'long-term-thinking', 'spec-vs-behavior'] all fall under the sāṅkhya thread.",
+        "hard_edge_preservation": "PASS — the chapter's hard edge that 'atman survives change' must not be flattened into 'embrace change' is preserved. The engineering layer is precise: it is not embracing change; it is recognising the durable substrate that the change does not affect. Falsifiability rules out the ossification reading ('using eternal requirement to refuse genuine product evolution').",
+        "counter_anti_thesis_check": "PASS — the verse does not detach engineers from users (the durable user need is the central anchor), does not float free of the system (the operator is named as a transient custodian, not a free agent), does not flatten svadharma into arbitrary work (the durable customer requirement is the dharma analog).",
+        "progressive_build": "PASS — at position 12, immediately after the sāṅkhya block opens at 2.11, the verse correctly states the formal eternality claim that 2.11's diagnostic implied. The progression is: 2.11 names the diagnostic of misplaced grief; 2.12 names what the substrate is (the eternal); 2.13 will demonstrate via state-transition analogy. Pedagogical position correct."
+      },
+      "ts": "2026-04-29T18:56:20.565Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "satire_attempt": "Senior engineer at Stripe-clone-#47 explains to junior that 'the merchant's chargeback need predates the founders' as the team architects a fourth ledger rewrite this decade. PM nods sagely while the company burns through Series C. The Visa rulebook predates everyone in this room, including the WeWork lease. Build the forty-year platform, in the next eighteen months, before runway runs out. Now back to standup.",
+        "satire_lands": false,
+        "verdict_reason": "The satire works only by stripping out the verse's actual specificity (custodianship under team turnover, the falsifiability ruling out 'eternal requirement = ossify implementation', the counter-example carving out novel greenfield work). The verse's claim — that under-architecting via tenure-scoped reasoning is a real failure mode and the corrective is a custodianship frame — is too specific to mock without disagreeing with it. The satire requires inventing a 'fourth ledger rewrite this decade' which the verse explicitly warns against in the falsifiability section. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.565Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "total_disagreements": 2,
+        "defective_entries": [],
+        "notes": "Both disagreement entries name the doctrinal axis substantively. The 'neme janādhipāḥ / sarve vayam' entry identifies the central commentarial battleground: whether the plurals commit to ontological multiplicity (Ramanuja) or are concession-to-body-plurality with non-dual Self underneath (Shankara). The explanation makes the stakes explicit: 'The engineering layer must not flatten this — must remain at the level both traditions accept (the eternality of what is being pointed at, however one counts it), and not make a doctrinal commitment to either reading.' This is precisely the substance the gate is checking for. The 'ataḥ param' entry identifies a smaller-scope disagreement (modern translators' loss of the 'after this body's destruction' anchor that Shankara preserves) and explains why the engineering analog benefits from preserving the specific anchor. Both entries pass."
+      },
+      "ts": "2026-04-29T18:56:20.566Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.566Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": []
+      },
+      "ts": "2026-04-29T18:56:20.566Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "architectural-invariant": "Consistent with 2.11's prior usage. 2.11 establishes that grieving an implementation while citing first-principles is a contradiction; 2.12 supplies the affirmative claim — there IS a durable invariant that survives implementations. The two verses build on each other without drift.",
+          "first-principles": "Tag is correctly applied — the verse's claim is at the level of first-principles knowledge (eternality of the substrate).",
+          "long-term-thinking": "Tag is correctly applied. Will need to remain consistent across other verses tagged similarly in later chapters; for now, the verse establishes the foundation.",
+          "spec-vs-behavior": "Consistent with 2.11. The verse explicitly distinguishes spec (durable requirement) from behavior (current implementation rendering)."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a.",
+        "verdict_reason": "Tags consistent with prior verse usage (2.11) and with the verse's own engineering claim. No drift detected. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.566Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "same_tag_doctrine_consistency": {
+          "architectural-invariant": "Consistent with 2.11's prior usage. 2.11 establishes that grieving an implementation while citing first-principles is a contradiction; 2.12 supplies the affirmative claim — there IS a durable invariant that survives implementations. The two verses build on each other without drift.",
+          "first-principles": "Tag is correctly applied — the verse's claim is at the level of first-principles knowledge (eternality of the substrate).",
+          "long-term-thinking": "Tag is correctly applied. Will need to remain consistent across other verses tagged similarly in later chapters; for now, the verse establishes the foundation.",
+          "spec-vs-behavior": "Consistent with 2.11. The verse explicitly distinguishes spec (durable requirement) from behavior (current implementation rendering)."
+        },
+        "cross_reference_check": "No cross-references declared in this verse — n/a.",
+        "verdict_reason": "Tags consistent with prior verse usage (2.11) and with the verse's own engineering claim. No drift detected. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.566Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the three-times structure (past / present / future): 'never was a time / nor will be' → 'predates the founders / outlasts the language'",
+          "the plural of selves (I, you, these kings, all of us) → 'this team, future teams, prior teams as transient custodians of one durable need'",
+          "ataḥ param ('hereafter / beyond this point') → 'will not pack it away when they leave'",
+          "explicit non-commitment to Advaita/Vishishtadvaita ontology — preserved as non-commitment in the engineering analog"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 6, 9, and 17: BG 6.5 (uddhared ātmanātmānaṁ — lift the self by the self), BG 9.27 (yat karoṣi yad aśnāsi — whatever you do, eat, offer), BG 17.20 (dātavyam iti yad dānaṁ — gift given without expecting return). The 2.12 engineering analog (the requirement that predates the founders and outlasts the language) cannot equally apply to any of these. The custodianship-under-team-turnover anchor is uniquely a 2.12 reading — it relies on the past-future-eternality structure of the verse, which the test verses lack. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.567Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "could_apply_equally_to": [],
+        "verse_specific_anchors": [
+          "the three-times structure (past / present / future): 'never was a time / nor will be' → 'predates the founders / outlasts the language'",
+          "the plural of selves (I, you, these kings, all of us) → 'this team, future teams, prior teams as transient custodians of one durable need'",
+          "ataḥ param ('hereafter / beyond this point') → 'will not pack it away when they leave'",
+          "explicit non-commitment to Advaita/Vishishtadvaita ontology — preserved as non-commitment in the engineering analog"
+        ],
+        "verdict_reason": "Tested against three random verses from Chapters 6, 9, and 17: BG 6.5 (uddhared ātmanātmānaṁ — lift the self by the self), BG 9.27 (yat karoṣi yad aśnāsi — whatever you do, eat, offer), BG 17.20 (dātavyam iti yad dānaṁ — gift given without expecting return). The 2.12 engineering analog (the requirement that predates the founders and outlasts the language) cannot equally apply to any of these. The custodianship-under-team-turnover anchor is uniquely a 2.12 reading — it relies on the past-future-eternality structure of the verse, which the test verses lack. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.567Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "real_insight": "Roadmaps scoped to team tenure systematically under-architect for requirements that outlive the team; the operative reframe is that the team is custodian of a need the team did not start and cannot end, which changes Postgres-vs-Spanner from a team-elegance choice to a custodianship-defensibility choice.",
+        "could_act_on_tomorrow": "Yes — at the next architecture review, ask whether the 'why this design' argument depends on the current team's preferences or on properties the design must hold under team turnover. If the former, the design is undertested. If the latter, the design is correctly anchored.",
+        "is_new_or_sharply_named": "The custodianship framing — design for the requirement's horizon, not the team's tenure — is named more precisely than typical 'long-term thinking' content. The Stripe/Adyen/Visa-rulebook reference grounds the abstract claim in concrete payments domain, where the requirement genuinely does have a 40-year horizon and the company is a transient implementation of it.",
+        "objection": "none. The counter-example (greenfield/novel work) is correctly carved out — not all engineering serves an eternal substrate, and the verse acknowledges this explicitly.",
+        "verdict_reason": "Specific failure mode (under-architecting via tenure-scoped reasoning), specific corrective (custodianship reframe), specific test (does the design argument depend on team preference or on properties under turnover?). Senior engineer reading this would recognize the failure mode."
+      },
+      "ts": "2026-04-29T18:56:20.567Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.12 is the central Advaita / Vishishtadvaita battleground of the chapter — Shankara reads the plurals as concession to body-level plurality with non-dual Self underneath, Ramanuja reads them as genuine ontological multiplicity. The engineering layer takes great care to remain at the level both traditions accept: that what is being pointed at (the durable customer requirement) is eternal, regardless of whether one ontology treats it as singular under the surface or as genuinely plural. The analog speaks of 'the underlying need' / 'the durable demand' without committing to whether there is one such substrate per requirement-category, or many distinct ones, or a non-dual ground. The disagreement_among_translators entry explicitly names this as the central commentarial axis and directs the engineering layer not to take a position. The verse's instruction is followed precisely. No tradition-conflation. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.568Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "conflations_found": [],
+        "notes": "BG 2.12 is the central Advaita / Vishishtadvaita battleground of the chapter — Shankara reads the plurals as concession to body-level plurality with non-dual Self underneath, Ramanuja reads them as genuine ontological multiplicity. The engineering layer takes great care to remain at the level both traditions accept: that what is being pointed at (the durable customer requirement) is eternal, regardless of whether one ontology treats it as singular under the surface or as genuinely plural. The analog speaks of 'the underlying need' / 'the durable demand' without committing to whether there is one such substrate per requirement-category, or many distinct ones, or a non-dual ground. The disagreement_among_translators entry explicitly names this as the central commentarial axis and directs the engineering layer not to take a position. The verse's instruction is followed precisely. No tradition-conflation. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.568Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.12",
+            "confidence": 0.82,
+            "reasoning": "The engineering layer's signature is the three-times structure of eternality (past: 'predates the founders', present: 'today's owners', future: 'will not pack it away when they leave') applied to a customer requirement. The non-commitment to whether the substrate is one or many ('whatever durable demand anchors the work') is consistent with leaving open the Advaita/Vishishtadvaita question. Only 2.12 makes the explicit past/present/future eternality claim with this triadic structure."
+          },
+          {
+            "verse_id": "BG 2.20",
+            "confidence": 0.3,
+            "reasoning": "BG 2.20 (na jāyate mriyate vā kadācin — never born, never dies; no such past, no such future) also makes a three-times non-mortality claim and could plausibly host a similar engineering analog. But 2.20 emphasizes the not-born / not-dying structure, while the engineering layer here emphasizes the always-was / always-will-be structure of 2.12."
+          },
+          {
+            "verse_id": "BG 2.16",
+            "confidence": 0.15,
+            "reasoning": "BG 2.16 (nāsato vidyate bhāvo — non-being has no existence) makes a different metaphysical claim about the substrate vs. the impermanent, and could host a 'spec is real, implementation drifts' analog. But it lacks the past-present-future structure that anchors this engineering layer."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.568Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "top_candidates": [
+          {
+            "verse_id": "BG 2.12",
+            "confidence": 0.82,
+            "reasoning": "The engineering layer's signature is the three-times structure of eternality (past: 'predates the founders', present: 'today's owners', future: 'will not pack it away when they leave') applied to a customer requirement. The non-commitment to whether the substrate is one or many ('whatever durable demand anchors the work') is consistent with leaving open the Advaita/Vishishtadvaita question. Only 2.12 makes the explicit past/present/future eternality claim with this triadic structure."
+          },
+          {
+            "verse_id": "BG 2.20",
+            "confidence": 0.3,
+            "reasoning": "BG 2.20 (na jāyate mriyate vā kadācin — never born, never dies; no such past, no such future) also makes a three-times non-mortality claim and could plausibly host a similar engineering analog. But 2.20 emphasizes the not-born / not-dying structure, while the engineering layer here emphasizes the always-was / always-will-be structure of 2.12."
+          },
+          {
+            "verse_id": "BG 2.16",
+            "confidence": 0.15,
+            "reasoning": "BG 2.16 (nāsato vidyate bhāvo — non-being has no existence) makes a different metaphysical claim about the substrate vs. the impermanent, and could host a 'spec is real, implementation drifts' analog. But it lacks the past-present-future structure that anchors this engineering layer."
+          }
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.568Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verdict_reason": "Removing 2.12 from the chapter and giving a writer 2.11 + 2.13 + chapter thesis, the writer would predict that the 12th-position verse opens the formal sāṅkhya statement of eternality — they could plausibly write a generic 'requirements outlive teams' analog. However, the specific signature of this verse's analog — the three-times structure (past 'predates founders' / present 'today's owners' / future 'will not pack it away'), the explicit non-commitment to whether the substrate is one or many ('whatever durable demand'), the custodianship-under-team-turnover frame as a defensibility criterion — depends on Sanskrit specifics (the past-present-future plural enumeration of 'I, you, these kings, all of us') and on the source-pack's careful preservation of the Advaita/Vishishtadvaita non-commitment. A chapter-only writer would write a flatter 'long-term thinking' verse; the verse-grounded writer goes further. PASS.",
+        "specific_signal_contributed": [
+          "the three-times structure of eternality (past, present, future) as the discipline of recognition",
+          "explicit non-commitment to ontology of the substrate (one durable need, or many — both readings preserved)",
+          "custodianship reframe (the team is custodian, not owner) as the architectural-decision predicate"
+        ]
+      },
+      "ts": "2026-04-29T18:56:20.569Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "named_artifact": "Architecture review checklist item: 'Estimate the requirement's expected horizon vs. the team's expected tenure. If horizon >> tenure, prefer architectural choices that maximize defensibility under custodianship change over choices that maximize current-team velocity.' Add as required field on every architecture decision record (ADR) for systems serving long-horizon requirements.",
+        "secondary_artifacts": [
+          "ADR template prompt: 'Name the durable need this decision serves. Estimate its horizon. Distinguish it from current-team preference.'",
+          "Roadmap-review predicate: 'Is this roadmap scoped to the team's tenure or to the requirement's horizon? If the former, what is the explicit handoff plan to future custodians?'",
+          "Onboarding doc: every system has a 'durable_requirement.md' file naming the customer requirement, its origin, its expected horizon, and its history of implementations."
+        ],
+        "verdict_reason": "The verse's claim is reproducible as multiple concrete artifacts: ADR template field, architecture-review checklist item, durable_requirement.md per system, roadmap-review predicate. These are not slogans; they are auditable artifacts that institutionalize the custodianship discipline. PASS."
+      },
+      "ts": "2026-04-29T18:56:20.569Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "issues": [
+          {
+            "severity": "minor",
+            "claim": "the customer requirement that drives this codebase did not begin when the team was hired; it predates the founders, predates the first repository",
+            "objection": "The Sanskrit's 'na tu evāhaṁ jātu nāsaṁ' is a metaphysical claim about eternality of the Self (nityatva). The engineering analog renders 'the customer requirement that predates and outlasts' — this is a register substitution, not a metaphysical claim. The translation explicitly distinguishes itself from metaphysical bravado ('the framing the verse establishes is not metaphysical bravado; it is a discipline of recognition'). Acceptable register-faithful adaptation that preserves the verse's claim of eternality at the level both Advaita and Vishishtadvaita accept (eternality of what is being pointed at)."
+          }
+        ],
+        "notes": "The engineering layer carefully avoids the verse's central commentarial battleground — whether the plurals (I/you/these kings) commit to genuine ontological multiplicity (Ramanuja) or are concession to body-level plurality with non-dual Self underneath (Shankara). The analog operates at the level both traditions accept: that what is being pointed at (the durable need) is eternal, regardless of how it is counted ontologically. This is exactly the right discipline. The verse's 'sarve vayam ataḥ param' (all of us, hereafter) is preserved as 'today's owners did not summon the underlying need into being, and will not pack it away when they leave' — which preserves both the past-claim and the future-claim of the Sanskrit. The technical claim of nityatva is not flattened into 'embrace change' or 'requirements last forever as buzzword'; the verse's discipline of recognition is preserved. PASS at high confidence."
+      },
+      "ts": "2026-04-29T18:56:20.569Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "When a roadmap's planning horizon is shorter than the requirement's expected horizon, prefer architectural choices that defend custodianship under team turnover over choices that maximize current-team velocity.",
+        "example_decision": "Five-year ledger migration roadmap review: the team is leaning toward a custom in-house event-store because the current team is highly skilled at it. Apply the verse: the requirement (audited transaction history with regulatory continuity) has a 40-year horizon; the team's tenure is on average 4 years. Choose the more boring, more documented, more replaceable choice (Postgres + standard Kafka) because it is the better custodianship of a requirement that survives the team. The verse changes the decision.",
+        "objection": "none — the predicate is concretely actionable. Two PMs could legitimately disagree about the requirement's horizon estimate, which is exactly the kind of evidence-based disagreement the predicate is designed to surface."
+      },
+      "ts": "2026-04-29T18:56:20.570Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "actionable_predicate": "When a roadmap's planning horizon is shorter than the requirement's expected horizon, prefer architectural choices that defend custodianship under team turnover over choices that maximize current-team velocity.",
+        "example_decision": "Five-year ledger migration roadmap review: the team is leaning toward a custom in-house event-store because the current team is highly skilled at it. Apply the verse: the requirement (audited transaction history with regulatory continuity) has a 40-year horizon; the team's tenure is on average 4 years. Choose the more boring, more documented, more replaceable choice (Postgres + standard Kafka) because it is the better custodianship of a requirement that survives the team. The verse changes the decision.",
+        "objection": "none — the predicate is concretely actionable. Two PMs could legitimately disagree about the requirement's horizon estimate, which is exactly the kind of evidence-based disagreement the predicate is designed to surface."
+      },
+      "ts": "2026-04-29T18:56:20.570Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "violations": [],
+        "notes": "The engineering layer is consistently additive. The phrase 'Read engineering-side' explicitly marks the analog as a register substitution. The framing 'the framing the śloka establishes is not metaphysical bravado; it is a discipline of recognition' explicitly preserves the metaphysical claim of the original — by distinguishing itself from it. The layer does not assert the Gita is 'really about' team architecture. The disagreement_among_translators preserves the Advaita/Vishishtadvaita commentarial battleground at the source-pack level, which signals to the reader that the verse has its own ontological depth not exhausted by the engineering reading."
+      },
+      "ts": "2026-04-29T18:56:20.570Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "trivialization_severity": 1,
+        "specific_concerns": [],
+        "verdict_reason": "The engineering layer treats the verse with appropriate gravity. Crucially, it explicitly distances itself from metaphysical bravado ('the framing the śloka establishes is not metaphysical bravado; it is a discipline of recognition'). This is the right tonal move — the verse is making a metaphysical claim about Self-eternality in the original; the engineering layer is making an analogical claim about durable customer requirements, and the explicit acknowledgment of register substitution prevents the verse's gravity from being trivialized. A serious practitioner would recognize that the engineering layer is using the verse's structure (three-times eternality) without claiming the verse 'really' means custodianship-under-team-turnover."
+      },
+      "ts": "2026-04-29T18:56:20.570Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "verdict": "PASS",
+        "verses_off_tone": [],
+        "chapter_voice_summary": "Chapter 2's voice is didactic and corrective. BG 2.12, the formal sāṅkhya statement of eternality, modulates from the diagnostic sharpness of 2.11 toward more expansive doctrinal teaching. The engineering layer for 2.12 ('the framing the śloka establishes is not metaphysical bravado; it is a discipline of recognition') maintains the chapter's didactic register without becoming consoling or motivational. The voice is appropriately patient — the architect explaining a long horizon to a five-year-thinking team — which matches the chapter's progression from rebuke (2.2-2.3) through diagnostic (2.11) into doctrinal exposition. Voice consistent."
+      },
+      "ts": "2026-04-29T18:56:20.571Z"
+    }
+  ]
+}

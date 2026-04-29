@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.15",
+  "chapter": 2,
+  "verse": 15,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The operator whom these sensor-contacts do not disturb, equal-minded toward pain and pleasure, steady-minded — that one is fit for the imperishable. The verse states a qualifier, not an outcome. Equanimity in front of dashboard movement is the diagnostic of fitness, not the achievement itself. The engineer who has internalised 2.14 — read the alert, do not become the alert — is the operator who can hold long-running systems, run multi-year migrations, sit through funding rounds, ship the version that follows three failed predecessors, and respond to a 3 AM page on Year Six of an on-call rotation as professionally as on Year One. That person is fit (kalpate) for the imperishable work — work whose horizon is longer than any single sprint, longer than any single team, sometimes longer than any single career. Without the equanimity discipline, the operator is fit only for short-horizon work, where sensation-driven response is survivable. The verse names the precondition for the durable kind. It is not a personality trait. It is a trained capacity.",
+    "concrete_scenario": "A staff engineer at a regulated fintech is being considered for the technical lead role on a five-year ledger migration. The migration will move billions of historical transactions from a legacy DB2 mainframe onto a new Postgres-plus-Kafka architecture, must satisfy SOX-2 audit continuity, must not interrupt customer-facing operations once during the transition, and will outlive at least two CTOs. The hiring panel reviews three internal candidates. Candidate A is technically brilliant but visibly fluctuates in posture across the year — euphoric after a successful deploy, despondent after a regression, vocal in incidents in ways that destabilise the on-call channel. Candidate B is technically solid and consistent, with a documented record of carrying multi-year projects through funding crunches, leadership turnover, and two failed predecessor attempts at the same migration; their incident-channel posture is the same on Year Six as on Year One; their pulse does not register on the team's emotional barometer. Candidate C is excellent but newer and untested through a long-horizon project. The panel selects Candidate B. They are not selecting on titikṣā as a personality trait. They are selecting on the demonstrated trained capacity that 2.15 names: the qualifier for the imperishable kind of work.",
+    "falsifiability": "The analog fails if a reader uses 'fitness for the imperishable' to justify selecting cold or unempathetic operators. Krishna names equanimity, not absence of feeling. The dhīra in 2.15 is the operator whose stability is internal — and whose external care for users, teammates, and systems is undiminished. If a hiring panel selects on the basis of 'unflappable in incidents' but fails to check whether the candidate cares about the customer or the team, they have selected on a different trait. The verse's qualifier is equanimity-with-care, not flatness.",
+    "counter_example": "When the work is genuinely short-horizon — a one-off migration that will be done in two weeks, a one-month consulting engagement, a hackathon — the verse's framing is overweight. The qualifier of fitness-for-the-imperishable is a precondition for long-horizon work; it is not a universal selection criterion. Sometimes the right operator for a two-week project is the high-energy reactive engineer who would burn out in a five-year migration. The verse names a specific qualifier for a specific kind of work, not a general superiority.",
+    "implication": "When staffing long-horizon, identity-bearing work, select on the trained equanimity 2.15 names — and verify it has not arrived at the cost of care. The qualifier is internal stability without external coldness. The operator who has it is the one who can carry the imperishable kind of project across the inevitable storms.",
+    "quotable_line": "Equanimity at sensor-contact is the qualifier for long-horizon work — kalpate, fitness, not personality.",
+    "tags": ["sattva-clarity", "deep-work", "long-term-thinking", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:10:00Z",
+      "mutation": "v0 generation: BG 2.15 caps the sāṅkhya block A. Per chapter-2 thesis, equanimity (sama-duḥkha-sukham) is the qualifier for the imperishable (amṛtatva), not the imperishable itself; kalpate ('is fit') preserves the precondition framing. Engineering layer anchors on a hiring decision for a multi-year ledger migration: trained equanimity selects fitness for long-horizon work, not personality. Falsifiability rules out using the verse to justify selecting cold operators (equanimity is internal stability, not absent care); counter-example rules out applying the verse to short-horizon work where reactive operators may be preferable. Tags: sattva-clarity, deep-work, long-term-thinking, operator-system-coupling.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

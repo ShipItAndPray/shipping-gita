@@ -1,0 +1,279 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.13",
+  "sanskrit_devanagari": "देहिनोऽस्मिन्यथा देहे कौमारं यौवनं जरा ।\nतथा देहान्तरप्राप्तिर्धीरस्तत्र न मुह्यति ॥ १३ ॥",
+  "sanskrit_iast": "dehino 'smin yathā dehe kaumāraṁ yauvanaṁ jarā |\ntathā dehāntara-prāptir dhīras tatra na muhyati || 13 ||",
+  "anvaya": [
+    {
+      "sanskrit": "देहिनः",
+      "iast": "dehinaḥ",
+      "meaning": "of the embodied (one)"
+    },
+    {
+      "sanskrit": "अस्मिन्",
+      "iast": "asmin",
+      "meaning": "in this"
+    },
+    {
+      "sanskrit": "यथा",
+      "iast": "yathā",
+      "meaning": "as"
+    },
+    {
+      "sanskrit": "देहे",
+      "iast": "dehe",
+      "meaning": "in the body"
+    },
+    {
+      "sanskrit": "कौमारम्",
+      "iast": "kaumāram",
+      "meaning": "boyhood / childhood"
+    },
+    {
+      "sanskrit": "यौवनम्",
+      "iast": "yauvanam",
+      "meaning": "youth"
+    },
+    {
+      "sanskrit": "जरा",
+      "iast": "jarā",
+      "meaning": "old age"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "so / similarly"
+    },
+    {
+      "sanskrit": "देहान्तर",
+      "iast": "dehāntara",
+      "meaning": "another body"
+    },
+    {
+      "sanskrit": "प्राप्तिः",
+      "iast": "prāptiḥ",
+      "meaning": "attainment"
+    },
+    {
+      "sanskrit": "धीरः",
+      "iast": "dhīraḥ",
+      "meaning": "the wise / steady-minded one"
+    },
+    {
+      "sanskrit": "तत्र",
+      "iast": "tatra",
+      "meaning": "in that / regarding that"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "मुह्यति",
+      "iast": "muhyati",
+      "meaning": "is bewildered / deluded"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/13/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As the embodied soul continuously passes, in this body, from boyhood to youth to old age, the soul similarly passes into another body at death. A sober person is not bewildered by such a change.",
+      "raw_capture_path": "data/sources/raw/bg-2-13-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/13",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Just as the embodied soul continuously passes from childhood to youth to old age, similarly, at the time of death, the soul passes into another body. The wise are not deluded by this."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/13/",
+      "fetched_at": "2026-04-29T18:18:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 3136-char full purport)",
+      "verbatim_excerpt": "Since every living entity is an individual soul, each is changing his body every moment, manifesting sometimes as a child, sometimes as a youth and sometimes as an old man. Yet the same spirit soul is there and does not undergo any change.",
+      "verbatim_excerpt_length": 240,
+      "verbatim_full_length": 3136,
+      "copyright_holder": "Bhaktivedanta Book Trust International",
+      "raw_full_path": "data/sources/raw/bg-2-13-vedabase.json (purport_full_length: 3136)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-13/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:19:28Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "These three states are mutually distinct. On these, when the first state gets destroyed the Self does not get destroyed; when the second state comes into being It is not born... It is seen that the Self, which verily remains unchanged, acquires the second and third states.",
+      "verbatim_excerpt_length": 273,
+      "verbatim_full_length": 910,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-13-shankara.json",
+      "summary_paraphrase": "Shankara reads the verse as an analogical proof of Self-eternality: childhood, youth, old age are 'mutually distinct' states, each destroyed when the next arises, yet the Self that 'has' these states is not destroyed in any of the transitions. The same logic extends across body-death: the body is the next state; the Self is what holds across the transition. The dhīra (wise) is not bewildered because they have located the right level — the level at which the transitions occur, not the level that owns them."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-13/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:19:28Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "As the self is eternal, one does not grieve, thinking that the self is lost, when an embodied self living in a body gives up the state of childhood and attains youth and other states. Similarly, the wise men, knowing that the self is eternal, do not grieve, when the self attains a body different from the present body.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 1050,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-13-ramanuja.json",
+      "summary_paraphrase": "Ramanuja takes the same analogical structure but adds: the eternal selves, due to beginningless karma, become embodied in bodies suited to their karma; the discipline of acting without attachment to fruits is the path to liberation from this cycle. The verse is read both as a Self-eternality proof (the wise are not bewildered by transitions because the substrate is real) and as the foundation for the karma-yoga teaching that follows."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "dehāntara-prāptiḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "passes into another body at death"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "passes into another body at the time of death"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "acquisition of another body, a body different from the present one (no explicit 'at death' — the analogical structure is the focus)"
+        },
+        {
+          "source": "Literal",
+          "rendering": "attainment of another body"
+        }
+      ],
+      "explanation": "Modern translators add 'at death' to clarify the analogy for English readers. Shankara's rendering preserves the Sanskrit's restraint — the verse does not explicitly say 'at death', it says 'attainment of another body', and the analogical structure (childhood → youth → old age → next body) is the argument, not a doctrinal claim about the moment of transition. Translators differ in how aggressively they fill in the implied 'at death' from the surrounding context."
+    },
+    {
+      "word": "dhīraḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "a sober person"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the wise"
+        },
+        {
+          "source": "Shankara (per Gambhirananda)",
+          "rendering": "an intelligent person — one who has located the right level of analysis"
+        },
+        {
+          "source": "Literal",
+          "rendering": "the steady, the firm, the wise"
+        }
+      ],
+      "explanation": "Dhīra is technically narrower than 'wise' in general — it carries the connotation of steadiness, the operator who does not flinch. Prabhupada's 'sober person' picks up this steadiness; Mukundananda flattens to 'the wise'. The engineering analog should preserve the steadiness aspect: not 'one who knows', but 'one who is not destabilized by'."
+    }
+  ],
+  "literal_meaning": "As, for the embodied one, in this body, [there are the states of] childhood, youth, and old age, so [there is] the attainment of another body. The steady-minded one is not bewildered regarding that.",
+  "traditional_meaning": "The verse on state transitions. Krishna gives the analogical proof of Self-eternality: just as the embodied being passes through childhood, youth, and old age within one body without ceasing to be, so it passes to another body without ceasing to be. The dhīra — the steady-minded — is not bewildered by the transition, because they have grasped that what holds across the transitions is not the same level as what is being transformed. All major commentarial traditions agree on the analogical structure; differences are in emphasis (Shankara on Self-eternality and the unchanging substrate, Ramanuja on the eternal selves linked through karma), not on the verse's claim. The chapter's voice is calm here — Krishna has moved from rebuke (2.11) and ontological assertion (2.12) into the first analogical demonstration. The verse establishes the doctrine of state transitions: identity holds through state change.",
+  "engineering": {
+    "translation": "Just as the embodied one passes through childhood, youth, and old age within a single body, so the same one transitions to another body. The steady-minded — dhīra — is not bewildered by that passage. In engineering terms: the service that has been v1, v2, v3 of itself, and is now being rewritten as v4 on different runtime, in a different language, by a different team, has not ceased being the same service. What survives is the contract: that evaluate(flag, context) returns a rule-engine result under 5ms, with an audit record durable enough to defend a customer dispute. The dhīra — steady, not abstractly 'wise' — is the operator whose nervous system does not flare at rewrite-time, because they have located the level on which professional identity-of-the-system actually lives. Implementations swap. The contract endures, and is what gets shipped against.",
+    "concrete_scenario": "Consider an internal feature-flag service inside a mid-sized SaaS company. v1: a Redis-backed library the founder wrote on a flight. v2: a Postgres-backed gRPC service the platform team built when the library hit limits. v3: a sharded version with a Kafka audit stream, rebuilt during multi-region migration. v4 (planned): Cloudflare Workers + SQLite-on-the-edge, owned by a newly hired team. The principal engineer who has been present through every transition reviews the v4 RFC and writes a single note: 'Do not get attached to the v3 schema; it is not the system. The contract is. Read the conformance test suite — that is the surviving artifact across these passages. Build v4 against it. The dashboards will move; runbooks will rewrite themselves; senior on-call will recognise the service underneath because the contract is recognisable.' The new team receives this not as discouraging but as orienting. They have been shown the layer where identity lives, and the layer where it merely renders.",
+    "falsifiability": "The analog fails if a reader uses the 'something always survives' framing to justify rewriting without recovering capability — to hand off a half-functional v4 and call it 'a different rendering of the same contract' when in fact the contract is silently regressing. Krishna's claim is that the substrate is preserved across transition; he does not claim that any rewrite is itself a successful preservation. Conformance must be tested. The 'state transition' is an observed-and-verified continuity, not a self-narrated one. Engineers who skip the conformance test suite and assert continuity are not in this verse.",
+    "counter_example": "When the rewrite is genuinely changing what the system does — when v4 has redefined the contract because the underlying business need shifted — this verse does not apply at full strength. The verse describes continuity through implementation transitions; it does not describe redefinitions of purpose. If the company has decided that the feature-flag service should also do experiment routing and progressive rollout, that is a new contract, not a transition of the old one. The dhīra would name the new contract honestly rather than smuggling it in under continuity-language.",
+    "implication": "Maintain a conformance test suite that survives implementation rewrites. The conformance suite is the engineering analog of the substrate the verse names. If the next rewrite cannot pass the conformance suite, the rewrite has not transitioned the system; it has replaced it. The dhīra runs the suite; they do not narrate continuity unverified.",
+    "quotable_line": "Conformance tests are the part of the system that survives the rewrite — your dhīra discipline.",
+    "tags": [
+      "architectural-invariant",
+      "spec-vs-behavior",
+      "interface-stability",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

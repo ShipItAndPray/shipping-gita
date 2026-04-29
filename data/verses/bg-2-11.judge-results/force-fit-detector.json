@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "could_apply_equally_to": [],
+  "verse_specific_anchors": [
+    "the contradiction between grief and wisdom-talk (prajñā-vādāṁś ca bhāṣase paired with anvaśocaḥ) — the verse's signature diagnostic",
+    "the bidirectional grief — neither living nor dead (gatāsūn agatāsūṁś ca) — mapped to 'neither rolled-back deploy nor its successor'",
+    "paṇḍitāḥ as technically narrow (those whose knowledge is specifically about what is invariant under implementation churn), preserving Shankara's etymological reading"
+  ],
+  "verdict_reason": "Tested against three random verses from Chapters 9, 12, and 18: BG 9.22 (ananyāś cintayanto māṁ — those who think exclusively of Krishna), BG 12.13 (adveṣṭā sarva-bhūtānāṁ — non-hatred toward all beings), BG 18.46 (sva-karmaṇā tam abhyarcya — worshipping by one's own work). The 2.11 engineering analog cannot equally apply to any of these. The deprecation-grief-paired-with-first-principles-talk pattern is uniquely a diagnostic of contradiction between grief and wisdom-speech, which is verse-specific to 2.11. The 'bidirectional grief' (mourning both the deprecated and its successor) maps directly to gatāsūn / agatāsūn and would not naturally fit any of the test verses. PASS."
+}

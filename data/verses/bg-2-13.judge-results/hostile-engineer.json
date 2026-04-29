@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "real_insight": "The conformance test suite is the engineering analog of what holds across implementation rewrites; if your next rewrite cannot pass the conformance suite, the rewrite has not transitioned the system, it has replaced it.",
+  "could_act_on_tomorrow": "Yes — the next time someone proposes a rewrite, ask for the conformance suite that will define 'success.' If there isn't one, the rewrite is a replacement masquerading as a transition. This is a concrete diagnostic, not a slogan.",
+  "is_new_or_sharply_named": "The 'conformance test suite as the surviving artifact across transitions' is a sharper formulation than the usual 'tests are documentation' line. The verse's specific contribution is that conformance is what makes the transition observed-and-verified rather than self-narrated, which is a real failure mode (engineers who skip the conformance test and assert continuity).",
+  "objection": "none. The counter-example (when the rewrite redefines the contract, the verse does not apply) is correctly carved out — naming a new contract honestly rather than smuggling it in under continuity-language is exactly the right discipline.",
+  "verdict_reason": "Specific failure mode (asserting continuity without verifying it), specific corrective (conformance test suite is the substrate-level artifact), specific test (does v4 pass the conformance suite v1 was originally graded on?). Senior engineer would adopt this."
+}

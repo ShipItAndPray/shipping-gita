@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "same_tag_doctrine_consistency": {
+    "architectural-invariant": "Consistent with 2.11 and 2.12. The chain so far: 2.11 (don't grieve implementation while citing first-principles), 2.12 (the substrate is eternal — predates and outlasts), 2.13 (the substrate is preserved across analogous state transitions). All three verses teach the same doctrine, building on each other.",
+    "spec-vs-behavior": "Consistent. The verse adds the conformance-suite predicate: spec is what the suite encodes, behavior is what the implementation does on a given day.",
+    "interface-stability": "First use of this tag in the chapter; correctly applied — the contract is the interface, and its stability is what is being claimed.",
+    "essence-vs-implementation": "Consistent with 2.11."
+  },
+  "cross_reference_check": "No cross-references declared in this verse — n/a.",
+  "verdict_reason": "Tags consistent with 2.11 and 2.12. The sāṅkhya block A teaching is coherent: the substrate is real, eternal, and preserved across transitions; the operator who has located it is steady. PASS."
+}

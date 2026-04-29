@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "same_tag_doctrine_consistency": {
+    "architectural-invariant": "Consistent with 2.11's prior usage. 2.11 establishes that grieving an implementation while citing first-principles is a contradiction; 2.12 supplies the affirmative claim — there IS a durable invariant that survives implementations. The two verses build on each other without drift.",
+    "first-principles": "Tag is correctly applied — the verse's claim is at the level of first-principles knowledge (eternality of the substrate).",
+    "long-term-thinking": "Tag is correctly applied. Will need to remain consistent across other verses tagged similarly in later chapters; for now, the verse establishes the foundation.",
+    "spec-vs-behavior": "Consistent with 2.11. The verse explicitly distinguishes spec (durable requirement) from behavior (current implementation rendering)."
+  },
+  "cross_reference_check": "No cross-references declared in this verse — n/a.",
+  "verdict_reason": "Tags consistent with prior verse usage (2.11) and with the verse's own engineering claim. No drift detected. PASS."
+}
