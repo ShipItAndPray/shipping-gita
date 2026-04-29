@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const RAW_DIR = "/Users/somepalli/claude/shipping-gita/data/sources/raw";
+const RAW_DIR = "./data/sources/raw";
 const NA_NOTE = "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.";
 
 function loadScraped(n) {

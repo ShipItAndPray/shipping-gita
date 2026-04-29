@@ -3,7 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const SOURCES_DIR = "/Users/somepalli/claude/shipping-gita/data/sources";
+const SOURCES_DIR = "./data/sources";
 const RAW_DIR = path.join(SOURCES_DIR, "raw");
 
 function readJSON(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }

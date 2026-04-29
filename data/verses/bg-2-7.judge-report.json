@@ -13,7 +13,7 @@
       "gate_id": "10.3",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/chapter-thesis-support.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/chapter-thesis-support.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "anchored_threads": [
@@ -42,7 +42,7 @@
       "gate_id": "10.4",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/chapter-thesis-support.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/chapter-thesis-support.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "anchored_threads": [
@@ -71,7 +71,7 @@
       "gate_id": "7.5",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/cynical-writer.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/cynical-writer.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "satire_attempt": "Local staff engineer discovers '11 years of professional development' culminate in walking into the principal's office and saying the magic word '\u015bi\u1e63yas'. Studies show that engineers who quote Sanskrit at their architects unlock 'the teacher's actual reasoning,' which experts confirm is fundamentally different from 'a colleague's opinion plus a Notion comment.' Industry insiders predict a 2027 LinkedIn post titled 'How I 10x'd my career by Surrendering To My Manager.'",
@@ -86,7 +86,7 @@
       "gate_id": "2.5",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/disagreement-explanation-reviewer.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/disagreement-explanation-reviewer.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "total_disagreements": 2,
@@ -102,7 +102,7 @@
       "gate_id": "3.6",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/distortion-test.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/distortion-test.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "issues": [
@@ -122,7 +122,7 @@
       "gate_id": "7.10",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/distortion-test.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/distortion-test.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "issues": [
@@ -142,7 +142,7 @@
       "gate_id": "6.1",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/doctrine-coherence-reviewer.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/doctrine-coherence-reviewer.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "same_tag_issues": [],
@@ -159,7 +159,7 @@
       "gate_id": "6.5",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/doctrine-coherence-reviewer.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/doctrine-coherence-reviewer.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "same_tag_issues": [],
@@ -176,7 +176,7 @@
       "gate_id": "7.6",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/force-fit-detector.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/force-fit-detector.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "could_apply_equally_to": [],
@@ -197,7 +197,7 @@
       "gate_id": "3.5",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/force-fit-detector.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/force-fit-detector.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "could_apply_equally_to": [],
@@ -218,7 +218,7 @@
       "gate_id": "7.2",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/hostile-engineer.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/hostile-engineer.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "real_insight": "The exact request-formulation an engineer uses to a more senior engineer determines whether they receive opinions or actual instruction; until the requester explicitly downgrades their positional rank ('I am asking you as a student on this question'), the channel cannot carry instruction.",
@@ -233,7 +233,7 @@
       "gate_id": "7.4",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/indian-philosopher.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/indian-philosopher.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "conflations_found": [],
@@ -248,7 +248,7 @@
       "gate_id": "6.8",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/indian-philosopher.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/indian-philosopher.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "conflations_found": [],
@@ -263,7 +263,7 @@
       "gate_id": "7.8",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/inversion-test.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/inversion-test.prompt.txt",
         "verdict_payload": {
           "top_candidates": [
             {
@@ -291,7 +291,7 @@
       "gate_id": "3.7",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/inversion-test.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/inversion-test.prompt.txt",
         "verdict_payload": {
           "top_candidates": [
             {
@@ -319,7 +319,7 @@
       "gate_id": "7.7",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/removed-verse-reviewer.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/removed-verse-reviewer.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "reconstructibility_score": 2,
@@ -336,7 +336,7 @@
       "gate_id": "3.12",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/reproducibility-check.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/reproducibility-check.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "reproducible_artifact": "A 1:1 meeting structure / opening-line template for blocked-decision escalations: 'I am not asking for opinions on this; I am asking to be taught here. \u015bi\u1e63yas te 'ha\u1e41 \u2014 consider me your student on this question. Tell me how to reason about it correctly.' Codified as a runbook step in the staff-engineer escalation playbook.",
@@ -353,7 +353,7 @@
       "gate_id": "7.1",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/sanskrit-scholar.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/sanskrit-scholar.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "issues": [
@@ -373,7 +373,7 @@
       "gate_id": "7.3",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/skeptical-pm.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/skeptical-pm.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "actionable_predicate": "When you are blocked on a contested decision and have done the analysis, do not request input as a peer \u2014 explicitly name the request as a student-of-this-question request to the senior, or you will receive opinions instead of instruction.",
@@ -388,7 +388,7 @@
       "gate_id": "3.11",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/skeptical-pm.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/skeptical-pm.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "actionable_predicate": "When you are blocked on a contested decision and have done the analysis, do not request input as a peer \u2014 explicitly name the request as a student-of-this-question request to the senior, or you will receive opinions instead of instruction.",
@@ -403,7 +403,7 @@
       "gate_id": "8.5",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/tech-manual-framing.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/tech-manual-framing.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "violations": [],
@@ -417,7 +417,7 @@
       "gate_id": "8.1",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/trivialization-check.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/trivialization-check.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "trivialization_severity": 1,
@@ -434,7 +434,7 @@
       "gate_id": "5.7",
       "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/voice-consistency.prompt.txt",
+        "rendered_prompt_path": "./data/judge-runs/bg-2-7/voice-consistency.prompt.txt",
         "verdict_payload": {
           "verdict": "PASS",
           "verses_off_tone": [],

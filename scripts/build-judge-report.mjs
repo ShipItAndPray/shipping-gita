@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const REPO = "/Users/somepalli/claude/shipping-gita";
+const REPO = ".";
 const verseId = process.argv[2]; // e.g. bg-2-26
 if (!verseId) { console.error("usage: build-judge-report.mjs <verse-slug>"); process.exit(2); }
 
