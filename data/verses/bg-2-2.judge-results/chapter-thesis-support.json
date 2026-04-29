@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "anchored_threads": [
+    {
+      "thread_name": "Karma Yoga / disciplined action — engineering: shipping discipline, on-call doctrine",
+      "anchor_evidence": "The verse anchors on on-call doctrine: at viṣama-kāla, the right action is the runbook, not the apology. Tags incident-response, on-call-doctrine, engineer-paralysis."
+    }
+  ],
+  "hard_edges_violated": [],
+  "counter_anti_thesis_violations": [],
+  "progression_issue": {
+    "type": "none",
+    "explanation": "BG 2.2 is the chapter's first Krishna-uvāca line and the engineering layer correctly does not pre-empt the sthita-prajña material. It even explicitly defers consolation to 2.11 ('the comfort comes later, in 2.11'), which shows the layer is aware of the chapter's pedagogical arc."
+  },
+  "verdict_reason": "The verse anchors squarely on the on-call-doctrine sub-thread of karma-yoga as engineering shipping-discipline. It does NOT dilute the chapter's hard edges: it preserves duty-under-difficulty (the runbook must be run even though the operator is frozen), it does not soften Krishna's voice, and it explicitly reserves consolation for later. The senior-to-senior register is preserved against trivialization. Counter-anti-thesis is intact: the verse does not teach detachment from users (the on-call IS for the customer); it does not teach absence of consequence-weight (akīrti-karam — disgrace — is named). Clean PASS."
+}

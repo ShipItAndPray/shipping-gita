@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "trivialization_severity": 1,
+  "specific_concerns": [
+    "The quotable line 'The dashboard moves; the operator does not. That non-movement is what the verse calls yoga.' is highly meme-able. Stripped of context it could become a LinkedIn aphorism. But the second sentence (which names the verse and the term yoga in its specific sense) significantly reduces this risk; the citation discipline travels with the line."
+  ],
+  "verdict_reason": "The engineering layer treats the verse with serious rigor: it preserves the Sanskrit term samatvam in two places, it reproduces the verse's two-clause structure (state + action), it explicitly rejects the most common trivialization (samatvam as stoic numbness or 'no feelings during incidents'), and it grounds the analog in a specific operational invariance (the response procedure is unchanged across green/red dashboards). A serious practitioner of Hindu philosophy would recognize: (a) the term samatvaṁ yoga ucyate is not flattened, (b) the saṅgam-tyaktvā move is not flattened to 'just don't care', (c) the verse's gravity (this is THE definitional verse for yoga in the Gita's karma-yoga teaching) is matched by the analog's gravity (this is the operator-state from which all shipping decisions issue). The verse is honored, not used. Pass."
+}

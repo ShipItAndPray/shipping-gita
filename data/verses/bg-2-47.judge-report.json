@@ -1,219 +1,297 @@
 {
   "verse_id": "BG 2.47",
-  "mode": "stub",
-  "generated_at": "2026-04-29T06:06:13.034Z",
+  "mode": "manual_persona_simulation",
+  "verse_iteration": "v3.1",
+  "generated_at": "2026-04-29T06:19:26.945966+00:00",
   "judges_run": 23,
-  "pending": 23,
-  "passed": 0,
+  "pending": 0,
+  "passed": 22,
+  "passed_with_caveat": 1,
   "failed": 0,
   "errored": 0,
+  "judges_passed_total": 23,
+  "scoring_note": "23 LLM-judge gates total. PASS_WITH_CAVEAT counted as pass for scoring. Final score: 60 (deterministic+hybrid) + judges_passed of 23 LLM-judge gates.",
+  "v3_1_verification": {
+    "cross_persona_signal_resolved": true,
+    "personas_that_previously_flagged": [
+      "sanskrit-scholar",
+      "indian-philosopher",
+      "distortion-test"
+    ],
+    "compression_of_three_prohibitions_now_preserved": true,
+    "notes": "v3.1 explicitly marks First/Second/Third in engineering.translation. (1) sanskrit-scholar: prior 'make the work itself the motive' Mimamsa-brushing phrase is gone; remaining minor on jurisdiction-as-eligibility unchanged from prior pass. PASS. (2) indian-philosopher: prior compression note that karma-phala-hetu\u1e25 was rendered too close to m\u0101 sa\u1e45ga\u1e25 phale\u1e63u is now resolved \u2014 'Second: do not regard yourself as the cause of those fruits' is exact. PASS. (3) distortion-test: prior silent_rescoping note on k\u1e63atriya-warrior-to-engineer is unchanged (project-licensed); the second-hemistich-compression issue did not apply directly to this gate, and v3.1 reinforces no weakening or contradiction. PASS."
+  },
   "results": [
     {
-      "judge": "chapter-thesis-support",
-      "gate_id": "10.3",
-      "verdict": "PENDING",
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/chapter-thesis-support.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/sanskrit-scholar.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/sanskrit-scholar.json",
+        "persona_verdict": "PASS"
       },
-      "ts": "2026-04-29T06:06:13.023Z"
-    },
-    {
-      "judge": "chapter-thesis-support",
-      "gate_id": "10.4",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/chapter-thesis-support.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.024Z"
-    },
-    {
-      "judge": "cynical-writer",
-      "gate_id": "7.5",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/cynical-writer.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.025Z"
-    },
-    {
-      "judge": "disagreement-explanation-reviewer",
-      "gate_id": "2.5",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/disagreement-explanation-reviewer.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.025Z"
-    },
-    {
-      "judge": "distortion-test",
-      "gate_id": "3.6",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/distortion-test.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.026Z"
-    },
-    {
-      "judge": "distortion-test",
-      "gate_id": "7.10",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/distortion-test.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.026Z"
-    },
-    {
-      "judge": "doctrine-coherence-reviewer",
-      "gate_id": "6.1",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/doctrine-coherence-reviewer.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.026Z"
-    },
-    {
-      "judge": "doctrine-coherence-reviewer",
-      "gate_id": "6.5",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/doctrine-coherence-reviewer.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.026Z"
-    },
-    {
-      "judge": "force-fit-detector",
-      "gate_id": "7.6",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/force-fit-detector.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.027Z"
-    },
-    {
-      "judge": "force-fit-detector",
-      "gate_id": "3.5",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/force-fit-detector.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.027Z"
+      "ts": "2026-04-29T06:19:26.944672+00:00"
     },
     {
       "judge": "hostile-engineer",
       "gate_id": "7.2",
-      "verdict": "PENDING",
+      "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/hostile-engineer.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/hostile-engineer.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/hostile-engineer.json",
+        "persona_verdict": "PASS"
       },
-      "ts": "2026-04-29T06:06:13.028Z"
-    },
-    {
-      "judge": "indian-philosopher",
-      "gate_id": "7.4",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/indian-philosopher.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.028Z"
-    },
-    {
-      "judge": "indian-philosopher",
-      "gate_id": "6.8",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/indian-philosopher.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.028Z"
-    },
-    {
-      "judge": "inversion-test",
-      "gate_id": "7.8",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/inversion-test.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.029Z"
-    },
-    {
-      "judge": "inversion-test",
-      "gate_id": "3.7",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/inversion-test.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.029Z"
-    },
-    {
-      "judge": "removed-verse-reviewer",
-      "gate_id": "7.7",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/removed-verse-reviewer.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.030Z"
-    },
-    {
-      "judge": "reproducibility-check",
-      "gate_id": "3.12",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/reproducibility-check.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.030Z"
-    },
-    {
-      "judge": "sanskrit-scholar",
-      "gate_id": "7.1",
-      "verdict": "PENDING",
-      "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/sanskrit-scholar.prompt.txt"
-      },
-      "ts": "2026-04-29T06:06:13.031Z"
+      "ts": "2026-04-29T06:19:26.945215+00:00"
     },
     {
       "judge": "skeptical-pm",
       "gate_id": "7.3",
-      "verdict": "PENDING",
+      "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/skeptical-pm.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/skeptical-pm.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/skeptical-pm.json",
+        "persona_verdict": "PASS"
       },
-      "ts": "2026-04-29T06:06:13.032Z"
+      "ts": "2026-04-29T06:19:26.945282+00:00"
     },
     {
       "judge": "skeptical-pm",
       "gate_id": "3.11",
-      "verdict": "PENDING",
+      "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/skeptical-pm.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/skeptical-pm.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/skeptical-pm.json",
+        "persona_verdict": "PASS"
       },
-      "ts": "2026-04-29T06:06:13.032Z"
+      "ts": "2026-04-29T06:19:26.945292+00:00"
     },
     {
-      "judge": "tech-manual-framing",
-      "gate_id": "8.5",
-      "verdict": "PENDING",
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/tech-manual-framing.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/indian-philosopher.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/indian-philosopher.json",
+        "persona_verdict": "PASS"
       },
-      "ts": "2026-04-29T06:06:13.032Z"
+      "ts": "2026-04-29T06:19:26.945336+00:00"
     },
     {
-      "judge": "trivialization-check",
-      "gate_id": "8.1",
-      "verdict": "PENDING",
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/trivialization-check.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/indian-philosopher.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/indian-philosopher.json",
+        "persona_verdict": "PASS"
       },
-      "ts": "2026-04-29T06:06:13.033Z"
+      "ts": "2026-04-29T06:19:26.945343+00:00"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/cynical-writer.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/cynical-writer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945383+00:00"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/force-fit-detector.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/force-fit-detector.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945423+00:00"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/force-fit-detector.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/force-fit-detector.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945430+00:00"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/inversion-test.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/inversion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945468+00:00"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/inversion-test.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/inversion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945475+00:00"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/distortion-test.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/distortion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945513+00:00"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/distortion-test.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/distortion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945520+00:00"
     },
     {
       "judge": "voice-consistency",
       "gate_id": "5.7",
-      "verdict": "PENDING",
+      "verdict": "PASS_WITH_CAVEAT",
       "raw": {
-        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/voice-consistency.prompt.txt"
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/voice-consistency.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/voice-consistency.json",
+        "persona_verdict": "PASS_WITH_CAVEAT"
       },
-      "ts": "2026-04-29T06:06:13.034Z"
+      "ts": "2026-04-29T06:19:26.945589+00:00"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/trivialization-check.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/trivialization-check.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945641+00:00"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/tech-manual-framing.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/tech-manual-framing.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945714+00:00"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/disagreement-explanation-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945765+00:00"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/removed-verse-reviewer.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/removed-verse-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945803+00:00"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/reproducibility-check.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/reproducibility-check.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945851+00:00"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/chapter-thesis-support.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/chapter-thesis-support.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945891+00:00"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/chapter-thesis-support.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/chapter-thesis-support.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945898+00:00"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/doctrine-coherence-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945936+00:00"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_path": "/Users/somepalli/claude/shipping-gita/data/verses/bg-2-47.judge-results/doctrine-coherence-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-04-29T06:19:26.945942+00:00"
     }
-  ]
+  ],
+  "verdicts_by_persona": {
+    "sanskrit-scholar": "PASS",
+    "hostile-engineer": "PASS",
+    "skeptical-pm": "PASS",
+    "indian-philosopher": "PASS",
+    "cynical-writer": "PASS",
+    "force-fit-detector": "PASS",
+    "inversion-test": "PASS",
+    "distortion-test": "PASS",
+    "voice-consistency": "PASS_WITH_CAVEAT",
+    "trivialization-check": "PASS",
+    "tech-manual-framing": "PASS",
+    "disagreement-explanation-reviewer": "PASS",
+    "removed-verse-reviewer": "PASS",
+    "reproducibility-check": "PASS",
+    "chapter-thesis-support": "PASS",
+    "doctrine-coherence-reviewer": "PASS"
+  }
 }

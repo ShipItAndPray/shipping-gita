@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "EM 1:1 / retention-conversation template + a 'two-decisions' splitter checklist",
+  "artifact_kind": "meeting_structure",
+  "embodiment_sketch": "EM retention-conversation template, triggered when an engineer assigned a hard project signals exit thoughts within 2 weeks: 'Run two separate 1:1s, not one fused. Conversation A (project, on its own terms): Is the project wrong, or just hard? List 3 specific architectural concerns OR acknowledge the project is hard but right. Conversation B (career, on its own terms): How long has this career move been under consideration pre-trigger? If < 1 quarter, the trigger is the cause; if > 1 quarter, the project merely accelerated. Decision: only reassign the project if Conversation A surfaces real concerns; only retain on career grounds if Conversation B pre-dates the trigger.'",
+  "metaphor_only": false,
+  "verdict_reason": "The verse's claim is encoded in (a) a literal meeting-structure template (two separate 1:1s, not one fused), (b) a clean separation predicate (project / career), and (c) a decision rule (which conversation determines which action). Tags include team-state — structural. A senior engineer / EM could add this to their team's actual practice on Monday. The artifact concretely embodies the verse's diagnostic move (separating the two fused decisions). PASS."
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "anchored_threads": [
+    {
+      "thread_name": "Karma Yoga / disciplined action (verses 2.31-2.53)",
+      "anchor_evidence": "The engineering layer's whole structure — 'your jurisdiction extends only to the action itself ... do not regard yourself as the cause of those fruits ... do not let this become a license for retreat' — is a direct rendering of niṣkāma-karma. The chapter thesis explicitly names 2.47 ('Includes the famous 2.47') as belonging to this thread. The shipping-discipline + outcome-detachment + iteration-loop tags map onto the engineering-domain mapping the thesis prescribes for this thread ('How to run code without grasping at outcomes')."
+    }
+  ],
+  "hard_edges_violated": [],
+  "counter_anti_thesis_violations": [],
+  "progression_issue": {
+    "type": "none",
+    "explanation": "Verse 47 sits in the middle of the karma-yoga block (2.31-2.53), well after the sāṅkhya block has been laid down (2.11-2.30). The engineering layer does not pre-empt the sthita-prajña vocabulary that comes later in the chapter (2.54-2.72) — it stays in the karma-yoga register. It does not regress to first-principles material that the chapter has already settled. Progressive-build is fine. Note: full progressive-build verification requires the engineering layers of all preceding chapter-2 verses; the chapter_context input was not provided in this run, so this judgment is best-effort against the chapter thesis alone."
+  },
+  "verdict_reason": "Clean PASS for gate 10.3 (thread anchoring) and gate 10.4 (progressive build). v3.1's First/Second/Third structure directly preserves the chapter's load-bearing 'should NOT be diluted' claim: 'Action without attachment ≠ inaction (2.47-2.51). The verse explicitly rejects inaction. Engineering layers must not be readable as stop caring about outcomes.' v3.1 satisfies this at three levels: (1) the falsifiability clause forbids the 'stop reading dashboards' reading; (2) the Third clause explicitly names the inaction-rejection ('inaction disguised as caution, and it is rejected here just as firmly as the grasping for fruits'); (3) the counter_example invokes 5.x and 18.66 as the textual companion to right-renunciation, satisfying the chapter-thesis 'companion claims to other chapters' constraint. The verse anchors on exactly one chapter thread (karma yoga proper), with sharp anchor evidence. No counter-anti-thesis drift — no detachment-from-users framing, no consequence-weight-erasure, no flattening of svadharma into arbitrary work. PASS."
+}

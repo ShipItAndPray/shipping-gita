@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 5,
+  "reconstructed_sketch": "Given chapter context (2.6 = FRAME-BUG state, 2.7 = surrender, 2.8 = end-of-toolkit) and the chapter's didactic-corrective voice, an engineering analog at position 9 might be either a continuation of the diagnostic thread or a transition verse. A competent writer working from chapter context might write 'recognize when the conversation is about to shift' — but they would not necessarily land on the meta-discipline contribution: 'recognise scaffolding when you see it; not every silence is a teaching.' The honest LOW-confidence + STRETCHED tagging itself is information-bearing — a chapter-paraphrase writer might either over-extract (force-fit a silence-tactic) or omit (skip narrative verses), but the engineering layer's correct-naming-of-scaffolding is the contribution.",
+  "verse_specific_signal": "The meta-discipline of refusing to manufacture doctrine from a structural pivot — and the explicit listing of 'scaffolding' vs 'doctrine' as a distinguishable category for the corpus. The honest LOW + STRETCHED tag is itself the verse-specific signal that the chapter's other verses do not provide.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.10",
+      "overlap_type": "same_predicate",
+      "explanation": "Both 2.9 and 2.10 are narrative scaffolding marking the structural pivot, both tagged LOW + STRETCHED. The overlap is honest and structurally appropriate — these two verses together form the chapter's pivot pair. Different specific anchors (2.9 = silence, 2.10 = smile) prevent this from being a duplicate signal."
+    }
+  ],
+  "verdict_reason": "The reconstructibility score is moderate (5) because the meta-discipline contribution is partially predictable from the chapter thesis (which would license a STRETCHED tag for narrative verses) but the specific 'recognise scaffolding when you see it' framing and the chapter-architecture explicit naming are verse-specific. The 2.9/2.10 pair-overlap is sanctioned by the chapter's pivot-pair structure, not a corpus duplication. PASS."
+}

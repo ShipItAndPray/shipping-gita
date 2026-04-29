@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 4,
+  "reconstructed_sketch": "From the chapter thesis and the preceding 2.2 (diagnosis), a competent writer would expect verse 3 to issue an imperative — 'do not yield, stand up.' The likely scenario would be a senior engineer being told to stop deferring. Likely tags: shipping-discipline, engineer-paralysis.",
+  "verse_specific_signal": "The specific predicate 'concerns that do not survive five minutes of investigation' AND the 'three-sprint orbit on a one-week task' diagnostic — these are specific signals not predictable from chapter thesis alone. The verse-specific framing of 'small wearing the costume of large' (kṣudra) is also verse-specific.",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG 2.4", "overlap_type": "same_artifact", "explanation": "Both 2.3 and 2.4 use the deprecation-management tag and overlap on legacy-code/legacy-column scenarios. 2.3 is the imperative voice (stand up and ship); 2.4 is the operator's specific objection (it is my mentor's code). The overlap is structural complementarity (imperative followed by counter-argument) — different teaching moves, not redundant signal." }
+  ],
+  "verdict_reason": "Reconstructibility is 4 — the imperative-form is predictable from chapter context, but the specific diagnostic ('three sprints of orbit, concerns do not survive five minutes') is verse-specific signal. The overlap with 2.4 is structural complementarity (the dialogue's imperative followed by its counter-argument), not redundancy. PASS."
+}

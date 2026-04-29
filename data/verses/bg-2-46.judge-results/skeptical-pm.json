@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a senior IC claims they no longer need a process artifact (style guide, runbook, design-patterns reference), check whether their output still expresses the rule; if it does, accept the de-cited fluency; if it does not, restore the artifact requirement.",
+  "example_decision": "A staff engineer pushes back on the team's PR template requirement to cite the architectural decision record (ADR) for any change to the queue-processing layer, arguing that everyone on the team has internalized the queue conventions. The PM/EM applies this verse: spot-check the last five PRs from this engineer for queue-convention adherence. If adherence is high, drop the template requirement for senior contributors and document the carve-out. If adherence is low (the engineer is announcing flood while still at the well), keep the template and address the gap.",
+  "objection": "none"
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a launch is gated by metric-anxiety rather than code-readiness or incident data, ship; and conversely, when a multi-week internal rewrite is displacing a queued customer-facing change, the rewrite is the comfort-task and must be deprioritized.",
+  "example_decision": "Sprint planning: a backend engineer has spent two weeks rewriting the internal deploy CLI ('it's more elegant') while the Postgres schema migration that unblocks the new endpoint sits at the bottom of the queue. By the principle of this verse, the PM moves the migration to the top of the next sprint regardless of how 'almost done' the CLI rewrite is, because the rewrite has become a flight from the higher-priority customer-facing action. Two PMs could legitimately disagree on whether the same predicate fires for, e.g., a hardening week before a regulatory launch — that disagreement is the kind that establishes the predicate is actually decision-bearing rather than universally applicable.",
+  "objection": "none"
+}

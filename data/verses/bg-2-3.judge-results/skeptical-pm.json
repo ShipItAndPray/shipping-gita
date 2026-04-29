@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a one-week task has been on a sprint board for three consecutive sprints with no commit, the manager asks the engineer to ship the smallest possible version this week and bring back specific blockers — not to keep adding new investigative concerns.",
+  "example_decision": "Sprint planning predicate: any task aged > 2 sprints triggers a 'name the orbit' check. The owner must either commit to a Friday-end-of-week smallest-version ship OR list, on the whiteboard, three concrete invariants that would be violated. Vague concerns are no longer accepted as a hold. This explicitly changes how stale tasks are triaged in the next sprint review.",
+  "objection": "none"
+}

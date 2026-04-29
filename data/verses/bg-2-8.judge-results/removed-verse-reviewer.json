@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 3,
+  "reconstructed_sketch": "Given the chapter context (2.6 ends with the FRAME-BUG state; 2.7 is the surrender-to-teacher; the chapter as a whole is on the operator's collapse and re-framing), an engineering analog at position 8 might describe a despair-state or might continue Arjuna's case. A competent writer working from chapter context alone might write 'when you've tried everything' — a generic exhaustion verse — but would not naturally land on the precise claim that *no external acquisition (even maximal cosmic-sovereignty-equivalent success) would dispel the state*, nor on the specific protocol of 'list moves tried, name the limit, ask for reframe rather than more intervention.'",
+  "verse_specific_signal": "The 'even maximal external success would not dispel this state' predicate, anchored on rājyaṁ surāṇām api ca ādhipatyam — and the protocol that the operator must explicitly name the diagnostic limit (with the moves tried) for the reframing to become receivable. This is verse-specific.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.6",
+      "overlap_type": "same_predicate",
+      "explanation": "Both 2.6 and 2.8 share the 'frame is the bug, not the toolkit' diagnostic register; but 2.6 is symmetric-dread between two outcomes, while 2.8 is end-of-toolkit despite all moves tried. Different specific predicates that share a meta-register; not a duplicate."
+    }
+  ],
+  "verdict_reason": "The verse contributes the 'maximal external success would not dispel' predicate plus the 'name moves tried + name limit + request reframe' escalation protocol. The chapter context predicts neither precisely. The overlap with 2.6 is at the meta-register level (both are diagnostic-state verses that prepare for the chapter's pivot at 2.11) but the specific predicates are distinct — 2.6 is about symmetric-dread, 2.8 is about exhausted-toolkit. PASS."
+}

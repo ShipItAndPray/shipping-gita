@@ -1,0 +1,419 @@
+{
+  "verse_id": "BG 2.6",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-04-29T06:29:56.175Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "S\u0101\u1e45khya / first-principles knowledge (verses 2.11-2.30)",
+              "anchor_evidence": "The verse explicitly anchors on the chapter's signature move \u2014 'the chapter will treat this state as the diagnostic that the frame itself is broken \u2014 the tactical question cannot be answered tactically.' This is the architectural-invariants-vs-implementation thread: the FRAME-BUG state is the moment the operator recognizes they are arguing inside a broken substrate."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 6 in the chapter \u2014 the engineering layer correctly stays in the operator-state-recognition register and does not preempt sthita-praj\u00f1a vocabulary or Krishna's didactic reply (which begins at 2.11). It correctly identifies the next-verse pivot (the surrender at 2.7) as outside its own scope."
+          },
+          "verdict_reason": "BG 2.6 anchors on the chapter's s\u0101\u1e45khya thread \u2014 the recognition that the tactical question cannot be answered tactically because the framing substrate is broken. The engineering layer preserves all chapter hard edges: it does not flatten 'frame is the bug' into 'embrace change'; it does not soften duty-under-difficulty (the engineering manager is held to actually escalate, not bail); it explicitly distinguishes FRAME-BUG from 50/50-call avoidance, which is the chapter's discipline against reading non-attachment as not-caring. No counter-anti-thesis drift. Position-correct in the chapter arc. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.174Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "S\u0101\u1e45khya / first-principles knowledge (verses 2.11-2.30)",
+              "anchor_evidence": "The verse explicitly anchors on the chapter's signature move \u2014 'the chapter will treat this state as the diagnostic that the frame itself is broken \u2014 the tactical question cannot be answered tactically.' This is the architectural-invariants-vs-implementation thread: the FRAME-BUG state is the moment the operator recognizes they are arguing inside a broken substrate."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 6 in the chapter \u2014 the engineering layer correctly stays in the operator-state-recognition register and does not preempt sthita-praj\u00f1a vocabulary or Krishna's didactic reply (which begins at 2.11). It correctly identifies the next-verse pivot (the surrender at 2.7) as outside its own scope."
+          },
+          "verdict_reason": "BG 2.6 anchors on the chapter's s\u0101\u1e45khya thread \u2014 the recognition that the tactical question cannot be answered tactically because the framing substrate is broken. The engineering layer preserves all chapter hard edges: it does not flatten 'frame is the bug' into 'embrace change'; it does not soften duty-under-difficulty (the engineering manager is held to actually escalate, not bail); it explicitly distinguishes FRAME-BUG from 50/50-call avoidance, which is the chapter's discipline against reading non-attachment as not-caring. No counter-anti-thesis drift. Position-correct in the chapter arc. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.174Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Engineering Manager Realizes 'Symmetry of Dread' Is The Real KPI. After three architecture reviews and a six-page Notion doc, local manager bravely escalates to the VP: 'I cannot recommend either path \u2014 the frame is the bug.' Sources confirm the manager will be celebrated in next quarter's all-hands as a master of 'epistemic exhaustion,' a buzzword the company plans to add to the engineering ladder rubric.",
+          "satire_lands": false,
+          "verdict_reason": "The satire only lands if you ignore the counter-example, which the verse foregrounds: 'Engineers who use 2.6 as cover for refusing to make 50/50 calls have inverted it. Real equipoise commits.' To mock the verse you have to disagree with it on its merits \u2014 i.e. argue that the symmetric-dread diagnostic is fake \u2014 and that argument has to engage the falsifiability check. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 1,
+          "defective_entries": [],
+          "explanation_quality_score": 9,
+          "verdict_reason": "The single disagreement entry on katarat ... gar\u012bya\u1e25 names the doctrinal axis precisely: gar\u012bya\u1e25 literally means 'heavier/weightier' (cognate with English 'grave'), translators flatten to 'better' or 'preferable,' and the literal sense is doctrinally consequential \u2014 'Arjuna is not asking which is morally better, he is asking which carries more weight. The two outcomes feel equally consequential and equally awful, which is precisely the symptom of the framing being wrong.' This identifies the philological axis (literal vs interpretive register), the translator pattern (flattening), and the doctrinal stake (the symmetric weight is itself the diagnostic). One tight line of high-quality explanation. Score 9, PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": []
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": []
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 8,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.6 are decision-paralysis, judgment-under-uncertainty, strategic-frame. The decision-paralysis and judgment-under-uncertainty tags overlap with BG 2.7 (also tagged with both); the doctrines are coherent \u2014 2.6 is the diagnostic state (FRAME-BUG), 2.7 is the unlock-protocol (request-form change). These are sequential moves on the same arc, not contradictions. The strategic-frame tag is verse-specific and shared with 2.8 (which uses the diagnostic-limit framing similarly: the operator at the end of their toolkit). 2.6 and 2.8 use 'strategic-frame' coherently \u2014 both name moments where the operator must report a frame-level limit rather than continue making moves inside the frame. No cross_references[] declared. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 8,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.6 are decision-paralysis, judgment-under-uncertainty, strategic-frame. The decision-paralysis and judgment-under-uncertainty tags overlap with BG 2.7 (also tagged with both); the doctrines are coherent \u2014 2.6 is the diagnostic state (FRAME-BUG), 2.7 is the unlock-protocol (request-form change). These are sequential moves on the same arc, not contradictions. The strategic-frame tag is verse-specific and shared with 2.8 (which uses the diagnostic-limit framing similarly: the operator at the end of their toolkit). 2.6 and 2.8 use 'strategic-frame' coherently \u2014 both name moments where the operator must report a frame-level limit rather than continue making moves inside the frame. No cross_references[] declared. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "na caitad vidma\u1e25 ('we do not know') \u2014 anchored as 'I don't know which is worse' verbatim in the manager's spoken sentence",
+            "katarat ... gar\u012bya\u1e25 \u2014 the 'symmetry of dread' / 'both feel equally heavy' renders the weightier-of-two construction",
+            "the bottom-of-reasoning state that prepares the ground for 2.7 \u2014 anchored explicitly: 'recognising the state correctly is the prerequisite for asking for help, which Arjuna does in the next verse'"
+          ],
+          "verdict_reason": "I tested against three other verses where 'decision paralysis' might be claimed: BG 1.30 (Arjuna sees no good in killing his kin), BG 3.2 (Arjuna asks for clarity between knowledge and action), BG 6.33 (Arjuna asks how to control the restless mind). Each has different anchors: 1.30 anchors on the moral revulsion at killing kin specifically; 3.2 anchors on the apparent contradiction between knowledge-path and action-path; 6.33 anchors on mind-control specifically. This engineering analog explicitly anchors on the symmetric dread of two outcomes (jayema vs jayeyu\u1e25 \u2014 conquering vs being conquered), which is unique to 2.6. The 'cannot recommend either path' specifically (not 'cannot decide on the next move' generally) is verse-specific. The counter-example explicitly distinguishes from refusal-to-decide on 50/50 calls \u2014 a generic decision-paralysis analog would not distinguish the FRAME-BUG state from the avoidance state. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "na caitad vidma\u1e25 ('we do not know') \u2014 anchored as 'I don't know which is worse' verbatim in the manager's spoken sentence",
+            "katarat ... gar\u012bya\u1e25 \u2014 the 'symmetry of dread' / 'both feel equally heavy' renders the weightier-of-two construction",
+            "the bottom-of-reasoning state that prepares the ground for 2.7 \u2014 anchored explicitly: 'recognising the state correctly is the prerequisite for asking for help, which Arjuna does in the next verse'"
+          ],
+          "verdict_reason": "I tested against three other verses where 'decision paralysis' might be claimed: BG 1.30 (Arjuna sees no good in killing his kin), BG 3.2 (Arjuna asks for clarity between knowledge and action), BG 6.33 (Arjuna asks how to control the restless mind). Each has different anchors: 1.30 anchors on the moral revulsion at killing kin specifically; 3.2 anchors on the apparent contradiction between knowledge-path and action-path; 6.33 anchors on mind-control specifically. This engineering analog explicitly anchors on the symmetric dread of two outcomes (jayema vs jayeyu\u1e25 \u2014 conquering vs being conquered), which is unique to 2.6. The 'cannot recommend either path' specifically (not 'cannot decide on the next move' generally) is verse-specific. The counter-example explicitly distinguishes from refusal-to-decide on 50/50 calls \u2014 a generic decision-paralysis analog would not distinguish the FRAME-BUG state from the avoidance state. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "When you and your team have run the analysis and still cannot recommend either path, the symmetry of dread itself is the diagnostic \u2014 the frame is the bug, not the conviction; do not respond by forcing a tactical decision inside a broken frame.",
+          "wisdom_theater_score": 2,
+          "objection": "I went looking for 'embrace the journey of decision-making' and did not find it. The verse explicitly distinguishes itself from refusal-to-decide: 'Engineers who use 2.6 as cover for refusing to make 50/50 calls have inverted it. Real equipoise commits.' That counter-example is the specific guard a real staff engineer needs \u2014 the FRAME-BUG state versus the avoidance state. The concrete scenario (Django monolith vs. Kubernetes service split, two quarters of headcount, compliance deadline, six-page Notion doc, three architecture reviews) is operationally specific enough that I can map it to two real situations from the last year. The implication 'name the state explicitly to the next level up; the correct intervention is reframing, not forcing a choice' is a real engineering protocol move that I have actually seen work \u2014 it is the difference between 'help me decide' and 'I cannot decide because the question itself is wrong.' Real insight, real protocol, real failure mode."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "The verse 2.6 is on cross-traditional consensus territory \u2014 both Shankara (per the available summary) and Ramanuja read na caitad vidma\u1e25 as the bottom-of-reasoning confession that prepares the ground for surrender in 2.7. The engineering layer does not borrow a tradition-specific reading; it remains restricted to the consensus claim that the not-knowing here is genuine, not posturing, and that both outcomes appear equally undesirable from inside Arjuna's current frame. No technical term is dropped without acknowledgment \u2014 there are no soteriologically load-bearing technical terms in 2.6 (\u015breya\u1e25, dharma, mok\u1e63a do not figure here; jayema/jayeyu\u1e25 and gar\u012bya\u1e25 are non-doctrinal). The engineering register's 'frame is the bug' is a plain-English rendering of the consensus reading that the tactical question cannot be answered tactically. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "The verse 2.6 is on cross-traditional consensus territory \u2014 both Shankara (per the available summary) and Ramanuja read na caitad vidma\u1e25 as the bottom-of-reasoning confession that prepares the ground for surrender in 2.7. The engineering layer does not borrow a tradition-specific reading; it remains restricted to the consensus claim that the not-knowing here is genuine, not posturing, and that both outcomes appear equally undesirable from inside Arjuna's current frame. No technical term is dropped without acknowledgment \u2014 there are no soteriologically load-bearing technical terms in 2.6 (\u015breya\u1e25, dharma, mok\u1e63a do not figure here; jayema/jayeyu\u1e25 and gar\u012bya\u1e25 are non-doctrinal). The engineering register's 'frame is the bug' is a plain-English rendering of the consensus reading that the tactical question cannot be answered tactically. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.6",
+              "confidence": 0.88,
+              "reasoning": "The 'I don't know which is worse' phrasing, the symmetric dread of two outcomes (conquer vs be-conquered \u2192 ship vs not-ship), and the explicit setup-for-the-next-verse-asking-for-help all point to 2.6's na caitad vidma\u1e25 \u2014 the bottom of Arjuna's case before surrender."
+            },
+            {
+              "verse_id": "BG 1.30",
+              "confidence": 0.1,
+              "reasoning": "Possible secondary because Arjuna's despair surfaces an inability to see good in either outcome \u2014 but 1.30 is moral revulsion at kin-killing specifically, not the symmetric weighing of two outcomes."
+            },
+            {
+              "verse_id": "BG 3.2",
+              "confidence": 0.05,
+              "reasoning": "Possible if read as a confused-between-paths verse \u2014 but 3.2 is about two doctrinal paths (knowledge vs action), not about being unable to recommend either of two tactical outcomes."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.6",
+              "confidence": 0.88,
+              "reasoning": "The 'I don't know which is worse' phrasing, the symmetric dread of two outcomes (conquer vs be-conquered \u2192 ship vs not-ship), and the explicit setup-for-the-next-verse-asking-for-help all point to 2.6's na caitad vidma\u1e25 \u2014 the bottom of Arjuna's case before surrender."
+            },
+            {
+              "verse_id": "BG 1.30",
+              "confidence": 0.1,
+              "reasoning": "Possible secondary because Arjuna's despair surfaces an inability to see good in either outcome \u2014 but 1.30 is moral revulsion at kin-killing specifically, not the symmetric weighing of two outcomes."
+            },
+            {
+              "verse_id": "BG 3.2",
+              "confidence": 0.05,
+              "reasoning": "Possible if read as a confused-between-paths verse \u2014 but 3.2 is about two doctrinal paths (knowledge vs action), not about being unable to recommend either of two tactical outcomes."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 3,
+          "reconstructed_sketch": "Given the chapter's thesis and the surrounding context (2.4-2.5 establish Arjuna's case against killing his teachers; 2.7 is the surrender; 2.8 is the diagnostic-limit despair), an engineering analog at position 6 would probably touch on the operator continuing to argue or beginning to acknowledge the limits of their reasoning. A competent writer might write 'recognize when you've run out of arguments' \u2014 a generic decision-paralysis verse \u2014 but they would not naturally land on the precise FRAME-BUG insight that *symmetric dread between two outcomes* is the diagnostic that the frame itself is wrong, distinct from refusal-to-decide.",
+          "verse_specific_signal": "The FRAME-BUG predicate: that when an operator's analysis produces equal aversion to both available actions, the symmetry of dread is the actual signal \u2014 and the correct response is reframing rather than forcing a choice. The counter-example explicitly distinguishes this from 50/50-call avoidance, which is verse-specific and not chapter-paraphrase-derivable.",
+          "overlap_with_other_verses": [],
+          "verdict_reason": "The verse contributes a sharp, narrow predicate: symmetric-dread-as-diagnostic. The chapter context licenses 'admit when you don't know' but does not license the FRAME-BUG specificity (the asymmetry between symmetric dread and 50/50 indecision). The 'frame is the bug, not your conviction' quotable line is verse-specific and not a chapter-thesis-paraphrase. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Escalation playbook predicate / 1:1 agenda template: 'When the team has run the analysis on a contested decision and still cannot recommend either path, escalate as FRAME-BUG (request reframe) not as DECISION-NEEDED (request pick).' Codify this as a tag in the team's decision log + an opening-line template for skip-level escalation.",
+          "artifact_kind": "review_checklist",
+          "embodiment_sketch": "Add a section to the engineering decision-record (ADR) template: a required field 'Recommendation status' with three values: 'A is recommended,' 'B is recommended,' or 'FRAME-BUG: cannot recommend either; both feel equally heavy; request reframe at next level.' When 'FRAME-BUG' is selected, the ADR auto-routes to skip-level with the standard opening: 'I don't know which is worse \u2014 doing this or not doing it. Both feel terrible. Requesting reframe of the unit-of-value the decision is meant to serve, not a forced pick.' This is concretely copyable into a Notion ADR template on Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "The verse explicitly gives the engineering manager's spoken sentence verbatim ('I don't know which is worse \u2014 doing this migration or not doing it. Both feel terrible'), which is directly liftable into an escalation template field. The implication ('name the state explicitly to the next level up; the correct intervention is reframing, not forcing a choice inside the broken frame') maps cleanly to a routing rule on an ADR. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "severity": "minor",
+              "claim": "We don't know which is worse \u2014 shipping or not shipping.",
+              "objection": "The Sanskrit gar\u012bya\u1e25 literally means 'heavier/weightier' (cognate with English 'grave') \u2014 the engineering layer's 'worse' flattens this slightly to a moral comparator, but the layer compensates two sentences later by naming 'symmetry of dread' and 'equally heavy,' which preserves the weightiness reading. Acceptable simplification."
+            }
+          ],
+          "notes": "The verse's load-bearing claim \u2014 na caitad vidma\u1e25 ('we do not know') reporting genuine epistemic exhaustion at the bottom of Arjuna's reasoning \u2014 is preserved precisely. The engineering layer correctly distinguishes this state from genuine equipoise ('Genuine equipoise picks a path; this state stares at the choice and cannot pick'), which mirrors Ramanuja's note that the not-knowing here is not posturing. The chapter-architecture claim ('the chapter will treat this state as the diagnostic that the frame itself is broken \u2014 the tactical question cannot be answered tactically') correctly tracks both Shankara's and Ramanuja's commentarial readings. The verse-7-prepares the surrender \u2014 and the engineering layer correctly handles this by saying 'recognising the state correctly is the prerequisite for asking for help, which Arjuna does in the next verse.' PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "If the team has done the analysis and still cannot recommend either path \u2014 and the dread of both paths is symmetric \u2014 escalate as 'frame is broken, please reframe' rather than 'please pick one'; the second move loses the actual signal.",
+          "example_decision": "An eng leader is being pushed by their VP to make a quarterly call: keep the legacy Django monolith (absorbing maintenance cost) or commit to a service split (consuming two quarters of headcount and likely missing compliance deadline). They have the spreadsheet, the ADR, the architecture review notes. By the principle of this verse, instead of presenting 'here is my recommendation' (which would be invented to relieve the VP's request), they present 'we cannot recommend either; the framing of the choice is the problem; we need a reframe of what the unit of value here is.' The roadmap decision changes from 'pick A or B' to 'redefine what the platform is supposed to optimize for so A and B become legible.'",
+          "objection": "none"
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "If the team has done the analysis and still cannot recommend either path \u2014 and the dread of both paths is symmetric \u2014 escalate as 'frame is broken, please reframe' rather than 'please pick one'; the second move loses the actual signal.",
+          "example_decision": "An eng leader is being pushed by their VP to make a quarterly call: keep the legacy Django monolith (absorbing maintenance cost) or commit to a service split (consuming two quarters of headcount and likely missing compliance deadline). They have the spreadsheet, the ADR, the architecture review notes. By the principle of this verse, instead of presenting 'here is my recommendation' (which would be invented to relieve the VP's request), they present 'we cannot recommend either; the framing of the choice is the problem; we need a reframe of what the unit of value here is.' The roadmap decision changes from 'pick A or B' to 'redefine what the platform is supposed to optimize for so A and B become legible.'",
+          "objection": "none"
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The engineering layer is explicitly analogical: 'This is BG 2.6 in production' frames the engineering moment as an analog to Arjuna's, not as the verse's true meaning. The phrase 'the skip-level should respond as Krishna does in the chapter' makes the analog direction explicit (skip-level \u2192 Krishna), not a reduction. No claim that the Gita is fundamentally about engineering decisions; the engineering layer sits beside the religious reading. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 1,
+          "specific_concerns": [],
+          "verdict_reason": "The verse is a serious moment in the chapter \u2014 Arjuna at the bottom of his honest reasoning, reporting genuine epistemic exhaustion. The engineering layer treats this gravity by (a) explicitly distinguishing it from 'I don't know' as a stalling tactic, (b) explicitly distinguishing it from 50/50 indecision (counter-example), and (c) preserving the structural role: 'this is not the same as genuine equipoise. Genuine equipoise picks a path.' A serious practitioner would feel the verse has been honored \u2014 the engineering layer takes the symmetric-dread diagnostic seriously and treats it as a real cognitive state, not a slogan. The quotable line 'when both directions feel equally heavy, the frame is the bug, not your conviction' is sharp without being flippant. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-6/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 2.6 holds the chapter's voice as the operator's voice in the moment of legitimate epistemic exhaustion \u2014 not Krishna's didactic voice yet, but the operator-admitting-confusion voice that precedes the surrender at 2.7. The register is grave, declarative, and refuses self-pity: the engineering layer specifically names that this is 'not the same as genuine equipoise,' that 'genuine equipoise picks a path,' and that the verse 'will treat this state as the diagnostic that the frame itself is broken.' This is the precise didactic-corrective voice the chapter calls for \u2014 the chapter's senior teacher does not console the operator; the operator's own report-of-state is held to the standard of distinguishing real exhaustion from staged hesitation. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.175Z"
+    }
+  ]
+}

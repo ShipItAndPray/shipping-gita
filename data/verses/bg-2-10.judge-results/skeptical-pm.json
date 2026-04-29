@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When you observe a structural pivot moment in a meeting (the room transitioning from one mode to another), do not extract a tactic from the marker (e.g. 'smile-before-hard-feedback'); the meaningful content begins after the pivot, not at it.",
+  "example_decision": "In a contested architecture review where the room has just gone quiet after a hard 'I'm not going to lead this' declaration, the senior in the room should NOT prepare 'a coaching technique to deliver feedback warmly' — that is performing affect, which inverts the verse. They should prepare the actual reframing content (the thing they will say next), since the room's readiness is the precondition for that content, not for the affect. PM-side: do not put 'leader smile/posture coaching' on the engineering-management training calendar; do put 'reframing-content preparation' on it.",
+  "objection": "Caveat (logged as PASS): the predicate is meta-disciplinary rather than directly roadmap-facing. The verse is honestly tagged LOW + STRETCHED. PASS because the meta-discipline (don't extract tactics from structural pivots) is itself a real PM training-and-coaching discipline."
+}

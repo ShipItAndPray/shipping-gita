@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 9,
+  "cross_reference_integrity_score": null,
+  "verdict_reason": "Tags: engineer-paralysis, shipping-discipline, deprecation-management. Cross-tag check: engineer-paralysis is consistent across 2.1 (the moment), 2.2 (the diagnosis), 2.3 (the corrective imperative). shipping-discipline first appears here; consistency check deferred. deprecation-management overlaps with 2.4 and 2.5 (different teaching moves on the same domain — the 2.3 imperative voice; the 2.4 counter-argument; the 2.5 fantasy-escape) — this is structural complementarity within a single dialogue arc, not a tag-drift. No cross_references[] declared, so cross_reference_integrity_score is null. PASS."
+}

@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Escalation playbook predicate / 1:1 agenda template: 'When the team has run the analysis on a contested decision and still cannot recommend either path, escalate as FRAME-BUG (request reframe) not as DECISION-NEEDED (request pick).' Codify this as a tag in the team's decision log + an opening-line template for skip-level escalation.",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add a section to the engineering decision-record (ADR) template: a required field 'Recommendation status' with three values: 'A is recommended,' 'B is recommended,' or 'FRAME-BUG: cannot recommend either; both feel equally heavy; request reframe at next level.' When 'FRAME-BUG' is selected, the ADR auto-routes to skip-level with the standard opening: 'I don't know which is worse — doing this or not doing it. Both feel terrible. Requesting reframe of the unit-of-value the decision is meant to serve, not a forced pick.' This is concretely copyable into a Notion ADR template on Monday.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse explicitly gives the engineering manager's spoken sentence verbatim ('I don't know which is worse — doing this migration or not doing it. Both feel terrible'), which is directly liftable into an escalation template field. The implication ('name the state explicitly to the next level up; the correct intervention is reframing, not forcing a choice inside the broken frame') maps cleanly to a routing rule on an ADR. PASS."
+}

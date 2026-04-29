@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "engineering.translation renders klaibyam as 'faintheartedness'",
+      "objection": "klaibyam literally references the state of a klība (a eunuch) and was a strong gendered term in the original cultural context. Modern translations vary on whether to preserve the gendered force ('unmanly') or to render it as faintheartedness/cowardice. The engineering layer chooses the modern non-gendered rendering, which is the right call for a contemporary engineering text — but a careful Sanskritist would note that Krishna's verse-as-shame-tactic move is partly lost when the gendered force is dropped. This is an acceptable choice; the source pack flags it. The chapter thesis voice remains corrective without depending on the gendered shock."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) the imperative 'tyaktvā uttiṣṭha' (drop it and stand up — quoted verbatim in the scenario), (b) the precise diagnosis 'kṣudraṁ hṛdaya-daurbalyaṁ' (petty heart-weakness), (c) the named character of the weakness as petty (kṣudra) — small, not large; this is doctrinally important and the engineering layer foregrounds it correctly, (d) the falsifiability that explicitly disclaims the use of this verse to override genuine technical objections, and (e) the counter_example that protects junior engineers. No tradition is conflated. No load-bearing claim is inverted. Pass."
+}

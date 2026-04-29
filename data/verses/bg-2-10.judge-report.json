@@ -1,0 +1,419 @@
+{
+  "verse_id": "BG 2.10",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-04-29T06:29:56.202Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "The sthita-praj\u00f1a / one whose insight is steady (verses 2.54-2.72)",
+              "anchor_evidence": "Indirect anchoring on the chapter's pedagogy: 2.10 is the structural pivot before Krishna begins teaching \u2014 and Krishna IS the chapter's exemplar of the steady mind. The engineering layer's preservation of 'smiling as if not amused, but settled' captures the chapter's later sthita-praj\u00f1a vocabulary in narrative form: the settled state is the byproduct of an actual underlying state, not a technique. This anchors on the chapter's own claim that 'the steady mind is a real state, not an aspiration.'"
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 10 is the last verse of the chapter's pre-teaching scaffolding. The engineering layer correctly stays in the marker-of-pivot register and does not preempt 2.11's first-principles teaching."
+          },
+          "verdict_reason": "BG 2.10 is the chapter's sanctioned pivot moment \u2014 Krishna about to speak. The chapter's thesis explicitly names the steady-mind / sthita-praj\u00f1a as a real state (not an aspiration), and the engineering layer's preservation of 'state-not-technique' for the smile is doctrinally consistent with that hard edge. The honest LOW + STRETCHED tagging matches the chapter's sanctioned form for narrative verses. No hard edges violated, no counter-anti-thesis drift. PASS at the chapter's correct standard for narrative verses."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "The sthita-praj\u00f1a / one whose insight is steady (verses 2.54-2.72)",
+              "anchor_evidence": "Indirect anchoring on the chapter's pedagogy: 2.10 is the structural pivot before Krishna begins teaching \u2014 and Krishna IS the chapter's exemplar of the steady mind. The engineering layer's preservation of 'smiling as if not amused, but settled' captures the chapter's later sthita-praj\u00f1a vocabulary in narrative form: the settled state is the byproduct of an actual underlying state, not a technique. This anchors on the chapter's own claim that 'the steady mind is a real state, not an aspiration.'"
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 10 is the last verse of the chapter's pre-teaching scaffolding. The engineering layer correctly stays in the marker-of-pivot register and does not preempt 2.11's first-principles teaching."
+          },
+          "verdict_reason": "BG 2.10 is the chapter's sanctioned pivot moment \u2014 Krishna about to speak. The chapter's thesis explicitly names the steady-mind / sthita-praj\u00f1a as a real state (not an aspiration), and the engineering layer's preservation of 'state-not-technique' for the smile is doctrinally consistent with that hard edge. The honest LOW + STRETCHED tagging matches the chapter's sanctioned form for narrative verses. No hard edges violated, no counter-anti-thesis drift. PASS at the chapter's correct standard for narrative verses."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Local CTO Smiles Slightly Before Speaking, Single-Handedly Resolving Eight-Week Migration Debate. Sources confirm the smile was 'not amused but settled,' a phrase the management training company plans to license for the upcoming 'Krishna Smile Workshop' ($2,400/seat). Industry observers note this is the same body language that has historically resolved Mahabharata-scale conflicts.",
+          "satire_lands": false,
+          "verdict_reason": "The satire only lands if you ignore the verse's explicit refusal of the read: 'A reader extracts a leadership tactic from this verse \u2014 always smile before delivering hard feedback \u2014 they have over-read it.' The counter-example explicitly disqualifies the workshop satire: 'A leader who performs a smile to manipulate the room is not enacting Krishna in 2.10; they are performing affect.' To mock the verse you have to disagree with the meta-claim that affect-without-state is inversion, which is a real argument. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 1,
+          "defective_entries": [],
+          "explanation_quality_score": 9,
+          "verdict_reason": "The single disagreement entry on prahasann iva names the doctrinally substantive axis precisely: both translators drop the 'iva' (as if) for English readability, but the particle is doctrinally significant \u2014 'it qualifies the smile, distancing it from amusement. Krishna is not smiling AT Arjuna; he is smiling in the way a settled teacher smiles when a long-deferred conversation is finally ready to begin.' This identifies the philological feature (the iva particle), the translator pattern (dropping it for readability), and the doctrinal stake (the smile is not amused; it is settled-teacher-readiness, which the commentarial tradition reads carefully). One tight line of gold-standard explanation quality. Score 9, PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": []
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": []
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.10 are team-state, team-culture. The team-state tag is shared with 2.9 (also tagged team-state) and the doctrines are coherent \u2014 both verses describe the room-state at a structural pivot, neither claims a leadership tactic from the state. The team-culture tag is shared with 2.7 (where 'team-culture' refers to the request-form discipline as a culture-level practice). The 2.7 and 2.10 use of 'team-culture' is coherent: 2.7 names the request-formulation discipline, 2.10 names the byproduct-vs-technique distinction \u2014 both are culture-level practices about how teams handle the structurally-difficult moment. No tag drift, no contradictions. No cross_references[] declared. Score 7 \u2014 coherent within visible scope; corpus-completion will be authoritative. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.10 are team-state, team-culture. The team-state tag is shared with 2.9 (also tagged team-state) and the doctrines are coherent \u2014 both verses describe the room-state at a structural pivot, neither claims a leadership tactic from the state. The team-culture tag is shared with 2.7 (where 'team-culture' refers to the request-form discipline as a culture-level practice). The 2.7 and 2.10 use of 'team-culture' is coherent: 2.7 names the request-formulation discipline, 2.10 names the byproduct-vs-technique distinction \u2014 both are culture-level practices about how teams handle the structurally-difficult moment. No tag drift, no contradictions. No cross_references[] declared. Score 7 \u2014 coherent within visible scope; corpus-completion will be authoritative. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "prahasann iva \u2014 smiling as-if; the analog explicitly preserves the iva-qualifier ('not amused, but settled')",
+            "senayor ubhayor madhye \u2014 between the two armies; the analog preserves this as 'the two armies of the room'",
+            "the structural-pivot role: the explicit identification that the verse marks the moment Krishna is about to begin teaching at 2.11"
+          ],
+          "verdict_reason": "I tested against three candidate verses: BG 18.73 (Arjuna says 'my doubt is destroyed'), BG 11.50 (Krishna shows his gentle form again to calm Arjuna), BG 4.7-8 (Krishna names his repeated incarnations to restore dharma). None of these turn on a settled-teacher-about-to-speak posture. The analog is anchored on the unique geometry of the BG 2 chariot moment + the iva-smile + the structural-pivot-before-teaching, all of which are 2.10-specific. PASS \u2014 the analog is not transferable."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "prahasann iva \u2014 smiling as-if; the analog explicitly preserves the iva-qualifier ('not amused, but settled')",
+            "senayor ubhayor madhye \u2014 between the two armies; the analog preserves this as 'the two armies of the room'",
+            "the structural-pivot role: the explicit identification that the verse marks the moment Krishna is about to begin teaching at 2.11"
+          ],
+          "verdict_reason": "I tested against three candidate verses: BG 18.73 (Arjuna says 'my doubt is destroyed'), BG 11.50 (Krishna shows his gentle form again to calm Arjuna), BG 4.7-8 (Krishna names his repeated incarnations to restore dharma). None of these turn on a settled-teacher-about-to-speak posture. The analog is anchored on the unique geometry of the BG 2 chariot moment + the iva-smile + the structural-pivot-before-teaching, all of which are 2.10-specific. PASS \u2014 the analog is not transferable."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "Recognize the structural pivot moment \u2014 the room's readiness-to-receive-different-intervention \u2014 as a marker, not as a tactic; performing the affect (the leader's smile) without the underlying settled state inverts the verse.",
+          "wisdom_theater_score": 0,
+          "objection": "I went looking for the 'smile before delivering hard feedback' wisdom-theater move and the verse explicitly refuses it: 'A reader extracts a leadership tactic from this verse \u2014 always smile before delivering hard feedback \u2014 they have over-read it.' The counter-example explicitly disqualifies the affect-performance read: 'A leader who performs a smile to manipulate the room is not enacting Krishna in 2.10; they are performing affect. The verse's smile is the byproduct of an actual settled state \u2014 not a technique that produces one.' The verse is honestly tagged LOW + STRETCHED and does not pretend to be a doctrine. The meta-discipline (don't read structural pivots as tactics) is real and engineering-relevant. wisdom_theater_score=0: this is the explicit refusal of wisdom theater."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "BG 2.10 is narrative; no soteriologically load-bearing technical term is in play. The engineering layer correctly preserves the iva (as if) qualifier on prahasann \u2014 'smiling \\\"as if\\\" \u2014 not amused, but settled' \u2014 which is the doctrinally important particle that all major commentators read carefully. No tradition is conflated; the engineering layer takes the cross-traditional consensus reading (the smile is settled-teacher's readiness, not amusement) and stays inside it. The geometry of the verse (between the two armies) is preserved without overload of doctrinal commitment. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "BG 2.10 is narrative; no soteriologically load-bearing technical term is in play. The engineering layer correctly preserves the iva (as if) qualifier on prahasann \u2014 'smiling \\\"as if\\\" \u2014 not amused, but settled' \u2014 which is the doctrinally important particle that all major commentators read carefully. No tradition is conflated; the engineering layer takes the cross-traditional consensus reading (the smile is settled-teacher's readiness, not amusement) and stays inside it. The geometry of the verse (between the two armies) is preserved without overload of doctrinal commitment. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.10",
+              "confidence": 0.7,
+              "reasoning": "The engineering layer explicitly self-tags as scaffolding and centers on the geometry of the moment Krishna begins to speak \u2014 'smiling as if not amused, but settled \u2014 in the middle of the field.' The 'two armies of the room' rendering, the 'as if' qualifier preservation, and the explicit naming that 'the chapter's actual instruction starts in the next verse' all point to BG 2.10."
+            },
+            {
+              "verse_id": "BG 11.50",
+              "confidence": 0.1,
+              "reasoning": "Possible because Krishna shows his gentle form again to calm Arjuna \u2014 but 11.50 is post-vishvarupa, not the pre-teaching pivot of chapter 2."
+            },
+            {
+              "verse_id": "BG 2.9",
+              "confidence": 0.08,
+              "reasoning": "Possible because both 2.9 and 2.10 are pivot-pair scaffolding \u2014 but 2.9 is Arjuna's silence, 2.10 is Krishna's smile, and the analog centers on the smile."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.10",
+              "confidence": 0.7,
+              "reasoning": "The engineering layer explicitly self-tags as scaffolding and centers on the geometry of the moment Krishna begins to speak \u2014 'smiling as if not amused, but settled \u2014 in the middle of the field.' The 'two armies of the room' rendering, the 'as if' qualifier preservation, and the explicit naming that 'the chapter's actual instruction starts in the next verse' all point to BG 2.10."
+            },
+            {
+              "verse_id": "BG 11.50",
+              "confidence": 0.1,
+              "reasoning": "Possible because Krishna shows his gentle form again to calm Arjuna \u2014 but 11.50 is post-vishvarupa, not the pre-teaching pivot of chapter 2."
+            },
+            {
+              "verse_id": "BG 2.9",
+              "confidence": 0.08,
+              "reasoning": "Possible because both 2.9 and 2.10 are pivot-pair scaffolding \u2014 but 2.9 is Arjuna's silence, 2.10 is Krishna's smile, and the analog centers on the smile."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 5,
+          "reconstructed_sketch": "Given chapter context (2.6-2.9 are the case-closing arc, 2.11 will begin Krishna's reply), an engineering analog at position 10 would predictably be a transitional verse \u2014 possibly describing the room's geometry before the teaching, possibly a final pre-teaching beat. A competent writer might write 'recognize when the room is ready' \u2014 but they would not necessarily land on the precise refusal-to-extract-tactic move plus the iva-smile-preservation. The honest LOW + STRETCHED tag is itself information.",
+          "verse_specific_signal": "The iva-smile-preservation (the explicit naming of 'as if' as the qualifier that distinguishes settled-readiness from amusement) plus the explicit chapter-architecture identification: 'this verse merely names the pivot moment between the operator's exhausted silence and the teacher's settled reply.' This pivot-naming is verse-specific.",
+          "overlap_with_other_verses": [
+            {
+              "verse_id": "BG 2.9",
+              "overlap_type": "same_predicate",
+              "explanation": "Both 2.9 and 2.10 are scaffolding-pivot verses, both tagged LOW + STRETCHED. The pair-overlap is the chapter's sanctioned form for the structural pivot \u2014 2.9 closes Arjuna's case, 2.10 opens Krishna's reply. The two verses are intentionally complementary, not duplicate."
+            }
+          ],
+          "verdict_reason": "The reconstructibility score is moderate (5). The chapter context licenses a transition-verse but does not predict the specific iva-preservation or the 'recognize structural pivots' meta-discipline contribution. The 2.9/2.10 pair-overlap is sanctioned by the chapter's pivot-pair structure. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Engineering-management coaching-curriculum predicate: 'Distinguish state-from-affect. Do not include any module that teaches affect-performance (smile/posture/tone) as a tactic for handling difficult conversations. Coaching content must address the underlying state \u2014 preparation, settled judgement, reframing-content \u2014 not the surface affect that is its byproduct.'",
+          "artifact_kind": "review_checklist",
+          "embodiment_sketch": "Add a vetting predicate to the engineering-management training curriculum-review template: 'Reject any module whose mechanism is affect-without-state.' Concrete check: 'Does this module teach a leader to smile/pause/lower-voice as a technique that produces the desired room-state?' If yes, reject \u2014 the verse explicitly disqualifies this read. The vetting predicate becomes a one-line rule on the L&D content-review checklist. Concretely copyable Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "The verse honestly tagged LOW + STRETCHED still licenses a real coaching-curriculum vetting predicate \u2014 distinguish state-driven affect from performed affect. This is a real review-discipline that L&D can apply to vetted training content. Not metaphor-only; concretely embodiable as a checklist line. PASS \u2014 though the artifact is meta (a vetting rule for curriculum), it is concretely copyable."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [],
+          "notes": "BG 2.10 is pure narration (Sanjaya describing Krishna's settled-teacher posture before he begins to speak at 2.11). The doctrinally significant element \u2014 prahasann iva (smiling 'as if'), where the iva qualifies the smile and distinguishes it from amusement \u2014 is preserved precisely by the engineering layer: 'smiling \\\"as if\\\" \u2014 not amused, but settled.' This honors the commentarial reading (Shankara explicitly notes the iva is meaningful \u2014 'not a smile of amusement, a smile of teacher's settled readiness'). The geometry of the moment (senayor ubhayor madhye \u2014 between the two armies) is preserved in the analog ('the two armies of the room \u2014 the team that wanted the migration, the team that opposed it \u2014 are still arranged on either side of the issue'). The engineering layer correctly identifies the verse's role as the structural pivot before the teaching at 2.11 ('this verse merely names the pivot moment between the operator's exhausted silence and the teacher's settled reply') \u2014 which mirrors the commentarial consensus. The verse does not invert any Sanskrit claim; it correctly refuses to manufacture a teaching from the smile. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When you observe a structural pivot moment in a meeting (the room transitioning from one mode to another), do not extract a tactic from the marker (e.g. 'smile-before-hard-feedback'); the meaningful content begins after the pivot, not at it.",
+          "example_decision": "In a contested architecture review where the room has just gone quiet after a hard 'I'm not going to lead this' declaration, the senior in the room should NOT prepare 'a coaching technique to deliver feedback warmly' \u2014 that is performing affect, which inverts the verse. They should prepare the actual reframing content (the thing they will say next), since the room's readiness is the precondition for that content, not for the affect. PM-side: do not put 'leader smile/posture coaching' on the engineering-management training calendar; do put 'reframing-content preparation' on it.",
+          "objection": "Caveat (logged as PASS): the predicate is meta-disciplinary rather than directly roadmap-facing. The verse is honestly tagged LOW + STRETCHED. PASS because the meta-discipline (don't extract tactics from structural pivots) is itself a real PM training-and-coaching discipline."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When you observe a structural pivot moment in a meeting (the room transitioning from one mode to another), do not extract a tactic from the marker (e.g. 'smile-before-hard-feedback'); the meaningful content begins after the pivot, not at it.",
+          "example_decision": "In a contested architecture review where the room has just gone quiet after a hard 'I'm not going to lead this' declaration, the senior in the room should NOT prepare 'a coaching technique to deliver feedback warmly' \u2014 that is performing affect, which inverts the verse. They should prepare the actual reframing content (the thing they will say next), since the room's readiness is the precondition for that content, not for the affect. PM-side: do not put 'leader smile/posture coaching' on the engineering-management training calendar; do put 'reframing-content preparation' on it.",
+          "objection": "Caveat (logged as PASS): the predicate is meta-disciplinary rather than directly roadmap-facing. The verse is honestly tagged LOW + STRETCHED. PASS because the meta-discipline (don't extract tactics from structural pivots) is itself a real PM training-and-coaching discipline."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The engineering layer explicitly states 'this verse is narrative scaffolding, not engineering doctrine' and 'the verse itself does not teach.' This is the inverse of the forbidden tech-manual framing \u2014 the engineering layer modestly steps back rather than claiming the verse is fundamentally about leadership coaching. The original meaning (Krishna's settled-teacher posture) is preserved as the source's reading; the engineering analog sits beside it. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 0,
+          "specific_concerns": [],
+          "verdict_reason": "The verse is honestly tagged LOW + STRETCHED. The engineering layer treats Krishna's smile with the seriousness it deserves: it preserves the iva qualifier, refuses to extract a 'smile-before-feedback' tactic, and explicitly disclaims the affect-performance read. A serious practitioner would feel the verse has been honored by being correctly identified as the pre-teaching pivot rather than being trivialized into a coaching technique. The implication 'recognise structural pivots when you encounter them' is meta-disciplined and respectful of the source. Zero trivialization. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-10/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 2.10 is in narrative-scaffolding register, appropriately distinct from the chapter's didactic voice but still in the chapter's grave register. The engineering layer holds the chapter's tone: it does not slip into corporate-coaching warmth (the obvious risk for a smile-verse) and explicitly refuses to read the smile as a leadership tactic. The framing 'production carries on entirely indifferent to anyone's pause' (carrying over from 2.9 narrative voice) and 'the room's readiness to receive a different kind of intervention' is in-tone with the chapter's senior-teacher-not-consoling register. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.202Z"
+    }
+  ]
+}

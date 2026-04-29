@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "anchored_threads": [
+    {
+      "thread_name": "Karma Yoga / disciplined action",
+      "anchor_evidence": "BG 2.48 IS the karma-yoga thread's lexical center: yoga-sthaḥ kuru karmāṇi (perform action established in yoga) plus samatvaṁ yoga ucyate (equanimity is yoga). The engineering layer maps this directly: 'Settle the operator first; act from the settled state.' and 'The work is not optional. The state is not optional. Either alone is the failure mode.' This is karma-yoga in its definitional verse, rendered as on-call doctrine and post-event review invariance."
+    },
+    {
+      "thread_name": "The sthita-prajña / one whose insight is steady",
+      "anchor_evidence": "Secondary anchor in the steady-operator thread: the concrete_scenario describes the on-call engineer whose state does not move with the dashboard ('The dashboard moved up; the dashboard moved down; the operator-state did not move'). This is not yet the full sthita-prajña block (2.54+) but is the precondition the chapter is building toward — the operator-state described here is what the sthita-prajña block will elaborate as character."
+    }
+  ],
+  "hard_edges_violated": [],
+  "counter_anti_thesis_violations": [],
+  "progressive_build_check": "BG 2.48 sits at the structural pivot between the chapter's karma-yoga prescription (2.31-2.53) and its sthita-prajña description (2.54-2.72). The engineering layer correctly anchors primarily on karma-yoga (state-then-action) with a secondary forward-pointer to the steady-mind block. Crucially the verse does NOT pre-empt 2.55's (sthita-prajña) full vocabulary — it stays at the level of operator-state-as-precondition rather than describing the state's full character. The verse also follows naturally from 2.47's separation of action and fruit: 2.47 says 'do not be cause-of-fruit' and 2.48 says 'here is the state from which non-cause-of-fruit action issues'. Progressive build is preserved.",
+  "verdict_reason": "BG 2.48 anchors the karma-yoga thread at its definitional verse and forward-links to the sthita-prajña thread without trespassing on it. It does not violate any hard edge: action ≠ inaction is preserved (the counter_example explicitly invokes Krishna's rejection of inaction in the next several verses); the steady-mind is presented as a real achievable state (the on-call engineer who keeps procedure invariant), not as aspiration; duty is preserved (the operator runs the runbook, files the ticket, runs the rollback). Counter-anti-thesis is not violated: the engineer is NOT detached from users (the falsifiability clause explicitly preserves 'attention or care'); consequences are not weight-lessened (the incident is real, the runbook runs); svadharma is preserved (the on-call's prescribed work is performed). Pass on both 10.3 and 10.4."
+}

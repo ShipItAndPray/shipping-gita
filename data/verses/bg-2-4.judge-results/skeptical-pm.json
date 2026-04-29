@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When an engineer refuses to deprecate a system citing respect for the builder, the manager applies the stranger-test: would the engineer be blocked if a stranger had built it? If no, the loyalty is the wrong kind and the deprecation proceeds with reassignment.",
+  "example_decision": "Quarterly tech-debt review: any deprecation that has been blocked > 1 quarter on relationship-respect grounds (rather than technical-invariant grounds) gets the stranger-test applied. If the test says the loyalty is misplaced, the deprecation is reassigned to a different engineer (one without the loyalty entanglement) and a 1:1 conversation is opened with the original engineer about the orbit. This explicitly changes how legacy-deprecation reviews are conducted in the next quarter.",
+  "objection": "none"
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "engineering.translation renders kaśmala as 'collapse' / 'paralysis'",
+      "objection": "kaśmala has a wider semantic range — physical dirt, mental impurity, moral defilement, faintheartedness — and the source pack's disagreements field flags Prabhupada's moral-impurity reading vs. Mukundananda's cognitive-delusion reading. The engineering layer renders it as 'collapse / paralysis,' which is a reasonable functional rendering but loses the moral-impurity overtone that anārya-juṣṭam in pada-c reinforces. Acceptable, since the layer is not making a metaphysical claim about kaśmala; it is naming the operational effect."
+    },
+    {
+      "severity": "minor",
+      "claim": "engineering.implication: 'Console after the page is closed.'",
+      "objection": "The verse's anārya-juṣṭam / asvargyam / akīrti-karam triad makes three distinct claims (unworthy of the noble, not conducive to higher worlds, productive of disgrace). The engineering layer captures the first and third (unworthy / harms record) but largely drops the asvargyam claim about higher worlds. This is acceptable scope-restriction for an engineering rendering, but a careful Sanskritist would note the soteriological dimension is silently dropped."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) the diagnostic-question form ('kutas tvā kaśmalam idam viṣame samupasthitam' is even quoted verbatim in the concrete scenario), (b) the sharp / corrective tone, (c) the time-marker viṣama-kāla (the critical hour), and (d) the falsifiability that explicitly disclaims the use of this verse to lecture juniors. No tradition is conflated. No load-bearing claim is inverted. Two minor scope-restrictions are noted; neither is critical. Pass."
+}

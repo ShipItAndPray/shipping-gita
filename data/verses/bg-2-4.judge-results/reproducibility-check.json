@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Deprecation-review checklist with the stranger-test predicate + reassignment rule",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Tech-debt / deprecation-review checklist line: 'For any deprecation blocked > 1 quarter, ask: would the assigned engineer be blocked if a stranger had built the system? If NO, the loyalty is misplaced; reassign the deprecation to an engineer without the loyalty entanglement and open a 1:1 with the original engineer about the orbit pattern. If YES (the engineer can list 3 specific invariants the legacy preserves that the replacement does not), the loyalty is right; the deprecation needs architectural review, not reassignment.'",
+  "metaphor_only": false,
+  "verdict_reason": "The verse's claim is encoded in a literal checklist line with a clean predicate (the stranger-test) and a clear branching action (reassign vs. architectural review). Tags include deprecation-management — structural. A senior engineer / EM could add this to their team's actual practice on Monday. The artifact concretely embodies the verse's diagnostic move (distinguishing right-loyalty from misplaced-loyalty). PASS."
+}

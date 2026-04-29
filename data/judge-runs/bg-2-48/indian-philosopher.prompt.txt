@@ -1,0 +1,242 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.48",
+  "sanskrit_devanagari": "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।\nसिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते ॥ ४८ ॥",
+  "sanskrit_iast": "yoga-sthaḥ kuru karmāṇi saṅgaṁ tyaktvā dhanañ-jaya |\nsiddhy-asiddhyoḥ samo bhūtvā samatvaṁ yoga ucyate || 48 ||",
+  "anvaya": [
+    {
+      "sanskrit": "योग",
+      "iast": "yoga",
+      "meaning": "yoga (in compound: 'in yoga')"
+    },
+    {
+      "sanskrit": "स्थः",
+      "iast": "sthaḥ",
+      "meaning": "established / standing (in compound yoga-sthaḥ: 'established in yoga')"
+    },
+    {
+      "sanskrit": "कुरु",
+      "iast": "kuru",
+      "meaning": "perform"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions / prescribed duties"
+    },
+    {
+      "sanskrit": "सङ्गम्",
+      "iast": "saṅgam",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned / giving up"
+    },
+    {
+      "sanskrit": "धनञ्",
+      "iast": "dhanañ",
+      "meaning": "wealth (in compound dhanañ-jaya)"
+    },
+    {
+      "sanskrit": "जय",
+      "iast": "jaya",
+      "meaning": "winner (in compound dhanañ-jaya: 'O winner of wealth, Arjuna')"
+    },
+    {
+      "sanskrit": "सिद्धि",
+      "iast": "siddhy",
+      "meaning": "success (in compound siddhy-asiddhyoḥ)"
+    },
+    {
+      "sanskrit": "असिद्ध्योः",
+      "iast": "asiddhyoḥ",
+      "meaning": "and failure (in compound siddhy-asiddhyoḥ: 'in success and failure')"
+    },
+    {
+      "sanskrit": "समः",
+      "iast": "samaḥ",
+      "meaning": "even / equipoised / the same"
+    },
+    {
+      "sanskrit": "भूत्वा",
+      "iast": "bhūtvā",
+      "meaning": "having become"
+    },
+    {
+      "sanskrit": "समत्वम्",
+      "iast": "samatvam",
+      "meaning": "equanimity / evenness of mind"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "उच्यते",
+      "iast": "ucyate",
+      "meaning": "is called"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/48/",
+      "fetched_at": "2026-04-29T05:37:12Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure. Such equanimity is called yoga.",
+      "raw_capture_path": "data/sources/raw/bg-2-48-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/48",
+      "fetched_at": "2026-04-29T05:38:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Be steadfast in the performance of your duty, O Arjun, abandoning attachment to success and failure. Such equanimity is called Yog."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/48/",
+      "fetched_at": "2026-04-29T05:37:12Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, 320 chars of 1239-char full purport)",
+      "verbatim_excerpt": "Kṛṣṇa tells Arjuna that he should act in yoga. And what is that yoga? Yoga means to concentrate the mind upon the Supreme by controlling the ever-disturbing senses. And who is the Supreme? The Supreme is the Lord. And because He Himself is telling Arjuna to fight, Arjuna has nothing to do with the results of the fight.",
+      "raw_full_path": "data/sources/raw/bg-2-48-vedabase.json (purport_full_length: 1239)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-48/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T05:39:00Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Shankara bhashya)",
+      "verbatim_excerpt": "undertake actions bhutva, remaining; samah, equipoised; siddhi-asidhyoh, in success and failure; tyaktva, casting off; sangam, attachment; equanimity in success and failure; ucyate, is called; yogah, Yoga.",
+      "summary_paraphrase": "Shankara glosses yoga-stha as a state-condition: one acts while remaining (bhutva) equipoised. The action is performed for the sake of God alone; attachment (sangam) is what is renounced, not the action itself. Equanimity in siddhi/asiddhi is yoga. The verse defines yoga as samatvam — evenness of mind — not as ritual or posture."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-48/?cm=ramanuja",
+      "fetched_at": "2026-04-29T05:39:00Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Ramanuja bhashya)",
+      "verbatim_excerpt": "Abandoning the attachment to kingdom, relatives etc., and established in Yoga, engage in war and such other activities. Perform these with equanimity as regards success and failure resulting from victory etc., which are inherent in them.",
+      "summary_paraphrase": "Ramanuja contextualizes the verse to Arjuna's specific situation: attachment to kingdom and kin must be abandoned; established in yoga (yoga-stha), engage in the action that the situation demands. Equanimity is mental evenness regarding outcomes inherent to the action — the success or failure of the war is structurally inseparable from the war itself; the operator's task is to remain even with respect to that structure."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yoga-sthaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "equipoised (a quality of action)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "steadfast in the performance of duty (a quality of perseverance)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "remaining equipoised (bhutva samah) — a state-condition of the actor"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "established in Yoga — a settled spiritual location from which action issues"
+        }
+      ],
+      "explanation": "All four read yoga-sthaḥ as a precondition of action, not a method of action — but the precondition's nature differs. Shankara's reading foregrounds samatvam (mental evenness) as the state. Ramanuja's reading foregrounds being established in a settled relation to the Supreme (the 'location' from which one acts). Prabhupada and Mukundananda render it more pragmatically as 'equipoised' / 'steadfast', acceptable across traditions. The verse explicitly defines yoga = samatvam at its end, which gives Shankara's reading the most direct lexical support; Ramanuja's reading is consistent with this but adds a theological frame."
+    },
+    {
+      "word": "saṅgam tyaktvā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "abandoning all attachment to success or failure"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "abandoning attachment to success and failure"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "abandoning the attachment to kingdom, relatives etc."
+        }
+      ],
+      "explanation": "Prabhupada and Mukundananda fold saṅgam directly into the success/failure clause that follows — 'abandon attachment to outcomes'. Ramanuja widens the scope: in Arjuna's specific case the attachment is to kingdom and kin (echoing Ch. 1), and those are what must be released for action to issue from yoga-sthatva. Both readings are compatible; the lexical question is whether saṅgam is unmodified (universal: any attachment) or contextually scoped (Arjuna's specific attachments). The verse text itself does not constrain this."
+    }
+  ],
+  "literal_meaning": "Established in yoga, perform actions, abandoning attachment, O Dhananjaya; becoming equal in success and failure — equanimity is what is called yoga.",
+  "traditional_meaning": "This verse defines yoga. Krishna names two things in one structure: (1) the operator-state from which action should issue — yoga-sthaḥ, established in yoga; (2) the content of that state — samatvam, evenness of mind in success and failure. The two are tied: action without the state-condition is mere effort; the state-condition without action is inactive pretense. Saṅgam — attachment — is what is renounced; not the action, not the result, not even the experience of success or failure, but the grasping that conflates outcome with self. Shankara reads samatvam as the lexical centerpiece (yoga = samatvam); Ramanuja reads it as the equanimity proper to a soul established in relation to the Supreme; Gaudiya Vaishnava reading folds it into devotional action whose results belong to Krishna. All traditions agree the verse rejects two pathologies: the operator who acts without inner steadiness, and the operator who claims inner steadiness without acting.",
+  "engineering": {
+    "translation": "Settle the operator first; act from the settled state. Ship the migration, write the deploy, take the page — but the state from which you do these things must be even with respect to whether the dashboard turns green or red. Equanimity is not numbness; it is the precondition for accurate perception under load. The engineer who reads metrics through self-stake produces brittle judgment in both directions: over-celebration of a good rollout breeds the ego that ships the next one carelessly, and over-mourning of a bad one breeds the blame culture that prevents anyone from learning. The verse names this state explicitly and gives it a name: samatvam, evenness, is what is being called yoga. The work is not optional. The state is not optional. Either alone is the failure mode.",
+    "concrete_scenario": "It is 02:14 AM. PagerDuty has fired; an upstream database failover has cascaded into elevated p99 latency on the checkout API. The on-call engineer opens Datadog, sees the Postgres replica lagging, opens the runbook, executes the documented manual failback to the secondary region, and watches the latency curve return to baseline over six minutes. She files the incident ticket on GitHub and goes back to bed. Two weeks later, a flagship feature ships at noon — the launch tweet performs, the conversion metric moves three percent above forecast, the team's Slack channel fills with celebrations. She closes the ticket, checks Sentry for anomalies, and goes to lunch. The dashboard moved up; the dashboard moved down; the operator-state did not move. That non-movement is yoga in this verse's specific lexical sense — samatvam, evenness — and it is what allows accurate post-incident reasoning in case one and accurate post-launch reasoning in case two. The contrast is the engineer who treats the green dashboard as confirmation of personal worth and the red dashboard as personal indictment. That engineer, under load, will defend instead of debug; under success, will overcommit instead of measure. Both are operator-state failures coupled to the system's surface — operator-system coupling in its pathological form.",
+    "falsifiability": "The analog fails if a reader concludes from this verse that they should not feel anything during incidents, or that emotional response to user pain is unprofessional. Equanimity is the absence of self-stake, not the absence of attention or care. An on-call engineer who reads no signal off the page beyond 'red metric, run runbook' has confused stoic suppression with samatvam. The verse asks for evenness in the operator-state, not flatness in the operator-perception.",
+    "counter_example": "When the situation requires escalation — the incident is genuinely beyond on-call's blast-radius, the launch metric is genuinely catastrophic, the migration is going wrong in a way the runbook did not anticipate — the verse does not ask the operator to remain seated and serene. It asks for action issuing from a settled state, not for inaction disguised as settledness. Calm-but-passive in a real fire is the wrong-renunciation Krishna explicitly rejects in the next several verses.",
+    "implication": "Notice the moment when a metric reading becomes a self-reading. That coupling is the variable to break. The action — read Datadog, file the ticket, run the rollback — should remain the same whether the operator's standing is rising or falling.",
+    "quotable_line": "The dashboard moves; the operator does not. That non-movement is what the verse calls yoga.",
+    "tags": [
+      "operator-system-coupling",
+      "incident-response",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

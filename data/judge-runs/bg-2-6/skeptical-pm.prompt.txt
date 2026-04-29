@@ -1,0 +1,260 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.6",
+  "sanskrit_devanagari": "न चैतद्विद्मः कतरन्नो गरीयो\nयद्वा जयेम यदि वा नो जयेयुः ।\nयानेव हत्वा न जिजीविषामस्\nतेऽवस्थिताः प्रमुखे धार्तराष्ट्राः ॥ ६ ॥",
+  "sanskrit_iast": "na caitad vidmaḥ kataran no garīyo\nyad vā jayema yadi vā no jayeyuḥ |\nyān eva hatvā na jijīviṣāmas\nte 'vasthitāḥ pramukhe dhārtarāṣṭrāḥ || 6 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "विद्मः",
+      "iast": "vidmaḥ",
+      "meaning": "we know"
+    },
+    {
+      "sanskrit": "कतरत्",
+      "iast": "katarat",
+      "meaning": "which of two"
+    },
+    {
+      "sanskrit": "नः",
+      "iast": "naḥ",
+      "meaning": "for us"
+    },
+    {
+      "sanskrit": "गरीयः",
+      "iast": "garīyaḥ",
+      "meaning": "better / weightier"
+    },
+    {
+      "sanskrit": "यद्",
+      "iast": "yad",
+      "meaning": "whether"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "जयेम",
+      "iast": "jayema",
+      "meaning": "we should conquer"
+    },
+    {
+      "sanskrit": "यदि",
+      "iast": "yadi",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "नः",
+      "iast": "naḥ",
+      "meaning": "us"
+    },
+    {
+      "sanskrit": "जयेयुः",
+      "iast": "jayeyuḥ",
+      "meaning": "they should conquer"
+    },
+    {
+      "sanskrit": "यान्",
+      "iast": "yān",
+      "meaning": "whom"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "हत्वा",
+      "iast": "hatvā",
+      "meaning": "having killed"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "जिजीविषामः",
+      "iast": "jijīviṣāmaḥ",
+      "meaning": "we wish to live"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "they"
+    },
+    {
+      "sanskrit": "अवस्थिताः",
+      "iast": "avasthitāḥ",
+      "meaning": "are positioned"
+    },
+    {
+      "sanskrit": "प्रमुखे",
+      "iast": "pramukhe",
+      "meaning": "in front"
+    },
+    {
+      "sanskrit": "धार्तराष्ट्राः",
+      "iast": "dhārtarāṣṭrāḥ",
+      "meaning": "the sons of Dhṛtarāṣṭra"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/6/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Nor do we know which is better — conquering them or being conquered by them. If we killed the sons of Dhṛtarāṣṭra, we should not care to live. Yet they are now standing before us on the battlefield.",
+      "raw_capture_path": "data/sources/raw/bg-2-6-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/6",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "We do not even know which result of this war is preferable for us—conquering them or being conquered by them. Even after killing them we will not desire to live. Yet they have taken the side of the sons of Dhritarasthra, and now stand before us on the battlefield."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/6/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1347-char full purport)",
+      "verbatim_excerpt": "Arjuna did not know whether he should fight and risk unnecessary violence, although fighting is the duty of the kṣatriyas, or whether he should refrain and live by begging. If he did not conquer the enemy, begging would be his only means of subsistence.",
+      "raw_full_path": "data/sources/raw/bg-2-6-vedabase.json (purport_full_length: 1347)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-6/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-6-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Shankara reads 'na caitad vidmaḥ' — 'we do not know' — as the explicit confession of confusion that prepares the ground for Arjuna's surrender in 2.7. The verse is the bottom of the descent into not-knowing; the next verse is the turn upward into discipleship."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-6/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.6 – 2.8 If you say, ‘After beginning the war, if we withdraw from the battle, the sons of Dhrtarastra will slay us all forcibly’, be it so. I think that even to be killed by them, who do not know the difference between righteousness and unrighteousness, is better for us than gaining unrighteous vi",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-6-ramanuja.json",
+      "summary_paraphrase": "Ramanuja emphasises that the not-knowing here is genuine — Arjuna is not posturing. Both outcomes (victory and defeat) appear equally undesirable from inside his current frame. The verse is therefore evidence that the tactical question cannot be answered tactically; the chapter must reframe."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "katarat ... garīyaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "which is better — conquering them or being conquered"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "which result is preferable for us"
+        },
+        {
+          "source": "Literal",
+          "rendering": "which of the two is weightier / more important"
+        }
+      ],
+      "explanation": "garīyaḥ literally means 'heavier / weightier' (cognate with English 'grave'). Translators flatten it to 'better' or 'preferable', which is reasonable. The literal sense is more interesting: Arjuna is not asking which is morally better, he is asking which carries more weight. The two outcomes feel equally consequential and equally awful, which is precisely the symptom of the framing being wrong."
+    }
+  ],
+  "literal_meaning": "And we do not know which of the two is weightier for us — whether we should conquer them or whether they should conquer us. Those whom, having killed, we would not wish to live, those very sons of Dhṛtarāṣṭra are positioned before us in battle.",
+  "traditional_meaning": "Arjuna's third move: explicit confession of not-knowing. He no longer claims the moral high ground; he reports that both outcomes appear equally undesirable from where he is standing. The commentarial tradition treats this as the bottom of the descent — the moment Arjuna runs out of arguments and admits that his current frame cannot generate an answer. The verse functions as the immediate setup for 2.7, where Arjuna will explicitly surrender to the teaching.",
+  "engineering": {
+    "translation": "We don't know which is worse — shipping or not shipping. Both options feel equally heavy, and that symmetry of dread is the actual signal. The verse names a specific cognitive state: the operator who has run out of arguments inside their current frame and is now reporting equal aversion to all available actions. This is not the same as genuine equipoise. Genuine equipoise picks a path; this state stares at the choice and cannot pick. The chapter will treat this state as the diagnostic that the frame itself is broken — the tactical question cannot be answered tactically. Recognising the state correctly is the prerequisite for asking for help, which Arjuna does in the next verse.",
+    "concrete_scenario": "An engineering manager has been asked by their VP to make a call on a contested architectural decision: keep the Django monolith and absorb the maintenance cost, or commit to a Kubernetes service split that will consume two quarters of headcount and probably miss the compliance deadline. They have built spreadsheets, hosted three architecture review meetings, written a six-page Notion doc, walked through the proposed schema migration with the Postgres team, and still cannot recommend either path. In the 1:1 with their skip-level, they say verbatim: 'I don't know which is worse — doing this migration or not doing it. Both feel terrible.' This is BG 2.6 in production. The skip-level should not respond by pushing for a decision; that would be the engineering analog of pretending the tactical question has a tactical answer. The skip-level should respond as Krishna does in the chapter: by reframing the substrate of the decision (what is invariant, what is implementation, what is the actual unit of value the decision is meant to serve). The verse marks the moment where decision paralysis becomes legible enough to be addressed.",
+    "falsifiability": "The analog fails if the operator is using 'I don't know' as a stalling tactic rather than reporting actual epistemic exhaustion. The verse describes Arjuna at the bottom of his honest reasoning, not Arjuna pretending he has not yet thought it through. If a five-minute whiteboard would surface a clear preference, the verse does not apply yet — it applies when the whiteboard has already been done.",
+    "counter_example": "When the choice genuinely has equal expected value and the right move is to flip a coin and commit, the verse does not apply. Krishna does not respond to Arjuna's not-knowing by saying 'just pick one'; he reframes the entire substrate. Engineers who use 2.6 as cover for refusing to make 50/50 calls have inverted it. Real equipoise commits.",
+    "implication": "When you and your team have run the analysis and still cannot pick, name the state explicitly to the next level up. The correct intervention is reframing, not forcing a choice inside the broken frame.",
+    "quotable_line": "When both directions feel equally heavy, the frame is the bug, not your conviction.",
+    "tags": [
+      "decision-paralysis",
+      "judgment-under-uncertainty",
+      "strategic-frame"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

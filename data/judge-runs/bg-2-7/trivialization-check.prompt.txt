@@ -1,0 +1,283 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.7",
+  "sanskrit_devanagari": "कार्पण्यदोषोपहतस्वभावः\nपृच्छामि त्वां धर्मसम्मूढचेताः ।\nयच्छ्रेयः स्यान्निश्चितं ब्रूहि तन्मे\nशिष्यस्तेऽहं शाधि मां त्वां प्रपन्नम् ॥ ७ ॥",
+  "sanskrit_iast": "kārpaṇya-doṣopahata-svabhāvaḥ\npṛcchāmi tvāṁ dharma-saṁmūḍha-cetāḥ |\nyac chreyaḥ syān niścitaṁ brūhi tan me\nśiṣyas te 'haṁ śādhi māṁ tvāṁ prapannam || 7 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कार्पण्य",
+      "iast": "kārpaṇya",
+      "meaning": "miserliness / pity / smallness"
+    },
+    {
+      "sanskrit": "दोष",
+      "iast": "doṣa",
+      "meaning": "fault / defect"
+    },
+    {
+      "sanskrit": "उपहत",
+      "iast": "upahata",
+      "meaning": "stricken / afflicted"
+    },
+    {
+      "sanskrit": "स्वभावः",
+      "iast": "svabhāvaḥ",
+      "meaning": "nature / disposition"
+    },
+    {
+      "sanskrit": "पृच्छामि",
+      "iast": "pṛcchāmi",
+      "meaning": "I ask"
+    },
+    {
+      "sanskrit": "त्वाम्",
+      "iast": "tvām",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "धर्म",
+      "iast": "dharma",
+      "meaning": "duty / righteousness"
+    },
+    {
+      "sanskrit": "सम्मूढ",
+      "iast": "saṁmūḍha",
+      "meaning": "thoroughly bewildered"
+    },
+    {
+      "sanskrit": "चेताः",
+      "iast": "cetāḥ",
+      "meaning": "mind / consciousness"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "what / that which"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "the most beneficial / the highest good"
+    },
+    {
+      "sanskrit": "स्यात्",
+      "iast": "syāt",
+      "meaning": "may be"
+    },
+    {
+      "sanskrit": "निश्चितम्",
+      "iast": "niścitam",
+      "meaning": "with certainty"
+    },
+    {
+      "sanskrit": "ब्रूहि",
+      "iast": "brūhi",
+      "meaning": "tell"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "शिष्यः",
+      "iast": "śiṣyaḥ",
+      "meaning": "disciple"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "शाधि",
+      "iast": "śādhi",
+      "meaning": "instruct / teach (imperative)"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "त्वाम्",
+      "iast": "tvām",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "प्रपन्नम्",
+      "iast": "prapannam",
+      "meaning": "surrendered"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/7/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Now I am confused about my duty and have lost all composure because of miserly weakness. In this condition I am asking You to tell me for certain what is best for me. Now I am Your disciple, and a soul surrendered unto You. Please instruct me.",
+      "raw_capture_path": "data/sources/raw/bg-2-7-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/7",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "I am confused about my duty, and am besieged with anxiety and faintheartedness. I am Your disciple, and am surrendered to You. Please instruct me for certain what is best for me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/7/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 3551-char full purport)",
+      "verbatim_excerpt": "By nature's own way the complete system of material activities is a source of perplexity for everyone. In every step there is perplexity, and therefore it behooves one to approach a bona fide spiritual master who can give one proper guidance for executing the purpose of life.",
+      "raw_full_path": "data/sources/raw/bg-2-7-vedabase.json (purport_full_length: 3551)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-7/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-7-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Shankara reads this verse as the formal moment of upagamana (approach to a teacher) — the point at which Arjuna stops being merely a friend or kinsman to Krishna and becomes a śiṣya (disciple). The verse's structure mirrors the Upaniṣadic injunction: one in doubt about dharma must approach (with prapatti — surrender) a knower, and ask. Without this turn, the teaching cannot be received."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-7/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.6 – 2.8 If you say, ‘After beginning the war, if we withdraw from the battle, the sons of Dhrtarastra will slay us all forcibly’, be it so. I think that even to be killed by them, who do not know the difference between righteousness and unrighteousness, is better for us than gaining unrighteous vi",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-7-ramanuja.json",
+      "summary_paraphrase": "Ramanuja places enormous weight on 'tvāṁ prapannam' — surrendered to You. This phrase, prapatti, is the single most consequential word in this verse for the Śrīvaiṣṇava tradition; it is the formal act of self-surrender that the chapter requires for the teaching to begin. Arjuna does not merely ask for advice; he places himself under the Lord's authority. The chapter's teaching presupposes this surrender."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kārpaṇya",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "miserly weakness"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "faintheartedness"
+        },
+        {
+          "source": "Literal",
+          "rendering": "miserliness, pettiness, smallness of spirit"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the smallness that prevents the candidate from receiving the teaching"
+        }
+      ],
+      "explanation": "kārpaṇya is the noun form of kṛpaṇa (a miser) — etymologically connected to kṛpā (compassion). The semantic pivot is interesting: the same root yields both the operator's misplaced 'pity' (kṛpayā in 2.1) and the 'miserly weakness' that now afflicts him. Translators preserve the 'small/petty' force; the commentarial tradition reads it as the smallness that must be admitted before the teaching can land."
+    },
+    {
+      "word": "prapannam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "surrendered"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "surrendered"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the formal act of self-surrender (prapatti); a technical term in Śrīvaiṣṇava soteriology"
+        }
+      ],
+      "explanation": "Translation is straightforward; the doctrinal weight differs. For Vishishtadvaita (Ramanuja), prapatti is one of the two paths to liberation and this verse is its scriptural founding moment. For Advaita (Shankara), the surrender is propaedeutic — it readies the disciple to receive the teaching but is not itself the liberating act."
+    }
+  ],
+  "literal_meaning": "My nature is overwhelmed by the fault of pity-smallness; my mind is utterly bewildered about dharma. I ask you: tell me with certainty what is best for me. I am your disciple, surrendered to you — instruct me.",
+  "traditional_meaning": "The pivotal verse of the chapter and arguably of the entire Gita. Arjuna formally turns from interlocutor to disciple. The verse names three things explicitly: (1) the affective state Arjuna is in (kārpaṇya — pity-smallness), (2) the cognitive state (saṁmūḍha — utterly bewildered about dharma), and (3) the relational shift (śiṣyas te 'ham — I am your disciple). All major commentarial traditions treat this verse as the formal beginning of the teaching: until the student declares surrender and asks, the teaching cannot land. The chapter's voice has been didactic since 2.2; the chapter's pedagogy begins here.",
+  "engineering": {
+    "translation": "I have been systematically beaten down by my own smallness; my judgment regarding the correct course of action has evaporated entirely; consequently I am asking you — not as a colleague-peer, but explicitly as an apprentice — what genuinely constitutes the right move here. Teach me. The verse marks the operational transition from interlocutor to apprentice. The senior engineer, the staff engineer, the engineering manager who has finally articulated the precise sentence 'I do not actually know what to do here; will you teach me?' has crossed the identical threshold that Arjuna crosses. The teaching cannot land before this declaration. The peer-to-peer communication protocol cannot carry instructional signal at all. The operator must explicitly downgrade their own positional rank relative to the teacher for the teacher's actual instruction to become receivable. This is decidedly not humiliation; it is the precise prerequisite for receiving cognitive signal that disagrees with the operator's current frame.",
+    "concrete_scenario": "A staff engineer who has been a tech lead for eleven consecutive years walks deliberately into the principal architect's office and closes the door behind them. They open with: 'I've been blocking entirely on the database sharding decision for four full weeks. I've drafted the design document. I've spoken with the vendor representatives. I've benchmarked Postgres logical replication thoroughly against the Vitess proxy approach. I do not know what to recommend, and I no longer trust my own judgment on this particular question — I suspect I'm too emotionally close to the previous design choice. I am not approaching you as a peer-equal here. I am asking you specifically to teach me how you would actually reason through this. śiṣyas te 'haṁ — consider me your student on this question. Tell me how to reason about it correctly.' The principal does not respond by simply handing over the answer. The principal responds the way Krishna responds — by reframing the substrate of the decision (what is invariant under sharding-strategy choice, what is implementation, what is the real unit of value the decision is supposed to serve). The verse names the only request-formulation that unlocks that response. Without it, the principal architect would have merely offered opinions; with it, the principal actually teaches.",
+    "falsifiability": "The analog fails if the request for help is a performance — if the operator has already decided what they want and is asking for a teacher's blessing rather than the teacher's instruction. Krishna does not bless Arjuna's preferred option; the chapter overturns Arjuna's frame. If a reader uses 2.7 to extract endorsement of a path they have already chosen, they have not actually surrendered; they have negotiated.",
+    "counter_example": "When the operator has not yet done the work that earns the right to ask — when 'teach me' is a substitute for 'I have not invested the effort to learn' — the verse does not apply. Arjuna asks AFTER trying every argument he can muster. Junior engineers who use 2.7 as cover for asking senior engineers to do their thinking have inverted it.",
+    "implication": "The exact words you use to ask for help determine which response you can actually receive. Asking as a peer gets you peer-level opinions; asking as a student gets you the teacher's actual reasoning, which is the only thing that can dislodge a stuck frame.",
+    "quotable_line": "Until you can say 'I am your student on this question', you will only get peers' opinions, not the teacher's reasoning.",
+    "tags": [
+      "decision-paralysis",
+      "judgment-under-uncertainty",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

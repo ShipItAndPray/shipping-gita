@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 4,
+  "reconstructed_sketch": "From chapter context (2.4 is the first specific objection — misplaced loyalty), a competent writer would expect verse 5 to be Arjuna's second argument. Likely topic: an escape-fantasy or projected-future move. Likely tags: decision-paralysis, deprecation-management or team-state.",
+  "verse_specific_signal": "The specific predicate 'fantasised escape always undertaxed; fantasised damage always overdramatised' AND the diagnostic of two-fused-decisions (project + career) that need to be separated. The job-hunting-in-the-same-week-as-deprecation-lands is verse-specific ground.",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG 2.4", "overlap_type": "same_tag_combination", "explanation": "Both 2.4 and 2.5 share decision-paralysis and deprecation-management tags — they are Arjuna's two consecutive specific arguments. Different teaching moves: 2.4 is misplaced loyalty; 2.5 is escape-fantasy. Structural complementarity, not redundancy." }
+  ],
+  "verdict_reason": "Reconstructibility is 4 — the dialogue position (Arjuna's second argument) is predictable from chapter context, but the specific diagnostic (asymmetric idealization between escape and duty) and the two-decisions-must-be-separated implication are verse-specific. PASS."
+}

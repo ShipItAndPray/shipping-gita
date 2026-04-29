@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "anchored_threads": [
+    {
+      "thread_name": "Sāṅkhya / first-principles knowledge",
+      "anchor_evidence": "The engineering layer's central move ('the principle that generated the rule offers it more completely to the practitioner who has reached the principle') maps directly onto the chapter thesis's first thread: separating what is invariant under change (the principle) from what is current implementation (the rule, the cookbook, the style guide). The concrete_scenario explicitly distinguishes the architect 'whose pattern fluency means he no longer reaches for the design-patterns book' from the junior 'announcing flood while still standing at the well' — this is the architectural-invariant vs. implementation distinction in operational form."
+    },
+    {
+      "thread_name": "Karma Yoga / disciplined action",
+      "anchor_evidence": "Secondary anchoring in shipping discipline: the falsifiability clause ('Mastery looks like rule-fluent code, not rule-absent code') and the implication clause ('Audit your own consultation pattern') give an operating discipline, not just a meditation. The verse names a real practice for the on-call doctrine and code-review discipline (per the verse's own tags)."
+    }
+  ],
+  "hard_edges_violated": [],
+  "counter_anti_thesis_violations": [],
+  "progressive_build_check": "BG 2.46 sits in the karma-yoga block (2.31-2.53), at the position where Krishna is moving from the case for action toward the operator-discipline that animates action. The verse reaches for 'first-principles judgment' which IS the chapter's first thread, not a future chapter's. It does not pre-empt sthita-prajña vocabulary (which begins at 2.54). It does not borrow from Ch. 3's expanded karma-yoga or Ch. 12's bhakti. The voice is didactic-corrective ('Neither is the verse'), matching the chapter. Pass.",
+  "verdict_reason": "The verse anchors cleanly on the chapter's first thread (sāṅkhya / first-principles vs. implementation) with a secondary anchor in karma-yoga discipline. It does not violate the hard edges (atman-survives-change, duty-not-optional, action ≠ inaction, steady-mind-as-real-state) or wander into counter-anti-thesis territory (detachment from users, weight-loss of consequences, arbitrary work as svadharma). The progressive-build check is satisfied: the verse is positioned where the chapter is teaching first-principles internalization, not where it is teaching the steady-mind block. Pass on both 10.3 and 10.4."
+}

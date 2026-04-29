@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Sprint-board / 1:1 review checklist line + a 'stale task' deprecation-calendar gate",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "1:1 review template line: 'Any task on this engineer's plate aged > 2 sprints — name it. Has the orbit been named in the last 1:1? If yes, what is the concrete commit-this-week version + the named blocker list?' Companion sprint-board automation: any task ticket open > 2 sprints triggers an aged-task tag; the manager + owner must produce either a smallest-version-this-week ship plan or a whiteboard list of specific invariants the work would violate. Vague concerns no longer count as hold.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse's claim is encoded in (a) a literal 1:1 checklist line, (b) a concrete sprint-board automation rule, and (c) a deprecation-calendar gate. Tags include shipping-discipline and deprecation-management — both structural. A senior engineer could add this to their team's actual practice on Monday. The artifact concretely embodies the verse's diagnosis-imperative pair. PASS."
+}

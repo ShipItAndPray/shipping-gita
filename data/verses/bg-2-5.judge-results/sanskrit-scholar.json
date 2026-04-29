@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "engineering.translation renders 'śreyo bhoktuṁ bhaikṣyam apīha loke' as 'Better to walk away from the role entirely than to ship the migration that will hurt the people who taught me'",
+      "objection": "The verse literally says 'better to live by begging' — referring to the bhikṣu's begging-bowl, the renouncing-mendicant's path. The engineering rendering as 'walk away from the role' is a domain-translation that captures the structural move (idealised renunciation as escape from prescribed action) but loses the specific bhikṣu-as-renunciate connotation. The chapter has not yet introduced the karma-sannyāsa distinction (which arrives in chapter 5), so the engineering layer cannot lean on it. Acceptable scope-restriction; the source pack's traditional_meaning_consensus preserves the bhikṣu reading."
+    },
+    {
+      "severity": "minor",
+      "claim": "engineering.translation renders 'rudhira-pradigdhān bhogān' (blood-smeared enjoyments) as 'a successful migration that costs the relationship'",
+      "objection": "rudhira-pradigdha is graphic and visceral; the engineering rendering domesticates it to 'costs the relationship.' This is a defensible translation across domains (the engineering layer cannot reproduce literal blood-smearing) but it does soften the visceral force. The disagreements field flags the commentarial axis (whether the blood-smearing is metaphysical taint or projected psychological inability). The engineering layer takes a softer reading. Acceptable but noted."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) the verse's structural move — the false-equivalence between idealised begging-life and dramatised post-action life, (b) Arjuna's specific argument about the projected-future-state, (c) the named cognitive distortion ('the fantasised escape is always undertaxed; the fantasised damage is always overdramatised') — which captures the verse's diagnostic without yet correcting it. The verse is doctrinally honest about NOT yet correcting (the chapter does so later). No tradition is conflated. No load-bearing claim is inverted. Two minor scope-softenings are noted; neither is critical. Pass."
+}

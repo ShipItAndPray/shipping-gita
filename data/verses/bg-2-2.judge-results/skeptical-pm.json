@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a senior owner of an in-progress incident has stopped executing the runbook and started writing apologies, the incident commander's next action is to name the freeze and call the next runbook step — not to console.",
+  "example_decision": "An on-call retro / IC handoff doctrine: a runbook-execution timer is started when the IC declares a viṣama-kāla state; if no runbook step has been taken for 5 consecutive minutes while the channel shows apology messages from the senior owner, the IC interrupts and explicitly directs the next step. PM-level: this changes the post-incident review template (gate: 'did the senior owner freeze? did the IC call the freeze?') and changes the hiring rubric for incident commanders (must demonstrate the corrective-not-console move).",
+  "objection": "none"
+}

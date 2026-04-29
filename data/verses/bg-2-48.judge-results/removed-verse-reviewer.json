@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 4,
+  "reconstructed_sketch": "From chapter context (incident-response and engineer-paralysis verses 2.1-2.10, the action-without-fruit verse 2.47, the rule-into-mastery verse 2.46), a verse at position 2.48 in the chapter would probably teach something about operator-state during shipping, possibly anchoring on samatvam or yoga-sthatva given the chapter is moving from action-prescription (2.47) toward the steady-mind block (2.54+). A competent writer might reach for 'the senior engineer is calm under fire' or 'don't let metrics affect your mood'. They would NOT, without seeing the verse, reach for the explicit lexical move 'samatvaṁ yoga ucyate, evenness IS what is being called yoga' nor the dual-clause structure 'state without action = pretense; action without state = effort'.",
+  "verse_specific_signal": "The dual-failure-mode framing — 'The work is not optional. The state is not optional. Either alone is the failure mode' — is the verse's specific contribution; it is licensed by the verse's two-clause Sanskrit structure (yoga-sthaḥ kuru karmāṇi as state-precondition + samatvaṁ yoga ucyate as definition) and is not predictable from the chapter's general drift on operator equanimity.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.47",
+      "overlap_type": "same_predicate",
+      "explanation": "BG 2.47 also teaches operator-state-vs-system-state separation (kuru karmāṇi without grasping fruit), but the framing differs: 2.47 is a refusal of fruit-as-motive ('your right is to the deploy, not to the launch metrics'), while 2.48 is a definition of the state from which action issues ('settle the operator first'). The overlap is real but each verse contributes a distinct facet."
+    }
+  ],
+  "verdict_reason": "Score 4 because there IS adjacent overlap with 2.47 — both verses live in the karma-yoga block and both address operator-vs-system separation. But 2.48 contributes a unique signal: the explicit definitional move (yoga = samatvam) and the dual-failure-mode warning. The 'dashboard moves; the operator does not' quotable line is more architectural than 2.47's 'right is to the deploy, not to launch metrics' — they are siblings, not duplicates. Pass at score 4 — the adjacency to 2.47 is the chapter's intended pedagogical structure (2.47 sets up the action-fruit separation; 2.48 names the state-condition that makes the separation possible)."
+}

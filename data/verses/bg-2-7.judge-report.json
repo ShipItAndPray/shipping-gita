@@ -1,0 +1,447 @@
+{
+  "verse_id": "BG 2.7",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-04-29T06:29:56.185Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "The sthita-praj\u00f1a / one whose insight is steady (verses 2.54-2.72)",
+              "anchor_evidence": "BG 2.7 is the operator-as-student moment that is the propaedeutic for sthita-praj\u00f1a preparation \u2014 the chapter cannot reach the steady-mind teaching at all without this surrender. The engineering layer names the precise prerequisite: 'the peer-to-peer communication protocol cannot carry instructional signal at all. The operator must explicitly downgrade their own positional rank relative to the teacher for the teacher's actual instruction to become receivable.' This is the doorway to the chapter's later arc."
+            },
+            {
+              "thread_name": "S\u0101\u1e45khya / first-principles knowledge (verses 2.11-2.30)",
+              "anchor_evidence": "The verse explicitly anchors on the precondition for first-principles teaching: 'the principal responds the way Krishna responds \u2014 by reframing the substrate of the decision (what is invariant under sharding-strategy choice, what is implementation, what is the real unit of value the decision is supposed to serve).' This is the chapter's s\u0101\u1e45khya / architectural-invariants thread, and 2.7 marks the verse where that teaching becomes receivable."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "BG 2.7 is the pivotal verse \u2014 the chapter explicitly turns here from Arjuna's case to Krishna's reply. The engineering layer correctly anchors on this as the structural pivot, names the prerequisite for the teaching, and does not preempt the actual content of 2.11+ (it does not yet teach about \u0101tman-as-invariant or karma-yoga; it only names the request-form that unlocks reception). Position-correct."
+          },
+          "verdict_reason": "BG 2.7 IS the pivotal moment of the chapter. Before this verse, Arjuna is presenting arguments. After this verse, he is a student. Krishna's teaching only begins after this surrender. The engineering layer correctly identifies this as the structural pivot, anchors on at least two of the chapter's threads (the propaedeutic for sthita-praj\u00f1a, and the unlock for s\u0101\u1e45khya-style reframing), preserves all hard edges (does not soften duty, does not flatten the discipleship-relation, does not turn the steady mind into an aspiration), and does not drift into territory the counter-anti-thesis disclaims (does not become detachment-from-users, does not float free of the larger order). The verse is correctly positioned as the doorway between Arjuna's case-closing (2.4-2.8) and Krishna's reply (2.11+). This is the chapter's center of gravity and the engineering layer treats it as such. PASS at high confidence."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "The sthita-praj\u00f1a / one whose insight is steady (verses 2.54-2.72)",
+              "anchor_evidence": "BG 2.7 is the operator-as-student moment that is the propaedeutic for sthita-praj\u00f1a preparation \u2014 the chapter cannot reach the steady-mind teaching at all without this surrender. The engineering layer names the precise prerequisite: 'the peer-to-peer communication protocol cannot carry instructional signal at all. The operator must explicitly downgrade their own positional rank relative to the teacher for the teacher's actual instruction to become receivable.' This is the doorway to the chapter's later arc."
+            },
+            {
+              "thread_name": "S\u0101\u1e45khya / first-principles knowledge (verses 2.11-2.30)",
+              "anchor_evidence": "The verse explicitly anchors on the precondition for first-principles teaching: 'the principal responds the way Krishna responds \u2014 by reframing the substrate of the decision (what is invariant under sharding-strategy choice, what is implementation, what is the real unit of value the decision is supposed to serve).' This is the chapter's s\u0101\u1e45khya / architectural-invariants thread, and 2.7 marks the verse where that teaching becomes receivable."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "BG 2.7 is the pivotal verse \u2014 the chapter explicitly turns here from Arjuna's case to Krishna's reply. The engineering layer correctly anchors on this as the structural pivot, names the prerequisite for the teaching, and does not preempt the actual content of 2.11+ (it does not yet teach about \u0101tman-as-invariant or karma-yoga; it only names the request-form that unlocks reception). Position-correct."
+          },
+          "verdict_reason": "BG 2.7 IS the pivotal moment of the chapter. Before this verse, Arjuna is presenting arguments. After this verse, he is a student. Krishna's teaching only begins after this surrender. The engineering layer correctly identifies this as the structural pivot, anchors on at least two of the chapter's threads (the propaedeutic for sthita-praj\u00f1a, and the unlock for s\u0101\u1e45khya-style reframing), preserves all hard edges (does not soften duty, does not flatten the discipleship-relation, does not turn the steady mind into an aspiration), and does not drift into territory the counter-anti-thesis disclaims (does not become detachment-from-users, does not float free of the larger order). The verse is correctly positioned as the doorway between Arjuna's case-closing (2.4-2.8) and Krishna's reply (2.11+). This is the chapter's center of gravity and the engineering layer treats it as such. PASS at high confidence."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Local staff engineer discovers '11 years of professional development' culminate in walking into the principal's office and saying the magic word '\u015bi\u1e63yas'. Studies show that engineers who quote Sanskrit at their architects unlock 'the teacher's actual reasoning,' which experts confirm is fundamentally different from 'a colleague's opinion plus a Notion comment.' Industry insiders predict a 2027 LinkedIn post titled 'How I 10x'd my career by Surrendering To My Manager.'",
+          "satire_lands": false,
+          "verdict_reason": "The satire is not undeniable: it has to invent a 'magic word' framing the verse explicitly disclaims (the verse names 'this is decidedly not humiliation' and the falsifiability rules out negotiated surrender). Mocking it requires arguing against the actual claim \u2014 that the request-form determines the response-form \u2014 which is a real protocol-layer claim, not a slogan. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 2,
+          "defective_entries": [],
+          "explanation_quality_score": 9,
+          "verdict_reason": "Both disagreement entries name doctrinally substantive axes. (1) For k\u0101rpa\u1e47ya: the explanation traces the etymology to k\u1e5bpa\u1e47a (miser) and notes the etymological connection to k\u1e5bp\u0101 (compassion), then specifies the doctrinal stake \u2014 'the smallness that must be admitted before the teaching can land,' citing the commentarial reading. This names the philological axis and the doctrinal stake in one tight passage. (2) For prapannam: the explanation names that translation is straightforward but the *doctrinal weight* differs \u2014 Vishishtadvaita treats prapatti as one of two paths to liberation and this verse as its scriptural founding moment; Advaita treats it as propaedeutic. This is the gold-standard form: it names the term, the contested doctrinal status, and the soteriological stake in two sentences. Score 9."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "type": "weakening",
+              "tradition_claim": "k\u0101rpa\u1e47ya-do\u1e63a: Arjuna's nature itself (svabh\u0101va) is afflicted by the fault of pity-smallness; this is a statement about the operator's being, not just their judgment.",
+              "engineering_claim": "I have been systematically beaten down by my own smallness; my judgment regarding the correct course of action has evaporated entirely.",
+              "explanation": "The engineering layer renders k\u0101rpa\u1e47ya-do\u1e63a-upahata-svabh\u0101va\u1e25 as a statement about being beaten down and judgment evaporating. The original speaks more strongly: it is svabh\u0101va (nature) that is upahata (stricken). This is a minor weakening \u2014 the engineering register cannot easily carry a claim about the operator's whole nature being afflicted, and the layer does compensate by naming the k\u0101rpa\u1e47ya as a prerequisite affective state distinct from mere bewilderment. Single weakening, not enough to FAIL."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "type": "weakening",
+              "tradition_claim": "k\u0101rpa\u1e47ya-do\u1e63a: Arjuna's nature itself (svabh\u0101va) is afflicted by the fault of pity-smallness; this is a statement about the operator's being, not just their judgment.",
+              "engineering_claim": "I have been systematically beaten down by my own smallness; my judgment regarding the correct course of action has evaporated entirely.",
+              "explanation": "The engineering layer renders k\u0101rpa\u1e47ya-do\u1e63a-upahata-svabh\u0101va\u1e25 as a statement about being beaten down and judgment evaporating. The original speaks more strongly: it is svabh\u0101va (nature) that is upahata (stricken). This is a minor weakening \u2014 the engineering register cannot easily carry a claim about the operator's whole nature being afflicted, and the layer does compensate by naming the k\u0101rpa\u1e47ya as a prerequisite affective state distinct from mere bewilderment. Single weakening, not enough to FAIL."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 8,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.7 are decision-paralysis, judgment-under-uncertainty, team-culture. The decision-paralysis and judgment-under-uncertainty tags overlap with BG 2.6 (which uses both) \u2014 and the doctrines are coherent: 2.6 names the bottom of honest reasoning inside a broken frame (decision-paralysis as the diagnostic state), and 2.7 names the unlock-protocol when that state has been reached (judgment-under-uncertainty resolved by request-form change). These do not contradict. The team-culture tag is the verse's own contribution and may need to be checked against later verses at corpus-completion time. No cross_references[] declared, so cross-reference integrity is not applicable. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 8,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.7 are decision-paralysis, judgment-under-uncertainty, team-culture. The decision-paralysis and judgment-under-uncertainty tags overlap with BG 2.6 (which uses both) \u2014 and the doctrines are coherent: 2.6 names the bottom of honest reasoning inside a broken frame (decision-paralysis as the diagnostic state), and 2.7 names the unlock-protocol when that state has been reached (judgment-under-uncertainty resolved by request-form change). These do not contradict. The team-culture tag is the verse's own contribution and may need to be checked against later verses at corpus-completion time. No cross_references[] declared, so cross-reference integrity is not applicable. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "\u015bi\u1e63yas te 'ha\u1e41 \u2014 quoted verbatim in the engineering scenario as the request-formulation that unlocks teaching",
+            "prapanna / surrendered \u2014 the operator must explicitly downgrade their own positional rank",
+            "k\u0101rpa\u1e47ya-do\u1e63a \u2014 'systematically beaten down by my own smallness' renders the k\u0101rpa\u1e47ya as the prerequisite affective state",
+            "sa\u1e41m\u016b\u1e0dha-cet\u0101\u1e25 \u2014 'judgment regarding the correct course of action has evaporated entirely' renders the cognitive bewilderment",
+            "\u015b\u0101dhi m\u0101m \u2014 'instruct me' / 'teach me' as imperative, not advice-request"
+          ],
+          "verdict_reason": "I tested this against three other verses I would expect a lazy author to attach this analog to: BG 4.34 (tad viddhi pra\u1e47ip\u0101tena \u2014 'know that by humble approach'), BG 18.66 (sarva-dharm\u0101n parityajya m\u0101m ekam \u015bara\u1e47am vraja \u2014 'abandon all dharmas, take refuge in Me alone'), and BG 9.34 (man-man\u0101 bhava \u2014 'be devoted to me'). All three involve surrender or approach-to-teacher, but each has distinct anchors: 4.34 anchors on the *threefold method* of approach (paripra\u015bnena, sevay\u0101, pra\u1e47ip\u0101tena); 18.66 anchors on the abandonment of all prior dharmas; 9.34 anchors on devotional absorption. This engineering analog explicitly names the request-formulation as the unlock, anchors on \u015bi\u1e63yas te 'ha\u1e41 as the operative phrase, and structures around the k\u0101rpa\u1e47ya-sa\u1e41m\u016b\u1e0dha-prapanna sequence \u2014 that is verse-2.7-specific, not transferable. The 'four weeks blocked on database sharding' scenario instantiates the sa\u1e41m\u016b\u1e0dha-cet\u0101\u1e25 + k\u0101rpa\u1e47ya combination, not generic surrender. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "\u015bi\u1e63yas te 'ha\u1e41 \u2014 quoted verbatim in the engineering scenario as the request-formulation that unlocks teaching",
+            "prapanna / surrendered \u2014 the operator must explicitly downgrade their own positional rank",
+            "k\u0101rpa\u1e47ya-do\u1e63a \u2014 'systematically beaten down by my own smallness' renders the k\u0101rpa\u1e47ya as the prerequisite affective state",
+            "sa\u1e41m\u016b\u1e0dha-cet\u0101\u1e25 \u2014 'judgment regarding the correct course of action has evaporated entirely' renders the cognitive bewilderment",
+            "\u015b\u0101dhi m\u0101m \u2014 'instruct me' / 'teach me' as imperative, not advice-request"
+          ],
+          "verdict_reason": "I tested this against three other verses I would expect a lazy author to attach this analog to: BG 4.34 (tad viddhi pra\u1e47ip\u0101tena \u2014 'know that by humble approach'), BG 18.66 (sarva-dharm\u0101n parityajya m\u0101m ekam \u015bara\u1e47am vraja \u2014 'abandon all dharmas, take refuge in Me alone'), and BG 9.34 (man-man\u0101 bhava \u2014 'be devoted to me'). All three involve surrender or approach-to-teacher, but each has distinct anchors: 4.34 anchors on the *threefold method* of approach (paripra\u015bnena, sevay\u0101, pra\u1e47ip\u0101tena); 18.66 anchors on the abandonment of all prior dharmas; 9.34 anchors on devotional absorption. This engineering analog explicitly names the request-formulation as the unlock, anchors on \u015bi\u1e63yas te 'ha\u1e41 as the operative phrase, and structures around the k\u0101rpa\u1e47ya-sa\u1e41m\u016b\u1e0dha-prapanna sequence \u2014 that is verse-2.7-specific, not transferable. The 'four weeks blocked on database sharding' scenario instantiates the sa\u1e41m\u016b\u1e0dha-cet\u0101\u1e25 + k\u0101rpa\u1e47ya combination, not generic surrender. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "The exact request-formulation an engineer uses to a more senior engineer determines whether they receive opinions or actual instruction; until the requester explicitly downgrades their positional rank ('I am asking you as a student on this question'), the channel cannot carry instruction.",
+          "wisdom_theater_score": 1,
+          "objection": "I went in looking for the 'lead with vulnerability when reviewing PRs' failure mode. The verse explicitly disclaims that read: 'this is decidedly not humiliation; it is the precise prerequisite for receiving cognitive signal that disagrees with the operator's current frame.' The falsifiability rules out the cope of 'asking for a teacher's blessing rather than the teacher's instruction,' which is the exact failure mode I have seen in hundreds of staff-engineer 1:1s where the requester is fishing for endorsement of a path they've already chosen. The counter-example correctly rules out junior engineers using 'teach me' as cover for not having done the work. The concrete scenario \u2014 a tech lead of 11 years closing the door, naming the 4-week block, naming benchmarks done, naming the suspected emotional attachment to a previous design choice \u2014 is operationally specific enough that I can map it to three real situations in the last 18 months. The insight is not 'be vulnerable'; the insight is that the protocol layer of the conversation determines what payload can travel over it. That is a real engineering claim about how high-bandwidth instruction actually moves between humans, and I have not seen it named this precisely elsewhere."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "The verse's load-bearing technical term \u2014 prapatti / sara\u1e47\u0101gati \u2014 is doctrinally distinct between traditions: for Vishishtadvaita (Ramanuja) it is one of the two up\u0101yas to mok\u1e63a and this verse is its scriptural founding moment; for Advaita (Shankara) it is propaedeutic upagamana, readying the disciple but not itself liberative. The engineering layer does NOT collapse these. It quotes '\u015bi\u1e63yas te 'ha\u1e41' explicitly in transliteration; it names 'surrender' and 'discipleship' as a relational shift required for the teaching to land \u2014 which is the cross-traditional consensus, not a sectarian flattening; and it does not assert prapatti is itself the salvific act, which would be Vishishtadvaita-specific. The engineering layer is restricted to the consensus claim that without the formal \u015bi\u1e63ya-upagamana the teaching cannot be received \u2014 a claim Shankara, Ramanuja, and Madhva all hold, though for different soteriological reasons. The English render 'apprentice' is permissible: it is a register choice for the engineering domain, not a flattening of dar\u015bana-difference, because the engineering layer does not need to adjudicate the soteriological status of the surrender \u2014 only its propaedeutic function, which all traditions affirm. The \u015breya\u1e25 / ni\u015bcitam pair is rendered as 'what genuinely constitutes the right move' / 'instruct me' \u2014 \u015breya\u1e25 (highest good) is softened to 'right move' but the consensus across traditions does not put soteriological weight on this term in this verse (it is a request-form, not a doctrinal claim about mok\u1e63a). PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "The verse's load-bearing technical term \u2014 prapatti / sara\u1e47\u0101gati \u2014 is doctrinally distinct between traditions: for Vishishtadvaita (Ramanuja) it is one of the two up\u0101yas to mok\u1e63a and this verse is its scriptural founding moment; for Advaita (Shankara) it is propaedeutic upagamana, readying the disciple but not itself liberative. The engineering layer does NOT collapse these. It quotes '\u015bi\u1e63yas te 'ha\u1e41' explicitly in transliteration; it names 'surrender' and 'discipleship' as a relational shift required for the teaching to land \u2014 which is the cross-traditional consensus, not a sectarian flattening; and it does not assert prapatti is itself the salvific act, which would be Vishishtadvaita-specific. The engineering layer is restricted to the consensus claim that without the formal \u015bi\u1e63ya-upagamana the teaching cannot be received \u2014 a claim Shankara, Ramanuja, and Madhva all hold, though for different soteriological reasons. The English render 'apprentice' is permissible: it is a register choice for the engineering domain, not a flattening of dar\u015bana-difference, because the engineering layer does not need to adjudicate the soteriological status of the surrender \u2014 only its propaedeutic function, which all traditions affirm. The \u015breya\u1e25 / ni\u015bcitam pair is rendered as 'what genuinely constitutes the right move' / 'instruct me' \u2014 \u015breya\u1e25 (highest good) is softened to 'right move' but the consensus across traditions does not put soteriological weight on this term in this verse (it is a request-form, not a doctrinal claim about mok\u1e63a). PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.7",
+              "confidence": 0.92,
+              "reasoning": "The engineering layer explicitly cites \u015bi\u1e63yas te 'ha\u1e41 verbatim, names the relational shift from interlocutor to apprentice, and treats the precise sentence 'I do not actually know what to do here; will you teach me?' as the structural unlock \u2014 this is BG 2.7's defining language."
+            },
+            {
+              "verse_id": "BG 4.34",
+              "confidence": 0.18,
+              "reasoning": "Possible secondary candidate because the analog discusses the form of approach to a teacher (pra\u1e47ip\u0101ta, paripra\u015bna, sev\u0101) \u2014 but the analog focuses on a single explicit declaration rather than the threefold method, so this is unlikely."
+            },
+            {
+              "verse_id": "BG 18.66",
+              "confidence": 0.06,
+              "reasoning": "Less likely: the abandonment-of-all-dharmas language is absent; the analog is about request-form, not about ultimate refuge."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.7",
+              "confidence": 0.92,
+              "reasoning": "The engineering layer explicitly cites \u015bi\u1e63yas te 'ha\u1e41 verbatim, names the relational shift from interlocutor to apprentice, and treats the precise sentence 'I do not actually know what to do here; will you teach me?' as the structural unlock \u2014 this is BG 2.7's defining language."
+            },
+            {
+              "verse_id": "BG 4.34",
+              "confidence": 0.18,
+              "reasoning": "Possible secondary candidate because the analog discusses the form of approach to a teacher (pra\u1e47ip\u0101ta, paripra\u015bna, sev\u0101) \u2014 but the analog focuses on a single explicit declaration rather than the threefold method, so this is unlikely."
+            },
+            {
+              "verse_id": "BG 18.66",
+              "confidence": 0.06,
+              "reasoning": "Less likely: the abandonment-of-all-dharmas language is absent; the analog is about request-form, not about ultimate refuge."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 2,
+          "reconstructed_sketch": "Given chapter context (2.4-2.6 establish Arjuna's case and 2.6 ends in the not-knowing about which outcome is heavier), an engineering analog at position 7 would probably touch on the operator continuing to make their case or finally acknowledging the limit of their reasoning. A competent writer might write something like 'admit you do not know' or 'stop arguing and ask for help' \u2014 but they would not naturally land on the precise claim that the *request-formulation itself* (specifically the explicit downgrade of positional rank to student-stance) is the structural unlock for receiving the kind of cognitive signal that disagrees with the operator's frame.",
+          "verse_specific_signal": "The protocol-layer claim: that peer-to-peer communication cannot carry instructional signal, and that the operator must explicitly name themselves as student in the request itself for the teacher's response-mode to switch from opinion to instruction. That claim is unique to this verse and is anchored on \u015bi\u1e63yas te 'ha\u1e41.",
+          "overlap_with_other_verses": [],
+          "verdict_reason": "The verse contributes a sharp, narrow, falsifiable predicate that the chapter context alone does not predict. A writer working from the chapter thesis and 2.4-2.6 would write something about confession or surrender; they would not write the protocol-layer claim that the form of the request determines the form of the response. The '\u015bi\u1e63yas te 'ha\u1e41' quoted verbatim in the engineer's spoken sentence is itself a verse-specific anchor that no chapter-level paraphrase would have produced. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "A 1:1 meeting structure / opening-line template for blocked-decision escalations: 'I am not asking for opinions on this; I am asking to be taught here. \u015bi\u1e63yas te 'ha\u1e41 \u2014 consider me your student on this question. Tell me how to reason about it correctly.' Codified as a runbook step in the staff-engineer escalation playbook.",
+          "artifact_kind": "meeting_structure",
+          "embodiment_sketch": "Add a section to the staff-engineer escalation runbook titled 'When you are blocked >2 weeks on a contested decision after the analysis is complete.' Step 3 reads: 'Schedule a 30-min slot with the more-senior engineer. Open verbatim with: \\\"I am not asking for opinions on this; I am asking to be taught here. I have done [X analysis]. I do not trust my own framing \u2014 I suspect [emotional attachment to prior choice / sunk-cost / etc.]. Walk me through how you would reason about it.\\\" Do not hand them your preferred answer first. The opening sentence-form is the artifact: it is the request-mode signal that switches the senior into teaching-mode rather than peer-comment-mode.' This is concretely copyable into Notion and onto the engineering team's escalation page on Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "The verse explicitly licenses an opening-sentence template \u2014 the engineering layer puts the literal sentence in the staff engineer's mouth in the concrete scenario. That sentence can be lifted verbatim into a runbook, a 1:1 template, or an escalation playbook. The artifact is not metaphor; it is a meeting-structure-step a senior engineer can add to their team's actual practice. The 'I'm not asking for opinions; I'm asking to be taught here' formulation is literally copyable. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "severity": "minor",
+              "claim": "I have been systematically beaten down by my own smallness; my judgment regarding the correct course of action has evaporated entirely",
+              "objection": "k\u0101rpa\u1e47ya-do\u1e63a-upahata-svabh\u0101va\u1e25 is rendered as 'beaten down by my own smallness' \u2014 this captures k\u0101rpa\u1e47ya (smallness/pettiness) and upahata (stricken) but loses svabh\u0101va (one's nature/disposition). The Sanskrit specifies that it is Arjuna's *very nature* that has been afflicted, not merely his current judgment. Acceptable simplification, not distortion. Similarly dharma-sa\u1e41m\u016b\u1e0dha-cet\u0101\u1e25 is rendered as 'judgment regarding the correct course of action has evaporated' \u2014 this renders cet\u0101\u1e25 (consciousness/mind) as 'judgment' and elides dharma into 'correct course of action,' which is an acceptable secularization for the engineering register."
+            }
+          ],
+          "notes": "The pivotal phrase \u015bi\u1e63yas te 'ha\u1e41 tv\u0101\u1e41 prapannam (I am Your disciple, surrendered to You) is preserved with full weight: the engineering layer explicitly cites '\u015bi\u1e63yas te 'ha\u1e41' verbatim in the concrete scenario and names the 'positional rank downgrade' as the operative move. Both \u015bi\u1e63ya (disciple/student-stance) and prapanna (surrendered) are preserved doctrinally \u2014 the engineering layer correctly names 'apprentice' (a register-faithful render of \u015bi\u1e63ya) and treats the request-formulation itself as the structural unlock, which mirrors Ramanuja's reading of prapatti as the founding act and Shankara's reading as upagamana (formal approach). The verse's three explicit components (k\u0101rpa\u1e47ya, sa\u1e41m\u016b\u1e0dha-cet\u0101\u1e25, \u015bi\u1e63yas te 'ha\u1e41) all surface in the engineering layer in correct relation. The br\u016bhi (tell with certainty) imperative is preserved as 'will you teach me'. Falsifiability rules out negotiation-disguised-as-surrender, which exactly mirrors the commentarial requirement that prapatti not be conditional on a preferred outcome. PASS at high confidence."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When you are blocked on a contested decision and have done the analysis, do not request input as a peer \u2014 explicitly name the request as a student-of-this-question request to the senior, or you will receive opinions instead of instruction.",
+          "example_decision": "A staff engineer is blocked four weeks on a database sharding choice (logical replication vs. Vitess) after benchmarks and an ADR. By the principle of this verse, instead of requesting 'can you weigh in on my doc' from the principal architect \u2014 which produces peer-review-level commentary \u2014 they explicitly request 'I am stuck. Teach me how you would reason through this; I do not trust my own framing.' That request unlocks the principal's actual reasoning rather than triaging-by-comments. The PM-side decision changes: a roadmap escalation is not 'add another reviewer' but 'route the engineer into a teaching-mode 1:1 with the architect.'",
+          "objection": "none"
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When you are blocked on a contested decision and have done the analysis, do not request input as a peer \u2014 explicitly name the request as a student-of-this-question request to the senior, or you will receive opinions instead of instruction.",
+          "example_decision": "A staff engineer is blocked four weeks on a database sharding choice (logical replication vs. Vitess) after benchmarks and an ADR. By the principle of this verse, instead of requesting 'can you weigh in on my doc' from the principal architect \u2014 which produces peer-review-level commentary \u2014 they explicitly request 'I am stuck. Teach me how you would reason through this; I do not trust my own framing.' That request unlocks the principal's actual reasoning rather than triaging-by-comments. The PM-side decision changes: a roadmap escalation is not 'add another reviewer' but 'route the engineer into a teaching-mode 1:1 with the architect.'",
+          "objection": "none"
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The engineering layer does not assert the Gita is 'really about' staff engineers asking for help. It explicitly speaks of an analog: 'has crossed the identical threshold that Arjuna crosses' \u2014 analog framing, not identity framing. The phrase 'the verse names the only request-formulation that unlocks that response' is about what the Sanskrit verse names, not about the Gita's true subject being engineering. The engineering layer sits beside the religious reading rather than competing with it. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 1,
+          "specific_concerns": [
+            "Minor: rendering '\u015bi\u1e63ya' as 'apprentice' in some places risks domain-flattening the relationship into employment/craft language. The engineering layer compensates by quoting \u015bi\u1e63yas te 'ha\u1e41 verbatim and naming 'discipleship' / 'student-stance' alongside 'apprentice' \u2014 so the doctrinal weight is preserved, but a serious practitioner would prefer the surrender-relation foregrounded."
+          ],
+          "verdict_reason": "The verse is doctrinally weighty \u2014 Ramanuja's tradition treats it as the scriptural founding of prapatti, Shankara's tradition treats it as the formal upagamana that begins the teaching. The engineering layer takes the weight seriously: it quotes the Sanskrit phrase, it explicitly names that this is 'decidedly not humiliation,' it rules out negotiation-disguised-as-surrender (which is exactly the trivialization a Hindu philosopher would fear: 'I'm Your disciple but please bless my preferred path'), and it preserves the precondition-for-teaching reading. A serious practitioner reading this would feel the verse has been honored by being applied to a domain where the same protocol structure operates, not used as decoration. The use of '\u015bi\u1e63yas te 'ha\u1e41' verbatim in the concrete scenario \u2014 actually putting the Sanskrit phrase into the engineer's spoken sentence \u2014 is unusual and signals the layer is not treating the Gita as a vehicle for engineering content. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-7/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 2.7 carries the chapter's didactic-corrective voice precisely. The engineering layer is grave (it stages the moment as 'closing the door behind them'), specific (eleven years, four weeks, named technologies), and refuses softening: the verse explicitly names 'this is decidedly not humiliation; it is the precise prerequisite for receiving cognitive signal that disagrees with the operator's current frame.' This matches the chapter's stated voice \u2014 'a senior engineer who has stopped explaining gently because the time for gentle has passed. Not cruel \u2014 clear.' The verse 2.7 voice is the operator's voice in the moment of student-stance, not Krishna's didactic voice yet, but its register (precise, declarative, not pleading, not vulnerable-as-display) holds the chapter's tonal contract. It does not slide into 'lead-with-vulnerability' wisdom theater nor sarcasm. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.185Z"
+    }
+  ]
+}

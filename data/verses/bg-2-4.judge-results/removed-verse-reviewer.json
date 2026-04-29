@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 4,
+  "reconstructed_sketch": "From the chapter thesis and the preceding verses (2.2 diagnosis, 2.3 imperative), a competent writer would expect verse 4 to begin Arjuna's specific reply / counter-argument. Likely topic: a specific objection that stalls the imperative. Likely tags: decision-paralysis, deprecation-management.",
+  "verse_specific_signal": "The specific predicate that sincere loyalty-couched objections are the canonical case of paralysis-as-deferral, AND the verse-specific test ('would I be blocked if a stranger had built it?'). The pairing of Bhīṣma/Droṇa with the principal-engineer-still-referenced-at-all-hands is verse-specific ground.",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG 2.5", "overlap_type": "same_tag_combination", "explanation": "Both 2.4 and 2.5 share decision-paralysis and deprecation-management tags. They are different teaching moves: 2.4 is the misplaced-loyalty objection; 2.5 is the escape-fantasy objection. The two-verse pair forms Arjuna's first two specific arguments." }
+  ],
+  "verdict_reason": "Reconstructibility is 4 — the dialogue position (Arjuna's first reply) is predictable from chapter context, but the specific predicate (misplaced-loyalty-as-paralysis-mechanism with the stranger-test heuristic) and the principal-engineer-architect mapping are verse-specific. PASS."
+}

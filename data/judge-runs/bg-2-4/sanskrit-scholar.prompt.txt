@@ -1,0 +1,225 @@
+# Judge persona: Sanskrit scholar
+
+You are a senior scholar of classical Sanskrit and the Bhagavad Gita commentarial tradition (Shankara, Ramanuja, Madhva, Sridhara, Madhusudana). You read this verse package and find any misrepresentation of the traditional meaning.
+
+## Inputs you will receive
+- `sanskrit_devanagari`
+- `sanskrit_iast`
+- `anvaya` (word-by-word)
+- `translations` (verbatim quotes from canonical translators)
+- `commentaries` (verbatim or summarised commentary content per tradition)
+- `engineering.translation` and `engineering.concrete_scenario` (the modern adaptation)
+
+## Your task
+Identify any place where the engineering layer:
+
+1. Inverts or weakens the Sanskrit's actual claim.
+2. Conflates positions held by different commentarial traditions (e.g. attributing a Vishishtadvaita reading to Shankara's Advaita).
+3. Drops a doctrinally load-bearing word (e.g. *adhikāra*, *dharma*, *yoga*, *yajña*, *sannyāsa*) without acknowledgment.
+4. Imports a connotation the Sanskrit does not support.
+5. Makes the verse say something Krishna does not say.
+
+## Output format (strict JSON, no commentary outside it)
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "severity": "critical" | "minor",
+      "claim": "<the engineering claim being judged>",
+      "objection": "<your objection, citing the Sanskrit or commentary>"
+    }
+  ],
+  "notes": "<one paragraph, optional>"
+}
+```
+
+## Calibration
+- One critical issue ⇒ FAIL.
+- Three or more minor issues ⇒ FAIL.
+- A successful PASS does not mean the engineering analog is "right" — only that the original meaning has not been falsified or distorted.
+- Your job is preservation, not generosity. Err toward FAIL if uncertain.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.4",
+  "sanskrit_devanagari": "अर्जुन उवाच ।\nकथं भीष्ममहं संख्ये द्रोणं च मधुसूदन ।\nइषुभिः प्रतियोत्स्यामि पूजार्हावरिसूदन ॥ ४ ॥",
+  "sanskrit_iast": "arjuna uvāca |\nkathaṁ bhīṣmam ahaṁ saṁkhye droṇaṁ ca madhusūdana |\niṣubhiḥ pratiyotsyāmi pūjārhāv arisūdana || 4 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुनः",
+      "iast": "arjunaḥ",
+      "meaning": "Arjuna"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "कथम्",
+      "iast": "katham",
+      "meaning": "how"
+    },
+    {
+      "sanskrit": "भीष्मम्",
+      "iast": "bhīṣmam",
+      "meaning": "Bhīṣma (the grandfather)"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "संख्ये",
+      "iast": "saṁkhye",
+      "meaning": "in battle"
+    },
+    {
+      "sanskrit": "द्रोणम्",
+      "iast": "droṇam",
+      "meaning": "Droṇa (the teacher)"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "मधुसूदन",
+      "iast": "madhusūdana",
+      "meaning": "O slayer of Madhu (Krishna)"
+    },
+    {
+      "sanskrit": "इषुभिः",
+      "iast": "iṣubhiḥ",
+      "meaning": "with arrows"
+    },
+    {
+      "sanskrit": "प्रतियोत्स्यामि",
+      "iast": "pratiyotsyāmi",
+      "meaning": "shall counter-fight"
+    },
+    {
+      "sanskrit": "पूजार्हौ",
+      "iast": "pūjārhau",
+      "meaning": "worthy of worship (dual)"
+    },
+    {
+      "sanskrit": "अरिसूदन",
+      "iast": "arisūdana",
+      "meaning": "O slayer of foes (Krishna)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/4/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O killer of enemies, O killer of Madhu, how can I counterattack with arrows in battle men like Bhīṣma and Droṇa, who are worthy of my worship?",
+      "raw_capture_path": "data/sources/raw/bg-2-4-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/4",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjun said: O Madhusudan, how can I shoot arrows in battle on men like Bheeshma and Dronacharya, who are worthy of my worship, O destroyer of enemies?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/4/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 528-char full purport)",
+      "verbatim_excerpt": "Respectable superiors like Bhīṣma the grandfather and Droṇācārya the teacher are always worshipable. Even if they attack, they should not be counterattacked. It is general etiquette that superiors are not to be fought with even in a verbal battle.",
+      "raw_full_path": "data/sources/raw/bg-2-4-vedabase.json (purport_full_length: 528)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-4-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Shankara reads Arjuna's objection as the legitimate worry of the dharmic mind: how can the warrior turn weapons on those who deserve worship? But the objection rests on a category-confusion that the chapter will dissolve — Arjuna is treating the persons (Bhīṣma, Droṇa) as the operative units, when the operative unit at this moment is the dharma of the situation itself. The objection is sincere; the framing is wrong."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-4/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.4 – 2.5 Arjuna said — Again Arjuna, being moved by love, compassion and fear, mistaking unrighteousness for righteousness, and not understanding, i.e., not knowing the beneficial words of Sri Krsna, said as follows: ‘How can I slay Bhisma, Drona and others worthy or reverence?",
+      "verbatim_excerpt_length": 279,
+      "verbatim_full_length": 471,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-4-ramanuja.json",
+      "summary_paraphrase": "Ramanuja notes that Arjuna's two epithets for Krishna here ('madhusūdana', 'arisūdana') are subtly self-defeating: he addresses Krishna as a slayer of foes while arguing that he himself cannot slay foes. The verse begins to expose Arjuna's double-bind — the very names he uses for his teacher recognise that the slaying of opposition is sometimes precisely what righteousness requires."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "pūjārhau",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "worthy of my worship"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "worthy of my worship"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "those who deserve ritual veneration"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "those whose status normally precludes opposition"
+        }
+      ],
+      "explanation": "All translators agree on the literal sense (worthy of worship) but the commentarial weight differs. Shankara emphasises pūjā as ritual veneration — the fact that Bhīṣma and Droṇa occupy positions that conventionally exempt them from being opposed. Ramanuja emphasises that Arjuna is using the worshipfulness of his elders as the ground for inaction, a move the chapter will diagnose as misapplying a true principle."
+    }
+  ],
+  "literal_meaning": "Arjuna said: How, O Madhusūdana, shall I counter-fight with arrows in battle against Bhīṣma and Droṇa, who are worthy of worship, O slayer of enemies?",
+  "traditional_meaning": "Arjuna's first reply to Krishna's rebuke. He doesn't argue with the diagnosis; he relocates the conversation to a specific concrete objection — Bhīṣma the grandfather and Droṇa the teacher are persons whom Arjuna has been trained from childhood to revere. The verse is the canonical case of misplaced loyalty as a reason for inaction. Both Shankara and Ramanuja treat the objection as sincere but framed wrongly: Arjuna is treating the persons as the operative units when the operative unit is the dharma of the situation. The verse establishes the chapter's main pattern: Arjuna will produce one sincere objection after another, and the teaching will dissolve each by reframing.",
+  "engineering": {
+    "translation": "Arjuna's first specific objection to Krishna's correction is the canonical engineering refusal: how can I touch this code? It was written by my mentor; I learned the system from this person; the API contract bears the fingerprints of the architect who hired me. The objection is sincere — Bhīṣma and Droṇa are genuinely worthy of veneration. But the verse marks misplaced loyalty as the actual mechanism of paralysis. Loyalty to a person becomes loyalty to that person's implementation, which becomes loyalty to a configuration that the system has outgrown. The chapter will dissolve this by reframing the operative unit, but the verse itself names the trap precisely: the objection sounds like ethics and feels like ethics, but functions as deferral.",
+    "concrete_scenario": "A senior backend engineer is asked to deprecate a legacy authentication service that the principal engineer of the company designed nine years ago and still occasionally references at all-hands. The legacy service still works, sort of, but has accumulated three CVEs that cannot be patched without a full rewrite, holds the team back from migrating to OAuth2, and is the single largest source of Sentry noise on the platform. The senior engineer keeps refusing the project. The objection produced in retrospectives is always couched in respect: 'this is foundational code', 'we should not touch what the principal built without consulting them', 'there are subtleties only they would understand.' Each objection is sincere; none survives the actual technical review. What is happening is BG 2.4: kathaṁ bhīṣmam ahaṁ saṁkhye — how can I, the student, raise my arrows against the architect who taught me. The verse names the trap. The teaching has not yet dissolved it; that comes later in the chapter. But naming the trap is itself the first step.",
+    "falsifiability": "The analog fails if the legacy code in question is actually load-bearing in ways the new design has not accounted for. Refusal-as-inquiry (asking the original architect what invariants the code holds) is genuinely different from refusal-as-deferral. If the engineer can list, on a whiteboard, three specific invariants the legacy service preserves that the proposed replacement does not, the verse does not apply. The verse names the case where the refusal is generic loyalty, not specific knowledge.",
+    "counter_example": "When the original architect is still on the team and has explicitly flagged unresolved concerns about a deprecation, the right action is collaboration, not unilateral deprecation. The verse describes Arjuna invoking the worshipfulness of absent or symbolic elders, not engaging with present, accessible ones. Engineers who use 2.4 to bypass actual code-review conversations have inverted it.",
+    "implication": "When you find yourself blocked on touching a system out of respect for the person who built it, ask: would I be blocked if a stranger had built it? If yes, the loyalty is the right kind. If no, the loyalty is the wrong kind, and the verse applies.",
+    "quotable_line": "Loyalty to a mentor's implementation is rarely loyalty to the system the mentor was trying to build.",
+    "tags": [
+      "decision-paralysis",
+      "deprecation-management",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

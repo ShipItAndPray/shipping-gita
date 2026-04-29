@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "The verse names this state explicitly and gives it a name: samatvam, evenness, is what is being called yoga.",
+      "objection": "Lexically accurate (samatvaṁ yoga ucyate is verbatim the verse's final pāda), but the engineering rendering equates samatvam with 'evenness' alone, dropping the deeper Shankara gloss in which samatvam is mental evenness arising specifically from the realization that fruits belong to īśvara. The Sanskrit word carries this metaphysical weight; 'evenness' carries the cognitive shape but not the substrate. Acceptable simplification for the engineering layer (the source pack preserves the fuller meaning), but a careful Sanskritist notes the import."
+    },
+    {
+      "severity": "minor",
+      "claim": "operator-system coupling in its pathological form... The contrast is the engineer who treats the green dashboard as confirmation of personal worth and the red dashboard as personal indictment.",
+      "objection": "This is a sharp rendering of saṅgam (attachment), but the Sanskrit's saṅgam tyaktvā is not narrowly 'self-stake-coupling' — it is broader. Ramanuja (per the source pack excerpt) reads saṅgam in this verse as attachment to kingdom, relatives, etc. (i.e., the specific objects-of-attachment in Arjuna's case). The engineering analog narrows saṅgam to one specific form (operator-self-coupling to dashboard outcomes) without naming the narrowing. The narrowing is internally consistent and matches one valid commentary axis (the Prabhupada/Mukundananda 'attachment to outcomes' reading), but the verse's saṅgam is wider. Minor."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) the explicit definition samatvaṁ yoga ucyate (rendered as 'samatvam, evenness, is what is being called yoga' — verbatim retention of the Sanskrit term in the engineering text); (b) the two-clause structure of the verse — yoga-sthaḥ kuru karmāṇi (act from the settled state) AND siddhy-asiddhyoḥ samaḥ bhūtvā (be even in success and failure) — by stating 'The work is not optional. The state is not optional. Either alone is the failure mode.' This is the strict Shankara reading: action without state-condition = effort, state-condition without action = pretense. The falsifiability clause ('equanimity is the absence of self-stake, not the absence of attention or care') correctly guards against the most common misreading (stoic suppression masquerading as samatvam). The counter_example correctly invokes Krishna's rejection of inaction in the next several verses. No tradition is misattributed; samatvam is named by its Sanskrit term. Two minor framing nits noted; neither is critical. Pass."
+}

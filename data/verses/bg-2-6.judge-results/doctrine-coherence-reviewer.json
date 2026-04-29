@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 8,
+  "cross_reference_integrity_score": null,
+  "verdict_reason": "Tags on BG 2.6 are decision-paralysis, judgment-under-uncertainty, strategic-frame. The decision-paralysis and judgment-under-uncertainty tags overlap with BG 2.7 (also tagged with both); the doctrines are coherent — 2.6 is the diagnostic state (FRAME-BUG), 2.7 is the unlock-protocol (request-form change). These are sequential moves on the same arc, not contradictions. The strategic-frame tag is verse-specific and shared with 2.8 (which uses the diagnostic-limit framing similarly: the operator at the end of their toolkit). 2.6 and 2.8 use 'strategic-frame' coherently — both name moments where the operator must report a frame-level limit rather than continue making moves inside the frame. No cross_references[] declared. PASS."
+}

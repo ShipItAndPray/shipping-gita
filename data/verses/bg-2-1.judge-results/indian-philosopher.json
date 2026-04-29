@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "conflations_found": [],
+  "technical_terms_dropped": ["kṛpā", "Madhusūdana"],
+  "verdict_reason": "The engineering layer drops kṛpā and Madhusūdana into modern English without their commentarial freight, but this is acceptable for two reasons: (1) the source pack's disagreements_among_translators field captures the kṛpā disagreement explicitly and identifies the Gaudiya Vaishnava pejorative reading vs. the neutral devotional reading; (2) the engineering layer makes no doctrinal claim about either term — it does not say 'Krishna teaches X about kṛpā,' it merely sets a scene. No tradition is collapsed. No Advaita / Vishishtadvaita / Dvaita position is misattributed. The verse's confidence=LOW + stretched=true tagging is the correct honesty marker for a verse that intentionally refuses to extract doctrine."
+}

@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Editorial / postmortem review checklist item: 'For each narrative-pivot moment in the postmortem timeline, distinguish [SCAFFOLDING: marker of conversational transition] from [DOCTRINE: an actual lesson learned]. Do not extract a tactical principle from a SCAFFOLDING moment.'",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add a checklist item to the post-incident review template: 'For each major moment in the timeline, tag it as either DOCTRINE (a real lesson learned that should generate an action item) or SCAFFOLDING (a transition marker — someone running out of words, a status change, a handoff). Do not extract action items from SCAFFOLDING moments. Example SCAFFOLDING: \\\"the lead said I am not going to lead this and went silent for a day\\\" — this is a transition marker; the action item belongs to whatever followed, not to the silence itself.' Concretely copyable into a Notion postmortem template.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse honestly tagged LOW + STRETCHED can still license a real artifact — a meta-discipline checklist for distinguishing scaffolding from doctrine in retrospectives. This is not metaphor-only; it is a real review-discipline a senior engineer can add Monday. The verse explicitly frames the discipline ('recognise scaffolding when you see it'), and the artifact is a direct embodiment. PASS — though the artifact is meta (a discipline for reading verses or postmortems) rather than direct (a runbook step for a specific failure mode), it is still concretely embodiable."
+}

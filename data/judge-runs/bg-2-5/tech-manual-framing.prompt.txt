@@ -1,0 +1,257 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.5",
+  "sanskrit_devanagari": "गुरूनहत्वा हि महानुभावान्\nश्रेयो भोक्तुं भैक्ष्यमपीह लोके ।\nहत्वार्थकामांस्तु गुरूनिहैव\nभुञ्जीय भोगान्रुधिरप्रदिग्धान् ॥ ५ ॥",
+  "sanskrit_iast": "gurūn ahatvā hi mahānubhāvān\nśreyo bhoktuṁ bhaikṣyam apīha loke |\nhatvārtha-kāmāṁs tu gurūn ihaiva\nbhuñjīya bhogān rudhira-pradigdhān || 5 ||",
+  "anvaya": [
+    {
+      "sanskrit": "गुरून्",
+      "iast": "gurūn",
+      "meaning": "the elders / teachers"
+    },
+    {
+      "sanskrit": "अहत्वा",
+      "iast": "ahatvā",
+      "meaning": "not having killed"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "महानुभावान्",
+      "iast": "mahānubhāvān",
+      "meaning": "of great nobility / great souls"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "better"
+    },
+    {
+      "sanskrit": "भोक्तुम्",
+      "iast": "bhoktum",
+      "meaning": "to enjoy / to subsist"
+    },
+    {
+      "sanskrit": "भैक्ष्यम्",
+      "iast": "bhaikṣyam",
+      "meaning": "by begging"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "in this"
+    },
+    {
+      "sanskrit": "लोके",
+      "iast": "loke",
+      "meaning": "world"
+    },
+    {
+      "sanskrit": "हत्वा",
+      "iast": "hatvā",
+      "meaning": "having killed"
+    },
+    {
+      "sanskrit": "अर्थ",
+      "iast": "artha",
+      "meaning": "wealth / gain"
+    },
+    {
+      "sanskrit": "कामान्",
+      "iast": "kāmān",
+      "meaning": "desires"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "गुरून्",
+      "iast": "gurūn",
+      "meaning": "the elders"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "here"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "भुञ्जीय",
+      "iast": "bhuñjīya",
+      "meaning": "I would enjoy"
+    },
+    {
+      "sanskrit": "भोगान्",
+      "iast": "bhogān",
+      "meaning": "enjoyments"
+    },
+    {
+      "sanskrit": "रुधिर",
+      "iast": "rudhira",
+      "meaning": "blood"
+    },
+    {
+      "sanskrit": "प्रदिग्धान्",
+      "iast": "pradigdhān",
+      "meaning": "smeared / tainted"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/5/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "It would be better to live in this world by begging than to live at the cost of the lives of great souls who are my teachers. Even though desiring worldly gain, they are superiors. If they are killed, everything we enjoy will be tainted with blood.",
+      "raw_capture_path": "data/sources/raw/bg-2-5-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/5",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "It would be better to live in this world by begging, than to enjoy life by killing these noble elders, who are my teachers. If we kill them, the wealth and pleasures we enjoy will be tainted with blood."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/5/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 571-char full purport)",
+      "verbatim_excerpt": "According to scriptural codes, a teacher who engages in an abominable action and has lost his sense of discrimination is fit to be abandoned. Bhīṣma and Droṇa were obliged to take the side of Duryodhana because of his financial assistance, although they should not have accepted such a position simply on financial considerations.",
+      "raw_full_path": "data/sources/raw/bg-2-5-vedabase.json (purport_full_length: 571)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-5/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-5-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Shankara reads this verse as Arjuna offering renunciation as a substitute for action — proposing the bhikṣu (mendicant) life as preferable to the kṣatriya's duty. The chapter will reject this; renunciation in this case is wrong-renunciation because it is grounded in aversion (the blood of teachers) rather than in steadiness of knowledge."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-5/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.4 – 2.5 Arjuna said — Again Arjuna, being moved by love, compassion and fear, mistaking unrighteousness for righteousness, and not understanding, i.e., not knowing the beneficial words of Sri Krsna, said as follows: ‘How can I slay Bhisma, Drona and others worthy or reverence?",
+      "verbatim_excerpt_length": 279,
+      "verbatim_full_length": 471,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-5-ramanuja.json",
+      "summary_paraphrase": "Ramanuja notes the qualifier 'artha-kāmān' (those who themselves desire wealth) — Arjuna concedes that the elders are not pure in motive on this battlefield. But he argues that even tainted teachers are still teachers, and the blood-stained kingdom would be unenjoyable. The argument is psychologically real and dharmically incoherent simultaneously."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "rudhira-pradigdhān (bhogān)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "tainted with blood"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "tainted with blood"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the enjoyments themselves bear the stain — sense-aversion, not moral judgment"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "psychologically unenjoyable, not necessarily ritually impure"
+        }
+      ],
+      "explanation": "All translators render the phrase identically; the commentarial disagreement is whether 'tainted with blood' refers to the metaphysical impurity of the enjoyments or to Arjuna's projected inability to take pleasure in them. The distinction matters because the chapter will treat Arjuna's projected unenjoyability as a feeling-state, not a binding fact about the world."
+    }
+  ],
+  "literal_meaning": "Indeed, not having killed the great-souled teachers, it is better to live by begging in this world. But having killed those elders (even though they desire wealth), I would enjoy here only blood-smeared enjoyments.",
+  "traditional_meaning": "Arjuna's second argument: even if the action is technically permitted, the consequences will be unbearable. Better the bhikṣu's begging-bowl than a kingdom soaked in the blood of teachers. The verse is doctrinally important because it introduces the false-equivalence Arjuna is making: he is comparing the imagined post-victory state ('blood-smeared enjoyments') with an idealised alternative ('begging in this world'), and the imagined comparison feels asymmetric. The chapter will diagnose this as projection — not as accurate forecasting.",
+  "engineering": {
+    "translation": "Better to walk away from the role entirely than to ship the migration that will hurt the people who taught me. Arjuna's second argument is the projected-future move: the imagined post-action state is dressed in unbearable consequences and compared against an idealised alternative (begging) that has been stripped of its actual difficulty. This is the move every senior engineer makes when they begin to fantasise about quitting rather than perform the deprecation, the layoff conversation, the architectural truth-telling that will damage long-standing professional relationships. The fantasy alternative is asymmetrically idealised. The actual action is asymmetrically dramatised. The verse names the cognitive distortion without yet correcting it; the correction comes later in the chapter.",
+    "concrete_scenario": "A staff engineer has been told by the VP that the team's home-grown internal-tools framework — a beloved Python library written and championed by two long-tenured principals — must be sunset and replaced with a vendor solution because it cannot scale to the new compliance regime. The staff engineer is the natural owner of the migration. Instead of starting it, they have begun privately interviewing at smaller companies. The reasoning given to friends is poetic: 'I would rather work at a startup than be the person who tells those two principals that nine years of their work is being deleted; the kingdom afterward would be soaked in their disappointment.' This is the verse, exactly: śreyo bhoktuṁ bhaikṣyam — better to subsist by begging (job-hunting) than to enjoy a tainted feast (a successful migration that costs the relationship). The verse does not yet correct the distortion; it shows it clearly. The fantasised begging-life is undertaxed. The fantasised post-deprecation life is overtaxed. The asymmetry is the bug.",
+    "falsifiability": "The analog fails if the alternative path is genuinely better — if the engineer has reason to believe the new role is a higher-impact use of their skills independent of the deprecation. The verse names ESCAPE-into-renunciation, not honest career reassessment. If the engineer has been considering the move for a year and the deprecation merely accelerated the decision, the verse does not apply.",
+    "counter_example": "When the migration would actually destroy critical institutional knowledge that no replacement preserves — when the elders' opposition is itself a substantive technical signal — the verse does not apply. Krishna does not reject Arjuna's love for Bhīṣma; he rejects Arjuna's use of that love as a reason for inaction in a situation that requires action. Engineers who use 2.5 to push through deprecations against substantive opposition have inverted it.",
+    "implication": "When you find yourself romantic about quitting in the same week that a hard project lands on your plate, separate the two questions explicitly. Decide on the project on its own terms. Decide on quitting on its own terms. The romance is the verse warning you that the two are blurring.",
+    "quotable_line": "The fantasised escape is always undertaxed; the fantasised damage is always overdramatised.",
+    "tags": [
+      "decision-paralysis",
+      "deprecation-management",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

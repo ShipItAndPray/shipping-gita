@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "type": "silent_rescoping",
+      "tradition_claim": "Sanjaya narrates Arjuna's collapsed state and Krishna (Madhusūdana) is about to begin the teaching that occupies the rest of the Gita.",
+      "engineering_claim": "The engineering analog is the held breath before a postmortem-in-progress; the senior incident commander has not yet uttered a word.",
+      "explanation": "The verse is re-scoped from a battlefield-Sanjaya-narration to a Slack-incident-postmortem scene. This is acceptable translation across domains rather than distortion: the engineering layer preserves the underlying claim (the moment before authoritative teaching begins) and explicitly disclaims any further doctrinal extraction in falsifiability. It does not invert, contradict, or weaken the traditional meaning. The re-scoping is honest because the verse openly states it is narrative scaffolding."
+    }
+  ]
+}

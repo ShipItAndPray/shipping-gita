@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "engineering.translation reads kṛpā as Arjuna being 'collapsed, eyes wet with overwhelmed tears'",
+      "objection": "The Gaudiya Vaishnava purport (Prabhupada) reads kṛpā here pejoratively as 'material compassion' — a sign of ignorance of the real self. The engineering layer treats kṛpā neutrally as overwhelm. This is acceptable because the disagreements_among_translators field flags exactly this divergence, and the engineering layer is a scene description, not a doctrinal commentary on kṛpā. A non-issue if the verse is not used to teach what kṛpā IS — and it is not."
+    }
+  ],
+  "notes": "The engineering layer scrupulously refuses to extract a doctrine. It explicitly states the verse is narrative scaffolding and any reader extracting a leadership tactic has over-read it. The literal anvaya is preserved (overwhelm, tears, despondency, Madhusūdana speaking). No tradition is conflated; no Sanskrit term is mistranslated; no doctrinal claim is invented. The Madhusūdana naming is even mentioned in the source pack's traditional_meaning_consensus as the only doctrinally suggestive element, and the engineering layer does not invent a meaning for it. PASS."
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "The hazard is symmetric on two sides... Some engineers stay hostage to checklists past the point of understanding... Others claim mastery before they have done the apprentice work...",
+      "objection": "The verse itself is not strictly symmetric. The Sanskrit (yāvān artha udapāne... tāvān sarveṣu vedeṣu brāhmaṇasya vijānataḥ) makes a one-directional claim: the realized brahmana finds in the Vedas only as much utility as one finds in a small well when a flood is everywhere. Krishna does not, in this verse, warn against the premature claim of mastery — that warning lives elsewhere in the chapter and the broader text. The engineering layer's two-sided framing is doctrinally responsible (it preserves the realized/unrealized distinction Shankara emphasizes) but reads in a balance the Sanskrit itself does not state. Acceptable as expansion-with-care, but a careful Sanskritist notes the addition."
+    },
+    {
+      "severity": "minor",
+      "claim": "Mastery looks like rule-fluent code, not rule-absent code.",
+      "objection": "This is a sharp falsifiability clause and aligns with both Shankara and Ramanuja, but it slightly over-claims relative to the verse. The verse's literal Sanskrit says the Vedas are to the vijānataḥ what a small water-pond is to one for whom there is flood everywhere — i.e., subsumed/redundant, not actively expressed in the realized one's behavior. The Vishishtadvaita reading (Ramanuja: 'subsumed within devotion') licenses the engineering claim that the rule is operating inside the artifact; Shankara's stricter Advaita reading does not require this. The engineering layer effectively privileges Ramanuja's framing without naming it. Minor, not load-bearing."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) the realized/unrealized scope (vijānataḥ — only the practitioner who has actually arrived); (b) the well-vs-flood structural analogy; (c) the explicit refusal to read the verse as 'discard the Vedas / discard the linter' (the falsifiability clause). The counter_example (novel rules — new GitHub Actions policy, unfamiliar Kubernetes admission controllers — require re-opening documentation) correctly preserves Shankara's gloss that this applies to internalized scripture, not all scripture. No tradition is misattributed; brāhmaṇasya vijānataḥ is rendered as 'practitioner who has reached the principle' which is acceptably neutral across Advaita and Vishishtadvaita. Two minor framing nits noted; neither inverts or weakens the verse. Pass."
+}

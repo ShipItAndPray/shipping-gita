@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Executive review escalation template / runbook step: 'Diagnostic Limit Reached' status. Includes a required field for moves attempted (with shipped dates), a named diagnostic limit, and an explicit ask: 'reframe of underlying assumption X, not another intervention inside the same frame.'",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add a new status to the engineering quarterly review template: 'Diagnostic Limit Reached.' Required fields: (1) Interventions shipped (list with dates and outcomes), (2) Named limit ('the assumption I now believe is wrong is X'), (3) Ask ('reframe of X, not Y-th iteration of the same approach'). The director-CTO scenario in the verse can be transcribed nearly verbatim into this template. The 'na hi prapaśyāmi mamāpanudyād — I do not see what would actually fix this' line becomes the opening sentence of the status doc. This is concretely copyable into a Notion engineering-review template on Monday.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse's claim is operationally encoded — list moves, name limit, request reframe — and the engineering layer puts the literal sentence in the director's mouth. That sentence and the structure around it become a status template. PASS."
+}

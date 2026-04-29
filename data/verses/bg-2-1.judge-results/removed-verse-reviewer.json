@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 5,
+  "reconstructed_sketch": "From the chapter thesis alone (a chapter that opens with Krishna's first sustained teaching after Arjuna's collapse), a competent writer placing a verse at position 1 of Chapter 2 would likely write a scene-setting transition: the operator paralyzed, the senior teacher about to begin. The likely tags would be incident-response, engineer-paralysis. The likely framing would be 'the moment before teaching begins.'",
+  "verse_specific_signal": "The explicit refusal to extract any actionable engineering doctrine — and the meta-claim that recognizing narrative scaffolding is itself the teaching — is verse-specific. The chapter context licenses the scene; the verse contributes the explicit anti-extraction discipline (confidence=LOW, stretched=true, falsifiability rejecting leadership-tactic extraction).",
+  "overlap_with_other_verses": [],
+  "verdict_reason": "The engineering analog is partially reconstructible from the chapter thesis (the held-breath-before-teaching framing is suggested by the chapter's opening position). But the verse's specific contribution — naming the verse as narrative scaffolding and pre-empting any doctrinal extraction — is not reconstructible without seeing this specific verse. That meta-discipline is the verse-specific signal. PASS at the lower edge — the score is 5, just below the FAIL threshold of 6, because the scene itself is generic but the explicit anti-extraction move is what saves the verse."
+}

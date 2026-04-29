@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "type": "silent_rescoping",
+      "tradition_claim": "Saṅgam (attachment) is what is renounced — Ramanuja per the source pack reads it as attachment to kingdom and kin specifically; Prabhupada/Mukundananda read it as attachment to outcomes universally.",
+      "engineering_claim": "Operator-system coupling that converts metric-reading into self-reading.",
+      "explanation": "The engineering analog renders saṅgam as 'self-stake-coupling between operator-state and dashboard-state' — narrower than the universal 'attachment to outcomes' but operationally precise. This is a re-scoping of the verse to the engineering domain where the relevant attachment is operator-self ↔ system-output coupling. The re-scoping is acknowledged implicitly in the falsifiability clause ('Equanimity is the absence of self-stake, not the absence of attention or care') which explicitly names the narrower reading. So the silent re-scoping is partial: the verse is re-scoped to a specific engineering form of attachment, but the analog is honest that this is one form among others. Logged as minor; not load-bearing."
+    }
+  ]
+}

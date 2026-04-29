@@ -1,0 +1,212 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.1",
+  "sanskrit_devanagari": "सञ्जय उवाच ।\nतं तथा कृपयाविष्टमश्रुपूर्णाकुलेक्षणम् ।\nविषीदन्तमिदं वाक्यमुवाच मधुसूदनः ॥ १ ॥",
+  "sanskrit_iast": "sañjaya uvāca |\ntaṁ tathā kṛpayāviṣṭam aśru-pūrṇākulekṣaṇam |\nviṣīdantam idaṁ vākyam uvāca madhusūdanaḥ || 1 ||",
+  "anvaya": [
+    {
+      "sanskrit": "सञ्जयः",
+      "iast": "sañjayaḥ",
+      "meaning": "Sañjaya"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "him (Arjuna)"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "कृपया",
+      "iast": "kṛpayā",
+      "meaning": "by compassion / pity"
+    },
+    {
+      "sanskrit": "आविष्टम्",
+      "iast": "āviṣṭam",
+      "meaning": "overwhelmed"
+    },
+    {
+      "sanskrit": "अश्रुपूर्ण",
+      "iast": "aśru-pūrṇa",
+      "meaning": "full of tears"
+    },
+    {
+      "sanskrit": "आकुल",
+      "iast": "ākula",
+      "meaning": "agitated / distressed"
+    },
+    {
+      "sanskrit": "ईक्षणम्",
+      "iast": "īkṣaṇam",
+      "meaning": "eyes / looking"
+    },
+    {
+      "sanskrit": "विषीदन्तम्",
+      "iast": "viṣīdantam",
+      "meaning": "lamenting / sinking"
+    },
+    {
+      "sanskrit": "इदम्",
+      "iast": "idam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "वाक्यम्",
+      "iast": "vākyam",
+      "meaning": "speech / words"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "spoke"
+    },
+    {
+      "sanskrit": "मधुसूदनः",
+      "iast": "madhusūdanaḥ",
+      "meaning": "Madhusūdana (Krishna, slayer of the demon Madhu)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/1/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Sañjaya said: Seeing Arjuna full of compassion, his mind depressed, his eyes full of tears, Madhusūdana, Kṛṣṇa, spoke the following words.",
+      "raw_capture_path": "data/sources/raw/bg-2-1-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/1",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Sanjay said: Seeing Arjun overwhelmed with pity, his mind grief-stricken, and his eyes full of tears, Shree Krishna spoke the following words."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/1/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1188-char full purport)",
+      "verbatim_excerpt": "Material compassion, lamentation and tears are all signs of ignorance of the real self. Compassion for the eternal soul is self-realization. The word \"Madhusūdana\" is significant in this verse. Lord Kṛṣṇa killed the demon Madhu, and now Arjuna wanted Him to kill the demon of misunderstanding that had overtaken him in the discharge of his duty.",
+      "raw_full_path": "data/sources/raw/bg-2-1-vedabase.json (purport_full_length: 1188)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-1/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-1-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-1/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.1 – 2.3 Sanjaya said — Lord said — When Arjuna thus sat, the Lord, opposing his action, said: ‘What is the reason for your misplaced grief? Arise for battle, abandoning this grief, which has arisen in a critical situation, which can come only in men of wrong understanding, which is an obstacle for",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 414,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-1-ramanuja.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kṛpayā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "compassion"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "pity"
+        },
+        {
+          "source": "Prabhupada Purport (Gaudiya Vaishnava reading)",
+          "rendering": "kṛpā here is 'material compassion' — a sign of ignorance of the real self, not a virtue"
+        }
+      ],
+      "explanation": "All translators render kṛpayā as compassion or pity, but the Gaudiya Vaishnava purport reads it pejoratively (sentimental compassion for the body, not the soul) while modern devotional translations leave it neutral. This matters: the chapter's diagnosis hinges on whether Arjuna's pity is misdirected or merely overwhelming."
+    }
+  ],
+  "literal_meaning": "Sanjaya said: To him (Arjuna), thus overwhelmed by pity, his eyes full of tears and agitated, despondent, Madhusūdana (Krishna) spoke these words.",
+  "traditional_meaning": "A purely narrative verse: Sanjaya, narrating to the blind king Dhritarashtra, sets the scene at the opening of Chapter 2. Arjuna remains in the collapsed state from the end of Chapter 1 — overwhelmed, weeping, sunk in lamentation. Krishna, named Madhusūdana, is about to begin the teaching that occupies the rest of the Gita. The verse carries no doctrinal claim of its own; its function is to mark the transition from Arjuna's collapse to Krishna's teaching response. The naming of Krishna as 'Madhusūdana' (slayer of Madhu) is the only doctrinally suggestive element — read by some traditions as foreshadowing the slaying of internal confusion that the chapter is about to perform.",
+  "engineering": {
+    "translation": "This verse is purely narrative scaffolding, not engineering doctrine. Sanjaya merely reports the operator's continued state — collapsed, eyes wet with overwhelmed tears, paralyzed at the keyboard — and marks the moment that the senior teacher is about to begin speaking authoritatively. The corresponding engineering moment is the suspended silence before a Slack incident thread transitions from collective panic into actual teaching. The on-call engineer has paged everyone, is staring at the Datadog dashboard with watering eyes, and has stopped typing entirely. The senior incident commander has not yet uttered a word; the entire room is waiting. This verse is essentially the held breath before the first sentence of a postmortem-in-progress.",
+    "concrete_scenario": "Production has been degraded for ninety consecutive minutes. The on-call engineer who triggered the emergency rollback now sits in front of three monitors — one tab displays Datadog showing the persistent latency degradation graph, one displays Sentry showing the error stream still trickling intermittently, one displays the GitHub pull request that originally introduced the regression. They have stopped typing into the incident Slack channel entirely; the cursor blinks indefinitely in an empty compose box. The senior engineer who has been observing silently has just unmuted on the Zoom bridge but has not yet spoken aloud. The verse occupies that gap — the audible pause between the operator's collapse and the teacher's first authoritative sentence. Nothing substantive has been taught yet. The teaching is about to begin. This verse merely marks the boundary, nothing more.",
+    "falsifiability": "If a reader extracts an actionable engineering instruction from this verse (e.g. 'always pause before speaking in incidents'), they have over-read it. The verse states a fact about the scene, not a doctrine. If the reader finds themselves quoting it as a leadership principle, they have force-fitted it.",
+    "counter_example": "This verse does not teach 'pause before responding' as a virtue — that would be a doctrine drawn from the silence of the seasoned operator described in 2.55-2.72, not from this scene-setting line. Treating 2.1 as a doctrinal verse distorts both 2.1 (which is descriptive) and 2.55-2.72 (which is prescriptive).",
+    "implication": "Recognize narrative scaffolding when you see it. Not every verse, and not every meeting moment, carries a teachable principle — sometimes the function is purely to mark a transition.",
+    "quotable_line": "Some verses set the scene; the teaching lives in the next sentence, not this one.",
+    "tags": [
+      "engineer-paralysis",
+      "incident-response"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

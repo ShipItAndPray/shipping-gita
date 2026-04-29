@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When an engineer assigned a hard deprecation/migration begins exploring exit options within the same 2-week window, the manager separates the two conversations: a private 1:1 on the project (its own terms), and a separate 1:1 on the career move (its own terms). The two are not allowed to merge into a single fused decision.",
+  "example_decision": "1:1 / retention conversation predicate: the EM does not respond to 'I'm thinking of leaving' triggered by a hard project landing with either (a) trying to talk the engineer out of leaving, or (b) reassigning the project to retain them. The EM splits the conversation into two: project (on its own terms — does the engineer believe the project is wrong, or just hard?) and career (on its own terms — has this been considered for > 1 quarter pre-trigger?). Decision rule: only reassign the project if the project-conversation surfaces real architectural concerns; only retain on career grounds if the career-conversation pre-dates the trigger.",
+  "objection": "none"
+}

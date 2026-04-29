@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When you read a passage that is narrative scaffolding (someone running out of words; someone marking an end-of-case), do not extract a tactical principle from it — the meaningful content begins after the pivot, not at it.",
+  "example_decision": "In a quarterly retrospective: distinguish 'the moment the lead said I will not lead this' (which is scaffolding marking a transition) from 'the moment the new direction was articulated' (which is the actual decision). PMs who try to learn 'tactic for going silent' from the first kind of moment have force-fitted scaffolding into doctrine.",
+  "objection": "Caveat (logged as PASS but flagged): the verse's actionable predicate is a meta-discipline (don't extract tactics from scaffolding) rather than a directly roadmap-facing rule. This is honestly tagged: confidence=LOW, stretched=true. PASS is granted because the meta-discipline IS a real PM discipline (avoid force-fit doctrine from narrative beats) and the engineering layer's honest scoping is itself the contribution."
+}

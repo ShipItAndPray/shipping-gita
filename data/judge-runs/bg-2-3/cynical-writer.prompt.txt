@@ -1,0 +1,223 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.3",
+  "sanskrit_devanagari": "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।\nक्षुद्रं हृदयदौर्बल्यं त्यक्त्वोत्तिष्ठ परन्तप ॥ ३ ॥",
+  "sanskrit_iast": "klaibyaṁ mā sma gamaḥ pārtha naitat tvayy upapadyate |\nkṣudraṁ hṛdaya-daurbalyaṁ tyaktvottiṣṭha paraṁtapa || 3 ||",
+  "anvaya": [
+    {
+      "sanskrit": "क्लैब्यम्",
+      "iast": "klaibyam",
+      "meaning": "unmanliness / impotence / cowardice"
+    },
+    {
+      "sanskrit": "मा",
+      "iast": "mā",
+      "meaning": "do not"
+    },
+    {
+      "sanskrit": "स्म",
+      "iast": "sma",
+      "meaning": "(emphatic prohibitive particle)"
+    },
+    {
+      "sanskrit": "गमः",
+      "iast": "gamaḥ",
+      "meaning": "yield / go"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O son of Pṛthā"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "त्वयि",
+      "iast": "tvayi",
+      "meaning": "in you"
+    },
+    {
+      "sanskrit": "उपपद्यते",
+      "iast": "upapadyate",
+      "meaning": "befits / is fitting"
+    },
+    {
+      "sanskrit": "क्षुद्रम्",
+      "iast": "kṣudram",
+      "meaning": "petty / small / insignificant"
+    },
+    {
+      "sanskrit": "हृदय",
+      "iast": "hṛdaya",
+      "meaning": "heart"
+    },
+    {
+      "sanskrit": "दौर्बल्यम्",
+      "iast": "daurbalyam",
+      "meaning": "weakness"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned / casting off"
+    },
+    {
+      "sanskrit": "उत्तिष्ठ",
+      "iast": "uttiṣṭha",
+      "meaning": "stand up / arise"
+    },
+    {
+      "sanskrit": "परन्तप",
+      "iast": "paraṁtapa",
+      "meaning": "O scorcher of foes"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/3/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O son of Pṛthā, do not yield to this degrading impotence. It does not become you. Give up such petty weakness of heart and arise, O chastiser of the enemy.",
+      "raw_capture_path": "data/sources/raw/bg-2-3-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/3",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Parth, it does not befit you to yield to this unmanliness. Give up such petty weakness of heart and arise, O vanquisher of enemies."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/3/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1137-char full purport)",
+      "verbatim_excerpt": "Arjuna was addressed as the son of Pṛthā, who happened to be the sister of Kṛṣṇa's father Vasudeva. Therefore Arjuna had a blood relationship with Kṛṣṇa. If the son of a kṣatriya declines to fight, he is called a kṣatriya only in name, and similarly if a brāhmaṇa acts impiously he is a brāhmaṇa only in name.",
+      "raw_full_path": "data/sources/raw/bg-2-3-vedabase.json (purport_full_length: 1137)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-3/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-3-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Shankara reads klaibyam not as a slur on masculinity per se but as the loss of the active capacity that defines the kṣatriya role. The verse names two distinct things: the outward yielding to klaibyam, and the inward kṣudra-hṛdaya-daurbalyam (petty weakness of the heart). Both must be discarded; both are diagnosed as not-Arjuna ('naitat tvayy upapadyate' — 'this does not arise from your true nature')."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-3/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.1 – 2.3 Sanjaya said — Lord said — When Arjuna thus sat, the Lord, opposing his action, said: ‘What is the reason for your misplaced grief? Arise for battle, abandoning this grief, which has arisen in a critical situation, which can come only in men of wrong understanding, which is an obstacle for",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 414,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-3-ramanuja.json",
+      "summary_paraphrase": "Ramanuja stresses that 'uttiṣṭha' (stand up) is the operational instruction; the prohibitions clear the field but the imperative is to act. The kṣudra-hṛdaya-daurbalyam is 'petty' precisely because it is disproportionate to the warrior's actual capacity — a weakness Arjuna can release because it is not constitutive of him."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "klaibyam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "degrading impotence"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "unmanliness"
+        },
+        {
+          "source": "Standard literal",
+          "rendering": "eunuch-state, impotence, lack of vigour"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "loss of the active capacity proper to a warrior"
+        }
+      ],
+      "explanation": "klaibyam literally references the state of a klība (a eunuch) and was a strong gendered term in the original cultural context. Modern translations vary on whether to preserve the gendered force ('unmanliness') or render it as functional impotence. Reading it as 'cowardice' is too soft; reading it as a slur is too hostile. The Shankara reading — loss of the active capacity definitive of one's role — preserves the bite without the gendered baggage."
+    }
+  ],
+  "literal_meaning": "Do not yield to klaibyam (impotence/cowardice), Pārtha; it does not befit you. Casting off this petty weakness of heart, stand up, O scorcher of foes.",
+  "traditional_meaning": "Krishna's second sharp line — and the one that contains the operative imperative: uttiṣṭha (stand up). The verse pairs a prohibition (do not yield to faintheartedness) with a positive command (stand up and act). Critically, the verse names the weakness as 'petty' and 'not constitutive of you' — Krishna is not condemning Arjuna as a person, he is rejecting Arjuna's collapse as inconsistent with who Arjuna actually is. The chapter's didactic voice is fully formed by this verse: clear, sharp, surgical. The teaching has moved from diagnosis (2.2) to direct correction (2.3).",
+  "engineering": {
+    "translation": "Do not collapse into the disproportionate version of yourself that cannot ship; that diminished version is fundamentally not who you are. The faintheartedness currently gripping you is not actually large — it is a comparatively small psychological thing wearing the elaborate costume of a large existential thing. Drop the costume immediately and stand up. Open the deferred pull request you have been systematically avoiding for several sprints. Rerun the failing integration test, read the actual stack trace carefully, write the deferred migration. The senior teacher is naming explicitly what you already privately know: this hesitation is not protective architectural wisdom. It is a smaller version of yourself attempting to hide the larger, more capable version. The doctrinally correct remedy is decisive movement, not yet another reflective deliberation.",
+    "concrete_scenario": "A staff engineer has been sitting on a Postgres deprecation for three sprints. The deprecation is a one-week job — drop a column, migrate two services off it, update the ORM. Every standup, the engineer raises a new concern: maybe the legacy reporting query still uses it; maybe a downstream Kafka consumer in a sister team depends on it; maybe we should write a deeper Datadog instrumentation pass first. None of these concerns survive five minutes of actual investigation. What is really happening is that the engineer designed the original column years ago and is reluctant to be the one to delete it. The skip-level says, on a 1:1, the verse: 'kṣudraṁ hṛdaya-daurbalyaṁ tyaktvottiṣṭha' — this is a small weakness of heart, drop it and stand up. Write the migration. Do it this week. Bring me the failing tests Friday if there are any. The faintheartedness around removing one's own old work is petty; the work itself is small. Stand up.",
+    "falsifiability": "The analog fails if it is used to override genuine technical objections to a deploy. The verse names a specific failure mode — collapse into self-doubt that is disproportionate to the actual decision. If the engineer's concerns survive five minutes of investigation (the legacy query DOES still use it; a Kafka consumer DOES read from it), then this verse does not apply. The verse rejects faintheartedness, not caution.",
+    "counter_example": "When a junior engineer hesitates because they genuinely lack context — when the right move is to pair-program rather than command 'stand up' — this verse does not transfer. Krishna is correcting Arjuna at the height of Arjuna's capacity. Engineers who use 2.3 to push through real architectural concerns have inverted it.",
+    "implication": "When you find yourself in the third sprint of orbiting a one-week task, name the orbit. The corrective is to ship the smallest possible version this week and bring back specific blockers, not to keep finding new reasons to defer.",
+    "quotable_line": "Petty heart-weakness in costume as caution: drop it and open the pull request.",
+    "tags": [
+      "engineer-paralysis",
+      "shipping-discipline",
+      "deprecation-management"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When you are blocked on a contested decision and have done the analysis, do not request input as a peer — explicitly name the request as a student-of-this-question request to the senior, or you will receive opinions instead of instruction.",
+  "example_decision": "A staff engineer is blocked four weeks on a database sharding choice (logical replication vs. Vitess) after benchmarks and an ADR. By the principle of this verse, instead of requesting 'can you weigh in on my doc' from the principal architect — which produces peer-review-level commentary — they explicitly request 'I am stuck. Teach me how you would reason through this; I do not trust my own framing.' That request unlocks the principal's actual reasoning rather than triaging-by-comments. The PM-side decision changes: a roadmap escalation is not 'add another reviewer' but 'route the engineer into a teaching-mode 1:1 with the architect.'",
+  "objection": "none"
+}

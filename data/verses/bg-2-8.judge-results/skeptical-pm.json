@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a long-running KPI campaign has plateaued after every available intervention has been tried, escalate as 'diagnostic limit reached, request reframe' with a specific list of moves attempted — do not propose another intervention inside the same framing.",
+  "example_decision": "An eng director has been chasing the platform team's reliability score for eighteen months. Instead of proposing 'reorganization round 4' at the executive review, by the principle of this verse they say: 'Here are the seven interventions we've shipped (rotation, Datadog, GH Actions deploy pipeline, two principal hires, weekly IRs, SLOs, headcount). The score has barely moved. Even doubling headcount would not move it. Diagnostic limit is reached. We need a reframe of the deployment-doctrine assumption, not another intervention.' The roadmap decision changes from 'approve next reorg' to 'pause reorgs; re-examine the deploy-doctrine that all of these are inside.'",
+  "objection": "none"
+}

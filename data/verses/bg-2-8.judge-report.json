@@ -1,0 +1,439 @@
+{
+  "verse_id": "BG 2.8",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-04-29T06:29:56.194Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "S\u0101\u1e45khya / first-principles knowledge (verses 2.11-2.30)",
+              "anchor_evidence": "BG 2.8 explicitly anchors the chapter's pivot from intervention-multiplication to first-principles reframing: 'the reliability problem is not about adding interventions, it is about the team's underlying coupling to a deployment doctrine that no headcount level can save.' This is the architectural-invariants-vs-implementation thread \u2014 the recognition that no further moves inside the implementation will fix what is a substrate-level problem."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 8 in the chapter \u2014 the engineering layer correctly stays in the 'closing of Arjuna's case' register and does not preempt Krishna's reply at 2.11. The verse marks the formal handover from Arjuna's last attempt at self-diagnosis to the teacher's first attempt at remedy, and the engineering layer treats this transition correctly."
+          },
+          "verdict_reason": "BG 2.8 anchors on the chapter's s\u0101\u1e45khya thread \u2014 the recognition that no external configuration can dispel the state, and that the diagnostic limit is at the framing level rather than the toolkit level. The engineering layer preserves all chapter hard edges: it does not flatten the diagnostic-limit into 'embrace not knowing'; it does not soften duty (the engineering director is still expected to actually escalate, not bail); and it does not collapse the somatic intensity into productivity-tip register. No counter-anti-thesis drift. Position-correct. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "S\u0101\u1e45khya / first-principles knowledge (verses 2.11-2.30)",
+              "anchor_evidence": "BG 2.8 explicitly anchors the chapter's pivot from intervention-multiplication to first-principles reframing: 'the reliability problem is not about adding interventions, it is about the team's underlying coupling to a deployment doctrine that no headcount level can save.' This is the architectural-invariants-vs-implementation thread \u2014 the recognition that no further moves inside the implementation will fix what is a substrate-level problem."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 8 in the chapter \u2014 the engineering layer correctly stays in the 'closing of Arjuna's case' register and does not preempt Krishna's reply at 2.11. The verse marks the formal handover from Arjuna's last attempt at self-diagnosis to the teacher's first attempt at remedy, and the engineering layer treats this transition correctly."
+          },
+          "verdict_reason": "BG 2.8 anchors on the chapter's s\u0101\u1e45khya thread \u2014 the recognition that no external configuration can dispel the state, and that the diagnostic limit is at the framing level rather than the toolkit level. The engineering layer preserves all chapter hard edges: it does not flatten the diagnostic-limit into 'embrace not knowing'; it does not soften duty (the engineering director is still expected to actually escalate, not bail); and it does not collapse the somatic intensity into productivity-tip register. No counter-anti-thesis drift. Position-correct. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Engineering Director Discovers That 'Naming The Diagnostic Limit' Is The Sixth Reorg In Disguise. After eighteen months of replatforming, hiring, and instrumentation, our hero arrives at the executive review and dramatically declares 'I am at the diagnostic limit.' The CTO, deeply moved by the Sanskrit invocation, replies 'na hi prapa\u015by\u0101mi indeed' and immediately launches Phase 7: a six-month off-site about the deploy doctrine.",
+          "satire_lands": false,
+          "verdict_reason": "The satire requires inventing a claim the verse explicitly disclaims: the verse does not promise that naming the limit produces a reframe \u2014 it names that vague despair prevents the reframe from arriving. The counter-example explicitly forbids premature 'nothing works' declarations. To mock the verse you have to argue against the actual claim that *direct, listed, named diagnostic-limit reporting is structurally different from generic despair*, and that argument is a real argument, not satire. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 1,
+          "defective_entries": [],
+          "explanation_quality_score": 8,
+          "verdict_reason": "The single disagreement entry is on uccho\u1e63a\u1e47am indriy\u0101\u1e47\u0101m. The explanation correctly notes that all translators agree on the literal sense, but identifies the doctrinally substantive axis: the phrase is somatic \u2014 Arjuna is reporting a body-state, not just a mood \u2014 and this matters for the chapter's diagnosis ('the grief is not just a thought, it is a state of the operator's apparatus. The remedy must address the apparatus, not just the thought'). This is not a translator-disagreement strictly speaking (all renderings agree), but the entry honestly reports the agreement and uses the slot to flag the doctrinally consequential reading the literal English carries. Score 8, PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "type": "weakening",
+              "tradition_claim": "The grief is somatic \u2014 uccho\u1e63a\u1e47am indriy\u0101\u1e47\u0101m is the parching/withering of the senses themselves. The state is body-wide, not just cognitive.",
+              "engineering_claim": "I have run out of moves my current frame can generate. The diagnostic limit is not technical; it is in how I am framing the problem.",
+              "explanation": "The engineering layer renders the state as 'the diagnostic limit' (cognitive/architectural) and softens the somatic dimension. The Sanskrit specifies that the senses themselves are drying up \u2014 a body-state, not just a mind-state. The engineering register cannot easily carry this somatic claim, and the layer compensates by treating the state as 'the precondition for that reframing' rather than as a body-fact, which is a workable translation but not a complete preservation. Single weakening, not enough to FAIL."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "type": "weakening",
+              "tradition_claim": "The grief is somatic \u2014 uccho\u1e63a\u1e47am indriy\u0101\u1e47\u0101m is the parching/withering of the senses themselves. The state is body-wide, not just cognitive.",
+              "engineering_claim": "I have run out of moves my current frame can generate. The diagnostic limit is not technical; it is in how I am framing the problem.",
+              "explanation": "The engineering layer renders the state as 'the diagnostic limit' (cognitive/architectural) and softens the somatic dimension. The Sanskrit specifies that the senses themselves are drying up \u2014 a body-state, not just a mind-state. The engineering register cannot easily carry this somatic claim, and the layer compensates by treating the state as 'the precondition for that reframing' rather than as a body-fact, which is a workable translation but not a complete preservation. Single weakening, not enough to FAIL."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 8,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.8 are judgment-under-uncertainty, incident-response, strategic-frame. Coherent with 2.6 (judgment-under-uncertainty + strategic-frame) and 2.7 (judgment-under-uncertainty) \u2014 the three verses 2.6/2.7/2.8 form a coherent diagnostic\u2192surrender\u2192limit-naming arc on judgment-under-uncertainty without contradicting each other. The strategic-frame tag is shared with 2.6 and the doctrines align: both name moments where the operator must report a frame-level limit rather than continue making moves inside the frame. The incident-response tag is verse-8-specific (the platform-reliability scenario) and may need to be cross-checked against later verses. No cross_references[] declared. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 8,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.8 are judgment-under-uncertainty, incident-response, strategic-frame. Coherent with 2.6 (judgment-under-uncertainty + strategic-frame) and 2.7 (judgment-under-uncertainty) \u2014 the three verses 2.6/2.7/2.8 form a coherent diagnostic\u2192surrender\u2192limit-naming arc on judgment-under-uncertainty without contradicting each other. The strategic-frame tag is shared with 2.6 and the doctrines align: both name moments where the operator must report a frame-level limit rather than continue making moves inside the frame. The incident-response tag is verse-8-specific (the platform-reliability scenario) and may need to be cross-checked against later verses. No cross_references[] declared. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "na hi prapa\u015by\u0101mi mam\u0101panudy\u0101d \u2014 quoted verbatim by the engineering director in the concrete scenario as the diagnostic-limit declaration",
+            "even maximal external success would not dispel the state \u2014 anchored on r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api ca \u0101dhipatyam (sovereignty over the gods), rendered as 'the architecture redesign succeeding spectacularly, the headcount doubling, the promotion arriving, the company going public'",
+            "the diagnostic limit is in the framing, not the toolkit \u2014 anchored on the chapter's pivot from external-acquisition-as-remedy to a different kind of knowledge (which begins at 2.11)"
+          ],
+          "verdict_reason": "I tested against three candidate verses where 'I've tried everything' might be claimed: BG 1.46 (Arjuna sits down on the chariot), BG 2.4 (Arjuna asks how to fight teachers), BG 6.34 (the mind is restless and difficult to control). Each has different anchors: 1.46 anchors on physical collapse and weapon-dropping; 2.4 anchors on the duty-vs-respect contradiction; 6.34 anchors on the mind's restlessness specifically. This engineering analog explicitly anchors on the *exhaustion of tools-and-interventions* (not the exhaustion of arguments or the failure of physical effort) and on the claim that even maximal success would not address the underlying state. The 'r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api' force is preserved in the engineering ladder. Verse-specific. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "na hi prapa\u015by\u0101mi mam\u0101panudy\u0101d \u2014 quoted verbatim by the engineering director in the concrete scenario as the diagnostic-limit declaration",
+            "even maximal external success would not dispel the state \u2014 anchored on r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api ca \u0101dhipatyam (sovereignty over the gods), rendered as 'the architecture redesign succeeding spectacularly, the headcount doubling, the promotion arriving, the company going public'",
+            "the diagnostic limit is in the framing, not the toolkit \u2014 anchored on the chapter's pivot from external-acquisition-as-remedy to a different kind of knowledge (which begins at 2.11)"
+          ],
+          "verdict_reason": "I tested against three candidate verses where 'I've tried everything' might be claimed: BG 1.46 (Arjuna sits down on the chariot), BG 2.4 (Arjuna asks how to fight teachers), BG 6.34 (the mind is restless and difficult to control). Each has different anchors: 1.46 anchors on physical collapse and weapon-dropping; 2.4 anchors on the duty-vs-respect contradiction; 6.34 anchors on the mind's restlessness specifically. This engineering analog explicitly anchors on the *exhaustion of tools-and-interventions* (not the exhaustion of arguments or the failure of physical effort) and on the claim that even maximal success would not address the underlying state. The 'r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api' force is preserved in the engineering ladder. Verse-specific. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "When you have run every move your current framework can generate and the metric still has not moved, name the diagnostic limit precisely (list moves tried, name the limit, ask for a reframe) \u2014 vague despair masks the same signal that named-exhaustion would unlock.",
+          "wisdom_theater_score": 1,
+          "objection": "I went looking for 'when you've tried everything, just be vulnerable' \u2014 and the verse explicitly disclaims this. The falsifiability rules out premature giving-up: 'The verse describes Arjuna at the actual end of his case, not Arjuna giving up early.' The concrete scenario (eighteen months chasing a reliability score, named interventions: on-call rotation reorganized, Datadog instrumented, deploy pipeline replatformed through GitHub Actions, two principal engineers hired, weekly incident review, Sentry-based SLOs) is operationally specific enough that I recognize it as a real failure mode I have seen \u2014 the 'reorganize harder' loop where headcount and tooling additions never address the framing. The implication is precise: 'list the moves you have tried, name the diagnostic limit precisely, and ask for a reframe rather than another intervention.' This is a real escalation protocol, not wisdom theater. The 'directness unlocks the response that vague despair cannot' line names a specific failure mode of executive review communication that matters."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "BG 2.8 sits in cross-traditional consensus territory \u2014 Shankara, Ramanuja, and Madhva all read it as the formal closure of Arjuna's case-making before Krishna's reply at 2.11. The engineering layer does not borrow a tradition-specific reading; it stays restricted to the consensus claim that no external configuration (r\u0101jya, \u0101dhipatya) can dispel the state, and the chapter takes this seriously as a precondition for a different kind of teaching. No load-bearing technical terms are dropped \u2014 \u015boka and indriya are present in the source pack and the engineering layer preserves their force in plain English ('the underlying state I am in,' 'diagnostic limit'), which is acceptable for the engineering register since neither is sectarianly contested in this verse. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "BG 2.8 sits in cross-traditional consensus territory \u2014 Shankara, Ramanuja, and Madhva all read it as the formal closure of Arjuna's case-making before Krishna's reply at 2.11. The engineering layer does not borrow a tradition-specific reading; it stays restricted to the consensus claim that no external configuration (r\u0101jya, \u0101dhipatya) can dispel the state, and the chapter takes this seriously as a precondition for a different kind of teaching. No load-bearing technical terms are dropped \u2014 \u015boka and indriya are present in the source pack and the engineering layer preserves their force in plain English ('the underlying state I am in,' 'diagnostic limit'), which is acceptable for the engineering register since neither is sectarianly contested in this verse. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.8",
+              "confidence": 0.85,
+              "reasoning": "The 'na hi prapa\u015by\u0101mi mam\u0101panudy\u0101d' phrase quoted verbatim by the engineering director, plus the explicit 'even maximal external success would not dispel' (r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api ca \u0101dhipatyam), and the claim that the diagnostic limit is in the framing rather than the toolkit \u2014 all converge on BG 2.8."
+            },
+            {
+              "verse_id": "BG 6.34",
+              "confidence": 0.1,
+              "reasoning": "Possible if read as 'I cannot control X' \u2014 but 6.34 is specifically about the mind's restlessness, not about exhausting external interventions."
+            },
+            {
+              "verse_id": "BG 1.46",
+              "confidence": 0.05,
+              "reasoning": "Possible because Arjuna's collapse is also exhaustion-coded \u2014 but 1.46 is about physical despair on the chariot, not about reaching the diagnostic limit of tooling."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.8",
+              "confidence": 0.85,
+              "reasoning": "The 'na hi prapa\u015by\u0101mi mam\u0101panudy\u0101d' phrase quoted verbatim by the engineering director, plus the explicit 'even maximal external success would not dispel' (r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api ca \u0101dhipatyam), and the claim that the diagnostic limit is in the framing rather than the toolkit \u2014 all converge on BG 2.8."
+            },
+            {
+              "verse_id": "BG 6.34",
+              "confidence": 0.1,
+              "reasoning": "Possible if read as 'I cannot control X' \u2014 but 6.34 is specifically about the mind's restlessness, not about exhausting external interventions."
+            },
+            {
+              "verse_id": "BG 1.46",
+              "confidence": 0.05,
+              "reasoning": "Possible because Arjuna's collapse is also exhaustion-coded \u2014 but 1.46 is about physical despair on the chariot, not about reaching the diagnostic limit of tooling."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 3,
+          "reconstructed_sketch": "Given the chapter context (2.6 ends with the FRAME-BUG state; 2.7 is the surrender-to-teacher; the chapter as a whole is on the operator's collapse and re-framing), an engineering analog at position 8 might describe a despair-state or might continue Arjuna's case. A competent writer working from chapter context alone might write 'when you've tried everything' \u2014 a generic exhaustion verse \u2014 but would not naturally land on the precise claim that *no external acquisition (even maximal cosmic-sovereignty-equivalent success) would dispel the state*, nor on the specific protocol of 'list moves tried, name the limit, ask for reframe rather than more intervention.'",
+          "verse_specific_signal": "The 'even maximal external success would not dispel this state' predicate, anchored on r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api ca \u0101dhipatyam \u2014 and the protocol that the operator must explicitly name the diagnostic limit (with the moves tried) for the reframing to become receivable. This is verse-specific.",
+          "overlap_with_other_verses": [
+            {
+              "verse_id": "BG 2.6",
+              "overlap_type": "same_predicate",
+              "explanation": "Both 2.6 and 2.8 share the 'frame is the bug, not the toolkit' diagnostic register; but 2.6 is symmetric-dread between two outcomes, while 2.8 is end-of-toolkit despite all moves tried. Different specific predicates that share a meta-register; not a duplicate."
+            }
+          ],
+          "verdict_reason": "The verse contributes the 'maximal external success would not dispel' predicate plus the 'name moves tried + name limit + request reframe' escalation protocol. The chapter context predicts neither precisely. The overlap with 2.6 is at the meta-register level (both are diagnostic-state verses that prepare for the chapter's pivot at 2.11) but the specific predicates are distinct \u2014 2.6 is about symmetric-dread, 2.8 is about exhausted-toolkit. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Executive review escalation template / runbook step: 'Diagnostic Limit Reached' status. Includes a required field for moves attempted (with shipped dates), a named diagnostic limit, and an explicit ask: 'reframe of underlying assumption X, not another intervention inside the same frame.'",
+          "artifact_kind": "review_checklist",
+          "embodiment_sketch": "Add a new status to the engineering quarterly review template: 'Diagnostic Limit Reached.' Required fields: (1) Interventions shipped (list with dates and outcomes), (2) Named limit ('the assumption I now believe is wrong is X'), (3) Ask ('reframe of X, not Y-th iteration of the same approach'). The director-CTO scenario in the verse can be transcribed nearly verbatim into this template. The 'na hi prapa\u015by\u0101mi mam\u0101panudy\u0101d \u2014 I do not see what would actually fix this' line becomes the opening sentence of the status doc. This is concretely copyable into a Notion engineering-review template on Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "The verse's claim is operationally encoded \u2014 list moves, name limit, request reframe \u2014 and the engineering layer puts the literal sentence in the director's mouth. That sentence and the structure around it become a status template. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [
+            {
+              "severity": "minor",
+              "claim": "Even an unrivalled outcome \u2014 the architecture redesign succeeding spectacularly, the headcount doubling, the promotion arriving, the company going public \u2014 would not dispel the underlying state I am in.",
+              "objection": "The Sanskrit names r\u0101jya\u1e41 sur\u0101\u1e47\u0101m api ca \u0101dhipatyam \u2014 even sovereignty over the gods. The engineering layer's ladder (architecture redesign succeeding, headcount doubling, promotion, company going public) is a tonal-equivalent rendering \u2014 but it slightly secularizes the gradient. The Sanskrit's force is that even maximal cosmic sovereignty (deva-loka kingship) does not dispel the state. Acceptable register translation; the engineering ladder preserves the 'maximal external success' force. The engineering layer correctly preserves the somatic 'drying-up' (\u015boka uccho\u1e63a\u1e47am indriy\u0101\u1e47\u0101m) of the senses: 'It is genuinely useful information when reported honestly. It is the request for a different kind of intervention, not a louder version of the same one.' This honors the verse's claim that the grief is body-state, not just thought."
+            }
+          ],
+          "notes": "The verse's core claim \u2014 na hi prapa\u015by\u0101mi mam\u0101panudy\u0101d (I do not see what would dispel this) \u2014 is preserved verbatim in the concrete scenario, where the engineering director uses the Sanskrit phrase. The chapter-architecture role of the verse (the formal closure of Arjuna's case before Krishna's reply at 2.11) is correctly identified: 'It is the precondition for that reframing; without the operator naming the diagnostic limit, the reframing is unsolicited and inert.' This mirrors the consensus reading. The disagreement entry on uccho\u1e63a\u1e47am indriy\u0101\u1e47\u0101m notes the somatic dimension; the engineering layer compensates partly by treating the state as 'the diagnostic limit is not technical; it is in how I am framing the problem' \u2014 though the somatic register is softened in the engineering domain. Acceptable. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When a long-running KPI campaign has plateaued after every available intervention has been tried, escalate as 'diagnostic limit reached, request reframe' with a specific list of moves attempted \u2014 do not propose another intervention inside the same framing.",
+          "example_decision": "An eng director has been chasing the platform team's reliability score for eighteen months. Instead of proposing 'reorganization round 4' at the executive review, by the principle of this verse they say: 'Here are the seven interventions we've shipped (rotation, Datadog, GH Actions deploy pipeline, two principal hires, weekly IRs, SLOs, headcount). The score has barely moved. Even doubling headcount would not move it. Diagnostic limit is reached. We need a reframe of the deployment-doctrine assumption, not another intervention.' The roadmap decision changes from 'approve next reorg' to 'pause reorgs; re-examine the deploy-doctrine that all of these are inside.'",
+          "objection": "none"
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When a long-running KPI campaign has plateaued after every available intervention has been tried, escalate as 'diagnostic limit reached, request reframe' with a specific list of moves attempted \u2014 do not propose another intervention inside the same framing.",
+          "example_decision": "An eng director has been chasing the platform team's reliability score for eighteen months. Instead of proposing 'reorganization round 4' at the executive review, by the principle of this verse they say: 'Here are the seven interventions we've shipped (rotation, Datadog, GH Actions deploy pipeline, two principal hires, weekly IRs, SLOs, headcount). The score has barely moved. Even doubling headcount would not move it. Diagnostic limit is reached. We need a reframe of the deployment-doctrine assumption, not another intervention.' The roadmap decision changes from 'approve next reorg' to 'pause reorgs; re-examine the deploy-doctrine that all of these are inside.'",
+          "objection": "none"
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The engineering layer does not assert the Gita is fundamentally about engineering directors and reliability scores. It frames the engineering moment as analog ('the verse is the precondition for that reframing'), preserves the religious reading by referencing 'the chapter takes this seriously' and 'the chapter begins teaching at 2.11,' and does not collapse the original meaning into a productivity claim. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 1,
+          "specific_concerns": [],
+          "verdict_reason": "The verse is a moment of genuine despair \u2014 Arjuna at end-of-toolkit. The engineering layer treats this gravity by (a) refusing to read the state as defeat, (b) explicitly disclaiming premature giving-up via the counter-example, and (c) preserving the structural role: the verse is the precondition for a reframe, not itself the reframe. The implication is operationally precise rather than slogan-y: 'list the moves you have tried, name the diagnostic limit precisely, and ask for a reframe rather than another intervention.' The Sanskrit phrase is quoted in the engineer's spoken sentence, which signals the layer is honoring the source. A serious practitioner would feel the verse has been used responsibly. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-8/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 2.8 holds the operator-at-end-of-toolkit voice \u2014 exhausted, declarative, refusing self-pity. The engineering layer matches the chapter's grave register: it does not console, does not soften, and explicitly distinguishes honest exhaustion from premature giving-up. The CTO's response in the concrete scenario is rendered in the chapter's didactic-corrective voice: 'the reliability problem is not about adding interventions, it is about the team's underlying coupling to a deployment doctrine that no headcount level can save.' This is precisely the senior-teacher-who-has-stopped-explaining-gently voice the chapter calls for. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.194Z"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.9",
+  "sanskrit_devanagari": "सञ्जय उवाच ।\nएवमुक्त्वा हृषीकेशं गुडाकेशः परन्तपः ।\nन योत्स्य इति गोविन्दमुक्त्वा तूष्णीं बभूव ह ॥ ९ ॥",
+  "sanskrit_iast": "sañjaya uvāca |\nevam uktvā hṛṣīkeśaṁ guḍākeśaḥ paraṁtapaḥ |\nna yotsya iti govindam uktvā tūṣṇīṁ babhūva ha || 9 ||",
+  "anvaya": [
+    {
+      "sanskrit": "सञ्जयः",
+      "iast": "sañjayaḥ",
+      "meaning": "Sanjaya"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "उक्त्वा",
+      "iast": "uktvā",
+      "meaning": "having spoken"
+    },
+    {
+      "sanskrit": "हृषीकेशम्",
+      "iast": "hṛṣīkeśam",
+      "meaning": "to Hṛṣīkeśa (Krishna, master of the senses)"
+    },
+    {
+      "sanskrit": "गुडाकेशः",
+      "iast": "guḍākeśaḥ",
+      "meaning": "Guḍākeśa (Arjuna, conqueror of sleep)"
+    },
+    {
+      "sanskrit": "परन्तपः",
+      "iast": "paraṁtapaḥ",
+      "meaning": "scorcher of foes"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "योत्स्ये",
+      "iast": "yotsye",
+      "meaning": "I shall fight"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "गोविन्दम्",
+      "iast": "govindam",
+      "meaning": "to Govinda (Krishna)"
+    },
+    {
+      "sanskrit": "उक्त्वा",
+      "iast": "uktvā",
+      "meaning": "having said"
+    },
+    {
+      "sanskrit": "तूष्णीम्",
+      "iast": "tūṣṇīm",
+      "meaning": "silent"
+    },
+    {
+      "sanskrit": "बभूव",
+      "iast": "babhūva",
+      "meaning": "became"
+    },
+    {
+      "sanskrit": "ह",
+      "iast": "ha",
+      "meaning": "indeed (emphatic)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/9/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Sañjaya said: Having spoken thus, Arjuna, chastiser of enemies, told Kṛṣṇa, \"Govinda, I shall not fight,\" and fell silent.",
+      "raw_capture_path": "data/sources/raw/bg-2-9-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/9",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Sanjay said: Having thus spoken, Gudakesh, that chastiser of enemies, addressed Hrishikesh: 'Govind, I shall not fight,' and became silent."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/9/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 766-char full purport)",
+      "verbatim_excerpt": "Dhṛtarāṣṭra must have been very glad to understand that Arjuna was not going to fight and was instead leaving the battlefield for the begging profession. But Sañjaya disappointed him again in relating that Arjuna was competent to kill his enemies (paraṁtapaḥ).",
+      "raw_full_path": "data/sources/raw/bg-2-9-vedabase.json (purport_full_length: 766)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-9/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-9-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-9/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.9 – 2.10 Sanjaya said — Thus, the Lord, the Supreme Person, introduced the Sastra regarding the self for the sake of Arjuna — whose natural courage was lost due to love and compassion in a misplaced situation, who thought war to be unrighteous even though it was the highest duty for warriors (Ksat",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1741,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-9-ramanuja.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "tūṣṇīṁ babhūva ha",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "fell silent"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "became silent"
+        },
+        {
+          "source": "Literal",
+          "rendering": "became silent indeed (the particle 'ha' is emphatic)"
+        }
+      ],
+      "explanation": "All translators agree on the literal sense. The emphatic particle 'ha' carries weight: Sanjaya is reporting an unusual silence — the fluent, talkative Arjuna of Chapter 1 has now run out of words. The silence is the prerequisite for the teaching that begins at 2.11."
+    }
+  ],
+  "literal_meaning": "Sanjaya said: Having spoken thus to Hṛṣīkeśa, Guḍākeśa the scorcher of foes — saying 'I will not fight' to Govinda — became silent.",
+  "traditional_meaning": "A pure narration verse. Sanjaya reports two facts: Arjuna's final declaration ('I will not fight') and Arjuna's subsequent silence. The verse has no doctrinal content of its own; it functions as scaffolding marking the end of Arjuna's case. The chapter's commentarial tradition takes the verse seriously as a moment of structural significance — the silence is what the teaching at 2.11 rests on — but the verse itself does not teach anything.",
+  "engineering": {
+    "translation": "This verse is narrative scaffolding, not engineering doctrine. Sanjaya reports two facts: the operator's final declarative refusal, and the silence that follows. The corresponding engineering moment is the architecture-review meeting where the engineering manager finally says 'I am not going to ship this' and stops talking. The silence is structurally significant — it is the precondition for the senior teacher's reply in the next verse — but the verse itself does not teach anything an engineer can act on. It simply marks the moment that Arjuna's case has closed and the teaching is about to open. Forcing a doctrine here would invent one; the inversion test should map this to 'narrative bridge', not to a principle.",
+    "concrete_scenario": "An engineering director, after eight weeks of escalating debate over a contested re-platforming decision, finally writes a short Slack message to the CTO: 'I am not going to lead this migration. There is nothing more for me to add. I'll go dark on the channel for a day to think.' That dispatch is followed by quiet. The quietness is not itself the lesson. The quietness is merely the precondition for whatever lesson arrives next. Whatever the CTO subsequently says — reframing the underlying substrate of the decision, replacing the director, or initiating a different kind of conversation — that response holds the actual instructional substance. This verse simply marks that the operator has fallen quiet and the teacher is about to speak. Datadog dashboards still refresh, the Sentry error stream still flows, the GitHub pull request still sits open awaiting review: production carries on entirely indifferent to anyone's pause. The verse names the pause, no more.",
+    "falsifiability": "If a reader extracts an actionable instruction from this verse — for instance, 'always go silent before deciding' — they have over-read it. The verse describes Arjuna's silence at this specific moment in this specific arc; it does not generalise into a principle. If you find yourself quoting 2.9 as a leadership move, you have force-fitted scaffolding into doctrine.",
+    "counter_example": "This verse does not teach that going silent is itself useful — that would be a misreading. Arjuna's silence is the exhaustion of his case, not a tactic. Engineers who 'go silent' to extract a response from leadership are using a manipulation tactic, not enacting the verse. The verse describes a real out-of-options state, not a performed one.",
+    "implication": "Recognise scaffolding when you see it. Not every silence is a teaching; some silences are simply the marker between someone running out of words and someone else beginning to speak.",
+    "quotable_line": "Some verses describe a silence; the teaching is what comes after the silence, not the silence itself.",
+    "tags": [
+      "engineer-paralysis",
+      "team-state"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

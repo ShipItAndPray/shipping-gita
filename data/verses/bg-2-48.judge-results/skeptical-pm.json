@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Post-incident and post-launch review structure should be identical: the questions, the artifacts, the cadence, and the language must not change based on whether the incident was severe or the launch successful — if the review process is asymmetric, the team has coupled operator-state to system-state in the pathological form.",
+  "example_decision": "A team is debating whether to skip the standard post-mortem template for a successful product launch ('we don't need a post-mortem for a win'). The PM applies this verse: NO — the same review template runs whether the dashboard moved up or down. The team runs the launch retro with the same rigor as an incident review: timeline, decisions, alternative paths, action items. Conversely, when an incident occurs, the PM blocks any blame-tinged framing in the review (red dashboard ≠ personal indictment) and enforces the template's neutrality. The decision predicate: 'is the review process invariant across success and failure?' If no, fix the asymmetry.",
+  "objection": "none"
+}

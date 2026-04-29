@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 9,
+  "cross_reference_integrity_score": null,
+  "verdict_reason": "Tags: decision-paralysis, deprecation-management, team-state. Cross-tag check: decision-paralysis appears in 2.4 (misplaced loyalty) and 2.5 (escape fantasy) — both used to mark Arjuna's specific paralysis-mechanisms. Consistent. deprecation-management appears in 2.3, 2.4, 2.5 — three different teaching moves on the same domain (imperative; loyalty objection; escape-fantasy) — structural complementarity, not drift. team-state is new here (2.4 used team-culture, 2.5 uses team-state — a slight tag-vocabulary inconsistency between adjacent verses worth flagging at corpus-completion, but neither tag is being used to make a contradictory claim). No cross_references[] declared. Sub-flag for chapter-completion review: 'team-culture' (2.4) vs 'team-state' (2.5) — same domain, different tags. Author should pick one or define the difference. PASS for now; flag for tag-vocabulary review."
+}

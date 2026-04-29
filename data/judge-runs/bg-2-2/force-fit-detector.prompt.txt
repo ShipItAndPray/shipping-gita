@@ -1,0 +1,220 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.2",
+  "sanskrit_devanagari": "श्रीभगवानुवाच ।\nकुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।\nअनार्यजुष्टमस्वर्ग्यमकीर्तिकरमर्जुन ॥ २ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca |\nkutas tvā kaśmalam idaṁ viṣame samupasthitam |\nanārya-juṣṭam asvargyam akīrti-karam arjuna || 2 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्री",
+      "iast": "śrī",
+      "meaning": "blessed / venerable"
+    },
+    {
+      "sanskrit": "भगवान्",
+      "iast": "bhagavān",
+      "meaning": "the Supreme Lord (Krishna)"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "कुतः",
+      "iast": "kutaḥ",
+      "meaning": "from where / whence"
+    },
+    {
+      "sanskrit": "त्वा",
+      "iast": "tvā",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "कश्मलम्",
+      "iast": "kaśmalam",
+      "meaning": "impurity / weakness / faintheartedness"
+    },
+    {
+      "sanskrit": "इदम्",
+      "iast": "idam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "विषमे",
+      "iast": "viṣame",
+      "meaning": "in this critical / dangerous moment"
+    },
+    {
+      "sanskrit": "समुपस्थितम्",
+      "iast": "samupasthitam",
+      "meaning": "has come / has arisen"
+    },
+    {
+      "sanskrit": "अनार्य",
+      "iast": "anārya",
+      "meaning": "ignoble / unbefitting an ārya"
+    },
+    {
+      "sanskrit": "जुष्टम्",
+      "iast": "juṣṭam",
+      "meaning": "practiced / served / habitual"
+    },
+    {
+      "sanskrit": "अस्वर्ग्यम्",
+      "iast": "asvargyam",
+      "meaning": "not leading to higher worlds"
+    },
+    {
+      "sanskrit": "अकीर्ति",
+      "iast": "akīrti",
+      "meaning": "infamy / loss of fame"
+    },
+    {
+      "sanskrit": "करम्",
+      "iast": "karam",
+      "meaning": "causing / producing"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/2/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Personality of Godhead said: My dear Arjuna, how have these impurities come upon you? They are not at all befitting a man who knows the value of life. They lead not to higher planets but to infamy.",
+      "raw_capture_path": "data/sources/raw/bg-2-2-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/2",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Lord said: My dear Arjun, how has this delusion overcome you in this hour of peril? It is not befitting an honorable person. It leads not to the higher abodes, but to disgrace."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/2/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 5312-char full purport)",
+      "verbatim_excerpt": "Kṛṣṇa and the Supreme Personality of Godhead are identical. Therefore Lord Kṛṣṇa is referred to as Bhagavān throughout the Gītā. Bhagavān is the ultimate in the Absolute Truth.",
+      "raw_full_path": "data/sources/raw/bg-2-2-vedabase.json (purport_full_length: 5312)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-2-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Krishna's question 'kutas tvā kaśmalam' is rhetorical — the rebuke names Arjuna's collapse as kaśmala (a defilement / impurity / faintness). Shankara reads this as Krishna refusing the legitimacy of Arjuna's grief: it is not coming from knowledge (jñāna) but from delusion (moha). It leads neither to heaven (asvargyam) nor to fame (akīrti-karam) — i.e. it serves no end the warrior himself recognises."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-2/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.1 – 2.3 Sanjaya said — Lord said — When Arjuna thus sat, the Lord, opposing his action, said: ‘What is the reason for your misplaced grief? Arise for battle, abandoning this grief, which has arisen in a critical situation, which can come only in men of wrong understanding, which is an obstacle for",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 414,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-2-ramanuja.json",
+      "summary_paraphrase": "Ramanuja emphasises that Arjuna's grief is anārya — unworthy of the noble — because it abandons the duty (svadharma) of a kṣatriya at the very moment that duty has become unavoidable. The grief is both world-denying (asvargya) and reputation-destroying (akīrtikara), because the sva-dharma of a warrior, performed without attachment, is itself a path to liberation; abandoning it at viṣama-kāla (the critical hour) is the wrong renunciation."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kaśmalam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "impurities"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "delusion"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "defilement / impurity / faintness from moha"
+        },
+        {
+          "source": "Literal Sanskrit-dictionary",
+          "rendering": "dirt, stain, weakness, faintheartedness"
+        }
+      ],
+      "explanation": "kaśmala has a wide semantic range — physical dirt, mental impurity, moral defilement, faintheartedness. Prabhupada chooses the moral-impurity reading; Mukundananda chooses the cognitive (delusion) reading. The Sanskrit allows both because Krishna is rebuking BOTH the affective collapse and its cognitive root simultaneously. Translators who pick one sense lose the other; the original holds both."
+    }
+  ],
+  "literal_meaning": "The Supreme Lord said: From where has this faintheartedness/impurity come upon you at this critical hour, Arjuna? It is unworthy of the noble, not conducive to higher worlds, and produces only disgrace.",
+  "traditional_meaning": "Krishna's first words. The teaching opens not with comfort but with sharp diagnosis. Krishna refuses to validate Arjuna's collapse — names it as kaśmala (a stain/weakness), names it as anārya (not befitting a noble), names it as serving none of Arjuna's own stated ends (neither higher worlds nor reputation). The verse is doctrinally important because it establishes the chapter's voice: the senior teacher who, having earned the right, will not soften the diagnosis. Arjuna's grief is treated as a fact about his current state, not as evidence that the state is correct.",
+  "engineering": {
+    "translation": "Where does this collapse come from at this exact moment — the moment your migration is half-applied, the queue is backing up, the rollback window is closing? This is not the timing for self-pity. The kind of paralysis you are showing is not the paralysis of a thoughtful operator weighing tradeoffs; it is the paralysis of someone abandoning the runbook because the runbook has gotten hard. It serves nothing you actually want — not the customer, not the team, not your own record. The diagnosis precedes the comfort. The comfort comes later, in 2.11. Right now, the senior engineer is naming what they see, sharply, because the moment requires it.",
+    "concrete_scenario": "It is 2:47 AM on a deploy night. The schema migration on the primary Postgres database is partially applied — twelve of seventeen tables have the new column, five do not, and writes are now failing intermittently in Sentry. The on-call engineer who owns the migration is the most senior person in the channel and is freezing: they have stopped paging the secondary on-call, stopped opening the runbook, and have begun typing long, anguished apologies in the incident channel about how they should have caught this in staging. The senior incident commander cuts in over Zoom: 'kutas tvā kaśmalam idam viṣame samupasthitam — where is this collapse coming from, right now? Run the rollback playbook step 4. Apologies after the on-call is closed.' The rebuke is not cruel — it is the precise corrective the moment requires. Self-recrimination is the wrong action at viṣama-kāla, the critical hour. The runbook is the right action. The verse names the inversion: Arjuna's grief masquerades as conscience but functions as desertion.",
+    "falsifiability": "The analog fails if a reader uses it to justify being harsh with a junior engineer in their first incident. Krishna is sharp with Arjuna because Arjuna is the senior warrior who has already earned the right to be answered directly; the chapter explicitly notes that this voice is not for novices. If you cannot name what specifically the operator is failing to do (open the runbook, page the secondary, run step 4), and you are merely venting, you are not in this verse — you are in a different, worse verse.",
+    "counter_example": "When the on-call is genuinely a junior who has been paged on a system they do not own — when the right intervention is to take the keyboard from them, not to lecture them — this verse does not apply. The verse describes a senior teacher correcting a senior peer who has frozen. It is not a license for general sharpness. The voice in 2.2 belongs to the relationship Krishna has with Arjuna; transposed, it becomes abuse.",
+    "implication": "When a senior teammate freezes mid-incident and starts apologising instead of executing the runbook, the corrective is to name the freeze and point at the next runbook step — not to console first. Console after the page is closed.",
+    "quotable_line": "Self-recrimination at viṣama-kāla is desertion in apology's clothes.",
+    "tags": [
+      "incident-response",
+      "engineer-paralysis",
+      "on-call-doctrine"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

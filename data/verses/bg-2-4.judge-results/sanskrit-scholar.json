@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "engineering.translation renders pūjārhau (worthy of worship) as 'genuinely worthy of veneration' for Bhīṣma and Droṇa",
+      "objection": "Both Shankara and Ramanuja agree on the literal sense (worthy of worship/veneration), but the commentarial weight differs. Shankara emphasizes pūjā as ritual veneration — the structural fact that Bhīṣma and Droṇa occupy positions that demand ritual respect. Ramanuja emphasizes the affective dimension. The engineering layer renders this functionally as the principal-engineer-still-referenced-at-all-hands, which captures the structural-position aspect (Shankara's emphasis) better than the affective one. This is acceptable because the engineering layer does not claim to capture both readings; it picks the structural one and applies it. A careful Sanskritist would note the affective dimension is somewhat lost."
+    },
+    {
+      "severity": "minor",
+      "claim": "engineering.implication: 'would I be blocked if a stranger had built it?' as the test",
+      "objection": "This is a very modern test that does not appear in any traditional commentary. It is not a misrepresentation of the verse — Krishna's verses 2.6-2.8 do reframe the calculation — but it is a generated heuristic, not a tradition-derived one. Acceptable as engineering-domain heuristic; a careful Sanskritist would flag that this is not how Shankara or Ramanuja describe the test."
+    }
+  ],
+  "notes": "The engineering layer correctly preserves: (a) Arjuna's specific objection (kathaṁ — 'how can I'), (b) the named figures (Bhīṣma/Droṇa) translated functionally as the architect/principal who designed the legacy, (c) the doctrinal reading that the objection 'sounds like ethics, feels like ethics, but functions as deferral' — which Shankara explicitly notes (mohāt — out of delusion, but specifically the delusion of misplaced loyalty). No tradition is conflated; no load-bearing claim is inverted. Pass."
+}

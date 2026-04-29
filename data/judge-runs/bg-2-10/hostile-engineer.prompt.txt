@@ -1,0 +1,216 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.10",
+  "sanskrit_devanagari": "तमुवाच हृषीकेशः प्रहसन्निव भारत ।\nसेनयोरुभयोर्मध्ये विषीदन्तमिदं वचः ॥ १० ॥",
+  "sanskrit_iast": "tam uvāca hṛṣīkeśaḥ prahasann iva bhārata |\nsenayor ubhayor madhye viṣīdantam idaṁ vacaḥ || 10 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "to him (Arjuna)"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "spoke"
+    },
+    {
+      "sanskrit": "हृषीकेशः",
+      "iast": "hṛṣīkeśaḥ",
+      "meaning": "Hṛṣīkeśa (Krishna, master of the senses)"
+    },
+    {
+      "sanskrit": "प्रहसन्",
+      "iast": "prahasan",
+      "meaning": "smiling"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "as if"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata (Dhṛtarāṣṭra)"
+    },
+    {
+      "sanskrit": "सेनयोः",
+      "iast": "senayoḥ",
+      "meaning": "of the two armies"
+    },
+    {
+      "sanskrit": "उभयोः",
+      "iast": "ubhayoḥ",
+      "meaning": "of both"
+    },
+    {
+      "sanskrit": "मध्ये",
+      "iast": "madhye",
+      "meaning": "in the midst"
+    },
+    {
+      "sanskrit": "विषीदन्तम्",
+      "iast": "viṣīdantam",
+      "meaning": "to the despondent (Arjuna)"
+    },
+    {
+      "sanskrit": "इदम्",
+      "iast": "idam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "वचः",
+      "iast": "vacaḥ",
+      "meaning": "speech / utterance"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/10/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O descendant of Bharata, at that time Kṛṣṇa, smiling, in the midst of both the armies, spoke the following words to the grief-stricken Arjuna.",
+      "raw_capture_path": "data/sources/raw/bg-2-10-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/10",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Dhritarashtra, thereafter, in the midst of both the armies, Shree Krishna smilingly spoke the following words to the grief-stricken Arjun."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/10/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 900-char full purport)",
+      "verbatim_excerpt": "The talk was going on between intimate friends, namely the Hṛṣīkeśa and the Guḍākeśa. As friends, both of them were on the same level, but one of them voluntarily became a student of the other. Kṛṣṇa was smiling because a friend had chosen to become a disciple.",
+      "raw_full_path": "data/sources/raw/bg-2-10-vedabase.json (purport_full_length: 900)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.10 And here, the text commencing from ‘But seeing the army of the Pandavas’ (1.2) and ending with ‘(he) verily became silent, telling Him (Govinda), “I shall not fight”‘ is to be explained as revealing the cause of the origin of the defect in the from of sorrow, delusion, etc.",
+      "verbatim_excerpt_length": 279,
+      "verbatim_full_length": 17044,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-10-shankara.json",
+      "summary_paraphrase": "Shankara reads 'prahasann iva' (smiling, as if) carefully — the 'iva' (as if) softens the smile: it is not a smile of amusement at Arjuna's distress, but a smile that signals the teacher's settled state at the moment of beginning. The location matters too: 'in the midst of both armies' — the teaching happens in the field, not in retreat from it."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-10/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.9 – 2.10 Sanjaya said — Thus, the Lord, the Supreme Person, introduced the Sastra regarding the self for the sake of Arjuna — whose natural courage was lost due to love and compassion in a misplaced situation, who thought war to be unrighteous even though it was the highest duty for warriors (Ksat",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1741,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-10-ramanuja.json",
+      "summary_paraphrase": "Ramanuja reads the smile as the Lord's compassionate readiness — the moment a teacher recognises that the student has finally crossed into a state where teaching can land. The smile is the recognition; the speech that follows is the response. The whole chapter unfolds out of this moment."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "prahasann iva",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "smiling"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "smilingly"
+        },
+        {
+          "source": "Literal",
+          "rendering": "as if smiling / smiling-like"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the 'iva' (as if) is meaningful — not a smile of amusement, a smile of teacher's settled readiness"
+        }
+      ],
+      "explanation": "Both translators drop the 'iva' (as if) for English readability. The particle is doctrinally significant: it qualifies the smile, distancing it from amusement. Krishna is not smiling AT Arjuna; he is smiling in the way a settled teacher smiles when a long-deferred conversation is finally ready to begin."
+    }
+  ],
+  "literal_meaning": "O Bhārata (Dhṛtarāṣṭra), to him — Arjuna in despair in the midst of the two armies — Hṛṣīkeśa (Krishna), as if smiling, spoke this speech.",
+  "traditional_meaning": "The closing narrative verse before Krishna's teaching begins. Sanjaya describes the geometry of the moment: Krishna and Arjuna in the chariot, the two armies on either side, and Krishna smiling — but smiling 'iva' (as if), the qualifier that all major commentators take seriously. The smile is not amused; it is the settled teacher's readiness. The verse has minimal doctrinal content of its own, but it is the structural pivot of the chapter: 2.1-2.10 is Arjuna's case; 2.11 onward is Krishna's reply. This verse marks the transition.",
+  "engineering": {
+    "translation": "This verse is narrative scaffolding, not engineering doctrine. Sanjaya describes the geometry of the moment Krishna begins to speak: smiling 'as if' — not amused, but settled — in the middle of the field, addressing the operator who has finally exhausted their case. The corresponding engineering moment is the senior teacher leaning forward at the architecture review, recognising that the room has finally arrived at a state where teaching can land. The verse itself does not teach; it marks the structural pivot. Forcing a doctrine here would distort it. The inversion test should map this to 'narrative pivot before the teaching begins', not to a principle. The chapter's actual instruction starts in the next verse.",
+    "concrete_scenario": "After the silence following the engineering director's declaration in the previous verse, the CTO finally unmutes on the Zoom bridge. Before speaking, the CTO smiles slightly — not in amusement, but in the recognition that the long-deferred conversation is finally available. The two armies of the room — the team that wanted the migration, the team that opposed it — are still arranged on either side of the issue. The deferred decision document is still open in Notion. The Datadog dashboard still shows the unresolved latency regression. Nothing in production has changed. What has changed is the room's readiness to receive a different kind of intervention. The CTO's smile is the marker. The CTO's first sentence — which would belong to BG 2.11 — is the actual teaching. This verse merely names the pivot moment between the operator's exhausted silence and the teacher's settled reply. It is the architectural beat, not the architectural instruction.",
+    "falsifiability": "If a reader extracts a leadership tactic from this verse — 'always smile before delivering hard feedback' — they have over-read it. The verse describes Krishna's specific posture at this specific structural moment; it does not generalise into a coaching technique. If you find yourself quoting 2.10 as a managerial pattern, you have force-fitted scaffolding into doctrine.",
+    "counter_example": "This verse does not teach that smiling is itself useful in tense engineering moments. A leader who performs a smile to manipulate the room is not enacting Krishna in 2.10; they are performing affect. The verse's smile is the byproduct of an actual settled state — not a technique that produces one. Engineers who copy the surface have inverted it.",
+    "implication": "Recognise structural pivots when you encounter them. Some moments in technical leadership exist to mark the transition from one mode of conversation to another; the meaningful content begins after the pivot, not at it.",
+    "quotable_line": "Some verses are the beat before the lesson; the lesson lives in the sentence that follows.",
+    "tags": [
+      "team-state",
+      "team-culture"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

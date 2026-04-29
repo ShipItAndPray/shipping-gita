@@ -1,0 +1,256 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.8",
+  "sanskrit_devanagari": "न हि प्रपश्यामि ममापनुद्याद्\nयच्छोकमुच्छोषणमिन्द्रियाणाम् ।\nअवाप्य भूमावसपत्नमृद्धं\nराज्यं सुराणामपि चाधिपत्यम् ॥ ८ ॥",
+  "sanskrit_iast": "na hi prapaśyāmi mamāpanudyād\nyac chokam ucchoṣaṇam indriyāṇām |\navāpya bhūmāv asapatnam ṛddhaṁ\nrājyaṁ surāṇām api cādhipatyam || 8 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "प्रपश्यामि",
+      "iast": "prapaśyāmi",
+      "meaning": "I see / perceive"
+    },
+    {
+      "sanskrit": "मम",
+      "iast": "mama",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "अपनुद्यात्",
+      "iast": "apanudyāt",
+      "meaning": "may dispel / drive away"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "that which"
+    },
+    {
+      "sanskrit": "शोकम्",
+      "iast": "śokam",
+      "meaning": "grief"
+    },
+    {
+      "sanskrit": "उच्छोषणम्",
+      "iast": "ucchoṣaṇam",
+      "meaning": "drying up / parching"
+    },
+    {
+      "sanskrit": "इन्द्रियाणाम्",
+      "iast": "indriyāṇām",
+      "meaning": "of the senses"
+    },
+    {
+      "sanskrit": "अवाप्य",
+      "iast": "avāpya",
+      "meaning": "having obtained"
+    },
+    {
+      "sanskrit": "भूमौ",
+      "iast": "bhūmau",
+      "meaning": "on earth"
+    },
+    {
+      "sanskrit": "असपत्नम्",
+      "iast": "asapatnam",
+      "meaning": "unrivalled"
+    },
+    {
+      "sanskrit": "ऋद्धम्",
+      "iast": "ṛddham",
+      "meaning": "prosperous"
+    },
+    {
+      "sanskrit": "राज्यम्",
+      "iast": "rājyam",
+      "meaning": "kingdom"
+    },
+    {
+      "sanskrit": "सुराणाम्",
+      "iast": "surāṇām",
+      "meaning": "of the gods"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "आधिपत्यम्",
+      "iast": "ādhipatyam",
+      "meaning": "sovereignty"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/8/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "I can find no means to drive away this grief which is drying up my senses. I will not be able to dispel it even if I win a prosperous, unrivaled kingdom on earth with sovereignty like the demigods in heaven.",
+      "raw_capture_path": "data/sources/raw/bg-2-8-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/8",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "I can find no means of driving away this anguish that is drying up my senses. Even if I win a prosperous and unrivalled kingdom on the earth, or gain sovereignty like the celestial gods, I will be unable to dispel this grief."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/8/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 3692-char full purport)",
+      "verbatim_excerpt": "Although Arjuna was putting forward so many arguments based on knowledge of the principles of religion and moral codes, it appears that he was unable to solve his real problem without the help of the spiritual master, Lord Śrī Kṛṣṇa.",
+      "raw_full_path": "data/sources/raw/bg-2-8-vedabase.json (purport_full_length: 3692)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-8-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
+      "summary_paraphrase": "Shankara reads the verse as the explicit statement that no external acquisition (kingdom, sovereignty, even the rulership of the gods) can dissolve the grief Arjuna is in. The point is critical for the chapter: the remedy cannot be more of what the grief is reaching for; the remedy must be a different kind of thing entirely (knowledge of the imperishable, which the chapter will teach starting at 2.11)."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-8/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.6 – 2.8 If you say, ‘After beginning the war, if we withdraw from the battle, the sons of Dhrtarastra will slay us all forcibly’, be it so. I think that even to be killed by them, who do not know the difference between righteousness and unrighteousness, is better for us than gaining unrighteous vi",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-8-ramanuja.json",
+      "summary_paraphrase": "Ramanuja stresses 'na hi prapaśyāmi' — 'I do not see' — the cognitive limit Arjuna has reached. He cannot perceive the remedy because the perception itself requires an instrument (knowledge of the self) he does not yet have. The verse is the disciple's report of his own diagnostic limit; it is the request for the teacher to supply the instrument."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ucchoṣaṇam indriyāṇām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "drying up my senses"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "drying up my senses"
+        },
+        {
+          "source": "Literal",
+          "rendering": "the parching/withering of the senses (indriyas)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "indicates the somatic intensity of the grief — it is not just emotional but physical"
+        }
+      ],
+      "explanation": "All translators agree on the literal sense. The phrase is striking because it is somatic: Arjuna is reporting a body-state, not just a mood. The senses themselves feel desiccated. This matters for the chapter's diagnosis — the grief is not just a thought, it is a state of the operator's apparatus. The remedy must address the apparatus, not just the thought."
+    }
+  ],
+  "literal_meaning": "Indeed, I do not see what may dispel this grief which is drying up my senses, even if I win an unrivalled prosperous kingdom on earth and the sovereignty of the gods.",
+  "traditional_meaning": "Arjuna's explicit statement that no external acquisition can dispel his current state. The verse functions as the formal closure of the case Arjuna has been making since 2.4: he has run out of arguments, run out of imagined remedies, and now reports that even maximal external success would not fix what is wrong. The chapter takes this seriously. The remedy will not come from a different external configuration; it will come from a different kind of knowledge altogether (which the chapter begins teaching at 2.11). The verse is the formal handover from the disciple's last attempt at self-diagnosis to the teacher's first attempt at a real remedy.",
+  "engineering": {
+    "translation": "I have tried everything in my repertoire and I cannot see what would fix this. Even an unrivalled outcome — the architecture redesign succeeding spectacularly, the headcount doubling, the promotion arriving, the company going public — would not dispel the underlying state I am in. The verse names a precise condition: the operator who has reached the diagnostic limit of their own framework. They have run every script they know, exhausted every internal lever, and they now report that the problem is not one their current toolkit can address. This is genuinely useful information when reported honestly. It is the request for a different kind of intervention, not a louder version of the same one.",
+    "concrete_scenario": "An engineering director has been chasing the platform team's reliability score for eighteen months. They have reorganised the on-call rotation, instrumented every service in Datadog, replatformed the deploy pipeline through GitHub Actions, hired two principal engineers, instituted a weekly incident review, and added Sentry-based SLOs for the top fifteen endpoints. The reliability score has barely moved. In the executive review, instead of proposing the next reorganisation, the director says: 'na hi prapaśyāmi mamāpanudyād — I do not see what would actually fix this. Doubling the headcount would not fix it. Replatforming again would not fix it. I have run out of moves my current frame can generate. The diagnostic limit is not technical; it is in how I am framing the problem.' The CTO does not respond by suggesting another organisational lever. The CTO responds by reframing: the reliability problem is not about adding interventions, it is about the team's underlying coupling to a deployment doctrine that no headcount level can save. The verse is the precondition for that reframing; without the operator naming the diagnostic limit, the reframing is unsolicited and inert.",
+    "falsifiability": "The analog fails if the operator has not actually exhausted their framework — if there is a known move on the board they have not yet tried. The verse names the case where everything inside the frame has been attempted. If the engineering director above has not yet read a Sentry dashboard, has not run a single retrospective, has not even paged secondary on-call once, the verse does not apply. It applies after the diagnostic effort, not in lieu of it.",
+    "counter_example": "When the right move is to keep iterating inside the existing frame for another quarter — when the framework actually does have headroom the operator hasn't used — this verse does not apply. Premature declarations of 'nothing works' are themselves a form of the kārpaṇya the previous verse named. The verse describes Arjuna at the actual end of his case, not Arjuna giving up early.",
+    "implication": "When you report 'I cannot see what would fix this' to your skip-level, do it specifically: list the moves you have tried, name the diagnostic limit precisely, and ask for a reframe rather than another intervention. The directness unlocks the response that vague despair cannot.",
+    "quotable_line": "Naming the diagnostic limit honestly is the unlock; vague despair is the noise that prevents the unlock from arriving.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "incident-response",
+      "strategic-frame"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

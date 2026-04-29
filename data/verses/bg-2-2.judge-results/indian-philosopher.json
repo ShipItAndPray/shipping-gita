@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "conflations_found": [],
+  "technical_terms_dropped": ["kaśmala (rendered as 'collapse')", "anārya (rendered as 'unworthy of the noble' implicitly via tone, not named)", "asvargyam (silently dropped — soteriological dimension)", "akīrti-karam (rendered as 'not your record')"],
+  "verdict_reason": "The engineering layer renders the verse as a diagnostic correction without attributing a sectarian reading to it. Neither Shankara's Advaita nor Ramanuja's Vishishtadvaita is invoked, because the verse does not turn on a sectarian disagreement here — it is a sharp pre-doctrinal correction. The kaśmala disagreement is preserved in the source pack's disagreements field and is not muddied in the engineering layer. The asvargyam (higher-worlds) dimension is silently dropped, which is a defensible scope choice for an engineering analog (the verse is being used for the on-call doctrine thread, not for soteriology) — but it is a drop. The drops are consistent with the chapter's engineering thread; no tradition is misrepresented. PASS."
+}

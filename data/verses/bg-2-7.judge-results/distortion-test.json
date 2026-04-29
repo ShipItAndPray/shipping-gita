@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "type": "weakening",
+      "tradition_claim": "kārpaṇya-doṣa: Arjuna's nature itself (svabhāva) is afflicted by the fault of pity-smallness; this is a statement about the operator's being, not just their judgment.",
+      "engineering_claim": "I have been systematically beaten down by my own smallness; my judgment regarding the correct course of action has evaporated entirely.",
+      "explanation": "The engineering layer renders kārpaṇya-doṣa-upahata-svabhāvaḥ as a statement about being beaten down and judgment evaporating. The original speaks more strongly: it is svabhāva (nature) that is upahata (stricken). This is a minor weakening — the engineering register cannot easily carry a claim about the operator's whole nature being afflicted, and the layer does compensate by naming the kārpaṇya as a prerequisite affective state distinct from mere bewilderment. Single weakening, not enough to FAIL."
+    }
+  ]
+}

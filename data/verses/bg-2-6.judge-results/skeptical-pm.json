@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "If the team has done the analysis and still cannot recommend either path — and the dread of both paths is symmetric — escalate as 'frame is broken, please reframe' rather than 'please pick one'; the second move loses the actual signal.",
+  "example_decision": "An eng leader is being pushed by their VP to make a quarterly call: keep the legacy Django monolith (absorbing maintenance cost) or commit to a service split (consuming two quarters of headcount and likely missing compliance deadline). They have the spreadsheet, the ADR, the architecture review notes. By the principle of this verse, instead of presenting 'here is my recommendation' (which would be invented to relieve the VP's request), they present 'we cannot recommend either; the framing of the choice is the problem; we need a reframe of what the unit of value here is.' The roadmap decision changes from 'pick A or B' to 'redefine what the platform is supposed to optimize for so A and B become legible.'",
+  "objection": "none"
+}

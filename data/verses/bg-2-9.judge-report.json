@@ -1,0 +1,419 @@
+{
+  "verse_id": "BG 2.9",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-04-29T06:29:56.199Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "The sthita-praj\u00f1a / one whose insight is steady (verses 2.54-2.72)",
+              "anchor_evidence": "Indirect anchoring: 2.9's silence is the formal end of Arjuna's case before Krishna begins teaching. The chapter's pedagogical arc requires this scaffolding \u2014 without it the sthita-praj\u00f1a teaching at the end of the chapter has no propaedeutic. The engineering layer correctly identifies 'the silence is structurally significant \u2014 it is the precondition for the senior teacher's reply in the next verse.' This anchors on the chapter's own pedagogy: scaffolding precedes the teaching of the steady-mind state."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 9 is the formal closure of Arjuna's case; the engineering layer treats it as such and does not preempt Krishna's reply at 2.11."
+          },
+          "verdict_reason": "BG 2.9 is the chapter's sanctioned scaffolding moment \u2014 the verse where Arjuna's case ends. The chapter's thesis explicitly treats narrative scaffolding as legitimate (it does not require every verse to contribute doctrine). The engineering layer correctly identifies the verse as scaffolding, refuses to manufacture doctrine, and explicitly disclaims the 'go silent before deciding' false-tactic read. The honest LOW + STRETCHED tagging is the chapter's sanctioned form for narrative verses. No hard edges violated, no counter-anti-thesis drift. PASS at the chapter's correct standard for narrative verses."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            {
+              "thread_name": "The sthita-praj\u00f1a / one whose insight is steady (verses 2.54-2.72)",
+              "anchor_evidence": "Indirect anchoring: 2.9's silence is the formal end of Arjuna's case before Krishna begins teaching. The chapter's pedagogical arc requires this scaffolding \u2014 without it the sthita-praj\u00f1a teaching at the end of the chapter has no propaedeutic. The engineering layer correctly identifies 'the silence is structurally significant \u2014 it is the precondition for the senior teacher's reply in the next verse.' This anchors on the chapter's own pedagogy: scaffolding precedes the teaching of the steady-mind state."
+            }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": {
+            "type": "none",
+            "explanation": "Position 9 is the formal closure of Arjuna's case; the engineering layer treats it as such and does not preempt Krishna's reply at 2.11."
+          },
+          "verdict_reason": "BG 2.9 is the chapter's sanctioned scaffolding moment \u2014 the verse where Arjuna's case ends. The chapter's thesis explicitly treats narrative scaffolding as legitimate (it does not require every verse to contribute doctrine). The engineering layer correctly identifies the verse as scaffolding, refuses to manufacture doctrine, and explicitly disclaims the 'go silent before deciding' false-tactic read. The honest LOW + STRETCHED tagging is the chapter's sanctioned form for narrative verses. No hard edges violated, no counter-anti-thesis drift. PASS at the chapter's correct standard for narrative verses."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Local Engineering Director Discovers Going Dark On Slack Is The Foundation Of Eastern Wisdom. After eight weeks of debate, our hero declares 'I am not going to lead this' and disappears from the channel for a day \u2014 sources confirm this 'pause' is the deepest form of leadership. LinkedIn posts to follow.",
+          "satire_lands": false,
+          "verdict_reason": "The satire only lands if you ignore the verse's explicit refusal of the read: 'A reader extracts an actionable instruction from this verse \u2014 for instance, always go silent before deciding \u2014 they have over-read it.' The verse anticipates and disqualifies the satire. To mock it you have to argue that the meta-discipline (don't manufacture doctrine from narrative pivots) is itself wrong, which is not a satire \u2014 it is a real disagreement. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 1,
+          "defective_entries": [],
+          "explanation_quality_score": 7,
+          "verdict_reason": "The single disagreement entry on t\u016b\u1e63\u1e47\u012b\u1e41 babh\u016bva ha correctly notes that all translators agree on the literal sense ('fell silent'). The explanation identifies the doctrinally substantive axis: the emphatic particle 'ha' carries weight \u2014 Sanjaya is reporting an unusual silence, and the silence is the prerequisite for the teaching that begins at 2.11. This is not a translator disagreement strictly speaking, but the slot is honestly used to flag the structurally significant emphatic particle that English readers would otherwise miss. The explanation names the term, the linguistic feature, and the structural-architecture stake. Score 7 (slightly less than the gold standard because there is no genuine inter-translator disagreement on this term \u2014 the entry is doing flag-significant-feature duty rather than disagreement-explanation duty), but the entry is honest and substantive. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": []
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/distortion-test.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": []
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.9 are engineer-paralysis, team-state. The engineer-paralysis tag is verse-specific within this chapter (BG 2.6/2.7/2.8 use decision-paralysis or judgment-under-uncertainty rather than engineer-paralysis), so the local tag-coherence check on this tag is vacuous within the corpus-so-far \u2014 the corpus-level re-run will be authoritative. The team-state tag is shared with BG 2.10 (which is also tagged team-state) and the doctrines are coherent \u2014 both verses describe the room-state at a structural pivot, neither claims a leadership tactic from the state. No cross_references[] declared. PASS at score 7 \u2014 the tag-coherence is fine within visible scope, though some tag uniqueness would strengthen the gate at corpus completion."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on BG 2.9 are engineer-paralysis, team-state. The engineer-paralysis tag is verse-specific within this chapter (BG 2.6/2.7/2.8 use decision-paralysis or judgment-under-uncertainty rather than engineer-paralysis), so the local tag-coherence check on this tag is vacuous within the corpus-so-far \u2014 the corpus-level re-run will be authoritative. The team-state tag is shared with BG 2.10 (which is also tagged team-state) and the doctrines are coherent \u2014 both verses describe the room-state at a structural pivot, neither claims a leadership tactic from the state. No cross_references[] declared. PASS at score 7 \u2014 the tag-coherence is fine within visible scope, though some tag uniqueness would strengthen the gate at corpus completion."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "t\u016b\u1e63\u1e47\u012b\u1e41 babh\u016bva ha \u2014 Arjuna fell silent (with the emphatic 'ha'); the engineering analog explicitly reads this as a marker of case-closing, not as a teaching",
+            "na yotsya iti \u2014 'I will not fight'; the analog renders this as the engineering director's 'I am not going to lead this migration'",
+            "the verse-as-scaffolding role: the explicit chapter-architecture point that this verse is the marker between Arjuna's case and Krishna's reply"
+          ],
+          "verdict_reason": "I tested against three candidate verses where 'going silent' might be claimed: BG 2.30 (Krishna says one need not grieve for any being), BG 6.7 (the conqueror-of-self is settled), BG 11.49 (Arjuna trembles after the vision). None of these turn on a silence-marking-end-of-case. The engineering analog is anchored specifically on the structural-pivot reading \u2014 'the verse marks the moment that Arjuna's case has closed and the teaching is about to open.' This is verse-2.9-specific scaffolding. The analog also explicitly disqualifies the generic 'silence is wisdom' reading via its counter-example. PASS \u2014 the analog could not apply to a non-narrative-pivot verse."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "t\u016b\u1e63\u1e47\u012b\u1e41 babh\u016bva ha \u2014 Arjuna fell silent (with the emphatic 'ha'); the engineering analog explicitly reads this as a marker of case-closing, not as a teaching",
+            "na yotsya iti \u2014 'I will not fight'; the analog renders this as the engineering director's 'I am not going to lead this migration'",
+            "the verse-as-scaffolding role: the explicit chapter-architecture point that this verse is the marker between Arjuna's case and Krishna's reply"
+          ],
+          "verdict_reason": "I tested against three candidate verses where 'going silent' might be claimed: BG 2.30 (Krishna says one need not grieve for any being), BG 6.7 (the conqueror-of-self is settled), BG 11.49 (Arjuna trembles after the vision). None of these turn on a silence-marking-end-of-case. The engineering analog is anchored specifically on the structural-pivot reading \u2014 'the verse marks the moment that Arjuna's case has closed and the teaching is about to open.' This is verse-2.9-specific scaffolding. The analog also explicitly disqualifies the generic 'silence is wisdom' reading via its counter-example. PASS \u2014 the analog could not apply to a non-narrative-pivot verse."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "Recognize narrative scaffolding when you see it \u2014 not every silence is a teaching, and treating Sanjaya's marker-of-Arjuna's-case-closing as a leadership tactic ('go silent before deciding') is force-fitting scaffolding into doctrine.",
+          "wisdom_theater_score": 0,
+          "objection": "I went looking for the 'silent CEO who knows when not to speak' wisdom-theater move and the verse explicitly refuses it: 'A reader extracts an actionable instruction from this verse \u2014 for instance, \\\"always go silent before deciding\\\" \u2014 they have over-read it.' The counter-example explicitly disqualifies the manipulation read: 'Engineers who go silent to extract a response from leadership are using a manipulation tactic, not enacting the verse. The verse describes a real out-of-options state, not a performed one.' This is a verse honestly tagged LOW confidence and STRETCHED, and the engineering layer's actual claim is the meta-claim 'recognize scaffolding when you see it' \u2014 which is small but real and correctly named. The verse passes because it does not pretend to be something it isn't, and because the meta-discipline (don't manufacture doctrine from a narrative pivot) is itself an engineering discipline I would endorse. wisdom_theater_score=0: this is not wisdom theater, this is the explicit refusal of wisdom theater."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "BG 2.9 is pure narration with no doctrinally contested terms \u2014 Sanjaya reports Arjuna's 'na yotsya iti' and his subsequent silence. The engineering layer treats the verse as scaffolding without claiming doctrine. There is no tradition-specific reading to attribute and none is attributed; there are no load-bearing technical terms (yaj\u00f1a, dharma, \u0101tman, etc.) to drop. The cross-traditional consensus is that this verse 'has no doctrinal content of its own' (per the source pack's traditional_meaning_consensus), and the engineering layer mirrors this consensus precisely. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "BG 2.9 is pure narration with no doctrinally contested terms \u2014 Sanjaya reports Arjuna's 'na yotsya iti' and his subsequent silence. The engineering layer treats the verse as scaffolding without claiming doctrine. There is no tradition-specific reading to attribute and none is attributed; there are no load-bearing technical terms (yaj\u00f1a, dharma, \u0101tman, etc.) to drop. The cross-traditional consensus is that this verse 'has no doctrinal content of its own' (per the source pack's traditional_meaning_consensus), and the engineering layer mirrors this consensus precisely. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.9",
+              "confidence": 0.7,
+              "reasoning": "The engineering analog explicitly self-tags as scaffolding: 'this verse is narrative scaffolding, not engineering doctrine,' and renders 'I will not fight' (na yotsya iti) as 'I am not going to lead this migration' followed by silence. The explicit naming of 'the silence is structurally significant \u2014 it is the precondition for the senior teacher's reply in the next verse' points to the Sanjaya-narrated end of Arjuna's case before Krishna replies."
+            },
+            {
+              "verse_id": "BG 1.46",
+              "confidence": 0.15,
+              "reasoning": "Possible if read as Arjuna's collapse \u2014 but 1.46 is the chariot-drop, not the formal 'I will not fight' declaration."
+            },
+            {
+              "verse_id": "BG 2.10",
+              "confidence": 0.08,
+              "reasoning": "Possible if read as the structural pivot \u2014 but 2.10 is Krishna's smile, not Arjuna's silence."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            {
+              "verse_id": "BG 2.9",
+              "confidence": 0.7,
+              "reasoning": "The engineering analog explicitly self-tags as scaffolding: 'this verse is narrative scaffolding, not engineering doctrine,' and renders 'I will not fight' (na yotsya iti) as 'I am not going to lead this migration' followed by silence. The explicit naming of 'the silence is structurally significant \u2014 it is the precondition for the senior teacher's reply in the next verse' points to the Sanjaya-narrated end of Arjuna's case before Krishna replies."
+            },
+            {
+              "verse_id": "BG 1.46",
+              "confidence": 0.15,
+              "reasoning": "Possible if read as Arjuna's collapse \u2014 but 1.46 is the chariot-drop, not the formal 'I will not fight' declaration."
+            },
+            {
+              "verse_id": "BG 2.10",
+              "confidence": 0.08,
+              "reasoning": "Possible if read as the structural pivot \u2014 but 2.10 is Krishna's smile, not Arjuna's silence."
+            }
+          ]
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 5,
+          "reconstructed_sketch": "Given chapter context (2.6 = FRAME-BUG state, 2.7 = surrender, 2.8 = end-of-toolkit) and the chapter's didactic-corrective voice, an engineering analog at position 9 might be either a continuation of the diagnostic thread or a transition verse. A competent writer working from chapter context might write 'recognize when the conversation is about to shift' \u2014 but they would not necessarily land on the meta-discipline contribution: 'recognise scaffolding when you see it; not every silence is a teaching.' The honest LOW-confidence + STRETCHED tagging itself is information-bearing \u2014 a chapter-paraphrase writer might either over-extract (force-fit a silence-tactic) or omit (skip narrative verses), but the engineering layer's correct-naming-of-scaffolding is the contribution.",
+          "verse_specific_signal": "The meta-discipline of refusing to manufacture doctrine from a structural pivot \u2014 and the explicit listing of 'scaffolding' vs 'doctrine' as a distinguishable category for the corpus. The honest LOW + STRETCHED tag is itself the verse-specific signal that the chapter's other verses do not provide.",
+          "overlap_with_other_verses": [
+            {
+              "verse_id": "BG 2.10",
+              "overlap_type": "same_predicate",
+              "explanation": "Both 2.9 and 2.10 are narrative scaffolding marking the structural pivot, both tagged LOW + STRETCHED. The overlap is honest and structurally appropriate \u2014 these two verses together form the chapter's pivot pair. Different specific anchors (2.9 = silence, 2.10 = smile) prevent this from being a duplicate signal."
+            }
+          ],
+          "verdict_reason": "The reconstructibility score is moderate (5) because the meta-discipline contribution is partially predictable from the chapter thesis (which would license a STRETCHED tag for narrative verses) but the specific 'recognise scaffolding when you see it' framing and the chapter-architecture explicit naming are verse-specific. The 2.9/2.10 pair-overlap is sanctioned by the chapter's pivot-pair structure, not a corpus duplication. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Editorial / postmortem review checklist item: 'For each narrative-pivot moment in the postmortem timeline, distinguish [SCAFFOLDING: marker of conversational transition] from [DOCTRINE: an actual lesson learned]. Do not extract a tactical principle from a SCAFFOLDING moment.'",
+          "artifact_kind": "review_checklist",
+          "embodiment_sketch": "Add a checklist item to the post-incident review template: 'For each major moment in the timeline, tag it as either DOCTRINE (a real lesson learned that should generate an action item) or SCAFFOLDING (a transition marker \u2014 someone running out of words, a status change, a handoff). Do not extract action items from SCAFFOLDING moments. Example SCAFFOLDING: \\\"the lead said I am not going to lead this and went silent for a day\\\" \u2014 this is a transition marker; the action item belongs to whatever followed, not to the silence itself.' Concretely copyable into a Notion postmortem template.",
+          "metaphor_only": false,
+          "verdict_reason": "The verse honestly tagged LOW + STRETCHED can still license a real artifact \u2014 a meta-discipline checklist for distinguishing scaffolding from doctrine in retrospectives. This is not metaphor-only; it is a real review-discipline a senior engineer can add Monday. The verse explicitly frames the discipline ('recognise scaffolding when you see it'), and the artifact is a direct embodiment. PASS \u2014 though the artifact is meta (a discipline for reading verses or postmortems) rather than direct (a runbook step for a specific failure mode), it is still concretely embodiable."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [],
+          "notes": "BG 2.9 is pure narration (Sanjaya describing Arjuna's 'na yotsya iti' declaration and his subsequent silence). The engineering layer correctly identifies it as scaffolding, not doctrine: 'This verse is narrative scaffolding, not engineering doctrine.' The Sanskrit's specific load-bearing element \u2014 the emphatic particle 'ha' in t\u016b\u1e63\u1e47\u012b\u1e41 babh\u016bva ha \u2014 is preserved in spirit by the engineering layer's recognition that 'the silence is structurally significant.' The literal claim ('I will not fight' followed by silence) is rendered without distortion in the analog ('I am not going to ship this' followed by going dark on the channel). The verse's role as the precondition for 2.11's teaching is correctly identified: 'It simply marks the moment that Arjuna's case has closed and the teaching is about to open.' The engineering layer also explicitly disclaims that the silence is itself a teaching, which honors the consensus reading that this verse 'has no doctrinal content of its own.' PASS \u2014 the narrative tag is honestly applied, no Sanskrit claim is inverted or fabricated."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When you read a passage that is narrative scaffolding (someone running out of words; someone marking an end-of-case), do not extract a tactical principle from it \u2014 the meaningful content begins after the pivot, not at it.",
+          "example_decision": "In a quarterly retrospective: distinguish 'the moment the lead said I will not lead this' (which is scaffolding marking a transition) from 'the moment the new direction was articulated' (which is the actual decision). PMs who try to learn 'tactic for going silent' from the first kind of moment have force-fitted scaffolding into doctrine.",
+          "objection": "Caveat (logged as PASS but flagged): the verse's actionable predicate is a meta-discipline (don't extract tactics from scaffolding) rather than a directly roadmap-facing rule. This is honestly tagged: confidence=LOW, stretched=true. PASS is granted because the meta-discipline IS a real PM discipline (avoid force-fit doctrine from narrative beats) and the engineering layer's honest scoping is itself the contribution."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When you read a passage that is narrative scaffolding (someone running out of words; someone marking an end-of-case), do not extract a tactical principle from it \u2014 the meaningful content begins after the pivot, not at it.",
+          "example_decision": "In a quarterly retrospective: distinguish 'the moment the lead said I will not lead this' (which is scaffolding marking a transition) from 'the moment the new direction was articulated' (which is the actual decision). PMs who try to learn 'tactic for going silent' from the first kind of moment have force-fitted scaffolding into doctrine.",
+          "objection": "Caveat (logged as PASS but flagged): the verse's actionable predicate is a meta-discipline (don't extract tactics from scaffolding) rather than a directly roadmap-facing rule. This is honestly tagged: confidence=LOW, stretched=true. PASS is granted because the meta-discipline IS a real PM discipline (avoid force-fit doctrine from narrative beats) and the engineering layer's honest scoping is itself the contribution."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The engineering layer explicitly states 'this verse is narrative scaffolding, not engineering doctrine' \u2014 a refusal to claim the verse is fundamentally about engineering. The layer treats the engineering moment as analog only and explicitly declines to extract a leadership tactic from the silence. This is the inverse of the forbidden tech-manual framing \u2014 it is the engineering layer modestly stepping back rather than inflating. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 0,
+          "specific_concerns": [],
+          "verdict_reason": "The verse is honestly tagged LOW confidence + STRETCHED, and the engineering layer takes Sanjaya's narrative role seriously rather than trivializing it. The layer explicitly refuses the productivity-theater move (manufacturing a 'go silent before deciding' tactic) and explicitly disclaims that 'going silent' is itself a teaching. A serious practitioner would feel the verse has been honored in an unusual way: by being correctly identified as structural scaffolding rather than being force-fit into a doctrine. The implication 'recognise scaffolding when you see it' is meta-disciplined and is itself a respectful reading of the source. Zero trivialization. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-9/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 2.9 is in narrative-scaffolding register, which is distinct from the chapter's didactic register but appropriate for a Sanjaya-narrated structural-pivot verse. The engineering layer holds the chapter's grave-and-precise tone: it does not slip into wisdom-theater (a real risk for any 'silence' verse) and explicitly refuses to read the silence as a teaching. The CTO's hypothetical response in the analog is narratively framed ('Datadog dashboards still refresh, the Sentry error stream still flows, the GitHub pull request still sits open awaiting review: production carries on entirely indifferent to anyone's pause') \u2014 this is in-tone with the chapter's hard edges (the substrate keeps running; the operator's collapse does not pause production), which subtly preserves the chapter's discipline against operator-self-importance. PASS."
+        }
+      },
+      "ts": "2026-04-29T06:29:56.199Z"
+    }
+  ]
+}

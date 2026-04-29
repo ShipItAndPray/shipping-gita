@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "An incident-commander runbook step + post-incident-review checklist item",
+  "artifact_kind": "runbook",
+  "embodiment_sketch": "Runbook step (IC handbook, section: 'when the senior owner freezes'): 'If 5+ minutes pass with no runbook step executed AND the senior owner of the system is posting apology / self-blame messages in the channel, the IC interrupts and directs the next runbook step explicitly. Console-mode is reserved for after the page is closed.' Companion PRR checklist line: 'Did the senior owner freeze during the incident? Did the IC name the freeze and call the next runbook step? (yes/no/N-A)'",
+  "metaphor_only": false,
+  "verdict_reason": "This is a clean PASS. The verse's claim is encoded in (a) a literal runbook step a team can adopt this week, (b) a literal PRR checklist line, and (c) an IC training rubric. Tags include incident-response, on-call-doctrine — both structural, not state-of-mind-only. A senior engineer could add this to their team's actual practice on Monday."
+}
