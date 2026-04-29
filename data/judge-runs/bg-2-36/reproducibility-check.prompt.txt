@@ -1,0 +1,245 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.36",
+  "sanskrit_devanagari": "अवाच्यवादांश्च बहून्वदिष्यन्ति तवाहिताः ।\nनिन्दन्तस्तव सामर्थ्यं ततो दुःखतरं नु किम् ॥ ३६ ॥",
+  "sanskrit_iast": "avācya-vādāṁś ca bahūn vadiṣyanti tavāhitāḥ |\nnindantas tava sāmarthyaṁ tato duḥkhataraṁ nu kim || 36 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अवाच्यवादान्",
+      "iast": "avācya-vādān",
+      "meaning": "unutterable / indecent words"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "बहून्",
+      "iast": "bahūn",
+      "meaning": "many"
+    },
+    {
+      "sanskrit": "वदिष्यन्ति",
+      "iast": "vadiṣyanti",
+      "meaning": "will speak"
+    },
+    {
+      "sanskrit": "तव",
+      "iast": "tava",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "अहिताः",
+      "iast": "ahitāḥ",
+      "meaning": "enemies / ill-wishers"
+    },
+    {
+      "sanskrit": "निन्दन्तः",
+      "iast": "nindantaḥ",
+      "meaning": "while disparaging"
+    },
+    {
+      "sanskrit": "तव",
+      "iast": "tava",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "सामर्थ्यम्",
+      "iast": "sāmarthyam",
+      "meaning": "ability / prowess"
+    },
+    {
+      "sanskrit": "ततः",
+      "iast": "tataḥ",
+      "meaning": "than that"
+    },
+    {
+      "sanskrit": "दुःखतरम्",
+      "iast": "duḥkhataram",
+      "meaning": "more painful"
+    },
+    {
+      "sanskrit": "नु",
+      "iast": "nu",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "किम्",
+      "iast": "kim",
+      "meaning": "what"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/36/",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Your enemies will describe you in many unkind words and scorn your ability. What could be more painful for you?",
+      "raw_capture_path": "data/sources/raw/bg-2-36-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/36",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Your enemies will defame and humiliate you with unkind words, disparaging your might. Alas, what could be more painful than that?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/36/",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 239-char full purport)",
+      "verbatim_excerpt": "Lord Kṛṣṇa was at first surprised at Arjuna's uncalled-for plea for compassion, and He described his compassion as befitting the non-Āryans. Now in so many words, He has proved His statements against Arjuna's so-called compassion.",
+      "verbatim_excerpt_length": 232,
+      "verbatim_full_length": 239,
+      "raw_full_path": "data/sources/raw/bg-2-36-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-36/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.36 Ca, and besides; tava, your; ahitah, enemies; vadisyanti, will speak; bahun, many, various kinds of; avacya-vadan, indecent words, unutterable words; nindantah, while denigrating, scorning; tava, your; samarthyam, might earned from battles against Nivatakavaca and others. Therefore, kim nu, what can be; duhkhataram, more painful; tatah, than that, than the sorrow arising from being scorned? That is to say, there is no greater pain than it.",
+      "verbatim_excerpt_length": 446,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-36-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.36 as the intensification of the disgrace argument begun in 2.34-2.35. The point is the specific kind of pain: not the abstract pain of dishonor but the concrete pain of one's enemies — those who already wish you ill — speaking many indecent words while denigrating the very capability you have earned through prior battles (sāmarthyam earned against Nivātakavaca and others). The 'nu kim' rhetorical question closes the argument: there is no greater pain than this."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-36/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.36 Moreover, your enemies, the sons of Dhrtarastra, will make many remarks unutterably slanderous and disparaging to heroes, saying, 'How can this Partha stand in the presence of us, who are heroes, even for a moment? His prowess is elsewhere than in our presence.' Can there be anything more painful to you than this?",
+      "verbatim_excerpt_length": 322,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-36-bgus.json",
+      "summary_paraphrase": "Ramanuja makes the disparagement specific by quoting the kind of words the Kauravas would say: 'How can Pārtha stand in our presence even for a moment? His prowess shows up elsewhere, not in front of us.' The pain is not generic dishonor; it is the specific pain of one's earned prowess being publicly recharacterised as cowardice in the only forum where the recharacterisation will land. The verse closes by linking forward to 2.37: death in battle is preferable to subjection to disparagement of this kind."
+    },
+    {
+      "commentator": "Sri Keshava Kashmiri",
+      "tradition": "Kumara Sampradaya (Nimbarka)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-36/?cm=kesava-kasmiri",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Not only would Arjunas estimation wane in the assembly of mighty warriors but here Lord Krishna uses the word nindantah meaning to vilify. Arjunas enemies such as Duryodhana would say many unbecoming things about him such as: Look at the impotent Arjuna fleeing the battlefield like a dog with its tail between its legs.",
+      "verbatim_excerpt_length": 318,
+      "copyright_holder": "https://www.bhagavad-gita.us (Nimbarka commentary in English paraphrase)",
+      "raw_full_path": "data/sources/raw/bg-2-36-bgus.json",
+      "summary_paraphrase": "Keshava Kashmiri specifically distinguishes 'nindantaḥ' (vilification, active disparagement) from mere loss of estimation: the verse's force is that the enemies will not just think less of Arjuna but actively recharacterise his identity in a public register he cannot rebut from the sidelines."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "avācya-vādān",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "many unkind words"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "unkind words [that] defame and humiliate"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "indecent words, unutterable words (avacya — that which should not be uttered)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "remarks unutterably slanderous and disparaging to heroes — i.e., the specific kind of slander a warrior cannot publicly answer"
+        }
+      ],
+      "explanation": "The Sanskrit 'avācya' is technically 'that which should not be spoken' — words that breach the bounds of decent address. Prabhupada and Mukundananda flatten this to 'unkind' / 'defamatory.' Shankara preserves the technical sense ('unutterable / indecent'). Ramanuja localizes it: not just any slander, but the slander a hero specifically cannot rebut — public recharacterisation of one's prowess as cowardice in front of the heroes whose opinion was the original constituency for that prowess. The distinction matters: the verse is not about general criticism but about the specific pain of having one's professional reputation rewritten in the only forum where the rewrite has weight."
+    }
+  ],
+  "literal_meaning": "Your enemies will speak many unutterable words while disparaging your prowess. What is more painful than that?",
+  "traditional_meaning": "The third and most pointed verse in Krishna's three-verse sequence (2.34, 2.35, 2.36) closing the disgrace argument before the symmetric-outcome pivot at 2.37. 2.34 establishes that ill-fame outlasts death; 2.35 establishes that those whose esteem you held will reread you as cowardly; 2.36 sharpens both: it is your enemies — those who already wish you ill — who will rewrite your earned prowess (sāmarthyam) as inability, in many indecent words, in the very forum (the warrior assembly) where the rewriting has weight. The commentarial tradition (Shankara, Ramanuja, Sridhara, Keshava, Vishvanatha) reads the closing 'tato duḥkhataraṁ nu kim' as the rhetorical climax of the disgrace argument: there is no greater pain than this. The verse does not argue this is the deepest possible suffering metaphysically; it argues this is the specific suffering Arjuna's chosen retreat would produce, and it is sharper than the suffering he is trying to avoid by retreating. After 2.36, Krishna pivots in 2.37 to the symmetric outcome (death wins heaven, victory wins the earth) — the disgrace argument has done its closing work and Krishna can now offer the resolution.",
+  "engineering": {
+    "translation": "There is a specific kind of pain Krishna names here as the sharpest version of the disgrace argument. The peers who once respected your earned prowess — through migrations executed cleanly, incidents handled without blame, hard schema choices that survived three product cycles — those colleagues are not the threat. The threat is engineers who already wished you would fail: the bypassed reviewer, the architect whose design you replaced, the senior whose roadmap you rerouted. Watching you abandon a migration mid-flight, those people will not say 'they had reasons' in private. They will say 'they could not finish what they started,' in the only forum where rewriting lands — Slack, the architecture review channel, the post-mortem. Indecent words about your capability, spoken by enemies in the assembly of warriors. The verse claims there is no greater pain than this, for someone whose identity is the work.",
+    "concrete_scenario": "It is week three of a Postgres-to-Aurora migration that has visibly slipped, and the senior engineer leading it has begun privately drafting a memo titled 'Pausing the Migration: Lessons.' The memo is well-reasoned. The risk register is honest. There are real arguments in it. What the memo does not name: the principal whose original Postgres design this migration was retiring, who has been quiet on the architecture review thread but has been forwarding slip-summary screenshots to two other principals. There is also the staff engineer the senior bypassed when designing the migration plan, who watched the bypass and remembered. If the project pauses now, the memo will circulate; the senior will not be the one circulating it. By the next architecture review, two principals will have read a version of events in which the migration failed because the senior could not handle Aurora's connection-pooling model — a version that will be partially true and entirely framed by people who already wished the project would fail. The senior's earned reputation — three previous migrations that landed clean, two production-grade Datadog dashboards now in widespread use — will be reread retrospectively as 'lucky.'",
+    "falsifiability": "The analog fails if a reader uses it to override genuinely correct decisions to pause or kill projects under social pressure. Not every project should be finished; some should be killed, and the killing is the right call even when enemies will rewrite the kill as failure. The verse identifies a specific failure mode (retreat under social-cost pressure when the technical case for completion is sound) — it does not authorize finishing every project to deny critics their narrative.",
+    "counter_example": "When the senior engineer's enemies are RIGHT — when the migration genuinely cannot land, when the technical reading from outside the project is more honest than the reading from inside — the disgrace argument inverts. Krishna in 2.36 is not telling Arjuna 'fight because critics will mock you'; he is saying 'fight because the technical case for fighting is sound, AND retreat will additionally produce this pain.' The verse layers a social cost onto a sound technical conclusion; it does not invent a technical conclusion from a social cost. Chapter 18.66's right-renunciation is the corrective.",
+    "implication": "Before pausing a project that has visibly slipped, name explicitly which colleagues will narrate the pause, in which forums, with which framings — and weigh that against the technical case for completion.",
+    "quotable_line": "The peers who already wished you would fail will rewrite the slip as inability — in the architecture review channel, where the rewriting lands.",
+    "tags": [
+      "engineer-paralysis",
+      "duty",
+      "team-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

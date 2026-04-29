@@ -1,0 +1,222 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.38",
+  "sanskrit_devanagari": "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।\nततो युद्धाय युज्यस्व नैवं पापमवाप्स्यसि ॥ ३८ ॥",
+  "sanskrit_iast": "sukha-duḥkhe same kṛtvā lābhālābhau jayājayau |\ntato yuddhāya yujyasva naivaṁ pāpam avāpsyasi || 38 ||",
+  "anvaya": [
+    {
+      "sanskrit": "सुखदुःखे",
+      "iast": "sukha-duḥkhe",
+      "meaning": "happiness and unhappiness"
+    },
+    {
+      "sanskrit": "समे",
+      "iast": "same",
+      "meaning": "as the same / equal"
+    },
+    {
+      "sanskrit": "कृत्वा",
+      "iast": "kṛtvā",
+      "meaning": "having made / treating"
+    },
+    {
+      "sanskrit": "लाभालाभौ",
+      "iast": "lābhālābhau",
+      "meaning": "gain and loss"
+    },
+    {
+      "sanskrit": "जयाजयौ",
+      "iast": "jayājayau",
+      "meaning": "victory and defeat"
+    },
+    {
+      "sanskrit": "ततः",
+      "iast": "tataḥ",
+      "meaning": "thereafter / then"
+    },
+    {
+      "sanskrit": "युद्धाय",
+      "iast": "yuddhāya",
+      "meaning": "for battle"
+    },
+    {
+      "sanskrit": "युज्यस्व",
+      "iast": "yujyasva",
+      "meaning": "engage / yoke yourself"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus / in this way"
+    },
+    {
+      "sanskrit": "पापम्",
+      "iast": "pāpam",
+      "meaning": "sin / evil"
+    },
+    {
+      "sanskrit": "अवाप्स्यसि",
+      "iast": "avāpsyasi",
+      "meaning": "you will incur / obtain"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/38/",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Do thou fight for the sake of fighting, without considering happiness or distress, loss or gain, victory or defeat – and by so doing you shall never incur sin.",
+      "raw_capture_path": "data/sources/raw/bg-2-38-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/38",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Fight for the sake of duty, treating alike happiness and distress, loss and gain, victory and defeat. Fulfilling your responsibility in this way, you will never incur sin."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/38/",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1223-char full purport)",
+      "verbatim_excerpt": "Lord Kṛṣṇa now directly says that Arjuna should fight for the sake of fighting because He desires the battle. There is no consideration of happiness or distress, profit or loss, victory or defeat in the activities of Kṛṣṇa consciousness. That everything should be performed for the sake of Kṛṣṇa is transcendental consciousness; so there is no reaction to material activities.",
+      "verbatim_excerpt_length": 376,
+      "verbatim_full_length": 1223,
+      "raw_full_path": "data/sources/raw/bg-2-38-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-38/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.38 As regards that, listen to this advice for you then you are engaged in battle considering it to be your duty: Krtva, treating; sukha-duhkhe, happiness and sorrow; same, with equanimity, i.e. without having likes and dislikes; so also treating labha-alabhau, gain and loss; jaya-ajayau, conquest and defeat, as the same; tatah, then; yuddhaya yujyasva, engage in battle.",
+      "verbatim_excerpt_length": 376,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-38-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.38 as the FIRST explicit statement of equanimity (samatva) as the disposition required for action that does not bind. The three pairs (sukha/duḥkha, lābha/alābha, jaya/ajaya) are not collapsed — they are treated as the same (same kṛtvā), which is different from being made the same. The actor remains aware that pleasure differs from pain, gain from loss, victory from defeat; the equanimity is the actor's stance toward the pairs, not the erasure of the pairs. Shankara also notes the verse's bracketed status: it is incidental to the main metaphysical argument (which is about realisation, not action), but sets up the explicit yoga-of-action doctrine that 2.39 will name."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-38/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.38 Thus, knowing the self to be eternal, different from the body and untouched by all corporeal qualities, remaining unaffected by pleasure and pain resulting from the weapon-strokes etc., inevitable in a war, as also by gain and loss of wealth, victory and defeat, and keeping yourself free from attachment to heaven and such other frutis, begin the battle considering it merely as your own duty.",
+      "verbatim_excerpt_length": 397,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-38-bgus.json",
+      "summary_paraphrase": "Ramanuja reads 2.38 as the synthesis: knowledge of the self (sāṅkhya, 2.11-2.30) becomes the basis on which one can act 'unaffected' by the three pairs. The pleasure/pain pair is corporeal (body-level), gain/loss is economic, victory/defeat is socio-political — three different registers, all of which the actor passes through but is not changed by. Ramanuja explicitly calls 'pāpam' here 'transmigratory existence which is misery' — the verse is not about avoiding moral fault, it is about not creating bondage. After 2.38, Krishna 'begins to expound the Yoga of work' (i.e., 2.39 onwards). Ramanuja's reading positions 2.38 as the seed-statement of the doctrine that 2.47 will state in its mature form."
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-38/?cm=sridhara",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Regarding as equal pleasure and pain, loss and gain and also the cause of both these dualities which is victory or defeat. The attribute of equanimity is absolute freedom from elation and despondency. Giving up all notions of what is pleasurable, being equipoised by whatever comes of its own accord and by fighting the battle as a matter of ksatriya duty Arjuna will not incur any sin.",
+      "verbatim_excerpt_length": 387,
+      "copyright_holder": "https://www.bhagavad-gita.us (Sridhara commentary in English paraphrase)",
+      "raw_full_path": "data/sources/raw/bg-2-38-bgus.json",
+      "summary_paraphrase": "Sridhara names samatva as 'absolute freedom from elation and despondency' — the dispositional state, not a doctrine. He notes the structure: pleasure/pain and gain/loss are the surface dualities; victory/defeat is named as the cause of those dualities (i.e., the deeper layer that produces the felt experience). The actor takes the same disposition toward all three. Sridhara also makes the negation explicit: 'pāpam' here is the sin of NOT acting — refraining from the battle. The equanimity does not produce sin; the failure to engage from equanimity does."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sukha-duḥkhe same kṛtvā lābhālābhau jayājayau",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "without considering happiness or distress, loss or gain, victory or defeat"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "treating alike happiness and distress, loss and gain, victory and defeat"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "treating with equanimity (samatva), without having likes and dislikes; the pairs remain pairs, the actor's stance toward them is the same"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "remaining unaffected by three different registers (corporeal, economic, socio-political); knowledge of the self is the basis of the unaffectedness"
+        },
+        {
+          "source": "Sridhara (per summary)",
+          "rendering": "absolute freedom from elation and despondency; victory/defeat is the cause of pleasure/pain and gain/loss, so all three pairs collapse into a single dispositional move"
+        }
+      ],
+      "explanation": "The doctrinal stake: is the actor erasing the pairs (treating them as not-different) or holding the pairs while taking the same stance toward each? Prabhupada's 'without considering' suggests near-erasure. Mukundananda's 'treating alike' is structurally truer: the pairs are kept, the actor's response is the same. Shankara explicitly says the disposition is 'without likes and dislikes' — i.e., without rāga and dveṣa toward the pairs, not without recognition of the pairs. The distinction matters because the verse is the seed of equanimity-doctrine: if the pairs are erased, the actor cannot read feedback (pleasure/pain) or measure outcomes (gain/loss) or update on results (victory/defeat). The verse instead requires the actor to read all three honestly while not being moved-into-bondage by them. This is the doctrinal seed of 2.47 (do the action, do not grasp the fruit) and 2.48 (yoga-stha kuru karmāṇi, established in yoga, do actions)."
+    }
+  ],
+  "literal_meaning": "Treating happiness and unhappiness as the same, gain and loss, victory and defeat — then engage in battle. Thus you will not incur sin.",
+  "traditional_meaning": "The first explicit appearance of the equanimity doctrine (samatva) in the Gita and the doctrinal seed of the karma-yoga teaching that 2.39-2.51 elaborates. Three pairs are named: sukha/duḥkha (felt-experience), lābha/alābha (gain/loss), jaya/ajaya (victory/defeat). The actor treats all three pairs as the same — 'same kṛtvā' — which the commentators read as 'with the same dispositional stance,' not as 'as if they were not different.' The pairs remain pairs; the actor's stance toward them is the same. Once that disposition is achieved, engagement in action (yuddhāya yujyasva) does not produce bondage (pāpam, read by Ramanuja as 'transmigratory existence,' i.e., bondage rather than moral fault). The verse is structurally critical: 2.39 names the two methods (sāṅkhya and yoga); 2.47 gives the mature statement; 2.48 gives the imperative form ('yoga-stha kuru karmāṇi'). 2.38 contains all of these in seed. Shankara reads it as 'incidental' to the main metaphysical argument but as the explicit setup for the yoga-of-action exposition. Ramanuja reads it as the synthesis of self-knowledge with right action.",
+  "engineering": {
+    "translation": "Three pairs are named, corresponding to three distinct registers of the engineer's daily experience. Pleasure and pain — felt response as Datadog metrics move up or down at sunrise. Gain and loss — the launch reaches its conversion target, or misses. Victory and defeat — a competitor publishes first, or the team's release becomes the canonical reference. Krishna's instruction operates carefully: maintain identical dispositional posture toward all three categories, and from THAT stabilized condition engage the action. The pairs themselves are not erased — telemetry still fluctuates, targets still carry numbers, competitors still launch. Erasure would mean refusing observation, refusing measurement, refusing recognition. That is precisely what is NOT being requested. What IS requested is the dispositional movement: appear identical regardless of which direction each pair resolved. From that established state, engage. Engagement performed from this stabilized condition, the verse promises, does not entrench bondage.",
+    "concrete_scenario": "The senior engineer's calendar tomorrow contains three checkpoints. At 8 a.m., the conversion dashboard for Tuesday's launch will hold a full day of telemetry from Datadog. At 11 a.m., the post-launch retrospective with the PM measures outcomes against the target established six weeks earlier. At 2 p.m., a competitor publicly demonstrates a feature the team has been building in parallel. Three pairs in three time-slots. Krishna's instruction: appear at 8 a.m. as the same person regardless of overnight metric direction. Appear at 11 a.m. with identical disposition whether the launch hit or missed. Appear at 2 p.m. without the competitor's demonstration redefining the team's relationship to its roadmap. This is not stoic suppression. Falling metrics constitute information; missed targets constitute information; competitor releases constitute information. Each gets interpreted accurately, the operational model updates, subsequent decisions follow — without the data redefining identity. From that established condition, engage subsequent deploys, architecture decisions, code reviews. Engagement performed from this stabilized state, the verse claims, does not entrench the identification-with-outcomes patterns that eventually calcify into burnout, blame-displacement, defensive code.",
+    "falsifiability": "The analog fails if a reader uses it to justify ignoring Datadog, dismissing the missed target, or suppressing legitimate concern about the competitor. Equanimity-with-care is not stoic suppression; it is reading the data accurately while not letting the data rewrite the reader's identity. An engineer who reads the dashboard going down with no internal response, or who reports the missed target without it informing the next iteration, has not achieved equanimity — they have achieved disengagement, which the verse rejects in its very next clause ('engage in battle').",
+    "counter_example": "When a particular outcome SHOULD change the engineer's relationship to the work — when a missed target reveals the team is building something users do not want, when a competitor's release reveals the architecture choice was wrong, when a dashboard regression is the signal the system has broken in a way that requires shutdown — the equanimity stance is not 'be unmoved.' Krishna's three pairs are first-order experiential pairs (day-to-day pleasure/pain, launch-level gain/loss, competitive jaya/ajaya); his instruction is that ordinary engagement need not produce bondage. He does not instruct ignoring signals that the work itself is wrong. The corrective is in Ch. 3 (right action requires reading the world accurately) and Ch. 18.66 (some dharmas should be released).",
+    "implication": "Practice arriving at the dashboard, the retrospective, and the competitor's release as the same engineer regardless of which way each one moved. Read all three honestly. Do not let any of the three rewrite who you are. From that state, engage the next action.",
+    "quotable_line": "Read the dashboard, the target, and the competitor — but arrive identical regardless of which way each one moved.",
+    "tags": [
+      "outcome-detachment",
+      "shipping-discipline",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

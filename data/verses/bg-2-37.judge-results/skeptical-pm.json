@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a launch has been deferred under the framing 'I do not know which outcome is worse,' run the dilemma-realness check: enumerate the two branches, ask what the team learns from each, and ask whether the third branch (defer further) generates any learning the deploy itself would not generate within 24 hours. If both branches contain learning and the third does not, the deferral is not caution — it is constructed dilemma.",
+  "actionable_decision": "Deploys deferred three sprints with no new technical information acquired during the deferrals are candidates for the realness check. If the check confirms a constructed dilemma, the action is to run the deploy with rollback ready, not to schedule another decision meeting.",
+  "objection": "The verse risks being weaponized to override genuine caution about asymmetric-failure-mode actions. The counter-example explicitly carves out the cases where the symmetric reading does not apply (one-way migrations with data-loss failure, regulatory exposure with long remediation windows). The PM-action is the realness check, which is a planning tool that itself screens for asymmetric cases."
+}

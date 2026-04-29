@@ -1,0 +1,5 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "A 'dilemma-realness check' for engineering decision meetings: when a deploy or release has been deferred multiple sprints under the framing 'I do not know which outcome is worse,' enumerate the two branches, ask what the team learns from each, and ask whether further deferral generates any learning the deploy itself would not generate within 24 hours. If both branches contain learning and deferral does not, the deferral is constructed dilemma; the action is to deploy with rollback ready.",
+  "verdict_reason": "The engineering layer's claim is reducible to a concrete planning step (the realness check). The implication field directly states the artifact ('check whether the framing is real; if both outcomes contain the next move, the deferral is the dilemma constructed in place of action'). The deferred rate-limiter scenario is reproducible across organizations: any team with a multi-sprint-deferred launch can run the realness check."
+}

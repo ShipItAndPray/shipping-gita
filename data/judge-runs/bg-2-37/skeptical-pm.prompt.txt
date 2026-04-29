@@ -1,0 +1,232 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.37",
+  "sanskrit_devanagari": "हतो वा प्राप्स्यसि स्वर्गं जित्वा वा भोक्ष्यसे महीम् ।\nतस्मादुत्तिष्ठ कौन्तेय युद्धाय कृतनिश्चयः ॥ ३७ ॥",
+  "sanskrit_iast": "hato vā prāpsyasi svargaṁ jitvā vā bhokṣyase mahīm |\ntasmād uttiṣṭha kaunteya yuddhāya kṛta-niścayaḥ || 37 ||",
+  "anvaya": [
+    {
+      "sanskrit": "हतः",
+      "iast": "hataḥ",
+      "meaning": "slain"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "either"
+    },
+    {
+      "sanskrit": "प्राप्स्यसि",
+      "iast": "prāpsyasi",
+      "meaning": "you will obtain"
+    },
+    {
+      "sanskrit": "स्वर्गम्",
+      "iast": "svargam",
+      "meaning": "heaven"
+    },
+    {
+      "sanskrit": "जित्वा",
+      "iast": "jitvā",
+      "meaning": "having conquered"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "भोक्ष्यसे",
+      "iast": "bhokṣyase",
+      "meaning": "you will enjoy"
+    },
+    {
+      "sanskrit": "महीम्",
+      "iast": "mahīm",
+      "meaning": "the earth"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "उत्तिष्ठ",
+      "iast": "uttiṣṭha",
+      "meaning": "arise / stand up"
+    },
+    {
+      "sanskrit": "कौन्तेय",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī"
+    },
+    {
+      "sanskrit": "युद्धाय",
+      "iast": "yuddhāya",
+      "meaning": "for battle"
+    },
+    {
+      "sanskrit": "कृतनिश्चयः",
+      "iast": "kṛta-niścayaḥ",
+      "meaning": "with firm resolve"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/37/",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O son of Kuntī, either you will be killed on the battlefield and attain the heavenly planets, or you will conquer and enjoy the earthly kingdom. Therefore, get up with determination and fight.",
+      "raw_capture_path": "data/sources/raw/bg-2-37-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/37",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "If you fight, you will either be slain on the battlefield and go to the celestial abodes, or you will gain victory and enjoy the kingdom on earth. Therefore arise with determination, O son of Kunti, and be prepared to fight."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/37/",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 165-char full purport)",
+      "verbatim_excerpt": "Even though there was no certainty of victory for Arjuna's side, he still had to fight; for, even being killed there, he could be elevated to the heavenly planets.",
+      "verbatim_excerpt_length": 162,
+      "verbatim_full_length": 165,
+      "raw_full_path": "data/sources/raw/bg-2-37-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-37/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.33-37 Atha ca etc., upto krta-niscavah. Accepting what the opponent has stated, this pentad of verses is narrated as an argument: 'If your goodself prefers to abide by the generally accepted practice, even then this [fighting] must be undertaken necessarily'.",
+      "verbatim_excerpt_length": 264,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-37-bgus.json",
+      "summary_paraphrase": "Shankara groups 2.33-2.37 as a single argumentative pentad. The structure: even granting Arjuna's worldly framing (kṣatriya honor, public esteem, fear of dishonor), the conclusion is the same — the fight must be undertaken. 2.37 closes the pentad with the symmetric-outcome resolution: slain → heaven; victorious → earth. Both are wins, in the framework Arjuna himself accepts. The verse uses 'tasmāt' (therefore) to pull the conclusion of the disgrace argument forward and the imperative 'uttiṣṭha' (arise) to make the conclusion an action, not a doctrine. Shankara reads this as a concession argument: the real argument is the metaphysical one (2.11-2.30); 2.31-2.37 is the worldly-frame argument given as additional support."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-37/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.37 If you are slain in a righteous war by enemies, you shall thereby attain supreme bliss. Or, slaying the enemies, you shall enjoy this kingdom without obstacles. As the duty called war, when done without attachment to the fruits, becomes the means for winning supreme bliss, you will attain that supreme bliss.",
+      "verbatim_excerpt_length": 314,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-37-bgus.json",
+      "summary_paraphrase": "Ramanuja gives 2.37 a niṣkāma-karma reading already — anticipating the explicit doctrine in 2.38-2.47. The duty (yuddha) becomes the means to liberation when performed without attachment to the fruits. Both outcomes (slain or victorious) become forms of supreme bliss when the action is done from this stance. The verse is therefore not just a 'both outcomes win' argument; it is a foreshadowing of the karma-yoga doctrine that 2.38 will state explicitly. Ramanuja's reading anchors 2.37 forward into the karma-yoga block rather than backward into the disgrace argument."
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-37/?cm=sridhara",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The previous statement given by Arjuna in Chapter 2, verse six, about his concern of not knowing which is better: to conquer the enemy or be conquered by the enemy, is now being clarified by the Supreme Lords instruction in this verse, that by either conquering he will win dominion of the earth or by being conquered he will directly attain the heavenly spheres.",
+      "verbatim_excerpt_length": 363,
+      "copyright_holder": "https://www.bhagavad-gita.us (Sridhara commentary in English paraphrase)",
+      "raw_full_path": "data/sources/raw/bg-2-37-bgus.json",
+      "summary_paraphrase": "Sridhara explicitly links 2.37 back to Arjuna's own original confusion at 2.6 ('I do not know which is better — that we conquer them or they conquer us'). 2.37 is the closure of that question: Krishna answers 2.6 directly, 30 verses later. Both branches of Arjuna's stated dilemma are wins. The dilemma was not actual; Arjuna constructed it under fear."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "hato vā prāpsyasi svargaṁ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "either you will be killed on the battlefield and attain the heavenly planets"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "If you fight, you will either be slain on the battlefield and go to the celestial abodes"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "concession argument — granting Arjuna's worldly framing, both outcomes are wins (slain → heaven; victorious → earth)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "niṣkāma-karma foreshadow — the duty done without attachment to fruits becomes the means to liberation in either outcome"
+        },
+        {
+          "source": "Sridhara (per summary)",
+          "rendering": "direct answer to Arjuna's own dilemma at 2.6: both branches he stated are wins"
+        }
+      ],
+      "explanation": "All translators agree on the surface: slain → heaven, victorious → earth. They differ on what argumentative work the verse is doing. Shankara reads it as the closing of the worldly-frame concession (granting Arjuna's own value system, the conclusion is the same). Ramanuja reads it as the bridge into karma-yoga — the symmetry only holds because the action is done without attachment. Sridhara reads it as the direct closure of Arjuna's own 2.6 dilemma. The literal translation is uncontroversial; the doctrinal scope of the symmetric-outcome claim is what the commentators sharpen."
+    }
+  ],
+  "literal_meaning": "Slain, you will obtain heaven; or, victorious, you will enjoy the earth. Therefore, arise, son of Kuntī, with firm resolve to fight.",
+  "traditional_meaning": "The closing verse of the worldly-frame argument (Shankara's pentad 2.33-2.37) and the pivot to the karma-yoga discipline that 2.38 will name explicitly. The argument's structure: 2.31 establishes svadharma; 2.32-2.36 close every escape route from svadharma (a kṣatriya offered righteous battle that is the open gate to heaven; failure to fight means dharma loss, sin, ill-fame; ill-fame outlasts death; the formerly esteemed will rewrite you as cowardly; your enemies will speak indecent words denigrating your prowess). 2.37 then resolves: both outcomes of fighting (slain or victorious) are wins in the framework Arjuna himself accepts. The dilemma Arjuna constructed at 2.6 is not real — both branches lead forward. Therefore, arise. The 'tasmāt uttiṣṭha kaunteya yuddhāya kṛta-niścayaḥ' is the imperative culmination of the worldly-frame argument. The pivotal commentarial split: Shankara reads the verse as concession (granting Arjuna's value system); Ramanuja reads it as niṣkāma-karma already (the symmetry holds only when action is detached from fruits). Both readings agree that 2.37 closes one argument and opens the next, with 2.38 stating the equanimity doctrine explicitly.",
+  "engineering": {
+    "translation": "After the disgrace argument has closed every escape route, the verse offers a structural resolution: the action you fear has only two terminal states, and both of them are forward. Slain in battle, you reach heaven; victorious, you enjoy the earth. In engineering: every launch produces useful information from either branch, and the only authentic failure mode is non-launch. The migration that lands cleanly hands you a new performance envelope to scale into. The migration that fails hands you the precise failure curve and the operational lessons no staging environment will reveal. Both are substrate for whatever follows. The deploy that pushes conversion upward unlocks the next experiment; the deploy that pushes conversion downward unlocks the diagnosis you have been guessing at. Krishna closes the verse with an imperative — 'therefore arise, son of Kuntī, with firm resolve to fight' — and the imperative is the structural point. The argument is finished. The action is the conclusion. The dilemma constructed at 2.6 was unreal; both branches resolve into wins; therefore stand and engage.",
+    "concrete_scenario": "It is the night before the rate-limiter rollout that has been deferred three sprints in a row. The senior engineer holds the deploy ticket open in GitHub and is once again running through the dilemma. Roll out, and if the new policy starves a tail of legitimate customers the dashboard will show the regression by morning. Hold, and the abuse traffic continues to cost another week of inflated infrastructure spend. The dilemma has felt, each of these three weeks, like a 50/50 of which way is worse. Krishna's response is structural: both branches contain the next move. If the rollout starves legitimate traffic, the failure mode will be visible within two hours in Datadog, the rollback is one feature-flag toggle away, and the senior will know exactly which CIDR ranges to whitelist. If the rollout works, the abuse curve will fall and the senior will gain the data to defend the next, sharper rate-limiter. There is no third branch where the engineer learns this without launching. The 'tasmād uttiṣṭha' is the actual instruction: close the tab, run the deploy, watch the dashboard. The dilemma was constructed by deferral; the deploy dissolves it.",
+    "falsifiability": "The analog fails if a reader uses it to justify launching things they have not actually engineered — skipping the rollback plan, skipping observability wiring, skipping the canary, on the grounds that 'both outcomes are useful.' Krishna's symmetry holds for actions that are technically prepared. An unprepared deploy whose failure mode is silent corruption does not produce useful information either way; it produces ambiguous data plus a bad incident. The verse rewards the action that has been engineered, not the action that uses the verse as cover for skipping the engineering work.",
+    "counter_example": "When the action genuinely has an asymmetric failure mode — a one-way schema migration whose failure case is data loss the team cannot recover from, a public release whose failure case is a regulatory action with a 90-day remediation window — the symmetric-outcome reading does not apply. Krishna's case is one in which both branches lead forward. Some engineering actions do not have that property. The verse does not bless those; it blesses the launches engineered to make their failure mode educational rather than terminal.",
+    "implication": "When a launch has been deferred under the framing 'I do not know which outcome is worse,' check whether the framing is real. If both outcomes contain the next move, the deferral is the dilemma constructed in place of action.",
+    "quotable_line": "Both outcomes contain the next move; the only loss is the launch that does not happen.",
+    "tags": [
+      "shipping-discipline",
+      "engineer-paralysis",
+      "decision-paralysis"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

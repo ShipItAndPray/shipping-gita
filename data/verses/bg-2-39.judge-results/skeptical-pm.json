@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Audit your team's quarterly plan for the architectural-reading vs shipping-discipline distinction. If both kinds of work share the same calendar slots, the same review forums, and the same headcount budget, the team is collapsing them. Operationalize the verse's META move by: (a) naming both disciplines explicitly in the planning doc, (b) allocating distinct review forums (architecture review channel vs incident review), (c) tracking distinct success metrics (architecture-debt named per quarter vs deploy cadence + post-mortem quality).",
+  "actionable_decision": "Teams whose quarterly plan fails the audit (only one discipline named, only one calendar slot, only one set of metrics) should split the plan before the next quarterly cycle. The split is itself the engineering analog of Krishna's 'tu' pivot — 'you have heard about THIS, now hear about THAT.'",
+  "objection": "Risks being misread as 'just plan harder.' The engineering layer's structural claim is more specific: the META act of naming the two disciplines is what allows them to be planned distinctly; without the naming, the planning will continue to collapse them. The PM-action is the audit + naming + split, not generic better-planning."
+}

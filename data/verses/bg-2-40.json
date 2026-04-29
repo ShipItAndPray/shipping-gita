@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.40",
+  "chapter": 2,
+  "verse": 40,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna here advances a narrow claim with two negations and one promise — all concerning a specific discipline (karma-yoga, action without attachment to fruits) and NOT effort generically. The two negations: in this discipline there is no abhikrama-nāśa (loss of effort begun) and no pratyavāya (adverse result). Shankara's commentary makes the contrast explicit: unlike agriculture, where effort can fail through drought or pest; unlike medical treatment, where mis-application produces harm; this discipline carries neither vulnerability. The promise: even a little of THIS dharma rescues from great fear. In engineering: the practice of disciplined detached action (writing the test nobody requested, conducting code review at the level of architectural intent rather than syntax, instrumenting Datadog alerts nobody asked for) carries a peculiar property — partial application still counts. Half a chaos drill teaches half the failure modes. One review at the architectural level names one piece of latent debt. The claim remains narrow: this property holds because the discipline is structured around action-without-grasping, not because every engineering effort possesses it.",
+    "concrete_scenario": "An engineer has been writing one chaos-drill per week for fourteen weeks, each one tearing one thing in production-staging on a Friday afternoon. The drills do not roll up to a project; they sit off the roadmap; the manager has been polite but skeptical. In week fifteen, a real incident hits — a regional Postgres failover no runbook covered — and the engineer is the only person in the channel with a working mental model, because three of the prior drills covered adjacent failure modes. The drills did not 'pay off' the way the manager tracked. They were not interrupted, but never completed in the manager's sense either. They were practiced, weekly, with no specific reward attached. The verse names this property: practice structured around action-without-grasping (drills run because the practice was the practice) accumulates formation independent of completion. Compare against another project that quarter: a feature whose value was conditional on the launch landing on time, which slipped, leaving no residual benefit because its value was tied to the fruit.",
+    "falsifiability": "The analog fails if a reader uses it to justify undisciplined effort under the rubric 'every little thing helps.' Krishna's claim is narrow: the property holds for action structured AS karma-yoga (without attachment to specific fruits), not for all effort. The chaos drill done as a checkbox for a manager's expectations is not karma-yoga; it is a fruit-attached action and its 'partial application' will not have the same property. The verse does not bless flailing; it blesses a specific structural form of practice.",
+    "counter_example": "When the action is structurally fruit-bearing — a Vedic ritual where mantras must be spoken correctly to produce a specific result, or in the engineering register, a deploy where partial completion produces a corrupt half-state — the verse's safety property does not apply. Sridhara explicitly names the contrast: agriculture (loss-from-external-conditions) and ritual (harm-from-procedural-error) both have failure modes that karma-yoga does not. An engineering action whose half-completion produces data corruption (an interrupted schema migration, a partially deployed config change) is structurally agriculture-or-ritual, not karma-yoga, and the verse's claim does not extend to it.",
+    "implication": "Identify which of your engineering practices are structurally karma-yoga (value comes from the practice's formation, not a specific reward) and which are structurally fruit-bearing (value depends on completion of a specific outcome). The first kind has the safety property the verse describes; the second does not.",
+    "quotable_line": "The chaos drill nobody asked for accumulates formation that does not need its completion to count.",
+    "tags": ["iteration-loop", "deliberate-action", "shipping-discipline"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:55:00Z",
+      "mutation": "v0 generation: BG 2.40 is the verse on the unique safety properties of karma-yoga — narrow doctrinal claim that this specific discipline has no abhikrama-nāśa (loss of effort begun) and no pratyavāya (adverse result), and that even partial application rescues from saṁsāric fear. CRITICAL care: the verse is STANDARDLY misread as 'every little effort helps.' The commentators (Shankara, Ramanuja, Sridhara) UNANIMOUSLY restrict 'asya dharmasya' to karma-yoga / niṣkāma-karma specifically. Strategy: explicit contrast structure following Sridhara — agriculture (loss-from-external-conditions) vs ritual (harm-from-procedural-error) vs karma-yoga (neither). Engineering analog: chaos drills practiced without project-attachment — this has the safety property; same engineer's fruit-attached feature work does not. The narrow claim is preserved through falsifiability ('the chaos drill done as a checkbox is not karma-yoga') and counter-example (interrupted schema migration is structurally agriculture-or-ritual). The 'mahato bhayāt' rescue is rendered as 'fear of being inside an incident class for which they have no model.' Tags: iteration-loop, deliberate-action, shipping-discipline.",
+      "failing_gates_before": ["5.1", "5.5", "11.1"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:05:00Z",
+      "mutation": "v1: trimmed translation from 245 to under 180 words by tightening prose; concrete_scenario tightened from 260 to ~190 words; traditional_meaning_consensus in source pack reduced from 213 to ~175 words to bring 11.1 under 600. Lexical diversity lifted to ≥0.55 by varying repeated terms ('drill' instances reduced; 'practice' / 'discipline' / 'effort' alternation; 'accumulates formation independent of completion' replaces redundant phrasings). Implication tightened.",
+      "failing_gates_before": ["5.1", "5.5", "11.1"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

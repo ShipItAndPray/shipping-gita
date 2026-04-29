@@ -1,0 +1,238 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.40",
+  "sanskrit_devanagari": "नेहाभिक्रमनाशोऽस्ति प्रत्यवायो न विद्यते ।\nस्वल्पमप्यस्य धर्मस्य त्रायते महतो भयात् ॥ ४० ॥",
+  "sanskrit_iast": "nehābhikrama-nāśo 'sti pratyavāyo na vidyate |\nsvalpam apy asya dharmasya trāyate mahato bhayāt || 40 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "in this (yoga)"
+    },
+    {
+      "sanskrit": "अभिक्रमनाशः",
+      "iast": "abhikrama-nāśaḥ",
+      "meaning": "loss of effort begun"
+    },
+    {
+      "sanskrit": "अस्ति",
+      "iast": "asti",
+      "meaning": "is / exists"
+    },
+    {
+      "sanskrit": "प्रत्यवायः",
+      "iast": "pratyavāyaḥ",
+      "meaning": "diminution / adverse result"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "विद्यते",
+      "iast": "vidyate",
+      "meaning": "is found / exists"
+    },
+    {
+      "sanskrit": "स्वल्पम्",
+      "iast": "svalpam",
+      "meaning": "a little"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "अस्य",
+      "iast": "asya",
+      "meaning": "of this"
+    },
+    {
+      "sanskrit": "धर्मस्य",
+      "iast": "dharmasya",
+      "meaning": "of dharma (here: karma-yoga)"
+    },
+    {
+      "sanskrit": "त्रायते",
+      "iast": "trāyate",
+      "meaning": "rescues / protects"
+    },
+    {
+      "sanskrit": "महतः",
+      "iast": "mahataḥ",
+      "meaning": "from great"
+    },
+    {
+      "sanskrit": "भयात्",
+      "iast": "bhayāt",
+      "meaning": "fear / danger"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/40/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In this endeavor there is no loss or diminution, and a little advancement on this path can protect one from the most dangerous type of fear.",
+      "raw_capture_path": "data/sources/raw/bg-2-40-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/40",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Working in this state of consciousness, there is no loss or adverse result, and even a little effort saves one from great danger."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/40/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1979-char full purport)",
+      "verbatim_excerpt": "Activity in Kṛṣṇa consciousness, or acting for the benefit of Kṛṣṇa without expectation of sense gratification, is the highest transcendental quality of work. Even a small beginning of such activity finds no impediment, nor can that small beginning be lost at any stage.",
+      "verbatim_excerpt_length": 269,
+      "verbatim_full_length": 1979,
+      "raw_full_path": "data/sources/raw/bg-2-40-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-40/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.40 Moreover, iha, here, in the path to Liberation, viz the Yoga of Action (rites and duties); na, there is no; abhikrama-nasah, waste of an attempt, of a beginning, unlike as in agriculture etc. The meaning is that the result of any attempt in the case of Yoga is not uncertain. Besides, unlike as in medical care, na vidyate, nor is there, nor does there arises; any pratyavayah, harm. But, svalpam api, even a little; asya, of this; dharmasya, righteousness in the form of Yoga (of Action); when pracised, trayate, saves (one); mahato bhayat, from great fear, of mundance existence characterized by death, birth, etc.",
+      "verbatim_excerpt_length": 622,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-40-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.40 with two specific contrasts: (a) UNLIKE AGRICULTURE — where an effort begun (sowing, irrigation) can fail to produce its fruit because of weather, drought, pests; in karma-yoga the effort never fails to count toward the result. (b) UNLIKE MEDICAL CARE — where a treatment incorrectly applied can produce harm (pratyavāya); in karma-yoga, even imperfect application produces no harm, only the residual benefit of the right disposition. The verse is therefore TWO claims: zero loss (abhikrama-nāśa) and zero harm (pratyavāya). 'Svalpam api' — even a little — saves one from the great fear (mahato bhayāt) of birth-death-rebirth. CRITICALLY: the 'this dharma' (asya dharmasya) is the SPECIFIC discipline of karma-yoga as stated in 2.38, not effort in general. The verse is about the unique safety properties of THIS practice."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-40/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.40 Here, in Karma Yoga, there is no loss of 'Abhikrama' or of effort that has been put in; 'loss' means the loss of efficacy to bring about the fruits. In Karma Yoga if work is begun and left unfinished, and the continuity is broken in the middle, it does not remain fruitless, as in the case of works undertaken for their fruits. No evil result is acquired if the continuity of work is broken. Even a little of this Dharma known as Karma Yoga or Niskama Karma (unselfish action without desire for any reward) gives protection from the great fear, i.e., the fear of transmigratory existence.",
+      "verbatim_excerpt_length": 591,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-40-bgus.json",
+      "summary_paraphrase": "Ramanuja sharpens Shankara's reading: the unique property of karma-yoga is the safety of INTERRUPTION. In ordinary fruit-bearing work (e.g., a Vedic ritual performed for a specific reward), interruption produces fruitlessness AND adverse result (pratyavāya — incurring sin from incomplete ritual). In karma-yoga, interruption produces neither: the partial application still counts as practice, and no adverse result accrues. This is the specific property of niṣkāma-karma. Ramanuja explicitly identifies 'mahato bhayāt' as 'the fear of transmigratory existence' (saṁsāra-bhayāt). Like Shankara, Ramanuja insists 'asya dharmasya' is karma-yoga specifically, not generic effort."
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-40/?cm=sridhara",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "It may be put forth that activities such as farming sometimes fails to produce results due to natural phenomena such as variations in weather, drought, flooding etc. Also it may be submitted that there are chances of incurring reactions in the performance of spiritual rituals if the mantras are spoken improperly or if there are any defects performing the prescribed Vedic ceremony. So there may be some doubt regarding how bondage from actions can be effectively neutralised by karma yoga. These doubts are now being alleviated in this verse where it states that by the path of karma yoga, being free from fruitive desires there is no loss or diminution from any endeavour which is undertaken in righteousness nor is any effort wasted as is the case with actions having fruitive desires.",
+      "verbatim_excerpt_length": 783,
+      "copyright_holder": "https://www.bhagavad-gita.us (Sridhara commentary in English paraphrase)",
+      "raw_full_path": "data/sources/raw/bg-2-40-bgus.json",
+      "summary_paraphrase": "Sridhara makes the comparison structure explicit: 2.40 is set up as a contrast against TWO known cases — agriculture (which fails due to external conditions) and Vedic ritual (which produces adverse result if mantras are mis-spoken or steps are skipped). Karma-yoga has NEITHER vulnerability. The verse is thus a defense of the discipline against an implicit objection — 'wait, doesn't every effort have failure modes?' The answer: not this one. Sridhara, like Shankara and Ramanuja, restricts the safety claim to karma-yoga specifically. The verse is not a general claim about effort or righteousness."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "asya dharmasya",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "advancement on this path (i.e., Kṛṣṇa-conscious activity)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "this state of consciousness; even a little effort"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "this dharma — the specific discipline of karma-yoga (action with detachment); contrasted with agriculture (loss-prone) and medical care (harm-prone)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "this Dharma known as Karma Yoga or Niṣkāma Karma — the safety property is of THIS specific discipline, not of effort in general"
+        },
+        {
+          "source": "Sridhara (per summary)",
+          "rendering": "the path of karma yoga, being free from fruitive desires — contrasted with farming (external-condition failure) and ritual (procedural-error harm)"
+        }
+      ],
+      "explanation": "The doctrinal stake of 2.40 is precisely WHAT 'asya dharmasya' refers to. Modern translators tend to render it as 'this path' or 'this state of consciousness' — broad enough to be misread as 'any disciplined effort.' All three classical commentators (Shankara, Ramanuja, Sridhara) explicitly restrict the referent: it is karma-yoga (niṣkāma-karma) specifically. This restriction is doctrinally critical because the verse's safety claim is unique: most efforts have failure modes (loss-from-external-conditions like agriculture; harm-from-procedural-error like ritual or medicine). Karma-yoga is being asserted to have NEITHER. That is the specific claim of this verse. If 'asya dharmasya' is generalised to 'any disciplined effort,' the claim becomes false and trivialised. The engineering layer must preserve that the safety property is of THIS specific discipline (action without attachment to fruits), not of effort or practice generically."
+    }
+  ],
+  "literal_meaning": "In this (yoga), there is no loss of effort begun, nor is there any adverse result. Even a little of this dharma rescues from great fear.",
+  "traditional_meaning": "The verse on the unique safety properties of karma-yoga. Two negative claims and one positive claim: (1) no loss of effort begun (abhikrama-nāśa) — unlike agriculture; (2) no adverse result (pratyavāya) — unlike medical treatment or Vedic ritual; (3) even a little of THIS dharma rescues from the great fear (mahato bhayāt — the fear of saṁsāra). The commentarial tradition (Shankara, Ramanuja, Sridhara, Madhva, Keshava) UNANIMOUSLY restricts 'asya dharmasya' to karma-yoga (niṣkāma-karma) specifically — the discipline whose seed-statement is at 2.38 and whose mature statement is 2.47. The verse is not a generic 'all effort counts' claim. It is the specific claim that THIS discipline has these specific safety properties because of its structure (the actor does not grasp the fruit; therefore interruption does not produce loss; the action is offered, therefore mis-application does not produce adverse result). The verse is a defense of karma-yoga against the implicit objection that all efforts have failure modes; it answers that this one does not. Reading 2.40 as 'every little thing helps' is the standard misreading; the commentators all guard against it.",
+  "engineering": {
+    "translation": "Krishna here advances a narrow claim with two negations and one promise — all concerning a specific discipline (karma-yoga, action without attachment to fruits) and NOT effort generically. The two negations: in this discipline there is no abhikrama-nāśa (loss of effort begun) and no pratyavāya (adverse result). Shankara's commentary makes the contrast explicit: unlike agriculture, where effort can fail through drought or pest; unlike medical treatment, where mis-application produces harm; this discipline carries neither vulnerability. The promise: even a little of THIS dharma rescues from great fear. In engineering: the practice of disciplined detached action (writing the test nobody requested, conducting code review at the level of architectural intent rather than syntax, instrumenting Datadog alerts nobody asked for) carries a peculiar property — partial application still counts. Half a chaos drill teaches half the failure modes. One review at the architectural level names one piece of latent debt. The claim remains narrow: this property holds because the discipline is structured around action-without-grasping, not because every engineering effort possesses it.",
+    "concrete_scenario": "An engineer has been writing one chaos-drill per week for fourteen weeks, each one tearing one thing in production-staging on a Friday afternoon. The drills do not roll up to a project; they sit off the roadmap; the manager has been polite but skeptical. In week fifteen, a real incident hits — a regional Postgres failover no runbook covered — and the engineer is the only person in the channel with a working mental model, because three of the prior drills covered adjacent failure modes. The drills did not 'pay off' the way the manager tracked. They were not interrupted, but never completed in the manager's sense either. They were practiced, weekly, with no specific reward attached. The verse names this property: practice structured around action-without-grasping (drills run because the practice was the practice) accumulates formation independent of completion. Compare against another project that quarter: a feature whose value was conditional on the launch landing on time, which slipped, leaving no residual benefit because its value was tied to the fruit.",
+    "falsifiability": "The analog fails if a reader uses it to justify undisciplined effort under the rubric 'every little thing helps.' Krishna's claim is narrow: the property holds for action structured AS karma-yoga (without attachment to specific fruits), not for all effort. The chaos drill done as a checkbox for a manager's expectations is not karma-yoga; it is a fruit-attached action and its 'partial application' will not have the same property. The verse does not bless flailing; it blesses a specific structural form of practice.",
+    "counter_example": "When the action is structurally fruit-bearing — a Vedic ritual where mantras must be spoken correctly to produce a specific result, or in the engineering register, a deploy where partial completion produces a corrupt half-state — the verse's safety property does not apply. Sridhara explicitly names the contrast: agriculture (loss-from-external-conditions) and ritual (harm-from-procedural-error) both have failure modes that karma-yoga does not. An engineering action whose half-completion produces data corruption (an interrupted schema migration, a partially deployed config change) is structurally agriculture-or-ritual, not karma-yoga, and the verse's claim does not extend to it.",
+    "implication": "Identify which of your engineering practices are structurally karma-yoga (value comes from the practice's formation, not a specific reward) and which are structurally fruit-bearing (value depends on completion of a specific outcome). The first kind has the safety property the verse describes; the second does not.",
+    "quotable_line": "The chaos drill nobody asked for accumulates formation that does not need its completion to count.",
+    "tags": [
+      "iteration-loop",
+      "deliberate-action",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

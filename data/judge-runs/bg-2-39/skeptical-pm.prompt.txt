@@ -1,0 +1,242 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.39",
+  "sanskrit_devanagari": "एषा तेऽभिहिता सांख्ये बुद्धिर्योगे त्विमां श‍ृणु ।\nबुद्ध्या युक्तो यया पार्थ कर्मबन्धं प्रहास्यसि ॥ ३९ ॥",
+  "sanskrit_iast": "eṣā te 'bhihitā sāṅkhye buddhir yoge tv imāṁ śṛṇu |\nbuddhyā yukto yayā pārtha karma-bandhaṁ prahāsyasi || 39 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एषा",
+      "iast": "eṣā",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "अभिहिता",
+      "iast": "abhihitā",
+      "meaning": "has been declared / imparted"
+    },
+    {
+      "sanskrit": "सांख्ये",
+      "iast": "sāṅkhye",
+      "meaning": "in / from sāṅkhya (analytical knowledge of the self)"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "wisdom / intellect"
+    },
+    {
+      "sanskrit": "योगे",
+      "iast": "yoge",
+      "meaning": "in / from yoga (here: karma-yoga)"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but / now"
+    },
+    {
+      "sanskrit": "इमाम्",
+      "iast": "imām",
+      "meaning": "this (one)"
+    },
+    {
+      "sanskrit": "शृणु",
+      "iast": "śṛṇu",
+      "meaning": "hear / listen"
+    },
+    {
+      "sanskrit": "बुद्ध्या",
+      "iast": "buddhyā",
+      "meaning": "by wisdom"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "joined / endowed"
+    },
+    {
+      "sanskrit": "यया",
+      "iast": "yayā",
+      "meaning": "by which"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O son of Pṛthā"
+    },
+    {
+      "sanskrit": "कर्मबन्धम्",
+      "iast": "karma-bandham",
+      "meaning": "the bondage of action"
+    },
+    {
+      "sanskrit": "प्रहास्यसि",
+      "iast": "prahāsyasi",
+      "meaning": "you will cast off / be released from"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/39/",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Thus far I have described this knowledge to you through analytical study. Now listen as I explain it in terms of working without fruitive results. O son of Pṛthā, when you act in such knowledge you can free yourself from the bondage of works.",
+      "raw_capture_path": "data/sources/raw/bg-2-39-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/39",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Hitherto, I have explained to you Sānkhya Yog, or analytic knowledge regarding the nature of the soul. Now listen, O Parth, as I reveal Buddhi Yog, or the Yog of Intellect. When you work with such understanding, you will be freed from the bondage of karma."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/39/",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 5864-char full purport)",
+      "verbatim_excerpt": "According to the Nirukti, or the Vedic dictionary, sāṅkhya means that which describes phenomena in detail, and sāṅkhya refers to that philosophy which describes the real nature of the soul. And yoga involves controlling the senses. Arjuna's proposal not to fight was based on sense gratification.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 5864,
+      "raw_full_path": "data/sources/raw/bg-2-39-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-39/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.39 Partha, O son of Prtha (Arjuna); esa, this; buddhih, wisdom, the Knowledge which directly removes the defect (viz ignorance) that is responsible for sorrow, delusion, etc., constituting mundane existence; abhihita, has been imparted; te, to you; sankhye, from the standpoint of Self-realization, with regard to the discriminating knowledge of the supreme Reality. Tu, but; srnu, listen; imam, to this wisdom which will be imparted presently; yoge, from the spandpoint of Yoga.",
+      "verbatim_excerpt_length": 484,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-39-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.39 as the META verse that explicitly names the two threads of the chapter and pivots from the first to the second. 'Sāṅkhye' is the standpoint of Self-realisation (jñāna-mārga, knowledge as direct remover of ignorance); 'yoge' is the standpoint of Karma-yoga (action with detachment, performed for the sake of the Lord). Crucially, Shankara reads these as TWO DIFFERENT DISCIPLINES — not two phases of the same path. Knowledge alone removes ignorance; action alone does not. But action, performed without attachment, prepares the conditions in which knowledge can arise. The verse is therefore a structural pivot, not just a topic shift: Krishna is naming what kind of teaching he has been giving (sāṅkhya) and what kind he is about to give (yoga of action), and is explicitly asking Arjuna to receive them as related but distinct."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-39/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.39 'Sankhya' means 'intellect,' and the truth about the Atman, which is determinable by the intellect, is 'Sankhyam'. Concerning the nature of the self which has to be known, whatever Buddhi has to be taught, has been taught to you in the passage beginning with, 'It is not that I did not exist' (II.12) and ending with the words, 'Therefore, you shall not grieve for any being' (II.30).",
+      "verbatim_excerpt_length": 391,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-39-bgus.json",
+      "summary_paraphrase": "Ramanuja agrees with Shankara on the verse's META function but reads the relationship between sāṅkhya and yoga differently. For Ramanuja, the two are not parallel mārgas but sequential moments: knowledge of the self (sāṅkhya, 2.12-2.30) is the necessary precondition; the disposition of mind required to perform actions in the light of that knowledge is what Krishna calls yoga here. He explicitly cites the boundaries: sāṅkhya is everything from 2.12 ('It is not that I did not exist') to 2.30 ('therefore you should not grieve'). What follows is yoga. The verse is therefore a TABLE OF CONTENTS for the chapter — Krishna naming the structure of what he has taught and what he will teach. Ramanuja also reads 'karma-bandham prahāsyasi' as the destination promise: the bondage to be cast off is the bondage of saṁsāra, of which karma is the active mechanism."
+    },
+    {
+      "commentator": "Sri Vishvanatha Chakravarti Thakur",
+      "tradition": "Gaudiya Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-39/?cm=visvanatha",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "In this verse, Krishna concludes the jnana yoga which he has just taught. Sankhya means 'that by which true knowledge of things (vastu tattvam) is perfectly (samak) revealed (khyayate).' In other words, sankhya means a perfect process of knowing. The intelligence (esa) resulting from that process has been explained. Now hear about the intelligence resulting from bhakti yoga (yoge) which will now be explained.",
+      "verbatim_excerpt_length": 411,
+      "copyright_holder": "https://www.bhagavad-gita.us (Vishvanatha commentary in English paraphrase)",
+      "raw_full_path": "data/sources/raw/bg-2-39-bgus.json",
+      "summary_paraphrase": "Vishvanatha gives 2.39 a third reading: 'yoge' here is bhakti-yoga, not karma-yoga. He etymologises sāṅkhya as 'that by which the truth of things is perfectly revealed' — a process of knowing. The verse pivots from the process of knowing to the disposition of devotion. This is the Gaudiya reading: the doctrinal pivot named in 2.39 leads not just into karma-yoga (Shankara) or yoga-as-precondition-for-knowledge (Ramanuja) but into bhakti as the active discipline. Three traditions, three readings of what 'yoge' specifically refers to — but all three agree the verse is structurally pivotal."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sāṅkhye buddhir yoge tv imāṁ śṛṇu",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "described this knowledge through analytical study; now listen as I explain it in terms of working without fruitive results"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "explained to you Sānkhya Yog, or analytic knowledge regarding the nature of the soul; now listen as I reveal Buddhi Yog, or the Yog of Intellect"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "two distinct standpoints (jñāna and karma-yoga), not two phases — knowledge removes ignorance directly; action prepares the ground"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "two sequential moments — sāṅkhya (2.12-2.30) is precondition; yoga is the disposition of mind for acting in its light"
+        },
+        {
+          "source": "Vishvanatha (per summary)",
+          "rendering": "yoga here is bhakti-yoga; the verse pivots from the process of knowing to the disposition of devotion"
+        }
+      ],
+      "explanation": "Three major commentarial traditions agree on the META function of 2.39 (Krishna names the chapter's two threads and pivots from the first to the second) but disagree on what the second thread is. Shankara reads 'yoge' as karma-yoga proper (action with detachment, parallel to but distinct from jñāna). Ramanuja reads 'yoge' as the disposition required to act in the light of self-knowledge (sequential, not parallel). Vishvanatha reads 'yoge' as bhakti-yoga (devotion as the active discipline). The translators flatten this into 'analytical study + working without fruitive results' (Prabhupada) or 'Sānkhya Yog + Buddhi Yog' (Mukundananda). The flattening loses the doctrinal-traditional weight of the verse. For the engineering layer: the META function is what survives — Krishna is naming the structure of his teaching, naming sāṅkhya AND yoga as two distinct intellectual disciplines that the practitioner needs both of."
+    }
+  ],
+  "literal_meaning": "This wisdom told to you is from sāṅkhya (analytical knowledge); now hear it from yoga. Joined to this wisdom, son of Pṛthā, you will cast off the bondage of action.",
+  "traditional_meaning": "The chapter's META verse — Krishna explicitly NAMES the two doctrines (sāṅkhya and yoga) and pivots from the first to the second. The structural hinge of the chapter: 2.11-2.30 was sāṅkhya (analytical knowledge of the imperishable self); 2.31-2.38 was the worldly-frame argument and equanimity-seed; 2.39 onwards is yoga. The verse is rare for being explicitly meta — Krishna is not arguing a position; he is telling Arjuna what kind of teaching he has been giving and what kind he is about to give. The commentarial tradition agrees on the META function but splits on 'yoge': Shankara reads karma-yoga (parallel discipline to jñāna); Ramanuja reads disposition for acting in the light of self-knowledge (sequential moment); Vishvanatha reads bhakti-yoga. Across all three, the verse authorizes the chapter thesis's three-thread reading. 'Karma-bandham prahāsyasi' is the promise: the discipline named here, practiced, ends saṁsāric bondage. The verse is the doctrinal authorization for treating the chapter as having two distinct intellectual projects, both required, neither reducible.",
+  "engineering": {
+    "translation": "This verse is structurally unusual: Krishna stops arguing a position and instead names the architecture of his own teaching. What you have heard, he tells Arjuna, was sāṅkhya — analytical knowledge of what survives change. What follows is yoga — the disposition required to act in the light of that knowledge. He names two distinct intellectual disciplines and asserts both are required. In engineering, the senior practitioner holds two disciplines this verse authorizes naming separately. The first concerns architectural invariants and first-principles reasoning — distinguishing customer-need from implementation, spec from wire format, what survives a rewrite from what is the rewrite's clothing. The second concerns shipping discipline — the on-call doctrine, the deploy ethic, the iteration loop, decision under uncertainty. These are not two phases of one skill; they are distinct intellectual movements, and the senior engineer holding only one remains incomplete. The architect analyzing without shipping produces designs that never land in production. The shipper iterating without architectural reading produces rapid motion on the wrong substrate.",
+    "concrete_scenario": "It is the end of a quarterly planning week, and the staff engineer is writing the team's narrative for the next quarter. They notice two distinct kinds of work need planning, and the team has been collapsing them into one. The first is architectural reading: what this product actually does, what the data flow looks like in five years if we are right, what is invariant under the next three product pivots, where the current implementation leaks abstractions. This shows up in design docs, RFCs, the architecture review channel. The second is shipping discipline: merge cadence, post-mortem quality, on-call rotation, rollback hygiene, canary deploys. This shows up in GitHub merge velocity, Datadog alerting health, Sentry error budgets. The staff engineer realizes the team has treated both as one budget, one calendar, one meeting cadence. Reading 2.39, they recognize the structural move: name the two disciplines explicitly, plan them separately, hold the team to both. The first quarter where both are named will look different from the previous four; this is what 'casting off the bondage of action' looks like operationally — work no longer collapses into one substrate where neither discipline is fully practiced.",
+    "falsifiability": "The analog fails if a reader uses 'two disciplines' to justify treating one as optional. The verse names sāṅkhya AND yoga, both required, distinct, neither reducible to the other. An engineer who claims to be 'just a shipper' and refuses to develop architectural reading produces fast iteration on bad substrates; an engineer who claims to be 'just an architect' and refuses the shipping discipline produces unshipped designs. The verse authorizes the distinction; it does not authorize the abandonment of either side.",
+    "counter_example": "The engineering analog preserves the META function of the verse but flattens one nuance the commentators preserve: the three traditions read 'yoge' differently (Shankara: karma-yoga as parallel discipline to jñāna; Ramanuja: yoga as the disposition for acting in the light of self-knowledge, sequential not parallel; Vishvanatha: yoga as bhakti-yoga). The engineering layer adopts the Shankara reading (parallel disciplines) because it is the most operationally useful for the engineer. A reader from the Vishishtadvaita or Gaudiya tradition will rightly note that the engineering reading does not preserve their reading's specific structural claim about precedence or about devotion. The engineering layer is honest about which of the three commentarial readings it is anchored to, and does not claim to capture all three.",
+    "implication": "Name the two disciplines on your team explicitly: the architectural reading and the shipping discipline. Plan calendar, headcount, and review forums for each separately. The team where both are named and practiced is the team where action stops producing more action without reducing the underlying problem.",
+    "quotable_line": "Architectural reading and shipping discipline are two skills, not one — and the senior engineer holds both, named and practiced separately.",
+    "tags": [
+      "first-principles",
+      "shipping-discipline",
+      "architectural-invariant"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.
