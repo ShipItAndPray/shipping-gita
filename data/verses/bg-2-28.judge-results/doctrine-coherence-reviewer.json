@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 9,
+  "cross_reference_integrity_score": 10,
+  "verdict_reason": "Tags (spec-vs-behavior, deprecation-management, essence-vs-implementation) are doctrinally coherent. The spec-vs-behavior tag specifically anchors the verse to the architectural-invariant thread. The cross-reference in counter_example correctly forwards the undocumented-tribal-knowledge case to 2.29 (knowledge-transfer limit), preserving doctrinal complementarity rather than collapsing the two verses into one."
+}

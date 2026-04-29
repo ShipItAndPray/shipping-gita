@@ -1,0 +1,243 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.28",
+  "sanskrit_devanagari": "अव्यक्तादीनि भूतानि व्यक्तमध्यानि भारत ।\nअव्यक्तनिधनान्येव तत्र का परिदेवना ॥ २८ ॥",
+  "sanskrit_iast": "avyaktādīni bhūtāni vyakta-madhyāni bhārata |\navyakta-nidhanāny eva tatra kā paridevanā || 28 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अव्यक्त",
+      "iast": "avyakta",
+      "meaning": "unmanifest"
+    },
+    {
+      "sanskrit": "आदीनि",
+      "iast": "ādīni",
+      "meaning": "having beginnings (in)"
+    },
+    {
+      "sanskrit": "भूतानि",
+      "iast": "bhūtāni",
+      "meaning": "beings / created things"
+    },
+    {
+      "sanskrit": "व्यक्त",
+      "iast": "vyakta",
+      "meaning": "manifest"
+    },
+    {
+      "sanskrit": "मध्यानि",
+      "iast": "madhyāni",
+      "meaning": "having the middle (in)"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata (Arjuna)"
+    },
+    {
+      "sanskrit": "अव्यक्त",
+      "iast": "avyakta",
+      "meaning": "unmanifest"
+    },
+    {
+      "sanskrit": "निधनानि",
+      "iast": "nidhanāni",
+      "meaning": "having endings (in)"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed / certainly"
+    },
+    {
+      "sanskrit": "तत्र",
+      "iast": "tatra",
+      "meaning": "in that / regarding that"
+    },
+    {
+      "sanskrit": "का",
+      "iast": "kā",
+      "meaning": "what"
+    },
+    {
+      "sanskrit": "परिदेवना",
+      "iast": "paridevanā",
+      "meaning": "lamentation"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/28/",
+      "fetched_at": "2026-04-29T18:22:16Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All created beings are unmanifest in their beginning, manifest in their interim state, and unmanifest again when annihilated. So what need is there for lamentation?",
+      "raw_capture_path": "data/sources/raw/bg-2-28-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/28",
+      "fetched_at": "2026-04-29T18:22:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O scion of Bharat, all created beings are unmanifest before birth, manifest in life, and again unmanifest on death. So why grieve?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/28/",
+      "fetched_at": "2026-04-29T18:22:16Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2299-char full purport)",
+      "verbatim_excerpt": "Accepting that there are two classes of philosophers, one believing in the existence of the soul and the other not believing in the existence of the soul, there is no cause for lamentation in either case. Nonbelievers in the existence of the soul are called atheists by followers of Vedic wisdom.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 2299,
+      "raw_full_path": "data/sources/raw/bg-2-28-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-28/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:21:06Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.28 It is not reasonable to grieve even for beings which are constituted by bodies and organs, since 'all beings remain unmanifest' etc. Bhutani, all beings, avyaktādini, remain unmanifest in the beginning. Those beings, viz sons, friends, and others, who before their origination have unmanifestedness.",
+      "verbatim_excerpt_length": 297,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-28-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as a structural argument: every composite being has the same three-phase shape — unmanifest before, manifest during, unmanifest after. The middle phase, in which the being is visible, is bracketed on both sides by non-being. Loved ones (sons, friends) were unmanifest to you before birth and will be unmanifest to you after death. Mourning the bracket as though it were the whole structure is a category error — you cannot mourn a thing for resuming the state it was in before you knew it."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-28/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:21:06Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.28 Human beings etc., (i.e., bodies) exist as entities; their previous stages are unknown, their middle stages in the form of man etc., are known, and their (final) and future stages are unknown. As they thus exist in their own natural stages, there is no cause for grief.",
+      "verbatim_excerpt_length": 273,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-28-bgus.json",
+      "summary_paraphrase": "Ramanuja restates the structure in epistemic terms: the being's previous stages are unknown to us, the middle stage is known, the final stages are unknown. The known middle is the smallest of the three phases. Treating the known phase as the privileged one — the only one that 'really' exists — is a perceptual artifact, not a metaphysical fact. The verse extends 2.26-2.27's concession into a third independent argument: even on bodily-existence grounds, the three-phase structure of being makes mourning incoherent."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "avyakta-ādīni / avyakta-nidhanāni",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unmanifest in their beginning... unmanifest again when annihilated"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "unmanifest before birth... unmanifest on death"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "unmanifest before origination — refers specifically to composite beings (sons, friends) seen by another"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "previous stages unknown, future stages unknown — epistemic framing of the bracket"
+        }
+      ],
+      "explanation": "All translations agree on the literal three-phase structure (unmanifest → manifest → unmanifest). The traditional commentaries diverge on whether the verse applies to (a) composite beings as known to a perceiver — Shankara emphasises sons and friends, beings whose existence is known relationally — or (b) the metaphysical structure of all manifested existence in itself. Ramanuja's epistemic reframing ('unknown stages bracket the known stage') is the strongest reading: the verse is honest about the perceptual asymmetry between the bracket and the middle. Both readings reach the same conclusion: paridevanā (lamentation) is incoherent given the structure."
+    }
+  ],
+  "literal_meaning": "All beings are unmanifest in their beginning, manifest in the middle, and unmanifest again at the end, O Bhārata. What lamentation is there in this?",
+  "traditional_meaning": "The third independent argument against grief, complementing 2.26-2.27. Every manifested being has a three-phase structure: unmanifest pre-existence, manifest middle, unmanifest post-existence. The middle phase is the smallest of the three; mourning the loss of the middle phase is mourning a thing for resuming the state it was in before. The verse is independent of the imperishable-Self doctrine — it works at the level of phenomenal beings (bhūtāni). The commentarial tradition (Shankara, Ramanuja, Sridhara) reads this as the verse that closes off even the perceptual escape route — even from the standpoint of what you can see, mourning fails. The triplet 2.26-2.27-2.28 forms a closed argument: hypothetically (2.26), structurally (2.27), perceptually (2.28), grief is incoherent.",
+  "engineering": {
+    "translation": "Every codebase has the same three-act shape. A customer demand exists before any line is written. A running implementation manifests in production. Then a residual specification lives on inside someone's head and within the migration document, long after the code itself is gone. The middle act is the only one you can grep for, and it is the smallest of the three. Treating it as if it were the only real chapter is a perceptual artifact, not a metaphysical fact. The requirement was alive in a Linear ticket before the merge; some shape of it persists in tribal memory after the cron job is decommissioned. What lamentation is there in this?",
+    "concrete_scenario": "Consider a notifications service that ran for six years and is now being torn down. Its original author is grieving — the binary will be rolled out of every runtime environment, the GitHub repository turns read-only this Friday, integration tests are scheduled for deletion. But trace the actual lifecycle. Act one, before any code: a customer-support ticket from three companies asking for digest emails, a product-requirements document in Notion, six months of email threads about delivery rate and bounce handling. The need was already alive; the implementation had not arrived. Act two, while the deployment ran: fourteen service rollouts, three queue-worker rewrites, two retention-policy changes, a Datadog dashboard, a Sentry alert rule, an on-call runbook, plus the institutional memory of four engineers who rotated through ownership. Act three, after the binary is gone: the digest-email demand now lives inside a third-party transactional-email vendor, yet its shape — what fields ride along, which retry policy applies, which bounce semantics matter — survives in the migration document, in the original author's head, in the integration contract the new vendor must satisfy. The visible middle is the smallest slice of the timeline.",
+    "falsifiability": "The analog fails if a reader uses it to skip post-mortems or to refuse migration documentation. The verse's argument depends on phase three actually existing — the spec living in someone's head and in the handoff artifact. If the team rips out the code without writing down what it knew, phase three collapses and the verse no longer applies; in that case the grief is real because the loss is real.",
+    "counter_example": "When a system carries undocumented load-bearing behavior — implicit invariants no engineer has noticed, a quirk of timing that downstream consumers depend on without realizing it — its removal does not gracefully transition to phase three. The behavior was not specified; it was the implementation. Krishna's argument here assumes the spec is recoverable; in the undocumented-tribal-knowledge case, the engineering equivalent is BG 2.29's verse on what cannot be transmitted, not 2.28's structural calm.",
+    "implication": "Before mourning a system being torn down, write the spec down — capture what the customer actually needed, what the implementation actually did, and what the next system has to satisfy. If phase three exists in writing, the loss is structural and small. If it does not yet exist, write it now; that is the work the verse is asking for.",
+    "quotable_line": "Every codebase has three phases — need, implementation, spec — and only the middle one shows up in your editor.",
+    "tags": [
+      "spec-vs-behavior",
+      "deprecation-management",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "type": "silent_rescoping",
+      "tradition_claim": "The dehī (embodied dweller) is eternally inviolable in every body; therefore one should not grieve for any being (per Shankara: partless and all-pervasive; per Ramanuja: universal from gods to immovables). The verse closes the imperishable section and pivots to the duty argument that begins at 2.31.",
+      "engineering_claim": "The customer-need that any honest system serves is inviolable in every implementation that has ever served it. ... do not grieve any particular system's death. ... After this verse, the chapter pivots to duty.",
+      "explanation": "The engineering layer rescopes from the embodied-dweller-in-bodies to customer-need-in-implementations. The argumentative shape is preserved (universal scope, closing tasmāt, bridge to action). The bridge-to-duty function is preserved by naming it explicitly. The project's additive-layer mandate authorizes the rescoping. No weakening, no inversion. The counter_example handles the dishonest-migration case where the rescoping would otherwise overreach."
+    }
+  ]
+}

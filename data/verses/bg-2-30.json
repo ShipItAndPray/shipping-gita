@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.30",
+  "chapter": 2,
+  "verse": 30,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The customer-need that any honest system serves is inviolable in every implementation that has ever served it. The Postgres write-path you tuned, the Redis cache you replaced, the gRPC gateway you migrated off of — each was a body for that underlying requirement, which persists across every replacement uninterrupted. Therefore — and the 'therefore' is the whole point of this verse — do not grieve any particular system's eventual decommissioning. The previous twenty verses have been telling you that the specification survives, that the implementation is clothing, that the bracketed middle is the smallest piece of the lifecycle. Now stop mourning. The next move is action: pick up the migration ticket, finish the runbook, ship the successor. After this verse, the chapter pivots to duty.",
+    "concrete_scenario": "An engineer has spent the last two weeks in low-grade mourning for a service they wrote. The service is being decommissioned this Friday. Everyone has agreed the replacement is technically better, the migration plan is solid, the rollback is in the runbook. The engineer cannot quite get their hands moving. Today they realize: the customer who pays for the SaaS subscription does not know this service exists. They never did. They asked for fast invoice generation; the service delivered fast invoice generation. The replacement, sitting in a feature flag in the staging environment, also delivers fast invoice generation, on better infrastructure, with cleaner observability through Datadog and Sentry. The customer's need has been continuously served. It will continue to be continuously served. The engineer's grief was not over the customer's experience; it was over the engineer's own attachment to a specific implementation. Reading the previous twenty verses again — the imperishable Self that is unchanged when bodies change, the bodies that are clothing, the unmanifest that brackets the manifest — the engineer realizes they have been told this five different ways. The verse closes the section by saying: now act. Open the pull request. Merge the cutover. The next chapter of this story is not about loss. It is about duty.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss the actual technical work of migration — the runbook, the rollback plan, the data integrity checks, the customer-communication sequence. The verse closes a doctrinal argument; it does not exempt the engineer from doing the migration carefully. If you find yourself quoting 2.30 to skip writing the cutover plan, you have inverted the verse — and the next verse, 2.31, will catch you, because 2.31 is precisely about the duty that follows.",
+    "counter_example": "When the new system does NOT actually serve the same need — when the replacement quietly drops capability, breaks the implicit contract with downstream consumers, or trades a real production virtue for cleaner code — the 'tasmāt' does not apply. The customer-need is not inviolable in every system that claims to serve it; it is inviolable in every system that actually does. The closing instruction depends on the replacement being honest. If the migration is a degradation in disguise, this verse hands you the wrong conclusion.",
+    "implication": "When you reach the end of an imperishable-doctrine reading and notice you are still grieving, the work is not more reflection — the work is the next merge. Pick up the ticket. Write the runbook. Ship the successor. The teaching closes here so that the action can begin in the next verse.",
+    "quotable_line": "The need is inviolable in every system that has actually served it; therefore close the laptop on grief and open the pull request.",
+    "tags": ["deprecation-management", "release-discipline", "duty"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:55:00Z",
+      "mutation": "v0 generation: BG 2.30 is the closing coda of the imperishable doctrine and the bridge to the duty argument that begins at 2.31. The engineering layer was deliberately structured to (a) recapitulate the previous verses (clothing/2.22, body-replacement/2.13, unmanifest-bracket/2.28) without restating them, and (b) foreshadow the karma-yoga pivot through the 'therefore... now act' rhetorical move. The invoice-service scenario was chosen because it makes the customer-need-versus-implementation distinction concrete: the customer never knew the old service existed, the replacement serves the same need, the engineer's grief was over the implementation, not the need. Per the user's emphasis that 2.30 is the bridge — the engineering layer for 2.30 should foreshadow that the next move is 'now act' — the closing line names the pull request and the cutover merge as the engineering equivalent of svadharma. The counter_example handles the dishonest-migration case so the verse cannot be misused to bless degradations.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

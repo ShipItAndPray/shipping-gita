@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.27",
+  "chapter": 2,
+  "verse": 27,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Whatever ships has a deprecation ahead of it. Whatever gets deprecated has a replacement ahead of that. Birth follows death follows birth, and this loop is not a regrettable side effect — it is the operating shape of the field you work in. Treating any particular sunset as a personal tragedy is a category error: you are mourning a specific implementation for being exactly what implementations always become. The Kubernetes cluster you stood up in 2022 was always headed toward migration. The Postgres instance you tuned will eventually hand its workload to a successor. The CI pipeline you wrote will be rewritten by an engineer two years after you. In a matter that cannot be avoided, grieving is not the right response.",
+    "concrete_scenario": "An engineer on the on-call rotation has just learned that the Redis cache layer they built three years ago is being removed in favor of an in-process LRU. They feel it as a loss — Redis solved a real problem, sat behind two outages, and its rollback procedure is still pinned in the runbook; the new design seems to discard knowledge accumulated through actual production incidents. Open the GitHub commit graph and zoom out. That Redis layer was itself a successor; it replaced an earlier Memcached deployment some predecessor stood up, which had replaced application-level caching written directly into the request path. The current cache is the third generation in this lineage; the LRU will be the fourth, and a distributed mesh-cache will probably be the fifth. The team's Datadog dashboard panels, the team's Sentry exception filters, even the team's vocabulary around hot keys — each artifact in the rotation has cycled through several incarnations. You cannot point to a single component in production that is not, structurally, both heir and ancestor.",
+    "falsifiability": "The analog fails if a reader uses it to defend pointless rewrites — the kind of churn where the team replaces working systems for the sake of replacing them. The verse does not claim that all replacements are good; it claims that the existence of a replacement is structural. If you find yourself quoting 2.27 to justify an entropy-increasing rewrite, you have misused it.",
+    "counter_example": "When a deprecation is the result of a lost contract — for example, a vendor pulling support in a way that breaks downstream consumers, or a security mandate forcing immediate migration mid-incident — the response is incident response, not equanimity. Krishna's argument in 2.27 is about the structural inevitability of replacement, not the operational handling of forced replacement. The crisis case is closer to 2.31's duty argument or to chapter-12-style instrumentation than to this verse.",
+    "implication": "Before mourning a specific deprecation, locate it in the lineage: name the system it replaced and the system that will eventually replace it. If the lineage is clean, the grief is structural and will not survive the inventory.",
+    "quotable_line": "Every component you can point to in production is, structurally, a successor to something and an ancestor to something else.",
+    "tags": ["deprecation-management", "long-term-thinking", "iteration-loop"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:35:00Z",
+      "mutation": "v0 generation: BG 2.27 is the structural-inevitability completion of the conditional begun in 2.26. Engineering layer was deliberately built around a multi-generation cache lineage (in-request → Memcached → Redis → in-process LRU → future distributed cache) because the verse's force depends on the cycle being concretely visible, not abstractly asserted. Per the chapter-2 thesis, treating any particular deprecation as a personal tragedy is named as a category error — preserving the verse's argumentative shape (jātasya hi dhruvo mṛtyuḥ — for one born, death is certain).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 3,
+  "reconstructed_sketch": "From chapter context, one could predict that 2.28 would extend the do-not-grieve theme. One would NOT predict the three-phase structural argument or the engineering analog grounded in pre-code requirements artifacts (Linear, Notion, PRD) and post-code spec residue (migration documents, tribal memory). The verse contributes the perceptual-asymmetry argument distinct from the concessive (2.26) and paired-cycle (2.27).",
+  "verse_specific_signal": "The three-phase compound structure mapped onto the engineering lifecycle of need → implementation → spec is the contribution 2.28 makes that the surrounding verses do not. The bracketing of the visible middle is the verse's signature.",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG 2.27", "overlap_type": "same_counter_example", "explanation": "Both verses share the deprecation-management tag, but 2.27 contributes the cycle-structure and 2.28 contributes the three-phase structure; complementary, not duplicate." }
+  ],
+  "verdict_reason": "The verse-specific signal is the perceptual asymmetry between the bracketed middle (visible) and the brackets (invisible). This is operationalized in the engineering layer as the contrast between code-you-can-grep-for and spec-that-lives-in-someone's-head."
+}

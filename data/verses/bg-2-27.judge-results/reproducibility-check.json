@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Lineage-check section in the deprecation runbook (shared with 2.26 but with the paired-replacement axis named explicitly): every deprecation must name both predecessor and successor systems before approval.",
+  "artifact_kind": "runbook",
+  "embodiment_sketch": "Extend the deprecation runbook's 'Lineage Check' section with required fields: (1) System being deprecated; (2) System(s) it replaced (with approximate replacement date); (3) Successor system (currently planned); (4) Anticipated next-successor (architectural direction). If both directions of the lineage are populable, the deprecation is operational and ships on schedule. If only the predecessor is known, escalate — the absence of a successor suggests capability is being dropped rather than replaced.",
+  "metaphor_only": false,
+  "verdict_reason": "The artifact is concrete and copyable. The verse's paired-symmetric claim (born ↔ dies, dies ↔ reborn) is encoded as the bidirectional lineage requirement. A senior engineer could add this Monday."
+}

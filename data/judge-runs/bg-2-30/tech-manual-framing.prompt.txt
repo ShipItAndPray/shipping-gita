@@ -1,0 +1,223 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.30",
+  "sanskrit_devanagari": "देही नित्यमवध्योऽयं देहे सर्वस्य भारत ।\nतस्मात्सर्वाणि भूतानि न त्वं शोचितुमर्हसि ॥ ३० ॥",
+  "sanskrit_iast": "dehī nityam avadhyo 'yaṁ dehe sarvasya bhārata |\ntasmāt sarvāṇi bhūtāni na tvaṁ śocitum arhasi || 30 ||",
+  "anvaya": [
+    {
+      "sanskrit": "देही",
+      "iast": "dehī",
+      "meaning": "the embodied one / dweller in the body"
+    },
+    {
+      "sanskrit": "नित्यम्",
+      "iast": "nityam",
+      "meaning": "eternally"
+    },
+    {
+      "sanskrit": "अवध्यः",
+      "iast": "avadhyaḥ",
+      "meaning": "inviolable / cannot be slain"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "देहे",
+      "iast": "dehe",
+      "meaning": "in the body"
+    },
+    {
+      "sanskrit": "सर्वस्य",
+      "iast": "sarvasya",
+      "meaning": "of every (being)"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "सर्वाणि",
+      "iast": "sarvāṇi",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "भूतानि",
+      "iast": "bhūtāni",
+      "meaning": "beings"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "शोचितुम्",
+      "iast": "śocitum",
+      "meaning": "to grieve"
+    },
+    {
+      "sanskrit": "अर्हसि",
+      "iast": "arhasi",
+      "meaning": "you ought / deserve"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/30/",
+      "fetched_at": "2026-04-29T18:22:19Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O descendant of Bharata, he who dwells in the body can never be slain. Therefore you need not grieve for any living being.",
+      "raw_capture_path": "data/sources/raw/bg-2-30-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/30",
+      "fetched_at": "2026-04-29T18:22:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Arjun, the soul that dwells within the body is immortal; therefore, you should not mourn for anyone."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/30/",
+      "fetched_at": "2026-04-29T18:22:19Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 840-char full purport)",
+      "verbatim_excerpt": "The Lord now concludes the chapter of instruction on the immutable spirit soul. In describing the immortal soul in various ways, Lord Kṛṣṇa establishes that the soul is immortal and the body is temporary.",
+      "verbatim_excerpt_length": 204,
+      "verbatim_full_length": 840,
+      "raw_full_path": "data/sources/raw/bg-2-30-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-30/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:21:08Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.30 Because of being partless and eternal, ayam, this dehi, embodied Self; nityam avadhyah, can never be killed, under any condition. That being so, although existing sarvasya dehe, in all bodies, in trees etc., this One cannot be killed on account of Its being all-pervasive.",
+      "verbatim_excerpt_length": 274,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-30-bgus.json",
+      "summary_paraphrase": "Shankara closes the imperishable section by emphasising the Self's partlessness (niravayava) and all-pervasiveness (sarva-gata). Because the Self is partless, it cannot be cut. Because it is all-pervasive, it cannot be localized to any one body — and so the death of any one body does not damage it. The 'tasmāt' (therefore) at the start of the second hemistich pulls the conclusion forward: the doctrine of the imperishable applies not just to Bhishma or Drona but to all beings (sarvāṇi bhūtāni)."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-30/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:21:08Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.30 The self within the body of everyone such as gods etc., must be considered to be eternally imperishable, though the body can be killed. Therefore, all beings from gods to immovable beings, even though they possess different forms, are all uniform and eternal in their nature.",
+      "verbatim_excerpt_length": 280,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-30-bgus.json",
+      "summary_paraphrase": "Ramanuja reads 2.30 as the universalising coda: the imperishable Self dwells equally in every body — gods, humans, animals, immovables. The forms differ but the dweller is uniform. The conclusion 'do not grieve for any beings' (sarvāṇi bhūtāni) is therefore not metaphorical — it applies to every body that has been, is, and will be. After 2.30, Krishna shifts the entire argument: 2.31 onwards is the duty argument, not the metaphysical argument. 2.30 is the bridge."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "tasmāt sarvāṇi bhūtāni",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Therefore you need not grieve for any living being"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "therefore, you should not mourn for anyone"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "tasmāt — therefore — pulls the conclusion forward to all beings (sarvāṇi bhūtāni), not only the warriors Arjuna names"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "all beings from gods to immovables — the universal scope is not metaphor, it is literal"
+        }
+      ],
+      "explanation": "All translators render 'sarvāṇi bhūtāni' as 'all beings' or 'anyone' — but the universal scope matters doctrinally. Arjuna is grieving over specific named individuals (Bhishma, Drona, his teachers and kin). Krishna's 'tasmāt' generalises: the imperishable doctrine you have just heard applies to every embodied being, not just to the ones you find painful to fight. The verse is the rejection of selective grief — you cannot accept the imperishable doctrine for some bodies and refuse it for others. Both Shankara and Ramanuja read this universalising move seriously; the modern translations preserve it but lose the rhetorical force of 'tasmāt' closing a 20-verse argument."
+    }
+  ],
+  "literal_meaning": "The dweller in the body is eternally inviolable in the body of all, O Bhārata. Therefore you ought not grieve for any beings.",
+  "traditional_meaning": "The closing coda of the imperishable doctrine. After ~20 verses (2.11-2.29) establishing the imperishable Self by multiple convergent arguments — metaphysical (2.11-2.25), conditional/concessive (2.26-2.27), perceptual-structural (2.28), and acknowledging the limit of knowledge transmission (2.29) — Krishna concludes with the universalising 'therefore.' The Self in every body is inviolable; therefore grief over any beings (not just those Arjuna names) is misplaced. The commentarial tradition (Shankara, Ramanuja, Sridhara, Keshava) reads this as a structural pivot: 2.30 closes the imperishable argument, and 2.31 opens the duty argument with 'svadharmam api cāvekṣya' ('considering also your own duty'). The chapter does not return to the imperishable doctrine after 2.30 — it shifts to karma-yoga. 2.30 is therefore both a coda and a bridge.",
+  "engineering": {
+    "translation": "The customer-need that any honest system serves is inviolable in every implementation that has ever served it. The Postgres write-path you tuned, the Redis cache you replaced, the gRPC gateway you migrated off of — each was a body for that underlying requirement, which persists across every replacement uninterrupted. Therefore — and the 'therefore' is the whole point of this verse — do not grieve any particular system's eventual decommissioning. The previous twenty verses have been telling you that the specification survives, that the implementation is clothing, that the bracketed middle is the smallest piece of the lifecycle. Now stop mourning. The next move is action: pick up the migration ticket, finish the runbook, ship the successor. After this verse, the chapter pivots to duty.",
+    "concrete_scenario": "An engineer has spent the last two weeks in low-grade mourning for a service they wrote. The service is being decommissioned this Friday. Everyone has agreed the replacement is technically better, the migration plan is solid, the rollback is in the runbook. The engineer cannot quite get their hands moving. Today they realize: the customer who pays for the SaaS subscription does not know this service exists. They never did. They asked for fast invoice generation; the service delivered fast invoice generation. The replacement, sitting in a feature flag in the staging environment, also delivers fast invoice generation, on better infrastructure, with cleaner observability through Datadog and Sentry. The customer's need has been continuously served. It will continue to be continuously served. The engineer's grief was not over the customer's experience; it was over the engineer's own attachment to a specific implementation. Reading the previous twenty verses again — the imperishable Self that is unchanged when bodies change, the bodies that are clothing, the unmanifest that brackets the manifest — the engineer realizes they have been told this five different ways. The verse closes the section by saying: now act. Open the pull request. Merge the cutover. The next chapter of this story is not about loss. It is about duty.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss the actual technical work of migration — the runbook, the rollback plan, the data integrity checks, the customer-communication sequence. The verse closes a doctrinal argument; it does not exempt the engineer from doing the migration carefully. If you find yourself quoting 2.30 to skip writing the cutover plan, you have inverted the verse — and the next verse, 2.31, will catch you, because 2.31 is precisely about the duty that follows.",
+    "counter_example": "When the new system does NOT actually serve the same need — when the replacement quietly drops capability, breaks the implicit contract with downstream consumers, or trades a real production virtue for cleaner code — the 'tasmāt' does not apply. The customer-need is not inviolable in every system that claims to serve it; it is inviolable in every system that actually does. The closing instruction depends on the replacement being honest. If the migration is a degradation in disguise, this verse hands you the wrong conclusion.",
+    "implication": "When you reach the end of an imperishable-doctrine reading and notice you are still grieving, the work is not more reflection — the work is the next merge. Pick up the ticket. Write the runbook. Ship the successor. The teaching closes here so that the action can begin in the next verse.",
+    "quotable_line": "The need is inviolable in every system that has actually served it; therefore close the laptop on grief and open the pull request.",
+    "tags": [
+      "deprecation-management",
+      "release-discipline",
+      "duty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

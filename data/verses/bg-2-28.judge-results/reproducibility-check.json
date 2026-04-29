@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "A 'three-phase deprecation checklist' in the system-decommissioning runbook: capture pre-code artifacts (the requirement document, customer ticket, original PRD), in-code artifacts (the deployment, dashboard, alert rules, runbook), and post-code artifacts (the migration document, integration contract, vendor handoff). Decommissioning proceeds only when all three phases are documented.",
+  "artifact_kind": "runbook",
+  "embodiment_sketch": "Add a 'Three-Phase Documentation Check' section to the system-decommissioning runbook. Required content: (1) Phase one — pre-code artifacts: link to the original Linear ticket, Notion PRD, or RFC; (2) Phase two — in-code artifacts: link to the GitHub repo, Datadog dashboard, Sentry alert rule, on-call runbook; (3) Phase three — post-code artifacts: migration document with field-level spec, integration contract for the successor system, named-engineer for tribal-knowledge handoff. If all three phases are populated, the deprecation is structurally complete and proceeds. If phase three is empty, schedule a writing session before cutover.",
+  "metaphor_only": false,
+  "verdict_reason": "The artifact is concrete and operationally useful — a senior engineer could literally add this checklist to their team's runbook this week. The verse's three-phase claim is encoded as three explicit documentation requirements, not as a slogan."
+}

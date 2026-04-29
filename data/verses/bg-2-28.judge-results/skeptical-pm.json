@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Before tearing down a system, require explicit phase-three artifacts: a migration document that captures spec, contract, and behavioral quirks; if these are missing, the deprecation is incomplete and the cutover should be delayed until they exist.",
+  "example_decision": "Engineering review: the notifications service is scheduled for decommissioning Friday, but the migration document is empty. The PM blocks the cutover, schedules a writing session, and ships the deprecation only after phase-three artifacts exist. The grief the engineer was carrying turns out to be partly real — the spec was about to be lost — and partly structural; the writing session resolves the real part.",
+  "objection": "none"
+}

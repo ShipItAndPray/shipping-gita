@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.29",
+  "chapter": 2,
+  "verse": 29,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Some look at a complex production system and see wonder. Some can describe their wonder to a colleague. Some can hear a senior engineer describe theirs and follow along. And even after all of that — having seen, having heard, having read every postmortem and every architecture document — almost no one walks away with the system actually known. The verse is being honest about a hard limit: the deepest part of any system is what cannot be fully transmitted. Not by docs, not by pair-programming, not by code review, not by the most patient onboarding. The senior engineer who has been on-call for that service for four years has knowledge that is not extractable. This is a verse about that gap, and it is the only verse in this block that admits the gap exists.",
+    "concrete_scenario": "An engineer with seven years on a payments platform sits down to pair with a new hire. The new hire has read the runbook in Notion, traced the code through the IDE, watched the recorded incident-review meetings, scrolled the Sentry exception history, and skimmed every architecture decision record in the GitHub wiki. By any documentary measure, the new hire has been told the system. But during the pairing session, the senior pulls up a Datadog graph and points to a small wobble in p99 latency around 2:14 a.m. Pacific. 'That is the daily reconciliation job touching the same Postgres index the read path uses; it is harmless, but if it ever climbs above three percent we have ninety seconds before the merchant-facing API starts timing out, because there is a Stripe webhook retry that piles on at exactly three minutes.' Nothing in that sentence appears in any document. It is composite knowledge — pattern-matched across hundreds of dashboard glances, three real incidents, two false alarms, and the specific feel of how this system breathes. Some see this as wonder; some can put part of it into words; the new hire can hear it; and even after hearing it, the new hire does not yet know it. Knowing is the third year on the rotation, not the second week.",
+    "falsifiability": "The analog fails if a reader uses it to defend hoarding knowledge or to refuse to write documentation. The verse is not saying 'do not bother documenting' — it is saying 'documentation has a ceiling.' If a team treats this verse as license to skip writing runbooks, they have inverted it. The honest reading is: write everything you can write, and then notice that the part you could not write is where the real expertise lives.",
+    "counter_example": "When a system's behavior is genuinely well-documented and reproducible — a pure-function utility library, a deterministic data pipeline with strong typing and full test coverage — the gap the verse points at is small or absent. Krishna's claim is about systems that have accumulated production-time learning; it does not generalize to every artifact the engineer touches. A clean interior module is not 'inscrutable'; it is just clean.",
+    "implication": "Plan for the knowledge-transfer gap before the senior engineer leaves the rotation. Schedule shadowed on-call shifts, write up incident retrospectives the same week the incident happens, and build the kind of tribal-knowledge index that admits its own incompleteness. Treat the gap as a real engineering concern, not a soft one.",
+    "quotable_line": "Some see the system as wonder, some describe it, some hear of it described — and even after all of that, almost no one yet knows it.",
+    "tags": ["knowledge-action-integration", "team-state", "on-call-doctrine"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:50:00Z",
+      "mutation": "v0 generation: BG 2.29 is the verse on the limit of knowledge transmission (durvijñeya — hard to know). The engineering layer was deliberately built around tacit on-call knowledge of a payments platform because that domain forces specificity around the kind of composite, pattern-matched expertise that documentation cannot capture (the p99 wobble at 2:14 a.m. tied to a reconciliation job touching the same Postgres index, with a Stripe webhook retry as the failure mode). Per chapter-2 thesis and the user's note that this is 'one of the most engineering-resonant verses in this block,' the engineering layer leans into the durvijñeya structure rather than softening it. The falsifiability and counter_example were both written to prevent the verse being read as license to under-document.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "The deepest part of any system is what cannot be fully transmitted. Not by docs, not by pair-programming, not by code review, not by the most patient onboarding.",
+      "objection": "The Sanskrit verse is descriptive, not prescriptive: 'śrutvāpy enaṁ veda na caiva kaścit' literally says 'having heard, even, this — no one indeed knows.' The verse acknowledges that even after hearing the teaching, knowing is rare; it does not assert that knowledge cannot be transmitted in principle. The engineering layer's stronger 'cannot be fully transmitted' is faithful to Shankara's durvijñeya reading but slightly over-translates Ramanuja's chain-of-rare-links reading. Acceptable as an interpretive emphasis given the user's note that 2.29 is the most engineering-resonant verse in this block; flagging as one minor."
+    }
+  ],
+  "notes": "The doctrinally load-bearing terms āścaryavat (as a wonder), paśyati / vadati / śṛṇoti (sees / speaks / hears), and veda (knows) are preserved in shape. The four-step chain (seer, speaker, hearer, knower) is preserved as 'see / describe / hear / know.' The verse's only-trishtubh-meter status in this block is honestly noted in the source pack. PASS with a single minor."
+}

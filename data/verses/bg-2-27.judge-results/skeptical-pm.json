@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Before treating a deprecation as a story, locate it in the lineage: name the system it replaced and the system that will replace it. If the lineage is clean and visible, the deprecation is operational and does not warrant a special process; if either link is missing, it is architectural and requires escalation.",
+  "example_decision": "Roadmap review: the Redis-to-LRU cutover has been on the backlog for two quarters, blocked by 'engineering grief.' The PM applies the lineage check — what did Redis replace? Memcached. What replaces Redis? In-process LRU. What replaces LRU? Distributed mesh, plausibly. The lineage is intact. The cutover ships in the current sprint; the grief is structural and does not justify further delay.",
+  "objection": "none"
+}

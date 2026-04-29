@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 9,
+  "cross_reference_integrity_score": 10,
+  "verdict_reason": "Tags (deprecation-management, long-term-thinking, iteration-loop) are shared with 2.26, 2.28, 2.30 in coherent doctrinal patterns. The cross-reference to 2.31 (duty argument) in the counter_example does load-bearing work — it correctly distinguishes the structural-inevitability case (2.27) from the operational-handling case (2.31). No subtle drift."
+}

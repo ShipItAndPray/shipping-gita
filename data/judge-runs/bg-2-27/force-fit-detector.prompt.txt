@@ -1,0 +1,221 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.27",
+  "sanskrit_devanagari": "जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च ।\nतस्मादपरिहार्येऽर्थे न त्वं शोचितुमर्हसि ॥ २७ ॥",
+  "sanskrit_iast": "jātasya hi dhruvo mṛtyur dhruvaṁ janma mṛtasya ca |\ntasmād aparihārye 'rthe na tvaṁ śocitum arhasi || 27 ||",
+  "anvaya": [
+    {
+      "sanskrit": "जातस्य",
+      "iast": "jātasya",
+      "meaning": "of one who is born"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "for / certainly"
+    },
+    {
+      "sanskrit": "ध्रुवः",
+      "iast": "dhruvaḥ",
+      "meaning": "certain / inevitable"
+    },
+    {
+      "sanskrit": "मृत्युः",
+      "iast": "mṛtyuḥ",
+      "meaning": "death"
+    },
+    {
+      "sanskrit": "ध्रुवम्",
+      "iast": "dhruvam",
+      "meaning": "certain"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "मृतस्य",
+      "iast": "mṛtasya",
+      "meaning": "of one who has died"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "अपरिहार्ये",
+      "iast": "aparihārye",
+      "meaning": "in the unavoidable"
+    },
+    {
+      "sanskrit": "अर्थे",
+      "iast": "arthe",
+      "meaning": "in the matter"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "शोचितुम्",
+      "iast": "śocitum",
+      "meaning": "to grieve"
+    },
+    {
+      "sanskrit": "अर्हसि",
+      "iast": "arhasi",
+      "meaning": "you ought / deserve"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/27/",
+      "fetched_at": "2026-04-29T18:22:14Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who has taken his birth is sure to die, and after death one is sure to take birth again. Therefore, in the unavoidable discharge of your duty, you should not lament.",
+      "raw_capture_path": "data/sources/raw/bg-2-27-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/27",
+      "fetched_at": "2026-04-29T18:22:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Death is certain for one who has been born, and rebirth is inevitable for one who has died. Therefore, you should not lament over the inevitable."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/27/",
+      "fetched_at": "2026-04-29T18:22:14Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1000-char full purport)",
+      "verbatim_excerpt": "One has to take birth according to one's activities of life. And after finishing one term of activities, one has to die to take birth for the next. In this way one is going through one cycle of birth and death after another without liberation.",
+      "verbatim_excerpt_length": 240,
+      "verbatim_full_length": 1000,
+      "raw_full_path": "data/sources/raw/bg-2-27-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-27/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:21:05Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.27 This being so, 'death of anyone born', etc. Hi, for; mrtyuh, death; jatasya, of anyone born; dhruvah, is certain; is without exception; ca, and mrtasya, of the dead; janmah, (re-)birth; is dhruvam, a certainty. Tasmat, therefore, this fact, viz birth and death, is inevitable.",
+      "verbatim_excerpt_length": 281,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-27-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as completing the conditional argument of 2.26: granting the premise that the Self is born and dies with each body, the cycle is structurally inevitable. Death follows birth and birth follows death without exception. Grief over what is structurally inevitable is irrational. The argument is intentionally minimal — it does not depend on metaphysical commitments; it depends only on observation."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-27/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:21:05Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.27 For what has originated, destruction is certain — it is seen to be inevitable. Similarly what has perished will inevitably originate. Origination, annihilation etc., are merely particular states of an existent entity.",
+      "verbatim_excerpt_length": 220,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-27-bgus.json",
+      "summary_paraphrase": "Ramanuja sharpens the argument: birth and destruction are not events that happen TO entities — they are states of entities. To be born is to be the kind of thing that perishes; to perish is to be the kind of thing that re-originates. The two are paired by structure, not by accident. Mourning a death is mourning a thing for being the kind of thing it definitionally is."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "aparihārye 'rthe",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "in the unavoidable discharge of your duty"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "over the inevitable"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "this fact (artha = matter / fact), viz birth and death, is inevitable"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the unavoidable matter — origination and destruction are paired states"
+        }
+      ],
+      "explanation": "Prabhupada's rendering inserts 'discharge of your duty' which is interpretive (linking the verse forward to the duty argument that begins at 2.31). The literal Sanskrit is 'aparihārye arthe' — 'in the unavoidable matter/fact.' Shankara reads artha as 'fact,' Ramanuja as 'matter/state.' Mukundananda's 'over the inevitable' is closer to the literal. The disagreement is over whether the verse already pivots to duty (Prabhupada) or stays on the metaphysical inevitability of the birth-death cycle (Shankara, Ramanuja). The traditional commentaries read it as still on the metaphysical leg of the argument; the duty pivot proper begins at 2.31."
+    }
+  ],
+  "literal_meaning": "For one who is born, death is certain; and for one who has died, birth is certain. Therefore, in this unavoidable matter, you should not grieve.",
+  "traditional_meaning": "The conclusion of the conditional argument begun in 2.26. Granting the materialist premise that the Self is born and dies along with the body, the cycle of birth and death is structurally inevitable. Grief over what is structurally inevitable is incoherent — it is grief over a thing for being the kind of thing it is. The verse is the secular complement of the imperishable doctrine: even if you reject the imperishable, the conclusion that grief is misplaced still holds. Both branches converge on 'do not grieve.' The commentarial tradition treats 2.26-2.27 as a single argumentative unit closing the materialist escape route.",
+  "engineering": {
+    "translation": "Whatever ships has a deprecation ahead of it. Whatever gets deprecated has a replacement ahead of that. Birth follows death follows birth, and this loop is not a regrettable side effect — it is the operating shape of the field you work in. Treating any particular sunset as a personal tragedy is a category error: you are mourning a specific implementation for being exactly what implementations always become. The Kubernetes cluster you stood up in 2022 was always headed toward migration. The Postgres instance you tuned will eventually hand its workload to a successor. The CI pipeline you wrote will be rewritten by an engineer two years after you. In a matter that cannot be avoided, grieving is not the right response.",
+    "concrete_scenario": "An engineer on the on-call rotation has just learned that the Redis cache layer they built three years ago is being removed in favor of an in-process LRU. They feel it as a loss — Redis solved a real problem, sat behind two outages, and its rollback procedure is still pinned in the runbook; the new design seems to discard knowledge accumulated through actual production incidents. Open the GitHub commit graph and zoom out. That Redis layer was itself a successor; it replaced an earlier Memcached deployment some predecessor stood up, which had replaced application-level caching written directly into the request path. The current cache is the third generation in this lineage; the LRU will be the fourth, and a distributed mesh-cache will probably be the fifth. The team's Datadog dashboard panels, the team's Sentry exception filters, even the team's vocabulary around hot keys — each artifact in the rotation has cycled through several incarnations. You cannot point to a single component in production that is not, structurally, both heir and ancestor.",
+    "falsifiability": "The analog fails if a reader uses it to defend pointless rewrites — the kind of churn where the team replaces working systems for the sake of replacing them. The verse does not claim that all replacements are good; it claims that the existence of a replacement is structural. If you find yourself quoting 2.27 to justify an entropy-increasing rewrite, you have misused it.",
+    "counter_example": "When a deprecation is the result of a lost contract — for example, a vendor pulling support in a way that breaks downstream consumers, or a security mandate forcing immediate migration mid-incident — the response is incident response, not equanimity. Krishna's argument in 2.27 is about the structural inevitability of replacement, not the operational handling of forced replacement. The crisis case is closer to 2.31's duty argument or to chapter-12-style instrumentation than to this verse.",
+    "implication": "Before mourning a specific deprecation, locate it in the lineage: name the system it replaced and the system that will eventually replace it. If the lineage is clean, the grief is structural and will not survive the inventory.",
+    "quotable_line": "Every component you can point to in production is, structurally, a successor to something and an ancestor to something else.",
+    "tags": [
+      "deprecation-management",
+      "long-term-thinking",
+      "iteration-loop"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

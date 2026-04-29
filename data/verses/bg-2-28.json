@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.28",
+  "chapter": 2,
+  "verse": 28,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Every codebase has the same three-act shape. A customer demand exists before any line is written. A running implementation manifests in production. Then a residual specification lives on inside someone's head and within the migration document, long after the code itself is gone. The middle act is the only one you can grep for, and it is the smallest of the three. Treating it as if it were the only real chapter is a perceptual artifact, not a metaphysical fact. The requirement was alive in a Linear ticket before the merge; some shape of it persists in tribal memory after the cron job is decommissioned. What lamentation is there in this?",
+    "concrete_scenario": "Consider a notifications service that ran for six years and is now being torn down. Its original author is grieving — the binary will be rolled out of every runtime environment, the GitHub repository turns read-only this Friday, integration tests are scheduled for deletion. But trace the actual lifecycle. Act one, before any code: a customer-support ticket from three companies asking for digest emails, a product-requirements document in Notion, six months of email threads about delivery rate and bounce handling. The need was already alive; the implementation had not arrived. Act two, while the deployment ran: fourteen service rollouts, three queue-worker rewrites, two retention-policy changes, a Datadog dashboard, a Sentry alert rule, an on-call runbook, plus the institutional memory of four engineers who rotated through ownership. Act three, after the binary is gone: the digest-email demand now lives inside a third-party transactional-email vendor, yet its shape — what fields ride along, which retry policy applies, which bounce semantics matter — survives in the migration document, in the original author's head, in the integration contract the new vendor must satisfy. The visible middle is the smallest slice of the timeline.",
+    "falsifiability": "The analog fails if a reader uses it to skip post-mortems or to refuse migration documentation. The verse's argument depends on phase three actually existing — the spec living in someone's head and in the handoff artifact. If the team rips out the code without writing down what it knew, phase three collapses and the verse no longer applies; in that case the grief is real because the loss is real.",
+    "counter_example": "When a system carries undocumented load-bearing behavior — implicit invariants no engineer has noticed, a quirk of timing that downstream consumers depend on without realizing it — its removal does not gracefully transition to phase three. The behavior was not specified; it was the implementation. Krishna's argument here assumes the spec is recoverable; in the undocumented-tribal-knowledge case, the engineering equivalent is BG 2.29's verse on what cannot be transmitted, not 2.28's structural calm.",
+    "implication": "Before mourning a system being torn down, write the spec down — capture what the customer actually needed, what the implementation actually did, and what the next system has to satisfy. If phase three exists in writing, the loss is structural and small. If it does not yet exist, write it now; that is the work the verse is asking for.",
+    "quotable_line": "Every codebase has three phases — need, implementation, spec — and only the middle one shows up in your editor.",
+    "tags": ["spec-vs-behavior", "deprecation-management", "essence-vs-implementation"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:42:00Z",
+      "mutation": "v0 generation: BG 2.28's three-phase structure (avyakta-ādīni → vyakta-madhyāni → avyakta-nidhanāni) maps cleanly onto the engineering lifecycle of need → implementation → spec. The notifications-service scenario was constructed to make all three phases concrete and traceable to specific named artifacts (Linear ticket, Notion PRD, Datadog, Sentry, migration document). Per the chapter-2 thesis, the verse is anchored to the 'spec-vs-behavior' thread. The counter_example deliberately handles the undocumented-load-bearing case by deferring it to BG 2.29, which is the verse on knowledge-transfer limits.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

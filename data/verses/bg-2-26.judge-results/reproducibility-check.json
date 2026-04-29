@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "A 'lineage check' section in the deprecation runbook: before approving a deprecation cutover, the outgoing-engineer is asked to enumerate the previous systems in the lineage that the to-be-deprecated system itself replaced.",
+  "artifact_kind": "runbook",
+  "embodiment_sketch": "Add a section to the deprecation runbook titled 'Lineage Check.' Required content: (1) name the system being deprecated; (2) name the system this one replaced; (3) name the system that came before that, if known; (4) name the proposed successor. If sections 2-4 are populable, the deprecation is structural and proceeds on schedule. If only section 1 is populable, escalate to architecture review — the deprecation may be removing capability rather than replacing it.",
+  "metaphor_only": false,
+  "verdict_reason": "The artifact is concrete, copyable, and survives the 'Monday-morning' test. A senior engineer could literally add 'Lineage Check' as a runbook section this week. The verse's claim — that grief is misplaced when the cycle is structural — is encoded as a practical check rather than a slogan."
+}

@@ -1,0 +1,267 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.29",
+  "sanskrit_devanagari": "आश्चर्यवत्पश्यति कश्चिदेन-\nमाश्चर्यवद्वदति तथैव चान्यः ।\nआश्चर्यवच्चैनमन्यः शृणोति\nश्रुत्वाप्येनं वेद न चैव कश्चित् ॥ २९ ॥",
+  "sanskrit_iast": "āścaryavat paśyati kaścid enam\nāścaryavad vadati tathaiva cānyaḥ |\nāścaryavac cainam anyaḥ śṛṇoti\nśrutvāpy enaṁ veda na caiva kaścit || 29 ||",
+  "anvaya": [
+    {
+      "sanskrit": "आश्चर्यवत्",
+      "iast": "āścaryavat",
+      "meaning": "as a wonder / amazing"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "कश्चित्",
+      "iast": "kaścit",
+      "meaning": "someone (rare)"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (Self)"
+    },
+    {
+      "sanskrit": "आश्चर्यवत्",
+      "iast": "āścaryavat",
+      "meaning": "as a wonder"
+    },
+    {
+      "sanskrit": "वदति",
+      "iast": "vadati",
+      "meaning": "speaks"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अन्यः",
+      "iast": "anyaḥ",
+      "meaning": "another"
+    },
+    {
+      "sanskrit": "आश्चर्यवत्",
+      "iast": "āścaryavat",
+      "meaning": "as a wonder"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "अन्यः",
+      "iast": "anyaḥ",
+      "meaning": "another"
+    },
+    {
+      "sanskrit": "शृणोति",
+      "iast": "śṛṇoti",
+      "meaning": "hears"
+    },
+    {
+      "sanskrit": "श्रुत्वा",
+      "iast": "śrutvā",
+      "meaning": "having heard"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "वेद",
+      "iast": "veda",
+      "meaning": "knows"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "कश्चित्",
+      "iast": "kaścit",
+      "meaning": "anyone"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/29/",
+      "fetched_at": "2026-04-29T18:22:17Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Some look on the soul as amazing, some describe him as amazing, and some hear of him as amazing, while others, even after hearing about him, cannot understand him at all.",
+      "raw_capture_path": "data/sources/raw/bg-2-29-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/29",
+      "fetched_at": "2026-04-29T18:22:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Some see the soul as amazing, some describe it as amazing, and some hear of the soul as amazing, while others, even on hearing, cannot understand it at all."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/29/",
+      "fetched_at": "2026-04-29T18:22:17Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2681-char full purport)",
+      "verbatim_excerpt": "Since Gītopaniṣad is largely based on the principles of the Upaniṣads, it is not surprising to also find this passage in the Kaṭha Upaniṣad (1.2.7). The fact that the atomic soul is within the body of such a gigantic animal as the elephant, that it is also in the body of the microscopic germ.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 2681,
+      "raw_full_path": "data/sources/raw/bg-2-29-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-29/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:21:07Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.29 'This Self under discussion is inscrutable. Why should I blame you alone regarding a thing that is a source of delusion to all!' How is this Self inscrutable? Kascit, someone; pasyati, visualizes; enam, It, the Self; ascaryavat, as a wonder.",
+      "verbatim_excerpt_length": 245,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-29-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.29 as Krishna's honest acknowledgement that the Self is inscrutable — durvijñeya. The verse's structure (someone sees, someone speaks, someone hears, no one fully knows) marks the asymmetry between exposure and understanding. Krishna is not blaming Arjuna for not yet seeing; the Self is hard for everyone. Even hearing about it does not produce the knowing of it. The verse softens the polemic of the previous verses by acknowledging the limit of transmission."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-29/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:21:07Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.29 Among innumerable beings, someone, who by great austerity has got rid of sins and has increased his merits, realises this self possessing the above mentioned nature, which is wonderful and distinct in kind from all things other than Itself. Such a one speaks of It to another. Thus, someone hears of It.",
+      "verbatim_excerpt_length": 297,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-29-bgus.json",
+      "summary_paraphrase": "Ramanuja reads the verse as an honest description of how knowledge of the Self propagates through the world. A rare seer realises it; that seer transmits it; another hears it; and even after hearing, the knowing of it is not guaranteed. The verse is structurally a chain — seer, speaker, hearer, and (perhaps) one who comes to know. Each link is rare. The chain itself is rare. Hearing is not the same as knowing."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "veda na caiva kaścit",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "even after hearing about him, cannot understand him at all"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "even on hearing, cannot understand it at all"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the Self is durvijñeya — hard to know; even hearing does not produce knowing"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "even after hearing, the knowing is rare; the chain seer→speaker→hearer→knower has fragile final link"
+        },
+        {
+          "source": "Literal",
+          "rendering": "having heard, anyone (kaścit) does not indeed know"
+        }
+      ],
+      "explanation": "All renderings agree on the surface meaning but the implication differs. Prabhupada and Mukundananda render 'kaścit' as a strong negative ('cannot understand at all'), implying near-universal failure. Shankara softens this — the Self is hard to know (durvijñeya), but the verse is descriptive rather than discouraging. Ramanuja's reading is the most carefully structured: the verse describes the rarity of each link in a four-step chain (seer, speaker, hearer, knower), with the final link being the rarest. The verse is not saying 'no one knows' — it is saying 'knowing it is not produced by hearing about it.' This distinction matters: Krishna is not telling Arjuna it is hopeless; he is telling Arjuna why even his own teaching has limits."
+    }
+  ],
+  "literal_meaning": "Some see this [Self] as a wonder; another speaks of it as a wonder; another hears of it as a wonder; and even having heard, none truly knows it.",
+  "traditional_meaning": "An interlude verse acknowledging the limit of knowledge transmission. Krishna pauses the polemical sequence (2.11-2.28, the imperishable doctrine) to note the asymmetry between exposure and understanding: seeing, speaking, hearing, knowing are four distinct events, and they do not chain reliably. The Self is durvijñeya — hard to know. The verse is structurally significant in two ways: (a) it is the only trishtubh-meter verse in this block (44 syllables vs. 32 of an anushtubh shloka), formally marking it out; (b) it softens the argument by acknowledging that even Krishna's teaching is limited by what can be transmitted. The commentarial tradition (Shankara, Ramanuja, Sridhara, Keshava) treats this as a key moment of intellectual humility within an otherwise polemical sequence. After this verse, Krishna concludes the imperishable section with 2.30 ('therefore do not grieve') and then pivots to the duty argument at 2.31.",
+  "engineering": {
+    "translation": "Some look at a complex production system and see wonder. Some can describe their wonder to a colleague. Some can hear a senior engineer describe theirs and follow along. And even after all of that — having seen, having heard, having read every postmortem and every architecture document — almost no one walks away with the system actually known. The verse is being honest about a hard limit: the deepest part of any system is what cannot be fully transmitted. Not by docs, not by pair-programming, not by code review, not by the most patient onboarding. The senior engineer who has been on-call for that service for four years has knowledge that is not extractable. This is a verse about that gap, and it is the only verse in this block that admits the gap exists.",
+    "concrete_scenario": "An engineer with seven years on a payments platform sits down to pair with a new hire. The new hire has read the runbook in Notion, traced the code through the IDE, watched the recorded incident-review meetings, scrolled the Sentry exception history, and skimmed every architecture decision record in the GitHub wiki. By any documentary measure, the new hire has been told the system. But during the pairing session, the senior pulls up a Datadog graph and points to a small wobble in p99 latency around 2:14 a.m. Pacific. 'That is the daily reconciliation job touching the same Postgres index the read path uses; it is harmless, but if it ever climbs above three percent we have ninety seconds before the merchant-facing API starts timing out, because there is a Stripe webhook retry that piles on at exactly three minutes.' Nothing in that sentence appears in any document. It is composite knowledge — pattern-matched across hundreds of dashboard glances, three real incidents, two false alarms, and the specific feel of how this system breathes. Some see this as wonder; some can put part of it into words; the new hire can hear it; and even after hearing it, the new hire does not yet know it. Knowing is the third year on the rotation, not the second week.",
+    "falsifiability": "The analog fails if a reader uses it to defend hoarding knowledge or to refuse to write documentation. The verse is not saying 'do not bother documenting' — it is saying 'documentation has a ceiling.' If a team treats this verse as license to skip writing runbooks, they have inverted it. The honest reading is: write everything you can write, and then notice that the part you could not write is where the real expertise lives.",
+    "counter_example": "When a system's behavior is genuinely well-documented and reproducible — a pure-function utility library, a deterministic data pipeline with strong typing and full test coverage — the gap the verse points at is small or absent. Krishna's claim is about systems that have accumulated production-time learning; it does not generalize to every artifact the engineer touches. A clean interior module is not 'inscrutable'; it is just clean.",
+    "implication": "Plan for the knowledge-transfer gap before the senior engineer leaves the rotation. Schedule shadowed on-call shifts, write up incident retrospectives the same week the incident happens, and build the kind of tribal-knowledge index that admits its own incompleteness. Treat the gap as a real engineering concern, not a soft one.",
+    "quotable_line": "Some see the system as wonder, some describe it, some hear of it described — and even after all of that, almost no one yet knows it.",
+    "tags": [
+      "knowledge-action-integration",
+      "team-state",
+      "on-call-doctrine"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

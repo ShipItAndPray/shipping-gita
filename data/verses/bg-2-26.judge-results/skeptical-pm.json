@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When an engineer is delaying a deprecation because they feel attached to the existing implementation, ask them to name the system that the existing implementation itself replaced; if they can name it, the grief is structural and the cutover should proceed on schedule.",
+  "example_decision": "Sprint planning: a senior engineer is dragging on the Memcached-to-Redis migration because they wrote the Memcached layer and feel ownership of it. The PM asks: what did Memcached itself replace? The engineer answers (in-process caching written into the request path). The migration ships; the grief is named as structural, not particular.",
+  "objection": "none"
+}

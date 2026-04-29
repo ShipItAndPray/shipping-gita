@@ -1,0 +1,263 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.26",
+  "sanskrit_devanagari": "अथ चैनं नित्यजातं नित्यं वा मन्यसे मृतम् ।\nतथापि त्वं महाबाहो नैनं शोचितुमर्हसि ॥ २६ ॥",
+  "sanskrit_iast": "atha cainaṁ nitya-jātaṁ nityaṁ vā manyase mṛtam |\ntathāpi tvaṁ mahā-bāho nainaṁ śocitum arhasi || 26 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अथ",
+      "iast": "atha",
+      "meaning": "if, however / on the other hand"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and / also"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (Self/embodied one)"
+    },
+    {
+      "sanskrit": "नित्यजातम्",
+      "iast": "nitya-jātam",
+      "meaning": "constantly born"
+    },
+    {
+      "sanskrit": "नित्यम्",
+      "iast": "nityam",
+      "meaning": "constantly / forever"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "मन्यसे",
+      "iast": "manyase",
+      "meaning": "you think"
+    },
+    {
+      "sanskrit": "मृतम्",
+      "iast": "mṛtam",
+      "meaning": "dead"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "thus / so"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "महाबाहो",
+      "iast": "mahā-bāho",
+      "meaning": "O mighty-armed one"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (Self)"
+    },
+    {
+      "sanskrit": "शोचितुम्",
+      "iast": "śocitum",
+      "meaning": "to grieve"
+    },
+    {
+      "sanskrit": "अर्हसि",
+      "iast": "arhasi",
+      "meaning": "you ought / deserve"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/26/",
+      "fetched_at": "2026-04-29T18:22:13Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "If, however, you think that the soul [or the symptoms of life] will always be born and die forever, you still have no reason to lament, O mighty-armed.",
+      "raw_capture_path": "data/sources/raw/bg-2-26-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/26",
+      "fetched_at": "2026-04-29T18:22:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "If, however, you think that the self is subject to constant birth and death, O mighty-armed Arjun, even then you should not grieve like this."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/26/",
+      "fetched_at": "2026-04-29T18:22:13Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2208-char full purport)",
+      "verbatim_excerpt": "There is always a class of philosophers, almost akin to the Buddhists, who do not believe in the separate existence of the soul beyond the body. When Lord Kṛṣṇa spoke the Bhagavad-gītā, it appears that such philosophers existed, and they were known as the Lokāyatikas and Vaibhāṣikas.",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 2208,
+      "raw_full_path": "data/sources/raw/bg-2-26-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-26/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:21:04Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.26 This (verse), 'On the other hand,' etc., is uttered assuming that the Self is transient. Atha ca, on the other hand, if (— conveys the sense of assumption —); following ordinary experience, manyase, you think; enam, this One, the Self under discussion; is nityajatam, born continually.",
+      "verbatim_excerpt_length": 297,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-26-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.26 as a concessive argument: even if one rejects the imperishable doctrine of the previous verses and adopts the ordinary-experience view that the Self is born repeatedly and dies repeatedly with each body, the conclusion still holds — Arjuna should not grieve. The verse is structured as 'on the other hand' (atha ca) marking a hypothesis Krishna does not himself endorse but uses to close every escape route. The 'iva'-style assumption: take the opponent's premise; the conclusion is unchanged."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-26/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:21:04Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.26 Besides, if you consider this self as identical with the body, which is constantly born and constantly dies — which is nothing other than these characteristics of the body mentioned above —, even then it does not become you to feel grief; because, birth and death are inevitable for the body.",
+      "verbatim_excerpt_length": 298,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-26-bgus.json",
+      "summary_paraphrase": "Ramanuja takes the conditional concretely: if you identify the Self with the body, then the body's nature is precisely birth-and-death. Grief over the body's death is grief over the body being what it is. The conditional collapses on itself — the very view that justifies grief makes grief incoherent. Even on the materialist premise, the right conclusion is non-grief."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "atha ca",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "if, however"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "if, however"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "on the other hand (conveys the sense of assumption — Krishna is granting a premise he does not himself hold)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "besides, if you consider — taking the materialist position as a hypothesis"
+        }
+      ],
+      "explanation": "All translators agree atha ca opens a conditional, but the depth of the conditional matters. Shankara's 'assumption' reading is strong: the verse explicitly entertains a doctrine Krishna has just spent six verses refuting. The English 'if, however' is a flat rendering; the Sanskrit signals 'taking the opposite view for argument's sake.' Ramanuja sharpens this into 'identifying Self with body,' which makes the concessive collapse on itself — birth-and-death is the body's definition, so grieving the body's death is grieving the body for being a body."
+    }
+  ],
+  "literal_meaning": "And even if you think this [Self] is constantly born and constantly dies, even then, O mighty-armed, you ought not grieve for this [Self].",
+  "traditional_meaning": "A concessive argument. Krishna closes the escape route: even if one rejects the previous verses' doctrine of the imperishable Self and adopts the materialist or Buddhist view that the Self is constantly born and constantly dies along with each body, grief is still unjustified. Why grief is unjustified on this alternate premise is given in the next verse (2.27). The commentarial tradition (Shankara, Ramanuja, Sridhara, Keshava, Abhinavagupta) is unanimous that 2.26 is hypothetical — Krishna is not endorsing the materialist view, only granting it for argument's sake to demonstrate that the conclusion holds either way. The verse begins the second leg of the duty argument: even on the opposing premise, grief fails.",
+  "engineering": {
+    "translation": "Even if you reject the architectural-invariant frame — even if the spec-versus-implementation distinction strikes you as too philosophical for an actual deprecation — your specific grief over this deprecation is still misplaced. Because: every system you have ever shipped became legacy. Every endpoint you wrote got renamed. Every Postgres schema you designed got migrated. The cycle is not a hypothesis; it is the observed history of your own GitHub log. So even on the secular premise that nothing transcends — that the code is just code, that there is no protocol-level invariance to lean on — the grief you are performing right now is grief over a thing for being the kind of thing it has always been.",
+    "concrete_scenario": "You are the engineer who maintained a Kafka consumer service for four years. The platform team has just announced the consumer framework is being replaced with a new event-streaming runtime; your service will be migrated by Q3. You feel the pull of grief — you wrote that consumer's retry logic, you tuned its partition rebalancing through three on-call incidents, you saved its dead-letter queue from an outage that nearly took down checkout. The architectural-invariant frame says: the customer's payment-event-processing need persists; this consumer is one implementation of that need. But suppose you reject that frame. Suppose you say: the framework is the thing, and losing it is real loss. Even granting that premise, look at your last decade in Datadog dashboards and Sentry exception streams — you have already lived through three such replacements. Memcached gave way to Redis. The REST gateway gave way to gRPC. The monolith gave way to services. The consumer-framework deprecation is not a deviation from the pattern; it is the pattern. Even on the materialist reading where code is only code, this Kafka consumer was always going to become this Kafka consumer's replacement.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss legitimate technical loss — for example, if a deprecation drops a load-bearing capability with no successor, or if institutional knowledge is being lost without a knowledge-transfer plan. The verse is about misplaced grief, not about the engineering equivalent of toxic positivity. If you find yourself using 2.26 to wave off real concerns about a sloppy migration, you have inverted the verse.",
+    "counter_example": "When a deprecation actually removes capability — a critical observability tool decommissioned with no replacement, an internal API removed before consumers can migrate, a vendor sunset mid-incident — the response is not equanimity, it is escalation. Krishna's argument here grants the materialist premise to demonstrate that grief is structurally misplaced; he does not grant the premise that all losses are equal. A deprecation that violates the implicit contract of replacement-with-successor is a different verse — closer to 2.31 (the duty argument) than to 2.26.",
+    "implication": "When you find yourself grieving a deprecation, run the secular test before the metaphysical one: pull your own commit history, count the systems you have already shipped that are now gone, and check whether this deprecation actually deviates from that pattern. If it does not, the grief is structural, not particular.",
+    "quotable_line": "Even on the secular premise that the code is only code, every system you ever shipped was always going to become its own deprecation.",
+    "tags": [
+      "deprecation-management",
+      "outcome-detachment",
+      "long-term-thinking"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "A 'philosophical-discussion-to-action' transition rule for engineering decision meetings: when the team has agreed on the doctrinal argument for a deprecation but the cutover keeps slipping, schedule the cutover work as the next day's first task and pair on the runbook rather than continuing the discussion.",
+  "artifact_kind": "meeting_structure",
+  "embodiment_sketch": "Add to the deprecation review meeting template a 'Stop-the-Discussion / Schedule-the-Action' rule: if the team has reached agreement on the doctrinal argument in two consecutive meetings and the cutover is still slipping, the deprecation review chair schedules a paired-engineering session with the holding engineer for the next available morning, with the runbook PR as the meeting deliverable. The engineering grief is not invalidated; it is operationalized into the cutover work itself.",
+  "metaphor_only": false,
+  "verdict_reason": "The artifact is a meeting-template rule that an engineering lead could adopt this week. The verse's claim — that the 'therefore' is action, not more reflection — is encoded as a procedural transition from discussion to paired work. Concrete, copyable, survives the Monday-morning test."
+}

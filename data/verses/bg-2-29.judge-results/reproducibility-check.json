@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "A 'tacit-knowledge succession plan' template added to the senior-engineer rotation handoff or staffing review: identify the systems where on-call tacit knowledge is load-bearing, name the engineers carrying it, and schedule shadowed rotations / paired incident response / same-week retrospective writing as a multi-quarter staffing line item.",
+  "artifact_kind": "meeting_structure",
+  "embodiment_sketch": "Standing quarterly meeting: 'Tacit Knowledge Succession Review.' Agenda items: (1) Inventory load-bearing tacit knowledge — which production systems require >2 years on rotation before composite knowledge develops; (2) Map carriers — which engineers currently carry that knowledge, when do they rotate off; (3) Plan transfer — schedule shadowed on-call shifts (overlap weeks), paired incident response, same-week retrospective writing for incidents; (4) Track decay — note when retros stop happening or shadow shifts get cancelled (early signal that the gap is widening). Output: an updated succession plan tracked alongside the staffing roadmap.",
+  "metaphor_only": false,
+  "verdict_reason": "The artifact is a concrete recurring meeting with named agenda items that a staff engineering manager could literally adopt this quarter. The verse's claim — knowing is the third year on the rotation, not the second week — is encoded as scheduled multi-quarter overlap rather than as a one-off training session."
+}

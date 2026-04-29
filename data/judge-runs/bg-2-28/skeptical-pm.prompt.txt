@@ -1,0 +1,210 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.28",
+  "sanskrit_devanagari": "अव्यक्तादीनि भूतानि व्यक्तमध्यानि भारत ।\nअव्यक्तनिधनान्येव तत्र का परिदेवना ॥ २८ ॥",
+  "sanskrit_iast": "avyaktādīni bhūtāni vyakta-madhyāni bhārata |\navyakta-nidhanāny eva tatra kā paridevanā || 28 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अव्यक्त",
+      "iast": "avyakta",
+      "meaning": "unmanifest"
+    },
+    {
+      "sanskrit": "आदीनि",
+      "iast": "ādīni",
+      "meaning": "having beginnings (in)"
+    },
+    {
+      "sanskrit": "भूतानि",
+      "iast": "bhūtāni",
+      "meaning": "beings / created things"
+    },
+    {
+      "sanskrit": "व्यक्त",
+      "iast": "vyakta",
+      "meaning": "manifest"
+    },
+    {
+      "sanskrit": "मध्यानि",
+      "iast": "madhyāni",
+      "meaning": "having the middle (in)"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata (Arjuna)"
+    },
+    {
+      "sanskrit": "अव्यक्त",
+      "iast": "avyakta",
+      "meaning": "unmanifest"
+    },
+    {
+      "sanskrit": "निधनानि",
+      "iast": "nidhanāni",
+      "meaning": "having endings (in)"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed / certainly"
+    },
+    {
+      "sanskrit": "तत्र",
+      "iast": "tatra",
+      "meaning": "in that / regarding that"
+    },
+    {
+      "sanskrit": "का",
+      "iast": "kā",
+      "meaning": "what"
+    },
+    {
+      "sanskrit": "परिदेवना",
+      "iast": "paridevanā",
+      "meaning": "lamentation"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/28/",
+      "fetched_at": "2026-04-29T18:22:16Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All created beings are unmanifest in their beginning, manifest in their interim state, and unmanifest again when annihilated. So what need is there for lamentation?",
+      "raw_capture_path": "data/sources/raw/bg-2-28-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/28",
+      "fetched_at": "2026-04-29T18:22:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O scion of Bharat, all created beings are unmanifest before birth, manifest in life, and again unmanifest on death. So why grieve?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/28/",
+      "fetched_at": "2026-04-29T18:22:16Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2299-char full purport)",
+      "verbatim_excerpt": "Accepting that there are two classes of philosophers, one believing in the existence of the soul and the other not believing in the existence of the soul, there is no cause for lamentation in either case. Nonbelievers in the existence of the soul are called atheists by followers of Vedic wisdom.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 2299,
+      "raw_full_path": "data/sources/raw/bg-2-28-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-28/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:21:06Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.28 It is not reasonable to grieve even for beings which are constituted by bodies and organs, since 'all beings remain unmanifest' etc. Bhutani, all beings, avyaktādini, remain unmanifest in the beginning. Those beings, viz sons, friends, and others, who before their origination have unmanifestedness.",
+      "verbatim_excerpt_length": 297,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-28-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as a structural argument: every composite being has the same three-phase shape — unmanifest before, manifest during, unmanifest after. The middle phase, in which the being is visible, is bracketed on both sides by non-being. Loved ones (sons, friends) were unmanifest to you before birth and will be unmanifest to you after death. Mourning the bracket as though it were the whole structure is a category error — you cannot mourn a thing for resuming the state it was in before you knew it."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-28/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:21:06Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.28 Human beings etc., (i.e., bodies) exist as entities; their previous stages are unknown, their middle stages in the form of man etc., are known, and their (final) and future stages are unknown. As they thus exist in their own natural stages, there is no cause for grief.",
+      "verbatim_excerpt_length": 273,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-28-bgus.json",
+      "summary_paraphrase": "Ramanuja restates the structure in epistemic terms: the being's previous stages are unknown to us, the middle stage is known, the final stages are unknown. The known middle is the smallest of the three phases. Treating the known phase as the privileged one — the only one that 'really' exists — is a perceptual artifact, not a metaphysical fact. The verse extends 2.26-2.27's concession into a third independent argument: even on bodily-existence grounds, the three-phase structure of being makes mourning incoherent."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "avyakta-ādīni / avyakta-nidhanāni",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unmanifest in their beginning... unmanifest again when annihilated"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "unmanifest before birth... unmanifest on death"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "unmanifest before origination — refers specifically to composite beings (sons, friends) seen by another"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "previous stages unknown, future stages unknown — epistemic framing of the bracket"
+        }
+      ],
+      "explanation": "All translations agree on the literal three-phase structure (unmanifest → manifest → unmanifest). The traditional commentaries diverge on whether the verse applies to (a) composite beings as known to a perceiver — Shankara emphasises sons and friends, beings whose existence is known relationally — or (b) the metaphysical structure of all manifested existence in itself. Ramanuja's epistemic reframing ('unknown stages bracket the known stage') is the strongest reading: the verse is honest about the perceptual asymmetry between the bracket and the middle. Both readings reach the same conclusion: paridevanā (lamentation) is incoherent given the structure."
+    }
+  ],
+  "literal_meaning": "All beings are unmanifest in their beginning, manifest in the middle, and unmanifest again at the end, O Bhārata. What lamentation is there in this?",
+  "traditional_meaning": "The third independent argument against grief, complementing 2.26-2.27. Every manifested being has a three-phase structure: unmanifest pre-existence, manifest middle, unmanifest post-existence. The middle phase is the smallest of the three; mourning the loss of the middle phase is mourning a thing for resuming the state it was in before. The verse is independent of the imperishable-Self doctrine — it works at the level of phenomenal beings (bhūtāni). The commentarial tradition (Shankara, Ramanuja, Sridhara) reads this as the verse that closes off even the perceptual escape route — even from the standpoint of what you can see, mourning fails. The triplet 2.26-2.27-2.28 forms a closed argument: hypothetically (2.26), structurally (2.27), perceptually (2.28), grief is incoherent.",
+  "engineering": {
+    "translation": "Every codebase has the same three-act shape. A customer demand exists before any line is written. A running implementation manifests in production. Then a residual specification lives on inside someone's head and within the migration document, long after the code itself is gone. The middle act is the only one you can grep for, and it is the smallest of the three. Treating it as if it were the only real chapter is a perceptual artifact, not a metaphysical fact. The requirement was alive in a Linear ticket before the merge; some shape of it persists in tribal memory after the cron job is decommissioned. What lamentation is there in this?",
+    "concrete_scenario": "Consider a notifications service that ran for six years and is now being torn down. Its original author is grieving — the binary will be rolled out of every runtime environment, the GitHub repository turns read-only this Friday, integration tests are scheduled for deletion. But trace the actual lifecycle. Act one, before any code: a customer-support ticket from three companies asking for digest emails, a product-requirements document in Notion, six months of email threads about delivery rate and bounce handling. The need was already alive; the implementation had not arrived. Act two, while the deployment ran: fourteen service rollouts, three queue-worker rewrites, two retention-policy changes, a Datadog dashboard, a Sentry alert rule, an on-call runbook, plus the institutional memory of four engineers who rotated through ownership. Act three, after the binary is gone: the digest-email demand now lives inside a third-party transactional-email vendor, yet its shape — what fields ride along, which retry policy applies, which bounce semantics matter — survives in the migration document, in the original author's head, in the integration contract the new vendor must satisfy. The visible middle is the smallest slice of the timeline.",
+    "falsifiability": "The analog fails if a reader uses it to skip post-mortems or to refuse migration documentation. The verse's argument depends on phase three actually existing — the spec living in someone's head and in the handoff artifact. If the team rips out the code without writing down what it knew, phase three collapses and the verse no longer applies; in that case the grief is real because the loss is real.",
+    "counter_example": "When a system carries undocumented load-bearing behavior — implicit invariants no engineer has noticed, a quirk of timing that downstream consumers depend on without realizing it — its removal does not gracefully transition to phase three. The behavior was not specified; it was the implementation. Krishna's argument here assumes the spec is recoverable; in the undocumented-tribal-knowledge case, the engineering equivalent is BG 2.29's verse on what cannot be transmitted, not 2.28's structural calm.",
+    "implication": "Before mourning a system being torn down, write the spec down — capture what the customer actually needed, what the implementation actually did, and what the next system has to satisfy. If phase three exists in writing, the loss is structural and small. If it does not yet exist, write it now; that is the work the verse is asking for.",
+    "quotable_line": "Every codebase has three phases — need, implementation, spec — and only the middle one shows up in your editor.",
+    "tags": [
+      "spec-vs-behavior",
+      "deprecation-management",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.
