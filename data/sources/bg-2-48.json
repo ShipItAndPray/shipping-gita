@@ -1,0 +1,148 @@
+{
+  "id": "BG 2.48",
+  "chapter": 2,
+  "verse": 48,
+  "fetched_at": "2026-04-29T05:37:12Z",
+  "sanskrit_devanagari": "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।\nसिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते ॥ ४८ ॥",
+  "sanskrit_iast": "yoga-sthaḥ kuru karmāṇi saṅgaṁ tyaktvā dhanañ-jaya |\nsiddhy-asiddhyoḥ samo bhūtvā samatvaṁ yoga ucyate || 48 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/48/",
+      "fetched_at": "2026-04-29T05:37:12Z",
+      "agreement": "exact (raw HTML scrape, body text byte-identical to canonical)",
+      "raw_capture_path": "data/sources/raw/bg-2-48-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/48",
+      "fetched_at": "2026-04-29T05:38:00Z",
+      "agreement": "exact (text body identical; uses single danda | as terminator and 'uchyate' romanization vs 'ucyate' — IAST-rendering variant only)"
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=48",
+      "fetched_at": "2026-04-29T05:38:00Z",
+      "agreement": "exact (text body identical; verse-number marker rendered as ।।2.48।। rather than ॥ ४८ ॥)"
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-48/",
+      "fetched_at": "2026-04-29T05:38:00Z",
+      "agreement": "IAST exact (Devanagari not displayed; IAST body matches under standard romanization conventions)"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-29T05:39:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_02.048 = MBh_06,024.048). Body text identical: 'yogasthaḥ kuru karmāṇi saṅgaṃ tyaktvā dhanaṃjaya / siddhyasiddhyoḥ samo bhūtvā samatvaṃ yoga ucyate'. GRETIL writes the compound 'yoga-sthaḥ' as one word 'yogasthaḥ' (no hyphen) and 'dhanañjaya' as 'dhanaṃjaya' (anusvara); both are scribal-convention variants without semantic difference."
+    }
+  ],
+  "anvaya": [
+    { "sanskrit": "योग",            "iast": "yoga",            "meaning": "yoga (in compound: 'in yoga')" },
+    { "sanskrit": "स्थः",          "iast": "sthaḥ",           "meaning": "established / standing (in compound yoga-sthaḥ: 'established in yoga')" },
+    { "sanskrit": "कुरु",           "iast": "kuru",            "meaning": "perform" },
+    { "sanskrit": "कर्माणि",       "iast": "karmāṇi",         "meaning": "actions / prescribed duties" },
+    { "sanskrit": "सङ्गम्",         "iast": "saṅgam",          "meaning": "attachment" },
+    { "sanskrit": "त्यक्त्वा",     "iast": "tyaktvā",          "meaning": "having abandoned / giving up" },
+    { "sanskrit": "धनञ्",          "iast": "dhanañ",          "meaning": "wealth (in compound dhanañ-jaya)" },
+    { "sanskrit": "जय",             "iast": "jaya",            "meaning": "winner (in compound dhanañ-jaya: 'O winner of wealth, Arjuna')" },
+    { "sanskrit": "सिद्धि",         "iast": "siddhy",          "meaning": "success (in compound siddhy-asiddhyoḥ)" },
+    { "sanskrit": "असिद्ध्योः",    "iast": "asiddhyoḥ",       "meaning": "and failure (in compound siddhy-asiddhyoḥ: 'in success and failure')" },
+    { "sanskrit": "समः",           "iast": "samaḥ",            "meaning": "even / equipoised / the same" },
+    { "sanskrit": "भूत्वा",        "iast": "bhūtvā",           "meaning": "having become" },
+    { "sanskrit": "समत्वम्",       "iast": "samatvam",         "meaning": "equanimity / evenness of mind" },
+    { "sanskrit": "योगः",          "iast": "yogaḥ",            "meaning": "yoga" },
+    { "sanskrit": "उच्यते",        "iast": "ucyate",           "meaning": "is called" }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/48/",
+      "fetched_at": "2026-04-29T05:37:12Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure. Such equanimity is called yoga.",
+      "raw_capture_path": "data/sources/raw/bg-2-48-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/48",
+      "fetched_at": "2026-04-29T05:38:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Be steadfast in the performance of your duty, O Arjun, abandoning attachment to success and failure. Such equanimity is called Yog."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/48/",
+      "fetched_at": "2026-04-29T05:37:12Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, 320 chars of 1239-char full purport)",
+      "verbatim_excerpt": "Kṛṣṇa tells Arjuna that he should act in yoga. And what is that yoga? Yoga means to concentrate the mind upon the Supreme by controlling the ever-disturbing senses. And who is the Supreme? The Supreme is the Lord. And because He Himself is telling Arjuna to fight, Arjuna has nothing to do with the results of the fight.",
+      "raw_full_path": "data/sources/raw/bg-2-48-vedabase.json (purport_full_length: 1239)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-48/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T05:39:00Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Shankara bhashya)",
+      "verbatim_excerpt": "undertake actions bhutva, remaining; samah, equipoised; siddhi-asidhyoh, in success and failure; tyaktva, casting off; sangam, attachment; equanimity in success and failure; ucyate, is called; yogah, Yoga.",
+      "summary_paraphrase": "Shankara glosses yoga-stha as a state-condition: one acts while remaining (bhutva) equipoised. The action is performed for the sake of God alone; attachment (sangam) is what is renounced, not the action itself. Equanimity in siddhi/asiddhi is yoga. The verse defines yoga as samatvam — evenness of mind — not as ritual or posture."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-48/?cm=ramanuja",
+      "fetched_at": "2026-04-29T05:39:00Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Ramanuja bhashya)",
+      "verbatim_excerpt": "Abandoning the attachment to kingdom, relatives etc., and established in Yoga, engage in war and such other activities. Perform these with equanimity as regards success and failure resulting from victory etc., which are inherent in them.",
+      "summary_paraphrase": "Ramanuja contextualizes the verse to Arjuna's specific situation: attachment to kingdom and kin must be abandoned; established in yoga (yoga-stha), engage in the action that the situation demands. Equanimity is mental evenness regarding outcomes inherent to the action — the success or failure of the war is structurally inseparable from the war itself; the operator's task is to remain even with respect to that structure."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "yoga-sthaḥ",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "equipoised (a quality of action)" },
+        { "source": "Mukundananda", "rendering": "steadfast in the performance of duty (a quality of perseverance)" },
+        { "source": "Shankara (per excerpt)", "rendering": "remaining equipoised (bhutva samah) — a state-condition of the actor" },
+        { "source": "Ramanuja (per excerpt)", "rendering": "established in Yoga — a settled spiritual location from which action issues" }
+      ],
+      "explanation": "All four read yoga-sthaḥ as a precondition of action, not a method of action — but the precondition's nature differs. Shankara's reading foregrounds samatvam (mental evenness) as the state. Ramanuja's reading foregrounds being established in a settled relation to the Supreme (the 'location' from which one acts). Prabhupada and Mukundananda render it more pragmatically as 'equipoised' / 'steadfast', acceptable across traditions. The verse explicitly defines yoga = samatvam at its end, which gives Shankara's reading the most direct lexical support; Ramanuja's reading is consistent with this but adds a theological frame."
+    },
+    {
+      "word": "saṅgam tyaktvā",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "abandoning all attachment to success or failure" },
+        { "source": "Mukundananda", "rendering": "abandoning attachment to success and failure" },
+        { "source": "Ramanuja (per excerpt)", "rendering": "abandoning the attachment to kingdom, relatives etc." }
+      ],
+      "explanation": "Prabhupada and Mukundananda fold saṅgam directly into the success/failure clause that follows — 'abandon attachment to outcomes'. Ramanuja widens the scope: in Arjuna's specific case the attachment is to kingdom and kin (echoing Ch. 1), and those are what must be released for action to issue from yoga-sthatva. Both readings are compatible; the lexical question is whether saṅgam is unmodified (universal: any attachment) or contextually scoped (Arjuna's specific attachments). The verse text itself does not constrain this."
+    }
+  ],
+  "literal_meaning": "Established in yoga, perform actions, abandoning attachment, O Dhananjaya; becoming equal in success and failure — equanimity is what is called yoga.",
+  "traditional_meaning_consensus": "This verse defines yoga. Krishna names two things in one structure: (1) the operator-state from which action should issue — yoga-sthaḥ, established in yoga; (2) the content of that state — samatvam, evenness of mind in success and failure. The two are tied: action without the state-condition is mere effort; the state-condition without action is inactive pretense. Saṅgam — attachment — is what is renounced; not the action, not the result, not even the experience of success or failure, but the grasping that conflates outcome with self. Shankara reads samatvam as the lexical centerpiece (yoga = samatvam); Ramanuja reads it as the equanimity proper to a soul established in relation to the Supreme; Gaudiya Vaishnava reading folds it into devotional action whose results belong to Krishna. All traditions agree the verse rejects two pathologies: the operator who acts without inner steadiness, and the operator who claims inner steadiness without acting.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)", "bhagavad-gita.us (Shankara excerpt)", "bhagavad-gita.us (Ramanuja excerpt)"],
+    "remaining_gaps": [
+      "Shankara's full Sanskrit bhashya not pulled — only the translator-rendered excerpt was machine-extractable.",
+      "Ramanuja's full Sanskrit bhashya not pulled — same reason.",
+      "Madhva's Dvaita commentary not pulled."
+    ]
+  }
+}

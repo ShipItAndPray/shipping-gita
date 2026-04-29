@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.46",
+  "chapter": 2,
+  "verse": 46,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The senior engineer who has internalized the linter's rules no longer reads them; the architect who has internalized the design pattern no longer needs the cookbook. Whatever utility the rule offered to the apprentice, the principle that generated the rule offers it more completely to the practitioner who has reached the principle. The hazard is symmetric on two sides. Some engineers stay hostage to checklists past the point of understanding — defensively quoting style guides without holding the model that produced them. Others claim mastery before they have done the apprentice work, skipping the small water-pond entirely and announcing they have reached the flood. Neither is the verse. The verse names a real transition — apprentice rule-following dissolves into mature first-principles judgment — and warns against confusing either side of that transition with itself.",
+    "concrete_scenario": "An engineer two years into the team can recite the ESLint config from memory and never opens the README anymore. The on-call playbook is laminated above her desk; she has not consulted it during the last three Sentry pages because the procedure is now in muscle memory — check the failing health endpoint, look at Datadog for upstream latency, then GitHub for the most recent merge to the affected service. Her merge requests no longer cite the style guide; the style guide is operating inside the code she writes. Compare a senior architect at the same company whose pattern fluency means he no longer reaches for the design-patterns book before proposing the queue-based decoupling — he just sees that this Postgres write will become a hot row under the upcoming campaign and routes through Kafka. Now consider the inverse pathology: a junior who has read three blog posts about hexagonal architecture and stops consulting the actual cookbook, declaring he has internalized the principles, but his pull requests reveal he has skipped the apprentice work — he is announcing flood while still standing at the well. Both situations are this verse. The rules are the small water-pond. The principle that generated the rules is the flood. The verse names the moment one dissolves into the other for the practitioner who has actually arrived — and warns against the premature claim that produces the same gestures without the same understanding.",
+    "falsifiability": "The analog fails if a reader uses it to justify ignoring the linter, the on-call runbook, or code review on the grounds that they have 'internalized the principles'. Mastery looks like rule-fluent code, not rule-absent code. If the engineer's output starts violating the rules they claim to have transcended, they have not transcended them. The test is the artifact, not the self-report.",
+    "counter_example": "When the rule is novel — a recently introduced GitHub Actions security policy, an unfamiliar Kubernetes admission controller, a migration to a Postgres version with new locking semantics — even the senior engineer should re-open the documentation. The verse applies to internalized rules, not to all rules. Treating every situation as one in which the cookbook can be skipped is exactly the premature-mastery pathology the verse warns against.",
+    "implication": "Audit your own consultation pattern. Note the rules you no longer open; ask whether your output still expresses them. If yes, the rule has dissolved into your judgment correctly. If no, the rule has dissolved into mere forgetting, and the small water-pond is what you actually need.",
+    "quotable_line": "The senior engineer no longer reads the linter; the linter is reading her code.",
+    "tags": ["first-principles", "essence-vs-implementation", "code-review-discipline"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T05:45:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack (vedabase.io Prabhupada + holy-bhagavad-gita.org Mukundananda + gitasupersite.iitk.ac.in Devanagari + bhagavad-gita.us Shankara/Ramanuja excerpts + GRETIL critical edition). Anchored on the verse's two-sided warning: rule-dependence past mastery, and premature claim of mastery that skips the apprentice work. Named tools: ESLint, Sentry, Datadog, GitHub, Postgres, Kafka, Kubernetes.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}
