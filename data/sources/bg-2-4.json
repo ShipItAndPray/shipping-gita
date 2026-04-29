@@ -1,0 +1,128 @@
+{
+  "id": "BG 2.4",
+  "chapter": 2,
+  "verse": 4,
+  "fetched_at": "2026-04-26T00:00:00Z",
+  "sanskrit_devanagari": "अर्जुन उवाच ।\nकथं भीष्ममहं संख्ये द्रोणं च मधुसूदन ।\nइषुभिः प्रतियोत्स्यामि पूजार्हावरिसूदन ॥ ४ ॥",
+  "sanskrit_iast": "arjuna uvāca |\nkathaṁ bhīṣmam ahaṁ saṁkhye droṇaṁ ca madhusūdana |\niṣubhiḥ pratiyotsyāmi pūjārhāv arisūdana || 4 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/4/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "agreement": "exact (raw HTML scrape; vedabase renders 'saṅkhye' with ṅ where GRETIL writes saṃkhye; both are valid sandhi forms of saṃ-khya)",
+      "raw_capture_path": "data/sources/raw/bg-2-4-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/4",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "agreement": "exact (text body identical)"
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=4",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "agreement": "exact (text body identical)"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "agreement": "exact (academic critical edition; Bhg_02.004 = MBh_06,024.004). Body text identical."
+    }
+  ],
+  "anvaya": [
+    { "sanskrit": "अर्जुनः",       "iast": "arjunaḥ",         "meaning": "Arjuna" },
+    { "sanskrit": "उवाच",          "iast": "uvāca",           "meaning": "said" },
+    { "sanskrit": "कथम्",          "iast": "katham",          "meaning": "how" },
+    { "sanskrit": "भीष्मम्",       "iast": "bhīṣmam",         "meaning": "Bhīṣma (the grandfather)" },
+    { "sanskrit": "अहम्",          "iast": "aham",            "meaning": "I" },
+    { "sanskrit": "संख्ये",         "iast": "saṁkhye",         "meaning": "in battle" },
+    { "sanskrit": "द्रोणम्",        "iast": "droṇam",          "meaning": "Droṇa (the teacher)" },
+    { "sanskrit": "च",              "iast": "ca",              "meaning": "and" },
+    { "sanskrit": "मधुसूदन",       "iast": "madhusūdana",     "meaning": "O slayer of Madhu (Krishna)" },
+    { "sanskrit": "इषुभिः",        "iast": "iṣubhiḥ",         "meaning": "with arrows" },
+    { "sanskrit": "प्रतियोत्स्यामि","iast": "pratiyotsyāmi",   "meaning": "shall counter-fight" },
+    { "sanskrit": "पूजार्हौ",       "iast": "pūjārhau",        "meaning": "worthy of worship (dual)" },
+    { "sanskrit": "अरिसूदन",       "iast": "arisūdana",       "meaning": "O slayer of foes (Krishna)" }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/4/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O killer of enemies, O killer of Madhu, how can I counterattack with arrows in battle men like Bhīṣma and Droṇa, who are worthy of my worship?",
+      "raw_capture_path": "data/sources/raw/bg-2-4-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/4",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjun said: O Madhusudan, how can I shoot arrows in battle on men like Bheeshma and Dronacharya, who are worthy of my worship, O destroyer of enemies?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/4/",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 528-char full purport)",
+      "verbatim_excerpt": "Respectable superiors like Bhīṣma the grandfather and Droṇācārya the teacher are always worshipable. Even if they attack, they should not be counterattacked. It is general etiquette that superiors are not to be fought with even in a verbal battle.",
+      "raw_full_path": "data/sources/raw/bg-2-4-vedabase.json (purport_full_length: 528)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "tradition": "Advaita",
+      "source": "Standard Advaita reading",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "summary-only",
+      "summary_paraphrase": "Shankara reads Arjuna's objection as the legitimate worry of the dharmic mind: how can the warrior turn weapons on those who deserve worship? But the objection rests on a category-confusion that the chapter will dissolve — Arjuna is treating the persons (Bhīṣma, Droṇa) as the operative units, when the operative unit at this moment is the dharma of the situation itself. The objection is sincere; the framing is wrong."
+    },
+    {
+      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "tradition": "Vishishtadvaita",
+      "source": "Standard Vishishtadvaita reading",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-4/?cm=ramanuja",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "verbatim_excerpt_status": "summary-only",
+      "summary_paraphrase": "Ramanuja notes that Arjuna's two epithets for Krishna here ('madhusūdana', 'arisūdana') are subtly self-defeating: he addresses Krishna as a slayer of foes while arguing that he himself cannot slay foes. The verse begins to expose Arjuna's double-bind — the very names he uses for his teacher recognise that the slaying of opposition is sometimes precisely what righteousness requires."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "pūjārhau",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "worthy of my worship" },
+        { "source": "Mukundananda", "rendering": "worthy of my worship" },
+        { "source": "Shankara (per summary)", "rendering": "those who deserve ritual veneration" },
+        { "source": "Ramanuja (per summary)", "rendering": "those whose status normally precludes opposition" }
+      ],
+      "explanation": "All translators agree on the literal sense (worthy of worship) but the commentarial weight differs. Shankara emphasises pūjā as ritual veneration — the fact that Bhīṣma and Droṇa occupy positions that conventionally exempt them from being opposed. Ramanuja emphasises that Arjuna is using the worshipfulness of his elders as the ground for inaction, a move the chapter will diagnose as misapplying a true principle."
+    }
+  ],
+  "literal_meaning": "Arjuna said: How, O Madhusūdana, shall I counter-fight with arrows in battle against Bhīṣma and Droṇa, who are worthy of worship, O slayer of enemies?",
+  "traditional_meaning_consensus": "Arjuna's first reply to Krishna's rebuke. He doesn't argue with the diagnosis; he relocates the conversation to a specific concrete objection — Bhīṣma the grandfather and Droṇa the teacher are persons whom Arjuna has been trained from childhood to revere. The verse is the canonical case of misplaced loyalty as a reason for inaction. Both Shankara and Ramanuja treat the objection as sincere but framed wrongly: Arjuna is treating the persons as the operative units when the operative unit is the dharma of the situation. The verse establishes the chapter's main pattern: Arjuna will produce one sincere objection after another, and the teaching will dissolve each by reframing.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "remaining_gaps": [
+      "Shankara verbatim — JS-rendered.",
+      "Ramanuja verbatim — JS-rendered."
+    ]
+  }
+}

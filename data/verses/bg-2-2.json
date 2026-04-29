@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.2",
+  "chapter": 2,
+  "verse": 2,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Where does this collapse come from at this exact moment — the moment your migration is half-applied, the queue is backing up, the rollback window is closing? This is not the timing for self-pity. The kind of paralysis you are showing is not the paralysis of a thoughtful operator weighing tradeoffs; it is the paralysis of someone abandoning the runbook because the runbook has gotten hard. It serves nothing you actually want — not the customer, not the team, not your own record. The diagnosis precedes the comfort. The comfort comes later, in 2.11. Right now, the senior engineer is naming what they see, sharply, because the moment requires it.",
+    "concrete_scenario": "It is 2:47 AM on a deploy night. The schema migration on the primary Postgres database is partially applied — twelve of seventeen tables have the new column, five do not, and writes are now failing intermittently in Sentry. The on-call engineer who owns the migration is the most senior person in the channel and is freezing: they have stopped paging the secondary on-call, stopped opening the runbook, and have begun typing long, anguished apologies in the incident channel about how they should have caught this in staging. The senior incident commander cuts in over Zoom: 'kutas tvā kaśmalam idam viṣame samupasthitam — where is this collapse coming from, right now? Run the rollback playbook step 4. Apologies after the on-call is closed.' The rebuke is not cruel — it is the precise corrective the moment requires. Self-recrimination is the wrong action at viṣama-kāla, the critical hour. The runbook is the right action. The verse names the inversion: Arjuna's grief masquerades as conscience but functions as desertion.",
+    "falsifiability": "The analog fails if a reader uses it to justify being harsh with a junior engineer in their first incident. Krishna is sharp with Arjuna because Arjuna is the senior warrior who has already earned the right to be answered directly; the chapter explicitly notes that this voice is not for novices. If you cannot name what specifically the operator is failing to do (open the runbook, page the secondary, run step 4), and you are merely venting, you are not in this verse — you are in a different, worse verse.",
+    "counter_example": "When the on-call is genuinely a junior who has been paged on a system they do not own — when the right intervention is to take the keyboard from them, not to lecture them — this verse does not apply. The verse describes a senior teacher correcting a senior peer who has frozen. It is not a license for general sharpness. The voice in 2.2 belongs to the relationship Krishna has with Arjuna; transposed, it becomes abuse.",
+    "implication": "When a senior teammate freezes mid-incident and starts apologising instead of executing the runbook, the corrective is to name the freeze and point at the next runbook step — not to console first. Console after the page is closed.",
+    "quotable_line": "Self-recrimination at viṣama-kāla is desertion in apology's clothes.",
+    "tags": ["incident-response", "engineer-paralysis", "on-call-doctrine"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.2 is Krishna's first sharp diagnostic line. Per chapter-2 thesis, do not soften. Engineering layer anchors on the senior incident commander correcting a frozen senior on-call mid-deploy. Explicit warning in falsifiability against using the verse to justify harshness with juniors.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

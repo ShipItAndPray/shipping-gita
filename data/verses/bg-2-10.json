@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.10",
+  "chapter": 2,
+  "verse": 10,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "This verse is narrative scaffolding, not engineering doctrine. Sanjaya describes the geometry of the moment Krishna begins to speak: smiling 'as if' — not amused, but settled — in the middle of the field, addressing the operator who has finally exhausted their case. The corresponding engineering moment is the senior teacher leaning forward at the architecture review, recognising that the room has finally arrived at a state where teaching can land. The verse itself does not teach; it marks the structural pivot. Forcing a doctrine here would distort it. The inversion test should map this to 'narrative pivot before the teaching begins', not to a principle. The chapter's actual instruction starts in the next verse.",
+    "concrete_scenario": "After the silence following the engineering director's declaration in the previous verse, the CTO finally unmutes on the Zoom bridge. Before speaking, the CTO smiles slightly — not in amusement, but in the recognition that the long-deferred conversation is finally available. The two armies of the room — the team that wanted the migration, the team that opposed it — are still arranged on either side of the issue. The deferred decision document is still open in Notion. The Datadog dashboard still shows the unresolved latency regression. Nothing in production has changed. What has changed is the room's readiness to receive a different kind of intervention. The CTO's smile is the marker. The CTO's first sentence — which would belong to BG 2.11 — is the actual teaching. This verse merely names the pivot moment between the operator's exhausted silence and the teacher's settled reply. It is the architectural beat, not the architectural instruction.",
+    "falsifiability": "If a reader extracts a leadership tactic from this verse — 'always smile before delivering hard feedback' — they have over-read it. The verse describes Krishna's specific posture at this specific structural moment; it does not generalise into a coaching technique. If you find yourself quoting 2.10 as a managerial pattern, you have force-fitted scaffolding into doctrine.",
+    "counter_example": "This verse does not teach that smiling is itself useful in tense engineering moments. A leader who performs a smile to manipulate the room is not enacting Krishna in 2.10; they are performing affect. The verse's smile is the byproduct of an actual settled state — not a technique that produces one. Engineers who copy the surface have inverted it.",
+    "implication": "Recognise structural pivots when you encounter them. Some moments in technical leadership exist to mark the transition from one mode of conversation to another; the meaningful content begins after the pivot, not at it.",
+    "quotable_line": "Some verses are the beat before the lesson; the lesson lives in the sentence that follows.",
+    "tags": ["team-state", "team-culture"],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.10 is pure narration — Krishna's posture before he begins speaking. Per chapter-2 thesis, narrative verses warrant LOW confidence + STRETCHED tag. Engineering layer explicitly names this as scaffolding and rules out reading the smile as a leadership tactic.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

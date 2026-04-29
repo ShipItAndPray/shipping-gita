@@ -122,12 +122,18 @@ const findTier = (id: string) =>
     source.chapter > 0 && source.chapter <= 18 && source.verse > 0,
     `chapter=${source.chapter} verse=${source.verse}`);
 
-  // 1.8 meter — anushtubh has 8 syllables per quarter (32 per shloka).
-  // Approximate count varies with vowel-sign accounting; we accept 28-36.
+  // 1.8 meter — anushtubh has 8 syllables per quarter (32 per shloka);
+  // trishtubh (used in 2.5-2.8 and elsewhere) has 11 per quarter (44 per shloka).
+  // Speaker-tag prefixes ("sañjaya uvāca", "arjuna uvāca", "śrī-bhagavān uvāca")
+  // add ~5-7 extra non-metrical syllables. The approximator also drifts by ±2
+  // depending on vowel-sign accounting. We accept the union of both meters
+  // plus speaker-tag tolerance.
   const syl = approximateSyllableCount(dev);
+  const anushtubhRange = syl >= 28 && syl <= 42;          // 32 ± 4, +6 for tag
+  const trishtubhRange = syl >= 40 && syl <= 52;          // 44 ± 4, +4 tolerance
   record(1, t("1.8"),
-    syl >= 28 && syl <= 36,
-    `approx syllables: ${syl} (expected 28-36 for one anushtubh shloka)`);
+    anushtubhRange || trishtubhRange,
+    `approx syllables: ${syl} (expected 28-42 anushtubh ±speaker-tag, or 40-52 trishtubh)`);
 
   // 1.9 verse spans 1 shloka — accept either two single dandas (।।) or one double danda (॥)
   const singleDandas = (dev.match(/।/g) || []).length;

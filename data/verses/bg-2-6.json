@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.6",
+  "chapter": 2,
+  "verse": 6,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "We don't know which is worse — shipping or not shipping. Both options feel equally heavy, and that symmetry of dread is the actual signal. The verse names a specific cognitive state: the operator who has run out of arguments inside their current frame and is now reporting equal aversion to all available actions. This is not the same as genuine equipoise. Genuine equipoise picks a path; this state stares at the choice and cannot pick. The chapter will treat this state as the diagnostic that the frame itself is broken — the tactical question cannot be answered tactically. Recognising the state correctly is the prerequisite for asking for help, which Arjuna does in the next verse.",
+    "concrete_scenario": "An engineering manager has been asked by their VP to make a call on a contested architectural decision: keep the Django monolith and absorb the maintenance cost, or commit to a Kubernetes service split that will consume two quarters of headcount and probably miss the compliance deadline. They have built spreadsheets, hosted three architecture review meetings, written a six-page Notion doc, walked through the proposed schema migration with the Postgres team, and still cannot recommend either path. In the 1:1 with their skip-level, they say verbatim: 'I don't know which is worse — doing this migration or not doing it. Both feel terrible.' This is BG 2.6 in production. The skip-level should not respond by pushing for a decision; that would be the engineering analog of pretending the tactical question has a tactical answer. The skip-level should respond as Krishna does in the chapter: by reframing the substrate of the decision (what is invariant, what is implementation, what is the actual unit of value the decision is meant to serve). The verse marks the moment where decision paralysis becomes legible enough to be addressed.",
+    "falsifiability": "The analog fails if the operator is using 'I don't know' as a stalling tactic rather than reporting actual epistemic exhaustion. The verse describes Arjuna at the bottom of his honest reasoning, not Arjuna pretending he has not yet thought it through. If a five-minute whiteboard would surface a clear preference, the verse does not apply yet — it applies when the whiteboard has already been done.",
+    "counter_example": "When the choice genuinely has equal expected value and the right move is to flip a coin and commit, the verse does not apply. Krishna does not respond to Arjuna's not-knowing by saying 'just pick one'; he reframes the entire substrate. Engineers who use 2.6 as cover for refusing to make 50/50 calls have inverted it. Real equipoise commits.",
+    "implication": "When you and your team have run the analysis and still cannot pick, name the state explicitly to the next level up. The correct intervention is reframing, not forcing a choice inside the broken frame.",
+    "quotable_line": "When both directions feel equally heavy, the frame is the bug, not your conviction.",
+    "tags": ["decision-paralysis", "judgment-under-uncertainty", "strategic-frame"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.6 names the bottom of honest reasoning inside a broken frame. Engineering layer maps to the engineering manager who cannot recommend either path on a contested architectural decision. Counter-example explicitly distinguishes from refusal-to-decide on 50/50 calls.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

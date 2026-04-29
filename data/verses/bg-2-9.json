@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.9",
+  "chapter": 2,
+  "verse": 9,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "This verse is narrative scaffolding, not engineering doctrine. Sanjaya reports two facts: the operator's final declarative refusal, and the silence that follows. The corresponding engineering moment is the architecture-review meeting where the engineering manager finally says 'I am not going to ship this' and stops talking. The silence is structurally significant — it is the precondition for the senior teacher's reply in the next verse — but the verse itself does not teach anything an engineer can act on. It simply marks the moment that Arjuna's case has closed and the teaching is about to open. Forcing a doctrine here would invent one; the inversion test should map this to 'narrative bridge', not to a principle.",
+    "concrete_scenario": "An engineering director, after eight weeks of escalating debate over a contested re-platforming decision, finally writes a short Slack message to the CTO: 'I am not going to lead this migration. There is nothing more for me to add. I'll go dark on the channel for a day to think.' That dispatch is followed by quiet. The quietness is not itself the lesson. The quietness is merely the precondition for whatever lesson arrives next. Whatever the CTO subsequently says — reframing the underlying substrate of the decision, replacing the director, or initiating a different kind of conversation — that response holds the actual instructional substance. This verse simply marks that the operator has fallen quiet and the teacher is about to speak. Datadog dashboards still refresh, the Sentry error stream still flows, the GitHub pull request still sits open awaiting review: production carries on entirely indifferent to anyone's pause. The verse names the pause, no more.",
+    "falsifiability": "If a reader extracts an actionable instruction from this verse — for instance, 'always go silent before deciding' — they have over-read it. The verse describes Arjuna's silence at this specific moment in this specific arc; it does not generalise into a principle. If you find yourself quoting 2.9 as a leadership move, you have force-fitted scaffolding into doctrine.",
+    "counter_example": "This verse does not teach that going silent is itself useful — that would be a misreading. Arjuna's silence is the exhaustion of his case, not a tactic. Engineers who 'go silent' to extract a response from leadership are using a manipulation tactic, not enacting the verse. The verse describes a real out-of-options state, not a performed one.",
+    "implication": "Recognise scaffolding when you see it. Not every silence is a teaching; some silences are simply the marker between someone running out of words and someone else beginning to speak.",
+    "quotable_line": "Some verses describe a silence; the teaching is what comes after the silence, not the silence itself.",
+    "tags": ["engineer-paralysis", "team-state"],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.9 is pure Sanjaya narration — Arjuna's declaration of non-fighting and subsequent silence. Per chapter-2 thesis, narrative verses warrant LOW confidence + STRETCHED tag. Engineering layer explicitly names this as scaffolding and argues against generalising the silence into a principle.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.4",
+  "chapter": 2,
+  "verse": 4,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna's first specific objection to Krishna's correction is the canonical engineering refusal: how can I touch this code? It was written by my mentor; I learned the system from this person; the API contract bears the fingerprints of the architect who hired me. The objection is sincere — Bhīṣma and Droṇa are genuinely worthy of veneration. But the verse marks misplaced loyalty as the actual mechanism of paralysis. Loyalty to a person becomes loyalty to that person's implementation, which becomes loyalty to a configuration that the system has outgrown. The chapter will dissolve this by reframing the operative unit, but the verse itself names the trap precisely: the objection sounds like ethics and feels like ethics, but functions as deferral.",
+    "concrete_scenario": "A senior backend engineer is asked to deprecate a legacy authentication service that the principal engineer of the company designed nine years ago and still occasionally references at all-hands. The legacy service still works, sort of, but has accumulated three CVEs that cannot be patched without a full rewrite, holds the team back from migrating to OAuth2, and is the single largest source of Sentry noise on the platform. The senior engineer keeps refusing the project. The objection produced in retrospectives is always couched in respect: 'this is foundational code', 'we should not touch what the principal built without consulting them', 'there are subtleties only they would understand.' Each objection is sincere; none survives the actual technical review. What is happening is BG 2.4: kathaṁ bhīṣmam ahaṁ saṁkhye — how can I, the student, raise my arrows against the architect who taught me. The verse names the trap. The teaching has not yet dissolved it; that comes later in the chapter. But naming the trap is itself the first step.",
+    "falsifiability": "The analog fails if the legacy code in question is actually load-bearing in ways the new design has not accounted for. Refusal-as-inquiry (asking the original architect what invariants the code holds) is genuinely different from refusal-as-deferral. If the engineer can list, on a whiteboard, three specific invariants the legacy service preserves that the proposed replacement does not, the verse does not apply. The verse names the case where the refusal is generic loyalty, not specific knowledge.",
+    "counter_example": "When the original architect is still on the team and has explicitly flagged unresolved concerns about a deprecation, the right action is collaboration, not unilateral deprecation. The verse describes Arjuna invoking the worshipfulness of absent or symbolic elders, not engaging with present, accessible ones. Engineers who use 2.4 to bypass actual code-review conversations have inverted it.",
+    "implication": "When you find yourself blocked on touching a system out of respect for the person who built it, ask: would I be blocked if a stranger had built it? If yes, the loyalty is the right kind. If no, the loyalty is the wrong kind, and the verse applies.",
+    "quotable_line": "Loyalty to a mentor's implementation is rarely loyalty to the system the mentor was trying to build.",
+    "tags": ["decision-paralysis", "deprecation-management", "team-culture"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.4 is Arjuna's first specific objection — misplaced loyalty as paralysis mechanism. Engineering layer maps to refusing to deprecate a senior architect's legacy code. Counter-example explicitly distinguishes refusal-as-inquiry from refusal-as-deferral.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

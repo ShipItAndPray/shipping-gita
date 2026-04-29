@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.5",
+  "chapter": 2,
+  "verse": 5,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Better to walk away from the role entirely than to ship the migration that will hurt the people who taught me. Arjuna's second argument is the projected-future move: the imagined post-action state is dressed in unbearable consequences and compared against an idealised alternative (begging) that has been stripped of its actual difficulty. This is the move every senior engineer makes when they begin to fantasise about quitting rather than perform the deprecation, the layoff conversation, the architectural truth-telling that will damage long-standing professional relationships. The fantasy alternative is asymmetrically idealised. The actual action is asymmetrically dramatised. The verse names the cognitive distortion without yet correcting it; the correction comes later in the chapter.",
+    "concrete_scenario": "A staff engineer has been told by the VP that the team's home-grown internal-tools framework — a beloved Python library written and championed by two long-tenured principals — must be sunset and replaced with a vendor solution because it cannot scale to the new compliance regime. The staff engineer is the natural owner of the migration. Instead of starting it, they have begun privately interviewing at smaller companies. The reasoning given to friends is poetic: 'I would rather work at a startup than be the person who tells those two principals that nine years of their work is being deleted; the kingdom afterward would be soaked in their disappointment.' This is the verse, exactly: śreyo bhoktuṁ bhaikṣyam — better to subsist by begging (job-hunting) than to enjoy a tainted feast (a successful migration that costs the relationship). The verse does not yet correct the distortion; it shows it clearly. The fantasised begging-life is undertaxed. The fantasised post-deprecation life is overtaxed. The asymmetry is the bug.",
+    "falsifiability": "The analog fails if the alternative path is genuinely better — if the engineer has reason to believe the new role is a higher-impact use of their skills independent of the deprecation. The verse names ESCAPE-into-renunciation, not honest career reassessment. If the engineer has been considering the move for a year and the deprecation merely accelerated the decision, the verse does not apply.",
+    "counter_example": "When the migration would actually destroy critical institutional knowledge that no replacement preserves — when the elders' opposition is itself a substantive technical signal — the verse does not apply. Krishna does not reject Arjuna's love for Bhīṣma; he rejects Arjuna's use of that love as a reason for inaction in a situation that requires action. Engineers who use 2.5 to push through deprecations against substantive opposition have inverted it.",
+    "implication": "When you find yourself romantic about quitting in the same week that a hard project lands on your plate, separate the two questions explicitly. Decide on the project on its own terms. Decide on quitting on its own terms. The romance is the verse warning you that the two are blurring.",
+    "quotable_line": "The fantasised escape is always undertaxed; the fantasised damage is always overdramatised.",
+    "tags": ["decision-paralysis", "deprecation-management", "team-state"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.5 names the false-equivalence between idealised escape and dramatised duty. Engineering layer maps to the staff engineer who begins job-hunting in the same week a hard deprecation lands. Counter-example explicitly preserves the case where the elders' opposition is substantive.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

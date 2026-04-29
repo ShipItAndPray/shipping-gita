@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.8",
+  "chapter": 2,
+  "verse": 8,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "I have tried everything in my repertoire and I cannot see what would fix this. Even an unrivalled outcome — the architecture redesign succeeding spectacularly, the headcount doubling, the promotion arriving, the company going public — would not dispel the underlying state I am in. The verse names a precise condition: the operator who has reached the diagnostic limit of their own framework. They have run every script they know, exhausted every internal lever, and they now report that the problem is not one their current toolkit can address. This is genuinely useful information when reported honestly. It is the request for a different kind of intervention, not a louder version of the same one.",
+    "concrete_scenario": "An engineering director has been chasing the platform team's reliability score for eighteen months. They have reorganised the on-call rotation, instrumented every service in Datadog, replatformed the deploy pipeline through GitHub Actions, hired two principal engineers, instituted a weekly incident review, and added Sentry-based SLOs for the top fifteen endpoints. The reliability score has barely moved. In the executive review, instead of proposing the next reorganisation, the director says: 'na hi prapaśyāmi mamāpanudyād — I do not see what would actually fix this. Doubling the headcount would not fix it. Replatforming again would not fix it. I have run out of moves my current frame can generate. The diagnostic limit is not technical; it is in how I am framing the problem.' The CTO does not respond by suggesting another organisational lever. The CTO responds by reframing: the reliability problem is not about adding interventions, it is about the team's underlying coupling to a deployment doctrine that no headcount level can save. The verse is the precondition for that reframing; without the operator naming the diagnostic limit, the reframing is unsolicited and inert.",
+    "falsifiability": "The analog fails if the operator has not actually exhausted their framework — if there is a known move on the board they have not yet tried. The verse names the case where everything inside the frame has been attempted. If the engineering director above has not yet read a Sentry dashboard, has not run a single retrospective, has not even paged secondary on-call once, the verse does not apply. It applies after the diagnostic effort, not in lieu of it.",
+    "counter_example": "When the right move is to keep iterating inside the existing frame for another quarter — when the framework actually does have headroom the operator hasn't used — this verse does not apply. Premature declarations of 'nothing works' are themselves a form of the kārpaṇya the previous verse named. The verse describes Arjuna at the actual end of his case, not Arjuna giving up early.",
+    "implication": "When you report 'I cannot see what would fix this' to your skip-level, do it specifically: list the moves you have tried, name the diagnostic limit precisely, and ask for a reframe rather than another intervention. The directness unlocks the response that vague despair cannot.",
+    "quotable_line": "Naming the diagnostic limit honestly is the unlock; vague despair is the noise that prevents the unlock from arriving.",
+    "tags": ["judgment-under-uncertainty", "incident-response", "strategic-frame"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.8 names the diagnostic limit at the end of the operator's framework. Engineering layer maps to the engineering director who has run every move on the platform-reliability problem and reports the limit is in the framing, not in the toolkit. Counter-example explicitly preserves the case of premature giving-up.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

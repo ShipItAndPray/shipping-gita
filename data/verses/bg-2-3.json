@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.3",
+  "chapter": 2,
+  "verse": 3,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Do not collapse into the disproportionate version of yourself that cannot ship; that diminished version is fundamentally not who you are. The faintheartedness currently gripping you is not actually large — it is a comparatively small psychological thing wearing the elaborate costume of a large existential thing. Drop the costume immediately and stand up. Open the deferred pull request you have been systematically avoiding for several sprints. Rerun the failing integration test, read the actual stack trace carefully, write the deferred migration. The senior teacher is naming explicitly what you already privately know: this hesitation is not protective architectural wisdom. It is a smaller version of yourself attempting to hide the larger, more capable version. The doctrinally correct remedy is decisive movement, not yet another reflective deliberation.",
+    "concrete_scenario": "A staff engineer has been sitting on a Postgres deprecation for three sprints. The deprecation is a one-week job — drop a column, migrate two services off it, update the ORM. Every standup, the engineer raises a new concern: maybe the legacy reporting query still uses it; maybe a downstream Kafka consumer in a sister team depends on it; maybe we should write a deeper Datadog instrumentation pass first. None of these concerns survive five minutes of actual investigation. What is really happening is that the engineer designed the original column years ago and is reluctant to be the one to delete it. The skip-level says, on a 1:1, the verse: 'kṣudraṁ hṛdaya-daurbalyaṁ tyaktvottiṣṭha' — this is a small weakness of heart, drop it and stand up. Write the migration. Do it this week. Bring me the failing tests Friday if there are any. The faintheartedness around removing one's own old work is petty; the work itself is small. Stand up.",
+    "falsifiability": "The analog fails if it is used to override genuine technical objections to a deploy. The verse names a specific failure mode — collapse into self-doubt that is disproportionate to the actual decision. If the engineer's concerns survive five minutes of investigation (the legacy query DOES still use it; a Kafka consumer DOES read from it), then this verse does not apply. The verse rejects faintheartedness, not caution.",
+    "counter_example": "When a junior engineer hesitates because they genuinely lack context — when the right move is to pair-program rather than command 'stand up' — this verse does not transfer. Krishna is correcting Arjuna at the height of Arjuna's capacity. Engineers who use 2.3 to push through real architectural concerns have inverted it.",
+    "implication": "When you find yourself in the third sprint of orbiting a one-week task, name the orbit. The corrective is to ship the smallest possible version this week and bring back specific blockers, not to keep finding new reasons to defer.",
+    "quotable_line": "Petty heart-weakness in costume as caution: drop it and open the pull request.",
+    "tags": ["engineer-paralysis", "shipping-discipline", "deprecation-management"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-26T00:00:00Z",
+      "mutation": "v0 generation: BG 2.3 contains uttiṣṭha (stand up) — the chapter's first imperative. Engineering layer anchors on the staff engineer who has been orbiting a one-week deprecation for three sprints. Falsifiability explicitly rules out using the verse to override real technical objections.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}
