@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Whoever thinks this embodied is the slayer, and whoever thinks this embodied is slain — both fail to know.",
+      "objection": "The translation preserves the verse's symmetric structure (vetti hantāram / manyate hatam) and the joint negation (ubhau tau na vijānītaḥ). 'Fail to know' renders na vijānītaḥ — slightly weaker than the technical 'lack discriminative knowledge (viveka)' but acceptable as register translation. The source pack's disagreements field surfaces the technical sense."
+    },
+    {
+      "severity": "minor",
+      "claim": "Verse 19 is a near-verbatim quotation of Kaṭha Upaniṣad 1.2.19.",
+      "objection": "Correct. The traditional_meaning_consensus field correctly notes this. Shankara's bhasya cross-references the Upaniṣad. The engineering layer does not name this Upaniṣadic provenance — a minor omission, but the source pack carries it."
+    }
+  ],
+  "notes": "Both the Advaita reading (the verse asserts non-doership at the level of the universal Self) and the Vishishtadvaita reading (the jīva is neither agent nor patient at the bodily-act level) are surfaced in the source pack disagreements. The engineering layer correctly stays inside the cross-tradition consensus on the negation (the spec is not slain when the implementation is) without picking ontological scope. The deprecation analog is doctrinally clean — it preserves both the agent-attribution error AND the patient-attribution error in the symmetric engineering form (author guilt + engineer guilt). PASS."
+}

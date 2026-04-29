@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Before opening or continuing a debugging investigation, audit the signal source: trace the metric back to its pipeline, replay the query, and verify the alert has an underlying referent. In parallel, audit the support queue for high-volume issues with no corresponding alert, since these are the unobserved real needs.",
+  "example_decision": "Roadmap practice: each sprint includes one 'signal audit' task — pick one open Sentry alert and one high-volume support tag, and run them through the audit (alert: is the metric real? support tag: does any alert exist?). Hiring rubric for SREs: must demonstrate willingness to question the alert source, not just the service. Post-mortem template: must include a row 'was the bug real before we started fixing it? (yes / no / pipeline artifact)'.",
+  "objection": "none"
+}

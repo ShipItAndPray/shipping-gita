@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "conflations_found": [],
+  "technical_terms_dropped": ["viveka (na vijānītaḥ rendered as 'fail to know' rather than 'lack discriminative knowledge')", "the Kaṭha Upaniṣad 1.2.19 provenance (preserved in source pack but not in engineering layer)"],
+  "verdict_reason": "The verse is doctrinally subtle: Shankara's nondual reading (the Self has neither agency nor patiency) and Ramanuja's localised reading (the jīva is preserved but is not the bodily-act doer) diverge significantly. The engineering layer correctly does NOT take a side. It maps to the operational consequence both readings share — the spec is not slain when the implementation is — without smuggling either ontology. The chapter thesis explicitly says 'the engineering layer can stay inside cross-tradition consensus without taking either side' for verses where Shankara and Ramanuja diverge sharply, and this verse honors that instruction. PASS."
+}

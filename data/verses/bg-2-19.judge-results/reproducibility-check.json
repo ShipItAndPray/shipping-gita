@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Deprecation-announcement template + 'where the contribution lives now' audit",
+  "artifact_kind": "template+process",
+  "embodiment_sketch": "Two artifacts: (1) Deprecation-announcement template (open-source policy doc): every announcement contains a 'where this work lives now' section listing successor implementations, native APIs that absorbed the lessons, documented patterns; (2) Audit checklist run before sunset: 'Does the substrate (the spec, the contract, the pattern this artifact implemented) survive in named, observable places elsewhere? If yes, deprecate. If no, the deprecation is orphaning a customer-need and a different remediation is required.'",
+  "verdict_reason": "Reduces to a template + an audit. Falsifiable, repeatable, observable. The audit is concrete (named lookup task, not vague 'reflection'). PASS."
+}

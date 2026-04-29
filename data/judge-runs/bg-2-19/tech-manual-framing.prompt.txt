@@ -1,0 +1,261 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.19",
+  "sanskrit_devanagari": "य एनं वेत्ति हन्तारं यश्चैनं मन्यते हतम् ।\nउभौ तौ न विजानीतो नायं हन्ति न हन्यते ॥ १९ ॥",
+  "sanskrit_iast": "ya enaṁ vetti hantāraṁ yaś cainaṁ manyate hatam |\nubhau tau na vijānīto nāyaṁ hanti na hanyate || 19 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "anyone who"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (the embodied)"
+    },
+    {
+      "sanskrit": "वेत्ति",
+      "iast": "vetti",
+      "meaning": "thinks / knows"
+    },
+    {
+      "sanskrit": "हन्तारम्",
+      "iast": "hantāram",
+      "meaning": "the slayer"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "anyone who"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "मन्यते",
+      "iast": "manyate",
+      "meaning": "thinks / regards"
+    },
+    {
+      "sanskrit": "हतम्",
+      "iast": "hatam",
+      "meaning": "slain"
+    },
+    {
+      "sanskrit": "उभौ",
+      "iast": "ubhau",
+      "meaning": "both"
+    },
+    {
+      "sanskrit": "तौ",
+      "iast": "tau",
+      "meaning": "they"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "विजानीतः",
+      "iast": "vijānītaḥ",
+      "meaning": "know / understand"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this (the embodied)"
+    },
+    {
+      "sanskrit": "हन्ति",
+      "iast": "hanti",
+      "meaning": "slays"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "हन्यते",
+      "iast": "hanyate",
+      "meaning": "is slain"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/19/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Neither he who thinks the living entity the slayer nor he who thinks it slain is in knowledge, for the self slays not nor is slain.",
+      "raw_capture_path": "data/sources/raw/bg-2-19-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/19",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Neither of them is in knowledge—the one who thinks the soul can slay and the one who thinks the soul can be slain. For truly, the soul neither kills nor can it be killed."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/19/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, ~285 chars of 860-char full purport)",
+      "verbatim_excerpt": "When an embodied living entity is hurt by fatal weapons, it is to be known that the living entity within the body is not killed. The spirit soul is so small that it is impossible to kill him by any material weapon, as will be evident from subsequent verses.",
+      "raw_full_path": "data/sources/raw/bg-2-19-vedabase.json (purport_full_length: 860)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-19/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~280 chars of 1267-char full bhasya)",
+      "verbatim_excerpt": "But the ideas that you have, 'Bhisma and others are being killed by me in war; I am surely their killer' — this idea of yours is false. How? Yah, he who; vetti, thinks; of enam, this One, the embodied One under consideration; as hantaram, the killer, the agent of the act of killing.",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 1267,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-19-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse non-dually: at the level of the Self, there is no agent of killing and no patient of killing. Both the idea 'I am the slayer' and the idea 'this one is being slain' attribute action and patiency to the Self, which has neither. The verse is essentially the Kaṭha Upaniṣad 1.2.19 quoted in the Gita; Shankara's bhasya cross-references the Upaniṣad explicitly. Action belongs to the body and the gunas, not to the Self."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-19/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~290 chars of 943-char full bhasya)",
+      "verbatim_excerpt": "With regard to 'This' viz., the self, whose nature has been described above, he who thinks of It as the slayer, i.e., as the cause of slaying, and he who thinks 'This' (self) as slain by some cause or other — both of them do not know. As this self is eternal for the reasons mentioned above.",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 943,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-19-bgus.json",
+      "summary_paraphrase": "Ramanuja reads the verse as preserving the embodied jīva: the jīva is not the agent of killing (the body's act, mediated by the senses, is) and is not the patient of killing (the body's destruction does not destroy the jīva). The jīva remains as the eternal embodied; what changes is the body. The Vishishtadvaita reading preserves the jīva's individuality where Advaita's reading dissolves it into the universal Self."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "enam / ayam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the living entity / the self"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the soul"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the embodied = the universal Self; the verse asserts non-doership at the level of Self"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the embodied = the localised jīva; the jīva is neither agent nor patient of killing"
+        }
+      ],
+      "explanation": "The Advaita reading dissolves the agent: the Self is not a doer at all. The Vishishtadvaita reading preserves the jīva but denies that the jīva is the doer of bodily acts (the body and gunas are). Both readings agree that 'I killed Bhīṣma' is metaphysically wrong — they disagree on whose 'I' is doing the wrong attribution. The engineering layer should stay inside the consensus (the spec is not slain when the implementation is) without picking either ontological side."
+    },
+    {
+      "word": "vijānītaḥ (do not know)",
+      "positions": [
+        {
+          "source": "Prabhupada / Mukundananda",
+          "rendering": "is not in knowledge / does not know"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "fails to discriminate Self from non-Self (viveka)"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "fails to know the difference between jīva and the body's acts"
+        }
+      ],
+      "explanation": "vijānīta is the technical term for discriminating knowledge — the kind of knowing that makes the right cuts between substrate and modification. Both bhasyas read the verse as a charge of avivekitā (lack of discrimination), not mere ignorance."
+    }
+  ],
+  "literal_meaning": "Whoever thinks this one the slayer, and whoever thinks this one slain — both do not know. This one neither slays nor is slain.",
+  "traditional_meaning": "The verse — quoted nearly verbatim from Kaṭha Upaniṣad 1.2.19 — denies both agency and patiency to the embodied. The one who thinks 'I am the killer' and the one who thinks 'I am being killed' both fail to know. The doctrinal scope of 'the embodied' differs across traditions (Advaita: the universal Self; Vishishtadvaita: the localised jīva), but the negation is shared: the embodied is neither the agent nor the patient of killing. Action and being-acted-upon belong to the body and its gunas; what is real about the actor is undisturbed. The verse is thus the cleanest statement in the chapter that the substrate of the actor is unaffected by the action.",
+  "engineering": {
+    "translation": "Whoever thinks this embodied is the slayer, and whoever thinks this embodied is slain — both fail to know. The embodied neither slays nor is slain. Verse 19 negates two symmetric attributions: 'I killed it' and 'it is being killed.' On engineering ground, retiring an old package calls forth both errors. The author of a five-year-old module being sunset mourns: 'they are erasing what I made.' The engineer running the sunset feels guilty: 'I am ending someone else's contribution.' Both fail to know. What gets retired is not the spec a module implemented; that spec stays intact. What ends is one realization among many possible realizations. The engineer closing this codebase's life destroys nothing that was real about it; the author whose package leaves circulation has nothing real taken from them. The substrate — customer-need, contract, set of behaviors a module was created to serve — survives every sunset by definition. Both fear and guilt around retirement rest on a category mistake.",
+    "concrete_scenario": "An open-source maintainer announces a sunset calendar: their popular Node.js HTTP middleware package, used by ~40,000 GitHub repos, will reach end-of-life in nine months. This module has been superseded by built-in Node 22 features plus a more modern competitor. The original creator, who shipped it nine years ago and no longer maintains anything, sends a note: 'I appreciate everyone's effort but it feels like you're erasing what I made.' A second maintainer proposing this timeline is paralyzed by the same emotion from another direction: 'I don't want to be the person who kills somebody else's contribution.' Their senior engineer running the project quotes 2.19 in the GitHub discussion thread: ya enaṁ vetti hantāraṁ yaś cainaṁ manyate hatam — whoever thinks retirement kills the work, and whoever thinks they are the killer of the work, both fail to know. What the original creator actually contributed — a clean middleware abstraction over connect, a callable interface signature, a test suite establishing the right contract — those things do not live inside this package. They survive in every successor module that learned from them, in the Node 22 native API that absorbed those lessons, in the documented patterns its author taught the ecosystem. The package is the body. The contributions to the spec are the embodied. Sunset retires the body. The work itself stays undisturbed.",
+    "falsifiability": "The analog fails if a reader uses it to authorise sloppy or careless deprecation — 'the substrate is undisturbed, therefore I do not need to write a migration guide.' The verse denies metaphysical destruction; it does not absolve the deprecating engineer of communication, migration paths, or downstream care. If 40,000 repos break on the deprecation date because nobody published a migration guide, you have not vindicated the verse — you have ignored the falsifiability. The 'undisturbed substrate' claim is doctrinal, not operational; the operational duty around migration windows remains exactly what it was before this verse.",
+    "counter_example": "When the work being deprecated is not just one implementation but the actual specification — when no successor preserves the contract, when the customer-need stops being served — the verse does not protect. The verse describes the case where the spec persists across implementation changes; it does not apply to the case where the spec itself is being abandoned. If your deprecation orphans a customer-need with no replacement, you are not in 2.19; you are in a different verse, closer to 2.31 (the rejection of inaction-disguised-as-renunciation).",
+    "implication": "When you deprecate work — yours or someone else's — name what is being retired (a body, an implementation, a particular set of files) and what is being preserved (the spec, the lessons, the contract). The first is mortal by design; the second cannot be killed by the deprecation. Holding both clearly is what removes both fear and guilt from the deprecation conversation.",
+    "quotable_line": "Deprecation retires the body; the spec the library taught the ecosystem is undisturbed.",
+    "tags": [
+      "deprecation-management",
+      "letting-go",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

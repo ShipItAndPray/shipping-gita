@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "type": "scope_narrowing",
+      "tradition_claim": "Shankara reads tat as Brahman pervading the entire universe; Ramanuja reads tat as the jīva pervading its own body. Both bhasyas read the verse as ontological substrate-naming.",
+      "engineering_claim": "tat is the protocol/contract pervading every implementation in the system.",
+      "explanation": "The engineering layer narrows ontological substrate to operational substrate (protocol). This is reasonable register translation: the verse's rhetorical role (naming what is imperishable in a way that licenses bearing perishability) maps to the engineering rhetorical role (naming what survives migration in a way that licenses migration). The analog explicitly disclaims the move that would distort the verse — using it to argue against ever changing protocols. The literal_meaning and traditional_meaning_consensus fields preserve the verse's metaphysical scope. No inversion. PASS."
+    }
+  ]
+}

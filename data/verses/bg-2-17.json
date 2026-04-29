@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.17",
+  "chapter": 2,
+  "verse": 17,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Know as imperishable that by which all this is pervaded; nobody can destroy this unchanging thing. The verse names a substrate. What pervades a region also outlasts what fills it, and on engineering ground this is the protocol — HTTP, gRPC, the wire format your service speaks, the invariant your contract enforces. Implementations come and go. A Rails monolith dissolves into a Go service. The Go service becomes Rust. The Rust binary moves from EC2 onto Kubernetes. Yet the protocol — POST /v1/payments returning 200 with this JSON shape — persists. Nobody on the team can break it without breaking downstream callers, which is why semver, deprecation calendars, and contract tests exist: they mark what is imperishable. Tatam, pervaded — the protocol lives everywhere in the system. Avyaya, unchanging — what your callers depend on. Avināśi, indestructible — at least inside any one team's writ.",
+    "concrete_scenario": "Your authentication service has been rewritten three times across seven years. The first iteration ran on a Sinatra app talking to MySQL; the second moved to a Spring Boot service backed by Postgres; the third sits on a Go binary inside Kubernetes pods, with Redis for session cache. None of those implementations survived. What did survive: POST /oauth/token consuming a grant_type, client_id, client_secret, returning an access_token JSON envelope with a 3600-second TTL, plus the invariant that revoked tokens stop working within five seconds. Forty-eight downstream callers — the mobile app, two partner integrations, eight internal services, the legacy Salesforce sync — depend on that exact contract. When a junior engineer recently proposed switching the response shape from snake_case to camelCase 'because the rest of the codebase uses camelCase,' the staff engineer answered with this verse: yena sarvam idaṁ tatam — by this contract everything is pervaded; you alone are not competent to destroy it. The implementation is mortal. Specifically the wire shape, the status codes, the error envelope, the TTL semantics — those are imperishable inside this organisation, and changing them requires a deprecation calendar and a versioned migration, not a casual PR.",
+    "falsifiability": "The analog fails if a reader uses it to argue against ever changing protocols. Protocols are revised — HTTP/1.1 became HTTP/2 became HTTP/3; OAuth 1 became OAuth 2; gRPC introduced new stream semantics. The verse is not a defense of any specific contract's permanence; it is a description of the relationship between substrate and implementation. A protocol is imperishable inside the implementation it grounds; protocols themselves can deprecate, but only through a process that mirrors what they govern. If you find yourself quoting 2.17 to refuse migration work entirely, you have inverted it.",
+    "counter_example": "When the 'protocol' is actually accidental complexity — an undocumented JSON quirk that one client happens to depend on, surfaced through a bug rather than a contract — the verse does not protect it. avyaya names what is intentionally imperishable: the spec the team agreed to honor. It does not name every observed behavior. Hyrum's Law (every observable behavior of a system becomes someone's dependency) is a separate problem; pretending Hyrum-binding is doctrinal substrate elevates accident to scripture.",
+    "implication": "Audit your codebase for what genuinely qualifies as substrate (named contract, versioned API, business invariant) versus what is current implementation. The substrate is what survives migration; the implementation is what changes. Treat them differently in code review and in roadmap planning.",
+    "quotable_line": "Implementations are mortal; the protocol they implement is not — at least not by any single team's authority.",
+    "tags": ["architectural-invariant", "interface-stability", "spec-vs-behavior"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T08:00:00Z",
+      "mutation": "v0 generation: BG 2.17 as the verse that explicitly names the imperishable substrate. Engineering layer maps to the protocol / contract / invariant that pervades every implementation and outlasts every rewrite. Stays inside cross-tradition consensus (something pervasive is imperishable) without choosing universal-Brahman vs. localised-jiva. Counter-example handles Hyrum's Law honestly.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.3 FK grade 13.64 > 13"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T08:10:00Z",
+      "mutation": "v0.1: Shortened sentences and Latinate vocabulary in translation block ('competent to accomplish destruction' → 'can destroy'; broke the long Rails->Go->Rust chain into separate sentences) to lift Flesch-Kincaid back into 9-13 range. No doctrinal shift.",
+      "failing_gates_before": ["5.3 FK grade 13.64 > 13"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

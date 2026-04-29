@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a team frames a system component as 'our X' (our authentication, our payments, our identity), audit whether the underlying customer-need predates the team. If yes, the framing is misleading — it incentivizes proprietary rebuilds when adopting industry-standard substrate would be the better engineering choice. Re-frame as 'our implementation of X' to keep the design space open.",
+  "example_decision": "Engineering practice: every architecture review must distinguish between (a) the customer-need being served and its lineage, and (b) the team's specific implementation choices. PRD template: includes a 'lineage' section answering 'how old is this customer-need?' Engineering culture: when 'our X' framing surfaces in design discussion, the next-most-senior engineer asks the lineage question before proceeding to design tradeoffs. This redirects rebuild-vs-adopt decisions from ego-bound to substrate-aware.",
+  "objection": "none"
+}

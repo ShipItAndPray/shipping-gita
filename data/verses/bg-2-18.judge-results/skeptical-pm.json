@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a senior engineer is paralyzed before a migration that genuinely needs to happen (framework EOL, scale ceiling, contract drift), the corrective is to name the perishable (codebase, framework, current files) and the imperishable (contract, invariant, customer-need) and explicitly authorize the migration. When the migration is NOT genuinely needed (vanity rewrite), this verse does not authorize it.",
+  "example_decision": "Roadmap practice: every major migration proposal must include a 'what is mortal / what is preserved' artifact — explicit list of codebase pieces being retired and explicit list of contract surfaces being preserved. Architecture review template: 'Is this migration responding to a genuine forcing function (EOL, scale, contract drift) or to engineering preference?' Engineering culture: when a senior gets paralyzed mid-migration, the next-most-senior peer's first move is to walk through the mortal/preserved cut.",
+  "objection": "none"
+}

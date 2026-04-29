@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Sprint signal-audit checklist + post-mortem template row",
+  "artifact_kind": "process-checklist",
+  "embodiment_sketch": "Sprint planning template (engineering-team handbook): 'Signal audit: pick one Sentry alert that has been open >5 days and one customer-support tag with >10 tickets/week. For the alert, trace metric back to pipeline source and verify referent. For the support tag, search alerts and dashboards for any corresponding instrument. Report findings in the sprint retro.' Post-mortem template addition: 'Was the bug real before debugging began? (yes / no / artifact). If artifact, which pipeline?'",
+  "verdict_reason": "The verse's analog reduces to a concrete, repeatable engineering practice: signal audit. The artifact (a sprint checklist + post-mortem row) is implementable, falsifiable, and produces an observable behavior change in the team's debugging discipline. Not pure metaphor — the engineering claim corresponds to a discrete process artifact. PASS."
+}

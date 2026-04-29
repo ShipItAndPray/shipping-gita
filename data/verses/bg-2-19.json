@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.19",
+  "chapter": 2,
+  "verse": 19,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Whoever thinks this embodied is the slayer, and whoever thinks this embodied is slain — both fail to know. The embodied neither slays nor is slain. Verse 19 negates two symmetric attributions: 'I killed it' and 'it is being killed.' On engineering ground, retiring an old package calls forth both errors. The author of a five-year-old module being sunset mourns: 'they are erasing what I made.' The engineer running the sunset feels guilty: 'I am ending someone else's contribution.' Both fail to know. What gets retired is not the spec a module implemented; that spec stays intact. What ends is one realization among many possible realizations. The engineer closing this codebase's life destroys nothing that was real about it; the author whose package leaves circulation has nothing real taken from them. The substrate — customer-need, contract, set of behaviors a module was created to serve — survives every sunset by definition. Both fear and guilt around retirement rest on a category mistake.",
+    "concrete_scenario": "An open-source maintainer announces a sunset calendar: their popular Node.js HTTP middleware package, used by ~40,000 GitHub repos, will reach end-of-life in nine months. This module has been superseded by built-in Node 22 features plus a more modern competitor. The original creator, who shipped it nine years ago and no longer maintains anything, sends a note: 'I appreciate everyone's effort but it feels like you're erasing what I made.' A second maintainer proposing this timeline is paralyzed by the same emotion from another direction: 'I don't want to be the person who kills somebody else's contribution.' Their senior engineer running the project quotes 2.19 in the GitHub discussion thread: ya enaṁ vetti hantāraṁ yaś cainaṁ manyate hatam — whoever thinks retirement kills the work, and whoever thinks they are the killer of the work, both fail to know. What the original creator actually contributed — a clean middleware abstraction over connect, a callable interface signature, a test suite establishing the right contract — those things do not live inside this package. They survive in every successor module that learned from them, in the Node 22 native API that absorbed those lessons, in the documented patterns its author taught the ecosystem. The package is the body. The contributions to the spec are the embodied. Sunset retires the body. The work itself stays undisturbed.",
+    "falsifiability": "The analog fails if a reader uses it to authorise sloppy or careless deprecation — 'the substrate is undisturbed, therefore I do not need to write a migration guide.' The verse denies metaphysical destruction; it does not absolve the deprecating engineer of communication, migration paths, or downstream care. If 40,000 repos break on the deprecation date because nobody published a migration guide, you have not vindicated the verse — you have ignored the falsifiability. The 'undisturbed substrate' claim is doctrinal, not operational; the operational duty around migration windows remains exactly what it was before this verse.",
+    "counter_example": "When the work being deprecated is not just one implementation but the actual specification — when no successor preserves the contract, when the customer-need stops being served — the verse does not protect. The verse describes the case where the spec persists across implementation changes; it does not apply to the case where the spec itself is being abandoned. If your deprecation orphans a customer-need with no replacement, you are not in 2.19; you are in a different verse, closer to 2.31 (the rejection of inaction-disguised-as-renunciation).",
+    "implication": "When you deprecate work — yours or someone else's — name what is being retired (a body, an implementation, a particular set of files) and what is being preserved (the spec, the lessons, the contract). The first is mortal by design; the second cannot be killed by the deprecation. Holding both clearly is what removes both fear and guilt from the deprecation conversation.",
+    "quotable_line": "Deprecation retires the body; the spec the library taught the ecosystem is undisturbed.",
+    "tags": ["deprecation-management", "letting-go", "essence-vs-implementation"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T09:00:00Z",
+      "mutation": "v0 generation: BG 2.19 negates both agency and patiency of the embodied. Engineering layer maps to the symmetric errors around deprecation work — author mourning ('they are killing my work') and engineer guilty ('I am killing what someone built'). Both fail to know. The spec is undisturbed; only the implementation is retired. Stays inside cross-tradition consensus on the negation without taking Advaita vs Vishishtadvaita ontological side.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.5 lexical diversity 0.488 < 0.55"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T09:10:00Z",
+      "mutation": "v0.1: Varied 'library' / 'deprecation' / 'work' / 'author' chains across translation + scenario (synonyms: package / module / sunset / retirement / creator / maintainer) to lift unique-token ratio past 0.55. No doctrinal drift.",
+      "failing_gates_before": ["5.5 lexical diversity 0.488 < 0.55"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

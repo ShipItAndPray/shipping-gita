@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "These bodies of the eternal, indestructible, immeasurable embodied are said to have an end. Therefore fight.",
+      "objection": "The translation preserves the genitive structure (nityasya śarīriṇaḥ — 'of the eternal embodied') and the tasmād yudhyasva imperative. 'These bodies' is plural antavanta ime dehāḥ — preserved. The imperative 'Therefore fight' is rendered without softening, which is the doctrinally correct move (the chapter thesis explicitly says do not soften the licensing of action). One small note: aprameyasya is rendered 'immeasurable' which is the conventional gloss but loses the technical 'not falling under any pramāṇa' sense — surfaced in the source pack's disagreements field, not in the engineering analog. Acceptable."
+    }
+  ],
+  "notes": "tasmād yudhyasva — the chapter's first explicit imperative for action — is preserved as a structural marker and quoted verbatim in the concrete scenario. The four predicates of the embodied (nitya, anāśin, aprameya, śarīrin) are mapped to the engineering vocabulary (eternal, indestructible, immeasurable, embodied) with reasonable register fidelity. Both Shankara's analytical reading and Ramanuja's svadharma reading are preserved in the source pack; the engineering layer stays inside the licensing-of-action consensus they share without picking ontological scope. The mapping body=codebase / embodied=contract is consistent with 2.17's protocol/implementation distinction, which is the right cross-verse coherence. PASS."
+}

@@ -1,0 +1,230 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.18",
+  "sanskrit_devanagari": "अन्तवन्त इमे देहा नित्यस्योक्ताः शरीरिणः ।\nअनाशिनोऽप्रमेयस्य तस्माद्युध्यस्व भारत ॥ १८ ॥",
+  "sanskrit_iast": "antavanta ime dehā nityasyoktāḥ śarīriṇaḥ |\nanāśino 'prameyasya tasmād yudhyasva bhārata || 18 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अन्तवन्तः",
+      "iast": "antavantaḥ",
+      "meaning": "perishable / having an end"
+    },
+    {
+      "sanskrit": "इमे",
+      "iast": "ime",
+      "meaning": "these"
+    },
+    {
+      "sanskrit": "देहाः",
+      "iast": "dehāḥ",
+      "meaning": "bodies"
+    },
+    {
+      "sanskrit": "नित्यस्य",
+      "iast": "nityasya",
+      "meaning": "of the eternal"
+    },
+    {
+      "sanskrit": "उक्ताः",
+      "iast": "uktāḥ",
+      "meaning": "are said / declared"
+    },
+    {
+      "sanskrit": "शरीरिणः",
+      "iast": "śarīriṇaḥ",
+      "meaning": "of the embodied"
+    },
+    {
+      "sanskrit": "अनाशिनः",
+      "iast": "anāśinaḥ",
+      "meaning": "of the indestructible"
+    },
+    {
+      "sanskrit": "अप्रमेयस्य",
+      "iast": "aprameyasya",
+      "meaning": "of the immeasurable"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "युध्यस्व",
+      "iast": "yudhyasva",
+      "meaning": "fight (imperative)"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/18/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The material body of the indestructible, immeasurable and eternal living entity is sure to come to an end; therefore, fight, O descendant of Bharata.",
+      "raw_capture_path": "data/sources/raw/bg-2-18-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/18",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Only the material body is perishable; the embodied soul within is indestructible, immeasurable, and eternal. Therefore, fight, O descendent of Bharat."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/18/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, ~290 chars of 1256-char full purport)",
+      "verbatim_excerpt": "The material body is perishable by nature. It may perish immediately, or it may do so after a hundred years. It is a question of time only. There is no chance of maintaining it indefinitely. But the spirit soul is so minute that it cannot even be seen by an enemy, to say nothing of being killed.",
+      "raw_full_path": "data/sources/raw/bg-2-18-vedabase.json (purport_full_length: 1256)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-18/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~295 chars of 3380-char full bhasya)",
+      "verbatim_excerpt": "Ime, these; antavantah, destructible; dehah, bodies — as the idea of reality which continues with regard to water in a mirage, etc. gets eliminated when examined with the means of knowledge, and that is its end, so are these bodies and they have an end like bodies etc. in dream and magic.",
+      "verbatim_excerpt_length": 287,
+      "verbatim_full_length": 3380,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-18-bgus.json",
+      "summary_paraphrase": "Shankara reads the bodies as antavanta (having an end) by an analytical examination — like water in a mirage, they dissolve under the means of knowledge (pramāṇa). The embodied (śarīriṇaḥ) is by contrast eternal (nitya), indestructible (anāśin), and immeasurable (aprameya). The 'therefore fight' (tasmād yudhyasva) is the operational consequence: since the body's perishing does not destroy what is real, action — including the warrior's action — is licensed by the doctrine just established."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-18/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~295 chars of 1795-char full bhasya)",
+      "verbatim_excerpt": "The root 'dih' means 'to grow.' Hence these bodies (Dehas) are characterised by complexity. They have an end — their nature is perishablity. For, jugs and such other things which are characterised by complexity are seen to have an end. The bodies of the embodied self, which are made of conglomerate.",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1795,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-18-bgus.json",
+      "summary_paraphrase": "Ramanuja derives 'deha' from the root dih (to grow) and reads the bodies as conglomerate, complex objects — like pots — that necessarily have an end. The embodied jīva is by contrast simple, eternal, immeasurable. The 'therefore fight' (tasmād yudhyasva) is the explicit licensing of action: because the body is perishable in any case and the jīva is not at all destroyed when the body is destroyed, the warrior's discharge of his prescribed duty (svadharma) is justified."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "tasmād yudhyasva",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "therefore, fight"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "therefore, fight"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "since the body's perishing does not touch what is real, action is licensed"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "discharge your prescribed warrior duty because the body's end does not destroy the embodied"
+        }
+      ],
+      "explanation": "All four agree on the imperative; the bhasyas frame the licensing differently. Shankara emphasises the analytical move (the body has been seen to be antavanta, therefore the operational conclusion follows). Ramanuja emphasises the svadharma frame (Arjuna's duty as a warrior is consistent with the doctrine just established). Both readings explicitly LICENSE action — the engineering layer must not soften this into a passive 'accept change.'"
+    },
+    {
+      "word": "aprameyasya",
+      "positions": [
+        {
+          "source": "Prabhupada / Mukundananda",
+          "rendering": "immeasurable"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "not within the scope of any pramāṇa (means of knowledge)"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "of immeasurable subtlety, simple (uncomplex)"
+        }
+      ],
+      "explanation": "aprameya literally means 'beyond measurement' but the technical sense in Indian philosophy is 'not falling under any pramāṇa' — perception, inference, etc. Shankara reads it epistemically (the embodied is not an object of any cognition). Ramanuja reads it ontologically (the embodied is unmeasurable because it is not composite). Translators flatten to 'immeasurable.'"
+    }
+  ],
+  "literal_meaning": "These bodies of the eternal, indestructible, immeasurable embodied are said to have an end. Therefore fight, O descendant of Bharata.",
+  "traditional_meaning": "The verse closes the four-verse argument that began at 2.16. The bodies have an end (antavanta); the embodied (śarīrin) does not — it is eternal, indestructible, immeasurable. Therefore, Krishna says, fight. The 'therefore' is doctrinally important: the verse explicitly LICENSES action because what is destroyed in battle (the body) is not what is real (the embodied). Both Advaita and Vishishtadvaita commentators agree on this licensing structure; their disagreement is over whether the 'embodied' refers to the universal Self (Shankara) or the localised jīva (Ramanuja). The chapter is not endorsing fatalism; it is licensing engaged action with the understanding that the substrate of the actor is not at risk in the action.",
+  "engineering": {
+    "translation": "These bodies of the eternal, indestructible, immeasurable embodied are said to have an end. Therefore fight. The verse closes a four-verse argument with explicit license: act. Your codebase is mortal. Saying so out loud is not tragic; it is just true about implementations. What does not perish in the rewrite is your contract, your spec, the customer-need this service exists to satisfy. Therefore ship the migration. Tasmād yudhyasva carries an engineering license. Rewriting kills only what was always going to be killed — this framework, these files, those tests. Rewriting preserves what is actually load-bearing — the API your callers depend on, the invariant the business has agreed to honor. So the rewrite is not destruction. It is a body change. A senior who frames migration as 'killing my predecessor's work' has chosen the wrong word. Such code was already perishable. What survives is whatever was real about the system, and that survives by design.",
+    "concrete_scenario": "A staff engineer at a mid-sized fintech stalls before kicking off a six-month rewrite: the existing payments service, authored by a now-departed team, has run in production for nine years on a Spring monolith with a custom Hibernate ORM layer. Twelve thousand lines of code, hundreds of integration tests, a deployment runbook nobody fully understands. Its replacement: a Go binary with explicit handlers, Kafka instead of in-process queues, Postgres logical replication for moving data. Our engineer keeps freezing because rewriting feels like 'killing my predecessor's work.' At an architecture review, the principal pulls up this verse: antavanta ime dehāḥ — these bodies have an end; the Spring service was always going to be replaced; what survived nine years was not the Hibernate hack but the contract — POST /v1/charges, idempotency-key semantics, fraud-rule precedence order, settlement reconciliation invariants. Those are nityasya śarīriṇaḥ — eternal in this chapter's specific sense: they outlive whatever currently implements them. Tasmād yudhyasva: therefore, do the rewrite. Our engineer is not killing predecessor work; that legacy code was already mortal. They are preserving whatever was real about it by granting it a fresh body. The principal hands them a rollback plan and tells them to begin dual-write phase on Monday.",
+    "falsifiability": "The analog fails if a reader uses it to justify rewrites that are not actually needed — vanity migrations, framework chasing, 'this Rails app is fine but I'd rather it were in Rust.' Krishna does not license arbitrary action; he licenses Arjuna's specific prescribed duty (svadharma) when paralysis has set in. The engineering equivalent is a migration that is genuinely required: the old framework is unsupported, the database is at scale limits, the contract has been violated by the implementation drift. If you find yourself quoting 2.18 to start a rewrite that nobody asked for, you have inverted it; the verse explicitly couples action to dharma, not to engineering preference.",
+    "counter_example": "When the right action is to NOT migrate — when the existing system is load-bearing, when the business has not asked for change, when the engineering cost exceeds any contract benefit — this verse does not contradict that. The opposite move (preserving the body because the body is, in this specific case, also serving the spec adequately) is not denied. Chapter 5 and Chapter 18 are where right-renunciation lives; this verse is specifically the license to act when paralysis has set in around an action that genuinely needs to happen.",
+    "implication": "When you stall before a migration because rewriting feels like erasure, name what is actually mortal (the codebase, the framework) and what is not (the contract, the invariant, the customer-need). The first is meant to die; the second cannot be killed by the migration. Then begin the migration.",
+    "quotable_line": "The migration does not kill the system; it gives the system a new body. The system was always the contract.",
+    "tags": [
+      "migration",
+      "deprecation-management",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

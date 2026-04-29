@@ -1,0 +1,273 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.20",
+  "sanskrit_devanagari": "न जायते म्रियते वा कदाचि-\nन्नायं भूत्वा भविता वा न भूयः ।\nअजो नित्यः शाश्वतोऽयं पुराणो\nन हन्यते हन्यमाने शरीरे ॥ २० ॥",
+  "sanskrit_iast": "na jāyate mriyate vā kadācin\nnāyaṁ bhūtvā bhavitā vā na bhūyaḥ |\najo nityaḥ śāśvato 'yaṁ purāṇo\nna hanyate hanyamāne śarīre || 20 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not / never"
+    },
+    {
+      "sanskrit": "जायते",
+      "iast": "jāyate",
+      "meaning": "is born"
+    },
+    {
+      "sanskrit": "म्रियते",
+      "iast": "mriyate",
+      "meaning": "dies"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "कदाचित्",
+      "iast": "kadācit",
+      "meaning": "at any time"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this (the embodied)"
+    },
+    {
+      "sanskrit": "भूत्वा",
+      "iast": "bhūtvā",
+      "meaning": "having come to be"
+    },
+    {
+      "sanskrit": "भविता",
+      "iast": "bhavitā",
+      "meaning": "will come to be"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "भूयः",
+      "iast": "bhūyaḥ",
+      "meaning": "again"
+    },
+    {
+      "sanskrit": "अजः",
+      "iast": "ajaḥ",
+      "meaning": "unborn"
+    },
+    {
+      "sanskrit": "नित्यः",
+      "iast": "nityaḥ",
+      "meaning": "eternal"
+    },
+    {
+      "sanskrit": "शाश्वतः",
+      "iast": "śāśvataḥ",
+      "meaning": "ever-existing / permanent"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "पुराणः",
+      "iast": "purāṇaḥ",
+      "meaning": "ancient / primeval"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "हन्यते",
+      "iast": "hanyate",
+      "meaning": "is slain"
+    },
+    {
+      "sanskrit": "हन्यमाने",
+      "iast": "hanyamāne",
+      "meaning": "when being slain"
+    },
+    {
+      "sanskrit": "शरीरे",
+      "iast": "śarīre",
+      "meaning": "in the body"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/20/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "For the soul there is neither birth nor death at any time. He has not come into being, does not come into being, and will not come into being. He is unborn, eternal, ever-existing and primeval. He is not slain when the body is slain.",
+      "raw_capture_path": "data/sources/raw/bg-2-20-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/20",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The soul is neither born, nor does it ever die; nor having once existed, does it ever cease to be. The soul is without birth, eternal, immortal, and ageless. It is not destroyed when the body is destroyed."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/20/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, ~290 chars of 3935-char full purport)",
+      "verbatim_excerpt": "Qualitatively, the small atomic fragmental part of the Supreme Spirit is one with the Supreme. He undergoes no changes like the body. Sometimes the soul is called the steady, or kūṭa-stha. The body is subject to six kinds of transformations.",
+      "raw_full_path": "data/sources/raw/bg-2-20-vedabase.json (purport_full_length: 3935)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-20/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~285 chars of 2926-char full bhasya)",
+      "verbatim_excerpt": "Na kadacit, never; is ayam, this One; jayate, born i.e. the Self has no change in the form of being born — to which matter is subject –; va, and (– va is used in the sense of and); na mriyate, It never dies. By this is denied the final change in the form of destruction.",
+      "verbatim_excerpt_length": 274,
+      "verbatim_full_length": 2926,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-20-bgus.json",
+      "summary_paraphrase": "Shankara reads the four predicates (aja: unborn; nitya: eternal; śāśvata: permanent; purāṇa: ancient) as systematically denying the six modifications of matter (ṣaḍ-vikāra: birth, existence, growth, change, decay, death). 'Not now, not having come to be, not going to come to be, not again' rules out every temporal mode of becoming. The Self is older than what becomes, and is unaffected when the body that becomes is destroyed."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-20/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~290 chars of 1251-char full bhasya)",
+      "verbatim_excerpt": "As the self is eternal for the reasons mentioned (above), and hence free from modifications, it is said that all the attributes of the insentient (body) like birth, death etc., never touch the self. In this connection, as the statement, 'It is never born, It never dies' is in the present tense.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 1251,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-20-bgus.json",
+      "summary_paraphrase": "Ramanuja reads the four predicates as ruling out the body's attributes (birth, growth, decay, death) from the embodied jīva. The use of the present tense ('is never born, never dies') is significant — it asserts that the eternality holds at every present moment, not merely at some abstract endpoint. purāṇa (ancient) is read literally: the jīva precedes the body; it is older than this birth and will outlast this death."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "purāṇa",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "primeval"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "ageless"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "older than what becomes"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "ancient — predates this birth, outlasts this death"
+        }
+      ],
+      "explanation": "purāṇa literally means 'old / ancient' — etymologically connected to purā (long ago). Prabhupada's 'primeval' captures the prior-to-time sense; Mukundananda's 'ageless' modernises it into an attribute of timelessness. Both bhasyas read the term as a temporal predicate — the Self is older than every body it inhabits. The engineering layer's correct mapping is to durations longer than any single tenure (the customer-need that predates the company, the contract that predates the codebase)."
+    },
+    {
+      "word": "ṣaḍ-vikāra (six modifications, implied)",
+      "positions": [
+        {
+          "source": "Shankara",
+          "rendering": "the four predicates systematically deny the six modifications of matter"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "the body's attributes (birth, growth, decay, death) never touch the embodied"
+        }
+      ],
+      "explanation": "Both bhasyas read the verse as a closed enumeration that exhausts the modes of becoming. Shankara's framing (ṣaḍ-vikāra) is more technical; Ramanuja's framing is more colloquial. The translators do not surface this; they let the four predicates stand without classification."
+    }
+  ],
+  "literal_meaning": "This is never born, nor does it die at any time; it has not come to be, will not come to be, nor again. Unborn, eternal, ever-existing, ancient — it is not slain when the body is slain.",
+  "traditional_meaning": "The verse — quoted from Kaṭha Upaniṣad 1.2.18 — is the chapter's most sustained negation of becoming applied to the embodied. The four predicates (aja: unborn; nitya: eternal; śāśvata: permanent; purāṇa: ancient) systematically rule out the modes of temporal modification. 'Has not come to be, will not come to be, nor again' explicitly denies past, future, and recurrence. Both major commentarial traditions read the verse as the substrate-claim: the embodied is older than every body it has occupied and will outlast every body it will occupy. The verse closes the doctrinal block (2.16-2.20) by giving the imperishable substrate its full set of names.",
+  "engineering": {
+    "translation": "Never born, never dying; not having come to be, will not come to be again. Unborn, eternal, ever-existing, ancient — not slain when the body is slain. The verse caps a substrate doctrine using one word that engineering culture rarely uses: purāṇa, ancient. Whatever customer-need your service was built to satisfy is older than your codebase. It is older than your company. It is older than any language your code happens to be written in. The requirement to authenticate predates OAuth, predates HTTPS, predates web browsers. The requirement to checkout predates Stripe, predates credit cards, predates any concept of an internet-mediated payment. The requirement to message somebody predates SMTP, predates personal computers, predates the telegraph. Every codebase you will ever ship serves a need older than itself. Recognizing this rearranges your relationship to ownership. You did not invent what your service helps people do. You inherited a problem already millennia old, and your code is one body the problem briefly inhabits before moving on.",
+    "concrete_scenario": "A founding engineer at a four-year-old SaaS startup stands at the all-hands and announces a major rewrite, slipping into proprietary phrasing: 'our authentication module,' 'our session model,' 'our identity primitives.' A staff engineer in the room pulls them aside afterward and walks through actual lineage. The customer-need being served — 'I want to prove I am the same person who registered yesterday' — was already old when Roman cities issued tesserae to verify guild membership in the second century. Cryptographic identity was specified in Whitfield Diffie and Martin Hellman's 1976 paper. OAuth 2.0 landed in RFC 6749, three years before this startup existed. Postgres has implemented SCRAM-SHA-256 since version 10. Auth0 and AWS Cognito both productize the substrate every Stripe-like SaaS depends on. The 'identity primitives' a founding engineer wants to rewrite are an inherited substrate four years young as code, fifty years young as cryptography, two thousand years young as a human-coordination problem. ajaḥ nityaḥ śāśvato 'yaṁ purāṇaḥ — unborn, eternal, ever-existing, ancient. The staff engineer's correction is not about humility for its own sake; it is about accuracy. When ownership scoping treats the system as 'theirs,' design narrows to one tenure. When the same system gets named correctly — as one body in a lineage serving an ancient requirement — choices widen accordingly. The team adopts a dependency on a well-audited OAuth library plus a JWT helper rather than rolling a bespoke scheme. The need outlives every codebase by definition; no group can claim a problem they did not invent.",
+    "falsifiability": "The analog fails if a reader uses 'the need is ancient' to justify never improving anything — to fall back on legacy systems because the need has 'always been served.' The verse describes the relationship between substrate and implementation, not the quality of any specific implementation. The need to authenticate is purāṇa; the local password-hash function may still be wrong and still need replacement. If you find yourself using 2.20 as cover for resisting reasonable improvements to your codebase, you have inverted it; the verse names the substrate's antiquity, not the implementation's adequacy.",
+    "counter_example": "When the customer-need is genuinely novel — when the engineer is, for example, designing a new privacy-preserving primitive that has no historical analog, or a coordination mechanism that emerges from a specific software-only context — the 'purāṇa' framing applies less cleanly. Some engineering work does push genuinely new substrates into existence. The verse does not deny this; it asks whether you have done the work to determine which case you are actually in. Most claimed novelty is rediscovery; some is real.",
+    "implication": "Audit your team's language for ownership claims that don't hold. Most 'our authentication' / 'our identity' / 'our payments' framings name inherited substrates, not inventions. Naming them correctly improves design, scoping, and dependency choices.",
+    "quotable_line": "Every codebase serves a need older than itself; the customer-problem outlasts your tenure by design.",
+    "tags": [
+      "architectural-invariant",
+      "essence-vs-implementation",
+      "long-term-thinking"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

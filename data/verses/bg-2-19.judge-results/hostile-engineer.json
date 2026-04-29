@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "Both fear and guilt around deprecation rest on a category mistake: the spec the library taught the ecosystem is not in the package being retired; it lives in every successor, in the native API that absorbed the lessons, in the documented patterns. The package is mortal; the contribution is not.",
+  "wisdom_theater_score": 1,
+  "objection": "I expected platitudes. Instead the analog is concrete: an open-source maintainer with 40,000 dependent repos, sunset calendar nine months out, the original author's note about 'erasing what I made,' the second maintainer's symmetric paralysis. The senior engineer's response — naming what the original creator actually contributed (a clean middleware abstraction over connect, a callable interface signature, a test suite) and where it actually lives now (every successor library, the Node 22 native API, the documented patterns) — is the precise content of the verse's negation. The falsifiability handles the misuse honestly ('the substrate is undisturbed, therefore I do not need a migration guide' — explicitly disclaimed). The counter-example handles the case where the spec itself is being abandoned. Cannot mock without strawmanning."
+}

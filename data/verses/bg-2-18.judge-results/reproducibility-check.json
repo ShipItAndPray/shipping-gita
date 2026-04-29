@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Migration-paralysis intervention runbook + 'mortal/preserved' artifact template",
+  "artifact_kind": "process+template",
+  "embodiment_sketch": "Two artifacts: (1) Migration-paralysis intervention runbook (engineering-management handbook): 'When a senior engineer has stalled >7 days on a migration that has architectural review approval, schedule a 30-minute working session. Walk through the mortal/preserved cut: list every codebase artifact being retired, list every contract surface being preserved. Verify the migration is forced by EOL/scale/contract-drift, not engineering preference. Authorize the next phase explicitly.' (2) Mortal/preserved template (architecture review checklist): Two-column document, 'mortal' and 'preserved,' completed for every migration proposal. PASS criteria: every contract surface in the 'preserved' column has a contract test in CI; every artifact in the 'mortal' column has a deprecation date.",
+  "verdict_reason": "The verse's claim ('the migration kills the body but preserves the embodied') reduces to a runbook + template artifact pair. Falsifiable, repeatable, observable. PASS."
+}

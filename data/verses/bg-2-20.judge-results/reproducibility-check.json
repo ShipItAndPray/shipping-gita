@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Lineage-section in PRD template + ownership-language audit",
+  "artifact_kind": "template+process",
+  "embodiment_sketch": "Two artifacts: (1) PRD template addition: every product or platform initiative includes a 'lineage' section answering: how old is the customer-need being served? Where else has it been solved historically? Which industry standards exist? Which operational primitives (Auth0, Stripe, Postgres SCRAM, etc.) already encapsulate the substrate? (2) Architecture-review checklist: when 'our X' framing surfaces ('our authentication,' 'our payments'), the next-most-senior engineer asks the lineage question before tradeoff discussion. The reframe ('our implementation of X' rather than 'our X') is recorded in the review notes.",
+  "verdict_reason": "Reduces to a PRD template section + a review-step. Falsifiable, repeatable, observable in design discussions. Not pure metaphor. PASS."
+}

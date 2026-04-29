@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.16",
+  "chapter": 2,
+  "verse": 16,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "What has no being cannot be said to be; what has being cannot be said not to be. The seers of truth see the conclusion of both. This line is ontological — drawn between things that genuinely exist and things that merely seem to — and on engineering ground it cuts cleanly through the gap separating a real customer need from a phantom problem. A user's actual demand to authenticate, to checkout, to message somebody persists; it endures across every framework rewrite, every PM rotation, every roadmap pivot. By contrast, the bug an entire squad is hunting because a stale Datadog graph happens to fire — the 'p99 regression' which turns out to be clock-skew inside your metrics pipeline — possesses no underlying referent at all. Most engineering pathology lives in this gap and never names it. Tattva-darśin at standup describes whoever can say, calmly and accurately: that defect does not exist; this requirement does; we have been ignoring it.",
+    "concrete_scenario": "Two parallel investigations sit open in your Sentry dashboard. First, a four-week-old 'critical p99 latency regression' — a staff engineer rewrote the service's serialization path, two PRs landed, your on-call rotation has been carrying that alert through every shift, and the regression has not budged. Nobody has yet asked whether the underlying metric is real. On Wednesday, an intern notices that a Datadog query powering this alert was edited by an unrelated team six weeks ago to include a stale collector pool; what looks like degradation reflects the collector's clock, not your service. That defect possessed no being. Second, a quiet pile of customer-support tickets — twelve per week for fourteen weeks — reporting that password reset emails arrive forty minutes late. No Sentry alert fires because the email path emits no metric whatsoever. The user's actual problem has sat there the whole time; it possesses being. This verse names the asymmetry exactly: tattva-darśin is whoever walks into the room and announces, with sources, 'we spent four weeks fixing what does not exist while ignoring what does.' Your Postgres index is fine. Kafka consumers are fine. The instrumentation is broken, and the support queue is the only real signal.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss any bug they personally cannot reproduce as 'asat' and refuse to investigate. The verse does not authorise the engineer's intuition over evidence; it authorises evidence over the dashboard. If you have not actually traced the metric back to its source, replayed the queries, and checked the pipeline, you have not earned the right to call the bug a phantom. The seer of truth in the verse has seen the conclusion of both — done the work — not picked a side a priori.",
+    "counter_example": "A bug that nobody can reproduce is not necessarily asat. Heisenbugs in distributed systems are real and notoriously hard to surface; race conditions that appear in production once a quarter still have being. The verse is not a license for calling intermittent reports phantoms. It distinguishes the metric-pipeline artifact (which has no underlying referent at all) from the rare-but-real failure (which has being and is hiding). The diagnosis requires craft — not a slogan.",
+    "implication": "Before debugging, audit the signal. The most expensive engineering hours are spent on bugs that don't exist while the real customer pain sits unticketed. Make a habit of asking, every sprint, what real need is going unobserved because no instrument was ever pointed at it.",
+    "quotable_line": "Tattva-darśin is the engineer who can name the bug that doesn't exist and the need that does.",
+    "tags": ["product-truth", "observability", "vanity-metrics"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T07:30:00Z",
+      "mutation": "v0 generation: BG 2.16 as the chapter's first ontological cut between sat and asat. Engineering layer maps to phantom-bug vs real-need-without-instrumentation. Both Shankara's universal reading and Ramanuja's localised reading are honored — the analog stays inside the operational consensus (bear what changes, see what is) without choosing a metaphysical side.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.5 lexical diversity 0.512 < 0.55"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T07:45:00Z",
+      "mutation": "v0.1: Mutated translation + concrete_scenario for lexical variety. Replaced repeated function-words and noun repetitions ('the customer' / 'the bug' / 'the regression' chains) with synonyms or restructured clauses to lift unique-token ratio above 0.55. No doctrinal change.",
+      "failing_gates_before": ["5.5 lexical diversity 0.512 < 0.55"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

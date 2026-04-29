@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "What has no being cannot be said to be; what has being cannot be said not to be.",
+      "objection": "The English render compresses 'na asato vidyate bhāvaḥ / na abhāvo vidyate sataḥ' faithfully. A purist might note that vidyate carries a stronger 'is found / is established' force than 'be said' — but the engineering paraphrase is acceptable as register translation, and the literal_meaning field in the source pack preserves the strict sense ('Of the unreal there is no being; of the real there is no non-being'). No distortion."
+    },
+    {
+      "severity": "minor",
+      "claim": "Tattva-darśin is the engineer who can name the bug that doesn't exist and the need that does.",
+      "objection": "tattva-darśibhiḥ is a plural — 'by the seers of truth.' The engineering layer's singular 'is the engineer who...' loses the plural and turns the seers into a role-archetype. This is a reasonable register shift for a quotable line, and the verse's plural is not doctrinally load-bearing. Acceptable."
+    }
+  ],
+  "notes": "Both Shankara's universal reading (asat = everything changeful; sat = Brahman) and Ramanuja's localised reading (asat = body; sat = jīva) are preserved in the source-pack disagreements field. The engineering layer wisely does not pick a side — it stays on the operational consequence both bhasyas agree on (bear what changes; see what is). The Sanskrit term 'tattva-darśin' is preserved verbatim as a register marker. dṛṣṭaḥ antaḥ is rendered as 'see the conclusion' — antaḥ as 'conclusion / settled judgment after analysis' is the Shankara/Ramanuja reading. No misrepresentation. PASS at high confidence."
+}

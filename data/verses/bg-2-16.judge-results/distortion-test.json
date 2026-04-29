@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "type": "scope_narrowing",
+      "tradition_claim": "Shankara reads sat / asat universally — everything changeful is asat; the unchanging Self is sat. Ramanuja reads it localised — the body is asat, the embodied jīva is sat. Both bhasyas read the verse as ontological.",
+      "engineering_claim": "The verse cuts between real customer-need and phantom bug at the engineering-discrimination level.",
+      "explanation": "The engineering layer narrows the cut from metaphysical-ontological to operational-epistemic — a reasonable register translation, since the verse's rhetorical role in the chapter is to license Arjuna to bear the dualities (heat, cold, the body's perishability) by recognizing that what changes was never sat. The engineering analog preserves that rhetorical move (the engineer recognizes that the four-week regression was never a real bug; the unobserved customer pain is). The analog explicitly does NOT claim the engineering reading exhausts the verse's metaphysical meaning — the literal_meaning and traditional_meaning_consensus fields preserve the original. No inversion, no contradiction. PASS."
+    }
+  ]
+}

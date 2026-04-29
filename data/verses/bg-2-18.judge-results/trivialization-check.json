@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "trivialization_severity": 2,
+  "specific_concerns": [
+    "Mapping 'therefore fight' to 'therefore ship the migration' compresses one of the most ethically loaded passages of the Gita (Krishna licensing warfare on the battlefield) into a software migration. A serious practitioner could read this as flattening the moral weight of svadharma-warfare into routine engineering. The engineering layer mitigates by (a) explicitly tagging Krishna's imperative as 'Arjuna's specific prescribed duty (svadharma) when paralysis has set in,' (b) using Chapter-2-allowed battle metaphor restraint (per gate 8.4), and (c) coupling the analog to genuine forcing functions, not arbitrary action."
+  ],
+  "verdict_reason": "Trivialization risk is non-trivial but managed. The engineering layer never claims 'shipping migrations is morally equivalent to fighting in war.' It claims the licensing structure (action authorized by the doctrine of body/embodied) has an analog in engineering paralysis. The counter-example explicitly disclaims arbitrary application. The literal_meaning preserves the verse's actual force. PASS at severity 2 noting the inherent risk in mapping warrior-imperative to engineering imperative."
+}

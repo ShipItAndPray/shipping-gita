@@ -1,0 +1,243 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.16",
+  "sanskrit_devanagari": "नासतो विद्यते भावो नाभावो विद्यते सतः ।\nउभयोरपि दृष्टोऽन्तस्त्वनयोस्तत्त्वदर्शिभिः ॥ १६ ॥",
+  "sanskrit_iast": "nāsato vidyate bhāvo nābhāvo vidyate sataḥ |\nubhayor api dṛṣṭo 'ntas tv anayos tattva-darśibhiḥ || 16 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "never / not"
+    },
+    {
+      "sanskrit": "असतः",
+      "iast": "asataḥ",
+      "meaning": "of the unreal / non-existent"
+    },
+    {
+      "sanskrit": "विद्यते",
+      "iast": "vidyate",
+      "meaning": "there is"
+    },
+    {
+      "sanskrit": "भावः",
+      "iast": "bhāvaḥ",
+      "meaning": "being / endurance"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "never / not"
+    },
+    {
+      "sanskrit": "अभावः",
+      "iast": "abhāvaḥ",
+      "meaning": "non-being / cessation"
+    },
+    {
+      "sanskrit": "विद्यते",
+      "iast": "vidyate",
+      "meaning": "there is"
+    },
+    {
+      "sanskrit": "सतः",
+      "iast": "sataḥ",
+      "meaning": "of the real / eternal"
+    },
+    {
+      "sanskrit": "उभयोः",
+      "iast": "ubhayoḥ",
+      "meaning": "of the two"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "indeed / verily"
+    },
+    {
+      "sanskrit": "दृष्टः",
+      "iast": "dṛṣṭaḥ",
+      "meaning": "observed / seen"
+    },
+    {
+      "sanskrit": "अन्तः",
+      "iast": "antaḥ",
+      "meaning": "conclusion / final nature"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "indeed / however"
+    },
+    {
+      "sanskrit": "अनयोः",
+      "iast": "anayoḥ",
+      "meaning": "of these two"
+    },
+    {
+      "sanskrit": "तत्त्व",
+      "iast": "tattva",
+      "meaning": "truth / reality"
+    },
+    {
+      "sanskrit": "दर्शिभिः",
+      "iast": "darśibhiḥ",
+      "meaning": "by the seers"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/16/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are seers of the truth have concluded that of the nonexistent [the material body] there is no endurance and of the eternal [the soul] there is no change. This they have concluded by studying the nature of both.",
+      "raw_capture_path": "data/sources/raw/bg-2-16-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/16",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Of the transient there is no endurance, and of the eternal there is no cessation. This has verily been observed and concluded by the seers of the Truth, after studying the nature of both."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/16/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, ~240 chars of 2212-char full purport)",
+      "verbatim_excerpt": "There is no endurance of the changing body. That the body is changing every moment by the actions and reactions of the different cells is admitted by modern medical science; and thus growth and old age are taking place in the body.",
+      "raw_full_path": "data/sources/raw/bg-2-16-vedabase.json (purport_full_length: 2212)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-16/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~290 chars of 7116-char full bhasya)",
+      "verbatim_excerpt": "Asatah, of the unreal, of cold, heat, etc. together with their causes; na vidyate, there is no; bhavah, being, existence, reality; because heat, cold, etc. together with their causes are not substantially real when tested by means of proof. For they are changeful, and whatever is changeful is inconstant.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 7116,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-16-bgus.json",
+      "summary_paraphrase": "Shankara reads sat / asat metaphysically. The 'unreal' (asat) is whatever is changeful — cold, heat, the dualities, the body, the world of pots and cloths — because awareness of it is variable. The 'real' (sat) is that of which awareness never ceases — Brahman / the Self. The seers of truth (tattva-darśin) see that what changes is unreal and what does not change is the substratum on which all change is superimposed. The verse therefore licenses Arjuna to bear the dualities — and continue to act — without grief, because what would be lost in battle was never sat to begin with."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-16/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~290 chars of 2438-char full bhasya)",
+      "verbatim_excerpt": "'The unreal,' that is, the body, can never come into being. 'The real,' that is, the self, can never cease to be. The finale about these, the body and the self, which can be experienced, has been realised correctly by the seers of the Truth.",
+      "verbatim_excerpt_length": 240,
+      "verbatim_full_length": 2438,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-16-bgus.json",
+      "summary_paraphrase": "Ramanuja reads sat and asat referentially, not metaphysically: 'unreal' (asat) names the body — that which has no being of its own apart from the self that animates it; 'real' (sat) names the self (jīva), which never ceases. The seers see the conclusion of both. Where Shankara universalises the contrast (everything changeful is asat), Ramanuja localises it (the body is asat, the self is sat). Both readings agree on the operational consequence — bear what changes, do not grieve over what was never the substrate."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "asat / sat",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the nonexistent [body] / the eternal [soul] (gloss inserts the referent)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the transient / the eternal"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the changeful (body, dualities, world) / the unchanging Self (Brahman)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the body specifically / the jīva specifically"
+        }
+      ],
+      "explanation": "The translators are gentler than the bhasyas. Prabhupada and Mukundananda render the contrast as transient vs eternal, with Prabhupada inserting the referent in brackets. Shankara universalises asat to mean every changeful object — the philosophical move that grounds Advaita's later mahāvākya readings. Ramanuja restricts asat to the body and reads sat as the embodied self (jīva), which preserves the distinction between Self and self. The verse is thus the first place in the chapter where the major commentarial divergence shows up; the engineering layer should not pick a side."
+    },
+    {
+      "word": "antaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada / Mukundananda",
+          "rendering": "conclusion / endurance of the conclusion"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "the nature, the conclusion regarding the real and the unreal — Real is verily real, unreal is verily unreal"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "the finale / settled judgment about both"
+        }
+      ],
+      "explanation": "antaḥ is rendered as 'end' or 'conclusion' but carries the technical sense of 'final settled determination after analysis'. Both bhasyas read it as a logician's verdict, not a temporal endpoint."
+    }
+  ],
+  "literal_meaning": "Of the unreal there is no being; of the real there is no non-being. The conclusion regarding both has been seen by the seers of truth.",
+  "traditional_meaning": "The first explicit ontological verse of the chapter. Krishna draws the line between sat (the real, that which has being) and asat (the unreal, that which has no being). The seers of truth (tattva-darśin) see the settled conclusion about both. All major commentators agree on the operational consequence — Arjuna should bear what changes (the dualities, the body's perishability) without grief, because what is changing was never sat. The metaphysical scope of asat differs across traditions (Advaita reads it universally, Vishishtadvaita restricts it to the body), but the verse's role in the chapter is the same: it grounds the next four verses' insistence that the embodied is imperishable.",
+  "engineering": {
+    "translation": "What has no being cannot be said to be; what has being cannot be said not to be. The seers of truth see the conclusion of both. This line is ontological — drawn between things that genuinely exist and things that merely seem to — and on engineering ground it cuts cleanly through the gap separating a real customer need from a phantom problem. A user's actual demand to authenticate, to checkout, to message somebody persists; it endures across every framework rewrite, every PM rotation, every roadmap pivot. By contrast, the bug an entire squad is hunting because a stale Datadog graph happens to fire — the 'p99 regression' which turns out to be clock-skew inside your metrics pipeline — possesses no underlying referent at all. Most engineering pathology lives in this gap and never names it. Tattva-darśin at standup describes whoever can say, calmly and accurately: that defect does not exist; this requirement does; we have been ignoring it.",
+    "concrete_scenario": "Two parallel investigations sit open in your Sentry dashboard. First, a four-week-old 'critical p99 latency regression' — a staff engineer rewrote the service's serialization path, two PRs landed, your on-call rotation has been carrying that alert through every shift, and the regression has not budged. Nobody has yet asked whether the underlying metric is real. On Wednesday, an intern notices that a Datadog query powering this alert was edited by an unrelated team six weeks ago to include a stale collector pool; what looks like degradation reflects the collector's clock, not your service. That defect possessed no being. Second, a quiet pile of customer-support tickets — twelve per week for fourteen weeks — reporting that password reset emails arrive forty minutes late. No Sentry alert fires because the email path emits no metric whatsoever. The user's actual problem has sat there the whole time; it possesses being. This verse names the asymmetry exactly: tattva-darśin is whoever walks into the room and announces, with sources, 'we spent four weeks fixing what does not exist while ignoring what does.' Your Postgres index is fine. Kafka consumers are fine. The instrumentation is broken, and the support queue is the only real signal.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss any bug they personally cannot reproduce as 'asat' and refuse to investigate. The verse does not authorise the engineer's intuition over evidence; it authorises evidence over the dashboard. If you have not actually traced the metric back to its source, replayed the queries, and checked the pipeline, you have not earned the right to call the bug a phantom. The seer of truth in the verse has seen the conclusion of both — done the work — not picked a side a priori.",
+    "counter_example": "A bug that nobody can reproduce is not necessarily asat. Heisenbugs in distributed systems are real and notoriously hard to surface; race conditions that appear in production once a quarter still have being. The verse is not a license for calling intermittent reports phantoms. It distinguishes the metric-pipeline artifact (which has no underlying referent at all) from the rare-but-real failure (which has being and is hiding). The diagnosis requires craft — not a slogan.",
+    "implication": "Before debugging, audit the signal. The most expensive engineering hours are spent on bugs that don't exist while the real customer pain sits unticketed. Make a habit of asking, every sprint, what real need is going unobserved because no instrument was ever pointed at it.",
+    "quotable_line": "Tattva-darśin is the engineer who can name the bug that doesn't exist and the need that does.",
+    "tags": [
+      "product-truth",
+      "observability",
+      "vanity-metrics"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

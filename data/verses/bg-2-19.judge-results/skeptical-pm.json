@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When deprecating a library or service, run a 'where the contribution lives now' audit: enumerate the successor implementations, the native APIs that absorbed the lessons, the documented patterns. If the audit returns an empty set — if the contribution does not exist outside the deprecated artifact — the deprecation is orphaning a customer-need, and a different remediation is required.",
+  "example_decision": "Engineering practice: every deprecation calendar entry now requires a 'contribution-survives' artifact — a brief listing of where the spec the artifact implemented continues to live. Open-source policy: deprecation announcements include a 'thanks to the original author for X — which now lives in Y, Z' acknowledgement. Hiring rubric for staff engineers: must demonstrate the ability to distinguish 'retiring this package' from 'killing this work.'",
+  "objection": "none"
+}

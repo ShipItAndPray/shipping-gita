@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "could_apply_equally_to": [],
+  "verse_specific_anchors": ["purāṇa (preserved verbatim, named as 'ancient', specifically called out as the verse's unique predicate)", "the four-predicate sequence (aja, nitya, śāśvata, purāṇa) preserved with verbatim Sanskrit", "the temporal-mode quadruple (never born, never dying, not having come to be, will not come to be again) — preserved in the translation paragraph", "the Sanskrit 'ajaḥ nityaḥ śāśvato 'yaṁ purāṇaḥ' quoted verbatim by the staff engineer"],
+  "verdict_reason": "I tested against neighbors. BG 2.16: cuts but does not name as ancient. BG 2.17: names substrate but not its temporal antiquity specifically. BG 2.18: licenses action; not about lineage. BG 2.19: negates symmetric attribution; not about temporal precedence. BG 2.20's distinctive contribution is purāṇa — naming the substrate as ancient. The customer-need-predates-codebase analog requires this temporal-precedence structure. No other verse in this block does this. Verse-specific. PASS."
+}

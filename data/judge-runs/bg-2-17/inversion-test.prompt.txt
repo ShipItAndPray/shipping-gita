@@ -1,0 +1,223 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.17",
+  "sanskrit_devanagari": "अविनाशि तु तद्विद्धि येन सर्वमिदं ततम् ।\nविनाशमव्ययस्यास्य न कश्चित्कर्तुमर्हति ॥ १७ ॥",
+  "sanskrit_iast": "avināśi tu tad viddhi yena sarvam idaṁ tatam |\nvināśam avyayasyāsya na kaścit kartum arhati || 17 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अविनाशि",
+      "iast": "avināśi",
+      "meaning": "indestructible / imperishable"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but / however"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "विद्धि",
+      "iast": "viddhi",
+      "meaning": "know (imperative)"
+    },
+    {
+      "sanskrit": "येन",
+      "iast": "yena",
+      "meaning": "by which"
+    },
+    {
+      "sanskrit": "सर्वम्",
+      "iast": "sarvam",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "इदम्",
+      "iast": "idam",
+      "meaning": "this (universe / body)"
+    },
+    {
+      "sanskrit": "ततम्",
+      "iast": "tatam",
+      "meaning": "pervaded / spread out"
+    },
+    {
+      "sanskrit": "विनाशम्",
+      "iast": "vināśam",
+      "meaning": "destruction"
+    },
+    {
+      "sanskrit": "अव्ययस्य",
+      "iast": "avyayasya",
+      "meaning": "of the imperishable"
+    },
+    {
+      "sanskrit": "अस्य",
+      "iast": "asya",
+      "meaning": "of this"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "कश्चित्",
+      "iast": "kaścit",
+      "meaning": "anyone"
+    },
+    {
+      "sanskrit": "कर्तुम्",
+      "iast": "kartum",
+      "meaning": "to do / accomplish"
+    },
+    {
+      "sanskrit": "अर्हति",
+      "iast": "arhati",
+      "meaning": "is able / has authority"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/17/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "That which pervades the entire body you should know to be indestructible. No one is able to destroy that imperishable soul.",
+      "raw_capture_path": "data/sources/raw/bg-2-17-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/17",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "That which pervades the entire body, know it to be indestructible. No one can cause the destruction of the imperishable soul."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/17/",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, ~250 chars of 4551-char full purport)",
+      "verbatim_excerpt": "This verse more clearly explains the real nature of the soul, which is spread all over the body. Anyone can understand what is spread all over the body: it is consciousness. Everyone is conscious of the pains and pleasures of the body in part or as a whole.",
+      "raw_full_path": "data/sources/raw/bg-2-17-vedabase.json (purport_full_length: 4551)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-17/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Gambhirananda (per Advaita Ashrama edition; bhagavad-gita.us reproduces this English rendering of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~285 chars of 1175-char full bhasya)",
+      "verbatim_excerpt": "Tu, but — this word is used for distinguishing (reality) from unreality; tat viddhi, know That; to be avinasi, indestructible, by nature not subject to destruction; what? (that) yena, by which, by which Brahman called Reality; sarvam, all; idam, this, the Universe together with space; is tatam, pervaded.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 1175,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-17-bgus.json",
+      "summary_paraphrase": "Shankara reads the antecedent of yena as Brahman / sat — the Reality that pervades the entire universe. The 'that' (tat) is universal, not localised to a single body. avyayasya (the imperishable) names that which has no modifications (ṣaḍ-vikāra) — no birth, growth, decay, etc. No one — neither Krishna, nor Arjuna, nor any agent at all — can destroy it, because destruction is a category that does not apply to the substrate of all categories."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-17/?cm=ramanuja",
+      "fetched_at": "2026-04-29T07:00:00Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use, ~280 chars of 738-char full bhasya)",
+      "verbatim_excerpt": "Know that the self in its essential nature is imperishable. The whole of insentient matter, which is different (from the self), is pervaded by the self. Because of pervasiveness and extreme subtlety, the self cannot be destroyed; for every entity other than the self is capable of being pervaded.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 738,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-17-bgus.json",
+      "summary_paraphrase": "Ramanuja reads the antecedent of yena as the embodied self (jīva), not the universal Brahman. The self pervades the body it animates and is imperishable on account of its extreme subtlety (atyanta-saukṣmya) — a pervaded entity cannot be cut by any pervader, and the self is the ultimate pervader of insentient matter. Where Shankara universalises tat (the imperishable Reality pervading all space), Ramanuja localises it (each jīva pervading its own body)."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "tat / yena",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "that which pervades the entire body — the imperishable soul"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "that which pervades the entire body — indestructible"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "that = Brahman, by which = the universal Reality, sarvam idam = the entire universe"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "that = the jīva, by which = the embodied self pervading its own body"
+        }
+      ],
+      "explanation": "Both modern translators preserve ambiguity — the 'entire body' is the natural English antecedent for sarvam idam, which lets the verse read as 'soul pervades body.' Shankara reads sarvam idam as 'this entire universe' — the antecedent is Brahman pervading everything, not the jīva pervading one body. Ramanuja preserves the body-localised reading. The verse is the second place in the chapter where the Advaita / Vishishtadvaita split shows up explicitly; the engineering layer should preserve cross-tradition consensus (something pervasive is imperishable) without privileging either scope."
+    }
+  ],
+  "literal_meaning": "But know that to be indestructible by which all this is pervaded; none can accomplish the destruction of this imperishable.",
+  "traditional_meaning": "The verse names the imperishable as the substrate of pervasion — that by which everything is pervaded, and which therefore cannot be destroyed. avināśi (indestructible), avyaya (without modification), and tatam (pervaded) form the verse's grammar of substrate. All major commentators agree the verse establishes the imperishable as the ground of the perishable; they disagree on its scope (universal Brahman vs. localised jīva) but agree on the negation: no agent — not the warrior, not the weapon, not time — can destroy it. The verse anchors the doctrinal substrate the chapter has been pointing at since 2.11.",
+  "engineering": {
+    "translation": "Know as imperishable that by which all this is pervaded; nobody can destroy this unchanging thing. The verse names a substrate. What pervades a region also outlasts what fills it, and on engineering ground this is the protocol — HTTP, gRPC, the wire format your service speaks, the invariant your contract enforces. Implementations come and go. A Rails monolith dissolves into a Go service. The Go service becomes Rust. The Rust binary moves from EC2 onto Kubernetes. Yet the protocol — POST /v1/payments returning 200 with this JSON shape — persists. Nobody on the team can break it without breaking downstream callers, which is why semver, deprecation calendars, and contract tests exist: they mark what is imperishable. Tatam, pervaded — the protocol lives everywhere in the system. Avyaya, unchanging — what your callers depend on. Avināśi, indestructible — at least inside any one team's writ.",
+    "concrete_scenario": "Your authentication service has been rewritten three times across seven years. The first iteration ran on a Sinatra app talking to MySQL; the second moved to a Spring Boot service backed by Postgres; the third sits on a Go binary inside Kubernetes pods, with Redis for session cache. None of those implementations survived. What did survive: POST /oauth/token consuming a grant_type, client_id, client_secret, returning an access_token JSON envelope with a 3600-second TTL, plus the invariant that revoked tokens stop working within five seconds. Forty-eight downstream callers — the mobile app, two partner integrations, eight internal services, the legacy Salesforce sync — depend on that exact contract. When a junior engineer recently proposed switching the response shape from snake_case to camelCase 'because the rest of the codebase uses camelCase,' the staff engineer answered with this verse: yena sarvam idaṁ tatam — by this contract everything is pervaded; you alone are not competent to destroy it. The implementation is mortal. Specifically the wire shape, the status codes, the error envelope, the TTL semantics — those are imperishable inside this organisation, and changing them requires a deprecation calendar and a versioned migration, not a casual PR.",
+    "falsifiability": "The analog fails if a reader uses it to argue against ever changing protocols. Protocols are revised — HTTP/1.1 became HTTP/2 became HTTP/3; OAuth 1 became OAuth 2; gRPC introduced new stream semantics. The verse is not a defense of any specific contract's permanence; it is a description of the relationship between substrate and implementation. A protocol is imperishable inside the implementation it grounds; protocols themselves can deprecate, but only through a process that mirrors what they govern. If you find yourself quoting 2.17 to refuse migration work entirely, you have inverted it.",
+    "counter_example": "When the 'protocol' is actually accidental complexity — an undocumented JSON quirk that one client happens to depend on, surfaced through a bug rather than a contract — the verse does not protect it. avyaya names what is intentionally imperishable: the spec the team agreed to honor. It does not name every observed behavior. Hyrum's Law (every observable behavior of a system becomes someone's dependency) is a separate problem; pretending Hyrum-binding is doctrinal substrate elevates accident to scripture.",
+    "implication": "Audit your codebase for what genuinely qualifies as substrate (named contract, versioned API, business invariant) versus what is current implementation. The substrate is what survives migration; the implementation is what changes. Treat them differently in code review and in roadmap planning.",
+    "quotable_line": "Implementations are mortal; the protocol they implement is not — at least not by any single team's authority.",
+    "tags": [
+      "architectural-invariant",
+      "interface-stability",
+      "spec-vs-behavior"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

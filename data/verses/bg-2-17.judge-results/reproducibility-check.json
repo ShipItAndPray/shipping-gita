@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Contract test suite + deprecation calendar policy + PR review label",
+  "artifact_kind": "code+process-artifact",
+  "embodiment_sketch": "Three concrete artifacts: (1) a contract-test suite (Pact, schemathesis, or hand-rolled) that exercises the canonical wire shape (POST /oauth/token, request schema, response schema, status codes, header semantics) and runs in CI; (2) a deprecation-calendar policy document naming required notice windows, migration-guide requirements, and dual-write phases; (3) a PR label `contract-affecting` that requires explicit approval from the API governance group. Each artifact embodies a distinct claim of the verse: contract tests = 'the imperishable is testable'; deprecation calendar = 'no single team's authority can destroy it without process'; PR label = 'the substrate is named in the workflow.'",
+  "verdict_reason": "The verse's claim ('the protocol persists; nobody on the team can destroy it without process') reduces to three implementable artifacts. Not pure metaphor. PASS."
+}

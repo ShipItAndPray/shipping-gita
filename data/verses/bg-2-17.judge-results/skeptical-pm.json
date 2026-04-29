@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When approving an API or wire-format change, distinguish (a) the contract the team has explicitly committed to vs (b) accidental implementation behaviors that some caller depends on (Hyrum-binding). Only (a) requires a deprecation calendar; (b) requires a different remediation (contract test additions or explicit deprecation of the unintentional behavior).",
+  "example_decision": "Roadmap practice: every API-affecting PR now carries a 'contract review' label that requires identifying which of the changes touch (a) vs (b). Hiring rubric for staff engineers: must demonstrate the ability to articulate the contract surface separately from the implementation surface. PRD template addition: 'Which existing contract does this work preserve? Which implementation behavior does it deliberately change?'",
+  "objection": "none"
+}

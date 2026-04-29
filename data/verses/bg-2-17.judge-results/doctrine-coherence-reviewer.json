@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 9,
+  "notes": "Tags applied: architectural-invariant, interface-stability, spec-vs-behavior. All three are in the controlled vocabulary and cluster around the substrate/contract theme. architectural-invariant is shared with 2.20 (long-term-thinking pairing); spec-vs-behavior is the explicit cut the Hyrum's Law counter-example makes; interface-stability anchors the operational consequence (deprecation calendars, semver). Cross-block coherence: the substrate block (2.16-2.20) shares essence-vs-implementation across multiple verses; this verse's tags align with that block while contributing the unique 'pervasion' axis. PASS."
+}

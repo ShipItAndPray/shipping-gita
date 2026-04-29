@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "The protocol is what survives migration; the implementation is what changes. Treat them differently in code review and roadmap planning. Most teams confuse Hyrum-binding with substrate.",
+  "wisdom_theater_score": 1,
+  "objection": "I expected slogans about 'embracing change.' Instead the analog is concrete: nine years of authentication-service rewrites, the contract (POST /oauth/token, snake_case envelope, 5-second revocation TTL, 48 downstream callers) preserved across Sinatra → Spring Boot → Go-on-Kubernetes. The point about deprecation calendars and contract tests being how we operationally mark the imperishable is correct and load-bearing. The counter-example handling Hyrum's Law honestly — distinguishing intentional contract from incidentally-observable behavior — is exactly the move I would have used to attack a sloppier writer. The verse explicitly disclaims the misreading I would target ('protocols are revised; the verse is not a defense of any specific contract's permanence'). Cannot mock without strawmanning."
+}

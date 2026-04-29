@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "Most engineering hours go to bugs that don't exist while real customer pain sits unticketed because no instrument was ever pointed at it. Audit the signal before debugging.",
+  "wisdom_theater_score": 1,
+  "objection": "I expected the verse to be wisdom-theater because 'sat / asat' is the kind of vocabulary that cookbook engineering writers love to launder. Instead the analog is precise: a four-week investigation into a clock-skew artifact in a Datadog metrics pipeline, while password-reset latency tickets accumulate untriaged. The 'asat = bug doesn't exist' move is not metaphor; it is a specific operational pattern (metric pipeline drift produces alerts with no underlying referent) that I have watched teams burn weeks on. The falsifiability explicitly forecloses the move I would have used to dismiss it ('the engineer can declare any bug they can't reproduce as asat') and instead requires sources, traces, replays. The counter-example handles Heisenbugs honestly. I cannot mock this without inventing claims it does not make."
+}
