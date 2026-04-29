@@ -1,0 +1,237 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.65",
+  "sanskrit_devanagari": "प्रसादे सर्वदुःखानां हानिरस्योपजायते ।\nप्रसन्नचेतसो ह्याशु बुद्धिः पर्यवतिष्ठते ॥ ६५ ॥",
+  "sanskrit_iast": "prasāde sarva-duḥkhānāṁ hānir asyopajāyate |\nprasanna-cetaso hy āśu buddhiḥ paryavatiṣṭhate || 65 ||",
+  "anvaya": [
+    {
+      "sanskrit": "प्रसादे",
+      "iast": "prasāde",
+      "meaning": "in serenity / when there is mental clarity"
+    },
+    {
+      "sanskrit": "सर्व",
+      "iast": "sarva",
+      "meaning": "all (in compound sarva-duḥkhānāṁ)"
+    },
+    {
+      "sanskrit": "दुःखानाम्",
+      "iast": "duḥkhānām",
+      "meaning": "of sorrows / of miseries (in compound sarva-duḥkhānāṁ: 'of all sorrows')"
+    },
+    {
+      "sanskrit": "हानिः",
+      "iast": "hāniḥ",
+      "meaning": "destruction / cessation"
+    },
+    {
+      "sanskrit": "अस्य",
+      "iast": "asya",
+      "meaning": "of this one / of him"
+    },
+    {
+      "sanskrit": "उपजायते",
+      "iast": "upajāyate",
+      "meaning": "arises / is born"
+    },
+    {
+      "sanskrit": "प्रसन्न",
+      "iast": "prasanna",
+      "meaning": "serene / clear (in compound prasanna-cetasaḥ)"
+    },
+    {
+      "sanskrit": "चेतसः",
+      "iast": "cetasaḥ",
+      "meaning": "of the mind (in compound prasanna-cetasaḥ: 'of one whose mind is serene')"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "for / certainly"
+    },
+    {
+      "sanskrit": "आशु",
+      "iast": "āśu",
+      "meaning": "swiftly / soon"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "intelligence / discriminating insight"
+    },
+    {
+      "sanskrit": "पर्यवतिष्ठते",
+      "iast": "paryavatiṣṭhate",
+      "meaning": "becomes firmly established / stabilises totally"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/65/",
+      "fetched_at": "2026-04-29T19:55:54Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "For one thus satisfied [in Kṛṣṇa consciousness], the threefold miseries of material existence exist no longer; in such satisfied consciousness, one's intelligence is soon well established.",
+      "raw_capture_path": "data/sources/raw/bg-2-65-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/65",
+      "fetched_at": "2026-04-29T19:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "By divine grace comes the peace in which all sorrows end, and the intellect of such a person of tranquil mind soon becomes firmly established in God."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/65/",
+      "fetched_at": "2026-04-29T19:55:54Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of Prabhupada purport)",
+      "verbatim_excerpt": "Becoming satisfied means cessation of all material activities. For a person who is detached from such an external surface, the mind is calm; therefore, sorrow does not arise. Where there is no sorrow, the intelligence is fixed.",
+      "raw_full_path": "data/sources/raw/bg-2-65-vedabase.json (purport_full_length: ~1100)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-65/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Shankara bhashya)",
+      "verbatim_excerpt": "Prasade, when there is serenity; upajayate, there follows; hanih, eradication; asya sarva-duhkhanam, of all his, the sannyasin's, sorrow on the physical and other planes. Moreover, (this is so) hi, because; buddhih, the wisdom; prasanna-cetasah, of one who has a serene mind, of one whose mind is poised in the Self; asu, soon; pari-avatisthate, becomes firmly established; remains steady (avatisthate) totally (pari), like the sky, i.e. it becomes unmoving in its very nature as the Self.",
+      "summary_paraphrase": "Shankara reads the verse as the consequence of the prasāda attained in 2.64. When serenity is present, all sorrows — physical, mental, and other — cease. The buddhi (discriminating wisdom) of the serene-minded soon becomes firmly established, like the unmoving sky. Shankara's gloss on paryavatiṣṭhate emphasises totality (pari = totally) and stillness (avatiṣṭhate = remains steady) — the buddhi does not merely function, it stops being moved by anything outside its own nature."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-65/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Ramanuja bhashya)",
+      "verbatim_excerpt": "When the mind of this person gets serene, he gets rid of all sorrows originating from contact with matter. For, in respect of the peson whose mind is serene, i.e., is free from the evil which is antagonistic to the vision of the self, the Buddhi, having the pure self for its object, becomes established immediately. Thus, when the mind is serene, the loss of all sorrow surely arises.",
+      "summary_paraphrase": "Ramanuja reads the verse as the chain that begins from the focus on the Supreme prescribed in 2.61. When the mind is serene (free from the saṁskāras antagonistic to the vision of the self), all sorrows arising from contact with matter cease, and the buddhi — taking the pure self as its object — becomes established immediately. The verse names the cessation of suffering and the stabilisation of buddhi as joint products of serenity, both following structurally from the same precondition."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "prasāde",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "for one thus satisfied [in Kṛṣṇa consciousness] (the operator's state of devotional satisfaction)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "by divine grace (the favour of God)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "when there is serenity (the operator's mental state)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "when the mind of this person gets serene (the operator's mental state, following from focus on the Supreme)"
+        }
+      ],
+      "explanation": "prasāde is the locative of prasāda, continuing the term from 2.64. Shankara and Ramanuja both render it as the operator's serenity (the mental state). Mukundananda renders it as divine grace (the favour received from God), Prabhupada as devotional satisfaction (a hybrid of state and reception). The verse's lexical chain prasāde → prasanna-cetasaḥ in the same verse strongly favours the operator's-state reading, since prasanna-cetasaḥ unambiguously means 'serene-minded' as the operator's quality. Shankara's reading is therefore the lexically tightest. The grace-rendering is consistent with Vaishnava theology but stretches the Sanskrit further."
+    },
+    {
+      "word": "paryavatiṣṭhate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "is soon well established"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "soon becomes firmly established"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "becomes firmly established; remains steady totally, like the sky, unmoving in its very nature as the Self"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "becomes established immediately, having the pure self for its object"
+        }
+      ],
+      "explanation": "paryavatiṣṭhate (pari + ava + sthā) is a compound verb: 'totally + down + stand'. Shankara's gloss preserves the totality and the stillness explicitly ('remains steady totally, like the sky'). The buddhi does not merely function under serenity — it stops being moved at all by anything outside its own nature. Modern translations preserve the establishedness but lose the totality nuance. The Sanskrit's rhetorical force is the strong claim of complete stabilisation, not merely improved functioning."
+    }
+  ],
+  "literal_meaning": "In serenity, the destruction of all sorrows arises for him. For the intelligence of the serene-minded swiftly stabilises completely.",
+  "traditional_meaning": "This verse names the consequence of the prasāda attained in 2.64. Two structural results follow from the operator's serenity: (1) the cessation of all sorrows (sarva-duḥkhānāṁ hāniḥ), and (2) the swift, total stabilisation of buddhi (intelligence, discriminating faculty). Shankara's gloss on paryavatiṣṭhate emphasises the totality — buddhi does not merely improve, it stops being moved by anything outside its own nature, like the unmoving sky. Ramanuja reads the chain back to 2.61: when the mind has been focussed on the Supreme, the saṁskāras antagonistic to self-knowledge are burned out, the mind becomes serene, sorrows cease, and buddhi takes the pure self as its object. Gaudiya Vaishnava reading folds prasāda into devotional satisfaction. All traditions agree the structural claim: serenity produces both the cessation of suffering and stable judgment, swiftly and together. Frantic action does not produce stable judgment; settled action does.",
+  "engineering": {
+    "translation": "From serenity, two things follow: the cessation of suffering, and the stabilisation of judgment. Both are joint consequences, not separate disciplines. The frantic engineer who is shipping fast with anger and resentment makes worse decisions than the settled engineer shipping at the same pace from a cleared state. The verse asserts something specific about cognition: prasanna-cetasaḥ — of the serene-minded — buddhi paryavatiṣṭhate — judgment stabilises totally, swiftly. Shankara's gloss is the clearest engineering reading: like the unmoving sky, the buddhi stops being pushed by anything outside its own nature. Frantic ship-fast cognition is judgment moved by adrenaline, by social pressure, by the imagined audience. Settled cognition is judgment moved only by the actual technical signal. The two produce different code, different design choices, different incident response. Same engineer; different state; different output. The verse claims this empirically, not aspirationally.",
+    "concrete_scenario": "Consider two senior practitioners responding to the same Datadog alert: a cascading p99 latency spike on the checkout API at 14:30 on a Tuesday. Engineer A enters captured — anger about an unresolved cross-team conflict from this morning's Slack thread, anxiety over a missed sprint deadline, residual frustration from yesterday's bruising code review. She opens the Postgres query analyzer, spots a slow query, deploys a rough index without examining its effect on surrounding access patterns, ships the hotfix, watches latency drop, marks the incident closed. Three hours later, an unrelated batch job depending on the table's previous query plan starts thrashing, and a second page fires. Her judgment was not absent — experience was there — but it was moved by the residual emotional load, and she skipped the second-order check. Engineer B, with identical background and identical access, responds prasanna-cetasaḥ. She inspects the slow query, drafts a candidate index, runs EXPLAIN ANALYZE across affected tables, notices the dependent batch path, designs an index serving both shapes, ships, monitors both curves. Same problem, same toolkit, different state, different decision quality, different second-order outcome. The verse names this empirically: buddhi of the serene-minded stabilises swiftly, and the cognition is not pushed by anything that is not the technical signal. paryavatiṣṭhate — totally — like an unmoving sky.",
+    "falsifiability": "The analog fails if a reader concludes that engineers should not move quickly in incidents — that prasāda implies slowness. Shankara's gloss on paryavatiṣṭhate is āśu — swiftly. Stable judgment is fast judgment in this verse, not slow. The captured engineer's speed is the speed of reaction; the settled engineer's speed is the speed of unimpeded judgment. The two look different on the wall clock when the second-order effects are accounted for. The verse predicts the settled engineer's speed produces fewer reverts and fewer follow-on incidents per hour shipped, not slower clock time during the incident itself.",
+    "counter_example": "The verse does not apply to situations where the right response is genuinely cautious — a rollback decision under unclear data, a security incident where the blast radius is not yet known, a launch that should be delayed pending more telemetry. Settled judgment can correctly choose slowness when slowness is the right output. The verse claims the operator's state determines the cleanness of the judgment, not the speed; in some incidents the clean judgment is fast, and in some it is slow.",
+    "implication": "Audit your state before consequential incidents. If you are in a captured state, your toolkit is unchanged but your judgment is degraded. Five minutes spent settling the state before opening Datadog produces better second-order outcomes than five minutes saved by skipping it.",
+    "quotable_line": "The frantic engineer's judgment is moved by adrenaline. The settled engineer's judgment is moved only by the actual technical signal. Same toolkit; different state; different second-order outcome.",
+    "tags": [
+      "operator-system-coupling",
+      "incident-response",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,5 @@
+{
+  "verdict": "PASS",
+  "issues": [],
+  "notes": "Engineering layer for BG 2.65 preserves the verse's load-bearing Sanskrit terms verbatim (prasāda, prasanna-cetasaḥ, buddhi paryavatiṣṭhate, āśu). The translation field cites the relevant Sanskrit lexemes in transliteration where they carry argumentative weight. For 2.60 specifically, pramāthīni is glossed as 'churning' (preserving the active root math-, not the passive 'powerful'); the cascade Sanskrit terms in 2.62-2.63 are kept as proper terms rather than collapsed to English glosses, preserving the chained structure that Shankara reads as one argument. No mistranslation; no false attribution; the source pack's commentary excerpts are the basis of the engineering reading and are correctly traced. Two minor notes: (a) for verses where api carries syntactic ambiguity (2.60), the engineering layer privileges one reading without flagging the other explicitly in the engineering body — the source pack records the ambiguity; (b) mat-paraḥ in 2.61 is theistically explicit, and the engineering layer is correct to refuse the 'Krishna-as-engineering-god' importation while preserving the structural claim. Pass."
+}

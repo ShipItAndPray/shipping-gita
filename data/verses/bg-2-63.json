@@ -1,0 +1,49 @@
+{
+  "id": "BG 2.63",
+  "chapter": 2,
+  "verse": 63,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "From anger comes delusion; from delusion, memory-confusion; from memory-loss, judgment-destruction; from that, ruin. The verse completes the cascade begun in 2.62. Steps five through eight chain four cognitive failures, each requiring its precondition. Sammoha is not annoyance — it is the angry operator's loss of discrimination about what should and should not be done; the engineer who an hour earlier respected senior staff now belittles them in a Slack thread. Smṛti-vibhrama is not forgetfulness — it is obliteration of what prior practice and senior practitioners taught; the engineer cannot remember why the team's chosen design was actually defensible. Buddhi-nāśa is not bad judgment — it is destruction of judgment's substrate; the inherited learning that grounded reasoning has been emptied. Praṇaśyati is ruin as a functioning practitioner. The cascade runs one direction. The intervention sits upstream, at the brooding stage in 2.62.",
+    "concrete_scenario": "Continue the engineer from 2.62. Stage four landed: anger at the senior who pushed CRUD-on-Postgres, the staff engineer who 'failed to see elegance', the PM. The chain proceeds. Stage five (sammoha): she writes a Slack message in #engineering-design calling the chosen architecture 'resume-driven simplicity from people who have never run a real payments load'. Yesterday she would have known not to type that. Discrimination about what-should-and-should-not-be-said has collapsed. Stage six (smṛti-vibhrama): over the next days, she cannot access her prior reasoning about why CRUD was defensible for this team's operational maturity and PagerDuty incident-response capacity. She remembers event-sourcing's merits; the alternative case is obliterated. Stage seven (buddhi-nāśa): in the next architecture review, judgment degrades broadly. She advocates Kafka pipelines for problems Postgres handles cleanly; senior colleagues notice the regression on her GitHub PRs. Stage eight (praṇaśyati): six months later she has been moved off critical-path work, taken a sabbatical that becomes departure, or stays but has lost the trust consequential work requires. The cascade has run its full extent. The verse names this trajectory before it runs and identifies the one point at which it could have been interrupted: the dhyāna stage in 2.62, before brooding hardened into saṅga.",
+    "falsifiability": "The analog fails if a reader treats the cascade as statistically inevitable for anyone who experienced anger at a rejected design. The cascade is conditional: each step requires its precondition, and each precondition can be interrupted by direct attention. The verse does not predict that everyone who feels stage-four anger will reach stage-eight ruin; it predicts that everyone who lets the chain run unbroken will. Many engineers break the chain through reflection or trusted-colleague conversation. The verse names structural inevitability, not statistical inevitability.",
+    "counter_example": "The verse does not apply to anger arising from genuine ethical violation — a colleague who lied in a postmortem, a manager who plagiarised a design doc, a vendor who misrepresented security posture. That anger has its own structure and proper response: escalation through channels, not interruption. The cascade in 2.62-2.63 names anger from obstructed personal desire, not anger from observed wrongdoing.",
+    "implication": "If you are at stage four — angry over a rejected proposal — assume the next four stages are loaded. Do not write the Slack message. The intervention was at stage one in 2.62; once anger arrives, interrupt before sammoha lands.",
+    "quotable_line": "Anger produces delusion produces memory-loss produces judgment-collapse produces ruin. The cascade has direction.",
+    "tags": ["engineering-pathology", "team-pathology", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:35:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack with MAXIMUM rigor on cascade preservation. The 4-step second half of the cascade in 2.63 (sammoha → smṛti-vibhrama → buddhi-nāśa → praṇaśyati) is preserved as 4 distinct transitions, each named with Sanskrit term, each with engineering correlate, each with its own concrete observable behavior in the engineer's trajectory: stage 5 = the Slack message that yesterday would not have been written; stage 6 = the obliteration of memory of the alternative case; stage 7 = degraded judgment in subsequent reviews noticed by senior colleagues; stage 8 = removal from critical-path work, departure, or loss of trust. Continuity with 2.62: the same engineer continues through the chain. Falsifiability distinguishes structural inevitability from statistical inevitability. Counter-example distinguishes anger-from-obstructed-personal-desire from anger-from-ethical-violation.",
+      "failing_gates_before": ["3.9 — no named tool", "5.1 — translation 187 words (need ≤180)", "5.5 — lexical diversity 0.519", "11.1 — total 730 words"],
+      "failing_gates_after": ["11.1 — total 654 words"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:40:00Z",
+      "mutation": "Single mutation: trimmed translation to 152 words; added named tools (CRUD-on-Postgres, PagerDuty, Kafka, GitHub) to the cascade narrative to satisfy gate 3.9; trimmed concrete_scenario by removing redundant clauses. Cascade structure (4 distinct stages from 2.63 with Sanskrit terms preserved) intact.",
+      "failing_gates_before": ["11.1 — total 654 words"],
+      "failing_gates_after": ["11.1 — total 605 words"],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-29T20:42:00Z",
+      "mutation": "Single mutation: trimmed implication from 56 to 41 words to bring total under the 600-word cap.",
+      "failing_gates_before": ["11.1 — total 605 words"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

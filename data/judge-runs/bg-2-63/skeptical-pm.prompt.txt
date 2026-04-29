@@ -1,0 +1,227 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.63",
+  "sanskrit_devanagari": "क्रोधाद्भवति सम्मोहः सम्मोहात्स्मृतिविभ्रमः ।\nस्मृतिभ्रंशाद्बुद्धिनाशो बुद्धिनाशात्प्रणश्यति ॥ ६३ ॥",
+  "sanskrit_iast": "krodhād bhavati sammohaḥ sammohāt smṛti-vibhramaḥ |\nsmṛti-bhraṁśād buddhi-nāśo buddhi-nāśāt praṇaśyati || 63 ||",
+  "anvaya": [
+    {
+      "sanskrit": "क्रोधात्",
+      "iast": "krodhāt",
+      "meaning": "from anger"
+    },
+    {
+      "sanskrit": "भवति",
+      "iast": "bhavati",
+      "meaning": "arises / takes place"
+    },
+    {
+      "sanskrit": "सम्मोहः",
+      "iast": "sammohaḥ",
+      "meaning": "delusion / complete illusion / loss of discrimination"
+    },
+    {
+      "sanskrit": "सम्मोहात्",
+      "iast": "sammohāt",
+      "meaning": "from delusion"
+    },
+    {
+      "sanskrit": "स्मृति",
+      "iast": "smṛti",
+      "meaning": "memory (in compound smṛti-vibhramaḥ)"
+    },
+    {
+      "sanskrit": "विभ्रमः",
+      "iast": "vibhramaḥ",
+      "meaning": "confusion / bewilderment (in compound smṛti-vibhramaḥ: 'confusion of memory')"
+    },
+    {
+      "sanskrit": "स्मृति",
+      "iast": "smṛti",
+      "meaning": "memory (in compound smṛti-bhraṁśād)"
+    },
+    {
+      "sanskrit": "भ्रंशात्",
+      "iast": "bhraṁśād",
+      "meaning": "from loss / from collapse (in compound smṛti-bhraṁśād: 'from loss of memory')"
+    },
+    {
+      "sanskrit": "बुद्धि",
+      "iast": "buddhi",
+      "meaning": "intelligence / discriminating faculty (in compound buddhi-nāśaḥ)"
+    },
+    {
+      "sanskrit": "नाशः",
+      "iast": "nāśaḥ",
+      "meaning": "destruction / loss (in compound buddhi-nāśaḥ: 'destruction of intelligence')"
+    },
+    {
+      "sanskrit": "बुद्धि",
+      "iast": "buddhi",
+      "meaning": "intelligence (in compound buddhi-nāśāt)"
+    },
+    {
+      "sanskrit": "नाशात्",
+      "iast": "nāśāt",
+      "meaning": "from destruction (in compound buddhi-nāśāt: 'from destruction of intelligence')"
+    },
+    {
+      "sanskrit": "प्रणश्यति",
+      "iast": "praṇaśyati",
+      "meaning": "is utterly destroyed / perishes / falls down"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/63/",
+      "fetched_at": "2026-04-29T19:55:52Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From anger, complete delusion arises, and from delusion bewilderment of memory. When memory is bewildered, intelligence is lost, and when intelligence is lost one falls down again into the material pool.",
+      "raw_capture_path": "data/sources/raw/bg-2-63-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/63",
+      "fetched_at": "2026-04-29T19:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Anger leads to clouding of judgment, which results in bewilderment of memory. When memory is bewildered, the intellect gets destroyed; and when the intellect is destroyed, one is ruined."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/63/",
+      "fetched_at": "2026-04-29T19:55:52Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of Prabhupada purport)",
+      "verbatim_excerpt": "Śrīla Rūpa Gosvāmī has given us this direction: One should not desire — not even for those things which are useful for spiritual realization — if such desire is not authorized by śāstra. The development of such desires leads gradually to delusion, and so to bewilderment of memory of one's actual position, the loss of which means destruction of intelligence and finally the loss of the goal of human life altogether.",
+      "raw_full_path": "data/sources/raw/bg-2-63-vedabase.json (purport_full_length: ~1400)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-63/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (Shankara comments on 2.62-2.63 together as one chained argument; this excerpt covers the 2.63 portion of that chain)",
+      "verbatim_excerpt": "Krodhat, from anger; bhavati, follows; sammohah, delusion, absence of discrimination with regard to what should or should not be done. Indeed, an angry person, becoming deluded, abuses even his preceptor. Sammohat, from delusion; smṛti-vibhramaḥ, the loss of memory which arises from the impressions [acquired earlier] from the scriptures and the teacher. After this comes buddhi-nāśaḥ, loss of intelligence; for the mind which has lost the memory of what is conducive cannot discriminate. From the loss of intelligence, praṇaśyati — he is destroyed, he becomes incapable of his human goal.",
+      "summary_paraphrase": "Shankara reads 2.63 as the second half of the cascade begun in 2.62 and treats them as one chained argument. From krodha (anger) arises sammoha (delusion — specifically the loss of discrimination between what should and should not be done; an angry person abuses even his teacher). From sammoha arises smṛti-vibhrama (loss of memory of what was learned from scripture and teacher; the saṁskāras of right learning are obliterated). From smṛti-vibhrama arises buddhi-nāśa (loss of the discriminating faculty; the mind that has lost its inherited memory cannot discriminate). From buddhi-nāśa arises praṇaśyati — utter destruction; the loss of the human goal itself. Each step is a distinct cognitive failure, and the cascade is structurally one-directional: each step requires its precondition, and the final step is the loss of the operator as a functioning rational agent."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-63/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt)",
+      "verbatim_excerpt": "From the loss of memory there comes the destruction of discrimination. The meaning is that there will be destruction of the effect of efforts made earlier to attain the knowledge of the self. From the destruction of discrimination, one becomes lost, i.e., is sunk in Samsara or worldliness.",
+      "summary_paraphrase": "Ramanuja's reading on 2.63 emphasises the destruction-of-prior-effort dimension. From smṛti-bhraṁśa (loss of memory) comes buddhi-nāśa, which Ramanuja explicitly glosses as 'the destruction of the effect of efforts made earlier to attain knowledge of the self'. The cascade does not merely degrade present judgment — it undoes the operator's accumulated work toward self-knowledge. From buddhi-nāśa, the operator becomes 'lost' — sunk in saṁsāra. The structural claim: the cascade obliterates not only the current decision but the entire trajectory of practice that brought the operator to the threshold of decision."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sammohaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "complete delusion"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "clouding of judgment"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "delusion — absence of discrimination with regard to what should or should not be done"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "delusion as the cognitive obscuration that precedes memory-loss"
+        }
+      ],
+      "explanation": "sammoha (literally 'thorough deluding-confusion') is a strong term. Shankara's gloss is the most operationally precise: it is specifically the loss of discrimination about what should and should not be done — an angry person abuses even the teacher. Modern translators render variously. Mukundananda's 'clouding of judgment' is the softest rendering and risks understatement; Prabhupada's 'complete delusion' preserves the strength but loses the operational specificity. The verse's chain depends on sammoha being strong enough to obliterate the next step (smṛti — memory of right learning); a mere clouding cannot do that. Shankara's reading is therefore the lexically tightest."
+    },
+    {
+      "word": "praṇaśyati",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "one falls down again into the material pool"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "one is ruined"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "he is destroyed, he becomes incapable of his human goal"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "becomes lost, i.e., is sunk in Samsara or worldliness"
+        }
+      ],
+      "explanation": "praṇaśyati is the cascade's terminal verb. The four readings differ in how cosmologically loaded they make it. Prabhupada and Ramanuja import the saṁsāra frame explicitly; Shankara locates it at the level of the human goal (puruṣārtha) without the rebirth machinery; Mukundananda uses the most generic 'ruined'. The structural claim across all four is that the cascade ends in the destruction of the operator as a functioning rational agent — not metaphorical, not graded, but full loss of the conditions that made the operator's prior practice intelligible. Shankara's gloss ('incapable of his human goal') is the most precise without importing tradition-specific cosmology."
+    }
+  ],
+  "literal_meaning": "From anger, delusion arises; from delusion, confusion of memory; from collapse of memory, destruction of intelligence; from destruction of intelligence, one perishes.",
+  "traditional_meaning": "This verse completes the eight-step psychological cascade begun in 2.62. Steps 5-8: (5) sammoha — delusion, specifically the loss of discrimination between what should and should not be done; the angry operator now offends even those whose authority she would have respected an hour earlier. (6) smṛti-vibhrama — confusion or collapse of memory, specifically of what was learned from teacher and scripture; the saṁskāras of right learning are obliterated. (7) buddhi-nāśa — destruction of the discriminating faculty itself; the operator can no longer reason because the substrate of reasoning (the inherited learning that gives reasoning its grounding) has been destroyed. (8) praṇaśyati — utter destruction; loss of the human goal, the operator's end-purpose itself. Shankara reads 2.62-2.63 as one chained argument. Ramanuja emphasises that buddhi-nāśa undoes the operator's prior effort toward self-knowledge — the cascade obliterates not only the current decision but the entire practice trajectory. All traditions agree the cascade is sequential, one-directional, and terminal in its full extent. Together with 2.62 it forms one of the Gita's most precise psychological analyses, and the prevention is upstream — at the dhyāna step in 2.62 — not at any step in 2.63.",
+  "engineering": {
+    "translation": "From anger comes delusion; from delusion, memory-confusion; from memory-loss, judgment-destruction; from that, ruin. The verse completes the cascade begun in 2.62. Steps five through eight chain four cognitive failures, each requiring its precondition. Sammoha is not annoyance — it is the angry operator's loss of discrimination about what should and should not be done; the engineer who an hour earlier respected senior staff now belittles them in a Slack thread. Smṛti-vibhrama is not forgetfulness — it is obliteration of what prior practice and senior practitioners taught; the engineer cannot remember why the team's chosen design was actually defensible. Buddhi-nāśa is not bad judgment — it is destruction of judgment's substrate; the inherited learning that grounded reasoning has been emptied. Praṇaśyati is ruin as a functioning practitioner. The cascade runs one direction. The intervention sits upstream, at the brooding stage in 2.62.",
+    "concrete_scenario": "Continue the engineer from 2.62. Stage four landed: anger at the senior who pushed CRUD-on-Postgres, the staff engineer who 'failed to see elegance', the PM. The chain proceeds. Stage five (sammoha): she writes a Slack message in #engineering-design calling the chosen architecture 'resume-driven simplicity from people who have never run a real payments load'. Yesterday she would have known not to type that. Discrimination about what-should-and-should-not-be-said has collapsed. Stage six (smṛti-vibhrama): over the next days, she cannot access her prior reasoning about why CRUD was defensible for this team's operational maturity and PagerDuty incident-response capacity. She remembers event-sourcing's merits; the alternative case is obliterated. Stage seven (buddhi-nāśa): in the next architecture review, judgment degrades broadly. She advocates Kafka pipelines for problems Postgres handles cleanly; senior colleagues notice the regression on her GitHub PRs. Stage eight (praṇaśyati): six months later she has been moved off critical-path work, taken a sabbatical that becomes departure, or stays but has lost the trust consequential work requires. The cascade has run its full extent. The verse names this trajectory before it runs and identifies the one point at which it could have been interrupted: the dhyāna stage in 2.62, before brooding hardened into saṅga.",
+    "falsifiability": "The analog fails if a reader treats the cascade as statistically inevitable for anyone who experienced anger at a rejected design. The cascade is conditional: each step requires its precondition, and each precondition can be interrupted by direct attention. The verse does not predict that everyone who feels stage-four anger will reach stage-eight ruin; it predicts that everyone who lets the chain run unbroken will. Many engineers break the chain through reflection or trusted-colleague conversation. The verse names structural inevitability, not statistical inevitability.",
+    "counter_example": "The verse does not apply to anger arising from genuine ethical violation — a colleague who lied in a postmortem, a manager who plagiarised a design doc, a vendor who misrepresented security posture. That anger has its own structure and proper response: escalation through channels, not interruption. The cascade in 2.62-2.63 names anger from obstructed personal desire, not anger from observed wrongdoing.",
+    "implication": "If you are at stage four — angry over a rejected proposal — assume the next four stages are loaded. Do not write the Slack message. The intervention was at stage one in 2.62; once anger arrives, interrupt before sammoha lands.",
+    "quotable_line": "Anger produces delusion produces memory-loss produces judgment-collapse produces ruin. The cascade has direction.",
+    "tags": [
+      "engineering-pathology",
+      "team-pathology",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

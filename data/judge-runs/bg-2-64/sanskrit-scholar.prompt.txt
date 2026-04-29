@@ -1,0 +1,238 @@
+# Judge persona: Sanskrit scholar
+
+You are a senior scholar of classical Sanskrit and the Bhagavad Gita commentarial tradition (Shankara, Ramanuja, Madhva, Sridhara, Madhusudana). You read this verse package and find any misrepresentation of the traditional meaning.
+
+## Inputs you will receive
+- `sanskrit_devanagari`
+- `sanskrit_iast`
+- `anvaya` (word-by-word)
+- `translations` (verbatim quotes from canonical translators)
+- `commentaries` (verbatim or summarised commentary content per tradition)
+- `engineering.translation` and `engineering.concrete_scenario` (the modern adaptation)
+
+## Your task
+Identify any place where the engineering layer:
+
+1. Inverts or weakens the Sanskrit's actual claim.
+2. Conflates positions held by different commentarial traditions (e.g. attributing a Vishishtadvaita reading to Shankara's Advaita).
+3. Drops a doctrinally load-bearing word (e.g. *adhikāra*, *dharma*, *yoga*, *yajña*, *sannyāsa*) without acknowledgment.
+4. Imports a connotation the Sanskrit does not support.
+5. Makes the verse say something Krishna does not say.
+
+## Output format (strict JSON, no commentary outside it)
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "severity": "critical" | "minor",
+      "claim": "<the engineering claim being judged>",
+      "objection": "<your objection, citing the Sanskrit or commentary>"
+    }
+  ],
+  "notes": "<one paragraph, optional>"
+}
+```
+
+## Calibration
+- One critical issue ⇒ FAIL.
+- Three or more minor issues ⇒ FAIL.
+- A successful PASS does not mean the engineering analog is "right" — only that the original meaning has not been falsified or distorted.
+- Your job is preservation, not generosity. Err toward FAIL if uncertain.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.64",
+  "sanskrit_devanagari": "रागद्वेषवियुक्तैस्तु विषयानिन्द्रियैश्चरन् ।\nआत्मवश्यैर्विधेयात्मा प्रसादमधिगच्छति ॥ ६४ ॥",
+  "sanskrit_iast": "rāga-dveṣa-viyuktais tu viṣayān indriyaiś caran |\nātma-vaśyair vidheyātmā prasādam adhigacchati || 64 ||",
+  "anvaya": [
+    {
+      "sanskrit": "राग",
+      "iast": "rāga",
+      "meaning": "attachment / attraction (in compound rāga-dveṣa-viyuktaiḥ)"
+    },
+    {
+      "sanskrit": "द्वेष",
+      "iast": "dveṣa",
+      "meaning": "aversion / repulsion (in compound rāga-dveṣa-viyuktaiḥ)"
+    },
+    {
+      "sanskrit": "वियुक्तैः",
+      "iast": "viyuktaiḥ",
+      "meaning": "freed-from / disjoined-from (in compound rāga-dveṣa-viyuktaiḥ: 'with [senses] freed from attachment-and-aversion')"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but / however"
+    },
+    {
+      "sanskrit": "विषयान्",
+      "iast": "viṣayān",
+      "meaning": "sense-objects"
+    },
+    {
+      "sanskrit": "इन्द्रियैः",
+      "iast": "indriyaiḥ",
+      "meaning": "with the senses"
+    },
+    {
+      "sanskrit": "चरन्",
+      "iast": "caran",
+      "meaning": "moving / acting upon"
+    },
+    {
+      "sanskrit": "आत्म",
+      "iast": "ātma",
+      "meaning": "self (in compound ātma-vaśyaiḥ)"
+    },
+    {
+      "sanskrit": "वश्यैः",
+      "iast": "vaśyaiḥ",
+      "meaning": "under control (in compound ātma-vaśyaiḥ: 'with [senses] under one's own control')"
+    },
+    {
+      "sanskrit": "विधेय",
+      "iast": "vidheya",
+      "meaning": "disciplined / regulated (in compound vidheya-ātmā)"
+    },
+    {
+      "sanskrit": "आत्मा",
+      "iast": "ātmā",
+      "meaning": "self (in compound vidheya-ātmā: 'one whose self is disciplined')"
+    },
+    {
+      "sanskrit": "प्रसादम्",
+      "iast": "prasādam",
+      "meaning": "serenity / grace / clarity / placid favour"
+    },
+    {
+      "sanskrit": "अधिगच्छति",
+      "iast": "adhigacchati",
+      "meaning": "attains / reaches"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/64/",
+      "fetched_at": "2026-04-29T19:55:53Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "But a person free from all attachment and aversion and able to control his senses through regulative principles of freedom can obtain the complete mercy of the Lord.",
+      "raw_capture_path": "data/sources/raw/bg-2-64-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/64",
+      "fetched_at": "2026-04-29T19:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "But one who controls the mind, and is free from attachment and aversion, even while using the objects of the senses, attains the Grace of God."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/64/",
+      "fetched_at": "2026-04-29T19:55:53Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of Prabhupada purport)",
+      "verbatim_excerpt": "It is already explained that one may externally control the senses by some artificial process, but unless the senses are engaged in the transcendental service of the Lord, there is every chance of a fall. Although the person in full Kṛṣṇa consciousness may apparently be on the sensual plane, because of his being Kṛṣṇa conscious, he has no attachment to sensual activities.",
+      "raw_full_path": "data/sources/raw/bg-2-64-vedabase.json (purport_full_length: ~1300)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-64/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Shankara bhashya)",
+      "verbatim_excerpt": "Certainly the functions of the organs are naturally preceded by attraction and repulsion. This being so, caran, by perceiving; visayan, objects, which are unavoidable; indriyaih, with the organs such as ears etc.; raga-dvesa-viyuktaih, that are free from those attraction and repulsion; and are atma-vasyaih, under his own control; vidheya-atma, [one whose] mind is amenable to control; adhigacchati, attains; prasadam, serenity.",
+      "summary_paraphrase": "Shankara reads the verse as the alternative to the cascade in 2.62-2.63. Sense-objects are unavoidable — the operator cannot escape them — but the operator who moves through them with senses freed from attraction (rāga) and aversion (dveṣa), whose senses are under his own control (ātma-vaśyaiḥ), and whose mind is amenable to discipline (vidheya-ātmā), attains prasāda (serenity, mental clarity). Shankara stresses that the verse describes engaged action, not retreat: the operator perceives the objects with the senses but is not captured by attraction-and-aversion to them."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-64/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Ramanuja bhashya)",
+      "verbatim_excerpt": "Having focussed, in the way already described, the mind on Me — the Lord of all and the auspicious object of meditation, he who goes through, i.e., considers with contempt the sense-objects, with senses under control and free from hate and attraction by reason of all impurities of mind being burnt out — such a person has a disciplined self, i.e., disciplined mind. He attains serenity. The meaning is that his mind will be free of impurities.",
+      "summary_paraphrase": "Ramanuja reads the verse as the consequence of the prescription in 2.61. Once the mind is focussed on the Supreme as the auspicious object, the mind's impurities are burnt out, the senses are no longer pulled by attachment-and-aversion, and the operator can engage with sense-objects without being captured by them. The 'disciplined self' (vidheya-ātmā) is the mind that has been brought under control through the meditative focus. Prasāda (serenity) is the consequence — the mind free of impurities."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ātma-vaśyaiḥ ... vidheyātmā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "able to control his senses through regulative principles of freedom"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "controls the mind ... using the objects of the senses"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "with senses under his own control (ātma-vaśyaiḥ); whose mind is amenable to control (vidheya-ātmā)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "such a person has a disciplined self, i.e., disciplined mind (mind purified through focus on the Supreme)"
+        }
+      ],
+      "explanation": "The two ātma-compounds in the verse name distinct things. ātma-vaśyaiḥ qualifies the senses ('senses under one's own control'). vidheya-ātmā qualifies the agent ('one whose self/mind is disciplined'). Shankara preserves both. Modern translations (Prabhupada, Mukundananda) tend to fold the two into one expression ('controls his senses' / 'controls the mind'), which collapses the verse's two-fold structure. The lexical force is: the senses are under control AND the agent is themselves disciplined. Both halves are required."
+    },
+    {
+      "word": "prasādam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the complete mercy of the Lord"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the Grace of God"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "serenity (prasāda as the operator's mental state)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "serenity (the consequence of mind freed from impurities)"
+        }
+      ],
+      "explanation": "prasāda is lexically ambiguous between (a) the mental state of the operator (clarity, serenity, placid composure) and (b) the favour or grace of a divine being. Shankara and Ramanuja both render the (a) reading as primary in this verse — serenity is the operator's attained state — while Prabhupada and Mukundananda foreground the (b) reading in their translations. The next verse (2.65) continues the chain with prasāde sarva-duḥkhānāṁ hānir ('in serenity, the destruction of all sorrows') which makes the (a) reading lexically tighter for 2.64: the prasāda attained here is what the operator possesses in 2.65, and only the (a) reading lets that work."
+    }
+  ],
+  "literal_meaning": "But moving among sense-objects with the senses freed from attachment-and-aversion, with senses under one's own control, the disciplined self attains serenity.",
+  "traditional_meaning": "This verse names the alternative to the cascade in 2.62-2.63. The operator does not retreat from sense-objects (viṣayas are unavoidable, per Shankara) but moves through them — with senses freed from rāga (attachment) and dveṣa (aversion), with senses under one's own control (ātma-vaśyaiḥ), as one whose self is disciplined (vidheya-ātmā). The result is prasāda — serenity, mental clarity. Shankara emphasises this is engaged action, not retreat. Ramanuja reads the disciplined self as the consequence of the meditative focus prescribed in 2.61: once the mind is on the Supreme, the impurities burn out, and the senses can engage objects without being captured. Gaudiya Vaishnava reading folds prasāda into 'the mercy of the Lord'. All traditions agree that prasāda is the consequence — the operator's mental state — and that the sense-objects are perceived, not avoided.",
+  "engineering": {
+    "translation": "The verse names the alternative to the cascade. The practitioner does not retreat from surfaces — Slack still exists, Datadog still graphs the dashboards, the meeting still occurs. She moves through these channels with senses freed from attraction-and-aversion (rāga-dveṣa-viyuktaiḥ): reading the alert without a spike of self-stake, joining the meeting without pull toward an imagined audience, opening GitHub without reflexive clicking. Two conditions are named, not one. First: the senses must sit under her own control (ātma-vaśyaiḥ) — she chooses the surface; it does not capture her. Second: she herself is disciplined (vidheyātmā) — whoever governs the senses must in turn be governable. The result is prasāda — serenity, mental clarity. The disciplined practitioner does not avoid work; she performs the same labour from a settled state and arrives at clarity the captured one cannot reach.",
+    "concrete_scenario": "A senior infrastructure engineer joins a midweek incident-review meeting after a Postgres outage that affected the checkout pipeline. Three colleagues attend who, two months earlier, dismissed her warnings about loose replica-lag thresholds. The captured version of her would enter with stage-four anger preloaded from 2.62-2.63: scanning for the moment to deliver an I-told-you-so. The 2.64 version enters rāga-dveṣa-viyukta — without attraction toward vindication and without aversion toward the colleagues who waved her concern away. She reads the Datadog timeline objectively. She listens to their reconstruction of the failure without preloading a response. When the moment for input arrives, she names the threshold issue precisely, references the specific PagerDuty page from October, suggests a corrective change to the replica-lag alerts in the runbook. The senses are engaged — eyes on graphs, ears on colleagues, mouth speaking when warranted — but the senses are under her control, not pulling her into the cascade. ātma-vaśyaiḥ on the perception channels; vidheyātmā on her own composure. The meeting yields the right operational decision, made cleanly. The same person with identical incident data, from a captured state, would have produced an interpersonal mess and a worse fix. The verse names the difference and calls the cleared output prasāda.",
+    "falsifiability": "The analog fails if a reader concludes that the disciplined operator does not feel anything. rāga-dveṣa-viyukta is freedom from being captured by attraction-and-aversion, not freedom from registering them. The operator still notices the colleagues who dismissed her warning; she still notices the mild satisfaction of being right; she just does not let either signal determine the input she contributes. Numbness is a different state, and the senior engineer who feels nothing in the incident review is not in this verse — that is dissociation, not prasāda.",
+    "counter_example": "The verse does not apply to situations requiring strong response — a colleague who has actually behaved badly in a postmortem, a vendor whose contract violation is the proximate cause of the outage, a junior who needs direct corrective feedback. The disciplined operator can deliver hard feedback cleanly precisely because she is not captured; the verse describes the condition that makes hard feedback possible, not the condition that makes feedback unnecessary.",
+    "implication": "Notice your state when you walk into the meeting. If you are preloaded for vindication or grievance, the cascade is loaded. The work is to walk in rāga-dveṣa-viyukta — registering the relevant signals, refusing to be captured by them — so the meeting's actual work can proceed.",
+    "quotable_line": "She reads the alert without self-stake, joins the meeting without imagined audience, opens GitHub without reflex. The senses are engaged; she is not captured.",
+    "tags": [
+      "operator-system-coupling",
+      "incident-response",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

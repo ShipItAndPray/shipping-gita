@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.61",
+  "chapter": 2,
+  "verse": 61,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Restrain the surfaces and orient the attention. The two are conjunctive. Closing Slack alone accomplishes nothing if the mind still leans toward the muted feed; the silenced channel becomes a phantom the operator keeps reaching toward. Naming a focus accomplishes nothing if Slack stays visible in the peripheral view — the intent has no structural support. The verse prescribes both halves: restrain the senses AND remain yoked, intent on the proper object. The verse's mat-paraḥ (intent on Me) is theistic in its native register; the engineering register does not import 'Krishna-as-god-of-the-codebase'. What does carry across is the structural claim: orientation toward something specific is required, and that something must be the real work, not the proxies the surfaces tend to substitute. Restraint is half. Orientation is the other half. Either alone produces a known pathology — sterile asceticism, or distracted devotion.",
+    "concrete_scenario": "An engineering lead is conducting a quarterly architecture review for a payments service that has accrued three years of incremental decisions. She has done the structural work: Slack is closed, the calendar holds three guarded hours, GitHub notifications are silenced, the laptop's secondary monitor displays only the diagram and the relevant Postgres schema. So far this is 2.60-style restraint — necessary but insufficient. Now consider the second-half question. If her actual focus during these three hours is 'how does this architecture make me look to the senior staff', her attention will continually drift toward an imagined audience, and the diagrams will be read for what they say about her rather than what they say about the payments system. Surfaces guarded; aim wrong. Alternatively, if the aim is 'how does this serve the customer's payment-failure recovery experience', the diagrams are read against system-truth, the schema is examined against real failure modes, and the block yields genuine architectural insight. Same guard, different aim, dramatically different output. The verse names this exact conjunction: yuktaḥ āsīta mat-paraḥ — sit yoked, intent on the supreme — where 'the supreme' in the engineering register translates to the actual problem, the actual customer-need, the actual system-state. The two halves of this discipline are mutually enabling: closed Slack produces room, and proper aim populates that room with work appropriate to deep concentration.",
+    "falsifiability": "The analog fails if a reader uses it to claim that 'closing the surfaces is sufficient' (restraint without orientation) or 'right orientation needs no surface-restraint' (orientation without restraint). Both are familiar engineering pathologies, and the verse explicitly rejects both. If an engineer has Slack closed but the mind is on the imagined audience, she is not in this verse. If an engineer has the orientation right but Slack is still pulling at her peripheral surface, she is not in this verse either. The conjunction is what the verse names.",
+    "counter_example": "The verse does not apply to short tactical work — fixing a broken test, responding to a clarifying question on a PR, joining a quick incident triage. These do not require the structural posture; they require responsive engagement with the surface as it presents itself. The verse is scoped to the deep-work block, the architecture review, the design document, the strategic decision under uncertainty — the work for which the conjunction of restraint and orientation is the precondition.",
+    "implication": "Audit your deep-work blocks twice. Once for restraint: what surfaces are closed, what notifications are silenced, what calendar guard is in place? Once for orientation: where is the attention pointed during the block? If either audit fails, the block will not produce what deep work is supposed to produce. Both must hold.",
+    "quotable_line": "Closing Slack is half. Pointing the attention at the real work is the other half. Either alone is a familiar pathology.",
+    "tags": ["focus-practice", "deep-work", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:10:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack. Critical scoping: mat-paraḥ ('intent on Me') is theistically explicit in Chapter 2 — Shankara reads non-dually, Ramanuja reads relationally. The engineering layer explicitly does NOT claim Krishna-as-engineering-god framing; it preserves the structural claim (orientation toward something specific is required) and translates 'something specific' to the operational layer (the actual problem, customer-need, system-truth). The Indian-philosopher persona will check this scoping. Named tools: Slack, GitHub, Postgres. Engineering analog: deep-work block requires both restraint AND orientation; either alone produces a familiar pathology.",
+      "failing_gates_before": ["5.1 — translation 192 words (need ≤180)", "5.3 — FK 13.10 (need ≤13)", "5.5 — lexical diversity 0.493", "11.1 — total 628 words (need ≤600)"],
+      "failing_gates_after": ["5.5 — lexical diversity 0.548 (need ≥0.55)"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:15:00Z",
+      "mutation": "Single mutation: trimmed translation to 152 words and concrete_scenario to 245 words; replaced repeated 'orientation'/'surfaces'/'restraint' chains with synonyms ('aim', 'guard', 'second-half question') to lift lexical diversity; replaced multi-syllable Latinate constructions where they pushed FK above 13. Engineering content unchanged: still names Slack/Postgres/GitHub and the conjunction of restraint + aim as the verse's structural claim.",
+      "failing_gates_before": ["5.5 — lexical diversity 0.548"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

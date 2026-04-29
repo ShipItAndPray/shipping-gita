@@ -1,0 +1,215 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.60",
+  "sanskrit_devanagari": "यततो ह्यपि कौन्तेय पुरुषस्य विपश्चितः ।\nइन्द्रियाणि प्रमाथीनि हरन्ति प्रसभं मनः ॥ ६० ॥",
+  "sanskrit_iast": "yatato hy api kaunteya puruṣasya vipaścitaḥ |\nindriyāṇi pramāthīni haranti prasabhaṁ manaḥ || 60 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यततः",
+      "iast": "yatataḥ",
+      "meaning": "of one striving / endeavoring"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "for / certainly"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even / in spite of"
+    },
+    {
+      "sanskrit": "कौन्तेय",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī (Arjuna)"
+    },
+    {
+      "sanskrit": "पुरुषस्य",
+      "iast": "puruṣasya",
+      "meaning": "of a person"
+    },
+    {
+      "sanskrit": "विपश्चितः",
+      "iast": "vipaścitaḥ",
+      "meaning": "of the wise / of one of discriminating knowledge"
+    },
+    {
+      "sanskrit": "इन्द्रियाणि",
+      "iast": "indriyāṇi",
+      "meaning": "the senses"
+    },
+    {
+      "sanskrit": "प्रमाथीनि",
+      "iast": "pramāthīni",
+      "meaning": "violent / agitating / turbulent"
+    },
+    {
+      "sanskrit": "हरन्ति",
+      "iast": "haranti",
+      "meaning": "they carry away / they snatch away"
+    },
+    {
+      "sanskrit": "प्रसभम्",
+      "iast": "prasabham",
+      "meaning": "by force / forcibly"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/60/",
+      "fetched_at": "2026-04-29T19:55:49Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The senses are so strong and impetuous, O Arjuna, that they forcibly carry away the mind even of a man of discrimination who is endeavoring to control them.",
+      "raw_capture_path": "data/sources/raw/bg-2-60-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/60",
+      "fetched_at": "2026-04-29T19:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The senses are so strong and turbulent, O son of Kunti, that they can forcibly carry away the mind even of a person endowed with discrimination who practices self-control."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/60/",
+      "fetched_at": "2026-04-29T19:55:49Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of Prabhupada purport)",
+      "verbatim_excerpt": "There are many learned sages, philosophers and transcendentalists who try to conquer the senses, but in spite of their endeavors, even the greatest of them sometimes fall victim to material sense enjoyment due to the agitated mind.",
+      "raw_full_path": "data/sources/raw/bg-2-60-vedabase.json (purport_full_length: 1574)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-60/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Shankara bhashya)",
+      "verbatim_excerpt": "Hi, for; kaunteya, O son of Kunti; pramathini, the turbulent; indriyani, organs; prasabham, violently; haranti, snatch away; manah, the mind; vipascitah, of an intelligent; purusasya, person; api, even; yatatah, while he is striving diligently. Indeed, the organs confound a person who is inclined towards objects, and after confounding him, violently carry away his mind endowed with discriminating knowledge, even when he is aware of this.",
+      "summary_paraphrase": "Shankara reads the verse as a sober warning against premature confidence in self-control. Even the discriminating one who is actively striving (yatataḥ) can have the mind snatched away by the senses when those senses are oriented toward objects. The condition for being immune is not striving alone but the conjunction of striving with the deeper non-orientation of the mind (treated in 2.61). This verse's role is to refuse the assumption that effort by itself secures the result."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-60/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "summary-only (raw bgus rendering for this verse duplicates the Shankara excerpt; Ramanuja's distinct text not machine-extractable from this source)",
+      "summary_paraphrase": "Ramanuja's Gita-bhasya on 2.60 reads the verse as the diagnostic that motivates the prescription in 2.61. Sense-control by the unaided striving will of the embodied person is insufficient because the senses, when oriented toward objects (viṣaya), are turbulent (pramāthīni) and can violently (prasabham) carry away the mind even of one with discriminating knowledge (vipaścitaḥ). The structural argument: there is a mutual dependence between sense-control and direct vision of the self, and this dependence cannot be broken by effort alone — hence 2.61's instruction to fix the mind on the Supreme as the auspicious object of meditation, which is what releases the will from this circular trap."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yatataḥ ... vipaścitaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "even of a man of discrimination who is endeavoring to control them (api modifies the discriminating one who is striving)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "even of a person endowed with discrimination who practices self-control"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "two readings noted: api may be construed either with yatataḥ (even while he is striving) or with vipaścitaḥ puruṣasya (even of an intelligent person)"
+        }
+      ],
+      "explanation": "Shankara's translator (Gambhirananda) explicitly flags the syntactic ambiguity in api: it can be construed either with yatataḥ ('even while striving') or with vipaścitaḥ puruṣasya ('even an intelligent person'). The two readings are not contradictory — they amplify each other; the verse warns that both striving and discrimination can fail. Modern translators (Prabhupada, Mukundananda) collapse the ambiguity into a single phrase. The lexical force is the same; the grammatical option is preserved by Shankara for completeness."
+    },
+    {
+      "word": "pramāthīni",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "strong and impetuous"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "strong and turbulent"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the turbulent"
+        },
+        {
+          "source": "Vishvanatha (per bgus excerpt)",
+          "rendering": "causing agitation"
+        }
+      ],
+      "explanation": "All four readings cluster around an intensity quality of the senses: turbulent, agitating, churning, impetuous. The Sanskrit root math- carries a churning/agitating force (compare amṛta-manthana, the churning of the ocean). The verse's claim is not that the senses are merely 'strong' in a passive sense but that they actively churn the mind from its established posture — they do agitative work on the operator's interior. The translations differ in how strongly they preserve the active churning sense; Shankara's 'turbulent' and Vishvanatha's 'causing agitation' retain the active force most explicitly."
+    }
+  ],
+  "literal_meaning": "For even of a striving discriminating person, O son of Kuntī, the violent senses forcibly carry away the mind.",
+  "traditional_meaning": "This verse is the warning that immediately precedes Krishna's prescription in 2.61. Even the wise person (vipaścitaḥ) who is actively striving (yatataḥ) for self-control is vulnerable: the senses, when turbulent (pramāthīni) and oriented toward sense-objects, can violently (prasabham) carry away the mind. Shankara reads this as the sober refusal of any assumption that effort alone secures the result; Ramanuja reads it as the structural diagnosis that motivates fixing the mind on the Supreme as the auspicious object of meditation (the prescription in 2.61); the Gaudiya Vaishnava reading folds in the practical observation that even great sages have fallen due to agitation of the mind. All traditions agree: discipline is ongoing, not achieved. The wise are not exempt from vigilance.",
+  "engineering": {
+    "translation": "Even the senior engineer who has practiced attention-discipline for a decade still encounters days when her concentration collapses. Even the practitioner who is actively striving — who has architected her calendar around deep work, who closes Slack during focused intervals, who has memorised the runbook for her own interruption-recovery — can have her attention violently dispossessed by whichever surface pulls hardest in a given moment. The verse refuses two adjacent flatteries simultaneously. It refuses the apprentice's flattery that exertion alone suffices. It refuses the senior's flattery that fluency, once acquired, remains intact without renewal. The senses are pramāthīni — churning — meaning not merely powerful but actively agitating, doing antagonistic work against the operator's settled posture. The wise are not immune; the striving are not immune; the long-experienced are not immune. Disciplined attention is a posture sustained moment-by-moment, not an achievement banked. Vigilance is what the steady mind costs, and it is repaid daily by the same person who paid it yesterday, with no carryover.",
+    "concrete_scenario": "A staff engineer with twelve years on infrastructure teams has been running her attention-system for the last three of them. She catalogues her failure modes precisely: Slack at 09:14 dismantles her morning, Datadog open during code review fragments her review cadence, GitHub notifications routed to email rather than push prevent the immediate-response reflex. She maintains a runbook for her own concentration. On a particular Tuesday, halfway through preparing a Postgres schema migration, a Slack ping fires from a junior engineer asking about an unrelated Kubernetes deployment. The discipline-channel is muted; she does not respond. Forty minutes later, she discovers her browser tab now sits on the Kubernetes incident channel, she has read three threads in detail, and the migration-prep document is still scrolled where she left it. The transition was not consciously chosen. The pramāthīni — the churning quality of the senses — caught her by an unguarded structural edge: a senior-engineer reflex to assist, an operator-empathy for a colleague mid-incident, a curiosity about whether the unrelated deployment might in fact touch her own service through some upstream dependency. Her striving (yatataḥ) was genuine; her discrimination (vipaścitaḥ) was genuine; the senses nonetheless carried the mind off (haranti prasabhaṁ manaḥ). This verse names that exact failure mode and refuses to call her incompetent for experiencing it. It says: this is structurally what happens. Plan around it. The structural plan arrives in 2.61.",
+    "falsifiability": "The analog fails if a reader uses it to justify giving up on attention-discipline because 'even the wise lose'. The verse is the opposite move: it warns that vigilance is required precisely because effort alone is insufficient. If an engineer reads this verse and concludes she should stop closing Slack, stop blocking calendar time, stop muting GitHub — she has read the verse backwards. The verse tightens the requirement, it does not relax it.",
+    "counter_example": "The verse does not apply to the engineer who has not yet done the apprentice work — the one who has never structured her attention surfaces, who has never closed Slack, who has never run a deep-work block. To that engineer, the warning 'even the striving fail' would be premature. She has not yet entered the regime where the verse applies. Krishna names the wise (vipaścitaḥ) and the striving (yatataḥ) specifically; the verse is scoped to the practitioner, not the beginner. The beginner needs the small water-pond first.",
+    "implication": "Treat your attention-discipline as a daily practice, not a settled fact. The same person who held focus yesterday must hold it again today, against the same pull, with no carryover credit. Plan structurally for the moments when the senses will catch you, because they will.",
+    "quotable_line": "Even the senior who has done this for ten years still has bad days. The verse refuses to call her bad at her job for it.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

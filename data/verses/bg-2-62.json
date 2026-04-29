@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.62",
+  "chapter": 2,
+  "verse": 62,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Brooding produces attachment; attachment produces desire; obstructed desire produces anger. The verse names the first half of a precise eight-step cascade. Each transition is distinct. Brooding (dhyāna) is not idle perception — it is repeated return of attention to a thing: rereading the same thread, replaying the same architecture argument, mentally redrawing the design that the team rejected. Attachment (saṅga) is not affinity; it is settled fondness, the operator's quiet decision that this matters in a way tied to identity. Desire (kāma) is not preference; it is hankering, an active pull toward what was blocked. Anger (krodha) is not irritation; it is the structural response when desire is obstructed. The cascade has direction. Each step requires its precondition. The intervention point sits upstream — at brooding — before the chain has acquired its first link.",
+    "concrete_scenario": "An engineer proposes event-sourced architecture for a new payments service. After two weeks of debate, the team picks a conventional CRUD-on-Postgres design instead. The proposal was technically defensible; the rejection was equally defensible. This is normal engineering. Then the chain engages. Stage one (dhyāna): in subsequent weeks, she keeps returning mentally to the rejected proposal — replaying meetings, redrawing diagrams, imagining the system that would have existed had her side won. Real attention work, not casual. Stage two (saṅga): she becomes bound to that rejected design. It is no longer a proposal; it is 'the correct answer the team was too timid to embrace'. Identity-fused. Stage three (kāma): from binding grows active hankering for vindication — she wants colleagues to discover the chosen design's inferiority, anticipates the moment when CRUD breaks under load the event-sourced version would have absorbed. Stage four (krodha): hankering is blocked because the shipped system performs adequately and the org moves on. Anger emerges, directed at the senior who pushed CRUD, the staff engineer who 'failed to see elegance', the PM who 'prioritised speed over correctness'. Recognisable pathology. Senior practitioners have watched it run. The verse identifies the upstream intervention: stage one. Interrupt the brooding before it hardens into saṅga, because once saṅga lands the chain has its first link and the remaining stages follow with mechanical inevitability.",
+    "falsifiability": "The analog fails if a reader uses it to claim that all post-decision reflection is brooding. Reflection in service of learning is not dhyāna in this verse's sense — that is reasoned analysis, often cited in postmortems and design retrospectives. The verse names the specific case where attention keeps returning to a rejected thing in a way that hardens identity-attachment. The diagnostic test is whether the engineer's relationship to the rejected architecture is becoming more about themselves than about the architecture. If yes, the cascade is engaging. If no, this is healthy reflection.",
+    "counter_example": "The verse does not apply to legitimate technical disagreement that the engineer continues to pursue through proper channels — writing a design document, requesting a re-evaluation, gathering operational data after the chosen system has shipped. That is engaged technical advocacy, not the cascade. The cascade is private, repetitive, and identity-tied; legitimate advocacy is public, structured, and evidence-tied. The first three steps of the cascade run inside the engineer's head; legitimate advocacy runs in the team's shared artifacts.",
+    "implication": "Watch the dhyāna step. Notice when your attention is returning to a rejected proposal in a way that does not produce new analysis but only re-experiences the rejection. That repetitive return is the upstream intervention point. The hardening into saṅga happens later and is harder to undo.",
+    "quotable_line": "Brooding hardens into attachment; attachment hardens into desire; obstructed desire hardens into anger. The cascade has direction.",
+    "tags": ["engineering-pathology", "team-pathology", "feedback-loops"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:25:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack with MAXIMUM rigor on cascade preservation. The 4-step cascade in 2.62 (dhyāna → saṅga → kāma → krodha) is preserved as 4 distinct transitions, each named explicitly, each with its own engineering correlate (replay-attention → identity-tied attachment → active hankering for vindication → obstructed-desire-becomes-anger). The engineering analog names a real, recognizable engineering pathology: the engineer whose proposal was rejected and whose attention keeps returning to that rejection in a way that hardens into anger at the team. This pathology is genuinely observable; senior engineers watch it run. Named tools: Slack, Postgres. Falsifiability distinguishes brooding from healthy reflection.",
+      "failing_gates_before": ["5.5 — lexical diversity 0.461", "11.1 — total 638 words"],
+      "failing_gates_after": ["5.5 — lexical diversity 0.520"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "Single mutation: tightened concrete_scenario from 333 to 295 words and pruned repeated 'engineer'/'proposal'/'design' chains by replacing with 'colleagues', 'shipped system', 'CRUD', 'org', etc.; restructured a few clauses to remove function-word repetition. Cascade structure (4 distinct stages, each with Sanskrit term and engineering correlate) preserved exactly. Sanskrit terms (dhyāna, saṅga, kāma, krodha) retained as load-bearing markers.",
+      "failing_gates_before": ["5.5 — lexical diversity 0.520"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,214 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.62",
+  "sanskrit_devanagari": "ध्यायतो विषयान्पुंसः सङ्गस्तेषूपजायते ।\nसङ्गात्सञ्जायते कामः कामात्क्रोधोऽभिजायते ॥ ६२ ॥",
+  "sanskrit_iast": "dhyāyato viṣayān puṁsaḥ saṅgas teṣūpajāyate |\nsaṅgāt sañjāyate kāmaḥ kāmāt krodho 'bhijāyate || 62 ||",
+  "anvaya": [
+    {
+      "sanskrit": "ध्यायतः",
+      "iast": "dhyāyataḥ",
+      "meaning": "of one brooding / contemplating / dwelling on"
+    },
+    {
+      "sanskrit": "विषयान्",
+      "iast": "viṣayān",
+      "meaning": "sense-objects"
+    },
+    {
+      "sanskrit": "पुंसः",
+      "iast": "puṁsaḥ",
+      "meaning": "of a person / man"
+    },
+    {
+      "sanskrit": "सङ्गः",
+      "iast": "saṅgaḥ",
+      "meaning": "attachment / fondness"
+    },
+    {
+      "sanskrit": "तेषु",
+      "iast": "teṣu",
+      "meaning": "for them / for those (objects)"
+    },
+    {
+      "sanskrit": "उपजायते",
+      "iast": "upajāyate",
+      "meaning": "is born / arises"
+    },
+    {
+      "sanskrit": "सङ्गात्",
+      "iast": "saṅgāt",
+      "meaning": "from attachment"
+    },
+    {
+      "sanskrit": "सञ्जायते",
+      "iast": "sañjāyate",
+      "meaning": "is born / develops fully"
+    },
+    {
+      "sanskrit": "कामः",
+      "iast": "kāmaḥ",
+      "meaning": "desire / lust / hankering"
+    },
+    {
+      "sanskrit": "कामात्",
+      "iast": "kāmāt",
+      "meaning": "from desire"
+    },
+    {
+      "sanskrit": "क्रोधः",
+      "iast": "krodhaḥ",
+      "meaning": "anger"
+    },
+    {
+      "sanskrit": "अभिजायते",
+      "iast": "abhijāyate",
+      "meaning": "becomes manifest / arises strongly"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/62/",
+      "fetched_at": "2026-04-29T19:55:51Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "While contemplating the objects of the senses, a person develops attachment for them, and from such attachment lust develops, and from lust anger arises.",
+      "raw_capture_path": "data/sources/raw/bg-2-62-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/62",
+      "fetched_at": "2026-04-29T19:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "While contemplating on the objects of the senses, one develops attachment to them. Attachment leads to desire, and from desire arises anger."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/62/",
+      "fetched_at": "2026-04-29T19:55:51Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of Prabhupada purport)",
+      "verbatim_excerpt": "One who is not Kṛṣṇa conscious is subjected to material desires while contemplating the objects of the senses. The senses require real engagements, and if they are not engaged in the transcendental loving service of the Lord, they will certainly seek engagement in the service of materialism.",
+      "raw_full_path": "data/sources/raw/bg-2-62-vedabase.json (purport_full_length: ~1300)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-62/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt; Shankara comments on 2.62-2.63 together as one chained argument)",
+      "verbatim_excerpt": "Pumsah, in the case of a person; dhyayatah, who dwells on, thinks of; visayan, the objects, the specialities of the objects such as sound etc.; upajayate, there arises; sangah, attachment, fondness, love; tesu, for them, for those objects. Sangat, from attachment, from love; sanjayate, grows; kamah, hankering, thirst. When that is obstructed from any quarter, kamat, from hankering; abhijayate, springs; krodhah, anger.",
+      "summary_paraphrase": "Shankara reads 2.62-2.63 as one chained argument and his commentary often treats them together. The cascade begins with dhyāna on viṣayas — brooding contemplation of sense-objects, attending to their specialities (their attractions). From such brooding arises saṅga (attachment). Saṅga, when intensified, becomes kāma (active desire). When kāma is obstructed by any quarter — by another agent, by reality, by the absence of the desired object — krodha (anger) springs up. Each transition is distinct and each requires a precondition: brooding precedes attachment, attachment precedes desire, obstructed desire precedes anger."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-62/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Ramanuja bhashya)",
+      "verbatim_excerpt": "Indeed, in respect of a person, whose attachment to sense-objects is expelled but whose mind is not focussed on Me, even though he controls the senses, contemplation on sense-objects is unavoidable on account of the impressions of sins from time immemorial. Again attachment increases fully in 'a man who thinks about sense-objects'. From attachment arises desire. What is called 'desire' is the further stage of attachment.",
+      "summary_paraphrase": "Ramanuja diagnoses the cascade more sharply: even a practitioner who has expelled active attachment but has not fixed the mind on the Supreme cannot avoid contemplation of sense-objects, because the saṁskāras (impressions from past actions) keep returning the mind to those objects. From returning contemplation, attachment increases; from intensified attachment, desire (kāma) arises as the next stage; from obstructed desire, anger arises. Ramanuja thus links 2.62's cascade directly to 2.61's prescription: only the focus on the Supreme breaks the loop, because only that focus replaces the saṁskāra-driven contemplation of viṣayas with contemplation of the auspicious object."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "dhyāyataḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "while contemplating"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "while contemplating on"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "who dwells on, thinks of (the specialities of the objects)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "thinks about (driven by saṁskāras when the mind is not focussed on the Supreme)"
+        }
+      ],
+      "explanation": "dhyāyataḥ is a present participle of dhyai- (root: meditate, brood, dwell on). All four readings agree on the lexical sense ('contemplating, brooding'), but Shankara emphasises that the contemplation is on the 'specialities' (charms) of the objects — not just neutral perception but attentive dwelling on what is attractive. Ramanuja contextualises: this contemplation is structurally unavoidable for someone whose mind is not yet focussed on the Supreme, because the saṁskāras drive it. The verb is not 'briefly notices' but 'dwells on' — broods. The cascade does not begin with mere perception; it begins with the operator's repeated returning of attention to the object."
+    },
+    {
+      "word": "saṅgaḥ → kāmaḥ → krodhaḥ",
+      "positions": [
+        {
+          "source": "All translators",
+          "rendering": "attachment → desire → anger (in that strict sequence)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "explicitly preserves the sequence as three distinct transitions: brooding → attachment → desire (when intensified) → anger (when obstructed)"
+        }
+      ],
+      "explanation": "There is no translator disagreement here, but the verse's cascade structure is so important to the next verse (2.63) that the sequence is logged for transparency. Each transition is distinct: saṅga is settled fondness toward the object; kāma is active hankering, the further stage of saṅga; krodha is the response to obstruction of kāma. The verse names all three transitions precisely; the cascade in 2.63 continues from krodha through four more steps. Together 2.62-2.63 give an eight-step psychological analysis, and each step is preserved as a distinct transition by all major commentators."
+    }
+  ],
+  "literal_meaning": "Of a person brooding on sense-objects, attachment to them is born; from attachment, desire is born; from desire, anger arises.",
+  "traditional_meaning": "This verse is the first half of the Gita's most precise psychological cascade — together with 2.63 it forms an eight-step analysis of how the operator falls. The cascade is sequential and cumulative: each step requires the previous step as precondition, and each step intensifies into the next. Step 1: dhyāna on viṣayas (brooding contemplation of sense-objects, dwelling on their attractive specialities). Step 2: saṅga (attachment, settled fondness). Step 3: kāma (active desire, the further stage of attachment). Step 4: krodha (anger, when desire is obstructed). Shankara reads the verse alongside 2.63 as one chained argument; Ramanuja diagnoses the structural cause (saṁskāra-driven contemplation when the mind is not focussed on the Supreme); Gaudiya Vaishnava reading folds the prescription back to Krishna-consciousness as the only way to break the loop. All traditions agree the cascade is real, the sequence is fixed, and prevention is upstream — at the dhyāna stage, before saṅga has formed.",
+  "engineering": {
+    "translation": "Brooding produces attachment; attachment produces desire; obstructed desire produces anger. The verse names the first half of a precise eight-step cascade. Each transition is distinct. Brooding (dhyāna) is not idle perception — it is repeated return of attention to a thing: rereading the same thread, replaying the same architecture argument, mentally redrawing the design that the team rejected. Attachment (saṅga) is not affinity; it is settled fondness, the operator's quiet decision that this matters in a way tied to identity. Desire (kāma) is not preference; it is hankering, an active pull toward what was blocked. Anger (krodha) is not irritation; it is the structural response when desire is obstructed. The cascade has direction. Each step requires its precondition. The intervention point sits upstream — at brooding — before the chain has acquired its first link.",
+    "concrete_scenario": "An engineer proposes event-sourced architecture for a new payments service. After two weeks of debate, the team picks a conventional CRUD-on-Postgres design instead. The proposal was technically defensible; the rejection was equally defensible. This is normal engineering. Then the chain engages. Stage one (dhyāna): in subsequent weeks, she keeps returning mentally to the rejected proposal — replaying meetings, redrawing diagrams, imagining the system that would have existed had her side won. Real attention work, not casual. Stage two (saṅga): she becomes bound to that rejected design. It is no longer a proposal; it is 'the correct answer the team was too timid to embrace'. Identity-fused. Stage three (kāma): from binding grows active hankering for vindication — she wants colleagues to discover the chosen design's inferiority, anticipates the moment when CRUD breaks under load the event-sourced version would have absorbed. Stage four (krodha): hankering is blocked because the shipped system performs adequately and the org moves on. Anger emerges, directed at the senior who pushed CRUD, the staff engineer who 'failed to see elegance', the PM who 'prioritised speed over correctness'. Recognisable pathology. Senior practitioners have watched it run. The verse identifies the upstream intervention: stage one. Interrupt the brooding before it hardens into saṅga, because once saṅga lands the chain has its first link and the remaining stages follow with mechanical inevitability.",
+    "falsifiability": "The analog fails if a reader uses it to claim that all post-decision reflection is brooding. Reflection in service of learning is not dhyāna in this verse's sense — that is reasoned analysis, often cited in postmortems and design retrospectives. The verse names the specific case where attention keeps returning to a rejected thing in a way that hardens identity-attachment. The diagnostic test is whether the engineer's relationship to the rejected architecture is becoming more about themselves than about the architecture. If yes, the cascade is engaging. If no, this is healthy reflection.",
+    "counter_example": "The verse does not apply to legitimate technical disagreement that the engineer continues to pursue through proper channels — writing a design document, requesting a re-evaluation, gathering operational data after the chosen system has shipped. That is engaged technical advocacy, not the cascade. The cascade is private, repetitive, and identity-tied; legitimate advocacy is public, structured, and evidence-tied. The first three steps of the cascade run inside the engineer's head; legitimate advocacy runs in the team's shared artifacts.",
+    "implication": "Watch the dhyāna step. Notice when your attention is returning to a rejected proposal in a way that does not produce new analysis but only re-experiences the rejection. That repetitive return is the upstream intervention point. The hardening into saṅga happens later and is harder to undo.",
+    "quotable_line": "Brooding hardens into attachment; attachment hardens into desire; obstructed desire hardens into anger. The cascade has direction.",
+    "tags": [
+      "engineering-pathology",
+      "team-pathology",
+      "feedback-loops"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

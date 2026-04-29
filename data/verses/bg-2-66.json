@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.66",
+  "chapter": 2,
+  "verse": 66,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "There is no shortcut. The verse closes the section with a structural chain of four negations: no attention-discipline yields no clear judgment; absence of judgment yields no sustained contemplation; absence of contemplation yields no peace; absence of peace yields no happiness. The chain is architectural, not motivational. The engineer who skips the attention-work to 'just be productive' produces inferior decisions; the unpeaceful engineer cannot extract satisfaction from work even when the output ships successfully. Krishna does not soften the claim. The verse is harsh by design — it refuses any clarity-path that bypasses the disciplines specified across 2.60-2.65. Structurally this negative chain mirrors the eight-step cascade of 2.62-2.63. Together with the affirmative chain in 2.64-2.65, this verse forces a binary: do the disciplines and the affirmative consequences follow; skip them and these negations follow. There is no intermediate trajectory.",
+    "concrete_scenario": "A staff engineer at a fast-growing startup decides she lacks time for the attention-architecture work — no calendar guards, no Slack-closing during deep work, no structured separation between design-hours and response-hours. She is shipping. The output looks productive: PRs land, features launch, dashboards move. Six months later, the verse's negative chain becomes observable. Stage one (no buddhi): her judgment in design reviews has degraded — she increasingly defaults to whatever pattern shipped last quarter rather than evaluating each present decision on its own merits. Judgment's substrate requires settled attention; that substrate has not been constructed. Stage two (no bhāvanā): she cannot sustain contemplation of any single problem long enough to reach its real shape. The PRD lists eight surface bullets; she addresses eight surface bullets; the underlying issue that would have surfaced during a third hour of focused thinking is never reached. Stage three (no śānti): unpeaceful — always a thread pulling on Slack, always a Datadog alert nearby, always a next thing. Stage four (no sukham): when a launch lands well, she experiences only brief relief before the next cycle begins; satisfaction does not persist. Senior leadership notices a pattern across her quarter but struggles to name it, because individual artifacts look fine. The verse names it directly. The disciplines specified across 2.60-2.65 are not optional add-ons; they are preconditions for consequences the practitioner wants. Skipping them does not purchase velocity — it purchases this negative chain.",
+    "falsifiability": "The analog fails if a reader reads this as a guarantee that doing the disciplines produces happiness. The verse is structured negatively: it claims that absence of discipline produces absence of peace, not that presence of discipline produces presence of happiness. Other chapters address what discipline does produce; this verse only closes the negative case. An engineer who does the attention-work and is still unhappy is not in this verse — that is a different diagnosis, possibly outside the verse's scope (life circumstances, organisational dysfunction, illness).",
+    "counter_example": "The verse does not apply to short-horizon emergency contexts where the disciplines are temporarily suspended for legitimate reasons — an active critical incident, a launch week with predefined boundaries, a personal emergency that overrides the standard rhythm. The verse names the chronic state of the unyoked operator, not the temporary state of the operator who has chosen, deliberately and time-boxed, to compress the disciplines. The chronic state is what the verse closes the door on.",
+    "implication": "When you find yourself wanting peace from your work without doing the attention-disciplines, recognise the wanting as the verse's closing question — kutaḥ sukham? — happiness from where? The disciplines in 2.60-2.65 are the precondition. Skipping them does not change the chain.",
+    "quotable_line": "There is no path to clear judgment that bypasses the attention-work. Skipping the disciplines does not buy speed; it buys the negative chain.",
+    "tags": ["focus-practice", "deep-work", "engineering-pathology"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T21:15:00Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack. Anchored on Shankara's reading of the four-step negative chain (no yoga → no buddhi → no bhāvanā → no śānti → no sukham) and Ramanuja's sharper critique (bare sense-control without focus on Supreme is the failure mode). The harshness of the verse is preserved — Krishna does not soften the closing rhetorical question kutaḥ sukham?. The engineering analog is the staff engineer who skips the attention-architecture and finds, six months later, that her judgment, contemplation, peace, and satisfaction have all become inaccessible. Named tools: Slack, Datadog. The verse's structural symmetry with 2.62-2.63's cascade (each absence produces the next, just as each presence in 2.62-2.63 produces the next) is named explicitly.",
+      "failing_gates_before": ["5.3 — FK 8.52", "5.5 — lexical diversity 0.533", "11.1 — total 640 words"],
+      "failing_gates_after": ["11.1 — total 624 words"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T21:20:00Z",
+      "mutation": "Single mutation: trimmed translation by 32 words and tightened the closing argumentation; replaced Anglo-Saxon repetitions ('absence', 'presence') with structural variations ('yields', 'produces', 'forces a binary') to lift FK above 9 and lexical diversity above 0.55. Engineering content unchanged: the four-step negative chain, the harsh-by-design framing, the binary between affirmative consequences in 2.64-2.65 and the negations in 2.66.",
+      "failing_gates_before": ["11.1 — total 624 words"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

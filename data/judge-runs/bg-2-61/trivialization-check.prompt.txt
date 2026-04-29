@@ -1,0 +1,229 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.61",
+  "sanskrit_devanagari": "तानि सर्वाणि संयम्य युक्त आसीत मत्परः ।\nवशे हि यस्येन्द्रियाणि तस्य प्रज्ञा प्रतिष्ठिता ॥ ६१ ॥",
+  "sanskrit_iast": "tāni sarvāṇi saṁyamya yukta āsīta mat-paraḥ |\nvaśe hi yasyendriyāṇi tasya prajñā pratiṣṭhitā || 61 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तानि",
+      "iast": "tāni",
+      "meaning": "those (senses)"
+    },
+    {
+      "sanskrit": "सर्वाणि",
+      "iast": "sarvāṇi",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "संयम्य",
+      "iast": "saṁyamya",
+      "meaning": "having restrained / controlling"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "yoked / disciplined / engaged in yoga"
+    },
+    {
+      "sanskrit": "आसीत",
+      "iast": "āsīta",
+      "meaning": "should sit / should remain"
+    },
+    {
+      "sanskrit": "मत्",
+      "iast": "mat",
+      "meaning": "of Me (in compound mat-paraḥ)"
+    },
+    {
+      "sanskrit": "परः",
+      "iast": "paraḥ",
+      "meaning": "supreme / intent on (in compound mat-paraḥ: 'intent on Me as the supreme')"
+    },
+    {
+      "sanskrit": "वशे",
+      "iast": "vaśe",
+      "meaning": "under control"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "for / certainly"
+    },
+    {
+      "sanskrit": "यस्य",
+      "iast": "yasya",
+      "meaning": "of whom / whose"
+    },
+    {
+      "sanskrit": "इन्द्रियाणि",
+      "iast": "indriyāṇi",
+      "meaning": "senses"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "his / of that one"
+    },
+    {
+      "sanskrit": "प्रज्ञा",
+      "iast": "prajñā",
+      "meaning": "wisdom / discriminating insight"
+    },
+    {
+      "sanskrit": "प्रतिष्ठिता",
+      "iast": "pratiṣṭhitā",
+      "meaning": "established / firmly grounded"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/61/",
+      "fetched_at": "2026-04-29T19:55:50Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who restrains his senses, keeping them under full control, and fixes his consciousness upon Me, is known as a man of steady intelligence.",
+      "raw_capture_path": "data/sources/raw/bg-2-61-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/61",
+      "fetched_at": "2026-04-29T19:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "They are established in perfect knowledge, who subdue their senses and keep their minds ever absorbed in Me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/61/",
+      "fetched_at": "2026-04-29T19:55:50Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of Prabhupada purport)",
+      "verbatim_excerpt": "That the highest conception of yoga perfection is Kṛṣṇa consciousness is clearly explained in this verse. And unless one is Kṛṣṇa conscious it is not at all possible to control the senses. As cited above, the great sage Durvāsā Muni picked a quarrel with Mahārāja Ambarīṣa, and Durvāsā Muni unnecessarily became angry out of pride and therefore could not check his senses.",
+      "raw_full_path": "data/sources/raw/bg-2-61-vedabase.json (purport_full_length: ~1200)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-61/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Shankara bhashya)",
+      "verbatim_excerpt": "Samyamya, controlling, having subdued; sarvani, all; tani, of them; asita, one should remain; yuktah, concentrated; mat-parah, on Me as the supreme — he to whom I, Vasudeva, the inmost Self of all, am the supreme (parah) is mat-parah. The idea is, he should remain (concentrated) thinking, 'I am not different from Him.' Hi, for; the prajna, wisdom; tasya, of one, of the sannyasin remaining thus concentrated; yasya, whose; indriyani, organs; are vase, under control, by dint of practice.",
+      "summary_paraphrase": "Shankara reads mat-paraḥ in non-dual terms: the practitioner takes Vasudeva (Krishna) as the inmost Self of all, treating the Supreme as not-different from oneself. The senses come under control through disciplined practice (vaśe ... abhyāsataḥ). The verse's structural claim is conjunctive: BOTH sense-restraint AND being-intent-on-Me are required; sense-restraint by itself produces only the seated form, not the wisdom established in the seated form."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-61/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:56:07Z",
+      "verbatim_excerpt_status": "captured (short excerpt of translator-rendered Ramanuja bhashya)",
+      "verbatim_excerpt": "With a desire to overcome this mutual dependence between the subduing of the senses and vision of the self, one has to conquer the senses which are difficult to subdue on account of their attachment to sense-objects. So, focussing the mind on Me who am the only auspicious object for meditation, let him remain steadfast. When the mind is focussed on Me as its object, then such a mind, purified by the burning away of all impurities and devoid of attachment to the senses, is able to control the senses.",
+      "summary_paraphrase": "Ramanuja reads the verse as the resolution of the mutual-dependence trap diagnosed in 2.60. The senses cannot be subdued by sheer will because the senses are attached to objects; the will, in turn, cannot reach the self while the senses are still pulled outward. Ramanuja's solution: fix the mind on Krishna as the only auspicious object of meditation. Once the mind is so focussed, it is purified of impurities and detached from the senses, and the senses can then be controlled. Sense-control issues from the meditative focus, not from direct combat with the senses."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mat-paraḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "fixes his consciousness upon Me (in relationship with Me)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "keep their minds ever absorbed in Me"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "on Me as the supreme — taking Vasudeva, the inmost Self of all, as not-different from oneself (Advaita reading)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "focussing the mind on Me who am the only auspicious object for meditation (Vishishtadvaita reading: relational fixation on the Supreme Person)"
+        }
+      ],
+      "explanation": "mat-paraḥ ('having Me as the supreme / paramount / object') is the verse's most theistically explicit term in Chapter 2 so far. The four traditions diverge sharply on what it means. Shankara reads it non-dually: the Supreme is the inmost Self, and 'fixing on Me' is recognising non-difference between the practitioner's self and Vasudeva. Ramanuja reads it relationally: Krishna is the auspicious object of meditation distinct from the practitioner; the mind fixes on him as the only worthy support for the meditative posture. Prabhupada and Mukundananda render in the modern-devotional register that is acceptable across traditions but lexically closer to Ramanuja's reading. The lexical underdetermination is real; the verse text alone does not adjudicate."
+    },
+    {
+      "word": "yuktaḥ āsīta",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "is known as a man of steady intelligence (folds yuktaḥ into the result, not the precondition)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "absorbed in Me (yuktaḥ rendered as 'absorbed')"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "should remain concentrated (āsīta = should sit/remain; yuktaḥ = concentrated)"
+        }
+      ],
+      "explanation": "āsīta is an optative ('should sit / should remain'); yuktaḥ ('yoked, joined, disciplined') is the manner of the sitting. The verse prescribes a posture, not a result: the practitioner is told to sit/remain in the yoked state, intent on the supreme. Prabhupada's translation collapses the prescription into a description of the result (the steady-intelligence person), which is acceptable but loses the imperative force. Shankara's rendering preserves the imperative most explicitly."
+    }
+  ],
+  "literal_meaning": "Having restrained all those senses, one should sit yoked, intent on Me as the supreme; for one whose senses are under control, his wisdom is established.",
+  "traditional_meaning": "This verse is the active prescription that follows the diagnosis in 2.60. Sense-restraint alone is insufficient; it must be conjoined with the meditative focus on the Supreme. The two are not parallel disciplines — they are mutually enabling. Shankara reads the focus non-dually (the Supreme is the inmost Self); Ramanuja reads it relationally (the Supreme is the auspicious object of meditation, distinct from the practitioner); Gaudiya Vaishnava reading folds it into devotional consciousness of Krishna. All traditions agree: the wisdom established (prajñā pratiṣṭhitā) is the joint product of sense-control and the directed meditative posture. The verse rejects two adjacent failures: sense-control without focus (mere asceticism that produces no wisdom) and focus without sense-control (devotion that the senses still pull off-center).",
+  "engineering": {
+    "translation": "Restrain the surfaces and orient the attention. The two are conjunctive. Closing Slack alone accomplishes nothing if the mind still leans toward the muted feed; the silenced channel becomes a phantom the operator keeps reaching toward. Naming a focus accomplishes nothing if Slack stays visible in the peripheral view — the intent has no structural support. The verse prescribes both halves: restrain the senses AND remain yoked, intent on the proper object. The verse's mat-paraḥ (intent on Me) is theistic in its native register; the engineering register does not import 'Krishna-as-god-of-the-codebase'. What does carry across is the structural claim: orientation toward something specific is required, and that something must be the real work, not the proxies the surfaces tend to substitute. Restraint is half. Orientation is the other half. Either alone produces a known pathology — sterile asceticism, or distracted devotion.",
+    "concrete_scenario": "An engineering lead is conducting a quarterly architecture review for a payments service that has accrued three years of incremental decisions. She has done the structural work: Slack is closed, the calendar holds three guarded hours, GitHub notifications are silenced, the laptop's secondary monitor displays only the diagram and the relevant Postgres schema. So far this is 2.60-style restraint — necessary but insufficient. Now consider the second-half question. If her actual focus during these three hours is 'how does this architecture make me look to the senior staff', her attention will continually drift toward an imagined audience, and the diagrams will be read for what they say about her rather than what they say about the payments system. Surfaces guarded; aim wrong. Alternatively, if the aim is 'how does this serve the customer's payment-failure recovery experience', the diagrams are read against system-truth, the schema is examined against real failure modes, and the block yields genuine architectural insight. Same guard, different aim, dramatically different output. The verse names this exact conjunction: yuktaḥ āsīta mat-paraḥ — sit yoked, intent on the supreme — where 'the supreme' in the engineering register translates to the actual problem, the actual customer-need, the actual system-state. The two halves of this discipline are mutually enabling: closed Slack produces room, and proper aim populates that room with work appropriate to deep concentration.",
+    "falsifiability": "The analog fails if a reader uses it to claim that 'closing the surfaces is sufficient' (restraint without orientation) or 'right orientation needs no surface-restraint' (orientation without restraint). Both are familiar engineering pathologies, and the verse explicitly rejects both. If an engineer has Slack closed but the mind is on the imagined audience, she is not in this verse. If an engineer has the orientation right but Slack is still pulling at her peripheral surface, she is not in this verse either. The conjunction is what the verse names.",
+    "counter_example": "The verse does not apply to short tactical work — fixing a broken test, responding to a clarifying question on a PR, joining a quick incident triage. These do not require the structural posture; they require responsive engagement with the surface as it presents itself. The verse is scoped to the deep-work block, the architecture review, the design document, the strategic decision under uncertainty — the work for which the conjunction of restraint and orientation is the precondition.",
+    "implication": "Audit your deep-work blocks twice. Once for restraint: what surfaces are closed, what notifications are silenced, what calendar guard is in place? Once for orientation: where is the attention pointed during the block? If either audit fails, the block will not produce what deep work is supposed to produce. Both must hold.",
+    "quotable_line": "Closing Slack is half. Pointing the attention at the real work is the other half. Either alone is a familiar pathology.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

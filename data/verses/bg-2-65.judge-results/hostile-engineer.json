@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "two engineers, identical Datadog alert, identical Postgres-slow-query toolkit; captured engineer ships index without checking second-order, causes follow-on incident; settled engineer runs EXPLAIN ANALYZE, designs index serving both shapes, no follow-on",
+  "wisdom_theater_score": 2,
+  "objection": "The Sanskrit terms in the body (prasāda, prasanna-cetasaḥ, buddhi paryavatiṣṭhate, āśu) sit on the line between earned technical vocabulary and pseudo-precision. They survive the line because each Sanskrit term is bound to a concrete, observable engineering behavior: in 2.62-2.63 the cascade stages are tied to specific artifacts (the Slack message that yesterday would not have been written, the second-order incident that fires three hours later, the regression noticed on GitHub PRs); in 2.60 'pramāthīni' is bound to the 40-minute drift caused by an unguarded structural edge. A senior engineer reading these would recognize the failure modes — particularly the cascade in 2.62-2.63 ('I have watched that engineer leave the team') and the prasāda-vs-frantic contrast in 2.65 ('I have made worse calls under adrenaline'). The named tools (Datadog, Postgres, Slack...) are concrete enough to ground the analog and not generic enough to be force-fit. Pass."
+}
