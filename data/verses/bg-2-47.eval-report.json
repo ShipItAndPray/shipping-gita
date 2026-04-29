@@ -68,7 +68,7 @@
       "tier": 1,
       "passed": true,
       "pending": false,
-      "detail": "approx syllables: 32 (expected 28-36 for one anushtubh shloka)"
+      "detail": "approx syllables: 32 (expected 28-42 anushtubh ±speaker-tag, or 40-52 trishtubh)"
     },
     {
       "gate_id": "1.9",
@@ -178,7 +178,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete=24 abstract=1 ratio=24.00"
+      "detail": "concrete=27 abstract=1 ratio=27.00"
     },
     {
       "gate_id": "3.5",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 98 (target 40-180)"
+      "detail": "translation words = 158 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 9.97 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 9.71 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,7 +313,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 71.04 (target >= 6)"
+      "detail": "sentence-length variance = 81.56 (target >= 6)"
     },
     {
       "gate_id": "5.5",
@@ -321,7 +321,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "lexical diversity = 0.621 (target >= 0.55)"
+      "detail": "lexical diversity = 0.562 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -537,7 +537,7 @@
       "tier": 9,
       "passed": true,
       "pending": false,
-      "detail": "iterations recorded: 1"
+      "detail": "iterations recorded: 2"
     },
     {
       "gate_id": "9.2",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 390 (cap 600)"
+      "detail": "total verse words = 450 (cap 600)"
     },
     {
       "gate_id": "11.2",
