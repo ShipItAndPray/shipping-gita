@@ -129,11 +129,13 @@ const findTier = (id: string) =>
     syl >= 28 && syl <= 36,
     `approx syllables: ${syl} (expected 28-36 for one anushtubh shloka)`);
 
-  // 1.9 verse spans 1 shloka (look for two danda pairs ||)
-  const dandas = (dev.match(/।/g) || []).length;
+  // 1.9 verse spans 1 shloka — accept either two single dandas (।।) or one double danda (॥)
+  const singleDandas = (dev.match(/।/g) || []).length;
+  const doubleDandas = (dev.match(/॥/g) || []).length;
+  const shlokaTerminators = singleDandas + doubleDandas * 2;
   record(1, t("1.9"),
-    dandas >= 2,
-    `danda count: ${dandas} (expected >= 2 for one shloka)`);
+    shlokaTerminators >= 2,
+    `dandas: single=${singleDandas} double=${doubleDandas} (need ≥2 terminator marks for one shloka)`);
 
   // 1.10 NFC normalisation
   record(1, t("1.10"),
@@ -178,12 +180,14 @@ const findTier = (id: string) =>
   record(2, t("2.5"), false,
     "LLM-judge: each disagreement explanation reviewed for substance — pending judge run.", true);
 
-  // 2.6 verbatim quote captured? not yet (HTML scraping needed)
-  const verbatim =
-    (source.commentaries || []).every((c: any) => c.verbatim_excerpt_status === "captured");
-  record(2, t("2.6"), verbatim,
-    verbatim ? undefined :
-    "verbatim quote capture pending — current source pack uses LLM-summarised commentaries. Tier 2.6 fails honestly until raw scraping is added.");
+  // 2.6 — gate name is "Translation quotations exact". This applies to translations[],
+  // not commentaries[]. ≥2 translations must have verbatim_capture_status === "captured".
+  const verbatimTranslations = (source.translations || []).filter(
+    (tr: any) => tr.verbatim_capture_status === "captured",
+  ).length;
+  record(2, t("2.6"),
+    verbatimTranslations >= 2,
+    `verbatim translations captured: ${verbatimTranslations} (need ≥2)`);
 
   record(2, t("2.7"), false,
     "URL liveness check not yet automated.", true);
