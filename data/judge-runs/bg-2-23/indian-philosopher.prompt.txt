@@ -1,0 +1,219 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.23",
+  "sanskrit_devanagari": "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।\nन चैनं क्लेदयन्त्यापो न शोषयति मारुतः ॥ २३ ॥",
+  "sanskrit_iast": "nainaṁ chindanti śastrāṇi nainaṁ dahati pāvakaḥ |\nna cainaṁ kledayanty āpo na śoṣayati mārutaḥ || 23 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (the embodied Self)"
+    },
+    {
+      "sanskrit": "शस्त्राणि",
+      "iast": "śastrāṇi",
+      "meaning": "weapons"
+    },
+    {
+      "sanskrit": "न छिन्दन्ति",
+      "iast": "na chindanti",
+      "meaning": "do not cut / cleave"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "पावकः",
+      "iast": "pāvakaḥ",
+      "meaning": "fire"
+    },
+    {
+      "sanskrit": "न दहति",
+      "iast": "na dahati",
+      "meaning": "does not burn"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "आपः",
+      "iast": "āpaḥ",
+      "meaning": "waters"
+    },
+    {
+      "sanskrit": "न क्लेदयन्ति",
+      "iast": "na kledayanti",
+      "meaning": "do not wet / soak"
+    },
+    {
+      "sanskrit": "मारुतः",
+      "iast": "mārutaḥ",
+      "meaning": "wind"
+    },
+    {
+      "sanskrit": "न शोषयति",
+      "iast": "na śoṣayati",
+      "meaning": "does not dry"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/23/",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The soul can never be cut to pieces by any weapon, nor burned by fire, nor moistened by water, nor withered by the wind.",
+      "raw_capture_path": "data/sources/raw/bg-2-23-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/23",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Weapons cannot shred the soul, nor can fire burn it. Water cannot wet it, nor can the wind dry it."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/23/",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1723-char full purport)",
+      "verbatim_excerpt": "All kinds of weapons – swords, flame weapons, rain weapons, tornado weapons, etc. – are unable to kill the spirit soul. It appears that there were many kinds of weapons made of earth, water, air, ether, etc., in addition to the modern weapons of fire.",
+      "raw_full_path": "data/sources/raw/bg-2-23-vedabase.json (purport_full_length: 1723)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Why does It verily remain unchanged? This is being answered in 'Weapons do not cut It,' etc. Sastrani, weapons; na chindanti, do not cut; enam, It; It being partless, weapons like sword etc. do not cut off Its limbs. So also, even pavakah, fire; na dahati, does not burn It. Apah, water; na enam kledayanti, do not soak It.",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 700,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-23-bgus-rich.json",
+      "summary_paraphrase": "Shankara reads the four denials as following from the Self's partlessness (niravayava). Cutting requires parts to be cut off; burning, soaking, drying require an object that admits decomposition by the elemental medium. The Self has no parts, no surface, no substrate that any of these media can engage. The four denials are not arbitrary — each one is a different mode of how the elements act on physical substances, and the Self is exempt from each because it does not share the structural property that mode requires."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-23/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Weapons, fire, water and air are incapable of cleaving, burning, wetting and drying the self; for, the nature of the self is to pervade all elements; It is present everywhere; for, It is subtler than all the elements; It is not capable of being pervaded by them.",
+      "verbatim_excerpt_length": 263,
+      "verbatim_full_length": 800,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-23-bgus-rich.json",
+      "summary_paraphrase": "Ramanuja reads the four denials in terms of pervasion: cutting/burning/wetting/drying require the medium to penetrate the substance and act upon it. The Self pervades all the elements; the elements cannot pervade the Self. The Self is subtler than each medium and therefore exempt from all four modes of physical interaction. Ramanuja groups 2.23 and 2.24 as a single argument for the same conclusion drawn from the Self's pervasive subtlety."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kledayanti / śoṣayati (the four-element denial structure)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "moistened by water, withered by the wind"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "Water cannot wet it, nor can the wind dry it"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the four denials follow from the Self's partlessness; each medium acts via decomposition, and the Self has no parts to decompose"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the four denials follow from the Self's subtlety/pervasion; the elements cannot pervade what is subtler than they are"
+        }
+      ],
+      "explanation": "The translations preserve the four-element structure but flatten the doctrinal argument. Shankara reads the four denials structurally — each denial is keyed to a different mode of how elements act on bodies, and the Self lacks the structural property each mode needs (no parts to cut/decompose). Ramanuja reads the four denials topologically — the Self pervades the elements rather than being pervadable by them, so all four are equally impossible. Both readings agree that the four are not interchangeable rhetorical flourishes; they enumerate four distinct properties that together establish the Self's invulnerability to medium."
+    }
+  ],
+  "literal_meaning": "Weapons do not cut this (Self); fire does not burn it; water does not wet it; the wind does not dry it.",
+  "traditional_meaning": "The four-element denial verse. Krishna lists the four classical media that destroy material substances — śastra (sharp implements), pāvaka (fire), āpaḥ (water), māruta (wind/air) — and denies that any of them affects the Self. The four are not arbitrary: weapons act by cutting (separating parts), fire by burning (chemical decomposition), water by wetting (dissolving), wind by drying (extracting moisture). Each mode requires the object to share a structural property — having parts, being combustible, being wettable, retaining moisture. The Self lacks all four. The verse establishes that the imperishable's invulnerability is not magical exception but structural exemption: the Self is not the kind of thing that the elemental modes engage. 2.24 will state the four properties affirmatively (acchedyaḥ, adāhyaḥ, akledyaḥ, aśoṣyaḥ) before adding more.",
+  "engineering": {
+    "translation": "First: a well-specified protocol is not cleaved by rewrites. The HTTP semantic contract was unmoved when servers migrated from Apache to nginx to Caddy; the gRPC contract is unmoved when one service swaps Go for Rust. The śastra of refactoring lacks a surface to cut. Second: the protocol is not consumed by deprecation pressure. PostgreSQL's wire-level relational contract has survived MySQL hype, MongoDB hype, the NewSQL fashion cycle — fire passes over it without ignition because the contract has no combustible material. Third: the protocol is not waterlogged by accumulated technical debt. SMTP from 1982 still routes mail through codebases nobody would now write, because the contract floats above the swamp the implementations sink into. Fourth: the protocol is not desiccated by neglect. POSIX file semantics persist across decades of distracted maintenance, because the contract does not depend on continuous attention to remain itself. Four denials, four modes of damage, one structural property: a contract written precisely admits no point of attack from any of these media.",
+    "concrete_scenario": "An infrastructure migration meeting at a payments company. The platform team is moving the orchestration layer from Kubernetes to Nomad. The product engineering manager, Aditi, asks a sharp question: 'What in our system breaks if we change orchestrators twice more in the next five years?' Marcus, the platform lead, walks through the inventory. The CRDs and the Kubernetes-shaped deployment manifests die — those are weapons-cuttable; they were always coupled to the orchestrator. The custom Helm charts go up in flames during the migration — combustible material, written for the substrate. The bespoke ingress controllers drown in the swap as Nomad's service mesh replaces them — those took on water from the start. The cron-style maintenance scripts wither because nobody on the new substrate knows their conventions — pure desiccation. But the application's HTTP contract — /v1/charge, /v1/refund, the JSON shape every customer integrates against — is uncut by śastra, unburned by pāvaka, undrowned by āpaḥ, undried by māruta. The customer-facing protocol passes through the migration without registering it. Aditi nods: 'So what we promise the outside world is the durable thing. Everything else is replaceable infrastructure.' That sentence is the verse.",
+    "falsifiability": "The analog fails if a reader uses these four denials to claim that any well-named API is therefore invulnerable. Many APIs that engineers describe as 'protocols' are in fact thin layers over implementation accidents — a /v1/users endpoint whose behaviour depends on the underlying ORM's pagination quirks does not have the four properties; it shares the orchestrator's combustibility. The verse names a real structural property (no surface for the medium to engage), not a name applied to a wish. If the protocol leaks the implementation's elemental composition, the four denials do not apply.",
+    "counter_example": "When the protocol is itself the substance — a binary on-the-wire format coupled to a specific compiler's struct layout, an undocumented behaviour customers depend on, a serialisation that only one library can produce — there is something for the four media to engage. Such 'protocols' burn in fire, drown in tech debt, dry under neglect. The verse does not claim every contract is invulnerable; it describes what invulnerability requires. Engineers should read the four denials as a checklist: is my contract genuinely partless, genuinely non-combustible, genuinely substrate-independent, genuinely self-sustaining? If not, weapons cleave it, fire burns it, water soaks it, wind dries it.",
+    "implication": "Examine each contract you own against the four media. If a refactor cleaves it, an architectural fashion cycle burns it, accumulated tech debt soaks it, or a quarter of inattention dries it — the contract was not actually a contract. Either harden the specification until none of the four apply, or stop calling that interface a protocol.",
+    "quotable_line": "Cleave with rewrites, burn with fashion cycles, soak with tech debt, dry with neglect — if your contract survives all four, it actually is one.",
+    "tags": [
+      "interface-stability",
+      "spec-vs-behavior",
+      "architectural-invariant"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

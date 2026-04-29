@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 3,
+  "reconstructed_sketch": "Given chapter context (2.23 has just listed the four denials), an engineering analog at position 24 might predictably restate the four affirmatively. But adding the five additional properties (eternal, all-pervading, stable, immovable, primordial) and treating all nine as a checklist is verse-specific. A competent writer might land on 'good APIs are durable' but would not necessarily produce the nine-property exhaustive list with each property mapped to a distinct engineering test. The fintech audit scenario with 32 named contracts and specific failures (/v1/balance fails unwettable + stable; /admin/internal/* fails all-pervading) is 2.24-specific.",
+  "verse_specific_signal": "The nine-property exhaustive structure is the unmistakable 2.24 signal. The chapter does not present any other nine-property list; the engineering analog's enumeration mirrors the Sanskrit's structure (acchedya/adāhya/akledya/aśoṣya/nitya/sarva-gata/sthāṇu/acala/sanātana) one-for-one.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.23",
+      "overlap_type": "shared_property_list",
+      "explanation": "Both 2.23 and 2.24 list the four denials. The chapter intentionally pairs them: 2.23 as denials, 2.24 as affirmatives plus five more. The shared four-element vocabulary is sanctioned, not duplicate."
+    }
+  ],
+  "verdict_reason": "Reconstructibility score is low (3). The chapter context licenses an affirmative list but does not predict the specific nine-property structure. The fintech audit scenario operationalises the list against named contracts with named failure modes. PASS."
+}

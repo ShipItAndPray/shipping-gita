@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "When a rewrite swaps an implementation, the predecessor's actual work was at the design layer (contract, state machine, idempotency guarantees, edge cases). The 18,000 lines of Ruby were merely the cloth. Honouring those design decisions in the new build IS the work surviving — neither funeral for the old code nor apology by the new authors is owed.",
+  "wisdom_theater_score": 0,
+  "objection": "I went looking for the 'be unattached, ship anyway' wisdom-theater move and the verse explicitly refuses it. The counter-example carves out the case where the rewrite drops behaviours not captured in the spec — fraud rate-limits, undocumented timeouts — and names that as a real killing. The implication ('check whether your replacement honours the actual contract; if it does not, the question is about behavioural-equivalence tests you have not written') is a real engineering directive. The Rails→Go scenario lands a concrete coordination move (don't perform funeral, don't perform apology, instead identify the contract layer and verify it). This is operational, not motivational. PASS."
+}

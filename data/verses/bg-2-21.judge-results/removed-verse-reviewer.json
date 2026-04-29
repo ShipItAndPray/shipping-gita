@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 4,
+  "reconstructed_sketch": "Given chapter context (2.20 names the soul as nityaḥ/ajaḥ/avyayaḥ; 2.22 will use the clothes simile), an engineering analog at position 21 might predictably involve the spec-vs-implementation distinction. A competent writer would likely produce something about 'the contract survives the implementation' — but they would not necessarily land on the four-property quartet treated as four distinct properties, nor on the rhetorical-question doublet preserved as agency-over-predecessors-code AND agency-over-deprecation. The Rails→Go scenario with named characters and the CTO-arbitration framing are 2.21-specific.",
+  "verse_specific_signal": "The doublet of 'agent who kills predecessors' code / be killed when their own deprecates' — preserves the rhetorical 'kaṁ ghātayati hanti kam' doublet that distinguishes 2.21 from neighbouring verses. The four-property quartet (indestructible/eternal/unborn/undecaying) maps to four distinct engineering properties rather than being collapsed.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.20",
+      "overlap_type": "shared_property_list",
+      "explanation": "Both 2.20 and 2.21 invoke the nityaḥ/ajaḥ/avyayaḥ properties. The chapter intentionally repeats them — 2.20 establishes; 2.21 puts them to rhetorical use. Shared vocabulary is sanctioned, not duplicate."
+    }
+  ],
+  "verdict_reason": "Reconstructibility score is moderate (4). The four-property quartet is partly predictable from 2.20, but the rhetorical doublet and the decision-layer framing are 2.21-specific. The chapter context licenses the shape but not the specific moves. PASS."
+}

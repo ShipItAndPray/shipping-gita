@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a deprecation announcement goes out, the engineering manager runs a one-question diagnostic: does the spec the deprecated implementation served survive in the replacement? If yes, no eulogy meeting. If no, the deprecation is paused and a written spec audit becomes the new priority before the new implementation can ship.",
+  "example_decision": "v3 routing service deprecation. The engineering director's one-message intervention in Slack (paraphrased): 'Same constraints? Same SLA? Same warehouse-distance heuristic? Same fallback when maps API is down?' All four answers are yes. PM-side: no eulogy meeting; the v3 team's work IS the v4 service's behaviour. Roadmap directive: capture this pattern as the standard deprecation playbook. When a future deprecation cannot answer 'yes' to all the spec-questions, the deprecation is paused and a spec-audit sprint is the new top of the sprint board.",
+  "objection": "Caveat: the predicate works only when the spec was actually documented. If the predecessor team never wrote the spec down, the four-question test is itself impossible to answer. The verse correctly identifies this as the case where grief is information — pointing at the missing spec. PM directive in that case: do the spec-audit, not the eulogy. PASS."
+}

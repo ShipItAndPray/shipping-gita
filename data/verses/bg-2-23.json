@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.23",
+  "chapter": 2,
+  "verse": 23,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "First: a well-specified protocol is not cleaved by rewrites. The HTTP semantic contract was unmoved when servers migrated from Apache to nginx to Caddy; the gRPC contract is unmoved when one service swaps Go for Rust. The śastra of refactoring lacks a surface to cut. Second: the protocol is not consumed by deprecation pressure. PostgreSQL's wire-level relational contract has survived MySQL hype, MongoDB hype, the NewSQL fashion cycle — fire passes over it without ignition because the contract has no combustible material. Third: the protocol is not waterlogged by accumulated technical debt. SMTP from 1982 still routes mail through codebases nobody would now write, because the contract floats above the swamp the implementations sink into. Fourth: the protocol is not desiccated by neglect. POSIX file semantics persist across decades of distracted maintenance, because the contract does not depend on continuous attention to remain itself. Four denials, four modes of damage, one structural property: a contract written precisely admits no point of attack from any of these media.",
+    "concrete_scenario": "An infrastructure migration meeting at a payments company. The platform team is moving the orchestration layer from Kubernetes to Nomad. The product engineering manager, Aditi, asks a sharp question: 'What in our system breaks if we change orchestrators twice more in the next five years?' Marcus, the platform lead, walks through the inventory. The CRDs and the Kubernetes-shaped deployment manifests die — those are weapons-cuttable; they were always coupled to the orchestrator. The custom Helm charts go up in flames during the migration — combustible material, written for the substrate. The bespoke ingress controllers drown in the swap as Nomad's service mesh replaces them — those took on water from the start. The cron-style maintenance scripts wither because nobody on the new substrate knows their conventions — pure desiccation. But the application's HTTP contract — /v1/charge, /v1/refund, the JSON shape every customer integrates against — is uncut by śastra, unburned by pāvaka, undrowned by āpaḥ, undried by māruta. The customer-facing protocol passes through the migration without registering it. Aditi nods: 'So what we promise the outside world is the durable thing. Everything else is replaceable infrastructure.' That sentence is the verse.",
+    "falsifiability": "The analog fails if a reader uses these four denials to claim that any well-named API is therefore invulnerable. Many APIs that engineers describe as 'protocols' are in fact thin layers over implementation accidents — a /v1/users endpoint whose behaviour depends on the underlying ORM's pagination quirks does not have the four properties; it shares the orchestrator's combustibility. The verse names a real structural property (no surface for the medium to engage), not a name applied to a wish. If the protocol leaks the implementation's elemental composition, the four denials do not apply.",
+    "counter_example": "When the protocol is itself the substance — a binary on-the-wire format coupled to a specific compiler's struct layout, an undocumented behaviour customers depend on, a serialisation that only one library can produce — there is something for the four media to engage. Such 'protocols' burn in fire, drown in tech debt, dry under neglect. The verse does not claim every contract is invulnerable; it describes what invulnerability requires. Engineers should read the four denials as a checklist: is my contract genuinely partless, genuinely non-combustible, genuinely substrate-independent, genuinely self-sustaining? If not, weapons cleave it, fire burns it, water soaks it, wind dries it.",
+    "implication": "Examine each contract you own against the four media. If a refactor cleaves it, an architectural fashion cycle burns it, accumulated tech debt soaks it, or a quarter of inattention dries it — the contract was not actually a contract. Either harden the specification until none of the four apply, or stop calling that interface a protocol.",
+    "quotable_line": "Cleave with rewrites, burn with fashion cycles, soak with tech debt, dry with neglect — if your contract survives all four, it actually is one.",
+    "tags": ["interface-stability", "spec-vs-behavior", "architectural-invariant"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T18:55:00Z",
+      "mutation": "v0 generation: BG 2.23 lists four media that destroy material substances — śastra, pāvaka, āpaḥ, māruta — and denies their effect on the Self. Engineering layer preserves the four denials as four distinct attack-modes against a contract: rewrites (cutting), fashion cycles / deprecation pressure (burning), accumulated tech debt (wetting), and neglect (drying). Concrete example uses a Kubernetes→Nomad migration where the orchestrator-shaped artifacts (manifests, Helm, ingress) die from the four media but the customer-facing HTTP contract (/v1/charge etc.) is invulnerable to all four. Preserves Shankara's partlessness reading and Ramanuja's pervasion-by-subtlety reading by treating the four properties as a structural checklist. Counter-example carves out 'protocols' that leak implementation accidents and therefore are vulnerable. Tags: interface-stability, spec-vs-behavior, architectural-invariant.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["11.2"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T19:00:00Z",
+      "mutation": "v1: trimmed quotable_line from 35 words to 23 — preserves the four-medium structure and the survival-test framing while clearing 11.2's 30-word cap.",
+      "failing_gates_before": ["11.2"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

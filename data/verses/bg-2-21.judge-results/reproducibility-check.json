@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Pre-rewrite contract checklist: before approving any rewrite that replaces predecessor's code, require (1) a one-page contract document enumerating endpoints, state machines, idempotency guarantees, and edge-case behaviours; (2) behavioural-equivalence tests covering each named contract clause; (3) a written list — by both predecessor and new authors — of the design decisions encoded in the predecessor's code that are now reimplemented. Approval is gated on all three.",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add a 'Pre-Rewrite Contract Audit' template to the engineering wiki. It lives as a required PR-template addition for any PR that closes a predecessor service. The template has three sections — Contract Document, Equivalence Tests, Design-Decision Inventory. PR cannot merge without all three sections filled. Concretely copyable Monday morning.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse licenses a real engineering review-discipline. The 'realised builder' framing is metaphorical, but the resulting predicate (contract document + equivalence tests + design-decision inventory before rewrite) is concretely operational and copyable. Many engineering orgs already have versions of this; the verse provides the doctrinal frame for why the predicate is non-negotiable. Not metaphor-only. PASS."
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "A 'protocol' that leaks implementation accidents (the underlying ORM's pagination quirks, a specific compiler's struct layout) shares the substrate's combustibility. The four-medium denial is a structural test: is your contract genuinely partless, non-combustible, substrate-independent, self-sustaining? If not, weapons cleave it, fire burns it, water soaks it, wind dries it.",
+  "wisdom_theater_score": 0,
+  "objection": "I went looking for the 'just have good APIs' wisdom-theater move and the verse refuses it. The counter-example explicitly disqualifies the read where merely calling something a contract makes it durable: 'Such protocols burn in fire, drown in tech debt, dry under neglect.' The implication is operational: 'Examine each contract you own against the four media. If a refactor cleaves it, an architectural fashion cycle burns it, accumulated tech debt soaks it, or a quarter of inattention dries it — the contract was not actually a contract.' This is a real engineering audit. The Kubernetes→Nomad scenario operationalises the four-media denial against a concrete migration. PASS."
+}

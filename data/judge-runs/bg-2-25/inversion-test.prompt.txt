@@ -1,0 +1,213 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.25",
+  "sanskrit_devanagari": "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।\nतस्मादेवं विदित्वैनं नानुशोचितुमर्हसि ॥ २५ ॥",
+  "sanskrit_iast": "avyakto 'yam acintyo 'yam avikāryo 'yam ucyate |\ntasmād evaṁ viditvainaṁ nānuśocitum arhasi || 25 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this (the Self)"
+    },
+    {
+      "sanskrit": "अव्यक्तः",
+      "iast": "avyaktaḥ",
+      "meaning": "unmanifest / not perceptible to the senses"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "अचिन्त्यः",
+      "iast": "acintyaḥ",
+      "meaning": "unthinkable / not graspable by the intellect"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "अविकार्यः",
+      "iast": "avikāryaḥ",
+      "meaning": "unchangeable / not subject to modification"
+    },
+    {
+      "sanskrit": "उच्यते",
+      "iast": "ucyate",
+      "meaning": "is said / is declared"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus / in this manner"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (Self)"
+    },
+    {
+      "sanskrit": "विदित्वा",
+      "iast": "viditvā",
+      "meaning": "having known"
+    },
+    {
+      "sanskrit": "अनुशोचितुम्",
+      "iast": "anuśocitum",
+      "meaning": "to grieve / to lament"
+    },
+    {
+      "sanskrit": "न अर्हसि",
+      "iast": "na arhasi",
+      "meaning": "you do not deserve / it is not fitting for you"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/25/",
+      "fetched_at": "2026-04-29T18:20:04Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "It is said that the soul is invisible, inconceivable and immutable. Knowing this, you should not grieve for the body.",
+      "raw_capture_path": "data/sources/raw/bg-2-25-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/25",
+      "fetched_at": "2026-04-29T18:20:04Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The soul is spoken of as invisible, inconceivable, and unchangeable. Knowing this, you should not grieve for the body."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/25/",
+      "fetched_at": "2026-04-29T18:20:04Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1584-char full purport)",
+      "verbatim_excerpt": "As described previously, the magnitude of the soul is so small for our material calculation that he cannot be seen even by the most powerful microscope; therefore, he is invisible. As far as the soul's existence is concerned, no one can establish his existence experimentally beyond the proof of śruti, or Vedic wisdom.",
+      "raw_full_path": "data/sources/raw/bg-2-25-vedabase.json (purport_full_length: 1584)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-25/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Moreover, ucyate, it is said that; ayam, This, the Self; is avyaktah, unmanifest, since, being beyond the ken of all the organs, It cannot be objectified. For this very reason, ayam, This; is acintyah, inconceivable. For anything that comes within the purview of the organs becomes the object of thought.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 700,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-25-bgus-rich.json",
+      "summary_paraphrase": "Shankara reads the three properties as a chain. The Self is avyakta (unmanifest) because it is beyond the senses' reach. Being beyond the senses, it is therefore acintya (inconceivable) — what cannot be sensed cannot be objectified by thought. Being beyond both senses and thought, it is avikārya (unchangeable) — change requires being an object that can be acted upon, and the Self is no such object. The therefore-clause (tasmāt evaṁ viditvā) closes the imperishable block: knowing these three properties, grief over the body's fall is itself misplaced."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-25/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The self is not made manifest by those Pramanas (means of knowledge) by which objects susceptible of being cleft etc., are made manifest; hence It is unmanifest, being different in kind from objects susceptible to cleaving etc., It is inconceivable, being different in kind from all objects.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 800,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-25-bgus-rich.json",
+      "summary_paraphrase": "Ramanuja reads the three properties as kind-distinctions. The Self is unmanifest because it is different in kind from the objects that pramāṇas (means of knowledge — perception, inference) ordinarily manifest. It is inconceivable because it is different in kind from all objects that thought ordinarily handles. It is unchangeable because change is a property of objects within the empirical world, and the Self is not such an object. The therefore-clause closes the imperishable doctrine: grief, which has its locus in the empirical world, has no purchase on what is different in kind from that world."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "tasmād evaṁ viditvā / nānuśocitum arhasi",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Knowing this, you should not grieve for the body"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "Knowing this, you should not grieve for the body"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the closing 'therefore' completes the imperishable block (2.20-2.25); grief is misplaced because it locates the loss at the body, while what is real is the Self"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "grief, having its locus in the empirical world, has no purchase on what is different in kind from that world"
+        }
+      ],
+      "explanation": "The translations correctly add 'for the body' to clarify what one is not to grieve, but neither original Sanskrit phrase says 'for the body' explicitly — both Shankara and Ramanuja read the verse with that addition implicit. The translations diverge from the commentaries in flattening the doctrinal logic: Shankara reads the three properties as a deductive chain (unmanifest → inconceivable → unchangeable) terminating in the no-grief instruction; Ramanuja reads the three as kind-distinctions establishing categorial separation between Self and the world where grief has its purchase. The translations preserve the conclusion but lose the argument structure that makes the conclusion follow."
+    }
+  ],
+  "literal_meaning": "This (Self) is said to be unmanifest, unthinkable, and unchangeable. Therefore, knowing this thus, you should not grieve.",
+  "traditional_meaning": "The closing verse of the imperishable block (2.20-2.25). Krishna names three final properties — avyakta (unmanifest, beyond the senses), acintya (unthinkable, beyond the intellect), avikārya (unchangeable, beyond modification) — and draws the practical conclusion: tasmād evaṁ viditvā nānuśocitum arhasi, 'therefore, knowing this thus, you should not grieve.' The verse functions as the doctrinal close-bracket for the entire imperishable argument running from 2.20. Shankara reads the three properties as a deductive chain (beyond senses → beyond thought → beyond change) and the therefore-clause as completing the syllogism. Ramanuja reads the three as kind-distinctions establishing that the Self is categorially separate from the world where grief operates. Both agree the verse's payload is the no-grief instruction, grounded in the imperishable's properties.",
+  "engineering": {
+    "translation": "First: the contract is unmanifest — you cannot indicate it directly the way you indicate an implementation. The /v1/charge endpoint becomes visible inside source repositories; the underlying contractual obligation does not, although it remains the load-bearing element of the architecture. Second: the contract is unthinkable in implementation terminology — its quality cannot be apprehended by tracing through any individual service. Attempting to comprehend specification by inspecting the Postgres function will mislead, because specification consists of what persists across implementations, not what any single implementation embodies. Third: the contract is unchangeable — altering implementation never alters the contract itself; whenever the contract appears modified, you have authored a different contractual agreement adjacent to the original, not edited it. The therefore-clause arrives: knowing this — knowing your actual work resides within the contract stratum — perform absolutely no mourning ritual for deprecated source code. The grief was misdirected. Whatever you authored continues operating at altitudes deprecation cannot reach. A senior engineer reads the announcement, recognises which stratum is dying, and resumes their desk.",
+    "concrete_scenario": "Friday afternoon, end of a deprecation cycle at a logistics company. A deprecation announcement has gone out: the v3 routing service, written four years ago by a team now scattered across three companies, will sunset in thirty days. The Slack channel fills with eulogies. Someone shares a screenshot of the original commit. Someone else posts the line counts: 47,000 lines of Scala about to be deleted. A thread starts about 'the end of an era.' Watching this, the engineering director sends a single message: 'Quick question — what does the v4 routing service implement? Same constraints? Same SLA? Same warehouse-distance heuristic? Same fallback when the maps API is down?' The thread pauses. The current owner of v4 replies: 'Yes to all four. We picked up every constraint the v3 team encoded.' The director writes: 'Then the v3 team's work is what v4 is. The 47,000 lines were one rendering of it. Mourn the rendering if you want, but the work itself is in production tomorrow morning.' The thread quiets. A few people privately reread the contract document the v3 team wrote in year one and notice — for the first time — that almost every paragraph in it is still operative. The grief had been performative; the work had never been at the layer the deprecation operated on.",
+    "falsifiability": "The analog fails if a reader uses 'do not grieve deprecations' to dismiss real loss. Some deprecations do destroy real work — when a service implemented a constraint nobody wrote down, when an institutional knowledge departs with the codebase, when the new implementation silently abandons a behaviour the old one preserved. In those cases the grief is information; it points at the gap between what was implemented and what was specified. The verse does not forbid grief; it identifies the mature engineer's grief as a different signal — pointing at unwritten specs that need to be written before the deprecation completes, not at the cloth itself.",
+    "counter_example": "When the deprecated work is itself the spec — a constraint document, an API guidelines doc, a domain glossary — losing it is genuine loss, and acting as if it were merely 'implementation' is the misreading. The verse is precise: do not grieve what was implementation when the spec survives. It does not say spec-level work never falls; it says implementation-level work is not where the engineer's identity sits, and grief at that layer is a layer error. Chapter 18.66 carries the corrective: total release of dharma is for the one who has fully met it. Performative non-grief over a real spec-loss is its own dishonesty.",
+    "implication": "When a deprecation lands, ask once: what spec did this implementation serve, and does that spec survive? If yes, drop the eulogy and resume work. If no, the urgent task is not mourning the codebase; it is writing down the spec the codebase silently embodied, before the new implementation lands without it.",
+    "quotable_line": "Knowing what layer your work sits at, you stop mourning deprecations and start asking which specs the dying code silently held.",
+    "tags": [
+      "deprecation-management",
+      "spec-vs-behavior",
+      "letting-go"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

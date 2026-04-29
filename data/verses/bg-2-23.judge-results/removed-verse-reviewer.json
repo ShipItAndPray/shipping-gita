@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 4,
+  "reconstructed_sketch": "Given chapter context (2.21 has just established the four-property quartet and 2.22 has given the clothes simile), an engineering analog at position 23 would predictably elaborate the imperishable's invulnerability. A competent writer might produce 'the well-specified contract is durable' — but the four-medium structure (cleave/burn/soak/dry) and the structural-decomposition argument (each medium acts via a specific mode the Self lacks) is verse-specific. The Kubernetes→Nomad scenario testing each medium against named artifacts is 2.23-specific.",
+  "verse_specific_signal": "The four-medium-denial structure is the unmistakable 2.23 signal. The chapter does not deploy 'four media of destruction' elsewhere; the engineering analog's mapping of (rewrites/fashion-cycles/tech-debt/neglect) preserves the four-element argument structure rather than collapsing to a single durability claim.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.24",
+      "overlap_type": "shared_property_list",
+      "explanation": "Both 2.23 and 2.24 list the four denials. The chapter intentionally repeats them (2.23 as denials, 2.24 as affirmatives plus five more). The shared four-element vocabulary is sanctioned, not duplicate."
+    }
+  ],
+  "verdict_reason": "Reconstructibility score is moderate (4). The chapter context licenses an invulnerability verse but does not predict the specific four-medium-denial structure. The Kubernetes-vs-Nomad scenario operationalises each medium against a different artifact, which is 2.23-specific. PASS."
+}

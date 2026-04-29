@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "The customer-requirement is the wearer; the codebase is its coat. Most rewrites are wardrobe changes. Senior engineers stop mourning the discarded coat — but the verse explicitly carves out the case where the rewrite drops behaviours present in the implementation but not captured in the spec, in which case it is amputating a limb the cloth was protecting.",
+  "wisdom_theater_score": 0,
+  "objection": "I went looking for the 'just embrace change' move and the verse explicitly refuses it. The falsifiability field names exactly the dishonest read: 'A migration that loses [behaviours not captured in the spec] is not changing clothes; it is amputating a limb the cloth was protecting. Anyone using this verse to wave away behavioural-equivalence testing has misread the simile.' The counter-example carves out substrate-level decisions (Postgres-shaped vs graph-database-shaped company) as body-level rather than cloth-level. The implication is operational: 'name the actual customer-requirement that survives [the rewrite].' This is not motivational; it is a load-bearing engineering distinction. PASS."
+}

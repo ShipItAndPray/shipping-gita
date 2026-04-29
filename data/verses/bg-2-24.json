@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.24",
+  "chapter": 2,
+  "verse": 24,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Read this verse as the technical spec sheet for a contract that survives. First: uncleavable — partial implementations do not produce a fractional contract; an endpoint supporting half the methods is a different API entirely. Second: incombustible — shape does not warp under load, deadline pressure, or quarterly architectural fashion. Third: unwettable — the contract does not depend on its substrate; /v1/charge holds identically whether served from Postgres or Spanner. Fourth: undryable — it requires no continuous attention to persist; left untouched a year, it resumes serving callers. Fifth: eternal — survives migrations across infrastructure generations. Sixth: all-pervading — every internal service must honour it; no exemptions. Seventh: stable — it does not drift; year-three behaviour matches year-one. Eighth: immovable — versioning means adding new contracts beside it, never silent mutation. Ninth: primordial — predates the implementations serving it. Nine properties; nine reality-tests. The contract that meets all nine is the durable trunk of the system.",
+    "concrete_scenario": "An API governance review at a fintech in its sixth year. The review team — staff engineer Maya leading, principal architect Idris, head of platform engineering Ravi — opens a spreadsheet with thirty-two named contracts. Beside each they paste the nine-property checklist. /v1/charge passes all nine. /v1/balance fails two: it is not unwettable (the response shape leaks the underlying ledger's transaction-isolation level when concurrency is high) and it is not stable (the response added an undocumented field two quarters ago). /admin/internal/* fails 'all-pervading' — an exempt service bypasses the auth contract, claiming 'internal traffic.' The webhooks delivery contract fails 'undryable' — it depended on a legacy retry job that was deprecated and is now silently dropping events nobody monitors. By the end of the meeting, the team has not redesigned any contract; they have a list of six contracts that almost meet the spec sheet of 2.24 and three that don't, with named remediation owners. Aditi, who joins late, asks what the spreadsheet is for. Maya says: 'Krishna's list. Run any candidate against it; the ones that pass are the ones the company can actually build on.' Nobody laughs — the property list landed.",
+    "falsifiability": "The analog fails if a reader treats the nine properties as marketing labels. A contract is not eternal because it carries a version number; it is eternal if it actually survives the next migration. It is not all-pervading because it is policy that everybody honour it; it is all-pervading if every service in fact honours it under audit. The verse names properties that must be testable against running systems, not aspirations published in a wiki. Anyone using 2.24 to certify their API by reading their docs has misread the verse — Krishna's properties are reality-tests, not naming conventions.",
+    "counter_example": "When a contract is genuinely scoped to its substrate — a Postgres-backed materialised view that promises read-after-write semantics only because Postgres provides them — the substrate-coupling is not a defect. The contract is honest about its dependence; it is not pretending to be unwettable. The verse does not require every interface to meet the nine-property checklist; it specifies what 'imperishable contract' means. Some contracts are deliberately substrate-coupled, deliberately mutable, deliberately scoped to one team's service. Those interfaces are useful but they are not the imperishable. Krishna's spec is for the load-bearing trunk, not every leaf.",
+    "implication": "Take a candidate contract you own and walk it down the nine properties — uncleavable, incombustible, unwettable, undryable, eternal, all-pervading, stable, immovable, primordial. For each property, name the test that would falsify it. The properties for which you cannot name a falsifier are the ones your contract does not actually have.",
+    "quotable_line": "The well-formed contract has nine properties — and Krishna's list is older than any API style guide will ever be.",
+    "tags": ["interface-stability", "architectural-invariant", "spec-vs-behavior"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:10:00Z",
+      "mutation": "v0 generation: BG 2.24 names nine properties of the imperishable — four restated denials (acchedya, adāhya, akledya, aśoṣya) plus five affirmatives (nitya, sarva-gata, sthāṇu, acala, sanātana). Engineering layer preserves all nine as a checklist for contract durability, with each property mapped to a distinct engineering test: partial implementations, load/fashion changes, substrate coupling, neglect tolerance, migration survival, all-services honoring, drift, silent mutation, and predating implementations. Concrete scenario uses a six-year fintech doing API governance with the nine-property spreadsheet as the actual artifact. Counter-example carves out deliberately substrate-coupled contracts (the substrate-coupled materialized view) that are honest about their scope and not 'failing' the spec sheet. Tags: interface-stability, architectural-invariant, spec-vs-behavior.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T19:15:00Z",
+      "mutation": "v1: trimmed translation from 199 words to 168 by compressing each property line — the nine properties are still individually named (uncleavable/incombustible/unwettable/undryable/eternal/all-pervading/stable/immovable/primordial). The nine-property structure that the verse demands is preserved.",
+      "failing_gates_before": ["5.1"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,258 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.24",
+  "sanskrit_devanagari": "अच्छेद्योऽयमदाह्योऽयमक्लेद्योऽशोष्य एव च ।\nनित्यः सर्वगतः स्थाणुरचलोऽयं सनातनः ॥ २४ ॥",
+  "sanskrit_iast": "acchedyo 'yam adāhyo 'yam akledyo 'śoṣya eva ca |\nnityaḥ sarva-gataḥ sthāṇur acalo 'yaṁ sanātanaḥ || 24 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this (the Self)"
+    },
+    {
+      "sanskrit": "अच्छेद्यः",
+      "iast": "acchedyaḥ",
+      "meaning": "uncleavable / cannot be cut"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "अदाह्यः",
+      "iast": "adāhyaḥ",
+      "meaning": "incombustible / cannot be burned"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "अक्लेद्यः",
+      "iast": "akledyaḥ",
+      "meaning": "unwettable / cannot be moistened"
+    },
+    {
+      "sanskrit": "अशोष्यः",
+      "iast": "aśoṣyaḥ",
+      "meaning": "undryable / cannot be dried"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed / certainly"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "नित्यः",
+      "iast": "nityaḥ",
+      "meaning": "eternal / everlasting"
+    },
+    {
+      "sanskrit": "सर्वगतः",
+      "iast": "sarva-gataḥ",
+      "meaning": "all-pervading / present everywhere"
+    },
+    {
+      "sanskrit": "स्थाणुः",
+      "iast": "sthāṇuḥ",
+      "meaning": "stable / fixed (like a stump or pillar)"
+    },
+    {
+      "sanskrit": "अचलः",
+      "iast": "acalaḥ",
+      "meaning": "immovable / unmoving"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "सनातनः",
+      "iast": "sanātanaḥ",
+      "meaning": "primordial / eternally the same"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/24/",
+      "fetched_at": "2026-04-29T18:20:02Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This individual soul is unbreakable and insoluble, and can be neither burned nor dried. He is everlasting, present everywhere, unchangeable, immovable and eternally the same.",
+      "raw_capture_path": "data/sources/raw/bg-2-24-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/24",
+      "fetched_at": "2026-04-29T18:20:02Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The soul is unbreakable and incombustible; it can neither be dampened nor dried. It is everlasting, in all places, unalterable, immutable, and primordial."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/24/",
+      "fetched_at": "2026-04-29T18:20:02Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1177-char full purport)",
+      "verbatim_excerpt": "All these qualifications of the atomic soul definitely prove that the individual soul is eternally the atomic particle of the spirit whole, and he remains the same atom eternally, without change.",
+      "raw_full_path": "data/sources/raw/bg-2-24-vedabase.json (purport_full_length: 1177)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-24/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Since this is so, therefore ayam, It; acchedyah, cannot be cut. Since the other elements which are the causes of destruction of one another are not capable of destroying this Self, therefore It is nityah, eternal. Being eternal, It is sarva-gatah, omnipresent. Being omnipresent, It is sthanuh, stationary, fixed like a stump.",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 800,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-24-bgus-rich.json",
+      "summary_paraphrase": "Shankara reads 2.24 as the affirmative restatement of 2.23 plus four additional properties. The first four (acchedya, adāhya, akledya, aśoṣya) are the four denials of 2.23 stated as positive attributes. The next four (nitya, sarva-gata, sthāṇu, acala) form a deductive chain: because the elements cannot destroy It, It is eternal; because eternal, all-pervading; because all-pervading, stationary (no place to move to); because stationary, immovable. Sanātana ('primordial') closes the list as a temporal property — the Self is what has always been."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-24/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Weapons, fire, water and air are incapable of cleaving, burning, wetting and drying the self; for, the nature of the self is to pervade all elements; It is present everywhere; for, It is subtler than all the elements; It is not capable of being pervaded by them.",
+      "verbatim_excerpt_length": 263,
+      "verbatim_full_length": 800,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-24-bgus-rich.json",
+      "summary_paraphrase": "Ramanuja groups 2.23 and 2.24 as a single argument keyed off the Self's pervasive subtlety. The four invulnerabilities follow because the Self pervades all elements (sarva-gata) and is subtler than them. Eternity, all-pervading-ness, stability, immovability, and primordiality are not separate properties to be derived independently; they are different angles on the single property of being subtler than every medium that could otherwise act on the Self."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sthāṇuḥ / acalaḥ / sanātanaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unchangeable, immovable and eternally the same"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "unalterable, immutable, and primordial"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "deductive chain: because eternal, all-pervading; because all-pervading, stationary (sthāṇu — fixed like a stump, no place to move to); because stationary, immovable (acala); sanātana closes as temporal-primordial"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the eight properties are angles on a single property: the Self is subtler than every medium"
+        }
+      ],
+      "explanation": "Modern translations preserve the eight-property list but flatten the structural argument. Shankara reads the list as a deductive chain (eternal → all-pervading → stationary → immovable) terminating in sanātana as the temporal capstone. Ramanuja reads the list as eight angles on a single fact (subtlety/pervasion). Both readings agree that 'sthāṇu' (stake/stump) is a structural-stability metaphor, distinct from 'acala' (no spatial movement) — they are not synonyms. The English translations collapse 'sthāṇu' and 'acala' into a single 'unchangeable/immovable' pair, losing the distinction between 'fixed because there is nowhere else to be' (sthāṇu) and 'not subject to motion' (acala)."
+    }
+  ],
+  "literal_meaning": "This (Self) is uncleavable, incombustible, unwettable, and undryable. It is eternal, all-pervading, stable, immovable, and primordial.",
+  "traditional_meaning": "The technical specification of the imperishable. Following the four denials of 2.23, Krishna restates them affirmatively (acchedya, adāhya, akledya, aśoṣya) and adds five further properties: nitya (eternal), sarva-gata (all-pervading), sthāṇu (stable), acala (immovable), sanātana (primordial). The four denials and the five additions together name nine properties. Shankara reads them as a deductive chain plus a temporal capstone; Ramanuja reads them as angles on subtlety/pervasion. Either way, the verse functions as the technical spec sheet for what the Self is — a list precise enough that any candidate substance can be checked against the list and confirmed or rejected as the imperishable.",
+  "engineering": {
+    "translation": "Read this verse as the technical spec sheet for a contract that survives. First: uncleavable — partial implementations do not produce a fractional contract; an endpoint supporting half the methods is a different API entirely. Second: incombustible — shape does not warp under load, deadline pressure, or quarterly architectural fashion. Third: unwettable — the contract does not depend on its substrate; /v1/charge holds identically whether served from Postgres or Spanner. Fourth: undryable — it requires no continuous attention to persist; left untouched a year, it resumes serving callers. Fifth: eternal — survives migrations across infrastructure generations. Sixth: all-pervading — every internal service must honour it; no exemptions. Seventh: stable — it does not drift; year-three behaviour matches year-one. Eighth: immovable — versioning means adding new contracts beside it, never silent mutation. Ninth: primordial — predates the implementations serving it. Nine properties; nine reality-tests. The contract that meets all nine is the durable trunk of the system.",
+    "concrete_scenario": "An API governance review at a fintech in its sixth year. The review team — staff engineer Maya leading, principal architect Idris, head of platform engineering Ravi — opens a spreadsheet with thirty-two named contracts. Beside each they paste the nine-property checklist. /v1/charge passes all nine. /v1/balance fails two: it is not unwettable (the response shape leaks the underlying ledger's transaction-isolation level when concurrency is high) and it is not stable (the response added an undocumented field two quarters ago). /admin/internal/* fails 'all-pervading' — an exempt service bypasses the auth contract, claiming 'internal traffic.' The webhooks delivery contract fails 'undryable' — it depended on a legacy retry job that was deprecated and is now silently dropping events nobody monitors. By the end of the meeting, the team has not redesigned any contract; they have a list of six contracts that almost meet the spec sheet of 2.24 and three that don't, with named remediation owners. Aditi, who joins late, asks what the spreadsheet is for. Maya says: 'Krishna's list. Run any candidate against it; the ones that pass are the ones the company can actually build on.' Nobody laughs — the property list landed.",
+    "falsifiability": "The analog fails if a reader treats the nine properties as marketing labels. A contract is not eternal because it carries a version number; it is eternal if it actually survives the next migration. It is not all-pervading because it is policy that everybody honour it; it is all-pervading if every service in fact honours it under audit. The verse names properties that must be testable against running systems, not aspirations published in a wiki. Anyone using 2.24 to certify their API by reading their docs has misread the verse — Krishna's properties are reality-tests, not naming conventions.",
+    "counter_example": "When a contract is genuinely scoped to its substrate — a Postgres-backed materialised view that promises read-after-write semantics only because Postgres provides them — the substrate-coupling is not a defect. The contract is honest about its dependence; it is not pretending to be unwettable. The verse does not require every interface to meet the nine-property checklist; it specifies what 'imperishable contract' means. Some contracts are deliberately substrate-coupled, deliberately mutable, deliberately scoped to one team's service. Those interfaces are useful but they are not the imperishable. Krishna's spec is for the load-bearing trunk, not every leaf.",
+    "implication": "Take a candidate contract you own and walk it down the nine properties — uncleavable, incombustible, unwettable, undryable, eternal, all-pervading, stable, immovable, primordial. For each property, name the test that would falsify it. The properties for which you cannot name a falsifier are the ones your contract does not actually have.",
+    "quotable_line": "The well-formed contract has nine properties — and Krishna's list is older than any API style guide will ever be.",
+    "tags": [
+      "interface-stability",
+      "architectural-invariant",
+      "spec-vs-behavior"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

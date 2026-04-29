@@ -1,0 +1,150 @@
+{
+  "id": "BG 2.21",
+  "chapter": 2,
+  "verse": 21,
+  "fetched_at": "2026-04-29T18:20:00Z",
+  "sanskrit_devanagari": "वेदाविनाशिनं नित्यं य एनमजमव्ययम् ।\nकथं स पुरुषः पार्थ कं घातयति हन्ति कम् ॥ २१ ॥",
+  "sanskrit_iast": "vedāvināśinaṁ nityaṁ ya enam ajam avyayam |\nkathaṁ sa puruṣaḥ pārtha kaṁ ghātayati hanti kam || 21 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/21/",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without internal line-breaks but the body text is byte-identical).",
+      "raw_capture_path": "data/sources/raw/bg-2-21-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/21",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "agreement": "exact (transliteration body identical; holy-bhagavad-gita writes 'vedāvināśhinaṁ' with extra h-aspirate marks per Mukundananda house style — the underlying akṣaras agree)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=21",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "agreement": "exact (text body identical; punctuation rendering differs — single danda vs double danda)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-21/",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; cross-source agreement on body)."
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_02.021 = MBh_06,024.021). Body text identical."
+    }
+  ],
+  "anvaya": [
+    { "sanskrit": "यः",          "iast": "yaḥ",          "meaning": "one who" },
+    { "sanskrit": "वेद",          "iast": "veda",         "meaning": "knows" },
+    { "sanskrit": "एनम्",         "iast": "enam",         "meaning": "this (Self)" },
+    { "sanskrit": "अविनाशिनम्",  "iast": "avināśinam",   "meaning": "indestructible" },
+    { "sanskrit": "नित्यम्",      "iast": "nityam",       "meaning": "eternal / always existing" },
+    { "sanskrit": "अजम्",         "iast": "ajam",         "meaning": "unborn" },
+    { "sanskrit": "अव्ययम्",      "iast": "avyayam",      "meaning": "undecaying / immutable" },
+    { "sanskrit": "पार्थ",        "iast": "pārtha",       "meaning": "O Pārtha (Arjuna, son of Pṛthā)" },
+    { "sanskrit": "कथम्",         "iast": "katham",       "meaning": "how" },
+    { "sanskrit": "सः",           "iast": "saḥ",          "meaning": "that" },
+    { "sanskrit": "पुरुषः",       "iast": "puruṣaḥ",      "meaning": "person" },
+    { "sanskrit": "कम्",          "iast": "kam",          "meaning": "whom" },
+    { "sanskrit": "घातयति",       "iast": "ghātayati",    "meaning": "causes to be killed" },
+    { "sanskrit": "हन्ति",        "iast": "hanti",        "meaning": "kills" },
+    { "sanskrit": "कम्",          "iast": "kam",          "meaning": "whom" }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/21/",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Pārtha, how can a person who knows that the soul is indestructible, eternal, unborn and immutable kill anyone or cause anyone to kill?",
+      "raw_capture_path": "data/sources/raw/bg-2-21-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/21",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Parth, how can one who knows the soul to be imperishable, eternal, unborn, and immutable kill anyone or cause anyone to kill?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/21/",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1338-char full purport)",
+      "verbatim_excerpt": "Everything has its proper utility, and a man who is situated in complete knowledge knows how and where to apply a thing for its proper utility. Similarly, violence also has its utility, and how to apply violence rests with the person in knowledge.",
+      "raw_full_path": "data/sources/raw/bg-2-21-vedabase.json (purport_full_length: 1338)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-21/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "He who knows this One as indestructible, etc. Yah, he who; veda, knows; enam, this One; as avinasinam, indestructible, devoid of the final change of state; nityam, eternal, devoid of transformation; ajam, birthless; and avyayam, undecaying — how does he kill, undertake the act of killing; or how does he cause others to be killed?",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 11000,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-21-bgus-rich.json",
+      "summary_paraphrase": "Shankara reads this verse as the conclusion of the imperishable-doctrine block (2.19-2.21): once the four properties — indestructible, eternal, unborn, undecaying — are known, the question 'whom does he kill or cause to be killed?' is rhetorical. The man-of-realization (puruṣaḥ) cannot be the agent or instigator of killing because the Self is not the kind of thing that admits agency. The denial of killing is by way of example; what is denied for the realised person is direct and indirect agency over all action."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-21/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "He who knows the self to be eternal, as It is indestructible, unborn and changeless — how can that person be said to cause the death of the self, be it of the self existing in the bodies of gods or animals or immovables? The feeling of sorrow: 'I cause the slaying of these selves, I slay these,' has its basis solely in ignorance about the true nature of the self.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 1500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-21-bgus-rich.json",
+      "summary_paraphrase": "Ramanuja reads the verse as Krishna's reply to the lingering objection: 'Granted that the self is indestructible — but I am still the cause of bodies-being-separated-from-selves, and that is itself sorrowful.' Ramanuja's answer (continued in 2.22): even the body's separation is no cause for grief, because the embodied one acquires a new body, as one acquires new clothes. The grief at slaying belongs to ignorance about the self's true nature."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "kaṁ ghātayati hanti kam",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "kill anyone or cause anyone to kill" },
+        { "source": "Mukundananda", "rendering": "kill anyone or cause anyone to kill" },
+        { "source": "Shankara (per summary)", "rendering": "agent of killing or instigator of killing — both denied for the man of realization" },
+        { "source": "Ramanuja (per summary)", "rendering": "cause the death of the self in any embodied form (gods, animals, immovables)" }
+      ],
+      "explanation": "Both modern translations correctly capture the doublet (acting-killer / causing-killing), but the doctrinal weight differs. Shankara reads the doublet as denying both direct and indirect agency to the man-of-realization; the verse becomes a general renunciation-of-action argument keyed off Self-knowledge. Ramanuja reads the doublet as denying that the realised person 'causes the death' of any embodied self — gods, animals, immovables — and uses this to argue that grief over the body's separation is itself ignorance, setting up the clothes-and-body simile of 2.22. The translations flatten this into a single rhetorical question; the commentators preserve the Advaita / Vishishtadvaita stake."
+    }
+  ],
+  "literal_meaning": "He who knows this (Self) as indestructible, eternal, unborn, and undecaying — how, O Pārtha, can that person kill anyone, or cause anyone to be killed?",
+  "traditional_meaning_consensus": "The verse is the rhetorical climax of the four-property block (2.19-2.21). Krishna lists the imperishable's properties — avināśin, nitya, aja, avyaya — and asks: knowing this, how is the man of realisation the agent of killing? The conclusion is that the realised person, having seen that the Self is not the sort of thing that can be killed or caused to be killed, drops the false agency that drove Arjuna's despair. The commentators differ in scope — Shankara reads it as a general denial of all agency to the jñāni; Ramanuja restricts it to the case of bodies of all embodied selves — but agree on the core: knowing the four properties dissolves the question 'whom do I slay?'",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

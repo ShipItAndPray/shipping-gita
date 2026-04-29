@@ -1,0 +1,8 @@
+{
+  "reproducible_artifact": "Rewrite-vetting interview question: 'Walk me through the customer-requirement that survives this rewrite. List the specific behaviours your replacement must preserve. For each, describe the test that would catch a regression. If you cannot fill the list, the rewrite is not approved — not because rewriting is wrong, but because we have not yet identified the cloth/body line.' Adopt this as a required pre-rewrite review template.",
+  "verdict": "PASS",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add a 'Rewrite Review Template' to the engineering wiki. Three required sections: (1) Customer-requirement that survives the rewrite (text), (2) Specific behaviours to preserve (bulleted list with test references), (3) Cloth/body decision (which architectural choices are deliberate substrate-coupling vs. interchangeable implementation?). Required for any rewrite PR exceeding 1000 lines. Concretely copyable Monday.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse provides a real engineering review-discipline. The cloth/body distinction is metaphorical, but the resulting predicate (require explicit identification of the surviving requirement before approving any rewrite) is concretely operational. Many engineering orgs already practice versions of this; the verse provides a doctrinal frame for why it is mandatory. Not metaphor-only. PASS."
+}

@@ -1,0 +1,240 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.21",
+  "sanskrit_devanagari": "वेदाविनाशिनं नित्यं य एनमजमव्ययम् ।\nकथं स पुरुषः पार्थ कं घातयति हन्ति कम् ॥ २१ ॥",
+  "sanskrit_iast": "vedāvināśinaṁ nityaṁ ya enam ajam avyayam |\nkathaṁ sa puruṣaḥ pārtha kaṁ ghātayati hanti kam || 21 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "one who"
+    },
+    {
+      "sanskrit": "वेद",
+      "iast": "veda",
+      "meaning": "knows"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this (Self)"
+    },
+    {
+      "sanskrit": "अविनाशिनम्",
+      "iast": "avināśinam",
+      "meaning": "indestructible"
+    },
+    {
+      "sanskrit": "नित्यम्",
+      "iast": "nityam",
+      "meaning": "eternal / always existing"
+    },
+    {
+      "sanskrit": "अजम्",
+      "iast": "ajam",
+      "meaning": "unborn"
+    },
+    {
+      "sanskrit": "अव्ययम्",
+      "iast": "avyayam",
+      "meaning": "undecaying / immutable"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O Pārtha (Arjuna, son of Pṛthā)"
+    },
+    {
+      "sanskrit": "कथम्",
+      "iast": "katham",
+      "meaning": "how"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "पुरुषः",
+      "iast": "puruṣaḥ",
+      "meaning": "person"
+    },
+    {
+      "sanskrit": "कम्",
+      "iast": "kam",
+      "meaning": "whom"
+    },
+    {
+      "sanskrit": "घातयति",
+      "iast": "ghātayati",
+      "meaning": "causes to be killed"
+    },
+    {
+      "sanskrit": "हन्ति",
+      "iast": "hanti",
+      "meaning": "kills"
+    },
+    {
+      "sanskrit": "कम्",
+      "iast": "kam",
+      "meaning": "whom"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/21/",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Pārtha, how can a person who knows that the soul is indestructible, eternal, unborn and immutable kill anyone or cause anyone to kill?",
+      "raw_capture_path": "data/sources/raw/bg-2-21-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/21",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Parth, how can one who knows the soul to be imperishable, eternal, unborn, and immutable kill anyone or cause anyone to kill?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/21/",
+      "fetched_at": "2026-04-29T18:20:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1338-char full purport)",
+      "verbatim_excerpt": "Everything has its proper utility, and a man who is situated in complete knowledge knows how and where to apply a thing for its proper utility. Similarly, violence also has its utility, and how to apply violence rests with the person in knowledge.",
+      "raw_full_path": "data/sources/raw/bg-2-21-vedabase.json (purport_full_length: 1338)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-21/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "He who knows this One as indestructible, etc. Yah, he who; veda, knows; enam, this One; as avinasinam, indestructible, devoid of the final change of state; nityam, eternal, devoid of transformation; ajam, birthless; and avyayam, undecaying — how does he kill, undertake the act of killing; or how does he cause others to be killed?",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 11000,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-21-bgus-rich.json",
+      "summary_paraphrase": "Shankara reads this verse as the conclusion of the imperishable-doctrine block (2.19-2.21): once the four properties — indestructible, eternal, unborn, undecaying — are known, the question 'whom does he kill or cause to be killed?' is rhetorical. The man-of-realization (puruṣaḥ) cannot be the agent or instigator of killing because the Self is not the kind of thing that admits agency. The denial of killing is by way of example; what is denied for the realised person is direct and indirect agency over all action."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-21/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "He who knows the self to be eternal, as It is indestructible, unborn and changeless — how can that person be said to cause the death of the self, be it of the self existing in the bodies of gods or animals or immovables? The feeling of sorrow: 'I cause the slaying of these selves, I slay these,' has its basis solely in ignorance about the true nature of the self.",
+      "verbatim_excerpt_length": 296,
+      "verbatim_full_length": 1500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-21-bgus-rich.json",
+      "summary_paraphrase": "Ramanuja reads the verse as Krishna's reply to the lingering objection: 'Granted that the self is indestructible — but I am still the cause of bodies-being-separated-from-selves, and that is itself sorrowful.' Ramanuja's answer (continued in 2.22): even the body's separation is no cause for grief, because the embodied one acquires a new body, as one acquires new clothes. The grief at slaying belongs to ignorance about the self's true nature."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kaṁ ghātayati hanti kam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "kill anyone or cause anyone to kill"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "kill anyone or cause anyone to kill"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "agent of killing or instigator of killing — both denied for the man of realization"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "cause the death of the self in any embodied form (gods, animals, immovables)"
+        }
+      ],
+      "explanation": "Both modern translations correctly capture the doublet (acting-killer / causing-killing), but the doctrinal weight differs. Shankara reads the doublet as denying both direct and indirect agency to the man-of-realization; the verse becomes a general renunciation-of-action argument keyed off Self-knowledge. Ramanuja reads the doublet as denying that the realised person 'causes the death' of any embodied self — gods, animals, immovables — and uses this to argue that grief over the body's separation is itself ignorance, setting up the clothes-and-body simile of 2.22. The translations flatten this into a single rhetorical question; the commentators preserve the Advaita / Vishishtadvaita stake."
+    }
+  ],
+  "literal_meaning": "He who knows this (Self) as indestructible, eternal, unborn, and undecaying — how, O Pārtha, can that person kill anyone, or cause anyone to be killed?",
+  "traditional_meaning": "The verse is the rhetorical climax of the four-property block (2.19-2.21). Krishna lists the imperishable's properties — avināśin, nitya, aja, avyaya — and asks: knowing this, how is the man of realisation the agent of killing? The conclusion is that the realised person, having seen that the Self is not the sort of thing that can be killed or caused to be killed, drops the false agency that drove Arjuna's despair. The commentators differ in scope — Shankara reads it as a general denial of all agency to the jñāni; Ramanuja restricts it to the case of bodies of all embodied selves — but agree on the core: knowing the four properties dissolves the question 'whom do I slay?'",
+  "engineering": {
+    "translation": "First: an engineer who has fully internalised the four properties — spec indestructible, contract eternal, protocol unborn, abstraction undecaying — has stopped locating their craft at implementation level. Their craft sits in design; source code merely clothes it. Second: knowing this, how could such a builder become agent of slaying predecessors' modules, or be slain when their own deprecates? Swapping a colleague's PostgreSQL function for a Kafka stream destroys nothing essential — that function was raiment; the underlying contract walks on undisturbed. Nor are they wounded when canary retires their two-year-old v1 endpoint; what they actually authored persists inside v2. Third: this licenses no nihilism about review. Disagreement at design tier remains load-bearing. The verse names precisely which stratum admits no agency for the realised craftsperson — never a blanket invitation to disengage.",
+    "concrete_scenario": "Quarterly architecture review on a Tuesday afternoon. The CTO walks through migration plans: a legacy Rails monolith's user-billing module — 18,000 lines authored by an ex-tech-lead two years departed — will be replaced by a Go service speaking the same gRPC contract. Maya, who maintained that Ruby today, sits in the room. Two newer engineers, Devon and Priya, drafted the Go replacement. Instinctively, room geometry tilts: people glance sympathetically toward Maya as if her output is being executed; Devon catches himself apologising preemptively for 'taking over.' Both reactions misread this verse. Maya's contribution lived at design tier — gRPC contract, billing-state machine, idempotency guarantees, refund-window edge cases. Those decisions are alive and load-bearing inside Devon and Priya's Go service; honouring them faithfully IS the reimplementation. Eighteen thousand Ruby lines were merely cloth fitted around durable design choices; fresh fabric merely arrives. A realised builder, witnessing this, performs neither funeral nor apology — both express misplaced agency over a stratum where it was never theirs.",
+    "falsifiability": "The analog fails if a reader concludes that any rewrite is therefore harmless. A rewrite that drops behaviours present in the old implementation but not captured in the spec — silent retries, undocumented timeouts, a special-case query path that production has been depending on — does kill something real. The verse does not say there is nothing to kill; it says the realised engineer recognises which level the killing operates at, and locates themselves above that level. If a reader uses this verse to justify shipping a rewrite without behavioural-equivalence testing, they have inverted it.",
+    "counter_example": "When the predecessor's code embodies a deliberate scope decision that the rewrite is silently abandoning — for example, the Rails module had a hand-tuned rate limit on a fraud-prone endpoint, the Go service does not, and no one wrote a test for it — the agency the new authors disclaim does in fact land. They are killing a real protection. The verse's denial of agency applies to the realised engineer who has correctly identified the spec; it does not apply to the engineer who confuses 'the implementation is replaceable' with 'every behaviour of the implementation is replaceable.' Chapter 18.66 carries the corrective: total release of dharma is for the one who has fully met it, not the one who has skipped the work.",
+    "implication": "Before you mourn or apologise for a rewrite, locate the actual contract the predecessor's code served and check whether your replacement honours it. If it does, neither funeral nor apology is owed. If it does not, the question is no longer about identity — it is about behavioural-equivalence tests you have not yet written.",
+    "quotable_line": "The contract is the work; the implementation is its clothing — neither author kills the other when the cloth changes.",
+    "tags": [
+      "spec-vs-behavior",
+      "deprecation-management",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

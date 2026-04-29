@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reconstructibility_score": 3,
+  "reconstructed_sketch": "Given chapter context (2.20-2.21 establish the imperishable's properties; 2.23-2.24 will list invulnerabilities; 2.25 closes with 'do not grieve'), an engineering analog at position 22 would predictably involve a simile-style argument for continuity. But the wardrobe simile is verse-specific — a competent writer would not necessarily produce 'customer-need is the wearer; codebase is the coat' from chapter context alone. The Node→Rust scenario with the named CTO/Priya/Devon characters and the parka-handover line are 2.22-specific.",
+  "verse_specific_signal": "The wardrobe imagery is the unmistakable 2.22 signal. The chapter's other verses do not deploy clothing simile; the engineering analog's wardrobe-history list (Perl→Python, monolith→microservices→serverless) directly mirrors vāsāṁsi-jīrṇāni-vihāya-navāni-gṛhṇāti.",
+  "overlap_with_other_verses": [
+    {
+      "verse_id": "BG 2.13",
+      "overlap_type": "shared_topic",
+      "explanation": "Both 2.13 and 2.22 name body-changes, but 2.13 is intra-life (childhood→youth→old-age) and 2.22 is across-lives (old body discarded, new body taken). The engineering analogs are distinct: 2.13's analog should turn on within-org-version-change, 2.22's on cross-implementation-rewrite."
+    }
+  ],
+  "verdict_reason": "Reconstructibility score is low (3). The simile's specificity is what makes 2.22 quotable; the engineering analog preserves that specificity. A competent writer reconstructing this position from chapter context alone would not produce the wardrobe simile spontaneously. PASS."
+}

@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 8,
+  "cross_reference_integrity_score": null,
+  "verdict_reason": "Tags on BG 2.24 are interface-stability, architectural-invariant, spec-vs-behavior. interface-stability is shared with 2.23 — coherent (the four-medium denial test is a subset of the nine-property test). architectural-invariant is the load-bearing tag (the nine properties ARE the architectural invariants the chapter thesis names). spec-vs-behavior is shared with 2.21, 2.22, 2.23, 2.25 — the entire imperishable block is unified by this tag. No drift. Score 8. PASS."
+}

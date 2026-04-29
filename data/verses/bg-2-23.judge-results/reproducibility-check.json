@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Four-medium contract audit: a one-page review template that, for every interface labelled 'contract' in the company's roadmap or architecture docs, requires the owner to write one paragraph each on śastra (does it survive a rewrite?), pāvaka (does it survive an architectural fashion cycle?), āpaḥ (does it survive accumulated tech debt?), and māruta (does it survive a quarter of inattention?). Contracts that fail any of the four are flagged as substrate-coupled rather than durable-trunk.",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add a 'Four-Medium Contract Audit' template to the architecture-review wiki. Required for all contracts on the platform team's quarterly review list. The review meeting walks each contract through the four media and ends with a flag (durable-trunk vs. substrate-coupled). Concretely copyable Monday morning; many engineering orgs already have versions of this audit, the verse provides the doctrinal frame.",
+  "metaphor_only": false,
+  "verdict_reason": "The four-medium structure licenses a real engineering audit-discipline. The four media are metaphorical (rewrites are not literally weapons), but the resulting predicate (audit each contract against four distinct attack-modes) is concretely operational. Not metaphor-only. PASS."
+}

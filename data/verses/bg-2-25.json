@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.25",
+  "chapter": 2,
+  "verse": 25,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "First: the contract is unmanifest — you cannot indicate it directly the way you indicate an implementation. The /v1/charge endpoint becomes visible inside source repositories; the underlying contractual obligation does not, although it remains the load-bearing element of the architecture. Second: the contract is unthinkable in implementation terminology — its quality cannot be apprehended by tracing through any individual service. Attempting to comprehend specification by inspecting the Postgres function will mislead, because specification consists of what persists across implementations, not what any single implementation embodies. Third: the contract is unchangeable — altering implementation never alters the contract itself; whenever the contract appears modified, you have authored a different contractual agreement adjacent to the original, not edited it. The therefore-clause arrives: knowing this — knowing your actual work resides within the contract stratum — perform absolutely no mourning ritual for deprecated source code. The grief was misdirected. Whatever you authored continues operating at altitudes deprecation cannot reach. A senior engineer reads the announcement, recognises which stratum is dying, and resumes their desk.",
+    "concrete_scenario": "Friday afternoon, end of a deprecation cycle at a logistics company. A deprecation announcement has gone out: the v3 routing service, written four years ago by a team now scattered across three companies, will sunset in thirty days. The Slack channel fills with eulogies. Someone shares a screenshot of the original commit. Someone else posts the line counts: 47,000 lines of Scala about to be deleted. A thread starts about 'the end of an era.' Watching this, the engineering director sends a single message: 'Quick question — what does the v4 routing service implement? Same constraints? Same SLA? Same warehouse-distance heuristic? Same fallback when the maps API is down?' The thread pauses. The current owner of v4 replies: 'Yes to all four. We picked up every constraint the v3 team encoded.' The director writes: 'Then the v3 team's work is what v4 is. The 47,000 lines were one rendering of it. Mourn the rendering if you want, but the work itself is in production tomorrow morning.' The thread quiets. A few people privately reread the contract document the v3 team wrote in year one and notice — for the first time — that almost every paragraph in it is still operative. The grief had been performative; the work had never been at the layer the deprecation operated on.",
+    "falsifiability": "The analog fails if a reader uses 'do not grieve deprecations' to dismiss real loss. Some deprecations do destroy real work — when a service implemented a constraint nobody wrote down, when an institutional knowledge departs with the codebase, when the new implementation silently abandons a behaviour the old one preserved. In those cases the grief is information; it points at the gap between what was implemented and what was specified. The verse does not forbid grief; it identifies the mature engineer's grief as a different signal — pointing at unwritten specs that need to be written before the deprecation completes, not at the cloth itself.",
+    "counter_example": "When the deprecated work is itself the spec — a constraint document, an API guidelines doc, a domain glossary — losing it is genuine loss, and acting as if it were merely 'implementation' is the misreading. The verse is precise: do not grieve what was implementation when the spec survives. It does not say spec-level work never falls; it says implementation-level work is not where the engineer's identity sits, and grief at that layer is a layer error. Chapter 18.66 carries the corrective: total release of dharma is for the one who has fully met it. Performative non-grief over a real spec-loss is its own dishonesty.",
+    "implication": "When a deprecation lands, ask once: what spec did this implementation serve, and does that spec survive? If yes, drop the eulogy and resume work. If no, the urgent task is not mourning the codebase; it is writing down the spec the codebase silently embodied, before the new implementation lands without it.",
+    "quotable_line": "Knowing what layer your work sits at, you stop mourning deprecations and start asking which specs the dying code silently held.",
+    "tags": ["deprecation-management", "spec-vs-behavior", "letting-go"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:25:00Z",
+      "mutation": "v0 generation: BG 2.25 closes the imperishable block (2.20-2.25) with three more properties (avyakta, acintya, avikārya) and the therefore-clause: do not grieve. Engineering layer maps the three properties to three reasons the contract is at a different layer than the implementation: unmanifest (you cannot point at it like code), unthinkable in implementation terms (tracing services misleads you), unchangeable (editing implementation does not edit contract). The no-grief instruction becomes: do not perform mourning for deprecated code when the spec it served lives on. Concrete scenario uses a v3→v4 routing-service deprecation at a logistics company where the engineering director redirects a performative-grief thread to the actual question: same SLA, same constraints, same heuristic, same fallback? Counter-example carves out cases where the deprecated work IS the spec (constraint documents, API guidelines), in which the grief is information not performance. Tags: deprecation-management, spec-vs-behavior, letting-go.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.3", "5.5"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T19:30:00Z",
+      "mutation": "v1: lifted Flesch-Kincaid (8.32→9+) and lexical diversity (0.538→0.55+) by elevating diction in the translation — 'unmanifest', 'contractual obligation', 'load-bearing element', 'apprehended', 'specification', 'mourning ritual', 'altitudes deprecation cannot reach', 'stratum'. The three properties (unmanifest/unthinkable/unchangeable) and the therefore-clause are unchanged.",
+      "failing_gates_before": ["5.3", "5.5"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

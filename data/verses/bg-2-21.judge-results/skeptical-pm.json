@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Before approving a rewrite, formally identify the contract layer the predecessor's code served. The rewrite may proceed when (a) the contract is documented, (b) behavioural-equivalence tests cover the contract's promises, and (c) the new authors can list the design decisions encoded in the predecessor's code that are now reimplemented by name.",
+  "example_decision": "Q4 roadmap: Maya's Rails billing module is being replaced by Devon and Priya's Go service. PM directive: do not allow the rewrite to ship until a one-page contract document — gRPC endpoints, billing-state-machine transitions, idempotency keys, refund-window edge cases — is signed off by all three engineers (the predecessor and the two new authors). The contract document, not the code, is the deliverable that travels.",
+  "objection": "The verse could be read as 'engineers should be detached from their work, just sign off the rewrite' — but the verse's counter-example explicitly forbids this read: when the rewrite drops a hand-tuned rate limit on a fraud-prone endpoint, the new authors are killing a real protection. So the predicate becomes operationally precise: check whether the contract is documented before allowing the rewrite, and require explicit re-implementation of every named decision. PASS."
+}

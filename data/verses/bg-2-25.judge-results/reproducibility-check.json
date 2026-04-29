@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Deprecation-announcement playbook: when a deprecation announcement is filed, the engineering manager runs the four-question diagnostic before any eulogy meeting is scheduled. Questions: (1) does the spec the deprecated implementation served survive in the replacement? (2) name the specific behaviours preserved. (3) are there behaviours the predecessor implemented that the spec does not capture? (4) if yes to #3, are those behaviours preserved in the replacement, or is the deprecation incomplete? If all four are answered 'yes,' no eulogy meeting; if any answer is 'no' or 'unknown,' the deprecation is paused for a spec-audit sprint.",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Add 'Deprecation Diagnostic' to the engineering wiki as a required template for any deprecation announcement. Section 1: Spec Inventory (what spec did this implementation serve, with citations to design docs). Section 2: Replacement Coverage (which spec items the replacement covers, with test references). Section 3: Silent Spec Items (behaviours not in design docs but observed in production — the gap). Section 4: Resolution (paused vs. proceeding). Concretely copyable Monday morning.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse licenses a real engineering deprecation-discipline. The therefore-clause is metaphorical (deprecations are not literally grief), but the resulting predicate (four-question diagnostic before any eulogy) is concretely operational. Many engineering orgs already practice versions of this; the verse provides the doctrinal frame for why the diagnostic must precede the eulogy. Not metaphor-only. PASS."
+}

@@ -1,0 +1,147 @@
+{
+  "id": "BG 2.23",
+  "chapter": 2,
+  "verse": 23,
+  "fetched_at": "2026-04-29T18:20:00Z",
+  "sanskrit_devanagari": "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।\nन चैनं क्लेदयन्त्यापो न शोषयति मारुतः ॥ २३ ॥",
+  "sanskrit_iast": "nainaṁ chindanti śastrāṇi nainaṁ dahati pāvakaḥ |\nna cainaṁ kledayanty āpo na śoṣayati mārutaḥ || 23 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/23/",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-2-23-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/23",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "agreement": "exact (transliteration body identical; Mukundananda house-style aspirate marks)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=23",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "agreement": "exact (text body identical; punctuation rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-23/",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical)."
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_02.023 = MBh_06,024.023). Body text identical."
+    }
+  ],
+  "anvaya": [
+    { "sanskrit": "एनम्",         "iast": "enam",          "meaning": "this (the embodied Self)" },
+    { "sanskrit": "शस्त्राणि",    "iast": "śastrāṇi",      "meaning": "weapons" },
+    { "sanskrit": "न छिन्दन्ति",  "iast": "na chindanti",  "meaning": "do not cut / cleave" },
+    { "sanskrit": "एनम्",         "iast": "enam",          "meaning": "this" },
+    { "sanskrit": "पावकः",        "iast": "pāvakaḥ",       "meaning": "fire" },
+    { "sanskrit": "न दहति",       "iast": "na dahati",     "meaning": "does not burn" },
+    { "sanskrit": "च",            "iast": "ca",            "meaning": "and" },
+    { "sanskrit": "एनम्",         "iast": "enam",          "meaning": "this" },
+    { "sanskrit": "आपः",          "iast": "āpaḥ",          "meaning": "waters" },
+    { "sanskrit": "न क्लेदयन्ति", "iast": "na kledayanti", "meaning": "do not wet / soak" },
+    { "sanskrit": "मारुतः",       "iast": "mārutaḥ",       "meaning": "wind" },
+    { "sanskrit": "न शोषयति",     "iast": "na śoṣayati",   "meaning": "does not dry" }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/23/",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The soul can never be cut to pieces by any weapon, nor burned by fire, nor moistened by water, nor withered by the wind.",
+      "raw_capture_path": "data/sources/raw/bg-2-23-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/23",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Weapons cannot shred the soul, nor can fire burn it. Water cannot wet it, nor can the wind dry it."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/23/",
+      "fetched_at": "2026-04-29T18:20:01Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1723-char full purport)",
+      "verbatim_excerpt": "All kinds of weapons – swords, flame weapons, rain weapons, tornado weapons, etc. – are unable to kill the spirit soul. It appears that there were many kinds of weapons made of earth, water, air, ether, etc., in addition to the modern weapons of fire.",
+      "raw_full_path": "data/sources/raw/bg-2-23-vedabase.json (purport_full_length: 1723)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Why does It verily remain unchanged? This is being answered in 'Weapons do not cut It,' etc. Sastrani, weapons; na chindanti, do not cut; enam, It; It being partless, weapons like sword etc. do not cut off Its limbs. So also, even pavakah, fire; na dahati, does not burn It. Apah, water; na enam kledayanti, do not soak It.",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 700,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-23-bgus-rich.json",
+      "summary_paraphrase": "Shankara reads the four denials as following from the Self's partlessness (niravayava). Cutting requires parts to be cut off; burning, soaking, drying require an object that admits decomposition by the elemental medium. The Self has no parts, no surface, no substrate that any of these media can engage. The four denials are not arbitrary — each one is a different mode of how the elements act on physical substances, and the Self is exempt from each because it does not share the structural property that mode requires."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-23/?cm=ramanuja",
+      "fetched_at": "2026-04-29T18:20:11Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Weapons, fire, water and air are incapable of cleaving, burning, wetting and drying the self; for, the nature of the self is to pervade all elements; It is present everywhere; for, It is subtler than all the elements; It is not capable of being pervaded by them.",
+      "verbatim_excerpt_length": 263,
+      "verbatim_full_length": 800,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-23-bgus-rich.json",
+      "summary_paraphrase": "Ramanuja reads the four denials in terms of pervasion: cutting/burning/wetting/drying require the medium to penetrate the substance and act upon it. The Self pervades all the elements; the elements cannot pervade the Self. The Self is subtler than each medium and therefore exempt from all four modes of physical interaction. Ramanuja groups 2.23 and 2.24 as a single argument for the same conclusion drawn from the Self's pervasive subtlety."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "kledayanti / śoṣayati (the four-element denial structure)",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "moistened by water, withered by the wind" },
+        { "source": "Mukundananda", "rendering": "Water cannot wet it, nor can the wind dry it" },
+        { "source": "Shankara (per summary)", "rendering": "the four denials follow from the Self's partlessness; each medium acts via decomposition, and the Self has no parts to decompose" },
+        { "source": "Ramanuja (per summary)", "rendering": "the four denials follow from the Self's subtlety/pervasion; the elements cannot pervade what is subtler than they are" }
+      ],
+      "explanation": "The translations preserve the four-element structure but flatten the doctrinal argument. Shankara reads the four denials structurally — each denial is keyed to a different mode of how elements act on bodies, and the Self lacks the structural property each mode needs (no parts to cut/decompose). Ramanuja reads the four denials topologically — the Self pervades the elements rather than being pervadable by them, so all four are equally impossible. Both readings agree that the four are not interchangeable rhetorical flourishes; they enumerate four distinct properties that together establish the Self's invulnerability to medium."
+    }
+  ],
+  "literal_meaning": "Weapons do not cut this (Self); fire does not burn it; water does not wet it; the wind does not dry it.",
+  "traditional_meaning_consensus": "The four-element denial verse. Krishna lists the four classical media that destroy material substances — śastra (sharp implements), pāvaka (fire), āpaḥ (water), māruta (wind/air) — and denies that any of them affects the Self. The four are not arbitrary: weapons act by cutting (separating parts), fire by burning (chemical decomposition), water by wetting (dissolving), wind by drying (extracting moisture). Each mode requires the object to share a structural property — having parts, being combustible, being wettable, retaining moisture. The Self lacks all four. The verse establishes that the imperishable's invulnerability is not magical exception but structural exemption: the Self is not the kind of thing that the elemental modes engage. 2.24 will state the four properties affirmatively (acchedyaḥ, adāhyaḥ, akledyaḥ, aśoṣyaḥ) before adding more.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

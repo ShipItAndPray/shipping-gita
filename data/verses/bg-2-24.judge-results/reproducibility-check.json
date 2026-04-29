@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": "Nine-property contract audit spreadsheet: a quarterly artefact maintained by the architecture team. Each row is a contract; each column is one of the nine properties; each cell either contains the falsifier-test that demonstrates the property holds, or is flagged as 'not actually meeting this property.' The audit is the input to the company's contract-investment roadmap.",
+  "artifact_kind": "review_checklist",
+  "embodiment_sketch": "Create a 'Nine-Property Contract Audit' sheet template in Google Sheets / Notion. Required columns: contract name, owner, [9 columns for each property] — each column either holds a one-line falsifier test ('this property holds because [test]') or is empty (flagged). The architecture review meeting walks the sheet quarterly. Outputs: list of trunk-contracts (passing all 9), list of substrate-coupled contracts (deliberately scoped — passing < 9 by design), list of broken contracts (failing properties they claim to have — remediation needed). Concretely copyable Monday morning.",
+  "metaphor_only": false,
+  "verdict_reason": "The verse licenses a real audit-discipline. The nine properties are a structural framework, but each property requires a concrete falsifier-test under audit; the resulting artefact is operational. Many engineering orgs already have versions of this; the verse provides the doctrinal frame for why all nine matter and why the falsifier-test is non-negotiable. Not metaphor-only. PASS."
+}

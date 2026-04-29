@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "trivialization_severity": 0,
+  "specific_concerns": [],
+  "verdict_reason": "BG 2.22 is the famous body-as-clothing simile and is the most-quoted Gita verse in tech adaptations. The risk of trivialization is high — 'just change clothes, bro' is the obvious wrong read. The engineering layer explicitly forecloses this: the falsifiability and counter-example fields name the case where the cloth-frame is the wrong frame (substrate decisions; rewrites that drop spec-uncaptured behaviours). The simile is treated with appropriate weight — Krishna is consoling Arjuna over the kinsmen he is about to fight, not making a programming joke, and the engineering layer keeps the affect serious. The implication ('the conversation is not about feelings; it is about a missing test or a silently dropped behaviour') drops the simile back into operational engineering without flippancy. A Sanskrit scholar would feel the verse is honoured by being mapped to a real engineering load-bearing distinction. PASS."
+}

@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "same_tag_issues": [],
+  "cross_reference_issues": [],
+  "tag_coherence_score": 8,
+  "cross_reference_integrity_score": null,
+  "verdict_reason": "Tags on BG 2.23 are interface-stability, spec-vs-behavior, architectural-invariant. interface-stability is the load-bearing tag (the four-medium denial IS the test for interface stability). spec-vs-behavior is shared with 2.21, 2.22, 2.24, 2.25 across the imperishable block; the doctrine is coherent across all five — what is invariant under change is what the spec promises, not what any implementation embodies. architectural-invariant captures the structural-property argument. The three tags together cover three distinct angles. No cross_references[] declared. Score 8. PASS."
+}

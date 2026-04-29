@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "anchored_threads": [
+    {
+      "thread_name": "Sāṅkhya / first-principles knowledge (verses 2.11-2.30)",
+      "anchor_evidence": "BG 2.23 is squarely inside the first thread: what is invariant under change. The four-medium denial maps directly onto the chapter's architectural-invariants thread. The chapter thesis names this verse-block as load-bearing for the engineering layer's spec-vs-implementation distinction; 2.23 specifies what 'the spec survives change' actually requires (four distinct attack-modes that the contract must structurally lack a target for)."
+    }
+  ],
+  "hard_edges_violated": [],
+  "counter_anti_thesis_violations": [],
+  "progression_issue": {
+    "type": "none",
+    "explanation": "Position 23 is the four-element invulnerability statement after the imperishable-properties block (2.20-2.21) and the clothes simile (2.22). The engineering layer correctly stays at first-principles register and elaborates rather than preempts. 2.24 will affirm the same four properties plus five more; 2.25 will close with 'do not grieve.' The verse-position is correctly handled."
+  },
+  "verdict_reason": "BG 2.23 elaborates the imperishable doctrine via the four-medium denial. The engineering layer's contract-durability audit is the chapter thesis applied to specific operational testing. No hard edges violated; no flattening into 'all APIs are durable.' PASS."
+}
