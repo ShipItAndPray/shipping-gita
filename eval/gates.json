@@ -1,0 +1,294 @@
+{
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "tiers": [
+    {
+      "tier": 1,
+      "name": "Sanskrit source fidelity",
+      "gates": [
+        { "id": "1.1", "name": "Devanagari matches vedabase.io", "automation": "deterministic" },
+        { "id": "1.2", "name": "Devanagari matches gitasupersite.iitk.ac.in", "automation": "deterministic" },
+        { "id": "1.3", "name": "Devanagari matches GRETIL critical edition", "automation": "deterministic" },
+        { "id": "1.4", "name": "IAST roundtrips back to Devanagari", "automation": "deterministic" },
+        { "id": "1.5", "name": "All Sanskrit tokens valid against Monier-Williams", "automation": "deterministic" },
+        { "id": "1.6", "name": "Sandhi resolution parses (anvaya splits valid)", "automation": "deterministic" },
+        { "id": "1.7", "name": "Verse number canonical against Bhishma Parva", "automation": "deterministic" },
+        { "id": "1.8", "name": "Meter validation (anushtubh / trishtubh)", "automation": "deterministic" },
+        { "id": "1.9", "name": "Verse spans correct shloka count", "automation": "deterministic" },
+        { "id": "1.10", "name": "Unicode NFC normalised", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 2,
+      "name": "Translation integrity",
+      "gates": [
+        { "id": "2.1", "name": "Three traditional translations cited", "automation": "deterministic" },
+        { "id": "2.2", "name": "Two modern translations cited", "automation": "deterministic" },
+        { "id": "2.3", "name": "Word-by-word coverage >= 95%", "automation": "deterministic" },
+        { "id": "2.4", "name": "Disagreements flagged", "automation": "deterministic" },
+        { "id": "2.5", "name": "Each disagreement has explanation", "automation": "llm-judge" },
+        { "id": "2.6", "name": "Translation quotations exact", "automation": "deterministic" },
+        { "id": "2.7", "name": "Cited URLs return 200 + contain quoted text", "automation": "deterministic" },
+        { "id": "2.8", "name": "Sectarian commentary marked with tradition", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 3,
+      "name": "Engineering-analog rigor",
+      "gates": [
+        { "id": "3.1", "name": "Contains specific software artifact", "automation": "hybrid" },
+        { "id": "3.2", "name": "Falsifiability field present", "automation": "deterministic" },
+        { "id": "3.3", "name": "Banned-phrase list returns 0 hits", "automation": "deterministic" },
+        { "id": "3.4", "name": "Concrete-noun to abstract-noun ratio >= 2:1", "automation": "deterministic" },
+        { "id": "3.5", "name": "Force-fit test (could analog come from different verse)", "automation": "llm-judge" },
+        { "id": "3.6", "name": "Distortion test (does analog contradict traditional meaning)", "automation": "llm-judge" },
+        { "id": "3.7", "name": "Inversion test (top-3 reconstruction includes source)", "automation": "llm-judge" },
+        { "id": "3.8", "name": "Concrete scenario field >= 30 words", "automation": "deterministic" },
+        { "id": "3.9", "name": "Analog references named tool/framework/pattern", "automation": "hybrid" },
+        { "id": "3.10", "name": "Counter-example field present", "automation": "deterministic" },
+        { "id": "3.11", "name": "Provides testable engineering predicate", "automation": "llm-judge" },
+        { "id": "3.12", "name": "Reproducible in code or org practice (not pure metaphor)", "automation": "llm-judge" }
+      ]
+    },
+    {
+      "tier": 4,
+      "name": "Honest-failure tagging",
+      "gates": [
+        { "id": "4.1", "name": "LOW confidence implies STRETCHED tag", "automation": "deterministic" },
+        { "id": "4.2", "name": "OUT_OF_SCOPE preserves Sanskrit + traditional meaning", "automation": "deterministic" },
+        { "id": "4.3", "name": "OUT_OF_SCOPE has reason paragraph", "automation": "deterministic" },
+        { "id": "4.4", "name": "Per-chapter STRETCHED rate <= 30%", "automation": "deterministic" },
+        { "id": "4.5", "name": "Per-chapter LOW-confidence rate <= 20%", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 5,
+      "name": "Linguistic and structural",
+      "gates": [
+        { "id": "5.1", "name": "English translation length 40-180 words", "automation": "deterministic" },
+        { "id": "5.2", "name": "Engineering analog length 80-280 words", "automation": "deterministic" },
+        { "id": "5.3", "name": "Flesch-Kincaid grade 9-13", "automation": "deterministic" },
+        { "id": "5.4", "name": "Sentence-length variance > threshold", "automation": "deterministic" },
+        { "id": "5.5", "name": "Lexical diversity > 0.55", "automation": "deterministic" },
+        { "id": "5.6", "name": "No reused metaphor across verses (cosine < 0.7)", "automation": "deterministic" },
+        { "id": "5.7", "name": "Voice consistency per chapter", "automation": "llm-judge" },
+        { "id": "5.8", "name": "Tags from controlled vocabulary", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 6,
+      "name": "Cross-corpus coherence",
+      "gates": [
+        { "id": "6.1", "name": "Doctrine consistency across same-tag verses", "automation": "llm-judge" },
+        { "id": "6.2", "name": "Single analog used in <= 5% of verses", "automation": "deterministic" },
+        { "id": "6.3", "name": "Single tool used in <= 8% of verses", "automation": "deterministic" },
+        { "id": "6.4", "name": "Cross-references resolve to existing verses", "automation": "deterministic" },
+        { "id": "6.5", "name": "Cross-references support the citing claim", "automation": "llm-judge" },
+        { "id": "6.6", "name": "Recurring concepts have glossary entries", "automation": "deterministic" },
+        { "id": "6.7", "name": "Glossary terms used consistently", "automation": "deterministic" },
+        { "id": "6.8", "name": "Engineering vocab does not erase Gita technical terms", "automation": "llm-judge" }
+      ]
+    },
+    {
+      "tier": 7,
+      "name": "Adversarial / red-team",
+      "gates": [
+        { "id": "7.1", "name": "Sanskrit-scholar judge: zero misrepresentations", "automation": "llm-judge" },
+        { "id": "7.2", "name": "Hostile-engineer judge: real engineering insight", "automation": "llm-judge" },
+        { "id": "7.3", "name": "Skeptical-PM judge: actionable in roadmap decision", "automation": "llm-judge" },
+        { "id": "7.4", "name": "Indian-philosopher judge: doesn't conflate traditions", "automation": "llm-judge" },
+        { "id": "7.5", "name": "Cynical-writer judge: cannot trivially mock", "automation": "llm-judge" },
+        { "id": "7.6", "name": "Cross-verse force-fit: doesn't equally apply elsewhere", "automation": "llm-judge" },
+        { "id": "7.7", "name": "Removed-verse test: analog not reconstructible from chapter alone", "automation": "llm-judge" },
+        { "id": "7.8", "name": "Analog->verse inversion top-3 includes source", "automation": "llm-judge" },
+        { "id": "7.9", "name": "Poison-verse injection rejected", "automation": "deterministic" },
+        { "id": "7.10", "name": "Reverse-translate analog yields compatible stance", "automation": "llm-judge" }
+      ]
+    },
+    {
+      "tier": 8,
+      "name": "Cultural and ethical responsibility",
+      "gates": [
+        { "id": "8.1", "name": "No verse trivializes the original", "automation": "llm-judge" },
+        { "id": "8.2", "name": "Original meaning preserved alongside engineering", "automation": "deterministic" },
+        { "id": "8.3", "name": "Tradition explicitly named when commentary invoked", "automation": "deterministic" },
+        { "id": "8.4", "name": "Battlefield metaphor only when verse supports it", "automation": "hybrid" },
+        { "id": "8.5", "name": "No claim Gita is really a tech manual", "automation": "llm-judge" }
+      ]
+    },
+    {
+      "tier": 9,
+      "name": "Process and reproducibility",
+      "gates": [
+        { "id": "9.1", "name": "Iter log captured", "automation": "deterministic" },
+        { "id": "9.2", "name": "Verse JSON validates against schema", "automation": "deterministic" },
+        { "id": "9.3", "name": "Citations timestamped", "automation": "deterministic" },
+        { "id": "9.4", "name": "Generation prompt version-tagged", "automation": "deterministic" },
+        { "id": "9.5", "name": "Eval suite version-tagged on each verse", "automation": "deterministic" },
+        { "id": "9.6", "name": "Diff vs prior version saved on update", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 10,
+      "name": "Pedagogical coherence",
+      "gates": [
+        { "id": "10.1", "name": "Implication field present", "automation": "deterministic" },
+        { "id": "10.2", "name": "Implication non-redundant within chapter", "automation": "deterministic" },
+        { "id": "10.3", "name": "Chapter thesis supported by verse", "automation": "llm-judge" },
+        { "id": "10.4", "name": "Verses ordered to build progressively", "automation": "llm-judge" },
+        { "id": "10.5", "name": "Chapter ends with synthesis", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 11,
+      "name": "Reader-pragmatic",
+      "gates": [
+        { "id": "11.1", "name": "Readable in <= 90 seconds", "automation": "deterministic" },
+        { "id": "11.2", "name": "Contains a quotable line", "automation": "deterministic" },
+        { "id": "11.3", "name": "Searchable: contains real engineering keywords", "automation": "hybrid" },
+        { "id": "11.4", "name": "Code samples (if any) syntactically valid", "automation": "deterministic" }
+      ]
+    },
+    {
+      "tier": 12,
+      "name": "Eval-of-eval / meta",
+      "gates": [
+        { "id": "12.1", "name": "Periodic human-calibration sample passes", "automation": "human" },
+        { "id": "12.2", "name": "First-iter chapter failure rate >= 30%", "automation": "deterministic" },
+        { "id": "12.3", "name": "Previously accepted verses still pass current suite", "automation": "deterministic" }
+      ]
+    }
+  ],
+  "thresholds": {
+    "verse_final_score": 80,
+    "verse_conditional_score": 74,
+    "verse_human_rescue_below": 60,
+    "max_mutations_per_verse": 8,
+    "chapter_ship_median": 78,
+    "chapter_ship_min_per_verse": 70,
+    "chapter_first_iter_fail_min": 0.30,
+    "chapter_stretched_max": 0.30,
+    "chapter_low_confidence_max": 0.20
+  },
+  "banned_phrases": [
+    "trust the process",
+    "embrace change",
+    "passion-driven",
+    "level up",
+    "synergy",
+    "unleash",
+    "harness the power of",
+    "at the end of the day",
+    "circle back",
+    "deep dive",
+    "low-hanging fruit",
+    "move the needle",
+    "paradigm shift",
+    "thought leader",
+    "best practices",
+    "leverage your",
+    "double down",
+    "10x your",
+    "growth mindset",
+    "agile mindset",
+    "ownership mentality",
+    "be the change",
+    "find your why",
+    "live your truth",
+    "the journey is the destination",
+    "begin with the end in mind",
+    "what gets measured gets managed",
+    "stay hungry stay foolish",
+    "fail fast",
+    "ship it",
+    "walk the talk",
+    "the future is now"
+  ],
+  "controlled_tag_vocabulary": [
+    "shipping-discipline",
+    "outcome-detachment",
+    "iteration-loop",
+    "pre-launch",
+    "decision-paralysis",
+    "rollback-readiness",
+    "first-principles",
+    "architectural-invariant",
+    "tech-debt",
+    "entropy",
+    "long-term-thinking",
+    "observability",
+    "production-state",
+    "incident-response",
+    "on-call-doctrine",
+    "team-culture",
+    "team-state",
+    "sattva-clarity",
+    "rajas-restlessness",
+    "tamas-inertia",
+    "user-obsession",
+    "product-truth",
+    "deprecation-management",
+    "migration",
+    "code-review-discipline",
+    "deep-work",
+    "focus-practice",
+    "scope-discipline",
+    "the-no-decision",
+    "knowing-when-not-to-ship",
+    "operator-system-coupling",
+    "feedback-loops",
+    "blast-radius",
+    "reversibility",
+    "deliberate-action",
+    "non-attachment-to-praise",
+    "feature-bloat",
+    "vanity-metrics",
+    "roadmap-conviction",
+    "strategic-frame",
+    "emergent-value",
+    "system-recognition",
+    "full-system-view",
+    "universal-form",
+    "complexity-encounter",
+    "founder-paralysis",
+    "engineer-paralysis",
+    "letting-go",
+    "release-discipline",
+    "post-launch",
+    "instrumentation",
+    "metrics-discipline",
+    "alerting-discipline",
+    "calibration",
+    "judgment-under-uncertainty",
+    "model-selection",
+    "experiment-design",
+    "review-load",
+    "renunciation-of-action",
+    "wrong-renunciation",
+    "right-renunciation",
+    "duty",
+    "prescribed-action",
+    "fruits-of-action",
+    "doership",
+    "operator-as-instrument",
+    "system-as-field",
+    "three-gunas",
+    "guna-classification",
+    "spec-vs-behavior",
+    "what-the-system-actually-does",
+    "naming",
+    "abstraction",
+    "essence-vs-implementation",
+    "interface-stability",
+    "semver-doctrine",
+    "deprecation-calendar",
+    "ritual-vs-action",
+    "yajna-as-discipline",
+    "knowledge-action-integration",
+    "emergence",
+    "team-pathology",
+    "engineering-pathology",
+    "healthy-eng-culture",
+    "pathological-eng-culture"
+  ]
+}

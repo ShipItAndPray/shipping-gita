@@ -1,0 +1,24 @@
+{
+  "name": "shipping-gita",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A verse-by-verse engineering adaptation of the Bhagavad Gita. Built with autoresearch and 84 quality gates per verse.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "eval:verse": "tsx eval/run-verse.ts",
+    "eval:chapter": "tsx eval/run-chapter.ts"
+  },
+  "files": ["dist", "src", "data", "chapters", "README.md"],
+  "license": "MIT",
+  "dependencies": {
+    "@noble/hashes": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
+  }
+}
