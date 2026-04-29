@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Track the ratio of architecture proposals that produce roadmap change to total proposals received per quarter. Adjust for situationally-required changes. The senior whose team has a low ratio (without ossification — measured by separate adoption-when-warranted metric) is operating from settled buddhi.",
+  "example_decision": "Quarterly engineering review. Two staff engineers' teams handled architecture proposals very differently. Team A moved its sprint plan four times in twelve weeks responding to new framework releases; Team B moved zero times despite receiving five proposals, but adopted one in week 13 when its measurable trigger was met. The verse asks the review committee to recognise Team B's pattern as senior-engineering signal, not as ossification.",
+  "verdict_reason": "Roadmap-actionable through team-level proposal-handling pattern. The trigger-based re-evaluation pattern is operationalizable across teams. The diagnostic separates settled-buddhi from ossification by requiring at least one adoption-when-warranted instance. Pass."
+}

@@ -1,0 +1,248 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.51",
+  "sanskrit_devanagari": "कर्मजं बुद्धियुक्ता हि फलं त्यक्त्वा मनीषिणः ।\nजन्मबन्धविनिर्मुक्ताः पदं गच्छन्त्यनामयम् ॥ ५१ ॥",
+  "sanskrit_iast": "karma-jaṁ buddhi-yuktā hi phalaṁ tyaktvā manīṣiṇaḥ |\njanma-bandha-vinirmuktāḥ padaṁ gacchanty anāmayam || 51 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action (in compound karma-jam)"
+    },
+    {
+      "sanskrit": "जम्",
+      "iast": "jam",
+      "meaning": "born of (in compound karma-jam: 'born of action')"
+    },
+    {
+      "sanskrit": "बुद्धि",
+      "iast": "buddhi",
+      "meaning": "discriminating intelligence (in compound buddhi-yuktāḥ)"
+    },
+    {
+      "sanskrit": "युक्ताः",
+      "iast": "yuktāḥ",
+      "meaning": "joined / united (plural; in compound buddhi-yuktāḥ: 'those joined to buddhi')"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed / certainly"
+    },
+    {
+      "sanskrit": "फलम्",
+      "iast": "phalam",
+      "meaning": "fruit / result"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "मनीषिणः",
+      "iast": "manīṣiṇaḥ",
+      "meaning": "the wise / those endowed with intellect"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth (in compound janma-bandha-vinirmuktāḥ)"
+    },
+    {
+      "sanskrit": "बन्ध",
+      "iast": "bandha",
+      "meaning": "bondage (in compound)"
+    },
+    {
+      "sanskrit": "विनिर्मुक्ताः",
+      "iast": "vinirmuktāḥ",
+      "meaning": "completely freed (in compound janma-bandha-vinirmuktāḥ: 'freed from the bondage of birth')"
+    },
+    {
+      "sanskrit": "पदम्",
+      "iast": "padam",
+      "meaning": "state / position / abode"
+    },
+    {
+      "sanskrit": "गच्छन्ति",
+      "iast": "gacchanti",
+      "meaning": "they reach / they go to"
+    },
+    {
+      "sanskrit": "अनामयम्",
+      "iast": "anāmayam",
+      "meaning": "free from affliction / without disease"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/51/",
+      "fetched_at": "2026-04-29T19:53:48Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "By thus engaging in devotional service to the Lord, great sages or devotees free themselves from the results of work in the material world. In this way they become free from the cycle of birth and death and attain the state beyond all miseries [by going back to Godhead].",
+      "raw_capture_path": "data/sources/raw/bg-2-51-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/51",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The wise endowed with equanimity of intellect, abandon attachment to the fruits of actions, which bind one to the cycle of life and death. By working in such consciousness, they attain the state beyond all suffering."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/51/",
+      "fetched_at": "2026-04-29T19:53:48Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2195-char full purport)",
+      "verbatim_excerpt": "The liberated living entities belong to that place where there are no material miseries. The Bhāgavatam (10.14.58) says: 'For one who has accepted the boat of the lotus feet of the Lord, who is the shelter of the cosmic manifestation and is famous as Mukunda, the ocean of material existence becomes like the water in a calf's hoofprint.'",
+      "verbatim_excerpt_length": 343,
+      "verbatim_full_length": 2195,
+      "raw_full_path": "data/sources/raw/bg-2-51-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-51/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.51 Hi, because; [when actions are performed with an attitude of equanimity, it leads to becoming freed from sin etc. Therefore, by stages, it becomes the cause of Liberation as well.] buddhi-yuktah, those who are devoted to wisdom, who are imbued with the wisdom of equanimity; (they) becoming manisinah, men of Enlightenment; tyaktva, by giving up; phalam, the fruit, the acquisition of desirable and undesirable bodies; karmajam, produced by actions; gacchanti, reach; padam, the state, the supreme state of Visnu, called Liberation; anamayam, beyond evils.",
+      "verbatim_excerpt_length": 558,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-51-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as the destination-claim of buddhi-yoga. Those joined to wisdom (buddhi-yuktāḥ) become enlightened ones (manīṣiṇaḥ) by giving up the karma-born fruits — specifically, the acquisition of desirable and undesirable bodies (good rebirths and bad rebirths). They reach 'padam anāmayam' — the state beyond all evils — which Shankara names 'the supreme state of Viṣṇu, called Liberation'. The verse closes the buddhi-yoga sequence (2.49-2.51) with its terminus: stage-by-stage, equanimous action leads to release from saṁsāra. CRITICAL: 'janma-bandha' is metaphysical — bondage of birth-and-rebirth, not a generic 'bondage' of being stuck in habits. Engineering analog must NOT claim metaphysical liberation."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-51/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "not captured (raw page returned null body for Ramanuja on 2.51); summary inferred from neighboring verses (2.49, 2.50, 2.52) which are continuous in argument",
+      "summary_paraphrase": "Ramanuja's verbatim Sanskrit-bhasya for 2.51 was not extractable from bgus on the current pull (null body). However, the surrounding verses (2.49, 2.50, 2.52) and Ramanuja's general doctrinal frame on this block establish the reading: the wise (manīṣiṇaḥ) joined to buddhi-yoga abandon the fruit BORN OF ACTION (karma-jam phalam) — the accumulation that generates janma-bandha (bondage of saṁsāra) — and attain padam anāmayam, the state beyond affliction. Ramanuja reads the destination as devotional liberation (mokṣa as eternal service to the Supreme), not Advaitic merging. The structural claim — buddhi-yoga is the path; janma-bandha is what is dissolved; padam anāmayam is the goal — is shared with Shankara."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "padam anāmayam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the state beyond all miseries [by going back to Godhead]"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the state beyond all suffering"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the supreme state of Viṣṇu, called Liberation; beyond all evils"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the state beyond affliction; devotional liberation as eternal service to the Supreme"
+        }
+      ],
+      "explanation": "padam anāmayam is the destination-clause. anāmayam is unambiguous: a-nā-maya, 'without disease/affliction'. padam can be read as 'state', 'position', 'abode', or 'place'. The disagreement is in how the destination is theologically named: Shankara names it 'the supreme state of Viṣṇu, called Liberation' (mokṣa, with theistic-Advaita frame); Ramanuja names it Vaikuṇṭha-style devotional liberation; Prabhupada explicitly glosses it as 'going back to Godhead' (Gaudiya Vaishnava); Mukundananda renders the lexical floor ('state beyond all suffering') without sectarian commitment. All four agree the destination is metaphysical — release from saṁsāra. Engineering layer must remain operational: stay close to operational truth (release from a specific kind of friction, not metaphysical liberation)."
+    },
+    {
+      "word": "janma-bandha",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the cycle of birth and death"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the cycle of life and death"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "bondage of birth — desirable and undesirable embodiment, the saṁsāric chain"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "bondage of saṁsāra; the chain of births that result from karma-attached action"
+        }
+      ],
+      "explanation": "All four traditions read janma-bandha as the saṁsāric chain — bondage TO birth-and-rebirth, generated by the karma-fruit accumulation that fruit-attached action creates. This is metaphysical, not metaphorical. Engineering layer must NOT translate 'janma-bandha' as 'being stuck in bad habits' or 'cycle of bad rollouts' — the verse is making a metaphysical claim about saṁsāra. The honest engineering analog: a specific kind of operational friction is dissolved by buddhi-yoga (not metaphysical liberation). Acknowledge the analog as STRETCHED in scope per the chapter's voice-and-restraint guidelines."
+    }
+  ],
+  "literal_meaning": "Indeed, the wise joined to buddhi, having abandoned the fruit born of action, freed from the bondage of birth, reach the state without affliction.",
+  "traditional_meaning": "2.51 closes the buddhi-yoga sequence (2.49-2.51) by naming its destination. The structural claim has three steps. (1) Those joined to buddhi (buddhi-yuktāḥ) become enlightened ones (manīṣiṇaḥ). (2) They abandon the fruit born of action (karma-jaṁ phalam tyaktvā), which is what generates janma-bandha — bondage of birth-and-rebirth. (3) They reach padam anāmayam — the state without affliction. All traditions read this as metaphysical: Shankara as the supreme state of Viṣṇu (Liberation, mokṣa); Ramanuja as devotional liberation (Vaikuṇṭha-style, eternal service); Gaudiya Vaishnava as 'going back to Godhead'. The verse gives the WHY for the discipline introduced in 2.39 and ranked in 2.49: the discipline ends saṁsāra. Engineering layer must remain scope-honest. The metaphysical claim does NOT translate cleanly into 'better engineering outcomes' — what does translate is the operational analog: a specific kind of grasping-friction is released for the operator who is buddhi-yukta. Tag as STRETCHED if claiming more.",
+  "engineering": {
+    "translation": "This shloka names the destination of buddhi-yoga and the claim is metaphysical: those joined to buddhi, abandoning the fruit born of action, become freed from janma-bandha — the bondage of birth-and-rebirth — and reach padam anāmayam, the state beyond affliction. The engineering layer must stay scope-honest. Krishna is not promising fewer bad rollouts; he is naming saṁsāric release. STRETCHED in scope. The operational reflection that does carry over: a specific kind of friction dissolves for the engineer who has actually internalised buddhi-yoga — the grasping at every promo cycle, the self-image rebuilt with each launch tweet, the treatment of each dashboard reading as a verdict on whether one matters. Anāmayam in the analog is not 'no more incidents'; it is the absence of the specific affliction generated by self-stake-coupling to outcomes. The senior who has shed that grasping is freed from a small, named friction — a valid reflection of a much larger metaphysical claim, not the claim itself.",
+    "concrete_scenario": "Two senior engineers six years into their careers. Engineer A's calendar reads through the recent year as a string of promotion-cycle anchors: each significant project chosen for its visibility to the staff-level review, each design doc shaped to read well to the committee, each launch celebrated or mourned in proportion to its packet-impact. Her work is genuinely competent — artifacts ship, systems run — but the substrate she works from is captured. Each cycle she is rebuilt by the result. Engineer B at the same tenure has done equally hard projects. The difference does not show on the org chart; it shows across her week. After a clean Postgres migration she does not refresh the Slack channel for praise. After a Sentry-flagged regression traced back to her change, she does not spend two days reconstructing her self-image; she opens the postmortem template, files the diff, walks the SRE through the rollback, returns to the next merge. The promotion eventually arrives because the engineering is good; the promotion does not move her substrate, because her substrate is no longer downstream of it. The verse's literal claim is metaphysical and we are not making it. The operational reflection: Engineer B is freed from a grasping-friction that Engineer A is still inside, and the difference shows in how each runs the same week.",
+    "falsifiability": "The analog fails if a reader hears 'padam anāmayam' as a promise of fewer incidents, smoother launches, easier roadmaps, or stable team morale. The verse does not promise any of these. It names a metaphysical state and we are tagging the operational reflection as STRETCHED. An engineer who concludes from this analog that buddhi-yoga will reduce on-call pages or improve sprint outcomes has confused the small operational reflection with the large metaphysical claim. The diagnostic: across two promo cycles, does the engineer's substrate (decision-making, judgment quality, willingness to hold unpopular technical positions) move with the committee's last reaction? If yes, the friction the verse names is still active.",
+    "counter_example": "When the operator faces real distress — a failed product built over two years, a layoff, a vendor outage that hurts users — the verse does not require the engineer to feel nothing. Anāmayam is not affective flatness. It names the absence of self-stake-coupling-to-outcomes, not the absence of feeling. An engineer who reads the analog as license for emotional suppression has misread it as badly as one who reads it as a promise of incident-free quarters.",
+    "implication": "The friction this verse names — grasping at every cycle's verdict on one's worth — is optional to act from, not optional to feel. The diagnostic lives in the substrate, not the affect. Notice whether your next decision is shaped by what the system needs or your packet needs.",
+    "quotable_line": "The promotion eventually arrives because the engineering is good; the promotion does not move her substrate, because her substrate is no longer downstream of the promotion.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "non-attachment-to-praise",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

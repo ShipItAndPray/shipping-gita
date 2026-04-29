@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.49",
+  "chapter": 2,
+  "verse": 49,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse ranks two stances explicitly. Fruit-driven action — the deploy aimed at the promo packet, the migration timed to the launch tweet, the refactor written so the staff reviewer will notice — stands far below buddhi-yoga, which is action issuing from discriminating intelligence settled in equanimity. Krishna does not soften the gap; he uses dūreṇa, by a long distance. The positive injunction follows: buddhau śaraṇam anviccha — take refuge in buddhi, the discriminating layer, never in the outcome ledger recording whether each act paid out. The closing tag is harsh. Those whose motive is fruits — phala-hetavaḥ — are kṛpaṇāḥ, pitiable. They are not pitied for failing; they are pitied for binding themselves through their own causality to outcomes they do not govern. The engineering layer must hold the harshness. A senior shipping from buddhi-yoga produces better engineering than an engineer of equal skill shipping for the promotion cycle, and the verse states this as a structural fact, not a preference.",
+    "concrete_scenario": "Two engineers of comparable craft at one company. Engineer A writes the Postgres migration because the queue table has been blocking the on-call rotation for two months and the rollback plan in the runbook is now sound; she opens the GitHub PR, walks the canary plan with the SRE on Slack, watches Datadog through the rollout, files the postmortem on Notion. Engineer B rewrites the same surface area because his packet for the next cycle needs a 'platform-level contribution', and a clean migration in the changelog will read well to the staff-level review committee. Both ship. Both produce green dashboards. The deploy log looks identical. What the verse names is the layer behind that log — not as moral preference but as structural ranking. Engineer B has bound his decision-making to the committee's reaction: he will defer the next migration if it lands awkwardly in his packet, push the next rewrite if it tells better, and find his judgment captured by an outcome surface he cannot fully predict. Engineer A's refuge is in buddhi — the discriminating intelligence asking 'is this the right action for this system' — and her judgment remains unbent across promotion cycles. The verse calls Engineer B's stance kṛpaṇa: not failing, pitiable. His engineering quality oscillates with an outcome ledger outside his control.",
+    "falsifiability": "The analog fails if a reader hears the verse as 'do not look at promotion, do not read your perf review, do not measure outcomes'. That is not the claim. Buddhi includes outcome-reading as evidence; buddhi-yoga is the discipline of acting from buddhi rather than from grasping at outcomes. An engineer who concludes from this verse that they should ignore their own career trajectory has confused refuge-in-buddhi with deliberate self-neglect. The diagnostic: across two promo cycles, does the engineer's technical decision-making oscillate with the committee's last reaction? If yes, they are phala-hetavaḥ in this verse's specific sense, regardless of how detached their self-report sounds.",
+    "counter_example": "When the action genuinely ought to be shaped by an outcome — a customer-facing rollback because the latency curve crossed the SLO threshold, a feature kill because the conversion data does not support it, a hiring no because the candidate's design-doc revealed a gap — the verse does not require the engineer to ignore the outcome signal. Phala-hetavaḥ names the stance of acting in order to produce a self-favoring fruit; it does not name the stance of letting outcomes inform future technical decisions. The two are different and the verse keeps the difference clean. Buddhi reads the dashboard; the kṛpaṇa is captured by it.",
+    "implication": "Audit the motive layer underneath your last three significant technical decisions. Were they shaped by what the system needed, or by what would land cleanly in your next perf packet? The verse asks for the first; it names the second pitiable. Refuge is in the discriminating layer, not in the outcome ledger.",
+    "quotable_line": "The senior who ships from buddhi-yoga is doing better engineering than the engineer of equal skill who ships for the promo cycle.",
+    "tags": ["fruits-of-action", "outcome-detachment", "shipping-discipline", "judgment-under-uncertainty"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:05:00Z",
+      "mutation": "v0 generation: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition (Bhg_02.049). Engineering layer anchored on the explicit ranking: dūreṇa avaram (by far inferior) — fruit-driven action vs buddhi-yoga. Tonal harshness preserved per task spec ('do not soften'). Concrete scenario contrasts two engineers of comparable skill (Engineer A: shipping from buddhi-yoga; Engineer B: shipping for promo packet) — a structural ranking, not a moral one. Named tools: Postgres, GitHub, Datadog, Slack, Notion. Falsifiability handles the misreading 'ignore promotion / outcomes'. Counter-example carves out outcome-as-signal vs outcome-as-motive. Tags from controlled vocabulary: fruits-of-action, outcome-detachment, shipping-discipline, judgment-under-uncertainty.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.5 — lexical diversity 0.527 (need ≥0.55)", "11.1 — total verse words 601 (cap 600)"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:08:00Z",
+      "mutation": "Single mutation: trim translation+scenario to remove repeated lexemes ('decision-making', 'comparable skill', 'company'), and tighten by ~6 words to drop under 600-word cap. Specifically: replaced 'comparable skill' → 'comparable craft', removed redundant 'at the same' phrasings, dropped two duplicated 'engineering' anchors. This lifts lexical diversity above 0.55 and brings total word count under cap. Engineering substance untouched.",
+      "failing_gates_before": ["5.5 — lexical diversity 0.527 (need ≥0.55)", "11.1 — total verse words 601 (cap 600)"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

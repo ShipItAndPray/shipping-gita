@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "Skill in action shows in artifact density (less code per fix, less ceremony per delivery, fewer rewrites per design) — not in effort or affect. The engineer whose buddhi behind the action is heavy produces lighter action.",
+  "wisdom_theater_score": 1,
+  "notes": "The Postgres-performance-regression scenario is pointed and concrete: Datadog → slow-query log → missing-index identification → four-line CONCURRENTLY migration → eleven-minute p99 recovery. The contrast (mid-level: three-day investigation + two architecture meetings + Notion design doc proposing Redis cache → eventually one-line index) is recognisable to anyone who has worked on a real engineering team. The verse's claim — kauśalam is the SKILL OF ACTING, not effort — is operationalized via the artifact-density diagnostic ('does the artifact get tighter?'). The counter-example is sharp: in genuinely novel terrain, skill = correctly recognising terrain as novel, not performing fluency. This is one of the cleaner engineering analogs in the chapter. Pass."
+}

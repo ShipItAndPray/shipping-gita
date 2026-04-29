@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a new architecture proposal lands on the team, write the two-paragraph response (claim, cost, trigger-for-reconsideration) before the team's sprint plan moves. If the sprint plan moves before the response is written, the team is still inside moha-kalilam.",
+  "example_decision": "An engineering blog post about a new framework lands during sprint planning. Instead of bending sprint capacity to evaluate the framework, the senior writes the trigger that would cause re-evaluation (e.g., 'when the AI feature pipeline crosses 50K req/s sustained, we re-evaluate vector database alternatives') and continues sprint planning. The verse asks PMs to recognise this two-paragraph-response-before-roadmap-perturbation pattern as senior-engineering signal, not slowness.",
+  "verdict_reason": "Roadmap-actionable through the trigger-based re-evaluation pattern. The verse's claim is operationalizable as a team-level practice: roadmap perturbations require explicit triggers, not new-framework-release dates. Pass."
+}

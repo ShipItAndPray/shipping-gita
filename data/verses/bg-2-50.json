@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.50",
+  "chapter": 2,
+  "verse": 50,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names yoga in two words: yogaḥ karmasu kauśalam — yoga is skillfulness in action. Both Shankara and Ramanuja anchor kauśalam tightly: the skill named is specifically the skill of holding samatvam (evenness) while performing the act — not effort, not enthusiasm, not vague mindful presence. The engineering reading: the practitioner who has internalised the principles produces the outcome with less force, fewer rewrites, less ceremony. The senior who fixes the broken queue table in 30 minutes because she has held the schema model in her head for years is closer to this verse than the engineer of equal years who needs four meetings and two design docs. The verse makes a second, harder claim: the buddhi-yukta sheds BOTH good and bad accumulation here in this life. Praise-attached action binds as much as fear-driven action. Both are released by the same skill, which is samatvam expressed in the act.",
+    "concrete_scenario": "A Postgres performance regression has been live for nine days. Two engineers approach it. The senior pulls up Datadog, scans the slow-query log on the read replica, isolates a missing index on a join column, opens GitHub, writes a four-line migration with the CONCURRENTLY clause to avoid a long lock, walks the rollback through the SRE on Slack, ships, and watches p99 fall back to baseline in eleven minutes. The mid-level on the same team would have produced the same fix through a different shape: a three-day investigation, two architecture meetings, a Notion design doc proposing a Redis cache layer, then under deadline pressure converged on the same one-line index. Both repair the system; only one is kauśalam. The verse is not praising speed; it is naming the quality of the action — accurate, uncompensated, issuing from the settled discriminating layer. The senior produced the index because she has held the query-planner model in her head for years; her action is light because the buddhi behind it is heavy. Now the verse's harder claim. The same senior, after this fix, reads the praise on Slack from her tech lead. The verse asks her to shed THAT too. Praise-attached action — the quiet calibration of next month's work toward the things that will get noticed — accumulates as much sukṛta-duṣkṛte coupling as fear-driven action does. The skill named is shedding both while continuing to act.",
+    "falsifiability": "The analog fails if a reader hears 'kauśalam' as 'effort', 'passion', 'flow', or 'just be present in your work.' The verse says skill, classically anchored: skill is the discriminating-evenness expressed in the act. An engineer who concludes from this verse that they should put more emotional energy into their work has misread it. The diagnostic: across two months of similar tasks, does the artifact get tighter (less code for the same effect, less ceremony for the same delivery, fewer rewrites)? If yes, kauśalam is rising. If the engineer is just working harder while producing the same artifact density, the skill named here is not what is increasing.",
+    "counter_example": "When the system is genuinely novel — a Postgres major-version upgrade with new locking semantics, an unfamiliar Kubernetes admission controller, a payment integration with a vendor whose docs are sparse — the verse does not require the senior to ship in 30 minutes. Skill-in-action does not mean speed. It means the quality of action issuing from the settled discriminating layer, which in unfamiliar terrain may correctly produce a long, careful design doc rather than a fast merge. The kauśalam of the senior in novel terrain is to recognise the terrain as novel, not to perform fluency she has not yet earned.",
+    "implication": "Audit your last two sprints for action-density. The senior whose skill is rising produces tighter artifacts — less code per fix, less ceremony per delivery, fewer rewrites per design — without producing more emotional output. The verse's claim is testable: kauśalam shows in the artifact, not the affect.",
+    "quotable_line": "The buddhi behind the action is heavy; the action itself becomes light. That is what this verse calls skill.",
+    "tags": ["essence-vs-implementation", "shipping-discipline", "first-principles", "non-attachment-to-praise"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:15:00Z",
+      "mutation": "v0 generation: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition (Bhg_02.050). CRITICAL CARE per task spec: kauśalam = SKILL OF ACTING, not passion or effort or presence. Engineering layer anchored on Shankara's gloss ('the attitude of the skilful, the wisdom of equanimity with regard to success and failure while engaged in actions') and Ramanuja's gloss ('evenness of mind during action, possible through great skill'). Concrete scenario: senior fixes Postgres performance regression via index migration in <1 hour (kauśalam visible in artifact-density and shape of action). Counter-example carves out novel terrain (skill ≠ speed). Verse's harder claim preserved: BOTH sukṛta and duṣkṛte are shed — praise-attached action binds as much as fear-driven action. Named tools: Postgres, Datadog, GitHub, Slack, Notion, Redis, Kubernetes. Tags from controlled vocabulary: essence-vs-implementation, shipping-discipline, first-principles, non-attachment-to-praise.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1 — translation 181 words (cap 180)", "11.1 — total verse words 639 (cap 600)"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:18:00Z",
+      "mutation": "Single mutation: trim ~50 words across translation+scenario without losing the kauśalam anchor or the two-claim structure. Specifically: removed redundant 'continuously' / 'in this very life' phrasings (already implied by iha rendering), tightened the senior-vs-mid-level scenario by ~25 words, dropped duplicate 'engineer-of-equal-years' clauses. Both 5.1 (translation cap 180) and 11.1 (total words cap 600) clear. Engineering substance untouched.",
+      "failing_gates_before": ["5.1 — translation 181 words (cap 180)", "11.1 — total verse words 639 (cap 600)"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

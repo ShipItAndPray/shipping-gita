@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Across two months of similar tasks at a given seniority level, the senior whose kauśalam is rising produces tighter artifacts (less code, less ceremony, fewer rewrites). Use artifact-density delta — not story-points-completed — as a diagnostic for senior-engineer growth.",
+  "example_decision": "Calibration session for senior promotion. Two engineers have similar story-points throughput but different artifact shapes. Engineer A's last five PRs averaged 80 lines each with two design docs; Engineer B's last five PRs averaged 30 lines each with no design docs but the same problem set. The verse asks the calibration committee to weight Engineer B's pattern as evidence of rising kauśalam, not lower contribution.",
+  "verdict_reason": "The verse is roadmap-actionable through its diagnostic: artifact-density-over-time is a measurable, falsifiable signal that maps to a real PM concern (senior-engineer evaluation). The 'first-principles' and 'shipping-discipline' tags are correctly assigned. The implication field gives the audit instrument explicitly. Pass."
+}

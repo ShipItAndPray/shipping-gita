@@ -1,0 +1,236 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.52",
+  "sanskrit_devanagari": "यदा ते मोहकलिलं बुद्धिर्व्यतितरिष्यति ।\nतदा गन्तासि निर्वेदं श्रोतव्यस्य श्रुतस्य च ॥ ५२ ॥",
+  "sanskrit_iast": "yadā te moha-kalilaṁ buddhir vyatitariṣyati |\ntadā gantāsi nirvedaṁ śrotavyasya śrutasya ca || 52 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यदा",
+      "iast": "yadā",
+      "meaning": "when"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "मोह",
+      "iast": "moha",
+      "meaning": "delusion (in compound moha-kalilam)"
+    },
+    {
+      "sanskrit": "कलिलम्",
+      "iast": "kalilam",
+      "meaning": "thicket / impenetrable mass / dense forest (in compound moha-kalilam: 'thicket of delusion')"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "discriminating intelligence"
+    },
+    {
+      "sanskrit": "व्यतितरिष्यति",
+      "iast": "vyatitariṣyati",
+      "meaning": "shall cross over / shall transcend"
+    },
+    {
+      "sanskrit": "तदा",
+      "iast": "tadā",
+      "meaning": "then / at that time"
+    },
+    {
+      "sanskrit": "गन्तासि",
+      "iast": "gantāsi",
+      "meaning": "you shall come to / you will become"
+    },
+    {
+      "sanskrit": "निर्वेदम्",
+      "iast": "nirvedam",
+      "meaning": "indifference / dispassion / disinclination"
+    },
+    {
+      "sanskrit": "श्रोतव्यस्य",
+      "iast": "śrotavyasya",
+      "meaning": "of what is to be heard"
+    },
+    {
+      "sanskrit": "श्रुतस्य",
+      "iast": "śrutasya",
+      "meaning": "of what has been heard"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/52/",
+      "fetched_at": "2026-04-29T19:53:50Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When your intelligence has passed out of the dense forest of delusion, you shall become indifferent to all that has been heard and all that is to be heard.",
+      "raw_capture_path": "data/sources/raw/bg-2-52-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/52",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When your intellect crosses the quagmire of delusion, you will then acquire indifference to what has been heard and what is yet to be heard (about enjoyments in this world and the next)."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/52/",
+      "fetched_at": "2026-04-29T19:53:50Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1938-char full purport)",
+      "verbatim_excerpt": "There are many good examples in the lives of the great devotees of the Lord of those who became indifferent to the rituals of the Vedas simply by devotional service to the Lord. When a person factually understands Kṛṣṇa and his relationship with Kṛṣṇa, he naturally becomes completely indifferent to the rituals of fruitive activities.",
+      "verbatim_excerpt_length": 339,
+      "verbatim_full_length": 1938,
+      "raw_full_path": "data/sources/raw/bg-2-52-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-52/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.52 Yada, when, at the time when; te, your; buddhih, mind; vyatitarisyati, will go beyond, cross over; moha-kalilam, the turbidity of delusion, the dirt in the form of delusion, in the form of non-discrimination, which, after confounding one's understanding about the distinction between the Self and the not-Self, impels the mind towards objects — that is to say, when your mind will attain the state of purity; tada, then, at that time; gantasi, you will acquire; nirvedam, a feeling of disregard for the things heard and yet to be heard.",
+      "verbatim_excerpt_length": 542,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-52-bgus.json",
+      "summary_paraphrase": "Shankara reads moha-kalilam tightly: turbidity-of-delusion in the form of NON-DISCRIMINATION (aviveka) which, after confounding the Self/not-Self distinction, impels the mind towards objects. Crossing this thicket = the mind attains purity (sattva-suddhi). Once purified, the practitioner naturally develops nirveda — a feeling of disregard for the diverse Vedic ends (rituals promising heavenly rewards, etc.) that they have already heard about (śrutasya) and that they may yet hear about (śrotavyasya). The verse names a specific stage in the buddhi-yoga maturation: when discriminating intelligence has crossed the delusion-thicket, the practitioner is no longer captured by the next promised end."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-52/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.52 If you act in this manner and get freed from impurities, your intellect will pass beyond the tangle of delusion. The dense impurity of sin is the nature of that delusion which generates attachment to infinitesimal results, of which you have already heard much from us and will hear more later on. You will then immediately feel, of your own accord, renunciation or feeling of disgust for them all.",
+      "verbatim_excerpt_length": 405,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-52-bgus.json",
+      "summary_paraphrase": "Ramanuja reads moha-kalilam as the dense impurity of sin (pāpa) that generates attachment to alpa-phala (infinitesimal results) — the worldly rewards taught in kāmya-karma sections of the Veda. Crossing the thicket = the intellect passes beyond this tangle. The result is nirveda — a spontaneous renunciation or feeling of disgust for those small results, both those already heard and those yet to be taught. Ramanuja's reading is consistent with Shankara's at the structural level: the verse names a stage of maturation in which the practitioner is no longer captured by the promised-end-pipeline of phala-driven teaching."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "moha-kalilam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the dense forest of delusion"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the quagmire of delusion"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the turbidity of delusion / dirt in the form of delusion / non-discrimination (aviveka) impelling the mind toward objects"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "the tangle of delusion / dense impurity of sin (pāpa) generating attachment to infinitesimal results"
+        }
+      ],
+      "explanation": "kalilam carries a cluster of senses: 'thicket', 'dense mass', 'impenetrable forest', 'turbid water', 'mud'. The image is of a dense obstruction that the buddhi must cross. Prabhupada and Mukundananda render it spatially (forest, quagmire). Shankara reads it through the Advaita lens as aviveka (non-discrimination between Self and not-Self) — a cognitive obstruction. Ramanuja reads it as the impurity of sin generating attachment to small results — an ethical-soteriological obstruction. All four agree on the structural claim: the buddhi crosses something dense, and on the far side comes nirveda — disregard for the chain of promised ends one has heard and would yet hear."
+    },
+    {
+      "word": "nirvedam śrotavyasya śrutasya ca",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "indifferent to all that has been heard and all that is to be heard"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "indifference to what has been heard and what is yet to be heard (about enjoyments in this world and the next)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "disregard for the things heard and yet to be heard — specifically, the diverse Vedic ends (rituals promising heavenly rewards, etc.)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "renunciation or feeling of disgust for the small results (alpa-phala) one has heard much about and will hear more about later"
+        }
+      ],
+      "explanation": "All four traditions agree that the indifference (nirveda) is scoped to a SPECIFIC class of content: the Vedic teachings about phala (worldly and heavenly rewards), promised ends, ritual chains. NOT generic indifference to all hearing/learning. Shankara is most explicit: nirveda = disregard for the diverse Vedic ends. Ramanuja: disgust for the chain of small-result-promises. Mukundananda makes the scoping explicit in a parenthetical ('about enjoyments in this world and the next'). Engineering layer must preserve this scoping carefully — the verse is NOT teaching disengagement from all new inputs; it is naming the saturation that lets the practitioner hear new architecture-meme proposals (microservices! serverless! AI-everything!) without being captured by them."
+    }
+  ],
+  "literal_meaning": "When your buddhi will cross the thicket of delusion, then you will come to a state of disregard for what is to be heard and what has been heard.",
+  "traditional_meaning": "2.52 names a specific stage in buddhi-yoga maturation. When the buddhi has crossed the thicket of delusion (moha-kalilam) — read by Shankara as aviveka (non-discrimination between Self and not-Self), by Ramanuja as the impurity of sin generating attachment to small results — the practitioner naturally develops nirveda: indifference scoped specifically to the chain of phala-promising teachings, both those already heard (śrutasya) and those yet to be heard (śrotavyasya). The verse is NOT teaching disengagement from all learning. It is naming a saturation-state in which the practitioner is no longer captured by the next promised end. All traditions read this as a positive maturation, not as cynicism: nirveda here is the natural disinterest of one whose buddhi has matured past the level at which phala-promises operate.",
+  "engineering": {
+    "translation": "The verse names a specific stage in buddhi-yoga maturation: when the buddhi crosses the thicket of delusion (moha-kalilam), the practitioner develops nirveda — disregard — toward the chain of phala-promising teachings, both those already heard and those yet to be heard. The classical commentaries scope this carefully. Shankara reads moha-kalilam as aviveka (non-discrimination) impelling the mind toward objects; Ramanuja reads it as the impurity that generates attachment to small results. Crossing it produces a NATURAL indifference, not cynicism. The engineering reading: the senior who has crossed the thicket can hear new architecture proposals — microservices, serverless, event-driven, AI-everything, the next vector-database religion — without being captured by any. Each new framework arrives in her inbox as another chain of promised results, structurally identical to the last fifteen. She listens carefully, evaluates, sometimes adopts. What does not happen is the older pattern: the breathless reorganisation of next quarter's roadmap around the new meme. She has crossed.",
+    "concrete_scenario": "An engineering blog post lands at 7am. 'Why we migrated all our services to event-sourced CQRS on Kafka and our latency dropped 80%.' Three years ago this same engineer would have spent two evenings reading the post, pinged the staff channel on Slack with 'we should consider this', commissioned a design doc on Notion exploring the pattern, and felt mildly anxious for a week that her team was technically behind for not running event-sourced anything. Today she reads the post. She maps the architecture against the actual constraints of her own system. She notices the post's company has a 50:1 read:write ratio she does not have, an event volume she does not have, and an engineering headcount she does not have. The architecture is clean, the latency win is real, and the pattern does not apply to her. She files the post in her notes for reference, sends a two-line summary to her tech lead, returns to the GitHub PR queue. Her week does not bend. The next week another post lands — 'We replaced Postgres with FoundationDB and our throughput tripled' — and she does the same thing. The verse calls this nirveda: not cynicism, not disengagement, not 'old engineer who has stopped learning'. Saturation that lets new claims be heard without being captured by them. She has crossed the moha-kalilam — the thicket where each new architecture meme felt like the next promised end she had to chase.",
+    "falsifiability": "The analog fails if a reader reads nirveda as 'stop reading engineering content' or 'dismiss new architectures as fads'. The verse is not teaching disengagement from learning. The senior in the example DOES read the post; she DOES evaluate the architecture; she DOES sometimes adopt new patterns. What is absent is the capture. An engineer who concludes from this verse that they should stop reading conference talks, stop trying new tools, or develop a default-no policy on new frameworks has confused nirveda with reflexive contrarianism. The diagnostic: across six months, did the engineer adopt at least one new tool or pattern after careful evaluation? If no, what looks like nirveda is actually ossification.",
+    "counter_example": "When a new framework or architecture is genuinely required — the company's traffic 10x'd and the current Postgres setup is now a bottleneck, the team's current observability stack cannot answer the question the new product needs answered, the migration to a new auth provider is a hard deadline — the verse does not require the senior to remain unmoved. The thicket the verse names is the obligatory chase of EVERY new meme; it does not name the senior who carefully adopts the right new pattern at the right time. Buddhi reads the situation; the kṛpaṇa (verse 2.49) is captured by the new claim regardless of whether it fits.",
+    "implication": "Across the past quarter, count the architecture proposals that landed on your team and produced a roadmap reorganisation. Subtract those where the situation genuinely required the change. The remainder is the moha-kalilam still active in the team's decision-making. The verse names the state in which that remainder approaches zero.",
+    "quotable_line": "Each new framework arrives in her inbox as another chain of promised results, structurally identical to the last fifteen. She has crossed.",
+    "tags": [
+      "first-principles",
+      "judgment-under-uncertainty",
+      "essence-vs-implementation",
+      "scope-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

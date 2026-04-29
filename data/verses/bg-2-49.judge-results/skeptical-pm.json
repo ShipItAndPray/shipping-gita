@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When choosing between two technical projects, prefer the one the system needs over the one your packet needs; the verse's claim is that the substrate from which the choice is made changes the engineering output, not just the engineer's affect.",
+  "example_decision": "A staff engineer at promo cycle picks between (a) the Postgres queue-table migration that has been blocking on-call for two months, and (b) a refactor of an internal CLI that will read well to the staff-level review committee. The verse asks her to pick (a). The PM-level translation: in roadmap planning, when two projects are technically similar in scope, weight the one that addresses an actual operational problem over the one that produces a presentation artifact.",
+  "verdict_reason": "The verse is actionable in roadmap discussions because the contrast it names — buddhi-yoga vs phala-hetavaḥ — maps cleanly to a project-selection question PMs face every cycle. The two-engineer scenario gives a concrete heuristic: which migration would you rather the on-call engineer wake up to find written by? The one that fixed the real problem, not the one that read well in a packet. The 'fruits-of-action' tag and the 'judgment-under-uncertainty' tag are correctly assigned; both are roadmap-active concepts. Pass."
+}

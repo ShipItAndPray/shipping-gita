@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.52",
+  "chapter": 2,
+  "verse": 52,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names a specific stage in buddhi-yoga maturation: when the buddhi crosses the thicket of delusion (moha-kalilam), the practitioner develops nirveda — disregard — toward the chain of phala-promising teachings, both those already heard and those yet to be heard. The classical commentaries scope this carefully. Shankara reads moha-kalilam as aviveka (non-discrimination) impelling the mind toward objects; Ramanuja reads it as the impurity that generates attachment to small results. Crossing it produces a NATURAL indifference, not cynicism. The engineering reading: the senior who has crossed the thicket can hear new architecture proposals — microservices, serverless, event-driven, AI-everything, the next vector-database religion — without being captured by any. Each new framework arrives in her inbox as another chain of promised results, structurally identical to the last fifteen. She listens carefully, evaluates, sometimes adopts. What does not happen is the older pattern: the breathless reorganisation of next quarter's roadmap around the new meme. She has crossed.",
+    "concrete_scenario": "An engineering blog post lands at 7am. 'Why we migrated all our services to event-sourced CQRS on Kafka and our latency dropped 80%.' Three years ago this same engineer would have spent two evenings reading the post, pinged the staff channel on Slack with 'we should consider this', commissioned a design doc on Notion exploring the pattern, and felt mildly anxious for a week that her team was technically behind for not running event-sourced anything. Today she reads the post. She maps the architecture against the actual constraints of her own system. She notices the post's company has a 50:1 read:write ratio she does not have, an event volume she does not have, and an engineering headcount she does not have. The architecture is clean, the latency win is real, and the pattern does not apply to her. She files the post in her notes for reference, sends a two-line summary to her tech lead, returns to the GitHub PR queue. Her week does not bend. The next week another post lands — 'We replaced Postgres with FoundationDB and our throughput tripled' — and she does the same thing. The verse calls this nirveda: not cynicism, not disengagement, not 'old engineer who has stopped learning'. Saturation that lets new claims be heard without being captured by them. She has crossed the moha-kalilam — the thicket where each new architecture meme felt like the next promised end she had to chase.",
+    "falsifiability": "The analog fails if a reader reads nirveda as 'stop reading engineering content' or 'dismiss new architectures as fads'. The verse is not teaching disengagement from learning. The senior in the example DOES read the post; she DOES evaluate the architecture; she DOES sometimes adopt new patterns. What is absent is the capture. An engineer who concludes from this verse that they should stop reading conference talks, stop trying new tools, or develop a default-no policy on new frameworks has confused nirveda with reflexive contrarianism. The diagnostic: across six months, did the engineer adopt at least one new tool or pattern after careful evaluation? If no, what looks like nirveda is actually ossification.",
+    "counter_example": "When a new framework or architecture is genuinely required — the company's traffic 10x'd and the current Postgres setup is now a bottleneck, the team's current observability stack cannot answer the question the new product needs answered, the migration to a new auth provider is a hard deadline — the verse does not require the senior to remain unmoved. The thicket the verse names is the obligatory chase of EVERY new meme; it does not name the senior who carefully adopts the right new pattern at the right time. Buddhi reads the situation; the kṛpaṇa (verse 2.49) is captured by the new claim regardless of whether it fits.",
+    "implication": "Across the past quarter, count the architecture proposals that landed on your team and produced a roadmap reorganisation. Subtract those where the situation genuinely required the change. The remainder is the moha-kalilam still active in the team's decision-making. The verse names the state in which that remainder approaches zero.",
+    "quotable_line": "Each new framework arrives in her inbox as another chain of promised results, structurally identical to the last fifteen. She has crossed.",
+    "tags": ["first-principles", "judgment-under-uncertainty", "essence-vs-implementation", "scope-discipline"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:35:00Z",
+      "mutation": "v0 generation: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition (Bhg_02.052). Engineering layer anchored on the verse's scoped indifference: nirveda is NOT generic disengagement; it is disregard scoped specifically to the phala-promising chain of teachings. Concrete scenario: senior reads new architecture meme posts (event-sourced CQRS on Kafka, FoundationDB) and evaluates against actual constraints without bending the team's roadmap around each. Counter-example carves out genuine architectural pivots (10x traffic, observability gap, auth deadline). Falsifiability handles the misreading 'stop learning'. Named tools: Kafka, Postgres, Slack, Notion, GitHub, FoundationDB. Tags: first-principles, judgment-under-uncertainty, essence-vs-implementation, scope-discipline.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,19 @@
+{
+  "top_candidates": [
+    {
+      "verse_id": "BG 2.50",
+      "confidence": 0.92,
+      "reasoning": "Three verse-specific markers in the engineering layer: (1) the definitional 'yogaḥ karmasu kauśalam — yoga is skillfulness in action' is named explicitly and the Sanskrit phrase appears verbatim; (2) the 'sheds BOTH good and bad accumulation' claim with the explicit 'praise-attached action binds as much as fear-driven action' insight is 2.50-specific (ubhe sukṛta-duṣkṛte); (3) the artifact-density diagnostic ('the buddhi behind the action is heavy; the action itself becomes light') maps the kauśalam-as-skill anchor onto a measurable engineering signal. No other verse offers this triad."
+    },
+    {
+      "verse_id": "BG 2.48",
+      "confidence": 0.04,
+      "reasoning": "Adjacent definitional verse (yoga = samatvam). Shares the operator-state theme. But 2.48's signature is samatvam (operator does not move with siddhy-asiddhyoḥ); 2.50's is kauśalam (skill expressed in action). The Postgres-regression-fix scenario exercises kauśalam, not the operator-state-equanimity 2.48 names."
+    },
+    {
+      "verse_id": "BG 4.18",
+      "confidence": 0.02,
+      "reasoning": "BG 4.18 ('one who sees inaction in action and action in inaction is intelligent among humans, a yogin') extends the 2.50 kauśalam theme. Distant possibility ranked third — the analog's surface markers are 2.50's, not 4.18's."
+    }
+  ]
+}

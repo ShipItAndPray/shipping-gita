@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "freed from janma-bandha — the bondage of birth-and-rebirth — and reach padam anāmayam, the state beyond affliction",
+      "objection": "Lexically clean and accurate. janma-bandha is rendered as 'bondage of birth-and-rebirth' (preserving the saṁsāric scope); padam anāmayam is rendered as 'state beyond affliction' (a-nā-maya = without affliction/disease). The engineering layer immediately flags 'STRETCHED in scope' and explicitly disclaims that 'Krishna is not promising fewer bad rollouts; he is naming saṁsāric release'. This honors the verse's metaphysical floor without distorting it. One minor flag: the manīṣiṇaḥ ('the wise / those endowed with intellect') is dropped from the engineering body in favor of 'those joined to buddhi'. Lexically defensible — manīṣiṇaḥ shares roots with manas/manīṣā (intellectual capacity), and the verse's structure reads buddhi-yuktāḥ ... manīṣiṇaḥ as parallel descriptors of the same actor. Engineering layer simplifies, but does not distort."
+    }
+  ],
+  "notes": "The engineering layer's STRETCHED tagging and MEDIUM confidence are the right calibration for this verse. The metaphysical claim (release from saṁsāra) is honored as the verse's primary meaning; the operational reflection (release from a specific kind of grasping-friction) is offered as a small, valid analog rather than as the verse's terminal meaning. The substrate-vs-affect distinction is doctrinally clean — it preserves the structural binding-by-causality that all four traditions affirm, without claiming the operator achieves mokṣa. The cross-reference to BG 5.10 (lotus-leaf imagery) correctly defers the elaborated reading to chapter 5. Pass."
+}

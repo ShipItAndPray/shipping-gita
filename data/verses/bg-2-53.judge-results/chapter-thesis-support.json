@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "anchored_threads": [
+    {
+      "thread": "karma-yoga / disciplined action (2.31-2.53)",
+      "explanation": "2.53 is the closing verse of the karma-yoga thread. The engineering layer correctly stays anchored on this thread while explicitly foreshadowing the sthita-prajña thread that begins at 2.54. The chapter brief names karma-yoga as 'shipping discipline... how to run code without grasping at outcomes'; 2.53 names the closing condition under which that discipline matures into recognisable sthita-prajña, and the engineering analog handles this transition cleanly."
+    }
+  ],
+  "ordering": "2.53 is the LAST verse of the karma-yoga block (2.31-2.53) and the verse that pivots into the sthita-prajña block (2.54-2.72). The engineering analog's 'the next twenty verses describe what such an operator looks like in practice' explicitly tees up the chapter transition. The structural arc is now closed at the karma-yoga side and open at the sthita-prajña side. Ordering is structurally correct.",
+  "verdict_reason": "Strongly supports chapter thesis. The pivot character is the chapter's most architecturally important transition, and the engineering layer handles it without leaking sthita-prajña content into karma-yoga territory. Pass."
+}

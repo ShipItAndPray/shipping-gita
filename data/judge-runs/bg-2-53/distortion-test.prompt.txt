@@ -1,0 +1,237 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.53",
+  "sanskrit_devanagari": "श्रुतिविप्रतिपन्ना ते यदा स्थास्यति निश्चला ।\nसमाधावचला बुद्धिस्तदा योगमवाप्स्यसि ॥ ५३ ॥",
+  "sanskrit_iast": "śruti-vipratipannā te yadā sthāsyati niścalā |\nsamādhāv acalā buddhis tadā yogam avāpsyasi || 53 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्रुति",
+      "iast": "śruti",
+      "meaning": "Vedic revelation / scripture / hearing (in compound śruti-vipratipannā)"
+    },
+    {
+      "sanskrit": "विप्रतिपन्ना",
+      "iast": "vipratipannā",
+      "meaning": "perplexed / confused / tossed about (in compound śruti-vipratipannā: 'perplexed by the diverse Vedic teachings')"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "यदा",
+      "iast": "yadā",
+      "meaning": "when"
+    },
+    {
+      "sanskrit": "स्थास्यति",
+      "iast": "sthāsyati",
+      "meaning": "will stand / will remain"
+    },
+    {
+      "sanskrit": "निश्चला",
+      "iast": "niścalā",
+      "meaning": "unmoving / steady (feminine)"
+    },
+    {
+      "sanskrit": "समाधौ",
+      "iast": "samādhau",
+      "meaning": "in samādhi (locative; in deep concentration / absorption)"
+    },
+    {
+      "sanskrit": "अचला",
+      "iast": "acalā",
+      "meaning": "unwavering / unshakable (feminine)"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "discriminating intelligence"
+    },
+    {
+      "sanskrit": "तदा",
+      "iast": "tadā",
+      "meaning": "then / at that time"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga (accusative; the state of yoga)"
+    },
+    {
+      "sanskrit": "अवाप्स्यसि",
+      "iast": "avāpsyasi",
+      "meaning": "you shall attain"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/53/",
+      "fetched_at": "2026-04-29T19:53:52Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When your mind is no longer disturbed by the flowery language of the Vedas, and when it remains fixed in the trance of self-realization, then you will have attained the divine consciousness.",
+      "raw_capture_path": "data/sources/raw/bg-2-53-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/53",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When your intellect ceases to be allured by the fruitive sections of the Vedas and remains steadfast in divine consciousness, you will then attain the state of perfect Yog."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/53/",
+      "fetched_at": "2026-04-29T19:53:52Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 876-char full purport)",
+      "verbatim_excerpt": "To say that one is in samādhi is to say that one has fully realized Kṛṣṇa consciousness; that is, one in full samādhi has realized Brahman, Paramātmā and Bhagavān. The highest perfection of self-realization is to understand that one is eternally the servitor of Kṛṣṇa and that one's only business is to discharge one's duty.",
+      "verbatim_excerpt_length": 333,
+      "verbatim_full_length": 876,
+      "raw_full_path": "data/sources/raw/bg-2-53-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-53/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.53 Yada, when, at the time when; te, your; buddhih, mind; that has become sruti-vipratipanna, bewildered, tossed about, by hearing (the Vedas) that reveal the diverse ends, means, and (their) relationship, i.e. are filled with divergent ideas; sthasyati, will become; niscala, unshakable, free from the trubulence in the form of distractions; and acala, steadfast, that is to say, free from doubt even in that (unshakable) state; samadhau, in samadhi — that is to say, in the Self.",
+      "verbatim_excerpt_length": 489,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-53-bgus.json",
+      "summary_paraphrase": "Shankara reads śruti-vipratipanna as 'tossed about by the Vedas that reveal diverse ends, means, and relationships' — i.e., the buddhi that is currently being pulled in many directions by the divergent teachings of the karma-kāṇḍa (some promise heaven, some promise sons, some promise wealth). The verse names the closing condition: when this same buddhi will stand niścalā (unshakable, free from the turbulence of distractions) and acalā (steadfast, free from doubt even in the unshakable state) IN SAMĀDHI — that is, in the Self — THEN you will attain yoga. Two qualifiers (niścalā and acalā) are not redundant: niścalā = no longer pulled in many directions by external claims; acalā = not even internally doubting once it has stopped moving. samādhau = locative, in samādhi — Shankara glosses as 'in the Self', the Advaita reading of samādhi as ātma-pratiṣṭhā. The verse closes the karma-yoga argument: this is the state in which yoga is attained."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-53/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.53 Here 'Sruti' means hearing (and not the Veda). When your intellect, which, by hearing from us, has become specially enlightened, having for its object the eternal, unsurpassed and subtle self — which belongs to a class different from all other entities —, then the intellect is firmly fixed, i.e., in a single psychosis and stands unshaken.",
+      "verbatim_excerpt_length": 343,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-53-bgus.json",
+      "summary_paraphrase": "Ramanuja makes a striking lexical move: 'śruti' here means HEARING (the act of hearing the teaching from Krishna), NOT the Veda. The intellect that has become specially enlightened by hearing-from-us, having the eternal subtle Self as its object, stands firmly fixed in a single psychosis (eka-vṛtti) and unshaken. The reading scopes the verse as the closing condition for ATTAINING yoga (yogam avāpsyasi): the buddhi, taught and stabilised, becomes the precondition for yoga proper. Where Shankara reads samādhi as 'in the Self', Ramanuja reads it as the single-pointed concentration on the Self obtained through Krishna's teaching. The structural claim is shared with Shankara: this verse names the closing condition that makes the next stage (the sthita-prajña of 2.54+) possible. Note: this verse PIVOTS to Arjuna's question at 2.54 — 'how does one of steady wisdom speak / sit / walk?' — which begins the sthita-prajña block."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "śruti-vipratipannā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "(no longer) disturbed by the flowery language of the Vedas"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "(ceases to be) allured by the fruitive sections of the Vedas"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "bewildered / tossed about by hearing the Vedas that reveal diverse ends, means, and their relationship"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "'śruti' means hearing (the act of hearing from us), NOT the Veda; the buddhi that has become specially enlightened by such hearing"
+        }
+      ],
+      "explanation": "The most striking commentarial divergence on this verse. Prabhupada, Mukundananda, and Shankara all read śruti as 'Veda' (specifically the kāmya-karma sections that promise diverse ends): the buddhi was previously tossed about (vipratipanna) by these divergent teachings; the verse names the closing of that turbulence. Ramanuja reads śruti differently — as the act of HEARING (śravaṇa), specifically Krishna's teaching that has been delivered up through 2.53. On Ramanuja's reading, vipratipanna is not 'perplexed' but 'specially convinced/enlightened by hearing'. Both readings are consistent with the verse's structural claim — the closing condition for attaining yoga — but they differ on whether the buddhi is being released from one source (Veda's diversity) or grounded in another (Krishna's teaching). Engineering layer should note this as the verse's explicit pivot point: doctrinally, the buddhi is being settled; whether that settling is via release-from-divergence (Shankara) or grounding-in-instruction (Ramanuja) is the open commentarial question."
+    },
+    {
+      "word": "samādhau acalā buddhiḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "remains fixed in the trance of self-realization"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "remains steadfast in divine consciousness"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "in samādhi — that is, in the Self; buddhi acalā = steadfast, free from doubt even in the unshakable state"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "the intellect firmly fixed in a single psychosis (eka-vṛtti) and unshaken"
+        }
+      ],
+      "explanation": "The two qualifiers — niścalā (unmoving) and acalā (unwavering) — are not redundant in classical commentary. Shankara distinguishes them: niścalā = no longer pulled by external distractions; acalā = no longer doubting even after the external pulls have stopped. Ramanuja folds them into a 'single psychosis' (eka-vṛtti) — concentration so complete that no second mental movement arises. The verse's grammatical structure puts buddhiḥ as subject and samādhau as locative: when YOUR BUDDHI, niścalā in samādhi, will stand acalā, THEN you will attain yoga. The verse therefore names a layered closing condition: a buddhi that is (a) no longer perplexed by the diverse teachings, (b) unmoving when in samādhi, and (c) unwavering once unmoving. yogam avāpsyasi is the consequence: yoga is attained at this layered condition."
+    }
+  ],
+  "literal_meaning": "When your buddhi, perplexed by the Vedic teachings, will stand unmoving and unwavering in samādhi, then you will attain yoga.",
+  "traditional_meaning": "2.53 closes the karma-yoga argument that began at 2.39 by naming the layered closing condition for attaining yoga. The buddhi that was previously perplexed by śruti — read by Shankara as the divergent teachings of the karma-kāṇḍa, by Ramanuja as the act of hearing Krishna's instruction — must reach a state where it stands niścalā (unmoving, no longer pulled by distractions) and acalā (unwavering, no longer doubting once unmoving) in samādhi. THEN yoga is attained. This verse PIVOTS the chapter. It closes the buddhi-yoga sequence (2.49-2.53) and sets up Arjuna's immediate question at 2.54: 'How does such a person — one of steady wisdom, situated in samādhi — speak? How do they sit? How do they walk?' The sthita-prajña block (2.54-2.72) answers that question. The engineering layer must preserve the closing-condition framing AND foreshadow the recognisable settled state of the operator who has attained it.",
+  "engineering": {
+    "translation": "This shloka closes the karma-yoga argument and pivots the chapter. The buddhi that was previously perplexed by the divergent teachings of the Veda — Shankara's reading — must come to stand niścalā (unmoving when in samādhi) and acalā (unwavering once unmoving). When that layered condition is met, yoga is attained. The verse is grammatically forward-looking: tadā yogam avāpsyasi — THEN you will attain yoga. It is also the explicit setup for Arjuna's question at 2.54 ('how does such a person speak, sit, walk?') which begins the sthita-prajña block. The engineering reading: the operator whose decision-making no longer oscillates with each new framework release has met the closing condition. Across one quarter, three new architecture proposals land; her judgment does not move with the last one she heard. Her buddhi is niścalā — not pulled by external claims — and acalā — not internally re-litigating once the pulls have been resisted. The next twenty verses describe what such an operator looks like in practice.",
+    "concrete_scenario": "A staff engineer ten years in. Across the last quarter her team has fielded three architecture proposals, each from a credible engineer. First: 'we should move to a service mesh; Istio gives us mTLS and observability for free.' Second: 'we should rewrite the auth layer in Rust for memory safety.' Third: 'we should adopt a vector database for the AI feature pipeline; pgvector won't scale.' Three years ago each would have produced a multi-week roadmap perturbation: a design doc on Notion, two architecture review meetings, a Slack thread pulling the team's focus for a week. This quarter, each proposal is met with the same shape. She reads it. She maps the claim against actual constraints — current Kubernetes complexity, current Postgres footprint, current AI feature volume. She replies in two paragraphs: here is what would be true if we adopted this; here is the cost; here is the trigger that would make us reconsider. The team's sprint plan does not bend. None are adopted this quarter; one is filed for re-evaluation when the AI pipeline crosses a measurable threshold. The verse names this as the closing condition for attaining yoga. What 2.54 onwards describes — how the sthita-prajña speaks, sits, walks — the next twenty verses begin to spell out, and her two-paragraph replies, her unbent sprint plan, her trigger-based re-evaluation calendar are the operational shape of the buddhi that stood niścalā and acalā.",
+    "falsifiability": "The analog fails if a reader reads niścalā and acalā as 'rigid' or 'closed to change'. The verse is naming a settled state, not a defended one. The senior in the example DOES evaluate each proposal carefully and DOES reserve one for re-evaluation under a measurable trigger. What is absent is the perturbation. An engineer who concludes from this verse that they should pre-commit to never adopting new architectures has confused the settled buddhi with a defensive crouch. The diagnostic: when a new framework or pattern crosses an actual decision threshold (real constraint, real measurement), does the engineer adopt it cleanly? If yes, the buddhi is settled. If no, what looks like steadiness is reflexive contrarianism.",
+    "counter_example": "When a genuine architectural pivot is required — the Postgres setup is no longer scalable, the auth provider has announced end-of-life, the AI pipeline has crossed the threshold she set — the verse does not require the engineer to remain unmoved. niścalā is unmoving with respect to the noise of divergent claims (śruti-vipratipannā), not with respect to actual situational change. The buddhi the verse names reads situational change accurately and adopts the necessary pivot; it does not bend with each unrelated proposal.",
+    "implication": "Count the architecture proposals that crossed your team last quarter versus those that produced actual roadmap change. Subtract those where situational reality required the change. The remainder is how much the team's buddhi is still pulled by śruti-vipratipannā.",
+    "quotable_line": "Three architecture proposals landed; the sprint plan did not bend. That is the closing condition the verse names.",
+    "tags": [
+      "first-principles",
+      "judgment-under-uncertainty",
+      "scope-discipline",
+      "roadmap-conviction"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

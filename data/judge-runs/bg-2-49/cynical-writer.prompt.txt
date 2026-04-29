@@ -1,0 +1,241 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.49",
+  "sanskrit_devanagari": "दूरेण ह्यवरं कर्म बुद्धियोगाद्धनञ्जय ।\nबुद्धौ शरणमन्विच्छ कृपणाः फलहेतवः ॥ ४९ ॥",
+  "sanskrit_iast": "dūreṇa hy avaraṁ karma buddhi-yogād dhanañ-jaya |\nbuddhau śaraṇam anviccha kṛpaṇāḥ phala-hetavaḥ || 49 ||",
+  "anvaya": [
+    {
+      "sanskrit": "दूरेण",
+      "iast": "dūreṇa",
+      "meaning": "by far / at a long distance"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed / certainly"
+    },
+    {
+      "sanskrit": "अवरम्",
+      "iast": "avaram",
+      "meaning": "inferior / lower"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action / fruitive activity"
+    },
+    {
+      "sanskrit": "बुद्धि",
+      "iast": "buddhi",
+      "meaning": "discriminating intelligence (in compound buddhi-yogāt)"
+    },
+    {
+      "sanskrit": "योगात्",
+      "iast": "yogāt",
+      "meaning": "from yoga (in compound buddhi-yogāt: from the yoga of discriminating intelligence)"
+    },
+    {
+      "sanskrit": "धनञ्",
+      "iast": "dhanañ",
+      "meaning": "wealth (in compound dhanañ-jaya)"
+    },
+    {
+      "sanskrit": "जय",
+      "iast": "jaya",
+      "meaning": "winner (in compound dhanañ-jaya: 'O conqueror of wealth, Arjuna')"
+    },
+    {
+      "sanskrit": "बुद्धौ",
+      "iast": "buddhau",
+      "meaning": "in (such) intelligence / in buddhi"
+    },
+    {
+      "sanskrit": "शरणम्",
+      "iast": "śaraṇam",
+      "meaning": "refuge / shelter"
+    },
+    {
+      "sanskrit": "अन्विच्छ",
+      "iast": "anviccha",
+      "meaning": "seek / take resort to"
+    },
+    {
+      "sanskrit": "कृपणाः",
+      "iast": "kṛpaṇāḥ",
+      "meaning": "pitiable / miserly"
+    },
+    {
+      "sanskrit": "फल",
+      "iast": "phala",
+      "meaning": "fruit (in compound phala-hetavaḥ)"
+    },
+    {
+      "sanskrit": "हेतवः",
+      "iast": "hetavaḥ",
+      "meaning": "those whose cause-or-motive is (in compound phala-hetavaḥ: 'those motivated by fruits')"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/49/",
+      "fetched_at": "2026-04-29T19:53:45Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Dhanañjaya, keep all abominable activities far distant by devotional service, and in that consciousness surrender unto the Lord. Those who want to enjoy the fruits of their work are misers.",
+      "raw_capture_path": "data/sources/raw/bg-2-49-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/49",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Seek refuge in divine knowledge and insight, O Arjun, and discard reward-seeking actions that are certainly inferior to works performed with the intellect established in divine knowledge. Miserly are those who seek to enjoy the fruits of their works."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/49/",
+      "fetched_at": "2026-04-29T19:53:45Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, 248 chars of 1022-char full purport)",
+      "verbatim_excerpt": "One who has actually come to understand one's constitutional position as an eternal servitor of the Lord gives up all engagements save working in Kṛṣṇa consciousness. As already explained, buddhi-yoga means transcendental loving service to the Lord.",
+      "verbatim_full_length": 1022,
+      "raw_full_path": "data/sources/raw/bg-2-49-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-49/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.49 Then again, O Dhananjaya, as against action performed with equanimity of mind for adoring God, karma, action undertaken by one longing for the results; is, hi, indeed; durena, quite, by far; avaram, inferior, very remote; buddhi-yogat, from the yoga of wisdom, from actions undertaken with equanimity of mind, because it (the former) is the cause of birth, death, etc.",
+      "verbatim_excerpt_length": 372,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-49-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as an explicit ranking. Karma performed with longing for fruits (phala-tṛṣṇā) is far inferior (dūreṇa avaram) to action performed from the yoga of equanimity (buddhi-yogāt). The reason: fruit-driven action is the cause of birth-death-etc; equanimous action is not. Therefore (atah) take refuge in buddhi — the wisdom of equanimity that arises from yoga and matures into the conviction about Reality. Those who are 'phala-hetavaḥ' (motivated by fruits) are kṛpaṇāḥ (pitiable, miserly) because they continue to bind themselves through their own causality. The verse is harsh on fruit-motivated action; Shankara does not soften this."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-49/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.49 All other kinds of action are far inferior to those done with evenness of mind, which consists in the renunciation of the main result and with equanimity towards success or failure in respect of the secondary results. The former associated with equanimity removes all the sufferings of Samsara and leads to release.",
+      "verbatim_excerpt_length": 322,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-49-bgus.json",
+      "summary_paraphrase": "Ramanuja reads buddhi-yoga as evenness of mind that consists in (a) renouncing the main result and (b) holding equanimity toward success or failure in secondary results. The contrast is sharp: fruit-attached action leads to saṁsāra (endless suffering); buddhi-yoga removes those sufferings and leads to release. The injunction 'buddhau śaraṇam anviccha' is read as 'live in (take refuge as one's abode in) buddhi'. 'Kṛpaṇāḥ phala-hetavaḥ' = miserable are those who act with a motive for results; the misery is structural, not moralistic — it is the consequence of being bound to outcomes one does not control."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "buddhi-yogāt",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "on the strength of Kṛṣṇa consciousness / devotional service"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the intellect established in divine knowledge / divine knowledge and insight"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the yoga of wisdom / actions undertaken with equanimity of mind"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "evenness of mind, consisting in renunciation of the main result and equanimity toward secondary results"
+        }
+      ],
+      "explanation": "The compound buddhi-yoga is the doctrinal hinge of the verse, and the four traditions render it differently while preserving compatibility. Shankara reads it as jñāna-mature equanimity: the discriminating intelligence operating with samatvam. Ramanuja reads it as an operational discipline of result-renunciation. Prabhupada folds it into the bhakti frame as 'devotional service' (the Lord becomes the object of buddhi). Mukundananda renders it as 'intellect established in divine knowledge' — modern-devotional middle ground. The classical commentators disagree on emphasis but agree on the structural claim: action from buddhi-yoga > action driven by phala. This is what makes 2.49 the verse that ranks the two."
+    },
+    {
+      "word": "kṛpaṇāḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "misers"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "miserly"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "those who thirst for rewards (phala-tṛṣṇā)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "miserable / those who act with a motive for results"
+        }
+      ],
+      "explanation": "Kṛpaṇa carries two senses in classical Sanskrit: 'pitiable / miserable' and 'miserly / niggardly'. Shankara emphasises the sense of being trapped by phala-tṛṣṇā (thirst for fruits) — the kṛpaṇa is constrained by their own grasping. Ramanuja foregrounds the structural misery: those who bind themselves to results they cannot control suffer endlessly. Prabhupada and Mukundananda render it as 'miser', preserving the etymological flavor. The verse is tonally harsh — Krishna is calling fruit-driven actors pitiable. Engineering layers must not soften this."
+    }
+  ],
+  "literal_meaning": "Action is, indeed, far inferior to buddhi-yoga, O Dhanañjaya. Seek refuge in buddhi; pitiable are those whose motive is fruits.",
+  "traditional_meaning": "2.49 explicitly ranks two stances. Fruit-driven action (karma motivated by phala) is dūreṇa avaram — by far inferior — to buddhi-yoga (action issuing from equanimous intelligence). The injunction 'buddhau śaraṇam anviccha' tells Arjuna to take refuge in buddhi, not in karma-as-fruit-engine. The closing tag 'kṛpaṇāḥ phala-hetavaḥ' is harsh: those motivated by fruits are pitiable / miserly — bound by their own causality to outcomes they do not control. Shankara reads buddhi-yoga as jñāna-mature equanimity that ends saṁsāric causation; Ramanuja reads it as result-renunciation that leads to mokṣa; Gaudiya Vaishnava reading folds buddhi-yoga into devotional consciousness whose results belong to the Lord. All traditions preserve the explicit ranking. The verse establishes WHY one would adopt buddhi-yoga (2.48); it justifies the discipline by ranking it above its alternative.",
+  "engineering": {
+    "translation": "The verse ranks two stances explicitly. Fruit-driven action — the deploy aimed at the promo packet, the migration timed to the launch tweet, the refactor written so the staff reviewer will notice — stands far below buddhi-yoga, which is action issuing from discriminating intelligence settled in equanimity. Krishna does not soften the gap; he uses dūreṇa, by a long distance. The positive injunction follows: buddhau śaraṇam anviccha — take refuge in buddhi, the discriminating layer, never in the outcome ledger recording whether each act paid out. The closing tag is harsh. Those whose motive is fruits — phala-hetavaḥ — are kṛpaṇāḥ, pitiable. They are not pitied for failing; they are pitied for binding themselves through their own causality to outcomes they do not govern. The engineering layer must hold the harshness. A senior shipping from buddhi-yoga produces better engineering than an engineer of equal skill shipping for the promotion cycle, and the verse states this as a structural fact, not a preference.",
+    "concrete_scenario": "Two engineers of comparable craft at one company. Engineer A writes the Postgres migration because the queue table has been blocking the on-call rotation for two months and the rollback plan in the runbook is now sound; she opens the GitHub PR, walks the canary plan with the SRE on Slack, watches Datadog through the rollout, files the postmortem on Notion. Engineer B rewrites the same surface area because his packet for the next cycle needs a 'platform-level contribution', and a clean migration in the changelog will read well to the staff-level review committee. Both ship. Both produce green dashboards. The deploy log looks identical. What the verse names is the layer behind that log — not as moral preference but as structural ranking. Engineer B has bound his decision-making to the committee's reaction: he will defer the next migration if it lands awkwardly in his packet, push the next rewrite if it tells better, and find his judgment captured by an outcome surface he cannot fully predict. Engineer A's refuge is in buddhi — the discriminating intelligence asking 'is this the right action for this system' — and her judgment remains unbent across promotion cycles. The verse calls Engineer B's stance kṛpaṇa: not failing, pitiable. His engineering quality oscillates with an outcome ledger outside his control.",
+    "falsifiability": "The analog fails if a reader hears the verse as 'do not look at promotion, do not read your perf review, do not measure outcomes'. That is not the claim. Buddhi includes outcome-reading as evidence; buddhi-yoga is the discipline of acting from buddhi rather than from grasping at outcomes. An engineer who concludes from this verse that they should ignore their own career trajectory has confused refuge-in-buddhi with deliberate self-neglect. The diagnostic: across two promo cycles, does the engineer's technical decision-making oscillate with the committee's last reaction? If yes, they are phala-hetavaḥ in this verse's specific sense, regardless of how detached their self-report sounds.",
+    "counter_example": "When the action genuinely ought to be shaped by an outcome — a customer-facing rollback because the latency curve crossed the SLO threshold, a feature kill because the conversion data does not support it, a hiring no because the candidate's design-doc revealed a gap — the verse does not require the engineer to ignore the outcome signal. Phala-hetavaḥ names the stance of acting in order to produce a self-favoring fruit; it does not name the stance of letting outcomes inform future technical decisions. The two are different and the verse keeps the difference clean. Buddhi reads the dashboard; the kṛpaṇa is captured by it.",
+    "implication": "Audit the motive layer underneath your last three significant technical decisions. Were they shaped by what the system needed, or by what would land cleanly in your next perf packet? The verse asks for the first; it names the second pitiable. Refuge is in the discriminating layer, not in the outcome ledger.",
+    "quotable_line": "The senior who ships from buddhi-yoga is doing better engineering than the engineer of equal skill who ships for the promo cycle.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "shipping-discipline",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

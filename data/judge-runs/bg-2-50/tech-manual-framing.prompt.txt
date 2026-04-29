@@ -1,0 +1,241 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.50",
+  "sanskrit_devanagari": "बुद्धियुक्तो जहातीह उभे सुकृतदुष्कृते ।\nतस्माद्योगाय युज्यस्व योगः कर्मसु कौशलम् ॥ ५० ॥",
+  "sanskrit_iast": "buddhi-yukto jahātīha ubhe sukṛta-duṣkṛte |\ntasmād yogāya yujyasva yogaḥ karmasu kauśalam || 50 ||",
+  "anvaya": [
+    {
+      "sanskrit": "बुद्धि",
+      "iast": "buddhi",
+      "meaning": "discriminating intelligence (in compound buddhi-yuktaḥ)"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "joined / united (in compound buddhi-yuktaḥ: 'one joined to buddhi')"
+    },
+    {
+      "sanskrit": "जहाति",
+      "iast": "jahāti",
+      "meaning": "abandons / sheds"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "here / in this very life"
+    },
+    {
+      "sanskrit": "उभे",
+      "iast": "ubhe",
+      "meaning": "both"
+    },
+    {
+      "sanskrit": "सुकृत",
+      "iast": "sukṛta",
+      "meaning": "good actions / merit (in compound sukṛta-duṣkṛte)"
+    },
+    {
+      "sanskrit": "दुष्कृते",
+      "iast": "duṣkṛte",
+      "meaning": "and bad actions / demerit (in compound sukṛta-duṣkṛte: 'good and bad actions')"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "योगाय",
+      "iast": "yogāya",
+      "meaning": "to yoga (dative; for the sake of yoga)"
+    },
+    {
+      "sanskrit": "युज्यस्व",
+      "iast": "yujyasva",
+      "meaning": "engage / yoke yourself"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "कर्मसु",
+      "iast": "karmasu",
+      "meaning": "in actions"
+    },
+    {
+      "sanskrit": "कौशलम्",
+      "iast": "kauśalam",
+      "meaning": "skillfulness / expertise / craft"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/50/",
+      "fetched_at": "2026-04-29T19:53:46Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A man engaged in devotional service rids himself of both good and bad reactions even in this life. Therefore strive for yoga, which is the art of all work.",
+      "raw_capture_path": "data/sources/raw/bg-2-50-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/50",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who prudently practices the science of work without attachment can get rid of both good and bad reactions in this life itself. Therefore, strive for Yog, which is the art of working skillfully (in proper consciousness)."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/50/",
+      "fetched_at": "2026-04-29T19:53:46Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 514-char full purport)",
+      "verbatim_excerpt": "Since time immemorial each living entity has accumulated the various reactions of his good and bad work. As such, he is continuously ignorant of his real constitutional position. One's ignorance can be removed by the instruction of the Bhagavad-gītā, which teaches one to surrender unto Lord Śrī Kṛṣṇa in all respects.",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 514,
+      "raw_full_path": "data/sources/raw/bg-2-50-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-50/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.50 Buddhi-yuktah, possessed of wisdom, possessed of the wisdom of equanimity; since one jahati, rejects; iha, here, in this world; ubhe, both; sukrta-duskrte, virtue and vice (righteousness and unrighteousness), through the purification of the mind and acquisition of Knowledge; tasmat, therefore; yujyasva, devote yourself; yogaya, to (Karma-) yoga, the wisdom of equanimity. For Yoga is kausalam, skilfulness; karmasu, in action. Skilfulness means the attitude of the skilful, the wisdom of equanimity with regard to one's success and failure while engaged in actions.",
+      "verbatim_excerpt_length": 568,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-50-bgus.json",
+      "summary_paraphrase": "Shankara reads kauśalam as 'skilfulness' explicitly and defines it: 'the attitude of the skilful, the wisdom of equanimity with regard to one's success and failure while engaged in actions.' Yoga = the skilful attitude that converts ordinary action (which would normally bind through sukṛta/duṣkṛte) into action that does not bind. The buddhi-yukta — one joined to discriminating intelligence — sheds both kinds of accumulation HERE (iha), in this very life, through purification of mind and acquisition of Knowledge. The verse is therefore a direct reason-clause for the practice of yoga: yoga is the skill that lets action issue without binding the actor. CRITICAL for engineering layer: kauśalam is SKILL OF ACTING (samatva applied during action), not effort, passion, or presence."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-50/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:54:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.50 He, who is established in evenness of mind in the performance of actions, relinquishes good and evil Karmas which have accumulated from time immemorial causing bondage endlessly. Therefore acquire this aforesaid evenness of mind (Buddhi Yoga). Yoga is skill in action. That is, this evenness of mind when one is engaged in action, is possible through great skill, i.e., ability.",
+      "verbatim_excerpt_length": 388,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-50-bgus.json",
+      "summary_paraphrase": "Ramanuja reads kauśalam as 'skill / ability' — the verse's claim is that maintaining evenness of mind WHILE engaged in action is itself possible only through great skill (mahā-kauśala). Yoga is named as that skill. The buddhi-yukta sheds beginningless accumulation of good and bad karma — those that bind the soul through saṁsāra — and the verse closes with the concise definition: yogaḥ karmasu kauśalam. The doctrinal point Ramanuja foregrounds: this is skill OF ACTION, not skill REPLACING ACTION. The verse rejects renunciation-of-action and rejects unskilful-action; what is praised is skilful-action, where skill = evenness held during the act."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kauśalam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the art of all work"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the art of working skillfully (in proper consciousness)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "skilfulness — the attitude of the skilful, the wisdom of equanimity with regard to success and failure while engaged in actions"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "skill in action — i.e. evenness of mind during action, possible only through great ability"
+        }
+      ],
+      "explanation": "kauśalam is the verse's terminological pivot. Lexically it means 'skill, expertise, craft, dexterity' (from kuśala, 'skilled, fit, well'). Both Shankara and Ramanuja anchor it tightly: skill IS evenness-during-action; not generic effort, not passion, not enthusiasm, not 'doing things mindfully' in a vague sense. The skill named is specifically the kauśalam of holding samatvam (evenness) while performing the act. Modern translations 'art of work' / 'art of working skillfully' preserve this if one reads them strictly as skill-of-acting; the looser readings ('passion-driven action', 'skillful presence', 'flow') drift away from the classical commentary. Engineering layers must preserve kauśalam as SKILL OF ACTING (the senior who does in 30 minutes what others do in two days because they have internalised the principles), not as effort or enthusiasm."
+    },
+    {
+      "word": "ubhe sukṛta-duṣkṛte",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "both good and bad reactions"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "both good and bad reactions"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "virtue and vice (righteousness and unrighteousness) — both are shed through buddhi-yoga"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "good and evil Karmas accumulated from time immemorial, causing endless bondage"
+        }
+      ],
+      "explanation": "All four traditions agree that BOTH sukṛta and duṣkṛte are shed by the buddhi-yukta — not just the bad. This is doctrinally important and counter-intuitive: even good karma binds, because both kinds chain the actor to the result-system. Shankara reads this through the Advaita lens (purification of mind + acquisition of Knowledge releases both); Ramanuja reads it through Vishishtadvaita (devotional renunciation of fruit-attachment releases the soul from bondage). The engineering layer must preserve the surprising claim: shipping for praise binds the senior just as much as shipping for fear-of-blame does. Both are forms of phala-attachment."
+    }
+  ],
+  "literal_meaning": "One joined to buddhi sheds, here in this life, both good and bad action. Therefore engage yourself in yoga; yoga is skillfulness in action.",
+  "traditional_meaning": "2.50 is a definitional verse with a famous closing pāda: yogaḥ karmasu kauśalam — 'yoga is skillfulness in action.' Three doctrinal moves. First: the buddhi-yukta — one joined to discriminating intelligence — sheds both sukṛta (merit) and duṣkṛte (demerit) here (iha), in this very life. The releasing power is buddhi-yoga, not action itself. Second: therefore (tasmāt) engage in yoga (yogāya yujyasva). Third: yoga is named definitionally as kauśalam — skill in action. Both Shankara and Ramanuja anchor kauśalam tightly: the skill named is specifically the skill of holding samatvam (evenness) while performing actions. The verse does NOT say yoga is 'effort', 'passion', 'flow', or 'mindful presence' in the loose modern senses — it says yoga is the SKILL of acting from the settled state. This is one of the most-quoted Gita verses and the one most easily flattened by careless modern translation.",
+  "engineering": {
+    "translation": "The verse names yoga in two words: yogaḥ karmasu kauśalam — yoga is skillfulness in action. Both Shankara and Ramanuja anchor kauśalam tightly: the skill named is specifically the skill of holding samatvam (evenness) while performing the act — not effort, not enthusiasm, not vague mindful presence. The engineering reading: the practitioner who has internalised the principles produces the outcome with less force, fewer rewrites, less ceremony. The senior who fixes the broken queue table in 30 minutes because she has held the schema model in her head for years is closer to this verse than the engineer of equal years who needs four meetings and two design docs. The verse makes a second, harder claim: the buddhi-yukta sheds BOTH good and bad accumulation here in this life. Praise-attached action binds as much as fear-driven action. Both are released by the same skill, which is samatvam expressed in the act.",
+    "concrete_scenario": "A Postgres performance regression has been live for nine days. Two engineers approach it. The senior pulls up Datadog, scans the slow-query log on the read replica, isolates a missing index on a join column, opens GitHub, writes a four-line migration with the CONCURRENTLY clause to avoid a long lock, walks the rollback through the SRE on Slack, ships, and watches p99 fall back to baseline in eleven minutes. The mid-level on the same team would have produced the same fix through a different shape: a three-day investigation, two architecture meetings, a Notion design doc proposing a Redis cache layer, then under deadline pressure converged on the same one-line index. Both repair the system; only one is kauśalam. The verse is not praising speed; it is naming the quality of the action — accurate, uncompensated, issuing from the settled discriminating layer. The senior produced the index because she has held the query-planner model in her head for years; her action is light because the buddhi behind it is heavy. Now the verse's harder claim. The same senior, after this fix, reads the praise on Slack from her tech lead. The verse asks her to shed THAT too. Praise-attached action — the quiet calibration of next month's work toward the things that will get noticed — accumulates as much sukṛta-duṣkṛte coupling as fear-driven action does. The skill named is shedding both while continuing to act.",
+    "falsifiability": "The analog fails if a reader hears 'kauśalam' as 'effort', 'passion', 'flow', or 'just be present in your work.' The verse says skill, classically anchored: skill is the discriminating-evenness expressed in the act. An engineer who concludes from this verse that they should put more emotional energy into their work has misread it. The diagnostic: across two months of similar tasks, does the artifact get tighter (less code for the same effect, less ceremony for the same delivery, fewer rewrites)? If yes, kauśalam is rising. If the engineer is just working harder while producing the same artifact density, the skill named here is not what is increasing.",
+    "counter_example": "When the system is genuinely novel — a Postgres major-version upgrade with new locking semantics, an unfamiliar Kubernetes admission controller, a payment integration with a vendor whose docs are sparse — the verse does not require the senior to ship in 30 minutes. Skill-in-action does not mean speed. It means the quality of action issuing from the settled discriminating layer, which in unfamiliar terrain may correctly produce a long, careful design doc rather than a fast merge. The kauśalam of the senior in novel terrain is to recognise the terrain as novel, not to perform fluency she has not yet earned.",
+    "implication": "Audit your last two sprints for action-density. The senior whose skill is rising produces tighter artifacts — less code per fix, less ceremony per delivery, fewer rewrites per design — without producing more emotional output. The verse's claim is testable: kauśalam shows in the artifact, not the affect.",
+    "quotable_line": "The buddhi behind the action is heavy; the action itself becomes light. That is what this verse calls skill.",
+    "tags": [
+      "essence-vs-implementation",
+      "shipping-discipline",
+      "first-principles",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

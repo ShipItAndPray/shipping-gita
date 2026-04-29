@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "Across promo cycles, an engineer's technical decision-making either oscillates with the committee's last reaction or stays on the engineering merits — and the difference is structural, not moralistic.",
+  "wisdom_theater_score": 2,
+  "notes": "The Engineer A vs Engineer B contrast lands. Both ship; both produce green dashboards; the deploy log looks identical. The verse is naming the substrate behind the deploy log, not the deploy log itself. This is a real engineering claim — testable with a falsifiability predicate ('across two promo cycles, does the engineer's technical decision-making oscillate with the committee's last reaction?') — and the counter-example correctly carves out outcome-as-signal (rollback because latency crossed SLO) from outcome-as-motive (refactor because it reads well in packet). The named tools (Postgres, GitHub, Datadog, Slack, Notion) are concrete. The only generic prose is the closing paragraph of the translation field, which is concise enough to land. The harshness of the verse ('kṛpaṇa, pitiable') is preserved without becoming sneering. Pass."
+}
