@@ -33,20 +33,76 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "सञ्जयः",         "iast": "sañjayaḥ",         "meaning": "Sañjaya" },
-    { "sanskrit": "उवाच",            "iast": "uvāca",             "meaning": "said" },
-    { "sanskrit": "तम्",             "iast": "tam",               "meaning": "him (Arjuna)" },
-    { "sanskrit": "तथा",             "iast": "tathā",             "meaning": "thus" },
-    { "sanskrit": "कृपया",           "iast": "kṛpayā",            "meaning": "by compassion / pity" },
-    { "sanskrit": "आविष्टम्",        "iast": "āviṣṭam",           "meaning": "overwhelmed" },
-    { "sanskrit": "अश्रुपूर्ण",      "iast": "aśru-pūrṇa",        "meaning": "full of tears" },
-    { "sanskrit": "आकुल",            "iast": "ākula",             "meaning": "agitated / distressed" },
-    { "sanskrit": "ईक्षणम्",         "iast": "īkṣaṇam",           "meaning": "eyes / looking" },
-    { "sanskrit": "विषीदन्तम्",     "iast": "viṣīdantam",        "meaning": "lamenting / sinking" },
-    { "sanskrit": "इदम्",            "iast": "idam",              "meaning": "this" },
-    { "sanskrit": "वाक्यम्",         "iast": "vākyam",            "meaning": "speech / words" },
-    { "sanskrit": "उवाच",            "iast": "uvāca",             "meaning": "spoke" },
-    { "sanskrit": "मधुसूदनः",        "iast": "madhusūdanaḥ",      "meaning": "Madhusūdana (Krishna, slayer of the demon Madhu)" }
+    {
+      "sanskrit": "सञ्जयः",
+      "iast": "sañjayaḥ",
+      "meaning": "Sañjaya"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "him (Arjuna)"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "कृपया",
+      "iast": "kṛpayā",
+      "meaning": "by compassion / pity"
+    },
+    {
+      "sanskrit": "आविष्टम्",
+      "iast": "āviṣṭam",
+      "meaning": "overwhelmed"
+    },
+    {
+      "sanskrit": "अश्रुपूर्ण",
+      "iast": "aśru-pūrṇa",
+      "meaning": "full of tears"
+    },
+    {
+      "sanskrit": "आकुल",
+      "iast": "ākula",
+      "meaning": "agitated / distressed"
+    },
+    {
+      "sanskrit": "ईक्षणम्",
+      "iast": "īkṣaṇam",
+      "meaning": "eyes / looking"
+    },
+    {
+      "sanskrit": "विषीदन्तम्",
+      "iast": "viṣīdantam",
+      "meaning": "lamenting / sinking"
+    },
+    {
+      "sanskrit": "इदम्",
+      "iast": "idam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "वाक्यम्",
+      "iast": "vākyam",
+      "meaning": "speech / words"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "spoke"
+    },
+    {
+      "sanskrit": "मधुसूदनः",
+      "iast": "madhusūdanaḥ",
+      "meaning": "Madhusūdana (Krishna, slayer of the demon Madhu)"
+    }
   ],
   "translations": [
     {
@@ -81,22 +137,49 @@
       "raw_full_path": "data/sources/raw/bg-2-1-vedabase.json (purport_full_length: 1188)"
     },
     {
-      "commentator": "Traditional consensus (narrative frame)",
-      "tradition": "Pan-traditional",
-      "source": "Multiple commentaries (Shankara, Ramanuja, etc. take this verse as scene-setting)",
-      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=2&field_nsutra_value=1",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only (commentators treat 2.1 as Sanjaya's narrative bridge from Ch.1 collapse to Ch.2 teaching; no doctrinal divergence here)",
-      "summary_paraphrase": "All major commentarial traditions (Advaita, Vishishtadvaita, Gaudiya) take 2.1 as Sanjaya's narrative pivot — describing Arjuna's continued state of paralysis and introducing Krishna by the name Madhusūdana ('slayer of the demon Madhu'), a name read by Prabhupada and others as foreshadowing: just as Krishna once slew an external demon, He is about to slay the internal demon of Arjuna's confusion."
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-1/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-1-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-1/?cm=ramanuja",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.1 – 2.3 Sanjaya said — Lord said — When Arjuna thus sat, the Lord, opposing his action, said: ‘What is the reason for your misplaced grief? Arise for battle, abandoning this grief, which has arisen in a critical situation, which can come only in men of wrong understanding, which is an obstacle for",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 414,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-1-ramanuja.json"
     }
   ],
   "disagreements_among_translators": [
     {
       "word": "kṛpayā",
       "positions": [
-        { "source": "Prabhupada", "rendering": "compassion" },
-        { "source": "Mukundananda", "rendering": "pity" },
-        { "source": "Prabhupada Purport (Gaudiya Vaishnava reading)", "rendering": "kṛpā here is 'material compassion' — a sign of ignorance of the real self, not a virtue" }
+        {
+          "source": "Prabhupada",
+          "rendering": "compassion"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "pity"
+        },
+        {
+          "source": "Prabhupada Purport (Gaudiya Vaishnava reading)",
+          "rendering": "kṛpā here is 'material compassion' — a sign of ignorance of the real self, not a virtue"
+        }
       ],
       "explanation": "All translators render kṛpayā as compassion or pity, but the Gaudiya Vaishnava purport reads it pejoratively (sentimental compassion for the body, not the soul) while modern devotional translations leave it neutral. This matters: the chapter's diagnosis hinges on whether Arjuna's pity is misdirected or merely overwhelming."
     }
@@ -108,12 +191,15 @@
     "iast_triangulated": true,
     "anvaya_complete": true,
     "translations_count": 2,
-    "commentaries_count": 2,
+    "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara's bhashya verbatim — narrative verse, his commentary is brief; not pulled.",
-      "Ramanuja's commentary verbatim — same; narrative verse."
+      "Shankara verbatim — site states he did not comment on 2.1; bhasya begins at 2.10."
     ]
   }
 }

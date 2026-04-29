@@ -33,24 +33,96 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "न",                  "iast": "na",                "meaning": "not" },
-    { "sanskrit": "हि",                 "iast": "hi",                "meaning": "indeed" },
-    { "sanskrit": "प्रपश्यामि",         "iast": "prapaśyāmi",        "meaning": "I see / perceive" },
-    { "sanskrit": "मम",                  "iast": "mama",              "meaning": "my" },
-    { "sanskrit": "अपनुद्यात्",         "iast": "apanudyāt",         "meaning": "may dispel / drive away" },
-    { "sanskrit": "यत्",                  "iast": "yat",               "meaning": "that which" },
-    { "sanskrit": "शोकम्",                "iast": "śokam",             "meaning": "grief" },
-    { "sanskrit": "उच्छोषणम्",          "iast": "ucchoṣaṇam",        "meaning": "drying up / parching" },
-    { "sanskrit": "इन्द्रियाणाम्",     "iast": "indriyāṇām",        "meaning": "of the senses" },
-    { "sanskrit": "अवाप्य",              "iast": "avāpya",            "meaning": "having obtained" },
-    { "sanskrit": "भूमौ",                "iast": "bhūmau",            "meaning": "on earth" },
-    { "sanskrit": "असपत्नम्",          "iast": "asapatnam",         "meaning": "unrivalled" },
-    { "sanskrit": "ऋद्धम्",              "iast": "ṛddham",            "meaning": "prosperous" },
-    { "sanskrit": "राज्यम्",              "iast": "rājyam",            "meaning": "kingdom" },
-    { "sanskrit": "सुराणाम्",            "iast": "surāṇām",           "meaning": "of the gods" },
-    { "sanskrit": "अपि",                  "iast": "api",               "meaning": "even" },
-    { "sanskrit": "च",                    "iast": "ca",                "meaning": "and" },
-    { "sanskrit": "आधिपत्यम्",          "iast": "ādhipatyam",        "meaning": "sovereignty" }
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "प्रपश्यामि",
+      "iast": "prapaśyāmi",
+      "meaning": "I see / perceive"
+    },
+    {
+      "sanskrit": "मम",
+      "iast": "mama",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "अपनुद्यात्",
+      "iast": "apanudyāt",
+      "meaning": "may dispel / drive away"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "that which"
+    },
+    {
+      "sanskrit": "शोकम्",
+      "iast": "śokam",
+      "meaning": "grief"
+    },
+    {
+      "sanskrit": "उच्छोषणम्",
+      "iast": "ucchoṣaṇam",
+      "meaning": "drying up / parching"
+    },
+    {
+      "sanskrit": "इन्द्रियाणाम्",
+      "iast": "indriyāṇām",
+      "meaning": "of the senses"
+    },
+    {
+      "sanskrit": "अवाप्य",
+      "iast": "avāpya",
+      "meaning": "having obtained"
+    },
+    {
+      "sanskrit": "भूमौ",
+      "iast": "bhūmau",
+      "meaning": "on earth"
+    },
+    {
+      "sanskrit": "असपत्नम्",
+      "iast": "asapatnam",
+      "meaning": "unrivalled"
+    },
+    {
+      "sanskrit": "ऋद्धम्",
+      "iast": "ṛddham",
+      "meaning": "prosperous"
+    },
+    {
+      "sanskrit": "राज्यम्",
+      "iast": "rājyam",
+      "meaning": "kingdom"
+    },
+    {
+      "sanskrit": "सुराणाम्",
+      "iast": "surāṇām",
+      "meaning": "of the gods"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "आधिपत्यम्",
+      "iast": "ādhipatyam",
+      "meaning": "sovereignty"
+    }
   ],
   "translations": [
     {
@@ -85,21 +157,32 @@
       "raw_full_path": "data/sources/raw/bg-2-8-vedabase.json (purport_full_length: 3692)"
     },
     {
-      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "commentator": "Sri Adi Shankaracharya",
       "tradition": "Advaita",
-      "source": "Standard Advaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-8/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-8-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
       "summary_paraphrase": "Shankara reads the verse as the explicit statement that no external acquisition (kingdom, sovereignty, even the rulership of the gods) can dissolve the grief Arjuna is in. The point is critical for the chapter: the remedy cannot be more of what the grief is reaching for; the remedy must be a different kind of thing entirely (knowledge of the imperishable, which the chapter will teach starting at 2.11)."
     },
     {
-      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "commentator": "Sri Ramanujacharya",
       "tradition": "Vishishtadvaita",
-      "source": "Standard Vishishtadvaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-8/?cm=ramanuja",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.6 – 2.8 If you say, ‘After beginning the war, if we withdraw from the battle, the sons of Dhrtarastra will slay us all forcibly’, be it so. I think that even to be killed by them, who do not know the difference between righteousness and unrighteousness, is better for us than gaining unrighteous vi",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-8-ramanuja.json",
       "summary_paraphrase": "Ramanuja stresses 'na hi prapaśyāmi' — 'I do not see' — the cognitive limit Arjuna has reached. He cannot perceive the remedy because the perception itself requires an instrument (knowledge of the self) he does not yet have. The verse is the disciple's report of his own diagnostic limit; it is the request for the teacher to supply the instrument."
     }
   ],
@@ -107,10 +190,22 @@
     {
       "word": "ucchoṣaṇam indriyāṇām",
       "positions": [
-        { "source": "Prabhupada", "rendering": "drying up my senses" },
-        { "source": "Mukundananda", "rendering": "drying up my senses" },
-        { "source": "Literal", "rendering": "the parching/withering of the senses (indriyas)" },
-        { "source": "Shankara (per summary)", "rendering": "indicates the somatic intensity of the grief — it is not just emotional but physical" }
+        {
+          "source": "Prabhupada",
+          "rendering": "drying up my senses"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "drying up my senses"
+        },
+        {
+          "source": "Literal",
+          "rendering": "the parching/withering of the senses (indriyas)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "indicates the somatic intensity of the grief — it is not just emotional but physical"
+        }
       ],
       "explanation": "All translators agree on the literal sense. The phrase is striking because it is somatic: Arjuna is reporting a body-state, not just a mood. The senses themselves feel desiccated. This matters for the chapter's diagnosis — the grief is not just a thought, it is a state of the operator's apparatus. The remedy must address the apparatus, not just the thought."
     }
@@ -124,10 +219,13 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara verbatim — JS-rendered.",
-      "Ramanuja verbatim — JS-rendered."
+      "Shankara verbatim — site states he did not comment on 2.8; bhasya begins at 2.10."
     ]
   }
 }

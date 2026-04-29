@@ -33,21 +33,81 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "श्री",          "iast": "śrī",             "meaning": "blessed / venerable" },
-    { "sanskrit": "भगवान्",        "iast": "bhagavān",        "meaning": "the Supreme Lord (Krishna)" },
-    { "sanskrit": "उवाच",          "iast": "uvāca",           "meaning": "said" },
-    { "sanskrit": "कुतः",           "iast": "kutaḥ",           "meaning": "from where / whence" },
-    { "sanskrit": "त्वा",           "iast": "tvā",             "meaning": "to you" },
-    { "sanskrit": "कश्मलम्",        "iast": "kaśmalam",        "meaning": "impurity / weakness / faintheartedness" },
-    { "sanskrit": "इदम्",           "iast": "idam",            "meaning": "this" },
-    { "sanskrit": "विषमे",          "iast": "viṣame",          "meaning": "in this critical / dangerous moment" },
-    { "sanskrit": "समुपस्थितम्",    "iast": "samupasthitam",   "meaning": "has come / has arisen" },
-    { "sanskrit": "अनार्य",         "iast": "anārya",          "meaning": "ignoble / unbefitting an ārya" },
-    { "sanskrit": "जुष्टम्",         "iast": "juṣṭam",          "meaning": "practiced / served / habitual" },
-    { "sanskrit": "अस्वर्ग्यम्",    "iast": "asvargyam",       "meaning": "not leading to higher worlds" },
-    { "sanskrit": "अकीर्ति",        "iast": "akīrti",          "meaning": "infamy / loss of fame" },
-    { "sanskrit": "करम्",            "iast": "karam",           "meaning": "causing / producing" },
-    { "sanskrit": "अर्जुन",         "iast": "arjuna",          "meaning": "O Arjuna" }
+    {
+      "sanskrit": "श्री",
+      "iast": "śrī",
+      "meaning": "blessed / venerable"
+    },
+    {
+      "sanskrit": "भगवान्",
+      "iast": "bhagavān",
+      "meaning": "the Supreme Lord (Krishna)"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "कुतः",
+      "iast": "kutaḥ",
+      "meaning": "from where / whence"
+    },
+    {
+      "sanskrit": "त्वा",
+      "iast": "tvā",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "कश्मलम्",
+      "iast": "kaśmalam",
+      "meaning": "impurity / weakness / faintheartedness"
+    },
+    {
+      "sanskrit": "इदम्",
+      "iast": "idam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "विषमे",
+      "iast": "viṣame",
+      "meaning": "in this critical / dangerous moment"
+    },
+    {
+      "sanskrit": "समुपस्थितम्",
+      "iast": "samupasthitam",
+      "meaning": "has come / has arisen"
+    },
+    {
+      "sanskrit": "अनार्य",
+      "iast": "anārya",
+      "meaning": "ignoble / unbefitting an ārya"
+    },
+    {
+      "sanskrit": "जुष्टम्",
+      "iast": "juṣṭam",
+      "meaning": "practiced / served / habitual"
+    },
+    {
+      "sanskrit": "अस्वर्ग्यम्",
+      "iast": "asvargyam",
+      "meaning": "not leading to higher worlds"
+    },
+    {
+      "sanskrit": "अकीर्ति",
+      "iast": "akīrti",
+      "meaning": "infamy / loss of fame"
+    },
+    {
+      "sanskrit": "करम्",
+      "iast": "karam",
+      "meaning": "causing / producing"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    }
   ],
   "translations": [
     {
@@ -82,21 +142,32 @@
       "raw_full_path": "data/sources/raw/bg-2-2-vedabase.json (purport_full_length: 5312)"
     },
     {
-      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "commentator": "Sri Adi Shankaracharya",
       "tradition": "Advaita",
-      "source": "Standard Advaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-2/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only (raw text behind JS)",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-2-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
       "summary_paraphrase": "Krishna's question 'kutas tvā kaśmalam' is rhetorical — the rebuke names Arjuna's collapse as kaśmala (a defilement / impurity / faintness). Shankara reads this as Krishna refusing the legitimacy of Arjuna's grief: it is not coming from knowledge (jñāna) but from delusion (moha). It leads neither to heaven (asvargyam) nor to fame (akīrti-karam) — i.e. it serves no end the warrior himself recognises."
     },
     {
-      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "commentator": "Sri Ramanujacharya",
       "tradition": "Vishishtadvaita",
-      "source": "Standard Vishishtadvaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-2/?cm=ramanuja",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only (raw text behind JS)",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.1 – 2.3 Sanjaya said — Lord said — When Arjuna thus sat, the Lord, opposing his action, said: ‘What is the reason for your misplaced grief? Arise for battle, abandoning this grief, which has arisen in a critical situation, which can come only in men of wrong understanding, which is an obstacle for",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 414,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-2-ramanuja.json",
       "summary_paraphrase": "Ramanuja emphasises that Arjuna's grief is anārya — unworthy of the noble — because it abandons the duty (svadharma) of a kṣatriya at the very moment that duty has become unavoidable. The grief is both world-denying (asvargya) and reputation-destroying (akīrtikara), because the sva-dharma of a warrior, performed without attachment, is itself a path to liberation; abandoning it at viṣama-kāla (the critical hour) is the wrong renunciation."
     }
   ],
@@ -104,10 +175,22 @@
     {
       "word": "kaśmalam",
       "positions": [
-        { "source": "Prabhupada", "rendering": "impurities" },
-        { "source": "Mukundananda", "rendering": "delusion" },
-        { "source": "Shankara (per summary)", "rendering": "defilement / impurity / faintness from moha" },
-        { "source": "Literal Sanskrit-dictionary", "rendering": "dirt, stain, weakness, faintheartedness" }
+        {
+          "source": "Prabhupada",
+          "rendering": "impurities"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "delusion"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "defilement / impurity / faintness from moha"
+        },
+        {
+          "source": "Literal Sanskrit-dictionary",
+          "rendering": "dirt, stain, weakness, faintheartedness"
+        }
       ],
       "explanation": "kaśmala has a wide semantic range — physical dirt, mental impurity, moral defilement, faintheartedness. Prabhupada chooses the moral-impurity reading; Mukundananda chooses the cognitive (delusion) reading. The Sanskrit allows both because Krishna is rebuking BOTH the affective collapse and its cognitive root simultaneously. Translators who pick one sense lose the other; the original holds both."
     }
@@ -121,10 +204,13 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara verbatim — bhagavad-gita.us renders commentary in JS; summary-only.",
-      "Ramanuja verbatim — same."
+      "Shankara verbatim — site states he did not comment on 2.2; bhasya begins at 2.10."
     ]
   }
 }

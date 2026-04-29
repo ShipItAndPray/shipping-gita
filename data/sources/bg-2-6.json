@@ -33,29 +33,121 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "न",                "iast": "na",                "meaning": "not" },
-    { "sanskrit": "च",                "iast": "ca",                "meaning": "and" },
-    { "sanskrit": "एतत्",             "iast": "etat",              "meaning": "this" },
-    { "sanskrit": "विद्मः",            "iast": "vidmaḥ",            "meaning": "we know" },
-    { "sanskrit": "कतरत्",            "iast": "katarat",           "meaning": "which of two" },
-    { "sanskrit": "नः",                "iast": "naḥ",               "meaning": "for us" },
-    { "sanskrit": "गरीयः",             "iast": "garīyaḥ",           "meaning": "better / weightier" },
-    { "sanskrit": "यद्",                "iast": "yad",               "meaning": "whether" },
-    { "sanskrit": "वा",                "iast": "vā",                "meaning": "or" },
-    { "sanskrit": "जयेम",              "iast": "jayema",            "meaning": "we should conquer" },
-    { "sanskrit": "यदि",               "iast": "yadi",              "meaning": "if" },
-    { "sanskrit": "वा",                "iast": "vā",                "meaning": "or" },
-    { "sanskrit": "नः",                "iast": "naḥ",               "meaning": "us" },
-    { "sanskrit": "जयेयुः",            "iast": "jayeyuḥ",           "meaning": "they should conquer" },
-    { "sanskrit": "यान्",              "iast": "yān",               "meaning": "whom" },
-    { "sanskrit": "एव",                "iast": "eva",               "meaning": "indeed" },
-    { "sanskrit": "हत्वा",              "iast": "hatvā",             "meaning": "having killed" },
-    { "sanskrit": "न",                 "iast": "na",                "meaning": "not" },
-    { "sanskrit": "जिजीविषामः",       "iast": "jijīviṣāmaḥ",       "meaning": "we wish to live" },
-    { "sanskrit": "ते",                "iast": "te",                "meaning": "they" },
-    { "sanskrit": "अवस्थिताः",        "iast": "avasthitāḥ",        "meaning": "are positioned" },
-    { "sanskrit": "प्रमुखे",            "iast": "pramukhe",          "meaning": "in front" },
-    { "sanskrit": "धार्तराष्ट्राः",   "iast": "dhārtarāṣṭrāḥ",     "meaning": "the sons of Dhṛtarāṣṭra" }
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "विद्मः",
+      "iast": "vidmaḥ",
+      "meaning": "we know"
+    },
+    {
+      "sanskrit": "कतरत्",
+      "iast": "katarat",
+      "meaning": "which of two"
+    },
+    {
+      "sanskrit": "नः",
+      "iast": "naḥ",
+      "meaning": "for us"
+    },
+    {
+      "sanskrit": "गरीयः",
+      "iast": "garīyaḥ",
+      "meaning": "better / weightier"
+    },
+    {
+      "sanskrit": "यद्",
+      "iast": "yad",
+      "meaning": "whether"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "जयेम",
+      "iast": "jayema",
+      "meaning": "we should conquer"
+    },
+    {
+      "sanskrit": "यदि",
+      "iast": "yadi",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "नः",
+      "iast": "naḥ",
+      "meaning": "us"
+    },
+    {
+      "sanskrit": "जयेयुः",
+      "iast": "jayeyuḥ",
+      "meaning": "they should conquer"
+    },
+    {
+      "sanskrit": "यान्",
+      "iast": "yān",
+      "meaning": "whom"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "हत्वा",
+      "iast": "hatvā",
+      "meaning": "having killed"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "जिजीविषामः",
+      "iast": "jijīviṣāmaḥ",
+      "meaning": "we wish to live"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "they"
+    },
+    {
+      "sanskrit": "अवस्थिताः",
+      "iast": "avasthitāḥ",
+      "meaning": "are positioned"
+    },
+    {
+      "sanskrit": "प्रमुखे",
+      "iast": "pramukhe",
+      "meaning": "in front"
+    },
+    {
+      "sanskrit": "धार्तराष्ट्राः",
+      "iast": "dhārtarāṣṭrāḥ",
+      "meaning": "the sons of Dhṛtarāṣṭra"
+    }
   ],
   "translations": [
     {
@@ -90,21 +182,32 @@
       "raw_full_path": "data/sources/raw/bg-2-6-vedabase.json (purport_full_length: 1347)"
     },
     {
-      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "commentator": "Sri Adi Shankaracharya",
       "tradition": "Advaita",
-      "source": "Standard Advaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-6/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-6-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
       "summary_paraphrase": "Shankara reads 'na caitad vidmaḥ' — 'we do not know' — as the explicit confession of confusion that prepares the ground for Arjuna's surrender in 2.7. The verse is the bottom of the descent into not-knowing; the next verse is the turn upward into discipleship."
     },
     {
-      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "commentator": "Sri Ramanujacharya",
       "tradition": "Vishishtadvaita",
-      "source": "Standard Vishishtadvaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-6/?cm=ramanuja",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.6 – 2.8 If you say, ‘After beginning the war, if we withdraw from the battle, the sons of Dhrtarastra will slay us all forcibly’, be it so. I think that even to be killed by them, who do not know the difference between righteousness and unrighteousness, is better for us than gaining unrighteous vi",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-6-ramanuja.json",
       "summary_paraphrase": "Ramanuja emphasises that the not-knowing here is genuine — Arjuna is not posturing. Both outcomes (victory and defeat) appear equally undesirable from inside his current frame. The verse is therefore evidence that the tactical question cannot be answered tactically; the chapter must reframe."
     }
   ],
@@ -112,9 +215,18 @@
     {
       "word": "katarat ... garīyaḥ",
       "positions": [
-        { "source": "Prabhupada", "rendering": "which is better — conquering them or being conquered" },
-        { "source": "Mukundananda", "rendering": "which result is preferable for us" },
-        { "source": "Literal", "rendering": "which of the two is weightier / more important" }
+        {
+          "source": "Prabhupada",
+          "rendering": "which is better — conquering them or being conquered"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "which result is preferable for us"
+        },
+        {
+          "source": "Literal",
+          "rendering": "which of the two is weightier / more important"
+        }
       ],
       "explanation": "garīyaḥ literally means 'heavier / weightier' (cognate with English 'grave'). Translators flatten it to 'better' or 'preferable', which is reasonable. The literal sense is more interesting: Arjuna is not asking which is morally better, he is asking which carries more weight. The two outcomes feel equally consequential and equally awful, which is precisely the symptom of the framing being wrong."
     }
@@ -128,10 +240,13 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara verbatim — JS-rendered.",
-      "Ramanuja verbatim — JS-rendered."
+      "Shankara verbatim — site states he did not comment on 2.6; bhasya begins at 2.10."
     ]
   }
 }

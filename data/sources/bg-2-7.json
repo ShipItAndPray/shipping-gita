@@ -33,29 +33,121 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "कार्पण्य",          "iast": "kārpaṇya",          "meaning": "miserliness / pity / smallness" },
-    { "sanskrit": "दोष",                "iast": "doṣa",              "meaning": "fault / defect" },
-    { "sanskrit": "उपहत",               "iast": "upahata",           "meaning": "stricken / afflicted" },
-    { "sanskrit": "स्वभावः",            "iast": "svabhāvaḥ",         "meaning": "nature / disposition" },
-    { "sanskrit": "पृच्छामि",            "iast": "pṛcchāmi",          "meaning": "I ask" },
-    { "sanskrit": "त्वाम्",              "iast": "tvām",              "meaning": "you" },
-    { "sanskrit": "धर्म",                "iast": "dharma",            "meaning": "duty / righteousness" },
-    { "sanskrit": "सम्मूढ",              "iast": "saṁmūḍha",          "meaning": "thoroughly bewildered" },
-    { "sanskrit": "चेताः",                "iast": "cetāḥ",             "meaning": "mind / consciousness" },
-    { "sanskrit": "यत्",                  "iast": "yat",               "meaning": "what / that which" },
-    { "sanskrit": "श्रेयः",                "iast": "śreyaḥ",            "meaning": "the most beneficial / the highest good" },
-    { "sanskrit": "स्यात्",                "iast": "syāt",              "meaning": "may be" },
-    { "sanskrit": "निश्चितम्",            "iast": "niścitam",          "meaning": "with certainty" },
-    { "sanskrit": "ब्रूहि",                "iast": "brūhi",             "meaning": "tell" },
-    { "sanskrit": "तत्",                   "iast": "tat",               "meaning": "that" },
-    { "sanskrit": "मे",                    "iast": "me",                "meaning": "to me" },
-    { "sanskrit": "शिष्यः",                "iast": "śiṣyaḥ",            "meaning": "disciple" },
-    { "sanskrit": "ते",                    "iast": "te",                "meaning": "your" },
-    { "sanskrit": "अहम्",                  "iast": "aham",              "meaning": "I" },
-    { "sanskrit": "शाधि",                 "iast": "śādhi",             "meaning": "instruct / teach (imperative)" },
-    { "sanskrit": "माम्",                  "iast": "mām",               "meaning": "me" },
-    { "sanskrit": "त्वाम्",                "iast": "tvām",              "meaning": "to you" },
-    { "sanskrit": "प्रपन्नम्",            "iast": "prapannam",         "meaning": "surrendered" }
+    {
+      "sanskrit": "कार्पण्य",
+      "iast": "kārpaṇya",
+      "meaning": "miserliness / pity / smallness"
+    },
+    {
+      "sanskrit": "दोष",
+      "iast": "doṣa",
+      "meaning": "fault / defect"
+    },
+    {
+      "sanskrit": "उपहत",
+      "iast": "upahata",
+      "meaning": "stricken / afflicted"
+    },
+    {
+      "sanskrit": "स्वभावः",
+      "iast": "svabhāvaḥ",
+      "meaning": "nature / disposition"
+    },
+    {
+      "sanskrit": "पृच्छामि",
+      "iast": "pṛcchāmi",
+      "meaning": "I ask"
+    },
+    {
+      "sanskrit": "त्वाम्",
+      "iast": "tvām",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "धर्म",
+      "iast": "dharma",
+      "meaning": "duty / righteousness"
+    },
+    {
+      "sanskrit": "सम्मूढ",
+      "iast": "saṁmūḍha",
+      "meaning": "thoroughly bewildered"
+    },
+    {
+      "sanskrit": "चेताः",
+      "iast": "cetāḥ",
+      "meaning": "mind / consciousness"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "what / that which"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "the most beneficial / the highest good"
+    },
+    {
+      "sanskrit": "स्यात्",
+      "iast": "syāt",
+      "meaning": "may be"
+    },
+    {
+      "sanskrit": "निश्चितम्",
+      "iast": "niścitam",
+      "meaning": "with certainty"
+    },
+    {
+      "sanskrit": "ब्रूहि",
+      "iast": "brūhi",
+      "meaning": "tell"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "शिष्यः",
+      "iast": "śiṣyaḥ",
+      "meaning": "disciple"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "शाधि",
+      "iast": "śādhi",
+      "meaning": "instruct / teach (imperative)"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "त्वाम्",
+      "iast": "tvām",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "प्रपन्नम्",
+      "iast": "prapannam",
+      "meaning": "surrendered"
+    }
   ],
   "translations": [
     {
@@ -90,21 +182,32 @@
       "raw_full_path": "data/sources/raw/bg-2-7-vedabase.json (purport_full_length: 3551)"
     },
     {
-      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "commentator": "Sri Adi Shankaracharya",
       "tradition": "Advaita",
-      "source": "Standard Advaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-7/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-7-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
       "summary_paraphrase": "Shankara reads this verse as the formal moment of upagamana (approach to a teacher) — the point at which Arjuna stops being merely a friend or kinsman to Krishna and becomes a śiṣya (disciple). The verse's structure mirrors the Upaniṣadic injunction: one in doubt about dharma must approach (with prapatti — surrender) a knower, and ask. Without this turn, the teaching cannot be received."
     },
     {
-      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "commentator": "Sri Ramanujacharya",
       "tradition": "Vishishtadvaita",
-      "source": "Standard Vishishtadvaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-7/?cm=ramanuja",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.6 – 2.8 If you say, ‘After beginning the war, if we withdraw from the battle, the sons of Dhrtarastra will slay us all forcibly’, be it so. I think that even to be killed by them, who do not know the difference between righteousness and unrighteousness, is better for us than gaining unrighteous vi",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-7-ramanuja.json",
       "summary_paraphrase": "Ramanuja places enormous weight on 'tvāṁ prapannam' — surrendered to You. This phrase, prapatti, is the single most consequential word in this verse for the Śrīvaiṣṇava tradition; it is the formal act of self-surrender that the chapter requires for the teaching to begin. Arjuna does not merely ask for advice; he places himself under the Lord's authority. The chapter's teaching presupposes this surrender."
     }
   ],
@@ -112,19 +215,40 @@
     {
       "word": "kārpaṇya",
       "positions": [
-        { "source": "Prabhupada", "rendering": "miserly weakness" },
-        { "source": "Mukundananda", "rendering": "faintheartedness" },
-        { "source": "Literal", "rendering": "miserliness, pettiness, smallness of spirit" },
-        { "source": "Shankara (per summary)", "rendering": "the smallness that prevents the candidate from receiving the teaching" }
+        {
+          "source": "Prabhupada",
+          "rendering": "miserly weakness"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "faintheartedness"
+        },
+        {
+          "source": "Literal",
+          "rendering": "miserliness, pettiness, smallness of spirit"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the smallness that prevents the candidate from receiving the teaching"
+        }
       ],
       "explanation": "kārpaṇya is the noun form of kṛpaṇa (a miser) — etymologically connected to kṛpā (compassion). The semantic pivot is interesting: the same root yields both the operator's misplaced 'pity' (kṛpayā in 2.1) and the 'miserly weakness' that now afflicts him. Translators preserve the 'small/petty' force; the commentarial tradition reads it as the smallness that must be admitted before the teaching can land."
     },
     {
       "word": "prapannam",
       "positions": [
-        { "source": "Prabhupada", "rendering": "surrendered" },
-        { "source": "Mukundananda", "rendering": "surrendered" },
-        { "source": "Ramanuja (per summary)", "rendering": "the formal act of self-surrender (prapatti); a technical term in Śrīvaiṣṇava soteriology" }
+        {
+          "source": "Prabhupada",
+          "rendering": "surrendered"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "surrendered"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the formal act of self-surrender (prapatti); a technical term in Śrīvaiṣṇava soteriology"
+        }
       ],
       "explanation": "Translation is straightforward; the doctrinal weight differs. For Vishishtadvaita (Ramanuja), prapatti is one of the two paths to liberation and this verse is its scriptural founding moment. For Advaita (Shankara), the surrender is propaedeutic — it readies the disciple to receive the teaching but is not itself the liberating act."
     }
@@ -138,10 +262,13 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara verbatim — JS-rendered.",
-      "Ramanuja verbatim — JS-rendered."
+      "Shankara verbatim — site states he did not comment on 2.7; bhasya begins at 2.10."
     ]
   }
 }

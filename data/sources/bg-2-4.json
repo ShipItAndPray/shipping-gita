@@ -33,19 +33,71 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "अर्जुनः",       "iast": "arjunaḥ",         "meaning": "Arjuna" },
-    { "sanskrit": "उवाच",          "iast": "uvāca",           "meaning": "said" },
-    { "sanskrit": "कथम्",          "iast": "katham",          "meaning": "how" },
-    { "sanskrit": "भीष्मम्",       "iast": "bhīṣmam",         "meaning": "Bhīṣma (the grandfather)" },
-    { "sanskrit": "अहम्",          "iast": "aham",            "meaning": "I" },
-    { "sanskrit": "संख्ये",         "iast": "saṁkhye",         "meaning": "in battle" },
-    { "sanskrit": "द्रोणम्",        "iast": "droṇam",          "meaning": "Droṇa (the teacher)" },
-    { "sanskrit": "च",              "iast": "ca",              "meaning": "and" },
-    { "sanskrit": "मधुसूदन",       "iast": "madhusūdana",     "meaning": "O slayer of Madhu (Krishna)" },
-    { "sanskrit": "इषुभिः",        "iast": "iṣubhiḥ",         "meaning": "with arrows" },
-    { "sanskrit": "प्रतियोत्स्यामि","iast": "pratiyotsyāmi",   "meaning": "shall counter-fight" },
-    { "sanskrit": "पूजार्हौ",       "iast": "pūjārhau",        "meaning": "worthy of worship (dual)" },
-    { "sanskrit": "अरिसूदन",       "iast": "arisūdana",       "meaning": "O slayer of foes (Krishna)" }
+    {
+      "sanskrit": "अर्जुनः",
+      "iast": "arjunaḥ",
+      "meaning": "Arjuna"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "कथम्",
+      "iast": "katham",
+      "meaning": "how"
+    },
+    {
+      "sanskrit": "भीष्मम्",
+      "iast": "bhīṣmam",
+      "meaning": "Bhīṣma (the grandfather)"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "संख्ये",
+      "iast": "saṁkhye",
+      "meaning": "in battle"
+    },
+    {
+      "sanskrit": "द्रोणम्",
+      "iast": "droṇam",
+      "meaning": "Droṇa (the teacher)"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "मधुसूदन",
+      "iast": "madhusūdana",
+      "meaning": "O slayer of Madhu (Krishna)"
+    },
+    {
+      "sanskrit": "इषुभिः",
+      "iast": "iṣubhiḥ",
+      "meaning": "with arrows"
+    },
+    {
+      "sanskrit": "प्रतियोत्स्यामि",
+      "iast": "pratiyotsyāmi",
+      "meaning": "shall counter-fight"
+    },
+    {
+      "sanskrit": "पूजार्हौ",
+      "iast": "pūjārhau",
+      "meaning": "worthy of worship (dual)"
+    },
+    {
+      "sanskrit": "अरिसूदन",
+      "iast": "arisūdana",
+      "meaning": "O slayer of foes (Krishna)"
+    }
   ],
   "translations": [
     {
@@ -80,21 +132,32 @@
       "raw_full_path": "data/sources/raw/bg-2-4-vedabase.json (purport_full_length: 528)"
     },
     {
-      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "commentator": "Sri Adi Shankaracharya",
       "tradition": "Advaita",
-      "source": "Standard Advaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-4/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-4-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
       "summary_paraphrase": "Shankara reads Arjuna's objection as the legitimate worry of the dharmic mind: how can the warrior turn weapons on those who deserve worship? But the objection rests on a category-confusion that the chapter will dissolve — Arjuna is treating the persons (Bhīṣma, Droṇa) as the operative units, when the operative unit at this moment is the dharma of the situation itself. The objection is sincere; the framing is wrong."
     },
     {
-      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "commentator": "Sri Ramanujacharya",
       "tradition": "Vishishtadvaita",
-      "source": "Standard Vishishtadvaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-4/?cm=ramanuja",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.4 – 2.5 Arjuna said — Again Arjuna, being moved by love, compassion and fear, mistaking unrighteousness for righteousness, and not understanding, i.e., not knowing the beneficial words of Sri Krsna, said as follows: ‘How can I slay Bhisma, Drona and others worthy or reverence?",
+      "verbatim_excerpt_length": 279,
+      "verbatim_full_length": 471,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-4-ramanuja.json",
       "summary_paraphrase": "Ramanuja notes that Arjuna's two epithets for Krishna here ('madhusūdana', 'arisūdana') are subtly self-defeating: he addresses Krishna as a slayer of foes while arguing that he himself cannot slay foes. The verse begins to expose Arjuna's double-bind — the very names he uses for his teacher recognise that the slaying of opposition is sometimes precisely what righteousness requires."
     }
   ],
@@ -102,10 +165,22 @@
     {
       "word": "pūjārhau",
       "positions": [
-        { "source": "Prabhupada", "rendering": "worthy of my worship" },
-        { "source": "Mukundananda", "rendering": "worthy of my worship" },
-        { "source": "Shankara (per summary)", "rendering": "those who deserve ritual veneration" },
-        { "source": "Ramanuja (per summary)", "rendering": "those whose status normally precludes opposition" }
+        {
+          "source": "Prabhupada",
+          "rendering": "worthy of my worship"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "worthy of my worship"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "those who deserve ritual veneration"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "those whose status normally precludes opposition"
+        }
       ],
       "explanation": "All translators agree on the literal sense (worthy of worship) but the commentarial weight differs. Shankara emphasises pūjā as ritual veneration — the fact that Bhīṣma and Droṇa occupy positions that conventionally exempt them from being opposed. Ramanuja emphasises that Arjuna is using the worshipfulness of his elders as the ground for inaction, a move the chapter will diagnose as misapplying a true principle."
     }
@@ -119,10 +194,13 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara verbatim — JS-rendered.",
-      "Ramanuja verbatim — JS-rendered."
+      "Shankara verbatim — site states he did not comment on 2.4; bhasya begins at 2.10."
     ]
   }
 }

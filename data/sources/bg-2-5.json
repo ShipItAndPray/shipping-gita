@@ -33,27 +33,111 @@
     }
   ],
   "anvaya": [
-    { "sanskrit": "गुरून्",         "iast": "gurūn",            "meaning": "the elders / teachers" },
-    { "sanskrit": "अहत्वा",          "iast": "ahatvā",           "meaning": "not having killed" },
-    { "sanskrit": "हि",              "iast": "hi",               "meaning": "indeed" },
-    { "sanskrit": "महानुभावान्",   "iast": "mahānubhāvān",     "meaning": "of great nobility / great souls" },
-    { "sanskrit": "श्रेयः",          "iast": "śreyaḥ",           "meaning": "better" },
-    { "sanskrit": "भोक्तुम्",        "iast": "bhoktum",          "meaning": "to enjoy / to subsist" },
-    { "sanskrit": "भैक्ष्यम्",        "iast": "bhaikṣyam",        "meaning": "by begging" },
-    { "sanskrit": "अपि",             "iast": "api",              "meaning": "even" },
-    { "sanskrit": "इह",              "iast": "iha",              "meaning": "in this" },
-    { "sanskrit": "लोके",            "iast": "loke",             "meaning": "world" },
-    { "sanskrit": "हत्वा",            "iast": "hatvā",            "meaning": "having killed" },
-    { "sanskrit": "अर्थ",             "iast": "artha",            "meaning": "wealth / gain" },
-    { "sanskrit": "कामान्",          "iast": "kāmān",            "meaning": "desires" },
-    { "sanskrit": "तु",               "iast": "tu",               "meaning": "but" },
-    { "sanskrit": "गुरून्",          "iast": "gurūn",            "meaning": "the elders" },
-    { "sanskrit": "इह",              "iast": "iha",              "meaning": "here" },
-    { "sanskrit": "एव",               "iast": "eva",              "meaning": "even" },
-    { "sanskrit": "भुञ्जीय",         "iast": "bhuñjīya",         "meaning": "I would enjoy" },
-    { "sanskrit": "भोगान्",          "iast": "bhogān",           "meaning": "enjoyments" },
-    { "sanskrit": "रुधिर",            "iast": "rudhira",          "meaning": "blood" },
-    { "sanskrit": "प्रदिग्धान्",     "iast": "pradigdhān",       "meaning": "smeared / tainted" }
+    {
+      "sanskrit": "गुरून्",
+      "iast": "gurūn",
+      "meaning": "the elders / teachers"
+    },
+    {
+      "sanskrit": "अहत्वा",
+      "iast": "ahatvā",
+      "meaning": "not having killed"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "महानुभावान्",
+      "iast": "mahānubhāvān",
+      "meaning": "of great nobility / great souls"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "better"
+    },
+    {
+      "sanskrit": "भोक्तुम्",
+      "iast": "bhoktum",
+      "meaning": "to enjoy / to subsist"
+    },
+    {
+      "sanskrit": "भैक्ष्यम्",
+      "iast": "bhaikṣyam",
+      "meaning": "by begging"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "in this"
+    },
+    {
+      "sanskrit": "लोके",
+      "iast": "loke",
+      "meaning": "world"
+    },
+    {
+      "sanskrit": "हत्वा",
+      "iast": "hatvā",
+      "meaning": "having killed"
+    },
+    {
+      "sanskrit": "अर्थ",
+      "iast": "artha",
+      "meaning": "wealth / gain"
+    },
+    {
+      "sanskrit": "कामान्",
+      "iast": "kāmān",
+      "meaning": "desires"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "गुरून्",
+      "iast": "gurūn",
+      "meaning": "the elders"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "here"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "भुञ्जीय",
+      "iast": "bhuñjīya",
+      "meaning": "I would enjoy"
+    },
+    {
+      "sanskrit": "भोगान्",
+      "iast": "bhogān",
+      "meaning": "enjoyments"
+    },
+    {
+      "sanskrit": "रुधिर",
+      "iast": "rudhira",
+      "meaning": "blood"
+    },
+    {
+      "sanskrit": "प्रदिग्धान्",
+      "iast": "pradigdhān",
+      "meaning": "smeared / tainted"
+    }
   ],
   "translations": [
     {
@@ -88,21 +172,32 @@
       "raw_full_path": "data/sources/raw/bg-2-5-vedabase.json (purport_full_length: 571)"
     },
     {
-      "commentator": "Sri Adi Shankaracharya (paraphrase)",
+      "commentator": "Sri Adi Shankaracharya",
       "tradition": "Advaita",
-      "source": "Standard Advaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-5/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "not_available",
+      "verbatim_excerpt": null,
+      "copyright_holder": "Advaita Ashrama, Kolkata (publisher of Swami Gambhirananda's English translation of Sankara-bhasya). No verbatim is captured because no commentary exists for this verse.",
+      "raw_full_path": "data/sources/raw/bg-2-5-shankara.json",
+      "notes": "Site bhagavad-gita.us states explicitly that Sri Sankaracharya did not comment on this sloka and that his commentary starts from 2.10. Standard Advaita Ashrama (Gambhirananda) edition agrees - Sankara's bhasya begins at BG 2.10.",
       "summary_paraphrase": "Shankara reads this verse as Arjuna offering renunciation as a substitute for action — proposing the bhikṣu (mendicant) life as preferable to the kṣatriya's duty. The chapter will reject this; renunciation in this case is wrong-renunciation because it is grounded in aversion (the blood of teachers) rather than in steadiness of knowledge."
     },
     {
-      "commentator": "Sri Ramanujacharya (paraphrase)",
+      "commentator": "Sri Ramanujacharya",
       "tradition": "Vishishtadvaita",
-      "source": "Standard Vishishtadvaita reading",
+      "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-5/?cm=ramanuja",
-      "fetched_at": "2026-04-26T00:00:00Z",
-      "verbatim_excerpt_status": "summary-only",
+      "fetched_at": "2026-04-29T06:07:32.763Z",
+      "translator": "Swami Adidevananda (per Sri Ramakrishna Math edition; bhagavad-gita.us reproduces this English rendering of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.4 – 2.5 Arjuna said — Again Arjuna, being moved by love, compassion and fear, mistaking unrighteousness for righteousness, and not understanding, i.e., not knowing the beneficial words of Sri Krsna, said as follows: ‘How can I slay Bhisma, Drona and others worthy or reverence?",
+      "verbatim_excerpt_length": 279,
+      "verbatim_full_length": 471,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-5-ramanuja.json",
       "summary_paraphrase": "Ramanuja notes the qualifier 'artha-kāmān' (those who themselves desire wealth) — Arjuna concedes that the elders are not pure in motive on this battlefield. But he argues that even tainted teachers are still teachers, and the blood-stained kingdom would be unenjoyable. The argument is psychologically real and dharmically incoherent simultaneously."
     }
   ],
@@ -110,10 +205,22 @@
     {
       "word": "rudhira-pradigdhān (bhogān)",
       "positions": [
-        { "source": "Prabhupada", "rendering": "tainted with blood" },
-        { "source": "Mukundananda", "rendering": "tainted with blood" },
-        { "source": "Shankara (per summary)", "rendering": "the enjoyments themselves bear the stain — sense-aversion, not moral judgment" },
-        { "source": "Ramanuja (per summary)", "rendering": "psychologically unenjoyable, not necessarily ritually impure" }
+        {
+          "source": "Prabhupada",
+          "rendering": "tainted with blood"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "tainted with blood"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the enjoyments themselves bear the stain — sense-aversion, not moral judgment"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "psychologically unenjoyable, not necessarily ritually impure"
+        }
       ],
       "explanation": "All translators render the phrase identically; the commentarial disagreement is whether 'tainted with blood' refers to the metaphysical impurity of the enjoyments or to Arjuna's projected inability to take pleasure in them. The distinction matters because the chapter will treat Arjuna's projected unenjoyability as a feeling-state, not a binding fact about the world."
     }
@@ -127,10 +234,13 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada)",
+      "holy-bhagavad-gita.org (Mukundananda)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara verbatim — JS-rendered.",
-      "Ramanuja verbatim — JS-rendered."
+      "Shankara verbatim — site states he did not comment on 2.5; bhasya begins at 2.10."
     ]
   }
 }
