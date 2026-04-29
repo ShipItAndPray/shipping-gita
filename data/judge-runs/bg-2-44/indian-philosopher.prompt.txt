@@ -1,0 +1,209 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.44",
+  "sanskrit_devanagari": "भोगैश्वर्यप्रसक्तानां तयापहृतचेतसाम् ।\nव्यवसायात्मिका बुद्धिः समाधौ न विधीयते ॥ ४४ ॥",
+  "sanskrit_iast": "bhogaiśvarya-prasaktānāṁ tayāpahṛta-cetasām |\nvyavasāyātmikā buddhiḥ samādhau na vidhīyate || 44 ||",
+  "anvaya": [
+    {
+      "sanskrit": "भोग",
+      "iast": "bhoga",
+      "meaning": "enjoyment (in compound)"
+    },
+    {
+      "sanskrit": "ऐश्वर्य",
+      "iast": "aiśvarya",
+      "meaning": "lordship / opulence (in compound)"
+    },
+    {
+      "sanskrit": "प्रसक्तानाम्",
+      "iast": "prasaktānām",
+      "meaning": "of those (who are) deeply attached / clinging"
+    },
+    {
+      "sanskrit": "तया",
+      "iast": "tayā",
+      "meaning": "by that (refers back to puṣpitā vāc of 2.42)"
+    },
+    {
+      "sanskrit": "अपहृतचेतसाम्",
+      "iast": "apahṛta-cetasām",
+      "meaning": "of those whose discriminating mind is stolen / carried away"
+    },
+    {
+      "sanskrit": "व्यवसायात्मिका",
+      "iast": "vyavasāyātmikā",
+      "meaning": "of the nature of resolution / one-pointed in determination"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "intelligence"
+    },
+    {
+      "sanskrit": "समाधौ",
+      "iast": "samādhau",
+      "meaning": "in samādhi (concentrated absorption / collected mind)"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "विधीयते",
+      "iast": "vidhīyate",
+      "meaning": "is established / takes place / arises"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/44/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the minds of those who are too attached to sense enjoyment and material opulence, and who are bewildered by such things, the resolute determination for devotional service to the Supreme Lord does not take place.",
+      "raw_capture_path": "data/sources/raw/bg-2-44-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/44",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "With their minds deeply attached to worldly pleasures and their intellects bewildered by such things, they are unable to possess the resolute determination for success on the path to God."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/44/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 382-char full purport)",
+      "verbatim_excerpt": "Samādhi means \"fixed mind.\" The Vedic dictionary, the Nirukti, says, samyag ādhīyate 'sminn ātma-tattva-yāthātmyam: \"When the mind is fixed for understanding the self, it is said to be in samādhi.\" Samādhi is never possible for persons interested in material sense enjoyment and bewildered by such temporary things.",
+      "verbatim_excerpt_length": 326,
+      "verbatim_full_length": 382,
+      "raw_full_path": "data/sources/raw/bg-2-44-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-44/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.44 And vyavasayatmika, one-pointed; buddhih, conviction, with regard to Knowledge or Yoga; na vidhiyate, does not become established, i.e. does not arise; samadhau, in the minds — bhoga-aisvarya-prasaktanam, of those who delight in enjoyment and wealth, of those who have the hankering that only enjoyment as also wealth is to be sought for; and apahrta-cetasam, of those whose intellects are carried away, whose discriminating judgement becomes covered; taya, by that speech which is full of various special rites.",
+      "verbatim_excerpt_length": 524,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-44-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.44 as the consequence-clause of 2.42-43: those whose attention has been captured (apahṛta-cetas — discriminating judgement covered over) by the flowery kāmya-vāda — and who as a result are prasakta (clinging) to bhoga and aiśvarya — cannot generate vyavasāyātmikā buddhi in samādhi. The point is causal: the attachment captures the cetas (discriminating mind), which prevents the samādhi-collected state, which is the condition for the resolute one-pointed buddhi to arise. Crucially, samādhi here is read by Shankara as the collected mental state in which Knowledge can be received — it is not yet the eighth-limb samādhi of Patañjali, but the prerequisite gathered attention. The blocker is named precisely: status-attainment-attachment (bhoga-aiśvarya-prasakti) is what eliminates the conditions for resolute insight."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-42-43/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use; closing segment of joint 2.42-44 bhāṣya)",
+      "verbatim_excerpt": "(continued from 2.43) ... Their minds being thus carried away by the speech which describes the rituals leading to enjoyment and power, the Buddhi of resolution concerning the realisation of the self does not get established in their minds (samadhi means here a calmed mind). The Buddhi which arises out of right knowledge of the self, mentioned earlier in verse 41, does not arise in them, because their minds are agitated by attachment to fleeting objects.",
+      "verbatim_excerpt_length": 462,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-42-43-bgus.json",
+      "summary_paraphrase": "Ramanuja reads samādhi explicitly as 'a calmed mind' — the necessary condition for vyavasāyātmikā buddhi to take root. He explicitly back-references 2.41: the resolute buddhi of 2.41 does not arise in those of 2.42-43 because their minds are agitated by attachment to fleeting (anitya) objects. The chain is: speech captures cetas → cetas clings to bhoga / aiśvarya → calmed-mind state cannot form → resolute buddhi cannot establish. The Vishishtadvaita reading specifically identifies the blocker as attachment to fleeting objects (not the rituals themselves), preserving the kāmya-karma's validity when performed without that attachment."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "samādhau na vidhīyate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the resolute determination for devotional service to the Supreme Lord does not take place"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "they are unable to possess the resolute determination for success on the path to God"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "vyavasāyātmikā buddhi (with regard to Knowledge or Yoga) does not become established in samādhi (the collected mental state)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "the Buddhi of resolution does not get established; samādhi here means a calmed mind"
+        }
+      ],
+      "explanation": "The phrase 'samādhau na vidhīyate' is grammatically about state-establishment: the resolute buddhi does not get located/established in samādhi. The disagreement is what samādhi means here. Prabhupada localises the resolute buddhi to 'devotional service to the Supreme Lord' specifically; Mukundananda generalises to 'success on the path to God.' Shankara reads samādhi as the collected mental state in which Knowledge (jñāna) or yoga can take root — Advaita-flavoured but not the technical eighth-limb samādhi yet. Ramanuja explicitly glosses samādhi as 'calmed mind' — i.e., the condition where the buddhi can be established. All four read the verse causally: attachment to bhoga/aiśvarya prevents the samādhi-state, which prevents the buddhi from establishing. The doctrinal point is not 'devotion is hard' but 'attention-capture by status-attainment-attachment is the specific blocker'."
+    }
+  ],
+  "literal_meaning": "Of those who are deeply attached to enjoyment and lordship, whose discriminating mind has been carried away by that (flowery speech), the resolute intelligence is not established in samādhi.",
+  "traditional_meaning": "2.44 names the consequence of the 2.42-43 critique: the avipaścitaḥ described there have a specific cognitive failure mode — their cetas (discriminating mind) is captured (apahṛta) by the flowery kāmya-vāda, they cling (prasakta) to bhoga (enjoyment) and aiśvarya (lordship), and as a result vyavasāyātmikā buddhi (the resolute one-pointed intelligence introduced in 2.41) cannot establish itself in samādhi (the collected/calmed mental state). The verse is a causal chain: attachment captures attention → attention-capture blocks the samādhi precondition → without samādhi, the resolute buddhi cannot arise. Shankara and Ramanuja agree on the chain; they differ slightly on what samādhi means here (Shankara: collected mind ready for Knowledge; Ramanuja: calmed mind). The verse is doctrinally important because it names attachment-to-status-fruits as a focus-blocker — not as a moral failure but as a structural impossibility for the cognitive state required.",
+  "engineering": {
+    "translation": "This shloka names a structural impossibility. Vyavasāyātmikā buddhi from 2.41 — resolved one-pointed intelligence, precondition for buddhi-yoga — cannot arise in an operator whose cetas (discriminating mind) has been captured by the flowery promo-cycle described above. Notice carefully what is and is not being said. The teaching does not claim status-attached engineers are bad people. It does not coach humility. It names a causal chain: attachment to bhoga (enjoyment of attainment) plus aiśvarya (lordship of being-the-promoted) captures cetas; attention-capture blocks samādhi (Shankara: collected mind ready for Knowledge; Ramanuja: calmed mind); without that gathered state, resolved buddhi simply cannot establish. A senior optimising for promotion or manager-impressing demos fails to focus on the substrate — not from insufficient discipline, but because attention has already been allocated. The remedy is not effort. It is dropping the clinging that silently consumes the attention budget.",
+    "concrete_scenario": "An engineer sits before a debugger at 3 PM, looking at a memory leak in a Rust service which has grown slowly across three deploys. The bug is genuinely interesting; pprof shows an unfamiliar allocation pattern; the right next move is reading Tokio's spawn-blocking source. Eyes are on screen. Awareness is not. Half is allocated upward to a Slack thread with the manager: a half-promised promotion review at quarter-end, contingent on 'visible impact.' A quarter is allocated toward whether the eventual fix will be visible enough — whether it reads, on the GitHub pull request description, as a director-legible win or an obscure performance internal. The remaining quarter sits in the debugger. What the work needs is vyavasāyātmikā: settled, one-pointed, resolved at substrate level — where exactly in Tokio is the allocation happening? What is actually present is fragmented: some awareness on the bug, some on promo, some on framing. The teaching does not advise 'try harder.' It names the chain: bhoga-aiśvarya-prasakti has captured cetas; samādhi cannot form; resolved buddhi cannot establish. The remedy is at root — release the attachment to the promo-frame; do not suppress it. Suppression spends more awareness; release returns it.",
+    "falsifiability": "The analog fails if a reader concludes that wanting career advancement is itself the pathology, or that the cure is a kind of monkish detachment from organisational outcomes. It is not. Krishna does not condemn svarga; he names attachment-capture as a focus-blocker. An engineer who notices the promo question, sets it aside until the leak is found, and then writes the PR description carefully has done the dropping the verse calls for. An engineer who claims to be unconcerned with promos but cannot actually focus has not dropped anything; they have suppressed and continue to leak attention. The test is whether attention is fully present at the substrate, not whether the operator can recite a renunciation.",
+    "counter_example": "When the operator's attention is genuinely captured by something load-bearing — an ongoing incident, a family emergency, a decision the team is waiting on — split attention is correct, not pathological. The verse does not bless single-tasking as a virtue; it names a specific failure mode where the splitter is attachment-to-status-fruits. If the splitting cause is real engineering or real life, this teaching applies differently — it would point at the operator's relationship to the splitter, not at the act of splitting.",
+    "implication": "When focus is failing on a substrate-level problem, do not start by accusing yourself of insufficient discipline. First ask what attachment is currently consuming your attention budget. If the answer is the next promo, the next demo, the next manager-impressing artifact — naming it precisely is the start of the dropping. The buddhi-yoga gate is opened by attention-release, not by effort.",
+    "quotable_line": "Status-attachment is not a moral failure; it is an attention-budget allocation that prevents the resolved buddhi from establishing — the fix is dropping, not suppression.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

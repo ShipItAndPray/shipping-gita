@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.44",
+  "chapter": 2,
+  "verse": 44,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "This shloka names a structural impossibility. Vyavasāyātmikā buddhi from 2.41 — resolved one-pointed intelligence, precondition for buddhi-yoga — cannot arise in an operator whose cetas (discriminating mind) has been captured by the flowery promo-cycle described above. Notice carefully what is and is not being said. The teaching does not claim status-attached engineers are bad people. It does not coach humility. It names a causal chain: attachment to bhoga (enjoyment of attainment) plus aiśvarya (lordship of being-the-promoted) captures cetas; attention-capture blocks samādhi (Shankara: collected mind ready for Knowledge; Ramanuja: calmed mind); without that gathered state, resolved buddhi simply cannot establish. A senior optimising for promotion or manager-impressing demos fails to focus on the substrate — not from insufficient discipline, but because attention has already been allocated. The remedy is not effort. It is dropping the clinging that silently consumes the attention budget.",
+    "concrete_scenario": "An engineer sits before a debugger at 3 PM, looking at a memory leak in a Rust service which has grown slowly across three deploys. The bug is genuinely interesting; pprof shows an unfamiliar allocation pattern; the right next move is reading Tokio's spawn-blocking source. Eyes are on screen. Awareness is not. Half is allocated upward to a Slack thread with the manager: a half-promised promotion review at quarter-end, contingent on 'visible impact.' A quarter is allocated toward whether the eventual fix will be visible enough — whether it reads, on the GitHub pull request description, as a director-legible win or an obscure performance internal. The remaining quarter sits in the debugger. What the work needs is vyavasāyātmikā: settled, one-pointed, resolved at substrate level — where exactly in Tokio is the allocation happening? What is actually present is fragmented: some awareness on the bug, some on promo, some on framing. The teaching does not advise 'try harder.' It names the chain: bhoga-aiśvarya-prasakti has captured cetas; samādhi cannot form; resolved buddhi cannot establish. The remedy is at root — release the attachment to the promo-frame; do not suppress it. Suppression spends more awareness; release returns it.",
+    "falsifiability": "The analog fails if a reader concludes that wanting career advancement is itself the pathology, or that the cure is a kind of monkish detachment from organisational outcomes. It is not. Krishna does not condemn svarga; he names attachment-capture as a focus-blocker. An engineer who notices the promo question, sets it aside until the leak is found, and then writes the PR description carefully has done the dropping the verse calls for. An engineer who claims to be unconcerned with promos but cannot actually focus has not dropped anything; they have suppressed and continue to leak attention. The test is whether attention is fully present at the substrate, not whether the operator can recite a renunciation.",
+    "counter_example": "When the operator's attention is genuinely captured by something load-bearing — an ongoing incident, a family emergency, a decision the team is waiting on — split attention is correct, not pathological. The verse does not bless single-tasking as a virtue; it names a specific failure mode where the splitter is attachment-to-status-fruits. If the splitting cause is real engineering or real life, this teaching applies differently — it would point at the operator's relationship to the splitter, not at the act of splitting.",
+    "implication": "When focus is failing on a substrate-level problem, do not start by accusing yourself of insufficient discipline. First ask what attachment is currently consuming your attention budget. If the answer is the next promo, the next demo, the next manager-impressing artifact — naming it precisely is the start of the dropping. The buddhi-yoga gate is opened by attention-release, not by effort.",
+    "quotable_line": "Status-attachment is not a moral failure; it is an attention-budget allocation that prevents the resolved buddhi from establishing — the fix is dropping, not suppression.",
+    "tags": ["focus-practice", "deep-work", "non-attachment-to-praise"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:15:00Z",
+      "mutation": "v0 generation: BG 2.44 names the consequence of 2.42-43's veda-vāda-rata pathology — the resolved buddhi cannot establish because attention has been captured. CRITICAL CARE: per task spec, this verse must NOT sound like 'be humble' coaching content. It is specifically about status-attachment as a focus-blocker — a structural-causal claim, not a virtue claim. Engineering layer therefore frames it as an attention-budget allocation problem: bhoga-aiśvarya-prasakti consumes the cetas, samādhi-state cannot form, resolved buddhi cannot establish. Concrete scenario uses a debugger session split between a Rust memory leak (substrate-level work), a Slack promo thread (status-attachment), and PR-framing concerns (aiśvarya-attachment). Named tools: Rust, pprof, Tokio, Slack, GitHub. Falsifiability handles 'wanting advancement is the pathology' (no — attachment-capture is). Counter-example carves out legitimately split attention (real incident, family emergency). Quotable_line names the specific structural-not-moral framing. Tags: focus-practice, deep-work, non-attachment-to-praise.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

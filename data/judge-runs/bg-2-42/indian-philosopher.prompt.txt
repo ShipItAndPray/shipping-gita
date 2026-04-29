@@ -1,0 +1,226 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.42",
+  "sanskrit_devanagari": "यामिमां पुष्पितां वाचं प्रवदन्त्यविपश्चितः ।\nवेदवादरताः पार्थ नान्यदस्तीति वादिनः ॥ ४२ ॥",
+  "sanskrit_iast": "yām imāṁ puṣpitāṁ vācaṁ pravadanty avipaścitaḥ |\nveda-vāda-ratāḥ pārtha nānyad astīti vādinaḥ || 42 ||",
+  "anvaya": [
+    {
+      "sanskrit": "याम्",
+      "iast": "yām",
+      "meaning": "which (acc. fem. sg., agreeing with vācam)"
+    },
+    {
+      "sanskrit": "इमाम्",
+      "iast": "imām",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "पुष्पिताम्",
+      "iast": "puṣpitām",
+      "meaning": "flowery / blossomed"
+    },
+    {
+      "sanskrit": "वाचम्",
+      "iast": "vācam",
+      "meaning": "speech / utterance"
+    },
+    {
+      "sanskrit": "प्रवदन्ति",
+      "iast": "pravadanti",
+      "meaning": "they utter / they pronounce"
+    },
+    {
+      "sanskrit": "अविपश्चितः",
+      "iast": "avipaścitaḥ",
+      "meaning": "the unwise / undiscerning ones"
+    },
+    {
+      "sanskrit": "वेदवादरताः",
+      "iast": "veda-vāda-ratāḥ",
+      "meaning": "devoted to the words of the Vedas (specifically the kāmya-karma portions)"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O son of Pṛthā (vocative addressing Arjuna)"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "अन्यत्",
+      "iast": "anyat",
+      "meaning": "anything else"
+    },
+    {
+      "sanskrit": "अस्ति",
+      "iast": "asti",
+      "meaning": "exists / is"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus (closes a quoted view)"
+    },
+    {
+      "sanskrit": "वादिनः",
+      "iast": "vādinaḥ",
+      "meaning": "advocates / speakers / those who declare"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/42-43/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_capture_note": "combined 2.42-43 verbatim quote; 2.42 covered by clauses up to 'they say that there is nothing more than this'",
+      "verbatim_quote": "Men of small knowledge are very much attached to the flowery words of the Vedas, which recommend various fruitive activities for elevation to heavenly planets, resultant good birth, power, and so forth. Being desirous of sense gratification and opulent life, they say that there is nothing more than this.",
+      "raw_capture_path": "data/sources/raw/bg-2-42-43-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/42",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_capture_note": "combined 2.42-43 verbatim quote; 2.42 covered by the first sentence",
+      "verbatim_quote": "Those with limited understanding, get attracted to the flowery words of the Vedas, which advocate ostentatious rituals for elevation to the celestial abodes, and presume no higher principle is described in them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/42-43/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1978-char combined 2.42-43 purport; 2.42 anchor)",
+      "verbatim_excerpt": "People in general are not very intelligent, and due to their ignorance they are most attached to the fruitive activities recommended in the karma-kāṇḍa portions of the Vedas. They do not want anything more than sense gratificatory proposals for enjoying life in heaven, where wine and women are available and material opulence is very common.",
+      "verbatim_excerpt_length": 350,
+      "verbatim_full_length": 1978,
+      "raw_full_path": "data/sources/raw/bg-2-42-43-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-42-43/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use; specifically Shankara's 2.42 segment)",
+      "verbatim_excerpt": "2.42 Partha, O son of Prtha; those devoid of one-pointed conviction, who pravadanti, utter; imam, this; yam puspitam vacam, flowery talk, which is going to be stated, which is beautiful like a tree in bloom, pleasant to hear, and appears to be (meaningful) sentences; — who are they? they are — avipascitah, people who are undiscerning, of poor intellect; veda-vada-ratah, who remain engrossed in the utterances of the Vedas, in the Vedic sentences which reveal many panegyrics, fruits of action and their means.",
+      "verbatim_excerpt_length": 510,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-42-43-bgus.json",
+      "summary_paraphrase": "Shankara is precise about scope: it is not the Vedas that are being criticised but those who are veda-vāda-ratāḥ — engrossed specifically in the utterances of the Vedas that reveal panegyrics and fruits of action (the kāmya-karma portion). They declare 'na anyat asti' (nothing else exists) because their reading is restricted to those passages. The flowery (puṣpita) speech is named as a tree in bloom: visually beautiful, tonally pleasing, syntactically well-formed sentences — yet, when the discriminating reader checks for self-knowledge content, the flowers do not bear fruit. Shankara explicitly preserves the rest of the Veda's authority (the upaniṣadic / jñāna-kāṇḍa portion) — the critique scopes to the kāmya fixation."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-42-43/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use; Ramanuja treats 2.42, 2.43 and 2.44 as a single unit — excerpt is the joint 2.42-44 bhāṣya, 2.42 portion)",
+      "verbatim_excerpt": "2.42 – 2.44 The ignorant, whose knowledge is little, and who have as their sole aim the attainment of enjoyment and power, speak the flowery language i.e., having its flowers (show) only as fruits, which look apparently beautiful at first sight. They rejoice in the letter of the Vedas i.e., they are attached to heaven and such other results (promised in the Karma-kanda of the Vedas). They say that there is nothing else, owing to their intense attachment to these results.",
+      "verbatim_excerpt_length": 478,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-42-43-bgus.json",
+      "summary_paraphrase": "Ramanuja explicitly treats 2.42-2.44 as one syntactic unit. The 'flowery language' is so named because what looks like fruit at first sight is in fact only flower — visual promise without nutritive substance. The avipaścitaḥ rejoice in the letter (vāda) of the Vedas because they are intensely attached to the karma-kāṇḍa results (svarga, opulence, sense-gratification). The 'na anyat asti' is read as a consequence of attachment, not as a metaphysical claim — the flowery speakers have foreclosed any other goal because their attachment makes other goals invisible to them. The Vedas themselves remain authoritative; what is criticised is the partial, attachment-driven reading."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "veda-vāda-ratāḥ ... nānyad astīti vādinaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "supposed followers of the Vedas; advocates who say there is nothing else"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "those who presume no higher principle is described in (the Vedas)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "engrossed specifically in Vedic utterances of panegyric and fruits of action; declare 'nothing else exists' because their reading is restricted"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "rejoice in the letter of the Vedas because attached to heaven; declare 'nothing else exists' as a consequence of attachment"
+        }
+      ],
+      "explanation": "The verse is doctrinally load-bearing because of how the critique is scoped. Prabhupada's 'supposed followers of the Vedas' reads sharp — implying these people misclaim Vedic authority; Mukundananda's 'presume no higher principle is described in them' is gentler and loses some of Krishna's sting. Shankara and Ramanuja both restrict the critique to the kāmya-karma reading: the Vedas are not at fault; the partial-reading-driven-by-attachment is. The verse is therefore not anti-Vedic — it is anti-fixation-on-one-portion-of-the-Vedas. Modern flat translations risk reading as 'the Vedas are flowery and false', which neither traditional commentator accepts. The locus of the critique is the avipaścitaḥ (the undiscerning), not the texts."
+    }
+  ],
+  "literal_meaning": "This flowery speech that the unwise utter — devoted to the words of the Vedas, O Pārtha, declaring 'nothing else exists' — (continued in 2.43).",
+  "traditional_meaning": "Krishna names a class of speakers — the avipaścitaḥ, the undiscerning — who utter puṣpita-vāc, flowery (literally: in-bloom) speech. They are veda-vāda-rata, devoted to the words of the Vedas — but the unanimous commentarial reading scopes this to the kāmya-karma portion (the desire-driven ritual prescriptions). Their characteristic claim is 'na anyat asti' — there is nothing else (beyond ritual fruits like svarga, opulence, sense-enjoyment). Both Shankara and Ramanuja insist the critique is of fixation, not of the Vedas: the Vedas contain jñāna-kāṇḍa (knowledge-section) and karma-kāṇḍa (action-section), and to read only the latter — and to read it for fruit-collection — is the pathology being named. The verse forms a syntactic unit with 2.43 (and Ramanuja extends to 2.44): the relative pronoun 'yām' (which) launches the description that 2.43 completes.",
+  "engineering": {
+    "translation": "A class of speech runs through every engineering organisation that sounds beautiful on first hearing. It is flowery, syntactically polished, full of bloomed-tree metrics. Yet examined carefully, it contains nothing beyond one bounded fruit-set: ship-velocity, feature-count, dashboard-green, weekly active users. The shloka names the speakers avipaścitaḥ — undiscerning — and locates their characteristic claim as 'na anyad asti', 'nothing else exists.' Critically: this teaching is not anti-metric. It targets the exclusive fixation that treats one bounded number as the entire frame. Compare the operator who reads conversion alongside on-call burden, error budget, and downstream wellbeing — and the one who treats only p99 latency or only retention as 'the thing that matters.' The latter is veda-vāda-rata in the precise sense Shankara reads: devoted to one portion of the signal as if it were the whole. Krishna does not reject the kāmya-karma section of scripture; he rejects the reading that treats that section as the totality.",
+    "concrete_scenario": "A growth-engineering team has settled into a comfortable cadence. Every Monday opens with three slides: a conversion-rate dashboard piped from Mixpanel through Datadog, a demo-week feature count from the GitHub release tag, and the launch-tweet engagement numbers from the marketing partner. The meeting feels good. The chart rendering is clean, the slides are polished, the team is genuinely skilled at this. Eighteen months pass. On-call burden has roughly doubled. An early customer-success metric has decoupled from conversion: paying customers convert, then leave within ninety days. Three engineers have quietly opened LinkedIn. None of those signals appears in the standing review. When a senior architect mentions the on-call PagerDuty trend at the end of the agenda, the response is polite redirection: 'we'll pick that up next quarter; the launch is the priority right now.' The original numbers are real. The missing ones are also real. The pathology is not in the chosen metrics. It is in the implicit clause 'na anyad asti' — there is nothing else. The team has become veda-vāda-rata in this verse's specific sense: devoted to a beautiful portion of the available evidence as though it were all of it. The flowery speech of the standing review is not a moral failure. It is a discrimination failure — avipaścit, undiscerning of what the review has quietly scoped out.",
+    "falsifiability": "The analog fails if a reader uses it to justify dismissing all metric-driven culture, treating dashboards as 'flowery' and intuition as 'real.' That is the inverted error. The verse criticises exclusive fixation, not measurement. A team that reads conversion-rate, p99, error-budget, on-call burden, customer-success curves, and operator-wellbeing signals together is doing the discriminating work the verse asks for. A team that reads only retention or only latency is the avipaścit the verse names. The diagnostic is the implicit 'na anyad asti' clause — not the choice of any one metric. If the team can articulate which signals their current frame excludes and why, this verse does not apply yet.",
+    "counter_example": "When a particular metric IS load-bearing for the next-quarter decision — cash runway, regulatory deadline, a specific customer SLA — focused attention on that metric is correct, not pathological. The verse does not bless attention-spread for its own sake. The pathology is the implicit closure ('there is nothing else'), not the focused attention. A team that says 'this quarter, we are optimising the checkout funnel because runway requires it; here are the signals we are deliberately deprioritising and the date we will revisit them' has done the discrimination this verse calls for. Veda-vāda-rata is not 'attentive' — it is 'attentive AND closed-to-everything-else.'",
+    "implication": "Audit your standing review. Name three signals it excludes and the implicit 'there is nothing else' clause those exclusions express. The veda-vāda-rata pathology is rarely loud; it is the polished review whose beauty depends on the missing slides. The corrective is not to add every signal — it is to surface the closure clause and let it be examined.",
+    "quotable_line": "The standing review's polish often depends on the slides it doesn't have; the missing slides are the verse's flowery speech in negative.",
+    "tags": [
+      "vanity-metrics",
+      "feedback-loops",
+      "metrics-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.45",
+  "chapter": 2,
+  "verse": 45,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "This shloka carries the buddhi-yoga gateway's metaphysical injunction; the engineering layer must remain scope-honest. Krishna tells Arjuna: be nistrai-guṇya — beyond the three guṇas (sattva-clarity, rajas-restlessness, tamas-inertia). That is an ontological claim, not an organisational one. The honest analog stays operational: a senior who delivers steady work when their team is in sattva (clean execution), in rajas (demo-week chaos, racing a date), or in tamas (attrition, fogged morale) — without their own state being captured by the surrounding org-state. Most engineers function well only inside sattva. The shloka points toward a settled centre that does not depend on which guṇa colours the team this week. Note carefully: this analog does NOT claim practitioners transcend ontology. It claims they can avoid being captured by team-state oscillation, which is a small operational reflection of a much larger metaphysical injunction. STRETCHED in scope.",
+    "concrete_scenario": "Three Mondays at one company. Monday A: team in sattva. Postgres migration shipped clean, on-call quiet for two weeks, standup runs short, architect updates the roadmap on Notion in eight minutes. The senior performs baseline work. Monday B: rajas. A founder pitch lands Wednesday, marketing wants three new screenshots, an executive injects a 'small ask' that turns out to be two days of work, standup drags forty minutes. Senior performs baseline work. Monday C: tamas. Two engineers gave notice last week, launch slipped a quarter, morale heavy, standup silent, architect on PTO. Senior performs baseline work. 'Baseline' here means the same elemental action — review the GitHub queue, run the failing test, check Datadog for an actual signal, propose the next concrete move. The shloka is not asking for the senior to feel nothing across these mornings. It names a condition where decision-making does not collapse into the ambient guṇa. Juniors oscillate with their team; the figure described here is nirdvandva (untouched by momentum-vs-decay duality) and niryoga-kṣema (unanxious about acquiring next quarter's wins or preserving last). They are ātmavān: self-possessed, source of action independent of which morning it happens to be.",
+    "falsifiability": "The analog fails if a reader uses it to justify emotional dissociation from teammates — 'rising above' morale to the point of ignoring attrition, dismissing tamas signals, or treating rajas-panic as someone else's problem. That is not nistrai-guṇya; it is dissociation, itself a form of tamas. The check is whether action remains accurate across all three states. A senior who claims to be 'unaffected' yet whose review quality drops when the team enters tamas has transcended nothing. The diagnostic lives in artifacts produced — the pull request review, the design doc, the incident postmortem — never in the operator's self-report.",
+    "counter_example": "When a team faces genuine crisis — not rajas-busyness but actual existential threat (regulatory filing, security breach, runway under thirty days) — the shloka does not ask the operator to stay serene-but-passive. Action issuing from a settled state is still action; nistrai-guṇya is not outcome-detachment. Whoever fails to adjust intensity when the situation truly differs has confused not-being-captured-by-state with not-recognising-state.",
+    "implication": "Notice your work across three Mondays. If quality oscillates with the team's guṇa — sharp in sattva, frantic in rajas, fogged in tamas — the buddhi described here is not yet established. The practice is not flattening emotion; it is keeping the substrate connected to a centre that does not move with the surrounding org-state.",
+    "quotable_line": "Most engineers ship well only inside sattva; the senior this shloka names performs the same baseline across all three Mondays.",
+    "tags": ["sattva-clarity", "rajas-restlessness", "tamas-inertia", "team-state"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 2.45 carries the metaphysically loaded nistrai-guṇya injunction. CRITICAL CARE per task spec: the engineering analog must NOT claim engineers can transcend ontology. It must stay at the operational layer (the senior who is not captured by team-state oscillation). The translation field opens with explicit scope-naming — 'this is the metaphysically loaded verse of the buddhi-yoga gateway' — and tags the engineering analog as STRETCHED in scope. Concrete scenario uses the three-Mondays framing: sattva (clean Postgres migration, calm standup), rajas (founder pitch + injected work), tamas (attrition + slipped launch). Named tools: Postgres, Notion, GitHub, Datadog. The senior produces the same baseline action across all three. Tags chosen from controlled vocabulary: sattva-clarity, rajas-restlessness, tamas-inertia, team-state. Per indian-philosopher persona protection: confidence=MEDIUM, stretched=true, with the verse explicitly acknowledging that 'the original verse is doing more than the analog can carry'. Falsifiability handles the dissociation failure mode (claimed unaffectedness without artifact evidence). Counter-example carves out the actual-crisis case (regulatory, security, runway).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,255 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.43",
+  "sanskrit_devanagari": "कामात्मानः स्वर्गपरा जन्मकर्मफलप्रदाम् ।\nक्रियाविशेषबहुलां भोगैश्वर्यगतिं प्रति ॥ ४३ ॥",
+  "sanskrit_iast": "kāmātmānaḥ svarga-parā janma-karma-phala-pradām |\nkriyā-viśeṣa-bahulāṁ bhogaiśvarya-gatiṁ prati || 43 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कामात्मानः",
+      "iast": "kāmātmānaḥ",
+      "meaning": "those whose nature is desire / desire-souled"
+    },
+    {
+      "sanskrit": "स्वर्ग",
+      "iast": "svarga",
+      "meaning": "heaven (in compound svarga-parāḥ)"
+    },
+    {
+      "sanskrit": "पराः",
+      "iast": "parāḥ",
+      "meaning": "intent on / having as supreme (in compound svarga-parāḥ)"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "(future) birth (in compound janma-karma-phala-pradām)"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action (in compound janma-karma-phala-pradām)"
+    },
+    {
+      "sanskrit": "फल",
+      "iast": "phala",
+      "meaning": "fruit / result (in compound phala-pradām)"
+    },
+    {
+      "sanskrit": "प्रदाम्",
+      "iast": "pradām",
+      "meaning": "yielding (acc. fem. sg., agreeing with vācam from 2.42)"
+    },
+    {
+      "sanskrit": "क्रिया",
+      "iast": "kriyā",
+      "meaning": "ritual action (in compound kriyā-viśeṣa-bahulām)"
+    },
+    {
+      "sanskrit": "विशेष",
+      "iast": "viśeṣa",
+      "meaning": "elaborate / particular (in compound)"
+    },
+    {
+      "sanskrit": "बहुलाम्",
+      "iast": "bahulām",
+      "meaning": "abounding in (acc. fem. sg.)"
+    },
+    {
+      "sanskrit": "भोग",
+      "iast": "bhoga",
+      "meaning": "enjoyment (in compound bhogaiśvarya-gatiṁ)"
+    },
+    {
+      "sanskrit": "ऐश्वर्य",
+      "iast": "aiśvarya",
+      "meaning": "lordship / opulence (in compound bhogaiśvarya-gatiṁ)"
+    },
+    {
+      "sanskrit": "गतिम्",
+      "iast": "gatim",
+      "meaning": "destination / progress (acc.)"
+    },
+    {
+      "sanskrit": "प्रति",
+      "iast": "prati",
+      "meaning": "toward / in the direction of"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/42-43/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_capture_note": "combined 2.42-43 verbatim quote; 2.43 is the predicative continuation",
+      "verbatim_quote": "Men of small knowledge are very much attached to the flowery words of the Vedas, which recommend various fruitive activities for elevation to heavenly planets, resultant good birth, power, and so forth. Being desirous of sense gratification and opulent life, they say that there is nothing more than this.",
+      "raw_capture_path": "data/sources/raw/bg-2-42-43-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/43",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_capture_note": "combined 2.42-43 verbatim quote; 2.43 is the second sentence",
+      "verbatim_quote": "They glorify only those portions of the Vedas that please their senses, and perform pompous ritualistic ceremonies for attaining high birth, opulence, sensual enjoyment, and elevation to the heavenly planets."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/42-43/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt, 2.43 portion of combined purport)",
+      "verbatim_excerpt": "In the Vedas many sacrifices are recommended for elevation to the heavenly planets, especially the Jyotiṣṭoma sacrifices. In fact, it is stated that anyone desiring elevation to heavenly planets must perform these sacrifices, and men with a poor fund of knowledge think that this is the whole purpose of Vedic wisdom.",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1978,
+      "raw_full_path": "data/sources/raw/bg-2-42-43-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-42-43/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use; Shankara's 2.43 segment)",
+      "verbatim_excerpt": "2.43 They are kamatmanah, full of desires; svarga-parah, intent on heaven; svarga itself is param, the supreme goal, for them — such are they; (uttering this speech) which janma-karma-phala-pradam, yields rebirth as the result of (their) actions; (and) which is kriya-visesa-bahulam, replete with various special rites; (leading) bhoga-aisvarya-gatim prati, towards the attainment of enjoyment and lordship.",
+      "verbatim_excerpt_length": 416,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-42-43-bgus.json",
+      "summary_paraphrase": "Shankara reads 2.43 as the predicative completion of 2.42's relative clause: the flowery speech (puṣpitā vāc) is yām (which) — and 2.43 fills in the which-clause. The clause has three predicates: (a) the speech yields rebirth as the karma-fruit; (b) it is full of elaborate ritual specifications (kriyā-viśeṣa-bahulā); (c) it tends toward bhoga (enjoyment) and aiśvarya (lordship). The speakers (the avipaścitaḥ from 2.42) are kāmātman (their very nature is desire) and svarga-para (heaven is their highest goal). The diagnosis is that the goal-set is itself bounded by saṃsāra: rebirth, enjoyment, opulence — none of which is mokṣa. The Vedas' karma-kāṇḍa points to these because they are real attainments at that level; the error is treating them as ultimate."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-42-43/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use; Ramanuja's 2.43 segment of joint 2.42-44 bhāṣya)",
+      "verbatim_excerpt": "(continued from 2.42) ... They are full of worldly desires and their minds are highly attached to secular desires. They hanker for heaven, i.e. think of the enjoyment of the felicities of heaven as their highest end. They speak about a multitude of elaborate rituals which yield rebirths as their fruits, leading to the attainment of enjoyment and power.",
+      "verbatim_excerpt_length": 360,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-42-43-bgus.json",
+      "summary_paraphrase": "Ramanuja's 2.43 reading aligns substantively with Shankara's: the speakers' goals are heaven, enjoyment, lordship; they speak about kriyā-viśeṣa-bahulā (rituals replete with elaborate prescriptions). The Vishishtadvaita frame adds that the karma-kāṇḍa is not nullified by this critique — the same rituals, performed without attachment to fruit and as worship of the Supreme, become valid means. What is criticised is exclusively the desire-bounded reading. The goal-clause 'bhoga-aiśvarya-gatim prati' is named the saṃsāric trajectory: it is real, it is attainable, but it terminates within saṃsāra and yields rebirth — therefore it is not what the realised aspirant should treat as ultimate."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kāmātmānaḥ ... bhogaiśvarya-gatim prati",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "desirous of sense gratification and opulent life; recommend fruitive activities for heavenly planets, good birth, power"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "perform pompous ritualistic ceremonies for high birth, opulence, sensual enjoyment, heavenly planets"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "kāmātman = those whose very ātman/nature is desire; svarga is their param (supreme goal); the speech tends bhoga-aiśvarya-gatim prati"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "full of worldly desires; goals are svarga, enjoyment, power; rituals yield rebirth as their fruits"
+        }
+      ],
+      "explanation": "The compound 'kāmātmānaḥ' is doctrinally precise: it is not 'people who happen to have desires' (everyone has those) but 'people whose ātman/very nature is constituted as desire'. Shankara emphasises this: their identity is structured by desire, which is why svarga becomes their param (supreme). Ramanuja agrees and frames the same point as 'attached to secular desires' that block any other goal from registering. The modern translations flatten kāmātman to 'desirous' or 'desiring sense gratification'; this loses the constitutive force. The bhoga-aiśvarya-gati is named as a real trajectory — these are attainments — but a trajectory bounded by saṃsāra. Krishna is not denying that ritual works at the kāmya level; he is naming what level it works at."
+    }
+  ],
+  "literal_meaning": "(They are) those whose nature is desire, intent on heaven, (uttering speech) yielding the fruits of birth-and-action, abounding in elaborate ritual prescriptions, (leading) toward the attainment of enjoyment and lordship.",
+  "traditional_meaning": "2.43 supplies the predicate that 2.42's relative clause ('this flowery speech, which—') opened. The 'which—' is now filled in: speech yielding rebirth-as-karma-fruit, replete with elaborate ritual specifications, oriented toward bhoga (enjoyment) and aiśvarya (lordship). The speakers (avipaścitaḥ from 2.42) are kāmātman — those whose constitutive nature is desire — and svarga-para — those for whom heaven is the supreme goal. The commentarial unanimity is sharp: the kāmya-karma portion of the Vedas is not being voided; what is being criticised is the bounded goal-set (svarga, bhoga, aiśvarya) treated as ultimate. The trajectory is real but saṃsāric: it terminates within rebirth, not in mokṣa. Ramanuja in particular insists the same rituals, performed without attachment to fruit and as worship, remain valid means — confirming that the critique is of fixation, not of the texts.",
+  "engineering": {
+    "translation": "The prior verse opened a relative clause: this flowery speech, which—. This one closes it. The 'which—' is filled in: speech yielding rebirth-as-karma-fruit, replete with elaborate ritual specification, oriented toward bhoga (enjoyment) and aiśvarya (lordship). The speakers are kāmātman — those whose constitutive identity is desire — and svarga-para, for whom one bounded attainment is the supreme goal. The trajectory described is real. Promo to senior, the demo that makes a director nod, the headline metric that wins a board meeting — these are attainable, the rituals producing them are real, the destination is genuine. The shloka does not deny the destination; it names it as bounded. Saṃsāra here is the loop yielding rebirth into more of the same: another quarter, another launch, another packet, with the operator's identity reshaping each cycle around whichever fruit was last harvested.",
+    "concrete_scenario": "A staff engineer is two cycles into a sequence that has been working. Each iteration: pick a feature with high director-visibility, deliver ahead of the demo deadline, add the launch tweet to the promo packet, present impact at all-hands. The kriyā-viśeṣa-bahulā here is the elaborate machinery making each cycle reproducible — the demo-week project plan, the marketing rehearsal, the screenshot pipeline through Figma into the deck, the measurement Postgres query producing the lift number, the GitHub release notes formatted for executive consumption. The mechanics are not wrong. The cycle works: promo lands, headline number moves, all-hands applauds. The bhoga-aiśvarya-gati is real. What the operator has not yet noticed is that each iteration slightly reshaped what they consider real engineering work. The Datadog query they ran two years ago for genuine production curiosity is now the slide-source query. The Linux performance dive once done on weekends is gone. They have become — in this verse's precise sense — kāmātman: identity has restructured around the fruit-loop. The shloka is not condemning the cycle; it names what the cycle is and what it is not. The promo-loop is svarga, not mokṣa. It produces rebirth in the same shape, not transformation of shape.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss demo-week work, executive readouts, or career-ladder advancement as 'flowery' and somehow inferior to 'real' engineering. Krishna does not reject the kāmya rituals; he scopes them. A staff engineer who never participates in director-visible work is not therefore a buddhi-yogin; they may simply be unskilled at organisational legibility. The verse criticises the operator who has identified with the fruit-loop, not the operator who participates in it. The diagnostic is whether the operator can name the fruit-loop honestly, see its boundary, and choose to step outside when needed — not whether they avoid it.",
+    "counter_example": "When the launch genuinely is the leverage moment — a startup at runway critical, a team whose continued existence depends on a specific demo landing — full investment in the kriyā-viśeṣa-bahulā machinery is correct. The verse does not bless detachment for its own sake. The pathology is the structural one: when does the cycle stop reshaping the operator's idea of what engineering is? If the answer is 'never, the loop is the work,' that is the kāmātman state being named. If the answer is 'this quarter, because runway,' the verse does not yet apply.",
+    "implication": "Audit the last three cycles you optimised through. Name the bhoga-aiśvarya-gati each cycle produced — the promo, the launch, the headline number — and check whether your sense of 'real engineering work' has narrowed to that loop. The narrowing is the diagnostic, not the participation. Buddhi-yoga begins when the loop is seen as one bounded trajectory among many, not when it is renounced.",
+    "quotable_line": "The promo-cycle is real and the launch-cycle is real; the verse names what they are and what they are not — svarga, not mokṣa.",
+    "tags": [
+      "vanity-metrics",
+      "operator-system-coupling",
+      "fruits-of-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

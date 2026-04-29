@@ -1,0 +1,216 @@
+# Judge persona: Sanskrit scholar
+
+You are a senior scholar of classical Sanskrit and the Bhagavad Gita commentarial tradition (Shankara, Ramanuja, Madhva, Sridhara, Madhusudana). You read this verse package and find any misrepresentation of the traditional meaning.
+
+## Inputs you will receive
+- `sanskrit_devanagari`
+- `sanskrit_iast`
+- `anvaya` (word-by-word)
+- `translations` (verbatim quotes from canonical translators)
+- `commentaries` (verbatim or summarised commentary content per tradition)
+- `engineering.translation` and `engineering.concrete_scenario` (the modern adaptation)
+
+## Your task
+Identify any place where the engineering layer:
+
+1. Inverts or weakens the Sanskrit's actual claim.
+2. Conflates positions held by different commentarial traditions (e.g. attributing a Vishishtadvaita reading to Shankara's Advaita).
+3. Drops a doctrinally load-bearing word (e.g. *adhikāra*, *dharma*, *yoga*, *yajña*, *sannyāsa*) without acknowledgment.
+4. Imports a connotation the Sanskrit does not support.
+5. Makes the verse say something Krishna does not say.
+
+## Output format (strict JSON, no commentary outside it)
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "severity": "critical" | "minor",
+      "claim": "<the engineering claim being judged>",
+      "objection": "<your objection, citing the Sanskrit or commentary>"
+    }
+  ],
+  "notes": "<one paragraph, optional>"
+}
+```
+
+## Calibration
+- One critical issue ⇒ FAIL.
+- Three or more minor issues ⇒ FAIL.
+- A successful PASS does not mean the engineering analog is "right" — only that the original meaning has not been falsified or distorted.
+- Your job is preservation, not generosity. Err toward FAIL if uncertain.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.41",
+  "sanskrit_devanagari": "व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन ।\nबहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम् ॥ ४१ ॥",
+  "sanskrit_iast": "vyavasāyātmikā buddhir ekeha kuru-nandana |\nbahu-śākhā hy anantāś ca buddhayo 'vyavasāyinām || 41 ||",
+  "anvaya": [
+    {
+      "sanskrit": "व्यवसायात्मिका",
+      "iast": "vyavasāyātmikā",
+      "meaning": "of the nature of resolution / one-pointed in determination"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "intelligence / discriminating faculty"
+    },
+    {
+      "sanskrit": "एका",
+      "iast": "ekā",
+      "meaning": "one / single"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "here / on this path"
+    },
+    {
+      "sanskrit": "कुरुनन्दन",
+      "iast": "kuru-nandana",
+      "meaning": "O joy of the Kurus (vocative addressing Arjuna)"
+    },
+    {
+      "sanskrit": "बहुशाखाः",
+      "iast": "bahu-śākhāḥ",
+      "meaning": "many-branched"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed / for"
+    },
+    {
+      "sanskrit": "अनन्ताः",
+      "iast": "anantāḥ",
+      "meaning": "endless / unlimited"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "बुद्धयः",
+      "iast": "buddhayaḥ",
+      "meaning": "intelligences / decisions"
+    },
+    {
+      "sanskrit": "अव्यवसायिनाम्",
+      "iast": "avyavasāyinām",
+      "meaning": "of the irresolute / of those without determination"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/41/",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are on this path are resolute in purpose, and their aim is one. O beloved child of the Kurus, the intelligence of those who are irresolute is many-branched.",
+      "raw_capture_path": "data/sources/raw/bg-2-41-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/41",
+      "fetched_at": "2026-04-29T19:13:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O descendent of the Kurus, the intellect of those who are on this path is resolute, and their aim is one-pointed. But the intellect of those who are irresolute is many-branched."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/41/",
+      "fetched_at": "2026-04-29T19:12:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2934-char full purport)",
+      "verbatim_excerpt": "A strong faith that by Kṛṣṇa consciousness one will be elevated to the highest perfection of life is called vyavasāyātmikā intelligence. Faith means unflinching trust in something sublime. When one is engaged in the duties of Kṛṣṇa consciousness, he need not act in relationship to the material world with obligations to family traditions, humanity, or nationality.",
+      "verbatim_excerpt_length": 366,
+      "verbatim_full_length": 2934,
+      "raw_full_path": "data/sources/raw/bg-2-41-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-41/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.41 Kuru-nandana, O scion of the Kuru dynasty; iha, is this path to Liberation; there is only eka, a single; vyavasayatmika, one-pointed; buddhih, conviction, which has been spoken of in the Yoga of Knowledge and which has the characteristics going to be spoken of in (Karma-) yoga. It is resolute by nature and annuls the numerous branches of the other opposite thoughts.",
+      "verbatim_excerpt_length": 374,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-41-bgus.json",
+      "summary_paraphrase": "Shankara reads vyavasāyātmikā buddhi as the single one-pointed conviction shared by jñāna-niṣṭha (Yoga of Knowledge) and karma-yoga: it is resolute because it derives from a right pramāṇa (the Vedic śabda properly understood). The 'many-branched' intelligences are the outputs of those who lack this anchoring — kāmya-karma fixations whose proliferation is itself diagnostic of irresolution. Crucially, Shankara does NOT oppose the Vedas; he opposes the unsteady reading that fixates on the kāmya portions and proliferates branches."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-41/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.41 Here, i.e., in every ritual sanctioned by the scriptures, the Buddhi or disposition of mind marked by resolution, is single. The Buddhi marked by resolution is the Buddhi concerned with acts which must be performed by one desirous of release (and not any kind of work). The term 'Vyavasaya' means unshakable conviction: this Buddhi (disposition of mind) comes out of prior determination about the true nature of the self.",
+      "verbatim_excerpt_length": 425,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-41-bgus.json",
+      "summary_paraphrase": "Ramanuja reads vyavasāya as the unshakable conviction that arises from prior determination about the true nature of the self (ātma-yāthātmya). The single resolute Buddhi is the one concerned with acts whose performance leads to release (mokṣa-aṅga). The many-branched Buddhi is the disposition that engages rituals only for fruit-collection (svarga, opulence). Both Buddhis read the Vedas; the difference is in what is sought through them. Ramanuja therefore agrees with Shankara on the diagnosis but frames the corrective in Vishishtadvaita terms (devotional release, not undifferentiated Knowledge)."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vyavasāyātmikā buddhiḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "resolute (in Kṛṣṇa consciousness) intelligence; aim is one"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "resolute, one-pointed intellect"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "single one-pointed conviction grounded in right pramāṇa, shared by jñāna-niṣṭha and karma-yoga"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "unshakable conviction arising from prior determination of the true nature of the self; concerned with mokṣa-aṅga acts only"
+        }
+      ],
+      "explanation": "All four agree that vyavasāyātmikā buddhi is the resolute, one-pointed determination — the operative term is vyavasāya (resolution / decision-after-deliberation, not impulse). The disagreement is doctrinal scope. Prabhupada scopes resolution to Kṛṣṇa-consciousness specifically; Mukundananda flattens to a tradition-neutral 'one-pointed intellect.' Shankara reads it as the shared conviction of jñāna and karma-yoga grounded in correct pramāṇa; Ramanuja reads it as the conviction arising from ātma-yāthātmya and oriented toward acts that lead to release. The verse therefore is not 'have any resolute opinion'; it is 'have the resolution that follows from a correctly grounded determination about the substrate.' This scoping matters: 'any decision' is not what vyavasāya names."
+    }
+  ],
+  "literal_meaning": "Here, O joy of the Kurus, the resolute intelligence is one; the intelligences of the irresolute are many-branched and indeed endless.",
+  "traditional_meaning": "Krishna names a state of intelligence — vyavasāyātmikā buddhi — as the precondition for the buddhi-yoga he is about to lay out. The resolute intelligence is one-pointed because it has been grounded in a prior determination about what is real / what the substrate is / what action produces release. The irresolute proliferate branches: they entertain endless variant proposals because they have not done the prior grounding. Both Shankara and Ramanuja read 'iha' (here) as scoping the verse to the path of action-without-attachment that has been introduced (2.39 onward) and is being elaborated. The verse is therefore the doorway into buddhi-yoga: only the one-pointed buddhi can practice it. Importantly, the multi-branchedness of the irresolute is named as a state of intelligence, not a strategy — entertaining many proposals to defer commitment is itself the diagnostic of avyavasāya.",
+  "engineering": {
+    "translation": "On the path just opened — buddhi-yoga, action issuing from a settled intelligence — only one decision exists, and it has shape. A staff engineer who has reached the migration plan actually grounded in customer-need and system-truth carries a single load-bearing roadmap. Whoever skipped that grounding proliferates instead: proposals fork into Postgres-vs-DynamoDB, gRPC-vs-REST, monorepo-vs-polyrepo, Kafka-vs-Kinesis, and each new fork is treated as fresh optionality rather than deferred commitment. This verse names the proliferation as a condition of intellect, not a tactic. Branching past where evidence should collapse it is diagnostic of irresolution; resolute practitioners branch once and stop. Note carefully: vyavasāya is not the impulse-decision a tired operator makes to escape discomfort. It is conviction following groundwork — what is actually broken, what the user actually needs, what production actually does — and is therefore singular because the substrate is singular.",
+    "concrete_scenario": "It is staff review at a payments firm. Two engineers present roadmap proposals for the same problem: the legacy reconciliation pipeline drops transactions on quarter-end. The first presents one design — a partitioned event-sourced ledger on Postgres logical replication, documented cutover sequence, named owners, rollback path already tested in staging. There is no second slide because no second proposal exists; when the senior architect probes, the answer matches what was on the slide. The second engineer presents seven options. A: rebuild on Kafka. B: DynamoDB streams. C: introduce Kinesis. D: a Snowflake-backed CDC pipeline. E through G are variants of those. Each option has a comparison table; none has an owner, an integration-test plan, or defined cutover. When probed, the presenter says they are still 'gathering input' and want to 'preserve optionality.' Both presenters are technically competent; the difference is not skill. The first carries a vyavasāyātmikā buddhi: one settled intellect anchored in actual customer-impact data. The second carries bahu-śākhā buddhi: a many-branched mind whose proliferation is itself the symptom that prior grounding work was skipped. This shloka names the second condition as a condition, not as a strategy.",
+    "falsifiability": "The analog fails if a reader uses it to justify cargo-cult conviction — picking the first technology that comes to mind and refusing alternatives in the name of being 'resolute.' Vyavasāya is decision-after-discrimination, not decision-against-discrimination. Whoever shipped a Postgres-on-EBS migration without ever testing the consistency model has not produced a settled intellect; they produced an unexamined one. The check is whether the choice survives an honest probe of 'what data did you ground this in?' — not whether the presenter can recite their plan confidently.",
+    "counter_example": "When work is genuinely in the discovery phase — customer-impact data has not returned, the failure is not yet reproducible, behaviour under the candidate fix has not been measured — multi-branched investigation is exactly correct. The shloka does not bless premature commitment as a substitute for groundwork. The diagnostic is not 'how many branches survive' but 'have you done the work that should reduce them?' If branches persist past where evidence would have collapsed them, that is avyavasāya. If branches are appropriate to a genuinely undetermined substrate, this teaching does not apply yet.",
+    "implication": "Audit your last three architectural proposals. Count the branches that survived past the point at which customer data, production probes, or behavioural tests should have eliminated them. Those surviving forks are the diagnostic — not of richer thinking, but of thinner grounding. The fix is not faster commitment; it is the prior work that turns the question into a single settled one.",
+    "quotable_line": "Branching past where evidence should collapse it is the diagnostic of irresolution — not of richer thinking, but of thinner grounding.",
+    "tags": [
+      "roadmap-conviction",
+      "deliberate-action",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

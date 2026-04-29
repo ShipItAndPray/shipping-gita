@@ -1,0 +1,235 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.45",
+  "sanskrit_devanagari": "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भवार्जुन ।\nनिर्द्वन्द्वो नित्यसत्त्वस्थो निर्योगक्षेम आत्मवान् ॥ ४५ ॥",
+  "sanskrit_iast": "trai-guṇya-viṣayā vedā nistrai-guṇyo bhavārjuna |\nnirdvandvo nitya-sattva-stho niryoga-kṣema ātmavān || 45 ||",
+  "anvaya": [
+    {
+      "sanskrit": "त्रै",
+      "iast": "trai",
+      "meaning": "three (in compound trai-guṇya)"
+    },
+    {
+      "sanskrit": "गुण्य",
+      "iast": "guṇya",
+      "meaning": "qualities / guṇas (in compound trai-guṇya)"
+    },
+    {
+      "sanskrit": "विषयाः",
+      "iast": "viṣayāḥ",
+      "meaning": "having (this) as subject-matter / domain"
+    },
+    {
+      "sanskrit": "वेदाः",
+      "iast": "vedāḥ",
+      "meaning": "the Vedas"
+    },
+    {
+      "sanskrit": "निस्त्रै",
+      "iast": "nistrai",
+      "meaning": "free from three (in compound nistrai-guṇya)"
+    },
+    {
+      "sanskrit": "गुण्यः",
+      "iast": "guṇyaḥ",
+      "meaning": "qualities-having (in compound; nistrai-guṇya = beyond the three)"
+    },
+    {
+      "sanskrit": "भव",
+      "iast": "bhava",
+      "meaning": "be / become (imperative)"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna (vocative)"
+    },
+    {
+      "sanskrit": "निर्द्वन्द्वः",
+      "iast": "nirdvandvaḥ",
+      "meaning": "free from dualities (pleasure-pain, gain-loss, etc.)"
+    },
+    {
+      "sanskrit": "नित्य",
+      "iast": "nitya",
+      "meaning": "eternal / ever (in compound nitya-sattva-stha)"
+    },
+    {
+      "sanskrit": "सत्त्व",
+      "iast": "sattva",
+      "meaning": "purity / being / reality (in compound; commentators differ on guṇa-sense vs reality-sense)"
+    },
+    {
+      "sanskrit": "स्थः",
+      "iast": "sthaḥ",
+      "meaning": "established (in compound; nitya-sattva-stha = ever-poised in sattva)"
+    },
+    {
+      "sanskrit": "निर्योग",
+      "iast": "niryoga",
+      "meaning": "free from acquisition (in compound niryoga-kṣema)"
+    },
+    {
+      "sanskrit": "क्षेमः",
+      "iast": "kṣemaḥ",
+      "meaning": "preservation (in compound; niryoga-kṣema = free from acquiring-and-preserving anxiety)"
+    },
+    {
+      "sanskrit": "आत्मवान्",
+      "iast": "ātmavān",
+      "meaning": "self-possessed / firmly grounded in the self"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/45/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Vedas deal mainly with the subject of the three modes of material nature. O Arjuna, become transcendental to these three modes. Be free from all dualities and from all anxieties for gain and safety, and be established in the self.",
+      "raw_capture_path": "data/sources/raw/bg-2-45-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/45",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Vedas deal with the three modes of material nature, O Arjun. Rise above the three modes to a state of pure spiritual consciousness. Freeing yourself from dualities, eternally fixed in Truth, and without concern for material gain and safety, be situated in the self."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/45/",
+      "fetched_at": "2026-04-29T19:14:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1541-char full purport)",
+      "verbatim_excerpt": "All material activities involve actions and reactions in the three modes of material nature. They are meant for fruitive results, which cause bondage in the material world. The Vedas deal mostly with fruitive activities to gradually elevate the general public from the field of sense gratification to a position on the transcendental plane.",
+      "verbatim_excerpt_length": 348,
+      "verbatim_full_length": 1541,
+      "raw_full_path": "data/sources/raw/bg-2-45-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-45/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.45 To those who are thus devoid of discriminating wisdom, who indulge in pleasure, O Arjuna, vedah, the Vedas; traigunya-visayah, have the three qualities as their object — i.e. the worldly life, as the object to be revealed. But you bhava, become; nistraigunyah, free from the three qualities, i.e. be free from desires.",
+      "verbatim_excerpt_length": 327,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-45-bgus.json",
+      "summary_paraphrase": "Shankara reads 'trai-guṇya-viṣayāḥ vedāḥ' carefully. The Vedas have the realm of the three guṇas as their object — i.e. the karma-kāṇḍa portion that addresses worldly life is what 2.45 is referring to. The injunction 'nistraigunyo bhava' (be free from the three guṇas) is therefore not a wholesale rejection of the Vedas; it is the call to rise above desire-bounded action. Shankara is explicit that 'nitya-sattva-stha' creates a tension — being 'ever-poised in sattva' while also being 'beyond the three (which include sattva)' looks contradictory. He resolves it by reading sattva here as 'reality/being' (the noun) or as 'pure-sattva preponderance functioning as a path-stage', not as the worldly guṇa called sattva. Niryoga-kṣema is read as freedom from grasping-after-acquisition (yoga) and clinging-to-preservation (kṣema). Ātmavān names the self-possessed practitioner."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-45/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:15:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.45 The word Traigunya means the three Gunas — Sattva, Rajas and Tamas. Here the term Traigunya denotes persons in whom Sattva, Rajas and Tamas are in abundance. The Vedas in prescribing desire-oriented rituals (Kamya-karmas) have such persons in view. Because of their great love, the Vedas teach what is good to those in whom Tamas, Rajas and Sattva preponderate.",
+      "verbatim_excerpt_length": 374,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-45-bgus.json",
+      "summary_paraphrase": "Ramanuja's reading is striking: 'trai-guṇya-viṣayāḥ vedāḥ' does NOT mean 'the Vedas themselves are bounded by the three guṇas.' It means the kāmya-karma portion of the Vedas has guṇa-dominated persons (those in whom sattva, rajas, tamas preponderate) as its addressees. The Vedas, out of compassion (great love), teach what is good to such persons at the level they can receive. The injunction 'nistraigunyo bhava' is therefore: rise above the guṇa-dominated state to which the kāmya-karma is addressed. Ramanuja is even more emphatic than Shankara that the verse is NOT anti-Vedic; he reframes the Vedas as compassionate pedagogy meeting students at their guṇa-state. 'Nitya-sattva-stha' is read as 'eternally established in pure sattva' as a stage of progress, with 'niryoga-kṣema' meaning the practitioner does not cling to acquiring or protecting outcomes. The end-state is ātmavān: self-possessed, firmly grounded."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "trai-guṇya-viṣayā vedāḥ ... nitya-sattva-sthaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Vedas deal mainly with the three modes; become transcendental to them; be established in the self"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "Vedas deal with the three modes; rise above the three modes to pure spiritual consciousness; eternally fixed in Truth"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "Vedas have the three-guṇa-realm (worldly life) as their object [= karma-kāṇḍa scope]; be free from the three / be free from desires; sattva read as 'reality' to resolve apparent contradiction"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "trai-guṇya denotes persons in whom the guṇas preponderate; the kāmya-karma has such persons in view; rise above that addressed state; nitya-sattva-stha = eternally established in pure sattva as stage"
+        }
+      ],
+      "explanation": "This is the verse's classical interpretive crux. 'Trai-guṇya-viṣayāḥ vedāḥ' literally is 'the Vedas (whose) subject-matter (is) the three guṇas.' Shankara reads viṣaya as 'object/scope': the Vedas (specifically the karma-kāṇḍa) take the worldly-life-domain as their object. Ramanuja reads viṣaya as 'addressees': the Vedas teach the three-guṇa-bounded persons. Both readings preserve the Vedas' authority and scope the critique to the karma-kāṇḍa. Modern translations flatten to 'Vedas deal with the three modes', losing both nuances. The deeper crux is 'nitya-sattva-stha': how can one be both 'beyond the three guṇas' and 'ever-poised in sattva (which is one of the three)'? Shankara resolves by reading sattva here as 'reality/being' (the noun) or as a non-mixed, pure-sattva stage; Ramanuja reads it as a stage of progress in which sattva preponderates en route to nistrai-guṇya. The two are doctrinally similar; both prevent the translation from collapsing into self-contradiction. Niryoga-kṣema is unanimous: yoga = acquisition-of-the-not-yet-had, kṣema = preservation-of-the-already-had. The injunction is to be free of both anxious motions."
+    }
+  ],
+  "literal_meaning": "The Vedas have the three guṇas as their subject-matter; rise beyond the three guṇas, O Arjuna. Be free from dualities, ever-poised in pure sattva / reality, free from acquisition-and-preservation concerns, self-possessed.",
+  "traditional_meaning": "2.45 closes the buddhi-yoga gateway begun at 2.41 by giving Arjuna the operative injunction. Three doctrinal moves. First: 'trai-guṇya-viṣayāḥ vedāḥ' scopes the Veda critique — the karma-kāṇḍa portion (Shankara: takes worldly-life as object; Ramanuja: addresses guṇa-preponderant persons) is what was criticised in 2.42-44. The Vedas as such are not voided. Second: 'nistrai-guṇyo bhava' is the imperative — rise above the three guṇa-dominated state. Third: qualifications of the one who has done so — nirdvandva (free from dualities), nitya-sattva-stha (ever-poised in pure sattva or in 'reality'; commentators preserve the apparent paradox), niryoga-kṣema (free from anxiety about acquisition and preservation), and ātmavān (self-possessed). Metaphysically loaded: 'transcend the three guṇas' is not 'have a good attitude' — it is a state-claim requiring careful engineering layering. The arc 2.42-45 is closed by 2.46 (small water-pond before the flood).",
+  "engineering": {
+    "translation": "This shloka carries the buddhi-yoga gateway's metaphysical injunction; the engineering layer must remain scope-honest. Krishna tells Arjuna: be nistrai-guṇya — beyond the three guṇas (sattva-clarity, rajas-restlessness, tamas-inertia). That is an ontological claim, not an organisational one. The honest analog stays operational: a senior who delivers steady work when their team is in sattva (clean execution), in rajas (demo-week chaos, racing a date), or in tamas (attrition, fogged morale) — without their own state being captured by the surrounding org-state. Most engineers function well only inside sattva. The shloka points toward a settled centre that does not depend on which guṇa colours the team this week. Note carefully: this analog does NOT claim practitioners transcend ontology. It claims they can avoid being captured by team-state oscillation, which is a small operational reflection of a much larger metaphysical injunction. STRETCHED in scope.",
+    "concrete_scenario": "Three Mondays at one company. Monday A: team in sattva. Postgres migration shipped clean, on-call quiet for two weeks, standup runs short, architect updates the roadmap on Notion in eight minutes. The senior performs baseline work. Monday B: rajas. A founder pitch lands Wednesday, marketing wants three new screenshots, an executive injects a 'small ask' that turns out to be two days of work, standup drags forty minutes. Senior performs baseline work. Monday C: tamas. Two engineers gave notice last week, launch slipped a quarter, morale heavy, standup silent, architect on PTO. Senior performs baseline work. 'Baseline' here means the same elemental action — review the GitHub queue, run the failing test, check Datadog for an actual signal, propose the next concrete move. The shloka is not asking for the senior to feel nothing across these mornings. It names a condition where decision-making does not collapse into the ambient guṇa. Juniors oscillate with their team; the figure described here is nirdvandva (untouched by momentum-vs-decay duality) and niryoga-kṣema (unanxious about acquiring next quarter's wins or preserving last). They are ātmavān: self-possessed, source of action independent of which morning it happens to be.",
+    "falsifiability": "The analog fails if a reader uses it to justify emotional dissociation from teammates — 'rising above' morale to the point of ignoring attrition, dismissing tamas signals, or treating rajas-panic as someone else's problem. That is not nistrai-guṇya; it is dissociation, itself a form of tamas. The check is whether action remains accurate across all three states. A senior who claims to be 'unaffected' yet whose review quality drops when the team enters tamas has transcended nothing. The diagnostic lives in artifacts produced — the pull request review, the design doc, the incident postmortem — never in the operator's self-report.",
+    "counter_example": "When a team faces genuine crisis — not rajas-busyness but actual existential threat (regulatory filing, security breach, runway under thirty days) — the shloka does not ask the operator to stay serene-but-passive. Action issuing from a settled state is still action; nistrai-guṇya is not outcome-detachment. Whoever fails to adjust intensity when the situation truly differs has confused not-being-captured-by-state with not-recognising-state.",
+    "implication": "Notice your work across three Mondays. If quality oscillates with the team's guṇa — sharp in sattva, frantic in rajas, fogged in tamas — the buddhi described here is not yet established. The practice is not flattening emotion; it is keeping the substrate connected to a centre that does not move with the surrounding org-state.",
+    "quotable_line": "Most engineers ship well only inside sattva; the senior this shloka names performs the same baseline across all three Mondays.",
+    "tags": [
+      "sattva-clarity",
+      "rajas-restlessness",
+      "tamas-inertia",
+      "team-state"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

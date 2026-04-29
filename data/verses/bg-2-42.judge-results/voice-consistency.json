@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "voice_match_signals": [
+    "Didactic-corrective register: 'Critically: this teaching is not anti-metric.' — same direct corrective tone as 2.41 ('Note carefully: vyavasāya is not...') and 2.46.",
+    "Two-sided pathology: parallels 2.46 (rule-dependence vs premature mastery) and 2.41 (cargo-cult vs optionality-paralysis).",
+    "Concrete tools and named artifacts: Mixpanel + Datadog + GitHub release tag + PagerDuty matches 2.48's PagerDuty/Postgres/Sentry/Slack and 2.47's Postgres/Datadog/Sentry/GitHub.",
+    "Quotable line: structural, not motivational — 'the standing review's polish often depends on the slides it doesn't have' parallels 2.47's 'your right is to the deploy, not to the launch metrics.'"
+  ],
+  "verdict_reason": "Voice fits the chapter's didactic-corrective register. Sanskrit transliterations (avipaścit, puṣpitā vāc, veda-vāda-rata, kāmya-karma) are kept load-bearing alongside the engineering vocabulary, matching the 2.46 / 2.48 / 2.47 convention. PASS."
+}

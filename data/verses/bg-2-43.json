@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.43",
+  "chapter": 2,
+  "verse": 43,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The prior verse opened a relative clause: this flowery speech, which—. This one closes it. The 'which—' is filled in: speech yielding rebirth-as-karma-fruit, replete with elaborate ritual specification, oriented toward bhoga (enjoyment) and aiśvarya (lordship). The speakers are kāmātman — those whose constitutive identity is desire — and svarga-para, for whom one bounded attainment is the supreme goal. The trajectory described is real. Promo to senior, the demo that makes a director nod, the headline metric that wins a board meeting — these are attainable, the rituals producing them are real, the destination is genuine. The shloka does not deny the destination; it names it as bounded. Saṃsāra here is the loop yielding rebirth into more of the same: another quarter, another launch, another packet, with the operator's identity reshaping each cycle around whichever fruit was last harvested.",
+    "concrete_scenario": "A staff engineer is two cycles into a sequence that has been working. Each iteration: pick a feature with high director-visibility, deliver ahead of the demo deadline, add the launch tweet to the promo packet, present impact at all-hands. The kriyā-viśeṣa-bahulā here is the elaborate machinery making each cycle reproducible — the demo-week project plan, the marketing rehearsal, the screenshot pipeline through Figma into the deck, the measurement Postgres query producing the lift number, the GitHub release notes formatted for executive consumption. The mechanics are not wrong. The cycle works: promo lands, headline number moves, all-hands applauds. The bhoga-aiśvarya-gati is real. What the operator has not yet noticed is that each iteration slightly reshaped what they consider real engineering work. The Datadog query they ran two years ago for genuine production curiosity is now the slide-source query. The Linux performance dive once done on weekends is gone. They have become — in this verse's precise sense — kāmātman: identity has restructured around the fruit-loop. The shloka is not condemning the cycle; it names what the cycle is and what it is not. The promo-loop is svarga, not mokṣa. It produces rebirth in the same shape, not transformation of shape.",
+    "falsifiability": "The analog fails if a reader uses it to dismiss demo-week work, executive readouts, or career-ladder advancement as 'flowery' and somehow inferior to 'real' engineering. Krishna does not reject the kāmya rituals; he scopes them. A staff engineer who never participates in director-visible work is not therefore a buddhi-yogin; they may simply be unskilled at organisational legibility. The verse criticises the operator who has identified with the fruit-loop, not the operator who participates in it. The diagnostic is whether the operator can name the fruit-loop honestly, see its boundary, and choose to step outside when needed — not whether they avoid it.",
+    "counter_example": "When the launch genuinely is the leverage moment — a startup at runway critical, a team whose continued existence depends on a specific demo landing — full investment in the kriyā-viśeṣa-bahulā machinery is correct. The verse does not bless detachment for its own sake. The pathology is the structural one: when does the cycle stop reshaping the operator's idea of what engineering is? If the answer is 'never, the loop is the work,' that is the kāmātman state being named. If the answer is 'this quarter, because runway,' the verse does not yet apply.",
+    "implication": "Audit the last three cycles you optimised through. Name the bhoga-aiśvarya-gati each cycle produced — the promo, the launch, the headline number — and check whether your sense of 'real engineering work' has narrowed to that loop. The narrowing is the diagnostic, not the participation. Buddhi-yoga begins when the loop is seen as one bounded trajectory among many, not when it is renounced.",
+    "quotable_line": "The promo-cycle is real and the launch-cycle is real; the verse names what they are and what they are not — svarga, not mokṣa.",
+    "tags": ["vanity-metrics", "operator-system-coupling", "fruits-of-action"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:05:00Z",
+      "mutation": "v0 generation: BG 2.43 supplies the predicative completion of 2.42's relative clause. CRITICAL: must NOT generalise to 'demo-week is bad' or 'career-ladder work is bad.' Per Shankara: kāmya-karma is real, the bhoga-aiśvarya-gati is a real attainable trajectory; the diagnosis is constitutive (kāmātman = identity restructured around the fruit-loop). Engineering layer therefore anchors on the staff-engineer demo/promo cycle: the cycle works, but each iteration reshapes what the operator considers real engineering work. Named tools/practices: Figma, Postgres, GitHub release notes, Datadog, Linux performance work. Falsifiability handles the inverse error (dismissing organisational legibility as inferior). Counter-example carves out the genuine runway moment. Tags: vanity-metrics, operator-system-coupling, fruits-of-action. Cross-references explicit to 2.42 (syntactic continuation) and 2.44 (consequence clause) per Ramanuja's joint 2.42-44 reading.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.42",
+  "chapter": 2,
+  "verse": 42,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "A class of speech runs through every engineering organisation that sounds beautiful on first hearing. It is flowery, syntactically polished, full of bloomed-tree metrics. Yet examined carefully, it contains nothing beyond one bounded fruit-set: ship-velocity, feature-count, dashboard-green, weekly active users. The shloka names the speakers avipaścitaḥ — undiscerning — and locates their characteristic claim as 'na anyad asti', 'nothing else exists.' Critically: this teaching is not anti-metric. It targets the exclusive fixation that treats one bounded number as the entire frame. Compare the operator who reads conversion alongside on-call burden, error budget, and downstream wellbeing — and the one who treats only p99 latency or only retention as 'the thing that matters.' The latter is veda-vāda-rata in the precise sense Shankara reads: devoted to one portion of the signal as if it were the whole. Krishna does not reject the kāmya-karma section of scripture; he rejects the reading that treats that section as the totality.",
+    "concrete_scenario": "A growth-engineering team has settled into a comfortable cadence. Every Monday opens with three slides: a conversion-rate dashboard piped from Mixpanel through Datadog, a demo-week feature count from the GitHub release tag, and the launch-tweet engagement numbers from the marketing partner. The meeting feels good. The chart rendering is clean, the slides are polished, the team is genuinely skilled at this. Eighteen months pass. On-call burden has roughly doubled. An early customer-success metric has decoupled from conversion: paying customers convert, then leave within ninety days. Three engineers have quietly opened LinkedIn. None of those signals appears in the standing review. When a senior architect mentions the on-call PagerDuty trend at the end of the agenda, the response is polite redirection: 'we'll pick that up next quarter; the launch is the priority right now.' The original numbers are real. The missing ones are also real. The pathology is not in the chosen metrics. It is in the implicit clause 'na anyad asti' — there is nothing else. The team has become veda-vāda-rata in this verse's specific sense: devoted to a beautiful portion of the available evidence as though it were all of it. The flowery speech of the standing review is not a moral failure. It is a discrimination failure — avipaścit, undiscerning of what the review has quietly scoped out.",
+    "falsifiability": "The analog fails if a reader uses it to justify dismissing all metric-driven culture, treating dashboards as 'flowery' and intuition as 'real.' That is the inverted error. The verse criticises exclusive fixation, not measurement. A team that reads conversion-rate, p99, error-budget, on-call burden, customer-success curves, and operator-wellbeing signals together is doing the discriminating work the verse asks for. A team that reads only retention or only latency is the avipaścit the verse names. The diagnostic is the implicit 'na anyad asti' clause — not the choice of any one metric. If the team can articulate which signals their current frame excludes and why, this verse does not apply yet.",
+    "counter_example": "When a particular metric IS load-bearing for the next-quarter decision — cash runway, regulatory deadline, a specific customer SLA — focused attention on that metric is correct, not pathological. The verse does not bless attention-spread for its own sake. The pathology is the implicit closure ('there is nothing else'), not the focused attention. A team that says 'this quarter, we are optimising the checkout funnel because runway requires it; here are the signals we are deliberately deprioritising and the date we will revisit them' has done the discrimination this verse calls for. Veda-vāda-rata is not 'attentive' — it is 'attentive AND closed-to-everything-else.'",
+    "implication": "Audit your standing review. Name three signals it excludes and the implicit 'there is nothing else' clause those exclusions express. The veda-vāda-rata pathology is rarely loud; it is the polished review whose beauty depends on the missing slides. The corrective is not to add every signal — it is to surface the closure clause and let it be examined.",
+    "quotable_line": "The standing review's polish often depends on the slides it doesn't have; the missing slides are the verse's flowery speech in negative.",
+    "tags": ["vanity-metrics", "feedback-loops", "metrics-discipline"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation: BG 2.42 is the first half of the famously sharp critique of veda-vāda-rata. CRITICAL: the engineering layer must NOT generalise to anti-metrics. Per Shankara and Ramanuja, the critique is of fixation on a portion of the Vedas (the kāmya-karma) treated as the totality. Engineering layer therefore anchors on exclusive metric-fixation: a polished growth-engineering standing review that treats conversion-rate / feature-count / engagement as 'there is nothing else.' Concrete scenario uses Mixpanel + demo-week + launch-tweet trio with hidden on-call burden, customer-success decoupling, and engineer job-searching as the excluded signals. Falsifiability handles the inverse error (dismissing all metric culture as flowery). Counter-example carves out legitimate focused attention (load-bearing metric for next quarter) — the pathology is the closure clause, not the focus. Tags: vanity-metrics, feedback-loops, metrics-discipline. Voice held to chapter 2 didactic-corrective register.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

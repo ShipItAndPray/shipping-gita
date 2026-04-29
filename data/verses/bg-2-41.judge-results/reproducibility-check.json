@@ -1,0 +1,4 @@
+{
+  "verdict": "PASS",
+  "verdict_reason": "The implication field gives a concrete reproducible audit step: 'audit your last three architectural proposals; count the branches that survived past the point at which customer data, system probes, or behavioural tests should have eliminated them.' That is reproducible in a real architectural review — a senior architect or PM can run it on the design docs sitting in their queue right now. The diagnostic is a count (number of surviving branches past evidence-collapse-threshold), not a metaphor. The counter-example clarifies when the diagnostic does not apply (genuine discovery phase). The verse is reproducible in code and in org practice, not pure metaphor. PASS."
+}
