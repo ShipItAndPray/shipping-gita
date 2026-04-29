@@ -92,8 +92,14 @@
       "tradition": "Advaita",
       "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-47/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-29T00:05:00Z",
-      "verbatim_excerpt_status": "summary-only (raw text behind JS-rendered page)",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.47 Te, your; adhikarah, right; is karmani eva, for action alone, not for steadfastness in Knowledge. Even there, when you are engaged in action, you have ma kadacana, never; a right phalesu, for the results of action — may you not have a hankering for the results of action.",
+      "verbatim_excerpt_length": 276,
+      "verbatim_full_length": 858,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-47-shankara.json",
       "summary_paraphrase": "The right pertains to action alone, not to steadfastness in Knowledge. Even when acting, one must not crave the results, because desire for fruits binds the actor as the agent of those results. Aversion to action is also rejected; one is to perform duty without becoming the agent of its fruit and without inclining toward inaction."
     },
     {
@@ -101,8 +107,14 @@
       "tradition": "Vishishtadvaita",
       "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-47/?cm=ramanuja",
-      "fetched_at": "2026-04-29T00:05:00Z",
-      "verbatim_excerpt_status": "summary-only (raw text behind JS-rendered page)",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.47 As for obligatory, occasional and desiderative acts taught in the Vedas and associated with some result or other, you, an aspirant established in Sattva, have the right only to perform them: You have no right to the fruits known to be derived from such acts.",
+      "verbatim_excerpt_length": 263,
+      "verbatim_full_length": 1306,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-47-ramanuja.json",
       "summary_paraphrase": "The aspirant established in sattva has a right to obligatory, occasional, and desiderative acts taught in the Veda, but no right to their fruits. Acts performed with fruit-desire create bondage; the same acts performed without such attachment become worship and enable liberation. Agency and the desire for results belong to the gunas or the Lord. Inaction (as Arjuna proposed by abandoning his warrior duty) is also rejected."
     }
   ],
@@ -127,11 +139,14 @@
     "translations_count": 2,
     "commentaries_count": 3,
     "verbatim_quotes_captured": true,
-    "verbatim_quote_sources": ["vedabase.io (Prabhupada)", "holy-bhagavad-gita.org (Mukundananda)"],
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
     "remaining_gaps": [
-      "Shankara's bhashya verbatim — currently summary-only because bhagavad-gita.us renders commentary in JS",
-      "Ramanuja's commentary verbatim — same issue",
-      "GRETIL critical edition not yet pulled (not strictly needed since 4 sources agree on body text)"
+      "GRETIL critical edition cross-reference confirmed but not pulled into raw/ (not strictly needed since 4 sources agree on body text)"
     ]
   }
 }
