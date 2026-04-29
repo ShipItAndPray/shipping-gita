@@ -152,8 +152,14 @@ Decide whether the engineering layer trivializes the original. Specifically:
       "tradition": "Advaita",
       "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-47/?cm=adi-shankaracharya",
-      "fetched_at": "2026-04-29T00:05:00Z",
-      "verbatim_excerpt_status": "summary-only (raw text behind JS-rendered page)",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.47 Te, your; adhikarah, right; is karmani eva, for action alone, not for steadfastness in Knowledge. Even there, when you are engaged in action, you have ma kadacana, never; a right phalesu, for the results of action — may you not have a hankering for the results of action.",
+      "verbatim_excerpt_length": 276,
+      "verbatim_full_length": 858,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-47-shankara.json",
       "summary_paraphrase": "The right pertains to action alone, not to steadfastness in Knowledge. Even when acting, one must not crave the results, because desire for fruits binds the actor as the agent of those results. Aversion to action is also rejected; one is to perform duty without becoming the agent of its fruit and without inclining toward inaction."
     },
     {
@@ -161,8 +167,14 @@ Decide whether the engineering layer trivializes the original. Specifically:
       "tradition": "Vishishtadvaita",
       "source": "bhagavad-gita.us",
       "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-47/?cm=ramanuja",
-      "fetched_at": "2026-04-29T00:05:00Z",
-      "verbatim_excerpt_status": "summary-only (raw text behind JS-rendered page)",
+      "fetched_at": "2026-04-26T00:00:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.47 As for obligatory, occasional and desiderative acts taught in the Vedas and associated with some result or other, you, an aspirant established in Sattva, have the right only to perform them: You have no right to the fruits known to be derived from such acts.",
+      "verbatim_excerpt_length": 263,
+      "verbatim_full_length": 1306,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-47-ramanuja.json",
       "summary_paraphrase": "The aspirant established in sattva has a right to obligatory, occasional, and desiderative acts taught in the Veda, but no right to their fruits. Acts performed with fruit-desire create bondage; the same acts performed without such attachment become worship and enable liberation. Agency and the desire for results belong to the gunas or the Lord. Inaction (as Arjuna proposed by abandoning his warrior duty) is also rejected."
     }
   ],
@@ -193,7 +205,7 @@ Decide whether the engineering layer trivializes the original. Specifically:
   "literal_meaning": "Your right is to action alone, never to its fruits. Do not be the cause of action's fruit, nor be attached to inaction.",
   "traditional_meaning": "Krishna establishes the doctrine of niṣkāma-karma — action without attachment to its results — as the resolution of Arjuna's paralysis. The actor's only legitimate domain is the action itself. The fruits are governed by impersonal forces (gunas, the Lord, dharma) outside the actor's control. Importantly, this is not a license for inaction; renunciation of action altogether is also rejected. The middle path is engaged action plus released outcome.",
   "engineering": {
-    "translation": "Your jurisdiction extends only to the action itself — the function you can refactor, the migration you can execute, the deploy you can run through the pipeline. Authority over consequences does not extend to outcomes that emerge once your code is in the hands of users, customers, the market, or your colleagues. Make the work itself the motive; refuse to make outcome the work's reason. And do not use 'I cannot control the outcome' as cover for refusing to act, because retreating from action is the more dangerous trap. Inaction disguised as caution is still abandonment of duty.",
+    "translation": "First: your jurisdiction extends only to the action itself — the function you can refactor, the migration you can execute, the deploy you can run through the pipeline. The fruits of that action — the conversion lift, the launch reception, the dashboard reading the next morning — are never your jurisdiction, at any time. Second: do not regard yourself as the cause of those fruits. The system, the users, the market, the timing produce the outcome; you do not. To inwardly claim authorship of the result is to bind yourself as the agent of consequences you cannot control. Third: do not let this become a license for retreat. Hiding inside low-stakes refactors, comfortable rewrites no one asked for, or perpetual analysis that defers the merge — that is inaction disguised as caution, and it is rejected here just as firmly as the grasping for fruits. Right action, disowned authorship of the result, no flight into the safe-feeling tasks.",
     "concrete_scenario": "It is the night before a Postgres schema migration. The pull request on GitHub has been reviewed, tests pass under CI, the rollback plan sits in the runbook, observability for the new endpoint is wired through Datadog and Sentry. You have already done the work that is genuinely yours to do. Now the temptation arrives: the launch tweet might flop, the conversion metric might not move, a competitor's release might eclipse yours next morning. Your hand hesitates above `git push` — not because the code is wrong, but because the outcome feels uncertain. Or consider the inverse failure: across two recent weeks you have been rewriting an internal CLI nobody asked for, telling yourself the rewrite is more elegant than the customer-facing schema migration languishing on the queue. You congratulate yourself on the technical purity of the rewrite while drifting into a more comfortable form of inaction. Both behaviors are this verse. Your right is to the action — the merge, the deploy, the migration. The tweet's reception, the dashboard reading, your peer's reaction — those belong elsewhere.",
     "falsifiability": "The analog fails if a reader uses it to justify shipping without reading Datadog dashboards, ignoring Sentry error reports, or skipping post-launch instrumentation. Detachment from outcome is not detachment from feedback. Anyone who concludes from this verse that they should stop looking at metrics has misread it entirely.",
     "counter_example": "When the genuinely correct action is to NOT ship — to kill a project, decline a feature request, or hold a release because incident data is incomplete — this verse does not contradict that. Krishna rejects inaction used as cover for fear of consequences; he does not reject the disciplined no. Chapter 5 and the closing instruction at 18.66 carry that complement, where right-renunciation is named explicitly.",

@@ -26,25 +26,30 @@ interface JudgeResult {
 
 const REPO = resolve(import.meta.dirname || ".", "..");
 
-// Map persona prompt files to gate IDs
+// Map persona prompt files to gate IDs.
+//
+// Coverage of the 23 LLM-judge gates declared in eval/gates.json:
+//   2.5, 3.5, 3.6, 3.7, 3.11, 3.12, 5.7, 6.1, 6.5, 6.8,
+//   7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.10, 8.1, 8.5, 10.3, 10.4
+//
+// Every LLM-judge gate above MUST be present as a value somewhere in this map.
 const JUDGE_GATE_MAP: Record<string, string[]> = {
-  "sanskrit-scholar.md":      ["7.1"],
-  "hostile-engineer.md":      ["7.2"],
-  "skeptical-pm.md":          ["7.3", "3.11"],
-  "indian-philosopher.md":    ["7.4", "6.8"],
-  "cynical-writer.md":        ["7.5"],
-  "force-fit-detector.md":    ["7.6", "3.5"],
-  "inversion-test.md":        ["7.8", "3.7"],
-  "distortion-test.md":       ["3.6", "7.10"],
-  "voice-consistency.md":     ["5.7"],
-  "trivialization-check.md":  ["8.1"],
-  "tech-manual-framing.md":   ["8.5"],
-  // additional persona files to be authored:
-  // "removed-verse-test.md":    ["7.7"],
-  // "actionable-predicate.md":  ["3.11"],  (overlaps skeptical-pm)
-  // "reproducibility-check.md": ["3.12"],
-  // "disagreement-explanation.md": ["2.5"],
-  // "chapter-thesis-support.md": ["10.3"],
+  "sanskrit-scholar.md":                  ["7.1"],
+  "hostile-engineer.md":                  ["7.2"],
+  "skeptical-pm.md":                      ["7.3", "3.11"],
+  "indian-philosopher.md":                ["7.4", "6.8"],
+  "cynical-writer.md":                    ["7.5"],
+  "force-fit-detector.md":                ["7.6", "3.5"],
+  "inversion-test.md":                    ["7.8", "3.7"],
+  "distortion-test.md":                   ["3.6", "7.10"],
+  "voice-consistency.md":                 ["5.7"],
+  "trivialization-check.md":              ["8.1"],
+  "tech-manual-framing.md":               ["8.5"],
+  "disagreement-explanation-reviewer.md": ["2.5"],
+  "removed-verse-reviewer.md":            ["7.7"],
+  "reproducibility-check.md":             ["3.12"],
+  "chapter-thesis-support.md":            ["10.3", "10.4"],
+  "doctrine-coherence-reviewer.md":       ["6.1", "6.5"],
 };
 
 const verseId = process.argv[2];

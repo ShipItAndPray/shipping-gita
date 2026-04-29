@@ -1,13 +1,31 @@
 {
   "verse_id": "BG 2.47",
   "mode": "stub",
-  "generated_at": "2026-04-29T05:28:59.693Z",
-  "judges_run": 16,
-  "pending": 16,
+  "generated_at": "2026-04-29T06:06:13.034Z",
+  "judges_run": 23,
+  "pending": 23,
   "passed": 0,
   "failed": 0,
   "errored": 0,
   "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/chapter-thesis-support.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.023Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/chapter-thesis-support.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.024Z"
+    },
     {
       "judge": "cynical-writer",
       "gate_id": "7.5",
@@ -15,7 +33,16 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/cynical-writer.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.687Z"
+      "ts": "2026-04-29T06:06:13.025Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/disagreement-explanation-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.025Z"
     },
     {
       "judge": "distortion-test",
@@ -24,7 +51,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/distortion-test.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.688Z"
+      "ts": "2026-04-29T06:06:13.026Z"
     },
     {
       "judge": "distortion-test",
@@ -33,7 +60,25 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/distortion-test.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.688Z"
+      "ts": "2026-04-29T06:06:13.026Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/doctrine-coherence-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.026Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/doctrine-coherence-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.026Z"
     },
     {
       "judge": "force-fit-detector",
@@ -42,7 +87,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/force-fit-detector.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.689Z"
+      "ts": "2026-04-29T06:06:13.027Z"
     },
     {
       "judge": "force-fit-detector",
@@ -51,7 +96,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/force-fit-detector.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.689Z"
+      "ts": "2026-04-29T06:06:13.027Z"
     },
     {
       "judge": "hostile-engineer",
@@ -60,7 +105,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/hostile-engineer.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.689Z"
+      "ts": "2026-04-29T06:06:13.028Z"
     },
     {
       "judge": "indian-philosopher",
@@ -69,7 +114,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/indian-philosopher.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.690Z"
+      "ts": "2026-04-29T06:06:13.028Z"
     },
     {
       "judge": "indian-philosopher",
@@ -78,7 +123,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/indian-philosopher.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.690Z"
+      "ts": "2026-04-29T06:06:13.028Z"
     },
     {
       "judge": "inversion-test",
@@ -87,7 +132,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/inversion-test.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.690Z"
+      "ts": "2026-04-29T06:06:13.029Z"
     },
     {
       "judge": "inversion-test",
@@ -96,7 +141,25 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/inversion-test.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.690Z"
+      "ts": "2026-04-29T06:06:13.029Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/removed-verse-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.030Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/reproducibility-check.prompt.txt"
+      },
+      "ts": "2026-04-29T06:06:13.030Z"
     },
     {
       "judge": "sanskrit-scholar",
@@ -105,7 +168,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/sanskrit-scholar.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.691Z"
+      "ts": "2026-04-29T06:06:13.031Z"
     },
     {
       "judge": "skeptical-pm",
@@ -114,7 +177,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/skeptical-pm.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.691Z"
+      "ts": "2026-04-29T06:06:13.032Z"
     },
     {
       "judge": "skeptical-pm",
@@ -123,7 +186,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/skeptical-pm.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.691Z"
+      "ts": "2026-04-29T06:06:13.032Z"
     },
     {
       "judge": "tech-manual-framing",
@@ -132,7 +195,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/tech-manual-framing.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.692Z"
+      "ts": "2026-04-29T06:06:13.032Z"
     },
     {
       "judge": "trivialization-check",
@@ -141,7 +204,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/trivialization-check.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.693Z"
+      "ts": "2026-04-29T06:06:13.033Z"
     },
     {
       "judge": "voice-consistency",
@@ -150,7 +213,7 @@
       "raw": {
         "rendered_prompt_path": "/Users/somepalli/claude/shipping-gita/data/judge-runs/bg-2-47/voice-consistency.prompt.txt"
       },
-      "ts": "2026-04-29T05:28:59.693Z"
+      "ts": "2026-04-29T06:06:13.034Z"
     }
   ]
 }
