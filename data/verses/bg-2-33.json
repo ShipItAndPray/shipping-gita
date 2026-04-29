@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.33",
+  "chapter": 2,
+  "verse": 33,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names a precise category of failure: quitting an engineering duty already accepted, in mid-flight, where another operator cannot pick it up cleanly. Three conditions hold together — the duty has already arrived in your lane, the work is genuinely role-aligned, and the obligation has been encoded in commitments others have made downstream of it. To walk out of that specific moment is not freedom; it is an active loss. The engineer loses the operating-context that gave their seniority shape, loses the technical reputation that depended on shipping under pressure, and incurs an organisational debt the team cannot easily discharge. The verse does not condemn quitting a job. It condemns quitting a duty mid-execution when the only person who can carry it forward is the one walking out.",
+    "concrete_scenario": "It is day six of an active production incident at a database-as-a-service company. The lead engineer on the failing replication path knows the system intimately: the custom Postgres logical-replication plugin he wrote, the WAL-shipping tuning he committed three months ago, the on-call runbook that names him as the escalation owner. On Wednesday his recruiter calls with an offer he has been chasing for a year — start date Monday. He is tempted to give two days notice and walk. The verse is precise about the failure mode here. The duty has arrived (the incident is live), it is genuinely role-aligned (no other engineer has the WAL-plugin context in their head), and downstream commitments depend on him (the SRE rota, the customer-success communication plan, the post-mortem ownership). Quitting Friday in this scenario is not the verse's permitted-no. The svadharma loss is the loss of operating-context his seniority was built on; the kīrti loss is what peers will recall when they hear his name in three years — 'left mid-incident.' The pāpa is a real organisational debt: the team will spend two months absorbing what he was carrying. The verse does not say he can never leave; it says this Friday is wrong.",
+    "falsifiability": "The analog fails if a reader uses it to chain engineers to bad jobs. The verse scopes tightly: a duty must be (a) already-arrived in mid-execution, (b) genuinely role-aligned with the operator's specific context, and (c) materially un-pickup-able by available teammates. A miserable role one has accepted but is not actively executing is not the verse. A duty whose handover would take a week and the team is willing to absorb is not the verse. The pāpa attaches to mid-execution abandonment of an actually un-replaceable role. Anyone reading 2.33 as 'never quit a job' has misscoped it.",
+    "counter_example": "When the duty itself is the residue of organisational dysfunction — the engineer who has been kept as 'the only person who can carry it' because the team refused to pay down the bus-factor — the verse does not apply unmodified. The corrective is in Chapter 5 (right-renunciation) and 18.66 (the closing release). A team that has refused to absorb knowledge has manufactured its own un-replaceability; the engineer's exit then is not pāpa, it is the system's overdue correction. Krishna names 2.33's pāpa in conditions where the duty's role-bound-ness is honest, not weaponised.",
+    "implication": "Before walking out of an active engineering commitment, name precisely what the team will lose and over what timeline. If the loss is real, role-bound, and un-pickup-able on the timeline you are giving — and the moment is already in motion — the engineering equivalent of 2.33's pāpa is in play. The exit needs a different shape: a delayed start date, a transition runbook, a paid contracting bridge, or all three.",
+    "quotable_line": "Quitting mid-incident, when only your context can carry the system through, is not a release; it is the precise organisational debt 2.33 names.",
+    "tags": ["duty", "prescribed-action", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:38:00Z",
+      "mutation": "v0 generation: BG 2.33 is the if-then form of the duty argument. The 'imam' (this — specific) per Shankara/Ramanuja is load-bearing: pāpa attaches to abandoning a duty that has the three properties (already-arrived, role-aligned, scripturally/contractually enjoined). Engineering layer scopes the analog tightly to mid-execution abandonment of an actually un-replaceable role (lead engineer mid-incident at a database-as-a-service company; named tools include Postgres, WAL-shipping, the on-call runbook). The 'never quit a job' misreading is explicitly excluded by both falsifiability and counter-example. The Chapter 5 / 18.66 corrective is named for the case where the un-replaceability has been weaponised by the organisation. Tags: duty, prescribed-action, operator-system-coupling.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reproducibility_signals": [
+    "Named tools (custom Postgres logical-replication plugin, WAL-shipping tuning, on-call runbook with named-escalation-owner) are real components of database-as-a-service operational architectures.",
+    "The active-incident scenario with day-six framing is a real pattern in DBaaS operations — replication-path incidents commonly run for days, not hours.",
+    "The pattern 'lead engineer with role-bound context gets a recruiter call mid-incident' is a documented engineering-org failure mode.",
+    "The implication offers reproducible alternative shapes (delayed start, transition runbook, paid contracting bridge) — these are well-established practices in the engineering-leaving literature."
+  ],
+  "verdict_reason": "The analog reproduces in code (the custom WAL plugin is realistic), in organisational practice (the active-incident handover question), and in observable behaviour (the recruiter-call pattern). Not pure metaphor. PASS."
+}

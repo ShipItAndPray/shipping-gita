@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reproducibility_signals": [
+    "Named tools (Postgres migrations, Kafka, Pulsar, GitHub stars on open-source rate-limiter, conference talks on incident response) are all real components of a senior engineer's reputation surface.",
+    "The Kafka-to-Pulsar migration with message-ordering-bug-at-2am is a real failure mode in messaging-system migrations.",
+    "The peer-network-modelling pattern — that hiring-loop conversations carry 'I worked with X' anecdotes that propagate signal — is well-documented.",
+    "The implication is testable: identify which specific peers are present at the moment of withdrawal, and what the public-record explanation will be."
+  ],
+  "verdict_reason": "Analog reproduces in code (the migration is realistic), in organisational practice (the hiring-loop reputation-propagation), and in observable behaviour. PASS."
+}

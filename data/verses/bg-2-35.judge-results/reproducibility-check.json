@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reproducibility_signals": [
+    "Named tools (open-source Kubernetes operator, code reviews on the operator, conference talks, GitHub stars) are real components of a senior IC's reputation surface.",
+    "The 'mentees on adjacent staff-engineer hiring panels within twelve months' pattern is observable in real engineering networks — the senior IC pipeline moves between adjacent companies through mentee-network paths.",
+    "The 'sabbatical-mid-cutover' scenario reflects a real failure mode: senior engineers do step away under load, and the structural consequences are observable.",
+    "The implication offers a structured planning input (which peers, what default-explanation, what shape of exit) — testable in real transition planning."
+  ],
+  "verdict_reason": "Analog reproduces in code (open-source operator), in organisational practice (the staff-engineer hiring loop), and in observable behaviour (the sabbatical-mid-cutover withdrawal pattern). PASS."
+}

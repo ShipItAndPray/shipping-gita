@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.31",
+  "chapter": 2,
+  "verse": 31,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna now opens a second, independent argument. Even apart from the imperishable doctrine — even granting your hesitation — your role-specific duty alone forbids withdrawal. The duties that bind you bind you because of the role you actually occupy: the senior with seven years of context on the legacy billing system, the on-call rotation only your team can carry, the migration whose authorisation tokens live on your laptop. And for the operator inside that role, a confrontation with a hard but legitimate engineering problem that has come into your specific lane is the highest available good. There is no nobler escape into a 'cleaner' problem than the dharmic problem the role itself has handed you. Hesitation in front of it is not humility; it is the quiet abdication of the position you hold.",
+    "concrete_scenario": "It is a staff-engineer's third year owning the Postgres write-path of a payments platform. A multi-region migration has been planned for nine months: schema changes, online backfill, dual-write phase, traffic cutover, rollback in the runbook, observability wired through Datadog and Sentry, on-call rota agreed. The migration is hers because she is the only person with the full mental model — the duplicate-charge guards, the compliance-driven retention windows, the fraud-shelf ordering, the legacy idempotency-key contract that two upstream services depend on. On the eve of cutover she finds herself drafting an email to the VP suggesting that 'any senior engineer could run this.' The email is not literally false — anyone could run the deploy — but it is not what svadharma names. The duties of her role are role-specific because the role accumulated context no one else has. Refusing because the moment is uncomfortable, while pretending it is fungible, is the precise pattern Krishna names. The verse does not tell her to suffer. It tells her not to misdescribe what is hers as if it were anyone's.",
+    "falsifiability": "The analog fails if a reader uses it to defend hoarding or refusing-to-delegate. Svadharma is not 'this work is mine forever.' If the role has genuinely passed to another (handover complete, runbook absorbed, on-call rotation rebalanced), the duty has migrated. The verse names the duty currently borne, not the duty an engineer once bore. Anyone who reads 2.31 as 'never let go of your work' has inverted it.",
+    "counter_example": "When the role itself is unjust — the engineer who has been kept in a position by political force rather than fit, or the operator whose 'duty' is in fact maintaining a system that should be killed — the verse does not apply unmodified. Chapter 5 and the closing instruction at 18.66 carry the corrective: right-renunciation of dharma is named explicitly there. 2.31 forbids fleeing one's duty out of fear; it does not bless every assignment as binding. A migration whose business case has collapsed, or an on-call burden that has become abusive, is not the dharma-yuddha Krishna invokes here.",
+    "implication": "Before declining a load that is in your specific lane, name the role-context that put it there. If the load is in your lane because of accumulated context only you carry, the engineering equivalent of svadharma is in play and the answer is not 'anyone could do this.' The answer is the deploy, the runbook walkthrough, the staffed migration window.",
+    "quotable_line": "Svadharma is not the work you would prefer; it is the work your specific role has accumulated context for and no one else has.",
+    "tags": ["duty", "prescribed-action", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:25:00Z",
+      "mutation": "v0 generation: BG 2.31 opens the karma-yoga block. Engineering layer maps svadharma to role-specific accumulated context (not 'follow your passion'). The 'api' (also/even) is preserved as 'a second, independent argument' per Shankara/Ramanuja convergence. Concrete scenario uses a senior engineer on a multi-region Postgres migration where the duty is role-specific because the context is role-specific. Counter-example carved out for the unjust-role case (Chapter 5 / 18.66 corrective). The kṣatriya-specificity is preserved (svadharma is varṇa-specific, not generic) by mapping to role-specific accumulated context rather than generalised 'do your job.' Tags: duty, prescribed-action, operator-system-coupling.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

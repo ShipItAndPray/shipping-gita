@@ -1,0 +1,33 @@
+{
+  "id": "BG 2.34",
+  "chapter": 2,
+  "verse": 34,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names a structural feature of how engineering reputation actually propagates. What the senior engineer does under load becomes the long-lived signal that peers use to model them — not gossip, not vanity, but the data the rest of the industry has. The Sanskrit calls this akīrti avyayā: imperishable disrepute, mirroring the same imperishable-substrate word used for the Self in 2.17. The mirror is exact and intentional. The Self cannot be damaged; the signal-pattern absolutely can. And the pattern is built specifically of moments under pressure. The engineer who walked from a half-finished migration carries that residue across companies for years. The verse adds a precise restriction: this asymmetry exists for one already held in standing — sambhāvitasya. Because prior credibility creates the gap, the gap is what other operators measure against. None of this is moralism. It is signal theory in Sanskrit.",
+    "concrete_scenario": "A principal engineer with a strong shipping reputation — three high-stakes Postgres migrations, a public conference talk on incident response, GitHub stars on her open-source rate-limiter — is in week three of a difficult Kafka-to-Pulsar migration. The cutover hits an unexpected message-ordering bug at 2 a.m. on a Saturday. She is exhausted. She has another offer waiting. The path of least resistance is to escalate Slack, hand the runbook to a junior, and step away. The verse names what the next eighteen months look like if she does. Two principal engineers in her network sit on hiring loops at adjacent companies. One was on the call when she escalated. The signal that propagates is not 'she had a hard week' — that nuance does not survive into the recruiter intake notes or the hallway conversation at the next conference. The signal that propagates is 'left mid-cutover.' That signal sticks because her prior reputation — the conference talk, the migrations she did finish — created the contrast. Sambhāvitasya cākīrtir maraṇād atiricyate: the asymmetry is not vanity; it is the actual model of her that other operators will use when her name comes up next time.",
+    "falsifiability": "The analog fails if a reader concludes that 'reputation is everything' and skips the rest of the chapter. The verse is narrow: it names the long-lived signal-residue of conduct under load, restricted to actors whose prior standing creates the gap. It does not say all reputational concerns matter equally. Performance-theatre, popularity, conference-circuit visibility — none of those are this verse. The verse names what the next senior engineer who reviews your work will model you as, after observing what you did when it was hard. Anyone reading 2.34 as 'manage your personal brand' has misread it.",
+    "counter_example": "When the prior reputation was itself manufactured by social capture rather than earned by shipping — the engineer whose seniority is conference-circuit visibility rather than production work — the verse's asymmetry does not hold the same way. Sambhāvitasya restricts the claim to those whose prior honour was substantive. The dishonour-worse-than-death frame collapses for actors whose reputation was never substantive in the first place; what propagates there is correction, not infamy. Krishna scopes this carefully. Chapter 5 (right-renunciation) and 18.66 carry the corrective for cases where the role itself was unjustly assigned — there the operator's withdrawal is repair, not akīrti.",
+    "implication": "Before walking out of an engineering moment under load, ask which of your peers is on the call and what signal they will carry forward. If the answer is that an honest model of your shipping-under-pressure capability is being written into other operators' heads in real time, that is information about whether to step away. Not as vanity. As signal awareness.",
+    "quotable_line": "What you do under load becomes the long-lived signal peers use to model you; akīrti avyayā is signal theory in Sanskrit, not gossip.",
+    "tags": ["non-attachment-to-praise", "team-culture", "operator-system-coupling"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:45:00Z",
+      "mutation": "v0 generation: BG 2.34 develops the kīrti-loss of 2.33 into avyayām akīrtim (imperishable disrepute). The Sanskrit 'avyayām' deliberately mirrors the imperishable-Self language of 2.17/2.21 — the word for what cannot be harmed in the Self is reused for what the actor manufactures as their own imperishable signal-pattern in the world. Engineering layer maps to long-lived professional reputation propagating through peer networks (Postgres migrations, Kafka-to-Pulsar cutover, the SRE who was on the call). Critical doctrinal preservation: 'sambhāvitasya' restriction — the dishonour-asymmetry holds only for actors whose prior standing was substantive. The 'manage your personal brand' misreading is explicitly excluded by both falsifiability and counter-example. The voice stays directive (Krishna closing escape routes) per the chapter's didactic register. Tags: non-attachment-to-praise, team-culture, operator-system-coupling. Confidence HIGH; stretched false.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

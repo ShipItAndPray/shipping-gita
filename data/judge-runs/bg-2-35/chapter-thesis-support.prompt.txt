@@ -1,0 +1,247 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.35",
+  "sanskrit_devanagari": "भयाद्रणादुपरतं मंस्यन्ते त्वां महारथाः ।\nयेषां च त्वं बहुमतो भूत्वा यास्यसि लाघवम् ॥ ३५ ॥",
+  "sanskrit_iast": "bhayād raṇād uparataṁ maṁsyante tvāṁ mahā-rathāḥ |\nyeṣāṁ ca tvaṁ bahu-mato bhūtvā yāsyasi lāghavam || 35 ||",
+  "anvaya": [
+    {
+      "sanskrit": "भयात्",
+      "iast": "bhayāt",
+      "meaning": "out of fear"
+    },
+    {
+      "sanskrit": "रणात्",
+      "iast": "raṇāt",
+      "meaning": "from the field of battle"
+    },
+    {
+      "sanskrit": "उपरतम्",
+      "iast": "uparatam",
+      "meaning": "withdrawn / ceased"
+    },
+    {
+      "sanskrit": "मंस्यन्ते",
+      "iast": "maṁsyante",
+      "meaning": "they will think / consider"
+    },
+    {
+      "sanskrit": "त्वाम्",
+      "iast": "tvām",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "महारथाः",
+      "iast": "mahā-rathāḥ",
+      "meaning": "the great chariot-warriors / great commanders"
+    },
+    {
+      "sanskrit": "येषाम्",
+      "iast": "yeṣām",
+      "meaning": "of whom / for whom"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "बहुमतः",
+      "iast": "bahu-mataḥ",
+      "meaning": "highly esteemed / much-regarded"
+    },
+    {
+      "sanskrit": "भूत्वा",
+      "iast": "bhūtvā",
+      "meaning": "having been"
+    },
+    {
+      "sanskrit": "यास्यसि",
+      "iast": "yāsyasi",
+      "meaning": "you will go / become"
+    },
+    {
+      "sanskrit": "लाघवम्",
+      "iast": "lāghavam",
+      "meaning": "lightness / smallness / insignificance"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/35/",
+      "fetched_at": "2026-04-29T19:09:54Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The great generals who have highly esteemed your name and fame will think that you have left the battlefield out of fear only, and thus they will consider you insignificant.",
+      "raw_capture_path": "data/sources/raw/bg-2-35-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/35",
+      "fetched_at": "2026-04-29T19:09:54Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The great generals who hold you in high esteem will think that you fled from the battlefield out of fear, and thus will lose their respect for you."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/35/",
+      "fetched_at": "2026-04-29T19:09:54Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 367-char full purport)",
+      "verbatim_excerpt": "Lord Kṛṣṇa continued to give His verdict to Arjuna: 'Do not think that the great generals like Duryodhana, Karṇa and other contemporaries will think that you have left the battlefield out of compassion for your brothers and grandfather. They will think that you have left out of fear for your life.'",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 367,
+      "raw_full_path": "data/sources/raw/bg-2-35-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-35/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:10:09Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.35 Moreover, maharathah, the great chariot-riders, Duryodhana and others; mamsyante, will think; tvam, of you; as uparatam, having desisted; ranat, from the fight; not out of compassion, but bhayat, out of fear of Karna and others; ca, and ; yasyasi laghavam, you will again fall into disgrace before them.",
+      "verbatim_excerpt_length": 298,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-35-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as the peer-witness sharpening of the akīrti claim in 2.34. Where 2.34 named 'all beings' (bhūtāni), 2.35 names a specific class of witnesses: the mahā-rathas — the peers and rivals whose own competence is comparable. Their verdict carries weight precisely because they are technically competent to judge the move. Shankara stresses the 'not out of compassion, but out of fear' move: the actor's stated motive (compassion) will be replaced in peer-cognition with the structural-default motive (fear). The peer's model of the actor's withdrawal does not consult the actor's stated reasons; it consults the peer's own model of why warriors leave fields."
+    },
+    {
+      "commentator": "Sri Vishvanatha Chakravarti Thakura",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-35/?cm=vishvanatha-chakravarthi-thakur",
+      "fetched_at": "2026-04-29T19:10:09Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "For those who have high regard for you as a warrior, even as an enemy, will no longer give you respect if you give up the battle. The maharathas like Duryodhana will think that you have fled in fear from the battlefield. They will not think of any other reason for the ksatriya to leave the field than fear.",
+      "verbatim_excerpt_length": 305,
+      "copyright_holder": "aggregated by bhagavad-gita.us",
+      "raw_full_path": "data/sources/raw/bg-2-35-bgus.json",
+      "summary_paraphrase": "Vishvanatha extends Shankara's reading: the peer-respect of mahā-rathas is held even by enemies — the mutual respect of competent rivals. Strong friendship-bonds will not be considered as a possible reason for withdrawal; the peer-default for 'why a kṣatriya leaves a battle' is fear. The peer-model is invariant under the actor's preferred narrative. Ramanuja on the same page reaches an identical conclusion: 'turning away from battle does not happen in the case of brave enemies through affection etc., for relatives. It can happen only through fear of enemies.'"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yāsyasi lāghavam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "they will consider you insignificant"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "will lose their respect for you"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "will fall into disgrace before them"
+        },
+        {
+          "source": "Vishvanatha (per summary)",
+          "rendering": "will no longer give you respect"
+        }
+      ],
+      "explanation": "'Lāghavam' literally means 'lightness' — the becoming-small in the eyes of those who once held you in weight (bahu-mataḥ — much-regarded). All sources preserve the size/weight metaphor in some form, but the translation choice signals different doctrinal emphases. Prabhupada's 'insignificant' makes it about social standing; Mukundananda's 'lose their respect' makes it about emotional regard; Shankara's 'disgrace' has a moral charge. The Sanskrit is more structural: bahu-mataḥ to lāghavam is a phase-change in how the peer-network assigns weight to your moves. The verse names a real cognitive event in a peer-population, not a feeling. Modern translations slightly misframe this as feeling rather than as model-update."
+    }
+  ],
+  "literal_meaning": "The great chariot-warriors will think you withdrew from battle out of fear; among those for whom you had been highly regarded, you will go to insignificance.",
+  "traditional_meaning": "The verse closes the akīrti chain (2.33-2.35) by naming the specific class of witnesses whose verdict carries doctrinal weight: the mahā-rathas — peers technically competent to judge. Three doctrinal moves: (a) the peer-respect of mahā-rathas was earned, not granted — bahu-mataḥ names a state of accumulated standing among comparable practitioners; (b) the verdict is structural, not psychological — 'they will think' (maṁsyante) names a cognitive default in the peer-population that does not consult the actor's stated motives; (c) the resulting state — lāghavam, lightness — is the loss of weight in the network's collective model. Shankara, Vishvanatha, and Ramanuja all converge on the peer-defaulting move: peers will not credit compassion as the reason for withdrawal; they will assign fear, because their own model of why warriors leave the field defaults to fear. The verse is signal-theory, not vanity-management. The kṣatriya frame holds; the underlying claim — that competent peers update their model of you based on what you do under pressure, regardless of your stated motives — generalises to any role with a peer-witness structure.",
+  "engineering": {
+    "translation": "The verse closes the disrepute argument by identifying a specific witness-class whose verdict carries doctrinal weight: not the broader market, not recruiter intake notes — the technically-competent peers. Principal engineers, SREs at adjacent firms, open-source maintainers who reviewed your migration design. They earned that regard for you by observing the work. They will subsequently model your withdrawal from a difficult moment using their own internalised model of why operators leave fields under pressure. That model defaults to fear. Whatever justification the actor invokes — burnout, family, principled disagreement — does not survive into peer-cognition. The verse names the resulting condition precisely: lāghavam, the becoming-light. The actor who previously carried weight in the network's collective representation forfeits it through a structural update to how they will route trust toward that name afterwards.",
+    "concrete_scenario": "A staff engineer leads the platform team at a mid-stage SaaS company. Her standing among other staff engineers — code reviews on her open-source Kubernetes operator, conference talks, GitHub stars — is real. She has mentored three engineers at adjacent firms for a year. A reorg drops a politically toxic project on her plate that she quietly believes is misframed. Six weeks in, mid-cutover, she takes a sabbatical citing burnout. The verse names what happens in the peer-network. Her stated reason does not propagate. What propagates is the cutover she did not finish. Two engineers she mentored sit on adjacent hiring panels within twelve months; both defer to her old peer-group's updated model. The model did not update because peers are unkind. It updated because the peer-default for 'why does a senior leave mid-cutover' is fear of finishing it. Her stated narrative has no path into that default. Bahu-mataḥ to lāghavam: standing earned through years of shipped open-source has become lightness. Krishna names this not as vanity-management but as the structural feature of how peer-networks assign weight under load.",
+    "falsifiability": "The analog fails if a reader uses it to shame engineers out of taking real medical or family leave. The verse scopes tightly to the peer-cognition update around a specific class of withdrawal — mid-execution, in front of competent peers, where the moment was visibly hard. A planned leave with a clean handover is not lāghavam. A medical leave is not lāghavam. A principled departure with a public, verifiable argument is not lāghavam — public argument is itself peer-cognition input. The verse names the case where the withdrawal carries no signal except 'left when it got hard,' and that case is narrow.",
+    "counter_example": "When the peer-network is itself compromised — when the 'competent peers' are in fact a status-cartel that defaults to penalising anyone who challenges its norms — the verse's lāghavam claim does not generalise. Sambhāvitasya in 2.34 restricts to actors whose prior honour was substantive; this verse implicitly assumes the peer-network's judgment is substantive. Where it is not, withdrawal is repair, not collapse. Chapter 5 (right-renunciation) and 18.66 carry the corrective for this case. Krishna's verse is structural; the structure assumes the peers are themselves seriously evaluating, not performing.",
+    "implication": "Before stepping away from a hard engineering moment, ask which specific peers will witness the withdrawal and what their default-model of mid-execution exit looks like. If the default in that population is 'fear of finishing,' your stated reasons will not reroute the model. The shape of the exit — the handover quality, the public-record explanation, the runbook completeness — is the only input that does reroute it.",
+    "quotable_line": "Competent peers update their model of you based on what they observe under load; bahu-mataḥ to lāghavam is a structural update, not a feeling.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-culture",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

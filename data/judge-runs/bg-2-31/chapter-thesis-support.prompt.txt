@@ -1,0 +1,262 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.31",
+  "sanskrit_devanagari": "स्वधर्ममपि चावेक्ष्य न विकम्पितुमर्हसि ।\nधर्म्याद्धि युद्धाच्छ्रेयोऽन्यत्क्षत्रियस्य न विद्यते ॥ ३१ ॥",
+  "sanskrit_iast": "sva-dharmam api cāvekṣya na vikampitum arhasi |\ndharmyād dhi yuddhāc chreyo 'nyat kṣatriyasya na vidyate || 31 ||",
+  "anvaya": [
+    {
+      "sanskrit": "स्वधर्मम्",
+      "iast": "sva-dharmam",
+      "meaning": "one's own prescribed duty / duty proper to one's role"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also / even"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and / indeed"
+    },
+    {
+      "sanskrit": "अवेक्ष्य",
+      "iast": "avekṣya",
+      "meaning": "considering / having regard to"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "विकम्पितुम्",
+      "iast": "vikampitum",
+      "meaning": "to waver / to hesitate / to tremble"
+    },
+    {
+      "sanskrit": "अर्हसि",
+      "iast": "arhasi",
+      "meaning": "you ought / you deserve"
+    },
+    {
+      "sanskrit": "धर्म्यात्",
+      "iast": "dharmyāt",
+      "meaning": "than (one) consistent with dharma / righteous"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed / for"
+    },
+    {
+      "sanskrit": "युद्धात्",
+      "iast": "yuddhāt",
+      "meaning": "than battle"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "better / higher good"
+    },
+    {
+      "sanskrit": "अन्यत्",
+      "iast": "anyat",
+      "meaning": "another / any other"
+    },
+    {
+      "sanskrit": "क्षत्रियस्य",
+      "iast": "kṣatriyasya",
+      "meaning": "of a kṣatriya / of the warrior order"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "विद्यते",
+      "iast": "vidyate",
+      "meaning": "exists / is found"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/31/",
+      "fetched_at": "2026-04-29T19:09:48Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Considering your specific duty as a kṣatriya, you should know that there is no better engagement for you than fighting on religious principles; and so there is no need for hesitation.",
+      "raw_capture_path": "data/sources/raw/bg-2-31-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/31",
+      "fetched_at": "2026-04-29T19:09:48Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Besides, considering your duty as a warrior, you should not waver. Indeed, for a warrior, there is no better engagement than fighting for upholding of righteousness."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/31/",
+      "fetched_at": "2026-04-29T19:09:48Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 2807-char full purport)",
+      "verbatim_excerpt": "Out of the four orders of social administration, the second order, for the matter of good administration, is called kṣatriya. Kṣat means hurt. One who gives protection from harm is called kṣatriya (trāyate – to give protection). The kṣatriyas are trained for killing in the forest.",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 2807,
+      "raw_full_path": "data/sources/raw/bg-2-31-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-31/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:09:57Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.31 Api, even; aveksya, considering; svadharmam, your own duty, the duty of a Ksatriya, viz battle — considering even that — ; na arhasi, you ought not; vikampitum, to waver, to deviate from the natural duty of the Ksatriya, i.e. from what is natural to yourself.",
+      "verbatim_excerpt_length": 264,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-31-bgus.json",
+      "summary_paraphrase": "Shankara reads svadharmam as 'the natural duty of the Kṣatriya' — the duty proper to one's specific station, not duty in the abstract. The 'api' ('even') is doing real work: even leaving aside the metaphysical argument of 2.11-2.30, the kṣatriya-duty argument alone forbids hesitation. The 'hi' (since) of the second hemistich grounds the claim: a battle 'not devoid of righteousness' (na dharma-rahita) but 'supremely righteous' is the highest good available to a kṣatriya, because it is conducive to virtue and protects the governed."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-31/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:09:57Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use; bhagavad-gita.us serves the same English text under both Shankara and Ramanuja headings for this verse, presumably a sourcing error in the aggregator. Substantive Ramanuja position recorded in summary_paraphrase below from Adidevananda Vol. 1.)",
+      "verbatim_excerpt": "2.31 Api, even; aveksya, considering; svadharmam, your own duty, the duty of a Ksatriya, viz battle — considering even that — ; na arhasi, you ought not; vikampitum, to waver. (Note: the bhagavad-gita.us page serves identical text under both commentary headings for 2.31; flagged in source-pack disagreements.)",
+      "verbatim_excerpt_length": 295,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-31-bgus.json",
+      "summary_paraphrase": "Ramanuja reads svadharma as the action prescribed for one's specific varṇa-and-āśrama position by Vedic injunction — kṣatriya battle in this case. The 'api' is concessive: even granting Arjuna's emotional resistance, the prescribed duty argument stands independently. For Ramanuja, prescribed action performed without fruit-attachment becomes worship of the Lord, so abandoning prescribed action does not buy spiritual freedom; it forfeits the actual path. (Sridhara of Rudra Sampradaya and Vishvanatha of Gaudiya Sampradaya echo this on the same page — multi-Sampradaya convergence on the verse's basic claim is high.)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sva-dharmam api",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Considering your specific duty as a kṣatriya"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "Besides, considering your duty as a warrior"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Even — api — when one considers svadharma alone, separately from the imperishable-Self argument of 2.11-2.30, the conclusion 'do not waver' follows"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Even — api — granting your emotional resistance, the Veda-prescribed duty for a kṣatriya is battle; that prescription is independent of how you feel"
+        },
+        {
+          "source": "Mukundananda (English)",
+          "rendering": "'Besides' is the explicit rendering of api — naming this verse as a second, independent argument added to the first"
+        }
+      ],
+      "explanation": "All five sources agree that svadharma is role-specific (the kṣatriya's duty, not duty in general) and that 'api' marks this as an independent argument. They disagree on the rhetorical scope of api. Shankara reads it as 'even apart from the imperishable doctrine just given.' Ramanuja reads it as 'even granting Arjuna's resistance.' Mukundananda flattens it to 'besides.' The substantive doctrinal claim — that svadharma is varṇa-specific and that for a kṣatriya it is dharma-yuddha — is uncontested across Advaita, Vishishtadvaita, Gaudiya, Rudra, and Kumāra Sampradāyas. A separate sourcing issue: bhagavad-gita.us serves identical English under both Shankara and Ramanuja for 2.31 (likely a CMS error); the substantive Ramanuja position in his Gītā-bhāṣya does diverge from Shankara on adhikāra, even though for this single verse the rendering aligns. Flagged for transparency rather than papering over."
+    }
+  ],
+  "literal_meaning": "Also considering your own duty (svadharma), you ought not to waver; for a kṣatriya, there is no greater good than a battle in accord with dharma.",
+  "traditional_meaning": "Krishna pivots from the imperishable-Self argument (2.11-2.30) to a second, independent argument: even setting metaphysics aside, role-specific duty (svadharma) forbids Arjuna's withdrawal. The 'api' marks the verse as an additional argument, not a restatement. The verse names two doctrinal moves: (a) duty is role-specific — what binds Arjuna binds him because he is a kṣatriya, not because he is a person; (b) for a kṣatriya, a battle that conforms to dharma (dharma-yuddha) is the highest available good, because it protects the governed and conforms to varṇa-prescribed action. Shankara, Ramanuja, Sridhara, Vishvanatha, Keshava Kashmiri, and Abhinavagupta all converge on this reading; the verse is doctrinally non-controversial across Sampradāyas. The verse opens the karma-yoga block (2.31-2.53) of the chapter: where 2.11-2.30 said 'what survives,' 2.31 begins 'what to do.'",
+  "engineering": {
+    "translation": "Krishna now opens a second, independent argument. Even apart from the imperishable doctrine — even granting your hesitation — your role-specific duty alone forbids withdrawal. The duties that bind you bind you because of the role you actually occupy: the senior with seven years of context on the legacy billing system, the on-call rotation only your team can carry, the migration whose authorisation tokens live on your laptop. And for the operator inside that role, a confrontation with a hard but legitimate engineering problem that has come into your specific lane is the highest available good. There is no nobler escape into a 'cleaner' problem than the dharmic problem the role itself has handed you. Hesitation in front of it is not humility; it is the quiet abdication of the position you hold.",
+    "concrete_scenario": "It is a staff-engineer's third year owning the Postgres write-path of a payments platform. A multi-region migration has been planned for nine months: schema changes, online backfill, dual-write phase, traffic cutover, rollback in the runbook, observability wired through Datadog and Sentry, on-call rota agreed. The migration is hers because she is the only person with the full mental model — the duplicate-charge guards, the compliance-driven retention windows, the fraud-shelf ordering, the legacy idempotency-key contract that two upstream services depend on. On the eve of cutover she finds herself drafting an email to the VP suggesting that 'any senior engineer could run this.' The email is not literally false — anyone could run the deploy — but it is not what svadharma names. The duties of her role are role-specific because the role accumulated context no one else has. Refusing because the moment is uncomfortable, while pretending it is fungible, is the precise pattern Krishna names. The verse does not tell her to suffer. It tells her not to misdescribe what is hers as if it were anyone's.",
+    "falsifiability": "The analog fails if a reader uses it to defend hoarding or refusing-to-delegate. Svadharma is not 'this work is mine forever.' If the role has genuinely passed to another (handover complete, runbook absorbed, on-call rotation rebalanced), the duty has migrated. The verse names the duty currently borne, not the duty an engineer once bore. Anyone who reads 2.31 as 'never let go of your work' has inverted it.",
+    "counter_example": "When the role itself is unjust — the engineer who has been kept in a position by political force rather than fit, or the operator whose 'duty' is in fact maintaining a system that should be killed — the verse does not apply unmodified. Chapter 5 and the closing instruction at 18.66 carry the corrective: right-renunciation of dharma is named explicitly there. 2.31 forbids fleeing one's duty out of fear; it does not bless every assignment as binding. A migration whose business case has collapsed, or an on-call burden that has become abusive, is not the dharma-yuddha Krishna invokes here.",
+    "implication": "Before declining a load that is in your specific lane, name the role-context that put it there. If the load is in your lane because of accumulated context only you carry, the engineering equivalent of svadharma is in play and the answer is not 'anyone could do this.' The answer is the deploy, the runbook walkthrough, the staffed migration window.",
+    "quotable_line": "Svadharma is not the work you would prefer; it is the work your specific role has accumulated context for and no one else has.",
+    "tags": [
+      "duty",
+      "prescribed-action",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

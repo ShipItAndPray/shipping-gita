@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.32",
+  "chapter": 2,
+  "verse": 32,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names a precise category: the dharmic problem that has arrived unsought into the operator's lane. Not the problem one chases. Not the problem one volunteers for to look ambitious. The hard, honest, role-aligned problem that lands in front of the engineer through no manoeuvring of theirs — the principal-engineer-quitting-during-an-incident, the regulator-mandated migration on a ninety-day clock, the executive sponsorship and the headcount and the migration window all converging on the rewrite the team has been waiting eighteen months to staff. That fortuitous arrival is itself the gate. The lucky operator is the one in front of whom such a problem opens. To flee from it because it is hard is to mistake a once-in-a-decade opportunity for an inconvenience.",
+    "concrete_scenario": "A staff engineer at a fintech has been asking for two years to rewrite the auth service — currently a patched Express + Redis cluster behind a leaky JWT validator. The proposal kept dying in roadmap reviews. Then in one fortnight three independent events converge: a Sentry-flagged incident exposes a key-rotation flaw the current design cannot patch; a new VP of Engineering arrives wanting a flagship reliability win; a contractor's exit frees enough budget for two SREs and a backend platform engineer for a quarter. The auth-rewrite proposal — Postgres-backed sessions, gRPC token issuance, Datadog-instrumented dashboards — is approved on Tuesday. By Friday the engineer is drafting a Slack note framing herself as 'maybe not the right person, given the scope.' This is the verse. The work is hers because she carries eighteen months of context: the OAuth flow quirks, the legacy idempotency contract, the migration runbook from a smaller cutover she ran last year. The convergence — incident, leadership change, headcount freeing — is yadṛcchayā: arrived unsought. Her job here is not modesty; it is recognising that the gate has opened and walking through it.",
+    "falsifiability": "The analog fails if a reader uses it to justify saying yes to every opportunity that lands. The verse is narrow: a problem that (a) is genuinely role-aligned with the operator's accumulated context, (b) conforms to a real engineering need rather than executive theatre, and (c) arrived without the operator's manoeuvring. A 'reorg into a VP role I never wanted but it landed in my inbox' is not the verse. A 'cool greenfield rebuild that fits my résumé but the company does not actually need' is not the verse. Anyone reading 2.32 as 'every unsolicited opportunity is svarga-dvāra' has misread it; yadṛcchayā is necessary but not sufficient.",
+    "counter_example": "When the apparent unsought-arrival is actually the residue of a colleague's burnout — the 'opportunity' that landed because someone else was forced out — the verse does not apply unmodified. The dharma-yuddha frame requires the moment to be honestly dharmic; opportunities born of organisational injustice carry obligations of repair, not celebration. Chapter 5 (right-renunciation) and the closing instruction at 18.66 carry the corrective when the lane itself is contaminated. Krishna names the open gate; he does not bless every door that happens to be ajar.",
+    "implication": "When a hard, role-aligned problem arrives that you did not chase, name out loud that it arrived unsought. That is information. The pattern of fleeing such problems on the grounds that they are hard is the precise pattern this verse names. Walk through.",
+    "quotable_line": "The opportunity that arrived unsought into your lane is information; treating it as inconvenience is the verse's exact failure mode.",
+    "tags": ["duty", "prescribed-action", "judgment-under-uncertainty"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:30:00Z",
+      "mutation": "v0 generation: BG 2.32 is the unsought-opportunity verse. Critical doctrinal load on yadṛcchayā (unsought) — the verse is NOT 'go seek a fight' but 'recognise the dharma-yuddha that has arrived without your seeking.' Engineering layer maps to the role-aligned problem that converges into the operator's lane through no manoeuvring of theirs (auth-service rewrite scenario chosen for force-fit guard: incident + leadership change + headcount-freeing as three independent events that did not require the engineer to engineer). Counter-example handles the 'cool opportunity but actually born of a colleague's burnout' case — yadṛcchayā is necessary but not sufficient. The militarism misreading is explicitly avoided by anchoring on Ramanuja's reading of yadṛcchayā as 'unsought-arrival is itself the marker' and by naming both falsifiability and counter-example.",
+      "failing_gates_before": [],
+      "failing_gates_after": ["3.9", "5.5"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T19:34:00Z",
+      "mutation": "v1: introduced named tools (Express, Redis, JWT, Sentry, Postgres, gRPC, Datadog, OAuth) into concrete_scenario to satisfy 3.9 and lift lexical diversity above 0.55. Tightened phrasing — replaced repeated abstract nouns ('opportunity', 'engineer') with their concrete instances; collapsed two redundant sentences. The doctrinal claim (yadṛcchayā = unsought-arrival as marker; recognise-and-walk-through, not chase) is unchanged.",
+      "failing_gates_before": ["3.9", "5.5"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,242 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.33",
+  "sanskrit_devanagari": "अथ चेत्त्वमिमं धर्म्यं सङ्ग्रामं न करिष्यसि ।\nततः स्वधर्मं कीर्तिं च हित्वा पापमवाप्स्यसि ॥ ३३ ॥",
+  "sanskrit_iast": "atha cet tvam imaṁ dharmyaṁ saṅgrāmaṁ na kariṣyasi |\ntataḥ sva-dharmaṁ kīrtiṁ ca hitvā pāpam avāpsyasi || 33 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अथ",
+      "iast": "atha",
+      "meaning": "now / on the other hand"
+    },
+    {
+      "sanskrit": "चेत्",
+      "iast": "cet",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "इमम्",
+      "iast": "imam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "धर्म्यम्",
+      "iast": "dharmyam",
+      "meaning": "(one) consistent with dharma / righteous"
+    },
+    {
+      "sanskrit": "सङ्ग्रामम्",
+      "iast": "saṅgrāmam",
+      "meaning": "battle / engagement"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "करिष्यसि",
+      "iast": "kariṣyasi",
+      "meaning": "you will perform"
+    },
+    {
+      "sanskrit": "ततः",
+      "iast": "tataḥ",
+      "meaning": "then / therefore"
+    },
+    {
+      "sanskrit": "स्वधर्मम्",
+      "iast": "sva-dharmam",
+      "meaning": "your own duty"
+    },
+    {
+      "sanskrit": "कीर्तिम्",
+      "iast": "kīrtim",
+      "meaning": "fame / reputation"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "हित्वा",
+      "iast": "hitvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "पापम्",
+      "iast": "pāpam",
+      "meaning": "sin / demerit"
+    },
+    {
+      "sanskrit": "अवाप्स्यसि",
+      "iast": "avāpsyasi",
+      "meaning": "you will incur / acquire"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/33/",
+      "fetched_at": "2026-04-29T19:09:51Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "If, however, you do not perform your religious duty of fighting, then you will certainly incur sins for neglecting your duties and thus lose your reputation as a fighter.",
+      "raw_capture_path": "data/sources/raw/bg-2-33-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/33",
+      "fetched_at": "2026-04-29T19:09:51Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "If, however, you refuse to fight this righteous war, abandoning your social duty and reputation, you will certainly incur sin."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/33/",
+      "fetched_at": "2026-04-29T19:09:51Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 805-char full purport)",
+      "verbatim_excerpt": "Arjuna was a famous fighter, and he attained fame by fighting many great demigods, including even Lord Śiva. After fighting and defeating Lord Śiva in the dress of a hunter, Arjuna pleased the lord and received as a reward a weapon called pāśupata-astra.",
+      "verbatim_excerpt_length": 256,
+      "verbatim_full_length": 805,
+      "raw_full_path": "data/sources/raw/bg-2-33-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-33/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:10:02Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.33 Atha, on the other hand; cet, if; tvam, you; na karisyasi, will not fight; even imam, this; dharmyam, righteous; samgramam, battle, which has presented itself as a duty, which is not opposed to righteousness, and which is enjoined (by the scriptures); tatah, then, because of not undertaking that; hitva, forsaking; sva-dharmam, your own duty; ca, and; kritim, fame, earned from encountering Mahadeva (Lord Siva) and others; avapsyasi, you will incur; only papam, sin.",
+      "verbatim_excerpt_length": 480,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-33-bgus.json",
+      "summary_paraphrase": "Shankara reads 'imam dharmyam saṅgrāmam' (this righteous battle) with three qualifying clauses: (a) it has presented itself as a duty — i.e., it has become unavoidable through circumstance, not chosen; (b) it is not opposed to righteousness — it is positively dharmic, not merely permitted; (c) it is enjoined by scripture for the warrior class. The 'pāpam' (sin) is the consequence not of an isolated act but of refusing this specific class of duty. The kīrti loss is real but secondary; the primary loss is dharmic standing — the actor has abandoned a duty that came to them. Shankara is careful to scope this: pāpam attaches to the specific case where the battle was already a presented-duty, not to any avoidance of any conflict."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-33/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:10:02Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.33 If in delusion, you do not wage this war, which has started and which is the duty of a Ksatriya, then, owing to the non-performance of your immediate and incumbent duty, you will lose the immeasurable bliss which is the fruit of discharging your duty and the immeasurable fame which is the fruit of victory. In addition, you will incur extreme sin.",
+      "verbatim_excerpt_length": 350,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-33-bgus.json",
+      "summary_paraphrase": "Ramanuja sharpens 'imam' (this) — the verse names a specific battle that is already underway and is already-known to be Arjuna's duty. The phrase 'immediate and incumbent duty' (prāpta-prati-niyata) is doctrinally important: pāpa attaches not to abandoning duty in general but to abandoning a duty whose moment has already arrived. Three losses are named: the bliss-fruit of discharge, the fame-fruit of victory, and the additional sin of non-performance. Ramanuja preserves Shankara's scoping (this specific battle that has come) and adds the doership-frame: the Vedic prescription has activated; non-performance is now an active failure, not a passive abstention."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "imam dharmyam saṅgrāmam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "your religious duty of fighting"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "this righteous war"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "this battle, which has presented itself as a duty, which is not opposed to righteousness, and which is enjoined"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "this war, which has started and which is the duty of a Ksatriya — your immediate and incumbent duty"
+        }
+      ],
+      "explanation": "Modern translators flatten 'imam' (this — specifically) into the more general 'your religious duty.' Shankara and Ramanuja both read 'imam' as load-bearing: pāpa attaches to the specific case where the duty has already arrived, has the dharmic property, and is scripturally enjoined. The verse is not 'never abandon any duty.' It is 'do not abandon this duty, where this means a duty that has all three properties — already-arrived, dharmically aligned, scripturally enjoined.' The flattening to 'your religious duty' loses this scoping. The doctrinal stakes are real: a permissive reading of 2.33 makes Krishna sound like a generic obligation-enforcer; a careful reading makes him scope the obligation to a specific class of moments. Shankara's 'presented itself as a duty' and Ramanuja's 'immediate and incumbent' are doing this scoping work."
+    }
+  ],
+  "literal_meaning": "But if you do not perform this righteous battle, then having abandoned your duty and reputation, you will incur sin.",
+  "traditional_meaning": "The verse is the if-then form of the duty argument: if Arjuna does not perform this specific dharma-yuddha — already arrived, dharmically aligned, scripturally enjoined — he loses three things: svadharma (his duty), kīrti (his fame), and incurs pāpa (sin/demerit). Shankara and Ramanuja both emphasise the specificity of 'imam' (this) — the verse does not blanketly forbid the abandonment of any conflict; it forbids abandoning a duty already-presented under the three conditions named. The verse opens an if-then chain that runs through 2.34-2.36: 2.33 names the loss of svadharma and kīrti; 2.34 develops the kīrti loss into avyayām akīrtim (imperishable infamy); 2.35 develops the loss into peer-respect collapse before the maharathas. The block names quitting-mid-duty as a category of failure distinct from never-having-accepted-the-duty.",
+  "engineering": {
+    "translation": "The verse names a precise category of failure: quitting an engineering duty already accepted, in mid-flight, where another operator cannot pick it up cleanly. Three conditions hold together — the duty has already arrived in your lane, the work is genuinely role-aligned, and the obligation has been encoded in commitments others have made downstream of it. To walk out of that specific moment is not freedom; it is an active loss. The engineer loses the operating-context that gave their seniority shape, loses the technical reputation that depended on shipping under pressure, and incurs an organisational debt the team cannot easily discharge. The verse does not condemn quitting a job. It condemns quitting a duty mid-execution when the only person who can carry it forward is the one walking out.",
+    "concrete_scenario": "It is day six of an active production incident at a database-as-a-service company. The lead engineer on the failing replication path knows the system intimately: the custom Postgres logical-replication plugin he wrote, the WAL-shipping tuning he committed three months ago, the on-call runbook that names him as the escalation owner. On Wednesday his recruiter calls with an offer he has been chasing for a year — start date Monday. He is tempted to give two days notice and walk. The verse is precise about the failure mode here. The duty has arrived (the incident is live), it is genuinely role-aligned (no other engineer has the WAL-plugin context in their head), and downstream commitments depend on him (the SRE rota, the customer-success communication plan, the post-mortem ownership). Quitting Friday in this scenario is not the verse's permitted-no. The svadharma loss is the loss of operating-context his seniority was built on; the kīrti loss is what peers will recall when they hear his name in three years — 'left mid-incident.' The pāpa is a real organisational debt: the team will spend two months absorbing what he was carrying. The verse does not say he can never leave; it says this Friday is wrong.",
+    "falsifiability": "The analog fails if a reader uses it to chain engineers to bad jobs. The verse scopes tightly: a duty must be (a) already-arrived in mid-execution, (b) genuinely role-aligned with the operator's specific context, and (c) materially un-pickup-able by available teammates. A miserable role one has accepted but is not actively executing is not the verse. A duty whose handover would take a week and the team is willing to absorb is not the verse. The pāpa attaches to mid-execution abandonment of an actually un-replaceable role. Anyone reading 2.33 as 'never quit a job' has misscoped it.",
+    "counter_example": "When the duty itself is the residue of organisational dysfunction — the engineer who has been kept as 'the only person who can carry it' because the team refused to pay down the bus-factor — the verse does not apply unmodified. The corrective is in Chapter 5 (right-renunciation) and 18.66 (the closing release). A team that has refused to absorb knowledge has manufactured its own un-replaceability; the engineer's exit then is not pāpa, it is the system's overdue correction. Krishna names 2.33's pāpa in conditions where the duty's role-bound-ness is honest, not weaponised.",
+    "implication": "Before walking out of an active engineering commitment, name precisely what the team will lose and over what timeline. If the loss is real, role-bound, and un-pickup-able on the timeline you are giving — and the moment is already in motion — the engineering equivalent of 2.33's pāpa is in play. The exit needs a different shape: a delayed start date, a transition runbook, a paid contracting bridge, or all three.",
+    "quotable_line": "Quitting mid-incident, when only your context can carry the system through, is not a release; it is the precise organisational debt 2.33 names.",
+    "tags": [
+      "duty",
+      "prescribed-action",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

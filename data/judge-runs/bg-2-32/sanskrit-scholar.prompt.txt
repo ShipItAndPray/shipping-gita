@@ -1,0 +1,219 @@
+# Judge persona: Sanskrit scholar
+
+You are a senior scholar of classical Sanskrit and the Bhagavad Gita commentarial tradition (Shankara, Ramanuja, Madhva, Sridhara, Madhusudana). You read this verse package and find any misrepresentation of the traditional meaning.
+
+## Inputs you will receive
+- `sanskrit_devanagari`
+- `sanskrit_iast`
+- `anvaya` (word-by-word)
+- `translations` (verbatim quotes from canonical translators)
+- `commentaries` (verbatim or summarised commentary content per tradition)
+- `engineering.translation` and `engineering.concrete_scenario` (the modern adaptation)
+
+## Your task
+Identify any place where the engineering layer:
+
+1. Inverts or weakens the Sanskrit's actual claim.
+2. Conflates positions held by different commentarial traditions (e.g. attributing a Vishishtadvaita reading to Shankara's Advaita).
+3. Drops a doctrinally load-bearing word (e.g. *adhikāra*, *dharma*, *yoga*, *yajña*, *sannyāsa*) without acknowledgment.
+4. Imports a connotation the Sanskrit does not support.
+5. Makes the verse say something Krishna does not say.
+
+## Output format (strict JSON, no commentary outside it)
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "severity": "critical" | "minor",
+      "claim": "<the engineering claim being judged>",
+      "objection": "<your objection, citing the Sanskrit or commentary>"
+    }
+  ],
+  "notes": "<one paragraph, optional>"
+}
+```
+
+## Calibration
+- One critical issue ⇒ FAIL.
+- Three or more minor issues ⇒ FAIL.
+- A successful PASS does not mean the engineering analog is "right" — only that the original meaning has not been falsified or distorted.
+- Your job is preservation, not generosity. Err toward FAIL if uncertain.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.32",
+  "sanskrit_devanagari": "यदृच्छया चोपपन्नं स्वर्गद्वारमपावृतम् ।\nसुखिनः क्षत्रियाः पार्थ लभन्ते युद्धमीदृशम् ॥ ३२ ॥",
+  "sanskrit_iast": "yadṛcchayā copapannaṁ svarga-dvāram apāvṛtam |\nsukhinaḥ kṣatriyāḥ pārtha labhante yuddham īdṛśam || 32 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यदृच्छया",
+      "iast": "yadṛcchayā",
+      "meaning": "by chance / unsought / of its own accord"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and / moreover"
+    },
+    {
+      "sanskrit": "उपपन्नम्",
+      "iast": "upapannam",
+      "meaning": "arrived / come about"
+    },
+    {
+      "sanskrit": "स्वर्गद्वारम्",
+      "iast": "svarga-dvāram",
+      "meaning": "the door / gate to heaven (svarga)"
+    },
+    {
+      "sanskrit": "अपावृतम्",
+      "iast": "apāvṛtam",
+      "meaning": "wide open / unobstructed"
+    },
+    {
+      "sanskrit": "सुखिनः",
+      "iast": "sukhinaḥ",
+      "meaning": "happy / fortunate"
+    },
+    {
+      "sanskrit": "क्षत्रियाः",
+      "iast": "kṣatriyāḥ",
+      "meaning": "kṣatriyas / members of the warrior order"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O son of Pṛthā (Arjuna)"
+    },
+    {
+      "sanskrit": "लभन्ते",
+      "iast": "labhante",
+      "meaning": "obtain / receive"
+    },
+    {
+      "sanskrit": "युद्धम्",
+      "iast": "yuddham",
+      "meaning": "a battle / a fight"
+    },
+    {
+      "sanskrit": "ईदृशम्",
+      "iast": "īdṛśam",
+      "meaning": "of this kind / such as this"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/32/",
+      "fetched_at": "2026-04-29T19:09:49Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Pārtha, happy are the kṣatriyas to whom such fighting opportunities come unsought, opening for them the doors of the heavenly planets.",
+      "raw_capture_path": "data/sources/raw/bg-2-32-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/32",
+      "fetched_at": "2026-04-29T19:09:49Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O Parth, happy are the warriors to whom such opportunities to defend righteousness come unsought, opening for them the stairway to the celestial abodes."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/32/",
+      "fetched_at": "2026-04-29T19:09:49Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1187-char full purport)",
+      "verbatim_excerpt": "As supreme teacher of the world, Lord Kṛṣṇa condemns the attitude of Arjuna, who said, 'I do not find any good in this fighting. It will cause perpetual habitation in hell.' Such statements by Arjuna were due to ignorance only.",
+      "verbatim_excerpt_length": 233,
+      "verbatim_full_length": 1187,
+      "raw_full_path": "data/sources/raw/bg-2-32-vedabase.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-32/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:10:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.32 Only the fortunate Ksatriyas, i.e., the meritorious ones, gian such a war as this, which has come unsought, which is the means for the attainment of immeasurable bliss, and which gives an unobstructed pathway to heaven.",
+      "verbatim_excerpt_length": 226,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-2-32-bgus.json",
+      "summary_paraphrase": "Ramanuja stresses 'yadṛcchayā' (unsought) — the unsought arrival of the dharma-yuddha is itself evidence of accumulated merit (puṇya). Krishna is not telling Arjuna to seek battle; he is telling him that this particular battle has come to him without his seeking, and that arrival is itself a marker of fortune. The 'svarga-dvāram apāvṛtam' (door wide open) is read literally: the merit accruing from the dharma-yuddha is so direct that the door of svarga has no obstruction. Reading Krishna as exhorting belligerence misses the verse's force entirely — the verse marks the unsought-ness."
+    },
+    {
+      "commentator": "Sri Vishvanatha Chakravarti Thakura",
+      "tradition": "Gaudiya Vaishnava (Vishnvanatha)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-32/?cm=vishvanatha-chakravarthi-thakur",
+      "fetched_at": "2026-04-29T19:10:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Moreover, more than even the victors, those who die in a just battle attain happiness. By killing Bhisma and others, you make them happier. Even without doing karma yoga, one can attain svarga through the battle, without any obstructions (apavrtam).",
+      "verbatim_excerpt_length": 251,
+      "copyright_holder": "Sri Vishvanatha Chakravarti / aggregated by bhagavad-gita.us",
+      "raw_full_path": "data/sources/raw/bg-2-32-bgus.json",
+      "summary_paraphrase": "Vishvanatha emphasises that the puṇya from a dharma-yuddha is independent of victory — even the warrior who dies in such a battle attains svarga. The 'apāvṛtam' (unobstructed) names this directness: no further intermediate practice is needed when the battle itself is dharmic. The reading aligns with Ramanuja and Sridhara on the unsought-arrival point, but adds the win-or-die symmetry that the verse contains."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yadṛcchayā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unsought"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "unsought"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "by accumulated merit, the battle has arrived without the warrior's seeking it; the arrival is itself evidence"
+        },
+        {
+          "source": "Sridhara (per summary)",
+          "rendering": "manifested unsought of its own accord"
+        },
+        {
+          "source": "Vishvanatha (per summary)",
+          "rendering": "without obstruction (apavrtam) — the door is open with no further effort required"
+        }
+      ],
+      "explanation": "All sources render yadṛcchayā as 'unsought' or 'by chance / of its own accord.' The doctrinal disagreement is about what work the word is doing. Ramanuja reads it karmically — the unsought arrival of a dharma-yuddha is evidence of past merit. Vishvanatha reads it operationally — once such a battle has arrived unsought, one need not perform further karma-yoga to reach svarga; the battle itself is the path. Sridhara reads it rhetorically — 'why should you hesitate when the very thing you would have had to construct has already arrived?' Modern translators preserve 'unsought' but lose the doctrinal weight: the verse is not 'rejoice that war happened to you'; it is 'a fortuitous-arrival of the dharmic problem you would have had to seek out is itself a mark of fortune.' This is critical to avoid the militarism misreading."
+    }
+  ],
+  "literal_meaning": "Happy are the kṣatriyas, O Pārtha, who obtain such a battle that has arrived unsought, with the door of heaven thrown wide open.",
+  "traditional_meaning": "The verse names the unsought-arrival of a dharma-yuddha as a mark of fortune for the kṣatriya. Three doctrinal moves layer here: (a) yadṛcchayā — unsought-ness — is doing real work; the verse is not exhorting the seeking of battle but naming the recognition of an opportunity that has come without effort; (b) the dharma-yuddha is svarga-dvāra apāvṛta — a directly unobstructed path to merit, win or die — because the battle conforms to dharma, not because Krishna is glorifying war; (c) sukhinaḥ — happy / fortunate — is descriptive of the fortunate-state, not prescriptive of a desired emotion. Ramanuja, Vishvanatha, Sridhara, and Keshava Kashmiri converge on the unsought-ness as the load-bearing word. Reading the verse as 'go to war' misses 'yadṛcchayā' and inverts the verse: the verse marks the arrived-unsought, not the actively-sought.",
+  "engineering": {
+    "translation": "The verse names a precise category: the dharmic problem that has arrived unsought into the operator's lane. Not the problem one chases. Not the problem one volunteers for to look ambitious. The hard, honest, role-aligned problem that lands in front of the engineer through no manoeuvring of theirs — the principal-engineer-quitting-during-an-incident, the regulator-mandated migration on a ninety-day clock, the executive sponsorship and the headcount and the migration window all converging on the rewrite the team has been waiting eighteen months to staff. That fortuitous arrival is itself the gate. The lucky operator is the one in front of whom such a problem opens. To flee from it because it is hard is to mistake a once-in-a-decade opportunity for an inconvenience.",
+    "concrete_scenario": "A staff engineer at a fintech has been asking for two years to rewrite the auth service — currently a patched Express + Redis cluster behind a leaky JWT validator. The proposal kept dying in roadmap reviews. Then in one fortnight three independent events converge: a Sentry-flagged incident exposes a key-rotation flaw the current design cannot patch; a new VP of Engineering arrives wanting a flagship reliability win; a contractor's exit frees enough budget for two SREs and a backend platform engineer for a quarter. The auth-rewrite proposal — Postgres-backed sessions, gRPC token issuance, Datadog-instrumented dashboards — is approved on Tuesday. By Friday the engineer is drafting a Slack note framing herself as 'maybe not the right person, given the scope.' This is the verse. The work is hers because she carries eighteen months of context: the OAuth flow quirks, the legacy idempotency contract, the migration runbook from a smaller cutover she ran last year. The convergence — incident, leadership change, headcount freeing — is yadṛcchayā: arrived unsought. Her job here is not modesty; it is recognising that the gate has opened and walking through it.",
+    "falsifiability": "The analog fails if a reader uses it to justify saying yes to every opportunity that lands. The verse is narrow: a problem that (a) is genuinely role-aligned with the operator's accumulated context, (b) conforms to a real engineering need rather than executive theatre, and (c) arrived without the operator's manoeuvring. A 'reorg into a VP role I never wanted but it landed in my inbox' is not the verse. A 'cool greenfield rebuild that fits my résumé but the company does not actually need' is not the verse. Anyone reading 2.32 as 'every unsolicited opportunity is svarga-dvāra' has misread it; yadṛcchayā is necessary but not sufficient.",
+    "counter_example": "When the apparent unsought-arrival is actually the residue of a colleague's burnout — the 'opportunity' that landed because someone else was forced out — the verse does not apply unmodified. The dharma-yuddha frame requires the moment to be honestly dharmic; opportunities born of organisational injustice carry obligations of repair, not celebration. Chapter 5 (right-renunciation) and the closing instruction at 18.66 carry the corrective when the lane itself is contaminated. Krishna names the open gate; he does not bless every door that happens to be ajar.",
+    "implication": "When a hard, role-aligned problem arrives that you did not chase, name out loud that it arrived unsought. That is information. The pattern of fleeing such problems on the grounds that they are hard is the precise pattern this verse names. Walk through.",
+    "quotable_line": "The opportunity that arrived unsought into your lane is information; treating it as inconvenience is the verse's exact failure mode.",
+    "tags": [
+      "duty",
+      "prescribed-action",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,256 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.35",
+  "sanskrit_devanagari": "भयाद्रणादुपरतं मंस्यन्ते त्वां महारथाः ।\nयेषां च त्वं बहुमतो भूत्वा यास्यसि लाघवम् ॥ ३५ ॥",
+  "sanskrit_iast": "bhayād raṇād uparataṁ maṁsyante tvāṁ mahā-rathāḥ |\nyeṣāṁ ca tvaṁ bahu-mato bhūtvā yāsyasi lāghavam || 35 ||",
+  "anvaya": [
+    {
+      "sanskrit": "भयात्",
+      "iast": "bhayāt",
+      "meaning": "out of fear"
+    },
+    {
+      "sanskrit": "रणात्",
+      "iast": "raṇāt",
+      "meaning": "from the field of battle"
+    },
+    {
+      "sanskrit": "उपरतम्",
+      "iast": "uparatam",
+      "meaning": "withdrawn / ceased"
+    },
+    {
+      "sanskrit": "मंस्यन्ते",
+      "iast": "maṁsyante",
+      "meaning": "they will think / consider"
+    },
+    {
+      "sanskrit": "त्वाम्",
+      "iast": "tvām",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "महारथाः",
+      "iast": "mahā-rathāḥ",
+      "meaning": "the great chariot-warriors / great commanders"
+    },
+    {
+      "sanskrit": "येषाम्",
+      "iast": "yeṣām",
+      "meaning": "of whom / for whom"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "बहुमतः",
+      "iast": "bahu-mataḥ",
+      "meaning": "highly esteemed / much-regarded"
+    },
+    {
+      "sanskrit": "भूत्वा",
+      "iast": "bhūtvā",
+      "meaning": "having been"
+    },
+    {
+      "sanskrit": "यास्यसि",
+      "iast": "yāsyasi",
+      "meaning": "you will go / become"
+    },
+    {
+      "sanskrit": "लाघवम्",
+      "iast": "lāghavam",
+      "meaning": "lightness / smallness / insignificance"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/35/",
+      "fetched_at": "2026-04-29T19:09:54Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The great generals who have highly esteemed your name and fame will think that you have left the battlefield out of fear only, and thus they will consider you insignificant.",
+      "raw_capture_path": "data/sources/raw/bg-2-35-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/35",
+      "fetched_at": "2026-04-29T19:09:54Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The great generals who hold you in high esteem will think that you fled from the battlefield out of fear, and thus will lose their respect for you."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/35/",
+      "fetched_at": "2026-04-29T19:09:54Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 367-char full purport)",
+      "verbatim_excerpt": "Lord Kṛṣṇa continued to give His verdict to Arjuna: 'Do not think that the great generals like Duryodhana, Karṇa and other contemporaries will think that you have left the battlefield out of compassion for your brothers and grandfather. They will think that you have left out of fear for your life.'",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 367,
+      "raw_full_path": "data/sources/raw/bg-2-35-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-35/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:10:09Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "2.35 Moreover, maharathah, the great chariot-riders, Duryodhana and others; mamsyante, will think; tvam, of you; as uparatam, having desisted; ranat, from the fight; not out of compassion, but bhayat, out of fear of Karna and others; ca, and ; yasyasi laghavam, you will again fall into disgrace before them.",
+      "verbatim_excerpt_length": 298,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-2-35-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as the peer-witness sharpening of the akīrti claim in 2.34. Where 2.34 named 'all beings' (bhūtāni), 2.35 names a specific class of witnesses: the mahā-rathas — the peers and rivals whose own competence is comparable. Their verdict carries weight precisely because they are technically competent to judge the move. Shankara stresses the 'not out of compassion, but out of fear' move: the actor's stated motive (compassion) will be replaced in peer-cognition with the structural-default motive (fear). The peer's model of the actor's withdrawal does not consult the actor's stated reasons; it consults the peer's own model of why warriors leave fields."
+    },
+    {
+      "commentator": "Sri Vishvanatha Chakravarti Thakura",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-35/?cm=vishvanatha-chakravarthi-thakur",
+      "fetched_at": "2026-04-29T19:10:09Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "For those who have high regard for you as a warrior, even as an enemy, will no longer give you respect if you give up the battle. The maharathas like Duryodhana will think that you have fled in fear from the battlefield. They will not think of any other reason for the ksatriya to leave the field than fear.",
+      "verbatim_excerpt_length": 305,
+      "copyright_holder": "aggregated by bhagavad-gita.us",
+      "raw_full_path": "data/sources/raw/bg-2-35-bgus.json",
+      "summary_paraphrase": "Vishvanatha extends Shankara's reading: the peer-respect of mahā-rathas is held even by enemies — the mutual respect of competent rivals. Strong friendship-bonds will not be considered as a possible reason for withdrawal; the peer-default for 'why a kṣatriya leaves a battle' is fear. The peer-model is invariant under the actor's preferred narrative. Ramanuja on the same page reaches an identical conclusion: 'turning away from battle does not happen in the case of brave enemies through affection etc., for relatives. It can happen only through fear of enemies.'"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yāsyasi lāghavam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "they will consider you insignificant"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "will lose their respect for you"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "will fall into disgrace before them"
+        },
+        {
+          "source": "Vishvanatha (per summary)",
+          "rendering": "will no longer give you respect"
+        }
+      ],
+      "explanation": "'Lāghavam' literally means 'lightness' — the becoming-small in the eyes of those who once held you in weight (bahu-mataḥ — much-regarded). All sources preserve the size/weight metaphor in some form, but the translation choice signals different doctrinal emphases. Prabhupada's 'insignificant' makes it about social standing; Mukundananda's 'lose their respect' makes it about emotional regard; Shankara's 'disgrace' has a moral charge. The Sanskrit is more structural: bahu-mataḥ to lāghavam is a phase-change in how the peer-network assigns weight to your moves. The verse names a real cognitive event in a peer-population, not a feeling. Modern translations slightly misframe this as feeling rather than as model-update."
+    }
+  ],
+  "literal_meaning": "The great chariot-warriors will think you withdrew from battle out of fear; among those for whom you had been highly regarded, you will go to insignificance.",
+  "traditional_meaning": "The verse closes the akīrti chain (2.33-2.35) by naming the specific class of witnesses whose verdict carries doctrinal weight: the mahā-rathas — peers technically competent to judge. Three doctrinal moves: (a) the peer-respect of mahā-rathas was earned, not granted — bahu-mataḥ names a state of accumulated standing among comparable practitioners; (b) the verdict is structural, not psychological — 'they will think' (maṁsyante) names a cognitive default in the peer-population that does not consult the actor's stated motives; (c) the resulting state — lāghavam, lightness — is the loss of weight in the network's collective model. Shankara, Vishvanatha, and Ramanuja all converge on the peer-defaulting move: peers will not credit compassion as the reason for withdrawal; they will assign fear, because their own model of why warriors leave the field defaults to fear. The verse is signal-theory, not vanity-management. The kṣatriya frame holds; the underlying claim — that competent peers update their model of you based on what you do under pressure, regardless of your stated motives — generalises to any role with a peer-witness structure.",
+  "engineering": {
+    "translation": "The verse closes the disrepute argument by identifying a specific witness-class whose verdict carries doctrinal weight: not the broader market, not recruiter intake notes — the technically-competent peers. Principal engineers, SREs at adjacent firms, open-source maintainers who reviewed your migration design. They earned that regard for you by observing the work. They will subsequently model your withdrawal from a difficult moment using their own internalised model of why operators leave fields under pressure. That model defaults to fear. Whatever justification the actor invokes — burnout, family, principled disagreement — does not survive into peer-cognition. The verse names the resulting condition precisely: lāghavam, the becoming-light. The actor who previously carried weight in the network's collective representation forfeits it through a structural update to how they will route trust toward that name afterwards.",
+    "concrete_scenario": "A staff engineer leads the platform team at a mid-stage SaaS company. Her standing among other staff engineers — code reviews on her open-source Kubernetes operator, conference talks, GitHub stars — is real. She has mentored three engineers at adjacent firms for a year. A reorg drops a politically toxic project on her plate that she quietly believes is misframed. Six weeks in, mid-cutover, she takes a sabbatical citing burnout. The verse names what happens in the peer-network. Her stated reason does not propagate. What propagates is the cutover she did not finish. Two engineers she mentored sit on adjacent hiring panels within twelve months; both defer to her old peer-group's updated model. The model did not update because peers are unkind. It updated because the peer-default for 'why does a senior leave mid-cutover' is fear of finishing it. Her stated narrative has no path into that default. Bahu-mataḥ to lāghavam: standing earned through years of shipped open-source has become lightness. Krishna names this not as vanity-management but as the structural feature of how peer-networks assign weight under load.",
+    "falsifiability": "The analog fails if a reader uses it to shame engineers out of taking real medical or family leave. The verse scopes tightly to the peer-cognition update around a specific class of withdrawal — mid-execution, in front of competent peers, where the moment was visibly hard. A planned leave with a clean handover is not lāghavam. A medical leave is not lāghavam. A principled departure with a public, verifiable argument is not lāghavam — public argument is itself peer-cognition input. The verse names the case where the withdrawal carries no signal except 'left when it got hard,' and that case is narrow.",
+    "counter_example": "When the peer-network is itself compromised — when the 'competent peers' are in fact a status-cartel that defaults to penalising anyone who challenges its norms — the verse's lāghavam claim does not generalise. Sambhāvitasya in 2.34 restricts to actors whose prior honour was substantive; this verse implicitly assumes the peer-network's judgment is substantive. Where it is not, withdrawal is repair, not collapse. Chapter 5 (right-renunciation) and 18.66 carry the corrective for this case. Krishna's verse is structural; the structure assumes the peers are themselves seriously evaluating, not performing.",
+    "implication": "Before stepping away from a hard engineering moment, ask which specific peers will witness the withdrawal and what their default-model of mid-execution exit looks like. If the default in that population is 'fear of finishing,' your stated reasons will not reroute the model. The shape of the exit — the handover quality, the public-record explanation, the runbook completeness — is the only input that does reroute it.",
+    "quotable_line": "Competent peers update their model of you based on what they observe under load; bahu-mataḥ to lāghavam is a structural update, not a feeling.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-culture",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

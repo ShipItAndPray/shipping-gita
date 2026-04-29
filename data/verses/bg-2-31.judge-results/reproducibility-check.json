@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reproducibility_signals": [
+    "The named tools (Postgres, Datadog, Sentry, on-call rota) are real and used in real payments-platform engineering practice.",
+    "The named role artifacts (idempotency-key contract, fraud-shelf ordering, retention-window compliance) are real components of a payments platform's architecture, not metaphor.",
+    "The behaviour described — senior engineer drafting an email framing accumulated-context work as fungible — is a recurring pattern in real engineering organisations, well-documented in the imposter-recoil literature.",
+    "The implication is testable as a roadmap-review check: ask what specific context the assigned engineer carries that alternatives do not."
+  ],
+  "verdict_reason": "The analog reproduces in code (the Postgres write-path is a real artifact), in organisational practice (the assignment-fungibility check), and in observable behaviour (the imposter-recoil pattern). It is not pure metaphor. PASS."
+}

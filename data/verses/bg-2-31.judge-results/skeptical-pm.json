@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When a load arrives in your specific lane, name the role-context that put it there before declining. If the load is in your lane because of accumulated context only you carry (specific systems familiarity, contractual ownership, on-call coverage), the answer is not 'anyone could do this.'",
+  "roadmap_application": "Concretely: in a roadmap review, if a senior engineer claims 'any senior could pick up this migration,' the PM has a specific question to ask — what specific context does the assigned engineer carry that the alternatives do not? If the answer is real, the assignment stands. If the answer is no specific context, the engineer is correct that the work is fungible. The verse provides a falsifiable test for fungibility claims.",
+  "verdict_reason": "The implication is testable in roadmap decisions, the falsifiability handles the over-reach case (hoarding), and the counter_example handles the unjust-role case. The doctrine is not vague self-help; it is a specific cognitive check on a recurring pattern in senior-engineer assignment. PASS on both gates 7.3 (PM-actionable) and 3.11 (testable predicate)."
+}

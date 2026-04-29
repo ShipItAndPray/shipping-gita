@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reproducibility_signals": [
+    "Named tools (Express, Redis, JWT validator, Sentry, Postgres-backed sessions, gRPC token issuance, Datadog dashboards, OAuth) are all real components used in real auth-service architectures.",
+    "The 'three independent events converge' pattern (incident + leadership change + headcount freeing) is observable in real engineering organisations and well-documented in retrospectives of major rewrites.",
+    "The behaviour described — senior engineer drafting an imposter-recoil Slack message before a long-awaited project — is a recurring real pattern.",
+    "The implication is testable as a roadmap-conversation check: was the convergence engineered or unsought?"
+  ],
+  "verdict_reason": "The analog reproduces in code (the auth-service rewrite is realistic), in organisational practice (the convergence pattern), and in observable behaviour. Not pure metaphor. PASS."
+}
