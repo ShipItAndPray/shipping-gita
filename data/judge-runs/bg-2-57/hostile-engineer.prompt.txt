@@ -1,0 +1,253 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.57",
+  "sanskrit_devanagari": "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य शुभाशुभम् ।\nनाभिनन्दति न द्वेष्टि तस्य प्रज्ञा प्रतिष्ठिता ॥ ५७ ॥",
+  "sanskrit_iast": "yaḥ sarvatrānabhisnehas tat tat prāpya śubhāśubham |\nnābhinandati na dveṣṭi tasya prajñā pratiṣṭhitā || 57 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who / whoever"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere / in all situations"
+    },
+    {
+      "sanskrit": "अनभिस्नेहः",
+      "iast": "anabhisnehaḥ",
+      "meaning": "unattached / without affection-binding"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "and that (the doubling 'tat tat' = 'this and that, whatever it may be')"
+    },
+    {
+      "sanskrit": "प्राप्य",
+      "iast": "prāpya",
+      "meaning": "having attained / on attaining"
+    },
+    {
+      "sanskrit": "शुभ",
+      "iast": "śubha",
+      "meaning": "auspicious / good (in compound śubhāśubham)"
+    },
+    {
+      "sanskrit": "अशुभम्",
+      "iast": "aśubham",
+      "meaning": "inauspicious / bad (in compound: 'good or bad')"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "अभिनन्दति",
+      "iast": "abhinandati",
+      "meaning": "rejoices / welcomes"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "nor"
+    },
+    {
+      "sanskrit": "द्वेष्टि",
+      "iast": "dveṣṭi",
+      "meaning": "hates / rejects"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "of him / his"
+    },
+    {
+      "sanskrit": "प्रज्ञा",
+      "iast": "prajñā",
+      "meaning": "wisdom"
+    },
+    {
+      "sanskrit": "प्रतिष्ठिता",
+      "iast": "pratiṣṭhitā",
+      "meaning": "is established / is firmly fixed"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/57/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the material world, one who is unaffected by whatever good or evil he may obtain, neither praising it nor despising it, is firmly fixed in perfect knowledge.",
+      "raw_capture_path": "data/sources/raw/bg-2-57-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/57",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who remains unattached under all conditions, and is neither delighted by good fortune nor dejected by tribulation, he is a sage with perfect knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/57/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 605-char full purport)",
+      "verbatim_excerpt": "There is always some upheaval in the material world which may be good or evil. One who is not agitated by such material upheavals, who is unaffected by good and evil, is to be understood to be fixed in Kṛṣṇa consciousness.",
+      "raw_full_path": "data/sources/raw/bg-2-57-vedabase.json (purport_full_length: 605)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-57/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:55:12Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Shankara bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Further, prajñā, the wisdom; tasya, of that person, of that sannyāsin; pratiṣṭhitā, remains established; yaḥ, who; anabhisnehaḥ, has no attachment for; sarvatra, anything anywhere, even for body, life, etc.; who na abhinandati, neither welcomes; na dveṣṭi, nor rejects; tat tat, anything whatever; śubha-aśubham, good or bad; prāpya, when he comes across it. Of such a person, who is thus free from elation or dejection, the wisdom arising from discrimination remains established.",
+      "raw_full_path": "data/sources/raw/bg-2-57-bgus.json",
+      "summary_paraphrase": "Shankara reads sarvatra anabhisneha as universal non-attachment — the sannyāsin has no special attachment 'anywhere', not even to body or life. Encountering good or bad, he neither welcomes (abhinandati) nor rejects (dveṣṭi). The Advaita gloss anchors the freedom in discriminative wisdom: viveka between Self and not-Self produces the steadiness."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-57/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:55:12Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Ramanuja bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "He, who has no love for all pleasing objects, i.e., who is indifferent to them, and who does not feel attraction or repulsion when he is united with or separated from attractive or repulsive objects respectively, who neither rejoices at the former, nor hates the latter — he also is of firm wisdom. Sri Krsna now mentions the next lower state.",
+      "raw_full_path": "data/sources/raw/bg-2-57-bgus.json",
+      "summary_paraphrase": "Ramanuja sets up a hierarchy across 2.55-2.58: each verse describes a successively lower state below the highest. 2.55 is the highest (jñāna-bhakti); 2.56 is the next; 2.57 is one step below — the sage who, on encountering good or bad, neither rejoices nor hates. Vishishtadvaita keeps the gradation explicit; the verse names a real psychological achievement, not just an absence."
+    },
+    {
+      "commentator": "Sri Madhvacharya",
+      "tradition": "Dvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-57/?cm=madhvacharya",
+      "fetched_at": "2026-04-29T19:55:12Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Madhva bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Lord Krishna explains here that one devoid of attachment to everything, when exposed to that which is good does not rejoice, neither does such a one lament when exposed to that which is not good.",
+      "raw_full_path": "data/sources/raw/bg-2-57-bgus.json",
+      "summary_paraphrase": "Madhva renders the verse compactly: detached from everything, on encountering good neither rejoices nor on encountering evil laments. The Dvaita reading does not impose a metaphysical reduction; the verse is read as a behavioural marker."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sarvatra anabhisnehaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "in the material world… unaffected"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "remains unattached under all conditions"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "no attachment for anything anywhere, even for body, life, etc."
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "no love for all pleasing objects; indifferent to them"
+        }
+      ],
+      "explanation": "The Sanskrit 'sarvatra anabhisneha' is plain — 'unattached everywhere'. Shankara extends the scope to include body and life themselves (a strict Advaita reading: the sannyāsin's non-attachment is total). Ramanuja narrows to 'pleasing objects' (a Vishishtadvaita move that preserves devotion to the Supreme as outside the scope of non-attachment). Prabhupada introduces 'in the material world' (a Gaudiya scoping that separates the material from the devotional). Mukundananda stays close to the literal. The verse text itself is universal — sarvatra = everywhere — and any narrowing is commentarial."
+    },
+    {
+      "word": "tat tat prāpya śubhāśubham",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "whatever good or evil he may obtain"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "good fortune… tribulation"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "tat tat, anything whatever; śubha-aśubham, good or bad; prāpya, when he comes across it"
+        }
+      ],
+      "explanation": "The doubled 'tat tat' is an emphatic distributive — 'this and that, whatever it may be'. śubhāśubham is the dvandva 'good-and-bad'. The verse is naming the operator's response under either kind of input, not just under bad. The non-rejoicing in good is as load-bearing as the non-hating in bad — both are explicitly named."
+    }
+  ],
+  "literal_meaning": "Whoever is unattached everywhere, and on attaining this or that good or bad, neither rejoices nor hates — their wisdom is established.",
+  "traditional_meaning": "The verse names a behavioural mark of the sthita-prajña: under any input — good or bad, fortune or tribulation — the response shape is the same. The sage neither rejoices (na abhinandati) at the good nor hates (na dveṣṭi) the bad. Importantly, both halves are explicit: the non-rejoicing is named first, before the non-hating. This is the same equanimity-doctrine prefigured at 2.38 (sukha-duḥkhe same kṛtvā — make pleasure-and-pain equal) and at 2.48 (samatvaṁ yoga ucyate — equanimity is yoga); 2.57 specifies it for the realized one. Shankara reads the non-attachment as universal (extending to body and life); Ramanuja reads it as a step in a hierarchy of states (one below 2.55-2.56); Madhva reads it as a plain behavioural marker. All three agree on the structural point: the operator's response shape is invariant across the polarity of inputs.",
+  "engineering": {
+    "translation": "The verse names neutrality of response. The operator who is unattached everywhere, and who on attaining good or bad neither rejoices nor hates, has wisdom established. The Sanskrit's structure is symmetric and load-bearing — both halves are explicit, with non-rejoicing on the good named first, non-hating on the bad named second. The verse refuses to be read as merely 'be tough about bad news'; the non-rejoicing about good news carries equal weight. This is the equanimity-doctrine prefigured at 2.38 (sukha-duḥkhe same kṛtvā) and elevated to the definition of yoga at 2.48 (samatvaṁ yoga ucyate). 2.57 specifies it for the realised one as a behavioural mark: across any input the response shape remains constant. Engineering reading: when a launch beats forecast and when a launch misses forecast, the operator's downstream conduct is identical. Both readings inform the next decision; neither becomes a self-event.",
+    "concrete_scenario": "Q3 launch: the new pricing page exceeds forecast by twenty-two percent on conversion. The PM Slacks a champagne emoji; the founder reposts on Twitter; the CEO requests an all-hands presentation. The engineer records the figure, files post-launch analysis, schedules regression-monitoring on Datadog, returns to the Q4 roadmap document. No fire-up, no carry-over. Next week she presents at the all-hands without ornamentation, and the slide simply reports what occurred. Q4 launch: the redesigned checkout page misses forecast by fourteen percent. Slack falls quiet; the PM privately schedules a debrief; a senior teammate suspects the new variant-routing logic. She records the figure, files post-launch analysis, schedules regression-monitoring, returns to Q1 planning. No collapse, no carry-over. Next week she presents at the all-hands without defensiveness, slide reporting what occurred. Sentry traces receive the attention given during Q3 success. Postgres query patterns under the regressed checkout get diagnosed exactly as patterns under the winning pricing page were. Same operator, same posture, opposite inputs. Contrast: the engineer who would have flared during Q3, accepted the all-hands invitation as personal validation, then under Q4 defended the variant-routing rather than investigating it — interpreting identical Sentry traces differently depending on whether the launch is being celebrated or blamed.",
+    "falsifiability": "The analog fails if a reader concludes that the senior operator has no preferences, no judgment about which outcomes are better, no celebrations, no concern when things go wrong. Neutrality of response is not neutrality of evaluation. The senior absolutely judges Q3 better than Q4 — but the judgment does not produce a different operator-state in Q3 than in Q4. The verse is naming response-shape, not evaluation-shape. An engineering culture that reads this verse as 'don't celebrate wins' has misread it; the celebration is allowed, but the celebration does not become the operator.",
+    "counter_example": "When a launch is genuinely catastrophic — security incident, user data exposed, financial harm — the verse does not ask the operator to read the bad news with the same posture as routine bad news. Catastrophe is its own category and demands its own response. Krishna will distinguish proportionate response from grasping in later chapters (notably 5.18-5.20 and 18.66). The neutrality-of-response 2.57 names is across the ordinary polarity of work outcomes, not across the moral spectrum.",
+    "implication": "Watch your own response-shape across consecutive launches. If your downstream conduct visibly differs depending on whether the metric was up or down, the wisdom is not yet established.",
+    "quotable_line": "Both halves matter — the non-rejoicing on good news is named with the same weight as the non-hating on bad news.",
+    "tags": [
+      "operator-system-coupling",
+      "post-launch",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

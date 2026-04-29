@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "engineering layer's operational scoping of Sanskrit terminology",
+      "objection": "The engineering rendering of BG 2.58 narrows the Sanskrit's scope (Shankara's prefix-sam- gloss ('absolute firmness in withdrawal') to a specifically operational frame. Acceptable simplification — the source pack preserves the fuller commentarial scope — but a careful Sanskritist notes the narrowing."
+    }
+  ],
+  "notes": "The engineering layer for BG 2.58 preserves the verse's structural shape: Shankara's prefix-sam- gloss ('absolute firmness in withdrawal'; 'full control over the organs') and the sarvaśaḥ reading ('wholly, from all sides out of fear') preserved verbatim in the engineering specification: 'capacity is total or it is not the capacity'. the verse's bhagavad-gita.us page returned identical Shankara-text under Ramanuja heading (an upstream data error noted in source pack); engineering layer does not depend on disputed Ramanuja content. Madhva did not comment on this sloka per source pack; not invoked. No tradition is misattributed, no doctrinally load-bearing word is dropped without acknowledgment. The Sanskrit terms (sthita-prajña / sthita-dhīḥ / samādhi-sthasya / kūrma / rasa / param) appear preserved verbatim where invoked. PASS."
+}

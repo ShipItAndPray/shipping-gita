@@ -1,0 +1,278 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.56",
+  "sanskrit_devanagari": "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः ।\nवीतरागभयक्रोधः स्थितधीर्मुनिरुच्यते ॥ ५६ ॥",
+  "sanskrit_iast": "duḥkheṣv anudvigna-manāḥ sukheṣu vigata-spṛhaḥ |\nvīta-rāga-bhaya-krodhaḥ sthita-dhīr munir ucyate || 56 ||",
+  "anvaya": [
+    {
+      "sanskrit": "दुःखेषु",
+      "iast": "duḥkheṣu",
+      "meaning": "in pains / sorrows"
+    },
+    {
+      "sanskrit": "अनुद्विग्न",
+      "iast": "anudvigna",
+      "meaning": "untroubled / unagitated (in compound anudvigna-manāḥ)"
+    },
+    {
+      "sanskrit": "मनाः",
+      "iast": "manāḥ",
+      "meaning": "of mind (in compound: 'one whose mind is untroubled')"
+    },
+    {
+      "sanskrit": "सुखेषु",
+      "iast": "sukheṣu",
+      "meaning": "in pleasures / delights"
+    },
+    {
+      "sanskrit": "विगत",
+      "iast": "vigata",
+      "meaning": "departed / gone (in compound vigata-spṛhaḥ)"
+    },
+    {
+      "sanskrit": "स्पृहः",
+      "iast": "spṛhaḥ",
+      "meaning": "longing (in compound: 'one whose longing has departed')"
+    },
+    {
+      "sanskrit": "वीत",
+      "iast": "vīta",
+      "meaning": "free from / departed-from (in compound vīta-rāga-bhaya-krodhaḥ)"
+    },
+    {
+      "sanskrit": "राग",
+      "iast": "rāga",
+      "meaning": "passion / attachment"
+    },
+    {
+      "sanskrit": "भय",
+      "iast": "bhaya",
+      "meaning": "fear"
+    },
+    {
+      "sanskrit": "क्रोधः",
+      "iast": "krodhaḥ",
+      "meaning": "anger (in compound: 'free from passion, fear, and anger')"
+    },
+    {
+      "sanskrit": "स्थित",
+      "iast": "sthita",
+      "meaning": "steady (in compound sthita-dhīḥ)"
+    },
+    {
+      "sanskrit": "धीः",
+      "iast": "dhīḥ",
+      "meaning": "intellect / mind (in compound: 'the steady-minded one')"
+    },
+    {
+      "sanskrit": "मुनिः",
+      "iast": "muniḥ",
+      "meaning": "sage"
+    },
+    {
+      "sanskrit": "उच्यते",
+      "iast": "ucyate",
+      "meaning": "is called"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/56/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who is not disturbed in mind even amidst the threefold miseries or elated when there is happiness, and who is free from attachment, fear and anger, is called a sage of steady mind.",
+      "raw_capture_path": "data/sources/raw/bg-2-56-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/56",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One whose mind remains undisturbed amidst misery, who does not crave for pleasure, and who is free from attachment, fear, and anger, is called a sage of steady wisdom."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/56/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1953-char full purport)",
+      "verbatim_excerpt": "The word muni means one who can agitate his mind in various ways for mental speculation without coming to a factual conclusion. It is said that every muni has a different angle of vision, and unless a muni differs from other munis, he cannot be called a muni in the strict sense of the term.",
+      "raw_full_path": "data/sources/raw/bg-2-56-vedabase.json (purport_full_length: 1953)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-56/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:55:10Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Shankara bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Moreover, that munih, monk, ucyate, is then called sthita-dhīḥ, a man of steady wisdom; when anudvigna-manāḥ, his mind is unperturbed, in duḥkheṣu, in sorrow — when his mind remains unperturbed by the sorrows that may come on the physical or other planes; so also, when he is vigata-spṛhaḥ, free from longing, sukheṣu, for delights — when he, unlike fire which flares up when fed with fuel, has no longing for delights when they come to him; and vīta-rāga-bhaya-krodhaḥ, has gone beyond attachment, fear and anger.",
+      "raw_full_path": "data/sources/raw/bg-2-56-bgus.json",
+      "summary_paraphrase": "Shankara's gloss preserves the three-state structure of the verse with strict precision: anudvigna in pains (the mind that does not flinch under physical, environmental, or super-natural sorrow); vigata-spṛha in pleasures (the mind that does not flare up like fire fed with fuel when delights arrive); and vīta-rāga-bhaya-krodha — the freedom from passion, fear, and anger as a triad. Shankara names the muni as identical with the man of realisation."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-56/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:55:10Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Ramanuja bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Even when there are reasons for grief like separation from beloved ones, his mind is not perturbed, i.e., he is not aggrieved. He has no longing to enjoy pleasures, i.e., even though the things which he likes are near him, he has no longing for them. He is free from desire and anger; desire is longing for objects not yet obtained; he is free from this. Fear is affliction produced from the knowledge of the factors which cause separation from the beloved or from meeting with that which is not desirable; he is free from this. Anger is a disturbed state of one's own mind which produces affliction… A sage of this sort, who constantly meditates on the self, is said to be of firm wisdom.",
+      "raw_full_path": "data/sources/raw/bg-2-56-bgus.json",
+      "summary_paraphrase": "Ramanuja gives a careful analysis of each member of the triad. rāga (desire) is longing for the not-yet-obtained; bhaya (fear) is affliction produced by knowing the factors that cause loss-of-beloved or meeting-with-unwanted; krodha (anger) is the disturbed mental state aimed at the sentient cause of such loss or unwanted meeting. The sthita-prajña is free of all three because the mind constantly meditates on the self. Vishishtadvaita reads each freedom as a real psychological achievement, not a metaphysical absence."
+    },
+    {
+      "commentator": "Sri Madhvacharya",
+      "tradition": "Dvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-56/?cm=madhvacharya",
+      "fetched_at": "2026-04-29T19:55:10Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Madhva bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Lord Krishna gives an expansion of this in the next three verses. For those situated in wisdom these instructions are essential being the means. It has been declared that whatever instructions have been recommended for those seeking advancement, these selfsame instructions are seen distinctively in the actions of those situated in wisdom. To assume erroneously that something is pleasant then it becomes a source of attachment. Rasa sentiment, raga attachment, and rakti beauty are said to be erroneous assumptions.",
+      "raw_full_path": "data/sources/raw/bg-2-56-bgus.json",
+      "summary_paraphrase": "Madhva treats this verse as the gateway to the next three (2.57-2.59) — the instructions for the seeker are simultaneously the marks of the realised. The doctrinal point: pleasure-attachment arises from a cognitive error (erroneously assuming something is pleasant); the freedoms named in the verse are the consequence of correcting that error."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "duḥkheṣu",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "amidst the threefold miseries (introduces a Sāṅkhya / commentarial gloss not in the Sanskrit)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "amidst misery (literal)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "in sorrows that may come on the physical, environmental, or super-natural planes"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "even when there are reasons for grief like separation from beloved ones"
+        }
+      ],
+      "explanation": "The Sanskrit duḥkheṣu is plain locative-plural — 'in pains / sorrows'. Prabhupada and Shankara both expand to 'threefold miseries' (ādhyātmika / ādhibhautika / ādhidaivika — the standard Sāṅkhya tripartition), which is not in the Sanskrit but is a universally accepted commentarial gloss. Ramanuja exemplifies with separation-from-beloved. Mukundananda stays close to the literal. The verse itself does not specify what kinds of pains; the engineering layer should preserve the literal scope (any pain), not the commentarial expansion (the threefold typology), unless the typology is specifically being cited."
+    },
+    {
+      "word": "vīta-rāga-bhaya-krodhaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "free from attachment, fear and anger"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "free from attachment, fear, and anger"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "has gone beyond attachment, fear, and anger (vīta = past, departed)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "free from desire (longing for the not-yet-obtained), fear (affliction from knowledge of separation-causing factors), and anger (disturbed state aimed at the sentient cause of separation or unwanted meeting)"
+        }
+      ],
+      "explanation": "The Sanskrit gives a triad — rāga / bhaya / krodha — and all four sources preserve it as a triad. Ramanuja's analysis is the most precise: rāga is longing for unattained objects; bhaya is affliction from the knowledge of causes of loss; krodha is the disturbance aimed at the agent of loss. The triad must remain three distinct freedoms — collapsing them into a single 'equanimity' would lose the structure. Prabhupada/Mukundananda preserve the form but not the analysis."
+    }
+  ],
+  "literal_meaning": "One whose mind is untroubled in pains, whose longing has departed in pleasures, free from passion, fear, and anger — the steady-minded sage is so called.",
+  "traditional_meaning": "The verse names the sthita-prajña by three coordinated freedoms in a triadic structure. (1) duḥkheṣu anudvigna-manāḥ — in pains, the mind is untroubled. The Sāṅkhya commentarial expansion (preserved by Shankara) makes these the threefold pains: physical, environmental, super-natural. The verse itself is broader: any pain. (2) sukheṣu vigata-spṛhaḥ — in pleasures, longing has departed. Shankara's image: the sage is unlike fire that flares up when fuel arrives. (3) vīta-rāga-bhaya-krodhaḥ — beyond passion, fear, and anger. Ramanuja's analysis treats each as a distinct psychological state with a specific structure: passion as longing for the unattained, fear as affliction from anticipated loss, anger as disturbance aimed at the cause of loss. The three freedoms are not redundant; they cover three different operator-pathologies. The verse closes by giving the sthita-prajña another title: muni — the sage.",
+  "engineering": {
+    "translation": "The verse names three distinct freedoms in a triadic structure, and the engineering reading must keep them separate. First: untroubled in pains. The senior's mind does not flinch when a page fires, a customer complaint arrives, a feature is killed, an incident escalates. Untroubled is not numb; it is absence of the panic-spike that hijacks judgment. Second: longing departed in pleasures. When a launch goes viral or a metric beats forecast, the operator does not lean forward into the supply, does not flare up the way fire does when fuel arrives. The pleasure registers; the craving for more does not. Third: free of three states — rāga, bhaya, krodha — which are not synonyms. Rāga is attachment to a favourite stack, the architecture you wrote, the framework you championed. Bhaya is fear of being deprecated, of the new hire, of the model that writes your function. Krodha is anger at code-review pushback, broken pipelines, the PM who keeps shifting deadlines. Each is a different pathology, and freedom from one does not entail freedom from the others.",
+    "concrete_scenario": "Three weeks at a payments company. A Postgres replica fails under unexpected write load and recovery takes two hours. Untroubled in pains: the on-call engineer pages in, runs the failback, files the GitHub report, sleeps four hours, returns next morning to write the postmortem. Her mind did not flinch — not from indifference, but because the panic-spike never fired. Two days later a launch performs three standard deviations above forecast and Slack erupts; longing departed in pleasures, she records the figure, thanks her teammates, returns to the queue she carried before the launch with no carry-over of elevation. The following week three challenges arrive together. Infrastructure announces deprecation of the Kafka cluster she chose three years ago — she advocates for the migration plan without rāga, refusing to defend the original choice as if it were identity. A staff-level interview candidate joins from Stripe with a resume that exceeds her own — bhaya does not register, no silent credentialist campaign begins. A peer in code review labels her pull request 'a complete miss of the point' in front of the team — krodha does not register, the comment does not land in the defensive part. The triad has gone; the same operator persists across all three challenges. Contrast: the engineer calm at 3 AM yet flaring under praise; or untroubled by incidents yet intolerant of pushback; or competent under pushback yet unexamined in their stack-attachment. Each is partial; the verse names the complete triad.",
+    "falsifiability": "The analog fails if a reader collapses the three freedoms into one undifferentiated 'equanimity'. The verse explicitly names rāga, bhaya, and krodha as three distinct states. An engineer free of one but not the others is not described here. A reader walking away thinking 'be calm' has flattened the anatomy of the verse.",
+    "counter_example": "When pain is genuine and demands response — a colleague is being mistreated, a security breach is active, a launch is harming users — the verse does not require the operator to remain unmoved. Anger directed at injustice is not the krodha named here; per Ramanuja's gloss, the krodha is mind-disturbance aimed at the agent of personal loss.",
+    "implication": "Audit the three freedoms separately. Most engineers possess one and not the others; the verse names the full triad.",
+    "quotable_line": "Three distinct freedoms — from attachment, from fear, from anger — and freedom from one does not entail freedom from the others.",
+    "tags": [
+      "incident-response",
+      "team-state",
+      "deprecation-management"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

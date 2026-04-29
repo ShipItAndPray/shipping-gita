@@ -1,0 +1,282 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.55",
+  "sanskrit_devanagari": "श्रीभगवानुवाच ।\nप्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।\nआत्मन्येवात्मना तुष्टः स्थितप्रज्ञस्तदोच्यते ॥ ५५ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca |\nprajahāti yadā kāmān sarvān pārtha mano-gatān |\nātmany evātmanā tuṣṭaḥ sthita-prajñas tadocyate || 55 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्री",
+      "iast": "śrī",
+      "meaning": "the blessed (in compound śrī-bhagavān)"
+    },
+    {
+      "sanskrit": "भगवान्",
+      "iast": "bhagavān",
+      "meaning": "the Lord (in compound: 'the Blessed Lord')"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "प्रजहाति",
+      "iast": "prajahāti",
+      "meaning": "abandons / fully gives up"
+    },
+    {
+      "sanskrit": "यदा",
+      "iast": "yadā",
+      "meaning": "when"
+    },
+    {
+      "sanskrit": "कामान्",
+      "iast": "kāmān",
+      "meaning": "desires"
+    },
+    {
+      "sanskrit": "सर्वान्",
+      "iast": "sarvān",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O Partha (Arjuna, son of Pritha)"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "mind (in compound mano-gatān)"
+    },
+    {
+      "sanskrit": "गतान्",
+      "iast": "gatān",
+      "meaning": "gone / entered (in compound: 'that have entered the mind')"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in the Self"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone / only"
+    },
+    {
+      "sanskrit": "आत्मना",
+      "iast": "ātmanā",
+      "meaning": "by the Self"
+    },
+    {
+      "sanskrit": "तुष्टः",
+      "iast": "tuṣṭaḥ",
+      "meaning": "satisfied / content"
+    },
+    {
+      "sanskrit": "स्थित",
+      "iast": "sthita",
+      "meaning": "established (in compound sthita-prajñaḥ)"
+    },
+    {
+      "sanskrit": "प्रज्ञः",
+      "iast": "prajñaḥ",
+      "meaning": "of wisdom (in compound: 'the steady-wisdomed one')"
+    },
+    {
+      "sanskrit": "तदा",
+      "iast": "tadā",
+      "meaning": "then"
+    },
+    {
+      "sanskrit": "उच्यते",
+      "iast": "ucyate",
+      "meaning": "is called"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/55/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Personality of Godhead said: O Pārtha, when a man gives up all varieties of desire for sense gratification, which arise from mental concoction, and when his mind, thus purified, finds satisfaction in the self alone, then he is said to be in pure transcendental consciousness.",
+      "raw_capture_path": "data/sources/raw/bg-2-55-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/55",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Lord said: O Parth, when one discards all selfish desires and cravings of the senses that torment the mind, and becomes satisfied in the realization of the self, such a person is said to be transcendentally situated."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/55/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1107-char full purport)",
+      "verbatim_excerpt": "The Bhāgavatam affirms that any person who is fully in Kṛṣṇa consciousness, or devotional service of the Lord, has all the good qualities of the great sages, whereas a person who is not so transcendentally situated has no good qualifications, because he is sure to be taking refuge in his own mental concoctions.",
+      "raw_full_path": "data/sources/raw/bg-2-55-vedabase.json (purport_full_length: 1107)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-55/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:55:07Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Shankara bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "O Partha, yada, when; prajahati, one fully renounces; sarvan, all; the kaman, desires, varieties of desires; manogatan, that have entered the mind. Tustah, remains satisfied; atmani eva, in the Self alone, in the very nature of the inmost Self; atmana, by the Self which is his own — indifferent to external gains, and satiated with everything else on account of having attained the nectar of realization of the supreme Goal; tada, then; ucyate, he is called; sthita-prajnah, a man of steady wisdom, a man of realization, one whose wisdom, arising from the discrimination between the Self and the not-Self, is stable.",
+      "raw_full_path": "data/sources/raw/bg-2-55-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as the opening definition of the sthita-prajña: the one who fully renounces every desire that has entered the mind (manogatān) and remains satisfied in the Self (ātman) by the Self itself. The Advaita gloss anchors the contentment in non-dual Self-realization — the sage delights in the Self because the Self is not different from Brahman. Critically, Shankara warns that if desires are renounced while bodily life continues, the absence of satisfying objects could produce lunatic-like behaviour; the verse forestalls this by specifying that contentment is intrinsic — drawn from the Self, not the world."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-55/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:55:07Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Ramanuja bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "The Lord said — When a person is satisfied in himself with himself, i.e. when his mind depends on the self within himself; and being content with that, expels all the desires of the mind which are different from that state of mind — then he is said to be a man of firm wisdom. This is the highest form of devotion of knowledge.",
+      "raw_full_path": "data/sources/raw/bg-2-55-bgus.json",
+      "summary_paraphrase": "Ramanuja reads ātmany evātmanā tuṣṭaḥ as the highest state of jñāna-bhakti: the mind depends on the inner self, and from that dependence-content, expels every desire foreign to that state. The Vishishtadvaita reading frames the verse not as Self-as-Brahman absorption (Shankara) but as the highest stage of devotional knowledge — the inner self abiding in the Supreme."
+    },
+    {
+      "commentator": "Sri Madhvacharya",
+      "tradition": "Dvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-55/?cm=madhvacharya",
+      "fetched_at": "2026-04-29T19:55:07Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Madhva bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Lord Krishna reveals the attributes of the spiritually intelligent in this verse. One situated in spiritual intelligence realises the soul by the grace of the Supreme Lord… In actuality such a one discards all desires. Even as in the case of Sukadeva and Dhruva after they had darshan or vision of the Supreme Lord. The spiritually intelligent always enthusiastically desire communion with the Supreme Lord.",
+      "raw_full_path": "data/sources/raw/bg-2-55-bgus.json",
+      "summary_paraphrase": "Madhva's Dvaita reading anchors the verse in grace: the realisation of the soul occurs by the grace of the Supreme Lord, and from that realisation all worldly desires are discarded — though one then desires communion with the Lord. The contentment is drawn from the relationship with the Supreme, not from non-dual identity."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ātmany evātmanā tuṣṭaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "his mind, thus purified, finds satisfaction in the self alone"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "becomes satisfied in the realization of the self"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "satisfied in the Self alone, by the Self which is his own — content with the inmost Self, indifferent to external gains"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "satisfied in himself with himself; the mind depends on the self within himself, and being content with that…"
+        },
+        {
+          "source": "Madhva (per excerpt)",
+          "rendering": "contentment drawn from realisation of the soul by the grace of the Supreme Lord; communion with the Supreme replaces worldly desires"
+        }
+      ],
+      "explanation": "The verse's central phrase ātmany evātmanā tuṣṭaḥ is dense — 'satisfied in the Self by the Self' — and the three traditions read it through their respective metaphysics. Shankara reads ātman as the non-dual Self (= Brahman); contentment is intrinsic because the Self is the substrate of all. Ramanuja reads ātman as the individual self abiding in the Supreme; contentment is the highest state of jñāna-bhakti. Madhva reads it as the soul realised by grace; contentment is the relational content of communion with the Lord. The verse's grammatical form supports all three — the locative ātmani and instrumental ātmanā are simply the place and the means of contentment, with the metaphysical scope determined by the reader's frame."
+    },
+    {
+      "word": "kāmān manogatān",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "all varieties of desire for sense gratification, which arise from mental concoction"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "all selfish desires and cravings of the senses that torment the mind"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "all desires, varieties of desires, that have entered the mind / heart"
+        }
+      ],
+      "explanation": "manogatān literally means 'gone-into-mind' — desires already lodged in the mind. Prabhupada glosses 'arise from mental concoction'; Mukundananda glosses 'cravings that torment the mind'; Shankara reads it most literally as 'desires that have entered the mind / heart'. The literal sense is sharpest: not desires that exist in the abstract, but the ones already established in the operator's mind. The verse asks for the renunciation of those, not just the pre-emption of new ones."
+    }
+  ],
+  "literal_meaning": "The Blessed Lord said: When one fully abandons all desires that have entered the mind, O Partha, content in the Self by the Self alone, then he is called the steady-wisdomed one.",
+  "traditional_meaning": "This is Krishna's first answer to Arjuna's question of 2.54. The sthita-prajña is defined by two coordinated marks: (1) the abandonment of all desires that have entered the mind (kāmān manogatān prajahāti) — not just future desires, but the ones already present; (2) contentment in the Self by the Self (ātmany evātmanā tuṣṭaḥ) — an intrinsic source of satisfaction that does not depend on external supply. Shankara reads contentment as Self-as-Brahman absorption; Ramanuja reads it as the highest stage of devotional knowledge in which the inner self abides in the Supreme; Madhva reads it as relational communion with the Lord, granted by grace. All three agree on the structural point: the source of contentment is not what the world supplies, but what is found within. The verse names the operator-state, not just the operator's actions; the next verses will give the behavioural marks.",
+  "engineering": {
+    "translation": "Krishna begins answering Arjuna's question of 2.54 by naming the operator's first mark: where satisfaction comes from. The senior is one who has released desires already lodged in the mind — not those arriving next quarter, but ones currently active: the next promotion, the title bump, the keynote that would be career-defining, the acquisition that would validate four years of effort. The grammatical move is precise: satisfaction is produced internally and drawn internally, not supplied from outside. This is not absence of ambition; the senior still ships, cares, advocates, pushes. It is a specific shape of where contentment lives. The state does not depend on a migration's outcome, a launch's reception, or design-review votes. Krishna is not requiring relinquishment of outcomes here — only specifying that the operator's well-being is no longer hostage to their arrival.",
+    "concrete_scenario": "A staff engineer at a Series B company has been at the same level for six years, and promotion to Principal is on the table every cycle yet never lands — sometimes the budget, sometimes a reorganisation, sometimes the calibration committee's positioning. Across those six years she has shipped the data-warehouse migration, the schema redesign of the billing service, the Kafka-to-Pulsar swap, and the on-call doctrine that reduced p99 latency by forty percent. She watches three peers leave for principal-level roles at competitors. Her contentment with the work itself has not moved. She continues to find the daily work satisfying — the Postgres query that becomes legible after an hour of refactoring, the Datadog dashboard that finally reflects what is actually happening, the GitHub pull request approved without comments because the code reads cleanly. The promotion will land or it will not, and her contentment was never built from that supply chain. The verse names this directly. Contrast: the engineer at the same level for the same six years who reads each passed-over cycle as evidence of personal collapse. That engineer's contentment is hostage to the cycle's outcome, and when the cycle goes badly, the contentment goes with it. The verse does not condemn wanting the promotion — it names what changes when the source of contentment becomes internal rather than externally supplied.",
+    "falsifiability": "The analog fails if a reader concludes that the senior operator does not care about promotions, raises, recognition, or career progress. The verse does not rule out wanting outcomes. It rules out the contentment-being-hostage-to-outcomes pathology. An engineer who reads this verse as 'real seniors don't care about getting promoted' has confused indifference-to-supply with where-the-supply-comes-from. The senior in this verse may well advocate hard for her promotion at calibration; what the verse names is that her contentment does not collapse if the advocacy fails.",
+    "counter_example": "When the work itself is genuinely depleting — toxic team, broken tools, irrelevant project — the verse does not ask the operator to manufacture contentment from nothing. Internal contentment is not a substitute for fixing a bad situation. An operator who reads this verse as 'I should be content with whatever I am assigned' has imported a stoic-suppression frame the Sanskrit does not support. ātmany evātmanā tuṣṭaḥ describes a state, not a discipline of self-deception about external conditions.",
+    "implication": "Notice where your contentment is sourced. Is it produced by the work, or supplied by the outcome of the work? The verse names this distinction as a defining mark of the senior operator.",
+    "quotable_line": "The senior operator's contentment is produced by the work, not supplied by the outcome.",
+    "tags": [
+      "operator-system-coupling",
+      "non-attachment-to-praise",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

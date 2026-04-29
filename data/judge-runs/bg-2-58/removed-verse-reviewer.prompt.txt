@@ -1,0 +1,251 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.58",
+  "sanskrit_devanagari": "यदा संहरते चायं कूर्मोऽङ्गानीव सर्वशः ।\nइन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता ॥ ५८ ॥",
+  "sanskrit_iast": "yadā saṁharate cāyaṁ kūrmo 'ṅgānīva sarvaśaḥ |\nindriyāṇīndriyārthebhyas tasya prajñā pratiṣṭhitā || 58 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यदा",
+      "iast": "yadā",
+      "meaning": "when"
+    },
+    {
+      "sanskrit": "संहरते",
+      "iast": "saṁharate",
+      "meaning": "withdraws / draws in"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this one (the sage)"
+    },
+    {
+      "sanskrit": "कूर्मः",
+      "iast": "kūrmaḥ",
+      "meaning": "tortoise"
+    },
+    {
+      "sanskrit": "अङ्गानि",
+      "iast": "aṅgāni",
+      "meaning": "limbs"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "like / as"
+    },
+    {
+      "sanskrit": "सर्वशः",
+      "iast": "sarvaśaḥ",
+      "meaning": "altogether / wholly / from all sides"
+    },
+    {
+      "sanskrit": "इन्द्रियाणि",
+      "iast": "indriyāṇi",
+      "meaning": "the senses"
+    },
+    {
+      "sanskrit": "इन्द्रिय",
+      "iast": "indriya",
+      "meaning": "sense (in compound indriya-arthebhyaḥ)"
+    },
+    {
+      "sanskrit": "अर्थेभ्यः",
+      "iast": "arthebhyaḥ",
+      "meaning": "from the objects (in compound: 'from sense-objects')"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "of him / his"
+    },
+    {
+      "sanskrit": "प्रज्ञा",
+      "iast": "prajñā",
+      "meaning": "wisdom"
+    },
+    {
+      "sanskrit": "प्रतिष्ठिता",
+      "iast": "pratiṣṭhitā",
+      "meaning": "is established / is firmly fixed"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/58/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who is able to withdraw his senses from sense objects, as the tortoise draws its limbs within the shell, is firmly fixed in perfect consciousness.",
+      "raw_capture_path": "data/sources/raw/bg-2-58-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/58",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who is able to withdraw the senses from their objects, just as a tortoise withdraws its limbs into its shell, is established in divine wisdom."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/58/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1343-char full purport)",
+      "verbatim_excerpt": "The test of a yogī, devotee or self-realized soul is that he is able to control the senses according to his plan. Most people, however, are servants of the senses and are thus directed by the dictation of the senses. That is the answer to the question as to how the yogī is situated.",
+      "raw_full_path": "data/sources/raw/bg-2-58-vedabase.json (purport_full_length: 1343)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-58/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:55:15Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Shankara bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "And besides, yadā, when; ayam, this one, the sannyāsin practising steadfastness in Knowledge; saṁharate, fully withdraws ('Fully' suggests absolute firmness in withdrawal, and 'withdraws' suggests full control over the organs); indriyāṇi, the senses; indriyārthebhyaḥ, from all the objects of the senses; iva, as; kūrmaḥ, a tortoise; sarvaśaḥ, wholly (withdraws); aṅgāni, its limbs, from all sides out of fear — when the man engaged in steadfastness to Knowledge withdraws thus, then tasya, his; prajñā, wisdom; pratiṣṭhitā, remains established.",
+      "raw_full_path": "data/sources/raw/bg-2-58-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as a strict gloss on voluntary withdrawal: saṁharate = 'fully withdraws'; the prefix sam- conveys absolute firmness; the verb-stem hṛ conveys full control over the organs. The tortoise simile is a deliberate technical analogy — the sage is one who can withdraw the senses on demand, the way the tortoise pulls in its limbs. Shankara also flags a critical caveat (in his lead-in to 2.59): the sense-organs of even a sick or restrained person can withdraw mechanically; the difference is that for the sthita-prajña, the hankering also goes away (the topic of the next verse)."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-58/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:55:15Z",
+      "verbatim_excerpt_status": "page returned identical text to Shankara excerpt (upstream data error on bhagavad-gita.us); Ramanuja's actual bhāṣya not separately captured for this verse.",
+      "verbatim_excerpt": "[The bhagavad-gita.us page rendered the same Sanskrit-glossed translation under both Shankara and Ramanuja headings on this verse — an upstream data error. Ramanuja's bhāṣya on 2.58 emphasises (per Vishishtadvaita tradition) that voluntary sense-withdrawal is the lower stage of yoga; the higher stage requires that the mind itself be fixed on the Supreme. The taste-removal that happens by realisation is described in 2.59.]",
+      "raw_full_path": "data/sources/raw/bg-2-58-bgus.json",
+      "summary_paraphrase": "Source-pack honesty note: bhagavad-gita.us returned identical text under Shankara and Ramanuja headings for this verse, which appears to be a JS-rendering error in the source page. The summary stated above is from the standard Vishishtadvaita reading (cross-reference: Adidevananda translation of Ramanuja-Gita-Bhāṣya, which we have not pulled raw). Treat this entry as paraphrase-only; not as verbatim Ramanuja."
+    },
+    {
+      "commentator": "Sri Madhvacharya",
+      "tradition": "Dvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-58/?cm=madhvacharya",
+      "fetched_at": "2026-04-29T19:55:15Z",
+      "verbatim_excerpt_status": "captured (translator-rendered note)",
+      "verbatim_excerpt": "Sri Madhvacharya did not comment on this sloka.",
+      "raw_full_path": "data/sources/raw/bg-2-58-bgus.json",
+      "summary_paraphrase": "Madhva's bhāṣya does not comment on 2.58 directly per the bhagavad-gita.us record. The Dvaita commentary tradition typically reads the sense-withdrawal here as a precondition for the focused devotion that follows."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "saṁharate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "is able to withdraw (modal: ability to withdraw)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "is able to withdraw (same modal reading)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "fully withdraws — sam- = 'absolute firmness in withdrawal', verb-stem = 'full control over the organs'"
+        }
+      ],
+      "explanation": "The Sanskrit verb saṁharate is in the indicative — 'when [the sage] withdraws'. The modern translators add a modal sense ('is able to withdraw') that softens the picture into 'capacity'. Shankara reads it as actual withdrawal-on-demand — the sage withdraws, period; the prefix sam- intensifies. The engineering layer should preserve the action, not just the capacity: the verse describes a sage who actually withdraws, not just one who could in principle."
+    },
+    {
+      "word": "kūrmaḥ aṅgāni iva sarvaśaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "as the tortoise draws its limbs within the shell"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "just as a tortoise withdraws its limbs into its shell"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "the tortoise wholly withdraws its limbs from all sides out of fear"
+        }
+      ],
+      "explanation": "The Sanskrit names a complete simile: tortoise / limbs / wholly / from all sides. Shankara adds 'out of fear' — the tortoise's natural reflex is fear-driven, and this is part of the analogy. The modern translators introduce the 'shell' which is implicit, not in the Sanskrit text. The verse text itself does not say 'shell' — it says 'wholly, from all sides'. The engineering layer should keep the structural point of the simile (voluntary, complete withdrawal of the operator's attention-organs) and not get attached to the shell-iconography."
+    }
+  ],
+  "literal_meaning": "When this one withdraws the senses entirely from sense-objects, like a tortoise its limbs from all sides — their wisdom is established.",
+  "traditional_meaning": "This is the famous tortoise verse — the most quoted simile in Chapter 2's sthita-prajña block. It names the sthita-prajña by a single capacity: voluntary, complete, on-demand withdrawal of the senses (indriyāṇi) from the objects of the senses (indriyārthebhyaḥ). The simile is precise: as the tortoise wholly withdraws its limbs from every side, the sage withdraws the attention-organs from every direction. Shankara emphasises that the prefix sam- conveys 'absolute firmness'; the verb conveys 'full control'. The verse describes not the absence of senses (the sage is not numb) but the operator's capacity to deploy and withdraw attention voluntarily. Critically, the next verse (2.59) will specify that this withdrawal is incomplete unless the taste (rasa) for sense-objects also goes away — which only happens upon seeing the Supreme. So 2.58 names a real but partial achievement; 2.59 names what completes it.",
+  "engineering": {
+    "translation": "When the senior operator withdraws attention entirely from the objects of attention — as a tortoise pulls its limbs in from every side — wisdom is established. This verse names a single learned capacity: voluntary attention-withdrawal, deployable on demand. Sense-control here is attention-control. The senior is not someone who happens to be in a quiet room; the senior is one who can pull attention back from Slack, Datadog, the Twitter timeline, the team's drama, the open Sentry tab, the half-finished design document — entirely, on demand, from every direction simultaneously — and then redeploy attention where it actually needs to go. The tortoise simile is precise: not 'meditate', not 'be present', but 'withdraw on command and redeploy on command'. Shankara's structural point about the prefix sam- is technical: the withdrawal must be sarvaśaḥ — wholly, from all sides — not just the loud channel. The capacity is total or it is not the capacity. Attention is the operator's fundamental resource, and the senior has trained its deployment as a learned skill, not as accidental undisturbance.",
+    "concrete_scenario": "A staff engineer at a fintech, two children at home, running a complicated migration. 7:30 PM: she shuts the laptop, walks downstairs, reads a chapter book with her seven-year-old for forty-five minutes, plays a board game until 9. Her phone sits in the kitchen. Across those ninety minutes she does not mentally check Datadog, does not silently rehearse tomorrow's standup, does not run migration failure-mode scenarios. Attention is wholly withdrawn from every direction simultaneously. At 9:45, with the children asleep, she reopens the laptop, redeploys attention, reviews the on-call dashboard, reads three Sentry traces, leaves a code-review comment on a junior's pull request, retires at 11. At 2:14 AM PagerDuty fires; she wakes, runs the failback per the runbook, watches the latency curve recover, files the GitHub ticket, sleeps at 2:50. At 7:00 the alarm sounds; she shifts attention to coffee and the children. At 9:00 she redeploys to standup. The capacity stays identical across each motion: voluntary withdrawal, voluntary redeployment, complete in scope. Contrast: the engineer who shuts the laptop at 7:30 yet keeps checking Slack on a phone during dinner; reading the bedtime story while running incident scenarios silently in the background; physically present yet sensed by the family as absent. The tortoise has only half-withdrawn. The verse is sharp — sarvaśaḥ, entirely, or not at all.",
+    "falsifiability": "The analog fails if a reader treats this verse as a recommendation for digital minimalism, screen-time limits, or productivity hacks. The point is not reducing inputs but training the capacity to pull back attention on demand from any input, including ones currently present. Deleting Slack from a phone is not what the verse requests — that abstention is what 2.59 will then call incomplete. The verse asks for the trained capacity itself.",
+    "counter_example": "When the work genuinely requires sustained on-call attention — during an active incident, a production migration window, a launch — the verse does not require withdrawal. The tortoise does not remain withdrawn; it pulls in and emerges depending on the situation. Withdrawal-as-default is not the doctrine. An operator reading this as 'always withdraw' has confused the capacity with its application.",
+    "implication": "Train voluntary attention-withdrawal as a deliberate skill, not as coping. The senior pulls attention back from every direction simultaneously and redeploys it where actually needed.",
+    "quotable_line": "The senior is the one who can pull attention back from Slack, Datadog, and the timeline at once — and then redeploy it on demand.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

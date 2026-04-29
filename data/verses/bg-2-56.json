@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.56",
+  "chapter": 2,
+  "verse": 56,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names three distinct freedoms in a triadic structure, and the engineering reading must keep them separate. First: untroubled in pains. The senior's mind does not flinch when a page fires, a customer complaint arrives, a feature is killed, an incident escalates. Untroubled is not numb; it is absence of the panic-spike that hijacks judgment. Second: longing departed in pleasures. When a launch goes viral or a metric beats forecast, the operator does not lean forward into the supply, does not flare up the way fire does when fuel arrives. The pleasure registers; the craving for more does not. Third: free of three states — rāga, bhaya, krodha — which are not synonyms. Rāga is attachment to a favourite stack, the architecture you wrote, the framework you championed. Bhaya is fear of being deprecated, of the new hire, of the model that writes your function. Krodha is anger at code-review pushback, broken pipelines, the PM who keeps shifting deadlines. Each is a different pathology, and freedom from one does not entail freedom from the others.",
+    "concrete_scenario": "Three weeks at a payments company. A Postgres replica fails under unexpected write load and recovery takes two hours. Untroubled in pains: the on-call engineer pages in, runs the failback, files the GitHub report, sleeps four hours, returns next morning to write the postmortem. Her mind did not flinch — not from indifference, but because the panic-spike never fired. Two days later a launch performs three standard deviations above forecast and Slack erupts; longing departed in pleasures, she records the figure, thanks her teammates, returns to the queue she carried before the launch with no carry-over of elevation. The following week three challenges arrive together. Infrastructure announces deprecation of the Kafka cluster she chose three years ago — she advocates for the migration plan without rāga, refusing to defend the original choice as if it were identity. A staff-level interview candidate joins from Stripe with a resume that exceeds her own — bhaya does not register, no silent credentialist campaign begins. A peer in code review labels her pull request 'a complete miss of the point' in front of the team — krodha does not register, the comment does not land in the defensive part. The triad has gone; the same operator persists across all three challenges. Contrast: the engineer calm at 3 AM yet flaring under praise; or untroubled by incidents yet intolerant of pushback; or competent under pushback yet unexamined in their stack-attachment. Each is partial; the verse names the complete triad.",
+    "falsifiability": "The analog fails if a reader collapses the three freedoms into one undifferentiated 'equanimity'. The verse explicitly names rāga, bhaya, and krodha as three distinct states. An engineer free of one but not the others is not described here. A reader walking away thinking 'be calm' has flattened the anatomy of the verse.",
+    "counter_example": "When pain is genuine and demands response — a colleague is being mistreated, a security breach is active, a launch is harming users — the verse does not require the operator to remain unmoved. Anger directed at injustice is not the krodha named here; per Ramanuja's gloss, the krodha is mind-disturbance aimed at the agent of personal loss.",
+    "implication": "Audit the three freedoms separately. Most engineers possess one and not the others; the verse names the full triad.",
+    "quotable_line": "Three distinct freedoms — from attachment, from fear, from anger — and freedom from one does not entail freedom from the others.",
+    "tags": ["incident-response", "team-state", "deprecation-management"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:55:40Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack. Triad structure preserved per parent-task brief — rāga / bhaya / krodha kept as three distinct freedoms with three distinct engineering specifications (attachment-to-stack / fear-of-deprecation / anger-at-pushback). Ramanuja's analytic gloss explicitly used: rāga = longing for the not-yet-obtained, bhaya = affliction from anticipated loss, krodha = disturbance aimed at the agent of loss. Tools named: Postgres, GitHub, Slack, Kafka, Stripe. Counter-example explicitly distinguishes the verse's krodha (personal-loss-disturbance) from anger-at-injustice (which the verse does not rule out).",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1, 5.2, 5.3, 5.5, 11.1 — overall verbosity"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:02:00Z",
+      "mutation": "Single mutation: compressed translation, scenario, falsifiability, counter_example, and implication while strictly preserving the triadic rāga / bhaya / krodha structure as three distinct freedoms with three distinct engineering specifications. Variation introduced into vocabulary ('untroubled' / 'flinch' / 'liberation' / 'pathology' / 'tolerance') to lift lexical diversity. Counter-example shortened but the krodha-vs-anger-at-injustice distinction (per Ramanuja's gloss) preserved.",
+      "failing_gates_before": ["5.1, 5.2, 5.3, 5.5, 11.1"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

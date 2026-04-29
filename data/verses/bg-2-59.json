@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.59",
+  "chapter": 2,
+  "verse": 59,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names a doctrine the previous one has not stated: abstention is incomplete without realisation. The tortoise can pull its limbs in (2.58) and the sense-objects recede, but the rasa — the underlying craving — remains. Even painful austerity does not eliminate it. The taste departs only on seeing param, the Supreme. The engineering reading is uncomfortable and important. Removing input is necessary but insufficient. Deleting Slack from a phone is a real step; the craving for Slack is not what gets removed by the deletion. Closing the laptop on Friday afternoon is a real step; the part of the mind that mentally rehearses the on-call rotation through the weekend is not what gets closed with the laptop. Mere switching-off, deleting the app, blocking the domain, scheduling no-meeting Wednesdays — that is nirāhāra, the abstainer, and the verse explicitly says the objects withdraw but the rasa persists. The taste departs only when something else takes its place. Engineering reading: the craving for the dashboard departs only when the operator has internalised what the dashboard was a poor proxy for.",
+    "concrete_scenario": "A staff engineer institutes Slack-free Wednesdays. Phone in a drawer; the laptop's Slack tab closed; teammates informed. First Wednesday, three uninterrupted hours of focused code. Second, two hours. Fourth, she catches herself opening the messaging client on an iPad she had not placed in the drawer. Sixth Wednesday, she has stopped doing this. Half a year later she repeats the discipline for Datadog: phone removed, browser tab shut, alerts routed to a colleague. First week, she notices her mind silently rehearsing what the dashboard might show — the p99 curve, queue depth, regression-test outputs. Removing the visualisation has not removed the rasa. Across the following quarter she leads a difficult architectural review for a new payments service — sustained intrinsic work demanding deep attention to system structure instead of surface signals. By quarter's end, the rasa has shifted, not because abstention persisted, but because something more interesting displaced it. The engineering principle: dashboard-craving departs when an engineer locates the actually interesting referent that the dashboard was a poor proxy for. Until then, restraint is real but partial. Contrast: the engineer who deletes the chat application from a phone, congratulates herself on the discipline, then quietly continues monitoring messages on tablet, desktop, secondary laptop. Objects have receded from one channel while taste has migrated to another. The verse anticipates exactly this — even painful austerity (per Shankara) fails to eradicate rasa by abstention alone.",
+    "falsifiability": "The analog fails if a reader concludes that abstention is useless, or that one should not bother removing the inputs. The verse does not say abstention is wrong; it says it is incomplete. Removing Slack from the phone is a real step, not an empty one — Shankara explicitly notes that the gross attachment is removed first by discrimination, and full realisation then removes the subtle inclination. The two stages are sequential, not opposed. An engineer who reads this verse as 'don't bother with discipline' has inverted it.",
+    "counter_example": "When the operator has no replacement for the input being removed — no deeper work, no internalised source of contentment, no engagement that displaces the craving — the verse does not say to remove the input anyway and wait for the realisation to arrive. Mere abstention without something to take its place is the recipe for relapse. The verse names a doctrine of replacement, not of suppression. An engineer who reads this as 'just remove the inputs and the cravings will fade' has missed the second hemistich entirely.",
+    "implication": "Audit your discipline practices honestly. Ask whether the craving has actually left, or whether it has rerouted to a less obvious channel. Real renunciation is the displacement of the rasa, not the removal of the access.",
+    "quotable_line": "Removing the dashboard is not the same as removing the craving for the dashboard.",
+    "tags": ["focus-practice", "deep-work", "letting-go"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:55:55Z",
+      "mutation": "v0 generation: engineering layer drafted with explicit preservation of the verse's central doctrine per parent-task brief — abstention is incomplete without realisation. The two-stage structure (objects-withdraw / taste-remains, then taste-departs-only-on-seeing-the-Supreme) preserved. Engineering operationalisation: param dṛṣṭvā rendered as 'something more important / more interesting taking the place' — staying at the operational layer (a displacement-doctrine), not claiming Brahman-realization. Shankara's two-stage reading (gross attachment removed by discrimination; subtle inclination removed by full realisation) explicitly preserved in falsifiability. Tools named: Slack, Datadog, Hacker News. Counter-example sharpens the verse against the inverse misreading ('don't bother with discipline').",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1, 5.2, 5.5, 11.1 — overall verbosity"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:05:00Z",
+      "mutation": "Single mutation: compressed translation and scenario fields while preserving the doctrinal sharpness — abstention is incomplete without realisation; rasa departs only on displacement by something more important. Vocabulary variation introduced via 'restraint' / 'eradicate' / 'displaced' / 'monitoring' / 'migrated' substituting for repeated forms. Shankara's two-stage doctrine (gross attachment removed by discrimination; subtle inclination removed by full realisation) preserved in falsifiability. The verse's rejection of abstention-as-achievement preserved as the central engineering point.",
+      "failing_gates_before": ["5.1, 5.2, 5.5, 11.1"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

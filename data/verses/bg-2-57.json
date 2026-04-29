@@ -1,0 +1,41 @@
+{
+  "id": "BG 2.57",
+  "chapter": 2,
+  "verse": 57,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names neutrality of response. The operator who is unattached everywhere, and who on attaining good or bad neither rejoices nor hates, has wisdom established. The Sanskrit's structure is symmetric and load-bearing — both halves are explicit, with non-rejoicing on the good named first, non-hating on the bad named second. The verse refuses to be read as merely 'be tough about bad news'; the non-rejoicing about good news carries equal weight. This is the equanimity-doctrine prefigured at 2.38 (sukha-duḥkhe same kṛtvā) and elevated to the definition of yoga at 2.48 (samatvaṁ yoga ucyate). 2.57 specifies it for the realised one as a behavioural mark: across any input the response shape remains constant. Engineering reading: when a launch beats forecast and when a launch misses forecast, the operator's downstream conduct is identical. Both readings inform the next decision; neither becomes a self-event.",
+    "concrete_scenario": "Q3 launch: the new pricing page exceeds forecast by twenty-two percent on conversion. The PM Slacks a champagne emoji; the founder reposts on Twitter; the CEO requests an all-hands presentation. The engineer records the figure, files post-launch analysis, schedules regression-monitoring on Datadog, returns to the Q4 roadmap document. No fire-up, no carry-over. Next week she presents at the all-hands without ornamentation, and the slide simply reports what occurred. Q4 launch: the redesigned checkout page misses forecast by fourteen percent. Slack falls quiet; the PM privately schedules a debrief; a senior teammate suspects the new variant-routing logic. She records the figure, files post-launch analysis, schedules regression-monitoring, returns to Q1 planning. No collapse, no carry-over. Next week she presents at the all-hands without defensiveness, slide reporting what occurred. Sentry traces receive the attention given during Q3 success. Postgres query patterns under the regressed checkout get diagnosed exactly as patterns under the winning pricing page were. Same operator, same posture, opposite inputs. Contrast: the engineer who would have flared during Q3, accepted the all-hands invitation as personal validation, then under Q4 defended the variant-routing rather than investigating it — interpreting identical Sentry traces differently depending on whether the launch is being celebrated or blamed.",
+    "falsifiability": "The analog fails if a reader concludes that the senior operator has no preferences, no judgment about which outcomes are better, no celebrations, no concern when things go wrong. Neutrality of response is not neutrality of evaluation. The senior absolutely judges Q3 better than Q4 — but the judgment does not produce a different operator-state in Q3 than in Q4. The verse is naming response-shape, not evaluation-shape. An engineering culture that reads this verse as 'don't celebrate wins' has misread it; the celebration is allowed, but the celebration does not become the operator.",
+    "counter_example": "When a launch is genuinely catastrophic — security incident, user data exposed, financial harm — the verse does not ask the operator to read the bad news with the same posture as routine bad news. Catastrophe is its own category and demands its own response. Krishna will distinguish proportionate response from grasping in later chapters (notably 5.18-5.20 and 18.66). The neutrality-of-response 2.57 names is across the ordinary polarity of work outcomes, not across the moral spectrum.",
+    "implication": "Watch your own response-shape across consecutive launches. If your downstream conduct visibly differs depending on whether the metric was up or down, the wisdom is not yet established.",
+    "quotable_line": "Both halves matter — the non-rejoicing on good news is named with the same weight as the non-hating on bad news.",
+    "tags": ["operator-system-coupling", "post-launch", "non-attachment-to-praise"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T19:55:45Z",
+      "mutation": "v0 generation: engineering layer drafted from triangulated source pack. Cross-verse coherence with 2.38 (sukha-duḥkhe same kṛtvā) and 2.48 (samatvaṁ yoga ucyate) explicitly preserved per parent-task brief — both verses are referenced in the translation field as prefiguring the present neutrality-of-response. Both halves of the verse (na abhinandati AND na dveṣṭi) preserved as load-bearing — the non-rejoicing on good news is named with equal weight as the non-hating on bad news. Tools named: Datadog, Sentry, Postgres, Slack, Twitter. Counter-example carves out the catastrophic case (verse's neutrality is across ordinary polarity, not across moral spectrum).",
+      "failing_gates_before": [],
+      "failing_gates_after": ["5.1 — translation 207 words; 5.5 — lexical diversity 0.461; 11.1 — total 647"],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T20:03:00Z",
+      "mutation": "Single mutation: compressed translation under 180 words by collapsing the explanation of cross-verse coherence with 2.38 / 2.48 into compact citation form; rewrote concrete_scenario with vocabulary variation ('records' / 'reports' / 'investigates' / 'flared' / 'celebrated' / 'blamed' substituting for repeated verbs) to lift lexical diversity above 0.55. Both halves of the verse preserved: non-rejoicing on good news named first, non-hating on bad news second.",
+      "failing_gates_before": ["5.1, 5.5, 11.1"],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

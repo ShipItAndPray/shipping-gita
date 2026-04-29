@@ -1,0 +1,272 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 2.59",
+  "sanskrit_devanagari": "विषया विनिवर्तन्ते निराहारस्य देहिनः ।\nरसवर्जं रसोऽप्यस्य परं दृष्ट्वा निवर्तते ॥ ५९ ॥",
+  "sanskrit_iast": "viṣayā vinivartante nirāhārasya dehinaḥ |\nrasa-varjaṁ raso 'py asya paraṁ dṛṣṭvā nivartate || 59 ||",
+  "anvaya": [
+    {
+      "sanskrit": "विषयाः",
+      "iast": "viṣayāḥ",
+      "meaning": "sense-objects"
+    },
+    {
+      "sanskrit": "विनिवर्तन्ते",
+      "iast": "vinivartante",
+      "meaning": "withdraw / turn away"
+    },
+    {
+      "sanskrit": "निराहारस्य",
+      "iast": "nirāhārasya",
+      "meaning": "of the abstainer / one who fasts (literally: one without intake)"
+    },
+    {
+      "sanskrit": "देहिनः",
+      "iast": "dehinaḥ",
+      "meaning": "of the embodied one"
+    },
+    {
+      "sanskrit": "रस",
+      "iast": "rasa",
+      "meaning": "taste / relish (in compound rasa-varjam)"
+    },
+    {
+      "sanskrit": "वर्जम्",
+      "iast": "varjam",
+      "meaning": "excepting (in compound: 'with the exception of the taste')"
+    },
+    {
+      "sanskrit": "रसः",
+      "iast": "rasaḥ",
+      "meaning": "the taste / the relish"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "अस्य",
+      "iast": "asya",
+      "meaning": "of him / his"
+    },
+    {
+      "sanskrit": "परम्",
+      "iast": "param",
+      "meaning": "the Supreme / the highest"
+    },
+    {
+      "sanskrit": "दृष्ट्वा",
+      "iast": "dṛṣṭvā",
+      "meaning": "having seen / on seeing"
+    },
+    {
+      "sanskrit": "निवर्तते",
+      "iast": "nivartate",
+      "meaning": "departs / ceases / turns away"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/59/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Though the embodied soul may be restricted from sense enjoyment, the taste for sense objects remains. But, ceasing such engagements by experiencing a higher taste, he is fixed in consciousness.",
+      "raw_capture_path": "data/sources/raw/bg-2-59-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/2/verse/59",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Aspirants may restrain the senses from their objects of enjoyment, but the taste for the sense objects remains. However, even this taste ceases for those who realize the Supreme."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/2/59/",
+      "fetched_at": "2026-04-29T19:55:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt of 1017-char full purport)",
+      "verbatim_excerpt": "Unless one is transcendentally situated, it is not possible to cease from sense enjoyment. The process of restriction from sense enjoyment by rules and regulations is something like restricting a diseased person from certain types of eatables.",
+      "raw_full_path": "data/sources/raw/bg-2-59-vedabase.json (purport_full_length: 1017)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-59/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-29T19:55:17Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Shankara bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "Although viṣayāḥ, the objects, recede from an abstinent man, even from a fool who engages in painful austerity and abstains from objects, (still, they do so) rasavarjam, with the exception of the taste, with the exception of the hankering that one has for objects. Api, even that; rasaḥ, taste of the nature of subtle attachment; asya, of this person, of the sannyāsin; nivartate, falls away — i.e. his objective perception becomes seedless — when dṛṣṭvā, after attaining; param, the Absolute, the Reality which is the supreme Goal, Brahman, he continues in life with the realization, 'I verily am That (Brahman).'",
+      "raw_full_path": "data/sources/raw/bg-2-59-bgus.json",
+      "summary_paraphrase": "Shankara reads the verse as the doctrinal completion of 2.58. Two stages are explicit: (1) the abstainer (nirāhāra) — even a fool who undertakes painful austerity — can cause the sense-objects to recede. But the taste (rasa) for them remains. (2) Only on seeing param (the Absolute, Brahman) does even the taste fall away. Shankara is sharp: 'In the absence of full realisation, there can be no eradication of the hankering.' He addresses the apparent vicious circle (you cannot eliminate hankering without knowledge, and knowledge cannot arise without eliminated hankering) by noting that gross attachment is removed first by discrimination, and full realisation then removes the subtle inclination."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-59/?cm=ramanuja",
+      "fetched_at": "2026-04-29T19:55:17Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Ramanuja bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "The sense objects are the food of the senses. From the abstinent embodied being, i.e., from one who has withdrawn his senses from objects, these sense-objects, being rejected by him, turn away, but not the relish for them. Relish means hankering. The meaning is that the hankering for the sense-objects does not go away by abstinence alone. But even this hankering will go away, when one sees that the essential nature of the self is superior to the sense-objects and that the realisation of this self gives greater happiness than the enjoyment of sense-objects.",
+      "raw_full_path": "data/sources/raw/bg-2-59-bgus.json",
+      "summary_paraphrase": "Ramanuja reads the verse with a precise mechanism. The sense-objects are 'food of the senses' (a strong metaphor: the senses are eating). Abstinence withdraws the food, the objects turn away, but the hankering remains. The hankering goes only when the operator sees that the self's essential nature is superior to the sense-objects, and that realising the self produces greater happiness than enjoying them. Vishishtadvaita reads param dṛṣṭvā specifically as seeing the superiority of the self / Supreme — the higher pleasure displaces the lower."
+    },
+    {
+      "commentator": "Sri Madhvacharya",
+      "tradition": "Dvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-2-59/?cm=madhvacharya",
+      "fetched_at": "2026-04-29T19:55:17Z",
+      "verbatim_excerpt_status": "captured (translator-rendered Madhva bhāṣya, fair-use excerpt)",
+      "verbatim_excerpt": "By the body abstaining from food and drink there develops a weakness in the body against experiencing sensual objects. But although the bodily desire is nullified, the inner desire to enjoy the sense objects remains. Thus the rasa or taste for enjoyment is not terminated. Lord Krishna states that this taste can only be terminated by spiritual intelligence and by the attainment of stitha-prajña transcendent meditation.",
+      "raw_full_path": "data/sources/raw/bg-2-59-bgus.json",
+      "summary_paraphrase": "Madhva separates body-level desire from inner desire. Bodily abstinence (fasting, austerity) weakens body-level desire but leaves the inner taste intact. The inner taste terminates only by spiritual intelligence and the attainment of sthita-prajña meditation. The Dvaita reading emphasises that the verse is naming a real two-stage doctrine, not collapsing them."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "param dṛṣṭvā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "by experiencing a higher taste (param glossed as 'higher taste' rather than 'the Supreme')"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "for those who realize the Supreme"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "after attaining param, the Absolute, the Reality which is the supreme Goal, Brahman"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "when one sees that the essential nature of the self is superior to the sense-objects (param read as the higher reality of the self)"
+        },
+        {
+          "source": "Madhva (per excerpt)",
+          "rendering": "by spiritual intelligence and the attainment of sthita-prajña transcendent meditation"
+        }
+      ],
+      "explanation": "The Sanskrit param dṛṣṭvā is dense — 'on seeing the Supreme'. Each tradition reads param according to its frame: Shankara reads it as Brahman / the Absolute (Advaita); Ramanuja reads it as the superior reality of the self in relation to the Supreme (Vishishtadvaita); Madhva reads it as the attained state of sthita-prajña (Dvaita). Prabhupada introduces the gloss 'higher taste' which is creative — making the doctrinal point sharper (a higher taste displaces the lower) but moving from the literal 'on seeing the Supreme' to a comparative-tastes frame. The verse text itself supports the literal: param = the Supreme; dṛṣṭvā = on seeing. The engineering layer should preserve the structural point: the taste departs only on the arrival of something higher; abstention alone does not eliminate it."
+    },
+    {
+      "word": "rasa-varjam … raso 'py asya",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the taste for sense objects remains. But, ceasing such engagements by experiencing a higher taste…"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "but the taste for the sense objects remains. However, even this taste ceases…"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "objects recede with the exception of the taste; even that taste of the nature of subtle attachment falls away…"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "the relish (rasa = hankering) does not go away by abstinence alone; but even this hankering will go away…"
+        }
+      ],
+      "explanation": "The verse names a precise sequence: rasa-varjam (excepting the taste) is the residue of mere abstinence; raso 'py asya … nivartate (even that taste departs) is the consequence of seeing the Supreme. All four sources preserve the two-stage structure. The doctrinal point is sharp: the verse says explicitly that the taste does not depart with abstinence — it requires realisation. The engineering layer must preserve this: abstention is incomplete; only the displacement by something higher is complete."
+    }
+  ],
+  "literal_meaning": "Sense-objects withdraw from the abstainer, the embodied one, with the exception of the taste; even the taste of his departs upon seeing the Supreme.",
+  "traditional_meaning": "This verse names the doctrinal completion of 2.58. Voluntary sense-withdrawal (the tortoise) is real but partial: the sense-objects recede (viṣayāḥ vinivartante) when the abstainer (nirāhāra) refuses them, but the taste (rasa) for them remains. Even painful austerity does not eliminate the taste. The taste only departs when the operator sees param — the Supreme. Each tradition reads param differently: Shankara as Brahman / the Absolute; Ramanuja as the superior reality of the self in relation to the Supreme; Madhva as the realised state of sthita-prajña. All three agree on the structural point that splits the verse: abstention alone is incomplete; only realisation completes it. The engineering doctrine is: removing the object does not remove the craving; the craving departs only when displaced by something higher.",
+  "engineering": {
+    "translation": "The verse names a doctrine the previous one has not stated: abstention is incomplete without realisation. The tortoise can pull its limbs in (2.58) and the sense-objects recede, but the rasa — the underlying craving — remains. Even painful austerity does not eliminate it. The taste departs only on seeing param, the Supreme. The engineering reading is uncomfortable and important. Removing input is necessary but insufficient. Deleting Slack from a phone is a real step; the craving for Slack is not what gets removed by the deletion. Closing the laptop on Friday afternoon is a real step; the part of the mind that mentally rehearses the on-call rotation through the weekend is not what gets closed with the laptop. Mere switching-off, deleting the app, blocking the domain, scheduling no-meeting Wednesdays — that is nirāhāra, the abstainer, and the verse explicitly says the objects withdraw but the rasa persists. The taste departs only when something else takes its place. Engineering reading: the craving for the dashboard departs only when the operator has internalised what the dashboard was a poor proxy for.",
+    "concrete_scenario": "A staff engineer institutes Slack-free Wednesdays. Phone in a drawer; the laptop's Slack tab closed; teammates informed. First Wednesday, three uninterrupted hours of focused code. Second, two hours. Fourth, she catches herself opening the messaging client on an iPad she had not placed in the drawer. Sixth Wednesday, she has stopped doing this. Half a year later she repeats the discipline for Datadog: phone removed, browser tab shut, alerts routed to a colleague. First week, she notices her mind silently rehearsing what the dashboard might show — the p99 curve, queue depth, regression-test outputs. Removing the visualisation has not removed the rasa. Across the following quarter she leads a difficult architectural review for a new payments service — sustained intrinsic work demanding deep attention to system structure instead of surface signals. By quarter's end, the rasa has shifted, not because abstention persisted, but because something more interesting displaced it. The engineering principle: dashboard-craving departs when an engineer locates the actually interesting referent that the dashboard was a poor proxy for. Until then, restraint is real but partial. Contrast: the engineer who deletes the chat application from a phone, congratulates herself on the discipline, then quietly continues monitoring messages on tablet, desktop, secondary laptop. Objects have receded from one channel while taste has migrated to another. The verse anticipates exactly this — even painful austerity (per Shankara) fails to eradicate rasa by abstention alone.",
+    "falsifiability": "The analog fails if a reader concludes that abstention is useless, or that one should not bother removing the inputs. The verse does not say abstention is wrong; it says it is incomplete. Removing Slack from the phone is a real step, not an empty one — Shankara explicitly notes that the gross attachment is removed first by discrimination, and full realisation then removes the subtle inclination. The two stages are sequential, not opposed. An engineer who reads this verse as 'don't bother with discipline' has inverted it.",
+    "counter_example": "When the operator has no replacement for the input being removed — no deeper work, no internalised source of contentment, no engagement that displaces the craving — the verse does not say to remove the input anyway and wait for the realisation to arrive. Mere abstention without something to take its place is the recipe for relapse. The verse names a doctrine of replacement, not of suppression. An engineer who reads this as 'just remove the inputs and the cravings will fade' has missed the second hemistich entirely.",
+    "implication": "Audit your discipline practices honestly. Ask whether the craving has actually left, or whether it has rerouted to a less obvious channel. Real renunciation is the displacement of the rasa, not the removal of the access.",
+    "quotable_line": "Removing the dashboard is not the same as removing the craving for the dashboard.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "letting-go"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.
