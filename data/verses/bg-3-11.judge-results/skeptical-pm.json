@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Audit your on-call rotation for symmetry. If one engineer is absorbing more pages than they are causing, the loop is not mutual. The supreme good — paraṁ śreyaḥ — comes from mutual nourishment, not from one engineer carrying the others.",
+  "example_decision": "For 3.11, an actionable PM/engineering decision: on-call rotation as mutual sustaining structure.",
+  "verdict_reason": "3.11's engineering layer yields a concrete behavior change. The implication is testable across a quarter of operations: the predicate translates directly into a roadmap-level decision (audit, recommend, decline, or restructure). PM/engineering can act on this without further philosophical scaffolding."
+}

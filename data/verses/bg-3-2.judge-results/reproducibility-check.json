@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "reproducible_artifact": true,
+  "artifact_kind": "behavior change in engineering practice",
+  "verdict_reason": "3.2's implication is reproducible in code or org practice. The behavior change is observable across a quarter of operations, can be checked against historical incident / PR / on-call data, and does not require pure metaphor to act on. The scenario operates at the operational layer; the metaphysical reach is honestly tagged where present."
+}

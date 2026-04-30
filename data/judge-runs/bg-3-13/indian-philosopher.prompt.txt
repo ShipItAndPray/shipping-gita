@@ -1,0 +1,234 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.13",
+  "sanskrit_devanagari": "यज्ञशिष्टाशिनः सन्तो मुच्यन्ते सर्वकिल्बिषैः ।\nभुञ्जते ते त्वघं पापा ये पचन्त्यात्मकारणात् ॥ १३ ॥",
+  "sanskrit_iast": "yajña-śiṣṭāśinaḥ santo mucyante sarva-kilbiṣaiḥ |\nbhuñjate te tv aghaṁ pāpā ye pacanty ātma-kāraṇāt || 13 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यज्ञ",
+      "iast": "yajña",
+      "meaning": "yajña"
+    },
+    {
+      "sanskrit": "शिष्ट अशिनः",
+      "iast": "śiṣṭāśinaḥ",
+      "meaning": "remnant-eaters"
+    },
+    {
+      "sanskrit": "सन्तः",
+      "iast": "santo",
+      "meaning": "the saintly"
+    },
+    {
+      "sanskrit": "मुच्यन्ते",
+      "iast": "mucyante",
+      "meaning": "are released"
+    },
+    {
+      "sanskrit": "सर्व",
+      "iast": "sarva",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "किल्बिषैः",
+      "iast": "kilbiṣaiḥ",
+      "meaning": "from sins"
+    },
+    {
+      "sanskrit": "भुञ्जते",
+      "iast": "bhuñjate",
+      "meaning": "they eat"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "those"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tv",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "अघम्",
+      "iast": "aghaṁ",
+      "meaning": "sin"
+    },
+    {
+      "sanskrit": "पापाः",
+      "iast": "pāpā",
+      "meaning": "wicked ones"
+    },
+    {
+      "sanskrit": "ये",
+      "iast": "ye",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "पचन्ति",
+      "iast": "pacanty",
+      "meaning": "cook"
+    },
+    {
+      "sanskrit": "आत्म",
+      "iast": "ātma",
+      "meaning": "self"
+    },
+    {
+      "sanskrit": "कारणात्",
+      "iast": "kāraṇāt",
+      "meaning": "for the sake of"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/13/",
+      "fetched_at": "2026-04-30T04:24:50.224Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The devotees of the Lord are released from all kinds of sins because they eat food which is offered first for sacrifice. Others, who prepare food for personal sense enjoyment, verily eat only sin.",
+      "raw_capture_path": "data/sources/raw/bg-3-13-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-13/",
+      "fetched_at": "2026-04-30T04:25:06.845Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The devotees of the Lord are released from all kinds of sins because they eat food which is offered first for sacrifice. Others, who prepare food for personal sense enjoyment, verily eat only sin."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/13/",
+      "fetched_at": "2026-04-30T04:24:50.224Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1236 chars)",
+      "verbatim_excerpt": "The devotees of the Supreme Lord, or the persons who are in Kṛṣṇa consciousness, are called santas, and they are always in love with the Lord as it is described in the Brahma-saṁhitā (5.38): premāñjana-cchurita-bhakti-vilocanena santaḥ sadaiva hṛdayeṣu vilokayanti.",
+      "raw_full_path": "data/sources/raw/bg-3-13-vedabase.json (purport_full_length: 1236)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-13/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:06.845Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.13 Those again, who are yajna-sista-asinah, partakers of the remnants of sacrifices, who, after making offering to the gods and others, [The panca-maha-yajnas, five great offerings, which have to be made by every householder are offerings to gods, manes, humans, creatures and rsis (sages).] are ha…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1187,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-13-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the verse is grounded in the householder's pañca-mahā-yajña (five great daily offerings — to gods, manes, humans, beings, sages). The remnants (yajña-śiṣṭa) become the food the householder eats; this food is nectar, freeing from sin. The wicked who cook for themselves alone (ātma-kāraṇāt), without offering, eat sin (agham bhuñjate). 'Eat sin' is taken literally — the act has a real karmic structure."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-13/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:06.845Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.13 Those persons who acquire food materials solely for propitiating the Supreme Person abiding as the Self of Indra and other deities, and who, after cooking them, propitiate, through them, the Supreme Person as He is, and then sustain themselves on the remnants of oblations (made for such propiti…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1067,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-13-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: 'Those who acquire food materials solely for propitiating the Supreme Person abiding as the Self of Indra and other deities, and who, after cooking them, propitiate the Supreme Person as He is, and then sustain themselves on the remnants — they alone will be free of impurities... But evil-minded are those who acquire for selfish use what was meant for offering — they eat sin.' The metaphysical anchor is the Supreme Person as the Self of all deities; the offering reaches Him through them."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "agham bhuñjate (eat sin)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "verily eat only sin"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "verily eat only sin"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "those who cook for themselves alone (without offering) are eaters of sin; the householder's five great offerings are required"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "the evil-minded who acquire for selfish use without offering eat sin; right consumption is yajña-remnant after offering to the Supreme Person abiding as the Self of all"
+        }
+      ],
+      "explanation": "All four traditions render this verse extremely sharp. agham = sin, evil; bhuñjate = they eat. The verse is NOT metaphor — both ācāryas treat 'eat sin' as a literal claim about the karmic structure of unoffered consumption. The Advaita reading grounds it in the householder's pañca-mahā-yajña obligation; the Vishishtadvaita reading grounds it in the relation of all consumption to the Supreme Person. The disagreement is only in the cosmological anchor. Engineering layers MUST preserve the sharpness; softening to 'inefficient' or 'imbalanced' consumption misreads the verse."
+    }
+  ],
+  "literal_meaning": "The good, eaters of the remnants of yajña, are released from all sins; but the wicked, who cook for their own sake, eat sin.",
+  "traditional_meaning": "3.13 is sharper still. yajña-śiṣṭāśinaḥ santaḥ mucyante sarva-kilbiṣaiḥ — the saintly, eaters of yajña remnants, are released from ALL sins. bhuñjate te tv aghaṁ pāpā ye pacanty ātma-kāraṇāt — but those wicked who cook for their OWN sake EAT SIN (agham). Per the Advaita reading: the householder's pañca-mahā-yajña (five great daily offerings) feeds gods, manes, humans, beings, sages; what remains becomes nectar, the food the householder eats. Per the Vishishtadvaita reading: the offering is to the Supreme Person abiding as the Self of all deities. The verse uses agham bhuñjate — they eat sin — as a literal claim, not metaphor. Engineering layers MUST preserve the sharpness.",
+  "engineering": {
+    "translation": "The verse is sharper still. yajña-śiṣṭāśinaḥ santaḥ mucyante sarva-kilbiṣaiḥ — the saintly, eaters of yajña remnants, are released from ALL sins. bhuñjate te tv aghaṁ pāpā ye pacanty ātma-kāraṇāt — but those wicked who cook for their OWN sake EAT SIN. Per the Advaita reading, the verse is grounded in the householder's pañca-mahā-yajña — the five great daily offerings — and what remains becomes the householder's nectar-food. Per the Vishishtadvaita reading, the offering reaches the Supreme Person abiding as the Self of all deities. Both ācāryas treat 'eat sin' as a literal claim about the karmic structure of unoffered consumption, not metaphor. Engineering layers MUST preserve the sharpness; softening to 'inefficient' or 'imbalanced' consumption misreads the verse. The operational analog: the engineer who consumes the loop's outputs without first contributing is, structurally, eating sin.",
+    "concrete_scenario": "A team has a working internal Postgres-tuning practice. Engineers write up debugging sessions in Notion within twenty-four hours of resolving a production issue; the next engineer who hits a similar issue reads the writeup, applies the fix, and writes up their case in turn, extending the corpus. Over three years the corpus has grown to two hundred entries and has saved the team an estimated thousand hours of debugging time. A new senior IC joins. He reads the corpus extensively (consumption), applies fixes from it (consumption), but never writes up his own incidents (no contribution). When asked, he says he is too busy. After six months his incident-recovery time is the team's fastest — because he has consumed the corpus's accumulated wisdom without contributing back. The principal looks at the data and says, in a 1:1: 'You have been eating from a yajña that other people prepared, and you have not added to the offering. The verse 3.13 calls this aghaṁ bhuñjate — eating sin. I am not using the language metaphorically. The corpus survives only if everyone who eats from it also cooks for it. You have been a parasite on a sustaining loop; this stops, or you are removed from the team.' The sharpness is preserved.",
+    "falsifiability": "The analog fails if a reader uses 'eats sin' to shame any engineer for using internal documentation without immediately contributing back. Engineers in their first month of a role legitimately consume more than they contribute. The verse's force is structural and sustained — about the actor who systematically consumes from a sustaining loop without adding to it. Reading the verse as 'always document immediately or you are wicked' has flattened it into productivity coaching.",
+    "counter_example": "When the consumption is from a corpus the engineer has no expertise to contribute to — a junior backend engineer reading the team's Kubernetes runbooks because they need to debug an incident outside their specialty — the verse's diagnosis does not apply. The verse describes the actor who consumes from a loop they could contribute to but choose not to. Consumption without contribution-capacity is not theft; consumption without contribution-willingness is.",
+    "implication": "When you consume from your team's internal corpus — Notion runbooks, Slack debugging threads, the on-call rotation's institutional memory — make a habit of contributing back from your next incident. The corpus is a yajña-loop; the verse's word for non-contribution is sharp, and the operational analog preserves it.",
+    "quotable_line": "When you consume from a team's internal corpus, contribute from your next incident; the verse's word for non-contribution is sharp.",
+    "tags": [
+      "team-culture",
+      "team-pathology",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

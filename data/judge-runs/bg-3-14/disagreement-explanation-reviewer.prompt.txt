@@ -1,0 +1,225 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.14",
+  "sanskrit_devanagari": "अन्नाद्भ‍वन्ति भूतानि पर्जन्यादन्नसम्भवः ।\nयज्ञा‍द्भ‍‍वति पर्जन्यो यज्ञः कर्मसमुद्भ‍वः ॥ १४ ॥",
+  "sanskrit_iast": "annād bhavanti bhūtāni parjanyād anna-sambhavaḥ |\nyajñād bhavati parjanyo yajñaḥ karma-samudbhavaḥ || 14 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अन्नात्",
+      "iast": "annād",
+      "meaning": "from food"
+    },
+    {
+      "sanskrit": "भवन्ति",
+      "iast": "bhavanti",
+      "meaning": "come into being"
+    },
+    {
+      "sanskrit": "भूतानि",
+      "iast": "bhūtāni",
+      "meaning": "beings"
+    },
+    {
+      "sanskrit": "पर्जन्यात्",
+      "iast": "parjanyād",
+      "meaning": "from rain"
+    },
+    {
+      "sanskrit": "अन्न",
+      "iast": "anna",
+      "meaning": "food"
+    },
+    {
+      "sanskrit": "सम्भवः",
+      "iast": "sambhavaḥ",
+      "meaning": "origin"
+    },
+    {
+      "sanskrit": "यज्ञात्",
+      "iast": "yajñād",
+      "meaning": "from yajña"
+    },
+    {
+      "sanskrit": "भवति",
+      "iast": "bhavati",
+      "meaning": "comes"
+    },
+    {
+      "sanskrit": "पर्जन्यः",
+      "iast": "parjanyo",
+      "meaning": "rain"
+    },
+    {
+      "sanskrit": "यज्ञः",
+      "iast": "yajñaḥ",
+      "meaning": "yajña"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "of action"
+    },
+    {
+      "sanskrit": "समुद्भवः",
+      "iast": "samudbhavaḥ",
+      "meaning": "born"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/14/",
+      "fetched_at": "2026-04-30T04:24:51.126Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All living bodies subsist on food grains, which are produced from rains. Rains are produced by performance of yajña [sacrifice], and yajña is born of prescribed duties.",
+      "raw_capture_path": "data/sources/raw/bg-3-14-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-14/",
+      "fetched_at": "2026-04-30T04:25:05.417Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All living bodies subsist on food grains, which are produced from rains. Rains are produced by performance of yajna [sacrifice], and yajna is born of prescribed duties."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/14/",
+      "fetched_at": "2026-04-30T04:24:51.126Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3116 chars)",
+      "verbatim_excerpt": "Śrīla Baladeva Vidyābhūṣaṇa, a great commentator on the Bhagavad-gītā, writes as follows: ye indrādy-aṅgatayāvasthitaṁ yajñaṁ sarveśvaraṁ viṣṇum abhyarcya tac-cheṣam aśnanti tena tad deha-yātrāṁ sampādayanti, te santaḥ sarveśvarasya yajña-puruṣasya bhaktāḥ sarva-kilbiṣair anādi-kāla-vivṛddhair ātmān…",
+      "raw_full_path": "data/sources/raw/bg-3-14-vedabase.json (purport_full_length: 3116)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-14/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:05.417Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.14 It is a matter of direct perception that annat, from food, which is eaten and is transformed into blood and semen; bhavanti, are born; bhutani, the creatures. Anna-sambhavah, the origin of food; is parjanyat, from rainfall. Parjanyah, rainfall; bhavati, originates; from yajnat, from sacrifice.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 806,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-14-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading grounds the chain in Vedic cosmology, citing Manu 6.76: oblations properly poured into fire reach the sun; from the sun comes rain; from rain comes food; from food, beings. The chain is metaphysically real, not metaphor. yajñaḥ karma-samudbhavaḥ — yajña arises from karma (the action of performing the rite). The verse's cosmological reach is large; engineering analogs must register honestly that the analog is a pale shadow of the original cosmic claim."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-14/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:05.417Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.14 From food arise all beings; from rain food is produced. These two facts are matters of common experience. ‘From sacrifice comes rain’ this is known from the scriptures such as, ‘The oblations offered in fire reach the sun, and from the sun comes rain’ (Manu, 6.76), and sacrifice is born out of…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 429,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-14-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: the chain at the operational layer: from food arise beings; from rain food is produced (matters of common experience). From sacrifice comes rain (per Manu 6.76). yajñaḥ karma-samudbhavaḥ — sacrifice is born of action (the agent's act of collecting materials, etc.). karma in turn arises from brahman (the body / Prakṛti). The chain is metaphysically real but the operational reading is kept visible."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yajñaḥ karma-samudbhavaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "yajña is born of prescribed duties"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "sacrifice is produced by the performance of prescribed duties"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "yajña arises from karma (action); citing Manu 6.76 — oblations into fire reach the sun, from sun comes rain, from rain comes food"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "yajña is born of the activities of collecting materials etc. by the agent; activity arises from Brahman / the body born of Prakṛti"
+        }
+      ],
+      "explanation": "All four traditions preserve the chain: anna → bhūta → vṛṣṭi → yajña → karma. The verse states a metaphysical-cosmological loop. The Advaita reading cites Manu directly to show the chain is real (oblations literally produce rain). The Vishishtadvaita reading takes karma here as the activity of collecting materials and performing the rite, with brahma in 3.15 then naming the Prakṛti from which activity arises. Engineering analogs to this verse are inherently STRETCHED: the original is cosmological, not metaphor; the engineering layer can register a sustaining loop honestly only at the operational layer."
+    }
+  ],
+  "literal_meaning": "Beings come into being from food; food comes from rain; rain comes from yajña; yajña is born of action.",
+  "traditional_meaning": "3.14 begins the cosmic chain. annād bhavanti bhūtāni — beings come from food; parjanyād anna-sambhavaḥ — food's origin is rain; yajñād bhavati parjanyaḥ — rain comes from yajña; yajñaḥ karma-samudbhavaḥ — yajña is born of action. Per the Advaita reading (citing Manu 6.76): oblations poured into fire reach the sun, from the sun comes rain, from rain comes food. Per the Vishishtadvaita reading: the chain is metaphysically real; yajña and the prescribed actions that produce it are required for the chain to remain intact. The verse names the loop: action → yajña → rain → food → beings → action.",
+  "engineering": {
+    "translation": "The cosmic chain. annād bhavanti bhūtāni — beings come from food; parjanyād anna-sambhavaḥ — food's origin is rain; yajñād bhavati parjanyaḥ — rain comes from yajña; yajñaḥ karma-samudbhavaḥ — yajña is born of action. Per the Advaita gloss the loop rests on Vedic cosmology (citing Manu 6.76: oblations into fire reach the sun, from sun comes rain, from rain comes food). Per the Vishishtadvaita commentary the chain is metaphysically real: yajña arises from the agent's collecting materials and performing the rite; karma in turn arises from brahman / the body born of Prakṛti. A closed cycle: action → yajña → rain → food → beings → action. The engineering analog is HONESTLY STRETCHED — the original's cosmological scope exceeds anything our operational layer can carry. The pale shadow: compute → deploy → working system → revenue → salary → compute. A real cycle, but only the operational silhouette of a cosmic original.",
+    "concrete_scenario": "A staff engineer at a fintech sits during a quarterly review and follows what actually supports her code. Compute runs on AWS; AWS bills the company; revenue is the customer subscription; that subscription gets paid because the deployed product works; the deploy works because her earlier patch shipped without regression; that patch shipped because the team's review and testing infrastructure ran; the GitHub pipeline runs because the SRE team maintained it; that SRE team is funded out of the same revenue. She traces the cycle and recognises that her current line of code at 3 PM Tuesday rests on a six-layer dependency, each level of which is itself rooted in someone else's prior effort. Verse 3.14 names such a structure cosmologically — action → yajña → rain → food → beings → action. Her engineering trace is a pale operational shadow. The original's reach is far larger. The honest move is to register the analog as analog: what she just traced forms a real loop, and remains the operational silhouette of the cosmic chain the verse describes, not its identity.",
+    "falsifiability": "The analog fails if a reader uses 3.14 to claim that 'the AWS-billing-customer-subscription-engineer-salary loop' has cosmological status. It does not. The verse's chain is metaphysically grounded in Vedic cosmology; the engineering chain is operational and contingent. Anyone reading the verse to mean 'the SaaS economy is yajña' has erased the original's specificity. The honest move is to register the analog at the operational layer and tag the metaphysical reach STRETCHED.",
+    "counter_example": "When the engineer is operating outside the loop — when the work is funded by venture capital and not yet by customer revenue, or when the compute is sponsored rather than billed — the operational chain the analog points at is missing pieces. The verse's chain is closed (action returns to action via yajña, rain, food, beings); the engineering analog is closed only when the operational loop is fully formed. Pre-revenue startups do not yet have the closed loop the analog requires.",
+    "implication": "Walk your work's operational dependency six layers deep at least once each quarter. Compute, billing, revenue, deploy, review infrastructure, SRE — each rests on the others. Recognise the cycle as a cycle; do not mistake this analog for the original's cosmological scope.",
+    "quotable_line": "Your code at 3 PM Tuesday rests on a six-layer operational loop; the verse's chain is larger; do not mistake the analog for the original.",
+    "tags": [
+      "yajna-as-discipline",
+      "system-recognition",
+      "feedback-loops"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

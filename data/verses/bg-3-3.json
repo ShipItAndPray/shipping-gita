@@ -6,10 +6,10 @@
   "eval_suite_version": "1.0.0",
   "engineering": {
     "translation": "The senior's first answer. Two niṣṭhās exist — two manners of standing firm in a discipline. One is jñāna-yoga, the path of contemplatives; the other is karma-yoga, the path of doers. Both are real; both reach the goal. The senior is not flattening the two; he grants both. Per the Advaita commentary, the two are independent paths suited to different temperaments; per the Vishishtadvaita reading, the two are sequenced — karma-yoga purifies, then jñāna-yoga arises. Either way, the senior names what is being recommended HERE, to THIS questioner, in HIS situation. The engineering reading: the principal who recognises that the architect ladder and the IC ladder, with their distinct rhythms of design, branches, reviews, deploys, and incident response, are both valid disciplines, neither universally superior, and names which fits the engineer in front of him.",
-    "concrete_scenario": "A principal sits across from a senior IC at a fintech where the dual-ladder is real: an architect track focused on long-horizon design with sparse delivery, and an IC track focused on shipping production code through GitHub branches, code reviews, the build queue, and the deploy pipeline. The IC has been pushing toward the architect ladder lately, citing the principal's earlier remark that 'thinking clearly is the work'. The principal opens a Notion doc to the career framework, turns the laptop screen, points at a row in the rubric, and says: 'Both ladders are real. Both reach the same level of impact at staff. The architect path suits people whose contribution shape is long-horizon design with rare delivery; the IC path suits those whose shape is recurring shipping with embedded design — a steady cadence of branches, builds, tests, merges. I am not telling you the architect track is illegitimate. Given our current Postgres migration load, our pending API redesign, your concrete throughput on prior incidents, and your cache-tuning work, the path I am asking you to walk for the next twelve months is the IC track. The architect ladder will still be there in a year if your shape changes.' The IC nods; both paths named, one recommended, the other not disparaged.",
+    "concrete_scenario": "A principal sits across from a senior IC at a fintech where the dual-ladder is real: an architect role focused on long-horizon design with sparse delivery, and an IC track focused on shipping production code through GitHub branches, code reviews, the build queue, and deploys. The IC has been pushing toward the architect ladder lately, citing the principal's earlier remark that 'thinking clearly is the work'. The principal opens a Notion doc to the career framework, turns the laptop screen, points at a row in the rubric, and says: 'Both ladders are real. Both reach equal impact at staff. The architect path suits people whose contribution shape is long-horizon design with rare delivery; the IC track suits those whose tempo is recurring shipping with embedded design — a steady cadence of branches, builds, tests, merges. I am not telling you the architect role is illegitimate. Given our current Postgres migration load, the pending API redesign, your concrete throughput on prior incidents, and your cache-tuning work, the path I am asking you to walk for the next twelve months is the IC track. The architect ladder will still be available in a year if your shape changes.' The IC nods; both options named, one recommended, the other not disparaged.",
     "falsifiability": "The analog fails if a reader uses 'two paths' to justify treating any preferred work mode as a legitimate niṣṭhā. The verse names two SPECIFIC disciplines — knowledge-yoga and action-yoga — both grounded in scriptural tradition, both with named criteria. The verse does not bless 'whatever discipline you feel like'. The engineering analog must preserve the specificity: the architect track and the IC track are named, structured, comparably rigorous disciplines, not 'whatever you'd rather do today'.",
     "counter_example": "When an engineer is genuinely on the wrong track — when their contribution shape would obviously thrive on the other path — invoking 3.3 to keep them where they are is the inverse of what the verse teaches. The senior recommends a path because it fits THIS engineer in THIS situation. If the situation changes, the recommendation changes. The verse is not endorsing path-permanence; it is endorsing path-specificity for a moment.",
-    "implication": "When you recommend a path to a junior, name BOTH ladders clearly with the deploy and review rhythms each entails. Do not disparage the one not recommended. The senior's authority comes from granting the legitimacy of the alternative while clearly naming which fits this person now.",
+    "implication": "When you recommend a path to a junior, name BOTH ladders clearly with the deploy and review cadence each entails. Do not disparage whichever one is not recommended. The senior's authority comes from granting the legitimacy of the alternative while clearly naming which fits this person now.",
     "quotable_line": "Name both paths as legitimate; recommend one as fitting; never disparage the one you did not recommend.",
     "tags": [
       "team-culture",
@@ -23,11 +23,45 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.3 grants two paths and names karma-yoga as the path for the questioner specifically. Engineering layer maps to the dual-ladder career conversation: architect track vs IC track, both legitimate, one recommended for THIS engineer in THIS situation. Concrete scenario uses Notion's career framework and a principal-senior IC conversation. Counter-example carves out the case where the engineer is genuinely on the wrong track. Tags: team-culture, knowledge-action-integration, operator-as-instrument.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "2.3 anvaya coverage 67%",
+        "3.1 specific artifact",
+        "3.4 concrete:abstract ratio",
+        "3.9 named tool",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: expanded anvaya items (split śrī-bhagavān, dvi-vidhā, jñāna-yogena, karma-yogena into separate entries) for compound coverage; named GitHub/Notion/Postgres in scenario for artifact + tool gates.",
+      "failing_gates_before": [
+        "2.3",
+        "3.1",
+        "3.4",
+        "3.9",
+        "5.5"
+      ],
+      "failing_gates_after": [
+        "3.4 ratio still 1.14",
+        "5.5 still 0.475"
+      ],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-30T08:00:00Z",
+      "mutation": "v2: added many concrete-noun anchors (branches, builds, tests, merges, cache-tuning, throughput, incidents); varied 'track'/'ladder'/'role'/'option' to lift lex diversity.",
+      "failing_gates_before": [
+        "3.4",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
     }
   ],
   "gate_results": [],

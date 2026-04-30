@@ -23,11 +23,25 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.13 — CRITICAL CARE per task spec, do not soften 'eats sin'. Engineering layer maps to a Postgres-tuning Notion corpus that survives only via mutual contribution; the engineer who consumes without writing up is structurally eating sin. STRETCHED tag honest: operational analog is real, but the verse's metaphysical scope (offerings to the Supreme Person via deities) exceeds it. Counter-example carves out the case where the consumer has no contribution-capacity. Tags: team-culture, team-pathology, knowledge-action-integration. Sharpness preserved per task spec.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "2.3 anvaya 69%",
+        "5.1 translation 183 words (cap 180)"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: expanded anvaya (split yajña-śiṣṭa-aśinaḥ, ātma-kāraṇāt); trimmed translation to 180 words by removing one redundant clause; preserved 'eats sin' sharpness per task spec.",
+      "failing_gates_before": [
+        "2.3",
+        "5.1"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

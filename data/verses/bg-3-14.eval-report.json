@@ -2,12 +2,12 @@
   "verse_id": "BG 3.14",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 59,
-  "failed": 1,
+  "passed": 60,
+  "failed": 0,
   "pending": 24,
   "total": 84,
-  "hard_score": 59,
-  "passable_pending_judge": 83,
+  "hard_score": 60,
+  "passable_pending_judge": 84,
   "results": [
     {
       "gate_id": "1.1",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 11.35 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 11.28 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,15 +313,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 213.18 (target >= 6)"
+      "detail": "sentence-length variance = 213.05 (target >= 6)"
     },
     {
       "gate_id": "5.5",
       "gate_name": "Lexical diversity > 0.55",
       "tier": 5,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "lexical diversity = 0.547 (target >= 0.55)"
+      "detail": "lexical diversity = 0.554 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -537,7 +537,7 @@
       "tier": 9,
       "passed": true,
       "pending": false,
-      "detail": "iterations recorded: 1"
+      "detail": "iterations recorded: 3"
     },
     {
       "gate_id": "9.2",

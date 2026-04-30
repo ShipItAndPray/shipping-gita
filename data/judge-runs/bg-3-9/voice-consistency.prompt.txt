@@ -1,0 +1,215 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.9",
+  "sanskrit_devanagari": "यज्ञार्थात्कर्मणोऽन्यत्र लोकोऽयं कर्मबन्धनः ।\nतदर्थं कर्म कौन्तेय मुक्तसङ्गः समाचर ॥ ९ ॥",
+  "sanskrit_iast": "yajñārthāt karmaṇo 'nyatra loko 'yaṁ karma-bandhanaḥ |\ntad-arthaṁ karma kaunteya mukta-saṅgaḥ samācara || 9 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यज्ञार्थात्",
+      "iast": "yajñārthāt",
+      "meaning": "for yajña / sacrifice"
+    },
+    {
+      "sanskrit": "कर्मणः",
+      "iast": "karmaṇo",
+      "meaning": "from action"
+    },
+    {
+      "sanskrit": "अन्यत्र",
+      "iast": "'nyatra",
+      "meaning": "otherwise"
+    },
+    {
+      "sanskrit": "लोकः",
+      "iast": "loko",
+      "meaning": "this person / world"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "'yaṁ",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "by action"
+    },
+    {
+      "sanskrit": "बन्धनः",
+      "iast": "bandhanaḥ",
+      "meaning": "bound"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tad",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "अर्थम्",
+      "iast": "arthaṁ",
+      "meaning": "for the purpose"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "कौन्तेय",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī"
+    },
+    {
+      "sanskrit": "मुक्त",
+      "iast": "mukta",
+      "meaning": "free"
+    },
+    {
+      "sanskrit": "सङ्गः",
+      "iast": "saṅgaḥ",
+      "meaning": "from attachment"
+    },
+    {
+      "sanskrit": "समाचर",
+      "iast": "samācara",
+      "meaning": "perform"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/9/",
+      "fetched_at": "2026-04-30T04:24:50.807Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Work done as a sacrifice for Viṣṇu has to be performed; otherwise work causes bondage in this material world. Therefore, O son of Kuntī, perform your prescribed duties for His satisfaction, and in that way you will always remain free from bondage.",
+      "raw_capture_path": "data/sources/raw/bg-3-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-9/",
+      "fetched_at": "2026-04-30T04:25:04.376Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Work done as a sacrifice for Vishnu has to be performed, otherwise work causes bondage in this material world. Therefore, O son of Kunti, perform your prescribed duties for His satisfaction, and in that way you will always remain free from bondage."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/9/",
+      "fetched_at": "2026-04-30T04:24:50.807Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1660 chars)",
+      "verbatim_excerpt": "Since one has to work even for the simple maintenance of the body, the prescribed duties for a particular social position and quality are so made that that purpose can be fulfilled. Yajña means Lord Viṣṇu, or sacrificial performances.",
+      "raw_full_path": "data/sources/raw/bg-3-9-vedabase.json (purport_full_length: 1660)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-9/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:04.376Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.9 Ayam, this; lokah, man, the one who is eligible for action; karma-bandhanah, becomes bound by actions- the person who has karma as his bondage (bandhana) is karma-bandhanah-; anyatra, other than; that karmanah, action; yajnarthat, meant for Got not by that meant for God.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 668,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-9-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: yajña = Viṣṇu (citing Tai. Sam. 1.7.4: 'Sacrifice is verily Viṣṇu'). Action FOR yajña = action for God. Action other than this binds the world (loko 'yam karma-bandhanaḥ); action for yajña, performed mukta-saṅgaḥ (free from attachment), does not bind. The verse establishes the FRAME: orientation toward yajña (= toward God) is what distinguishes binding from non-binding action. The action itself is identical; the orientation differs."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-9/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:04.376Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.9 The world is imprisoned by the bond of work only when work is done for personal ends, but not when work is performed or money acquired for the purpose of sacrifice etc. prescribed in the scriptures. So, for the purpose of sacrifice, you must perform acts like the acquisition of money.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 948,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-9-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: yajñārthāt karmaṇaḥ broadly: action for the purpose of sacrifice prescribed in the scriptures, AND any acquisition or work performed in the spirit of yajña. The world is imprisoned by the bond of work only when work is done for personal ends; for sacrifice, no bondage. mukta-saṅgaḥ samācara — perform the work, having overcome attachments generated by personal ambition. The verse establishes the frame; everything in 3.10-3.16 elaborates the cosmology that supports the frame."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yajñārthāt",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "as a sacrifice for Viṣṇu"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "as a yajna to the Supreme Lord"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "for the sake of yajña, where yajña = Viṣṇu (per Tai. Sam. 1.7.4: 'Sacrifice is verily Viṣṇu')"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "for the purpose of sacrifice prescribed in the scriptures; broader: any acquisition or work done in the spirit of yajña"
+        }
+      ],
+      "explanation": "yajñārthāt is the verse's frame-pivot. The Advaita reading takes yajña = Viṣṇu (the deity behind sacrifice); the action is for God. The Vishishtadvaita reading takes yajña as both the literal sacrifices and the broader scope of any work performed as worship. Prabhupada inherits the Advaita gloss explicitly. Mukundananda preserves the theistic frame. The doctrinally important point all four agree on: the FRAME of action's purpose distinguishes binding from non-binding action. Engineering layers must preserve this — the action itself is not the pivot; the orientation toward yajña is."
+    }
+  ],
+  "literal_meaning": "This world is bound by action other than action performed for yajña (sacrifice); therefore, son of Kuntī, perform action for that purpose, free from attachment.",
+  "traditional_meaning": "3.9 is the yajña pivot. yajñārthāt karmaṇo 'nyatra loko 'yaṁ karma-bandhanaḥ — this world (or this person) is bound by action other than that performed for the sake of yajña. tad-arthaṁ karma kaunteya mukta-saṅgaḥ samācara — therefore perform action for that purpose, free from attachment. Per the Advaita reading: yajña = Viṣṇu (per the Vedic 'sacrifice is verily Viṣṇu'); whatever is done for him is yajña-artham. Per the Vishishtadvaita reading: yajña includes the prescribed sacrifices and the broader complex of duty-performed-as-worship; the world is imprisoned by personal-end action and freed by yajña-oriented action. The verse establishes the FRAME that distinguishes binding from non-binding action.",
+  "engineering": {
+    "translation": "The yajña pivot. yajñārthāt karmaṇo 'nyatra loko 'yaṁ karma-bandhanaḥ — the world is bound by action other than what is performed for the sake of yajña. tad-arthaṁ karma kaunteya mukta-saṅgaḥ samācara — therefore, perform such effort for that purpose, free from attachment. Per the Advaita commentary, yajña = the deity behind sacrifice (per Tai. Sam. 1.7.4: 'sacrifice is verily Viṣṇu'). Per the Vishishtadvaita reading, yajña includes literal sacrifices and any work performed in the spirit of worship. Either way, the verse establishes the FRAME: orientation toward yajña distinguishes binding from non-binding effort. The artifact is identical; the orientation differs. The engineering analog stays operational: code shipped for the sustaining loop — colleagues, customer, system feedback — differs structurally from the same code shipped for self-credit. Frame changes binding-character. The metaphysical reach exceeds the operational analog; tag STRETCHED.",
+    "concrete_scenario": "Two engineers ship the same Postgres migration on the same day. Engineer A has been hinting all week to the principal that the rollout is hard, that nobody else could have done it, that the architecture decision behind it was hers and the team owes its success to her foresight. She runs the migration, watches the Datadog dashboards, and immediately writes a Slack message to the wider channel highlighting her contribution. Engineer B runs the same rollout, watches the same dashboards, files the same GitHub pull request, and writes a brief line in the team channel: 'migration done; here is the commit; the rollback runbook is updated; if the customer reports issues over the weekend, page the on-call.' The shipped artifact is identical: the same SQL, the same observability hooks, the same fallback. The orientation is what differs. Engineer A's effort is oriented toward self-credit; Engineer B's effort is oriented toward the sustaining loop — colleagues, on-call rotation, customer, system. Verse 3.9 says A's work binds her to the result-system; B's does not.",
+    "falsifiability": "The analog fails if a reader uses 'yajña' as cover for self-effacement to the point of refusing rightful credit. The verse's frame is about the orientation of the action, not about the engineer's PR strategy. An engineer who never names their contribution out of false humility may also be acting against the team's interests (the team needs to know who shipped what). The verse asks for the orientation, not the silence.",
+    "counter_example": "When the action is straightforwardly for the team and self-credit is irrelevant — a routine deploy, a normal review, a standard incident response — the yajña frame is the engineer's default mode and the verse's distinction does not need invocation. The verse describes a structural difference that becomes visible at moments of credit-allocation; in routine work, the difference is implicit.",
+    "implication": "When you ship, ask which loop the action serves. If the answer is 'the team, the customer, the on-call rotation, the system feedback', the action is yajña-oriented and does not bind. If the answer is 'my visibility', stop and re-frame before the merge.",
+    "quotable_line": "The same merge, shipped for the team's sustaining loop or for self-credit, are structurally different actions with different bindings.",
+    "tags": [
+      "yajna-as-discipline",
+      "outcome-detachment",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

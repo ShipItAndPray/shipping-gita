@@ -1,0 +1,203 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.6",
+  "sanskrit_devanagari": "कर्मेन्द्रियाणि संयम्य य आस्ते मनसा स्मरन् ।\nइन्द्रियार्थान्विमूढात्मा मिथ्याचारः स उच्यते ॥ ६ ॥",
+  "sanskrit_iast": "karmendriyāṇi saṁyamya ya āste manasā smaran |\nindriyārthān vimūḍhātmā mithyācāraḥ sa ucyate || 6 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "one who"
+    },
+    {
+      "sanskrit": "कर्मेन्द्रियाणि",
+      "iast": "karmendriyāṇi",
+      "meaning": "the action-organs"
+    },
+    {
+      "sanskrit": "संयम्य",
+      "iast": "saṁyamya",
+      "meaning": "having restrained"
+    },
+    {
+      "sanskrit": "मनसा",
+      "iast": "manasā",
+      "meaning": "with the mind"
+    },
+    {
+      "sanskrit": "इन्द्रियार्थान्",
+      "iast": "indriyārthān",
+      "meaning": "the objects of the senses"
+    },
+    {
+      "sanskrit": "स्मरन्",
+      "iast": "smaran",
+      "meaning": "remembering / dwelling on"
+    },
+    {
+      "sanskrit": "आस्ते",
+      "iast": "āste",
+      "meaning": "sits / remains"
+    },
+    {
+      "sanskrit": "विमूढात्मा",
+      "iast": "vimūḍhātmā",
+      "meaning": "of deluded self"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "मिथ्याचारः",
+      "iast": "mithyācāraḥ",
+      "meaning": "hypocrite / one of false conduct"
+    },
+    {
+      "sanskrit": "उच्यते",
+      "iast": "ucyate",
+      "meaning": "is called"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/6/",
+      "fetched_at": "2026-04-30T04:24:50.531Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who restrains the senses of action but whose mind dwells on sense objects certainly deludes himself and is called a pretender.",
+      "raw_capture_path": "data/sources/raw/bg-3-6-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-6/",
+      "fetched_at": "2026-04-30T04:25:07.301Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who restrains the senses of action but whose mind dwells on sense objects certainly deludes himself and is called a pretender."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/6/",
+      "fetched_at": "2026-04-30T04:24:50.531Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 940 chars)",
+      "verbatim_excerpt": "There are many pretenders who refuse to work in Kṛṣṇa consciousness but make a show of meditation, while actually dwelling within the mind upon sense enjoyment. Such pretenders may also speak on dry philosophy in order to bluff sophisticated followers, but according to this verse these are the great…",
+      "raw_full_path": "data/sources/raw/bg-3-6-vedabase.json (purport_full_length: 940)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-6/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.301Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.6 Yah, one who; samyamya, after withdrawing; karma-indriyani, the organs of action-hands etc.; aste, sits; manasa, mentally; smaran, recollecting, thinking; indriya-arthan, the objects of the senses; sah, that one; vimudha-atma, of deluded mind; ucyate, is called; mithya-acarah, a hypocrite, a sin…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 311,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-6-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading is direct: 'yaḥ saṁyamya karma-indriyāṇi āste manasā smaran indriya-arthān, sah vimūḍha-ātmā, ucyate mithyā-ācāraḥ — a hypocrite, a sinful person.' The verse names the failure mode and judges it severely. The hypocrite is not merely confused; he is committing a real spiritual offense — his outward conduct contradicts his inner state."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-6/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.301Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.6 He whose inner and outer organs of senses are not conquered because of his sins not being annulled but is none the less struggling for winning knowledge of the self, whose mind is forced to turn away from the self by reason of it being attached to sense objects, and who consequently lets his min…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 506,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-6-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita diagnosis: the seeker whose inner and outer organs are not yet conquered (sins not annulled), but who nonetheless struggles for self-knowledge — his mind is forced to turn toward sense-objects; his actions belie his professions. He becomes 'perverted' by attempting jñāna-niṣṭhā prematurely. The verse names the consequence of skipping karma-yoga: the would-be jñāna-yogin without purification is a hypocrite, not because he is dishonest, but because his structure is misaligned."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mithyācāra",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "pretender"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "hypocrites"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "hypocrite, a sinful person"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "hypocrite, because his actions are at variance with his professions; he becomes perverted"
+        }
+      ],
+      "explanation": "All four traditions render mithyācāra hard. mithyā = false; ācāra = conduct. Both ācāryas use 'hypocrite' explicitly. The Advaita reading additionally calls him 'sinful person' (saintly = the inverse); the Vishishtadvaita reading adds the structural diagnosis: profession ≠ action, leading to spiritual perversion. Prabhupada's 'pretender' is somewhat softer than Mukundananda's 'hypocrites' or the ācāryas' direct rendering. Engineering layers must preserve the directness — the verse is not consoling but diagnostic."
+    }
+  ],
+  "literal_meaning": "One who restrains the action-organs while sitting and mentally remembering the objects of the senses — that one of deluded self is called a hypocrite (mithyācāra).",
+  "traditional_meaning": "3.6 names a sharp pathology. The one who restrains the action-organs (karmendriyāṇi saṁyamya) while sitting and mentally remembering (manasā smaran) the objects of the senses — that vimūḍha-ātmā (deluded self) is mithyācāra, hypocrite. Per the Advaita reading: the gloss is direct — sah ucyate mithyācāraḥ, sinful person of false conduct. Per the Vishishtadvaita reading: this is the seeker whose inner organ is not subdued, whose mind drifts to objects while his external posture mimics restraint; his ācāra (conduct) belies his profession. The verse names a recognizable failure mode: surface withdrawal coupled with interior agitation.",
+  "engineering": {
+    "translation": "The chapter names a sharp pathology. The one who restrains the action-organs (karmendriyāṇi saṁyamya) while seated and mentally rehearsing the objects of the senses (manasā smaran) — that vimūḍha-ātmā, deluded self, is mithyācāra: hypocrite, of false conduct. Per the Advaita commentary the gloss is direct — sah ucyate mithyācāraḥ, sinful person of false conduct. Per the Vishishtadvaita reading, this is the seeker whose inner organ is not yet subdued, whose attention drifts to objects while his external posture mimics restraint. The verse does not console; it diagnoses. The engineering reading: the operator who closes Slack while silently rehearsing tomorrow's conversation, who logs off while running incident scenarios in the background, who looks 'off' externally yet remains 'on' interiorly. The chapter names this pathology directly and rejects it. Surface withdrawal coupled with interior agitation is not detachment; it is a specific failure mode the verse calls hypocrisy.",
+    "concrete_scenario": "A senior engineer at a SaaS company has been told by his manager to take real time off. He puts an out-of-office on Slack, archives his GitHub notifications, and closes the laptop at 6 PM Friday. By 7 PM he is sitting at dinner with his family, but his thoughts run the migration he handed off to a junior. Silently he is rehearsing what could go wrong with the foreign-key constraint. Mentally he is drafting the message he will send Monday morning if the metric dashboard shows a regression. His phone is in the kitchen, but his attention sits in production. By 9 PM his wife asks if he is OK. He says yes. He is lying — not deliberately, but structurally, because his ācāra (his external conduct) says rest while his manas (his inner attention) says deploy. The verse names this exactly: he has restrained the karmendriyas (action-organs — keyboard, phone, terminal) but his attention is still smaran indriyārthān, dwelling on the objects of operation. The chapter labels him mithyācāra. It does not soften the diagnosis to 'we all do this'.",
+    "falsifiability": "The analog fails if a reader treats this verse as a recommendation for digital minimalism, screen-time limits, or 'be present with your family'. The verse is sharper than that — it names a specific structural failure where surface-level restraint is decoupled from inner-level engagement, and rejects it as hypocrisy. Reading 3.6 to mean 'put your phone down' has flattened the verse. The verse asks for the inner restraint to match the outer; it does not endorse outer restraint as a partial good.",
+    "counter_example": "When the engineer has actually withdrawn at both layers — outer and inner — and a thought about the migration drifts through briefly and is released, the verse does not condemn that. The verse condemns the structural condition where the action-organs are restrained AND the mind is sustained on objects. A passing thought is not the failure mode; the persistent rehearsal is. The diagnostic is sustained interior engagement coupled with surface-level absence.",
+    "implication": "When you 'step away', notice whether your mind has stepped away with you. If the laptop is closed but the rollout is still running through your head, you have not actually withdrawn. The verse names this directly; do not soften the diagnosis.",
+    "quotable_line": "If the laptop is closed but the migration is still running in your head, you are mithyācāra; do not soften this.",
+    "tags": [
+      "engineering-pathology",
+      "focus-practice",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

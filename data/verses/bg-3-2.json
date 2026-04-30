@@ -23,11 +23,27 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.2 sharpens 3.1's pushback. Engineering layer maps the questioner's plea for ekam to a team lead refusing to act on apparently contradictory communication from the principal across two days. Concrete scenario uses Slack to fix the moment; counter-example carves out the case where the speech was actually sequenced (the Advaita reading) and the questioner has misheard. Tags: decision-paralysis, engineer-paralysis, knowledge-action-integration.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "3.9 named tool",
+        "5.3 FK grade",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: added Notion / GitHub / Slack to scenario; lifted FK by polysyllabic vocabulary (corrosive, contradictory); reduced repetition of 'message' by alternating 'note'.",
+      "failing_gates_before": [
+        "3.9",
+        "5.3",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

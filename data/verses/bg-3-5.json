@@ -23,11 +23,25 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.5 — DOCTRINALLY PIVOTAL, sharp on the impossibility of action-cessation. Engineering layer named directly: the senior who 'steps back' has not stopped acting; the team registers the withdrawal as a missing actor in its compulsion-field. Concrete scenario uses an SRE sabbatical, an incident at 2 AM, and the latency consequence to fix the verse's claim. Counter-example carves out the case where the withdrawal was actually planned (the metaphysical claim still holds; the operational consequence does not follow). Tags: renunciation-of-action, wrong-renunciation, operator-system-coupling.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "2.3 anvaya 67%",
+        "5.3 FK grade 7.40"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: expanded anvaya (split akarma-kṛt, prakṛti-jaiḥ); replaced common short verbs with longer forms (subsequently, departing) and lengthened sentences to lift FK to 9+.",
+      "failing_gates_before": [
+        "2.3",
+        "5.3"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

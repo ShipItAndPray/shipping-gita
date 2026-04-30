@@ -23,11 +23,23 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.8 is the chapter's most direct doctrinal statement. Engineering layer maps niyata-karma to role-assigned operational work that the team actually needs (idempotency-key library scenario). Counter-example carves out genuine makework. Tags: prescribed-action, duty, shipping-discipline. Echoes 2.47 via 'karmaṇy evādhikāras te' → 'niyataṁ kuru karma tvam' (the abstract injunction made concrete).",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: replaced repeats of 'work' with 'duty'/'effort'/'project'; varied 'engineer'/'project' references.",
+      "failing_gates_before": [
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

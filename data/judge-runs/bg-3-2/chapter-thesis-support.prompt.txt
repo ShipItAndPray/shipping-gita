@@ -1,0 +1,248 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.2",
+  "sanskrit_devanagari": "व्यामिश्रेणेव वाक्येन बुद्धिं मोहयसीव मे ।\nतदेकं वद निश्चित्य येन श्रेयोऽहमाप्‍नुयाम् ॥ २ ॥",
+  "sanskrit_iast": "vyāmiśreṇeva vākyena buddhiṁ mohayasīva me |\ntad ekaṁ vada niścitya yena śreyo 'ham āpnuyām || 2 ||",
+  "anvaya": [
+    {
+      "sanskrit": "व्यामिश्रेण इव",
+      "iast": "vyāmiśreṇa iva",
+      "meaning": "as if mixed / equivocal"
+    },
+    {
+      "sanskrit": "वाक्येन",
+      "iast": "vākyena",
+      "meaning": "by speech"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "बुद्धिम्",
+      "iast": "buddhim",
+      "meaning": "intellect"
+    },
+    {
+      "sanskrit": "मोहयसि इव",
+      "iast": "mohayasi iva",
+      "meaning": "you bewilder, as it were"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "the one"
+    },
+    {
+      "sanskrit": "निश्चित्य",
+      "iast": "niścitya",
+      "meaning": "decisively"
+    },
+    {
+      "sanskrit": "वद",
+      "iast": "vada",
+      "meaning": "tell"
+    },
+    {
+      "sanskrit": "येन",
+      "iast": "yena",
+      "meaning": "by which"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "the highest good"
+    },
+    {
+      "sanskrit": "आप्नुयाम्",
+      "iast": "āpnuyām",
+      "meaning": "may attain"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:50.745Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me.",
+      "raw_capture_path": "data/sources/raw/bg-3-2-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:50.745Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 845 chars)",
+      "verbatim_excerpt": "In the previous chapter, as a prelude to the Bhagavad-gītā, many different paths were explained, such as sāṅkhya-yoga, buddhi-yoga, control of the senses by intelligence, work without fruitive desire, and the position of the neophyte. This was all presented unsystematically.",
+      "raw_full_path": "data/sources/raw/bg-3-2-vedabase.json (purport_full_length: 845)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.2 ‘Though the Lord speaks lucidly, still, to me who am of a dull understanding, the Lord’s utterance appears to be conflicting.’ ‘Mohayasi, You bewilder; me, any; buddhim, understanding; iva, as it were; vyamisrena iva, by that seemingly conflicting; vakyena, statement! You have surely undertaken…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1489,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-2-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the questioner takes the Teacher's earlier presentation of jñāna and karma as a confused alternation, and demands a single answer. The verse's force is the demand for clarity; the response in 3.3 will give the questioner two SEPARATE niṣṭhās rather than the combination he seems to have inferred."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.2 Consequently, it appears to me as if ‘you confuse me with statements that seem to contradict each other.’ For, firm devotion to knowledge which forms the means for the vision of the self and which is of the nature of stopping the operations of the senses on the one hand, and on the other exhorta…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 573,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-2-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: this is the legitimate plea of one who has not yet seen how the two paths integrate. Without clarity, action is paralyzed. The chapter's response gives the integration: karma-yoga is not a lesser path; it is the path that fits the questioner's situation."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vyāmiśra",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "equivocal"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "ambiguous"
+        },
+        {
+          "source": "Shankara (per gloss)",
+          "rendering": "mixed"
+        },
+        {
+          "source": "Ramanuja (per gloss)",
+          "rendering": "intermingled / blended"
+        }
+      ],
+      "explanation": "The questioner calls the Teacher's speech 'mixed' — but mixed in what sense? All four traditions agree the appearance is of two different teachings juxtaposed. The Advaita reading takes it as the questioner's misreading: he thinks knowledge and action are alternatives when the Teacher is teaching them as a sequence. The Vishishtadvaita reading takes it as the legitimate confusion of one who has not yet seen how the two integrate. The translation choice ('equivocal' vs 'ambiguous' vs 'mixed') reflects whether the speaker thinks the questioner is wrong (Advaita) or merely uninstructed (Vishishtadvaita)."
+    }
+  ],
+  "literal_meaning": "By your seemingly mixed speech, you bewilder my intellect; tell me decisively the one path by which I may attain the highest good.",
+  "traditional_meaning": "3.2 sharpens 3.1. The questioner names the Teacher's speech as vyāmiśra (mixed/equivocal); his buddhi is bewildered (mohayasi iva); he asks for the one path (ekam), decisively (niścitya), by which he may attain śreyas (the highest good). The verse forces the Teacher to distinguish the two paths cleanly in 3.3 rather than leave them blended. It is the seeker's plea for a single clear direction.",
+  "engineering": {
+    "translation": "The questioner sharpens his pushback. He labels the senior's speech vyāmiśra — mixed, equivocal. He is not seeking nuance; he is demanding one decisive answer, niścitya, the single course by which he may attain śreyas, the highest good. This is the engineer who has heard the principal say one thing in a design review and another in a stand-up, and who now refuses to act on apparent contradiction. Per the Advaita commentary, the questioner has misread the senior's words as mixed when they were actually sequenced; per the Vishishtadvaita reading, the questioner has not yet seen how the two threads integrate. Either way, his pushback compels the senior to answer cleanly in 3.3. The seeker's plea for one clear instruction is legitimate when the prior speech really was mixed, and corrosive when it was not.",
+    "concrete_scenario": "A team lead has been receiving two opposing signals from the principal across recent days. On Monday, in a Notion design review, his manager said the right move was to delay the Postgres migration and get the data model right. On Wednesday, in a GitHub stand-up thread, the same manager said the team had to deploy by Friday or the customer would churn. The lead reads both notes again at 9 PM Thursday and types directly into Slack: 'I cannot operate on these two together. Monday says delay; Wednesday says deploy. Tell me which is the real instruction. I will run the rollout tonight or push the ETA, but I need a single answer, not two.' His manager sees the message, recognises that prior communication had been muddled (whether by design or accident does not matter), and is now forced to choose. The lead is not being insubordinate. He is doing what 3.2 names: refusing to act on contradictory speech and demanding the single decisive line. The senior's response — 3.3 — will distinguish the two paths cleanly.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify always demanding one answer when situations are genuinely complex. Some engineering choices are inherently contingent — deployment depends on whether a canary holds, architecture depends on whether load is bursty or sustained. Demanding 'one decisive answer' in those cases asks for false simplification. The verse does not endorse impatience with real contingency; it endorses refusing to act on prior speech that was actually mixed.",
+    "counter_example": "When the senior's two messages were actually consistent and the questioner has misheard them as mixed, the demand for 'one answer' is itself the failure mode. The Advaita reading specifically says this is what happened to the questioner. The diagnostic: re-read the prior speech with the assumption that it might be sequenced. If on careful re-reading the two messages reconcile, the demand for one answer was premature. Only when the speech was genuinely mixed is the demand legitimate.",
+    "implication": "When a colleague demands 'one decisive answer', stop and audit your prior communication. If you were genuinely mixed, give the answer now. If your earlier guidance was sequenced and they misheard, explain the sequence — never flatten teaching to satisfy the request.",
+    "quotable_line": "When a team member demands one decisive answer, audit your prior speech first; do not flatten the teaching to satisfy the demand.",
+    "tags": [
+      "decision-paralysis",
+      "engineer-paralysis",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,248 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.8",
+  "sanskrit_devanagari": "नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः ।\nशरीरयात्रापि च ते न प्रसिद्ध्येदकर्मणः ॥ ८ ॥",
+  "sanskrit_iast": "niyataṁ kuru karma tvaṁ karma jyāyo hy akarmaṇaḥ |\nśarīra-yātrāpi ca te na prasidhyed akarmaṇaḥ || 8 ||",
+  "anvaya": [
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "नियतम्",
+      "iast": "niyatam",
+      "meaning": "the prescribed / regulated"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "कुरु",
+      "iast": "kuru",
+      "meaning": "perform"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "अकर्मणः",
+      "iast": "akarmaṇaḥ",
+      "meaning": "than inaction"
+    },
+    {
+      "sanskrit": "ज्यायः",
+      "iast": "jyāyaḥ",
+      "meaning": "is better"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अकर्मणः",
+      "iast": "akarmaṇaḥ",
+      "meaning": "of one who is actionless"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "your"
+    },
+    {
+      "sanskrit": "शरीर-यात्रा अपि",
+      "iast": "śarīra-yātrā api",
+      "meaning": "even bodily maintenance"
+    },
+    {
+      "sanskrit": "न प्रसिद्ध्येत्",
+      "iast": "na prasidhyet",
+      "meaning": "would not be possible"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/8/",
+      "fetched_at": "2026-04-30T04:24:51.164Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Perform your prescribed duty, for doing so is better than not working. One cannot even maintain one’s physical body without work.",
+      "raw_capture_path": "data/sources/raw/bg-3-8-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-8/",
+      "fetched_at": "2026-04-30T04:25:05.971Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Perform your prescribed duty, for doing so is better than not working. One cannot even maintain one’s physical body without work."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/8/",
+      "fetched_at": "2026-04-30T04:24:51.164Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1311 chars)",
+      "verbatim_excerpt": "There are many pseudo meditators who misrepresent themselves as belonging to high parentage, and great professional men who falsely pose that they have sacrificed everything for the sake of advancement in spiritual life. Lord Kṛṣṇa did not want Arjuna to become a pretender.",
+      "raw_full_path": "data/sources/raw/bg-3-8-vedabase.json (purport_full_length: 1311)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:05.971Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.8 Tvam, you, O Arjuna; kuru, perform; niyatam, the obligatory; karma, duties, those daily obligatory duties (nitya-karmas) or which one is competent (according to the scriptures), and which are not heard of [although no result of daily obligatory duties is mentioned in the scriptures, still Sankar…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 924,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-8-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: niyata = nityam (regulated daily duty); the verse argues from necessity (without action, even bodily maintenance fails) to the value-claim (action is better than inaction). On this reading, this is the chapter's pragmatic floor: until the actor reaches jñāna-niṣṭhā, action is required AND superior to abstention. The reasoning is consequentialist (necessity) backed by metaphysics (action's purificatory function)."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-8/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:05.971Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.8 ‘Obligatory’ (Niyatam) means ‘concomitant’ (Vyaptam); for action is concomitant with that which is conjoined with Prakrti or the body. The contact with Prakrti has arisen from beginingless subtle impressions (Vasanas).",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 3119,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-8-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: niyata-karma covers obligatory (nitya) and occasional (naimittika) acts taught in the Veda. Their performance, freed from attachment, becomes the means of purification. The verse's pragmatic claim — even bodily maintenance fails without action — backs the metaphysical claim — action is better than inaction. The whole frame: do the prescribed action as worship; do not abstain."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "niyata",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "prescribed duty"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "prescribed Vedic duties"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "niyata = nityam (regulated, daily); obligatory action"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "obligatory and occasional acts taught in the Veda"
+        }
+      ],
+      "explanation": "niyata literally = regulated, fixed, prescribed. The Advaita reading takes it as nitya-karma (daily obligatory action — the constant duty). The Vishishtadvaita reading takes it as covering both nitya (obligatory) and naimittika (occasional) acts. Modern translators say 'prescribed duty' which is general enough to be uncontroversial. The substantive point both ācāryas preserve: action is not arbitrary; what is endorsed is the duty that has already been assigned by one's role and station."
+    }
+  ],
+  "literal_meaning": "Perform your prescribed (niyata) action — action is indeed better than inaction; even your bodily maintenance would not be possible without action.",
+  "traditional_meaning": "3.8 is the crisp directive. niyataṁ kuru karma tvam — perform your prescribed (regulated) action; karma jyāyo hy akarmaṇaḥ — action is better than inaction. The pragmatic floor: śarīra-yātrāpi ca te na prasidhyed akarmaṇaḥ — even your bodily maintenance would not succeed without action. Per the Advaita reading: niyata-karma = nityam, regulated daily duty; the verse argues from necessity to value. Per the Vishishtadvaita reading: prescribed action covers obligatory and occasional acts; their performance, freed from attachment, becomes the means. The verse is the chapter's most direct doctrinal statement: act, because action is necessary AND superior to inaction.",
+  "engineering": {
+    "translation": "The chapter's most direct doctrinal statement. niyataṁ kuru karma tvam — perform your prescribed (regulated) action; karma jyāyo hy akarmaṇaḥ — action is better than inaction. The pragmatic floor: śarīra-yātrāpi ca te na prasidhyed akarmaṇaḥ — even your bodily maintenance would not succeed without action. Per the Advaita reading, niyata = nityam (regulated, daily duty); the verse argues from necessity to value. Per the Vishishtadvaita reading, niyata-karma covers obligatory and occasional acts; their performance, freed from attachment, becomes the means of purification. The engineering reading: do the action that has been assigned to your role. Action is better than inaction not as motivational poster but as structural claim — without continuous action, the operational substrate that supports everything (your income, the team's trust in you, the system's continued functioning) does not survive. The verse's force is from necessity backed by metaphysics. Action is not optional.",
+    "concrete_scenario": "A backend engineer has been assigned to maintain the team's idempotency-key library. It is unglamorous work: fixing edge cases, updating documentation, processing GitHub issues. He has been hinting at the principal that he would rather contribute to the new event-streaming initiative — more visible, more interesting, more career-defining. The principal, in their 1:1, says: 'The idempotency library is what is assigned to you. Two things. First, it is the duty that the team needs done; without it, the payments service fails silently. The bodily maintenance of the system depends on this work. Second, action is better than inaction here even by your own metrics: if you do this consistently for the next quarter, your visibility goes up, not down, because the principal who hands out the event-streaming project watches who actually ships their assignment. niyataṁ kuru karma tvam. Perform what was assigned. The path to the next project runs through this one.' The engineer recognises the verse. Action surpasses inaction not just because the team needs it, but because the structure of the system depends on continued effort by everyone with an assignment.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify any assigned work as inherently better than self-directed work. The verse names niyata-karma — prescribed, regulated, role-appropriate action. It does not say 'whatever your manager assigns is the right work'. The diagnostic is whether the assignment is grounded in the team's actual operational need (the idempotency library is) or in the manager's preference for keeping you busy. The verse blesses the former and is silent on the latter.",
+    "counter_example": "When the assigned work is genuinely makework — busy-work that does not connect to the team's operational need — invoking 3.8 to keep the engineer doing it is the inverse of what the verse teaches. niyata is content-bearing: the prescribed action serves the system's continued functioning. The Advaita reading specifically grounds the verse in necessity. If the necessity is not real, the verse's force does not apply.",
+    "implication": "Do the action that has actually been assigned to your role. If you cannot articulate what would fail in the system without it, the work is not niyata. If you can, then action is better than inaction — and the path to the next assignment runs through this one.",
+    "quotable_line": "Action is better than inaction not as slogan but as structure: without it, the system's bodily maintenance does not survive.",
+    "tags": [
+      "prescribed-action",
+      "duty",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

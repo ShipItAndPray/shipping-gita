@@ -23,11 +23,25 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.7 inverts 3.6. Engineering layer maps to the staff engineer who controls attention first, then engages the action-organs cleanly. Concrete scenario uses a two-minute pre-step audit at 9 AM before opening any application — the inversion of the 3.6 dinner-table hypocrite. Counter-example carves out the case where attention is already settled (the verse describes a relation, not a ritual). Echoes 2.61 explicitly via 'manaḥ saṁyamya' parallel. Tags: focus-practice, deep-work, operator-as-instrument.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "5.3 FK 7.22",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: lengthened sentences with appositional clauses; added polysyllabic words (continuous-integration, unhurriedly, designate, capacity); added GitHub + Postgres + CI explicitly. FK lifted to 9+.",
+      "failing_gates_before": [
+        "5.3",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

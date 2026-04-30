@@ -1,0 +1,234 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.12",
+  "sanskrit_devanagari": "इष्टान्भोगान्हि वो देवा दास्यन्ते यज्ञभाविताः ।\nतैर्दत्तानप्रदायैभ्यो यो भुङ्क्ते स्तेन एव सः ॥ १२ ॥",
+  "sanskrit_iast": "iṣṭān bhogān hi vo devā dāsyante yajña-bhāvitāḥ |\ntair dattān apradāyaibhyo yo bhuṅkte stena eva saḥ || 12 ||",
+  "anvaya": [
+    {
+      "sanskrit": "इष्टान्",
+      "iast": "iṣṭān",
+      "meaning": "desired"
+    },
+    {
+      "sanskrit": "भोगान्",
+      "iast": "bhogān",
+      "meaning": "enjoyments"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "वः",
+      "iast": "vo",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "देवाः",
+      "iast": "devā",
+      "meaning": "the gods"
+    },
+    {
+      "sanskrit": "दास्यन्ते",
+      "iast": "dāsyante",
+      "meaning": "will give"
+    },
+    {
+      "sanskrit": "यज्ञ",
+      "iast": "yajña",
+      "meaning": "by yajña"
+    },
+    {
+      "sanskrit": "भाविताः",
+      "iast": "bhāvitāḥ",
+      "meaning": "nourished"
+    },
+    {
+      "sanskrit": "तैः",
+      "iast": "tair",
+      "meaning": "by them"
+    },
+    {
+      "sanskrit": "दत्तान्",
+      "iast": "dattān",
+      "meaning": "given"
+    },
+    {
+      "sanskrit": "अप्रदाय एभ्यः",
+      "iast": "apradāyaibhyo",
+      "meaning": "without offering to them"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yo",
+      "meaning": "one who"
+    },
+    {
+      "sanskrit": "भुङ्क्ते",
+      "iast": "bhuṅkte",
+      "meaning": "enjoys"
+    },
+    {
+      "sanskrit": "स्तेनः",
+      "iast": "stena",
+      "meaning": "thief"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "verily"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/12/",
+      "fetched_at": "2026-04-30T04:24:50.920Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In charge of the various necessities of life, the demigods, being satisfied by the performance of yajña [sacrifice], will supply all necessities to you. But he who enjoys such gifts without offering them to the demigods in return is certainly a thief.",
+      "raw_capture_path": "data/sources/raw/bg-3-12-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-12/",
+      "fetched_at": "2026-04-30T04:25:07.120Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In charge of the various necessities of life, the demigods, being satisfied by the performance of yajna [sacrifice], will supply all necessities to you. But he who enjoys such gifts without offering them to the demigods in return is certainly a thief."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/12/",
+      "fetched_at": "2026-04-30T04:24:50.920Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3101 chars)",
+      "verbatim_excerpt": "The demigods are authorized supplying agents on behalf of the Supreme Personality of Godhead, Viṣṇu. Therefore, they must be satisfied by the performance of prescribed yajñas. In the Vedas, there are different kinds of yajñas prescribed for different kinds of demigods, but all are ultimately offered…",
+      "raw_full_path": "data/sources/raw/bg-3-12-vedabase.json (purport_full_length: 3101)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.120Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.12 ‘Yajna-bhavitah, being nourished, i.e. being satisfied, by sacrifices; devah, the gods; dasyante hi, will indeed give, will distribute; among vah, you; the istan, coveted; bhogan, enjoyments, such as wife, childeren and cattle.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 812,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-12-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the gods give iṣṭān bhogān (desired enjoyments) when nourished by yajña; the one who consumes their gifts without offering back is verily a thief (stena eva saḥ). The cosmological-ethical structure makes consumption-without-contribution into theft. This is not metaphor; it is a structural claim about the wheel."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-12/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.120Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.12 ‘Pleased by the sacrifice,’ i.e., propitiated by the sacrifice, the gods, who have Me as their Self, will bestow on you the enjoyments you desire. Whatever objects are desired by persons keen on attaining release, the supreme end of human endeavour, all those will be granted by gods previously…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 941,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-12-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: the devas, with the Supreme Person as their inner Self, supply the means of life (rain, sun, food, breath); offering back (yajña) is the proper return; not returning is misappropriation of what is His. stena eva saḥ — verily a thief. The verse's ethical-metaphysical structure makes consumption-without-offering into theft against the Supreme Person."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "stena (thief)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "certainly a thief"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "verily thieves"
+        },
+        {
+          "source": "Shankara (per gloss)",
+          "rendering": "thief; consumption without contribution = misappropriation"
+        },
+        {
+          "source": "Ramanuja (per gloss)",
+          "rendering": "thief; the devas, with the Supreme Person as their inner Self, supply the means of life — not returning offering is misappropriation of what is His"
+        }
+      ],
+      "explanation": "All four agree stena is the right rendering: thief. The verse uses sharp ethical-cosmological language. The disagreement is only in the metaphysical anchor of the obligation: the Advaita reading takes it as cosmological-ethical (the wheel's structure makes consumption-without-contribution theft); the Vishishtadvaita reading takes it as theft against the Supreme Person specifically (the devas are His agents). Engineering layers must preserve the sharpness — stena is not a soft word — without overclaiming the metaphysical anchor."
+    }
+  ],
+  "literal_meaning": "Indeed, the gods, nourished by yajña, will give you desired enjoyments; one who enjoys what is given by them without offering back is verily a thief.",
+  "traditional_meaning": "3.12 sharpens the claim with the thief diagnosis. iṣṭān bhogān hi vo devā dāsyante yajña-bhāvitāḥ — the gods, nourished by yajña, will give you desired enjoyments. tair dattān apradāyaibhyo yo bhuṅkte stena eva saḥ — but one who enjoys what is given by them without offering back is verily a thief (stena). Per the Advaita reading: the verse fixes the obligation as cosmological-ethical; consumption without contribution = theft. Per the Vishishtadvaita reading: the devas, with the Supreme Person as their inner Self, supply the means of life; not returning offering is misappropriation. The verse uses sharp language: stena, thief.",
+  "engineering": {
+    "translation": "The thief diagnosis. iṣṭān bhogān hi vo devā dāsyante yajña-bhāvitāḥ — the gods, nourished by yajña, will give you desired enjoyments. tair dattān apradāyaibhyo yo bhuṅkte stena eva saḥ — but one who enjoys what is given by them without offering back is verily a thief. Per the Advaita reading, the cosmological-ethical structure makes consumption-without-contribution into theft. Per the Vishishtadvaita reading, the devas have the Supreme Person as their inner Self; not returning offering is misappropriation of what is His. Both readings preserve the sharp word: stena, thief. The engineering analog operates at the operational layer: the engineer who consumes the team's on-call coverage, the team's code-review attention, the team's debugging help — and does not contribute back — is, in the verse's framing, the thief. The metaphysical scope of the original (theft against the divine order) exceeds the operational analog; tag STRETCHED. But the operational claim is real and not soft: consumption without contribution is, structurally, theft.",
+    "concrete_scenario": "A senior IC at a startup has been collecting from the team for six months. He has been paged off the rotation when his pages would be inconvenient, has had his GitHub pull requests reviewed by three colleagues simultaneously while he reviews none of theirs, and has used the team's debugging assistance during incidents he was not on call for. His own contributions during this period: zero on-call shifts, four PR reviews (against fifty he received), and zero out-of-hours debugging help to others. When a quarterly retro is run, the team's data is laid out anonymously: PagerDuty pages absorbed, pull requests reviewed, debugging assists given. His name is the outlier in every column on the consumption side and at zero on the contribution side. The principal does not soften this. He says: 'Look at these numbers. By the structure of the rotation, you are taking from the team without giving back. Verse 3.12 calls this stena — thief. I am not using the word lightly. The team has been nourishing you for six months while you have not been nourishing the team. This stops, or your role here ends.' The verse's sharpness is preserved; the operational diagnosis is direct.",
+    "falsifiability": "The analog fails if a reader uses 'thief' to describe any temporary asymmetry. Engineers go through phases — onboarding, recovery from burnout, parental leave returns — where consumption legitimately exceeds contribution. The verse's force is structural and sustained, not momentary. A senior who weaponizes 3.12 to shame a junior in their first three months has misread the verse. The diagnosis is for sustained asymmetric extraction, not for temporary imbalance.",
+    "counter_example": "When the asymmetry is by mutual agreement — a senior who covers extra on-call this quarter so that a peer can take parental leave, with the explicit understanding that the peer will reciprocate next year — the consumption-contribution accounting is across time, not within a quarter. The verse describes structural extraction, not legitimate sequenced exchange. The diagnostic is whether the loop closes eventually.",
+    "implication": "Audit consumption and contribution at the role-pair level, not the individual level. If across two quarters the loop has not closed, the verse's diagnosis applies. The word stena is the original's, and the operational analog preserves it.",
+    "quotable_line": "Consumption without contribution is, structurally, theft; the verse's word for it is stena, and the operational analog preserves the sharpness.",
+    "tags": [
+      "team-culture",
+      "team-pathology",
+      "on-call-doctrine"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

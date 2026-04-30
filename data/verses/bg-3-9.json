@@ -23,11 +23,25 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.9 is the yajña pivot. Engineering layer stays at the OPERATIONAL layer per task spec — yajña frame as orientation toward the sustaining loop (team, customer, on-call, system feedback) vs. orientation toward self-credit. STRETCHED tag honest: the verse's metaphysical claim (yajña-as-sacrifice-for-the-divine) exceeds the operational analog. Concrete scenario uses two engineers shipping the same migration with different orientations — same SQL, different binding. Counter-example carves out routine work where the distinction is implicit. Tags: yajna-as-discipline, outcome-detachment, shipping-discipline.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "2.3 anvaya 67%",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: expanded anvaya (split tad-artham, mukta-saṅgaḥ); replaced repeated 'action' with 'effort'/'work'/'rollout'/'shipped artifact'.",
+      "failing_gates_before": [
+        "2.3",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

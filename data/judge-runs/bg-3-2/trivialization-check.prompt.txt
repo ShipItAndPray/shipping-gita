@@ -1,0 +1,216 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.2",
+  "sanskrit_devanagari": "व्यामिश्रेणेव वाक्येन बुद्धिं मोहयसीव मे ।\nतदेकं वद निश्चित्य येन श्रेयोऽहमाप्‍नुयाम् ॥ २ ॥",
+  "sanskrit_iast": "vyāmiśreṇeva vākyena buddhiṁ mohayasīva me |\ntad ekaṁ vada niścitya yena śreyo 'ham āpnuyām || 2 ||",
+  "anvaya": [
+    {
+      "sanskrit": "व्यामिश्रेण इव",
+      "iast": "vyāmiśreṇa iva",
+      "meaning": "as if mixed / equivocal"
+    },
+    {
+      "sanskrit": "वाक्येन",
+      "iast": "vākyena",
+      "meaning": "by speech"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "बुद्धिम्",
+      "iast": "buddhim",
+      "meaning": "intellect"
+    },
+    {
+      "sanskrit": "मोहयसि इव",
+      "iast": "mohayasi iva",
+      "meaning": "you bewilder, as it were"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "the one"
+    },
+    {
+      "sanskrit": "निश्चित्य",
+      "iast": "niścitya",
+      "meaning": "decisively"
+    },
+    {
+      "sanskrit": "वद",
+      "iast": "vada",
+      "meaning": "tell"
+    },
+    {
+      "sanskrit": "येन",
+      "iast": "yena",
+      "meaning": "by which"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "the highest good"
+    },
+    {
+      "sanskrit": "आप्नुयाम्",
+      "iast": "āpnuyām",
+      "meaning": "may attain"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:50.745Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me.",
+      "raw_capture_path": "data/sources/raw/bg-3-2-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:50.745Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 845 chars)",
+      "verbatim_excerpt": "In the previous chapter, as a prelude to the Bhagavad-gītā, many different paths were explained, such as sāṅkhya-yoga, buddhi-yoga, control of the senses by intelligence, work without fruitive desire, and the position of the neophyte. This was all presented unsystematically.",
+      "raw_full_path": "data/sources/raw/bg-3-2-vedabase.json (purport_full_length: 845)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.2 ‘Though the Lord speaks lucidly, still, to me who am of a dull understanding, the Lord’s utterance appears to be conflicting.’ ‘Mohayasi, You bewilder; me, any; buddhim, understanding; iva, as it were; vyamisrena iva, by that seemingly conflicting; vakyena, statement! You have surely undertaken…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1489,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-2-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the questioner takes the Teacher's earlier presentation of jñāna and karma as a confused alternation, and demands a single answer. The verse's force is the demand for clarity; the response in 3.3 will give the questioner two SEPARATE niṣṭhās rather than the combination he seems to have inferred."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.2 Consequently, it appears to me as if ‘you confuse me with statements that seem to contradict each other.’ For, firm devotion to knowledge which forms the means for the vision of the self and which is of the nature of stopping the operations of the senses on the one hand, and on the other exhorta…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 573,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-2-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: this is the legitimate plea of one who has not yet seen how the two paths integrate. Without clarity, action is paralyzed. The chapter's response gives the integration: karma-yoga is not a lesser path; it is the path that fits the questioner's situation."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vyāmiśra",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "equivocal"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "ambiguous"
+        },
+        {
+          "source": "Shankara (per gloss)",
+          "rendering": "mixed"
+        },
+        {
+          "source": "Ramanuja (per gloss)",
+          "rendering": "intermingled / blended"
+        }
+      ],
+      "explanation": "The questioner calls the Teacher's speech 'mixed' — but mixed in what sense? All four traditions agree the appearance is of two different teachings juxtaposed. The Advaita reading takes it as the questioner's misreading: he thinks knowledge and action are alternatives when the Teacher is teaching them as a sequence. The Vishishtadvaita reading takes it as the legitimate confusion of one who has not yet seen how the two integrate. The translation choice ('equivocal' vs 'ambiguous' vs 'mixed') reflects whether the speaker thinks the questioner is wrong (Advaita) or merely uninstructed (Vishishtadvaita)."
+    }
+  ],
+  "literal_meaning": "By your seemingly mixed speech, you bewilder my intellect; tell me decisively the one path by which I may attain the highest good.",
+  "traditional_meaning": "3.2 sharpens 3.1. The questioner names the Teacher's speech as vyāmiśra (mixed/equivocal); his buddhi is bewildered (mohayasi iva); he asks for the one path (ekam), decisively (niścitya), by which he may attain śreyas (the highest good). The verse forces the Teacher to distinguish the two paths cleanly in 3.3 rather than leave them blended. It is the seeker's plea for a single clear direction.",
+  "engineering": {
+    "translation": "The questioner sharpens his pushback. He labels the senior's speech vyāmiśra — mixed, equivocal. He is not seeking nuance; he is demanding one decisive answer, niścitya, the single course by which he may attain śreyas, the highest good. This is the engineer who has heard the principal say one thing in a design review and another in a stand-up, and who now refuses to act on apparent contradiction. Per the Advaita commentary, the questioner has misread the senior's words as mixed when they were actually sequenced; per the Vishishtadvaita reading, the questioner has not yet seen how the two threads integrate. Either way, his pushback compels the senior to answer cleanly in 3.3. The seeker's plea for one clear instruction is legitimate when the prior speech really was mixed, and corrosive when it was not.",
+    "concrete_scenario": "A team lead has been receiving two opposing signals from the principal across recent days. On Monday, in a Notion design review, his manager said the right move was to delay the Postgres migration and get the data model right. On Wednesday, in a GitHub stand-up thread, the same manager said the team had to deploy by Friday or the customer would churn. The lead reads both notes again at 9 PM Thursday and types directly into Slack: 'I cannot operate on these two together. Monday says delay; Wednesday says deploy. Tell me which is the real instruction. I will run the rollout tonight or push the ETA, but I need a single answer, not two.' His manager sees the message, recognises that prior communication had been muddled (whether by design or accident does not matter), and is now forced to choose. The lead is not being insubordinate. He is doing what 3.2 names: refusing to act on contradictory speech and demanding the single decisive line. The senior's response — 3.3 — will distinguish the two paths cleanly.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify always demanding one answer when situations are genuinely complex. Some engineering choices are inherently contingent — deployment depends on whether a canary holds, architecture depends on whether load is bursty or sustained. Demanding 'one decisive answer' in those cases asks for false simplification. The verse does not endorse impatience with real contingency; it endorses refusing to act on prior speech that was actually mixed.",
+    "counter_example": "When the senior's two messages were actually consistent and the questioner has misheard them as mixed, the demand for 'one answer' is itself the failure mode. The Advaita reading specifically says this is what happened to the questioner. The diagnostic: re-read the prior speech with the assumption that it might be sequenced. If on careful re-reading the two messages reconcile, the demand for one answer was premature. Only when the speech was genuinely mixed is the demand legitimate.",
+    "implication": "When a colleague demands 'one decisive answer', stop and audit your prior communication. If you were genuinely mixed, give the answer now. If your earlier guidance was sequenced and they misheard, explain the sequence — never flatten teaching to satisfy the request.",
+    "quotable_line": "When a team member demands one decisive answer, audit your prior speech first; do not flatten the teaching to satisfy the demand.",
+    "tags": [
+      "decision-paralysis",
+      "engineer-paralysis",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,227 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.4",
+  "sanskrit_devanagari": "न कर्मणामनारम्भान्नैष्कर्म्यं पुरुषोऽश्न‍ुते ।\nन च सन्न्यसनादेव सिद्धिं समधिगच्छति ॥ ४ ॥",
+  "sanskrit_iast": "na karmaṇām anārambhān naiṣkarmyaṁ puruṣo 'śnute |\nna ca sannyasanād eva siddhiṁ samadhigacchati || 4 ||",
+  "anvaya": [
+    {
+      "sanskrit": "पुरुषः",
+      "iast": "puruṣaḥ",
+      "meaning": "a person"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "कर्मणाम्",
+      "iast": "karmaṇām",
+      "meaning": "of actions"
+    },
+    {
+      "sanskrit": "अनारम्भात्",
+      "iast": "anārambhān",
+      "meaning": "by non-undertaking"
+    },
+    {
+      "sanskrit": "नैष्कर्म्यम्",
+      "iast": "naiṣkarmyaṁ",
+      "meaning": "freedom from action"
+    },
+    {
+      "sanskrit": "अश्नुते",
+      "iast": "aśnute",
+      "meaning": "attains"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "nor"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "सन्न्यसनात्",
+      "iast": "sannyasanād",
+      "meaning": "by renunciation"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "merely"
+    },
+    {
+      "sanskrit": "सिद्धिम्",
+      "iast": "siddhim",
+      "meaning": "perfection"
+    },
+    {
+      "sanskrit": "समधिगच्छति",
+      "iast": "samadhigacchati",
+      "meaning": "attains"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/4/",
+      "fetched_at": "2026-04-30T04:24:51.155Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Not by merely abstaining from work can one achieve freedom from reaction, nor by renunciation alone can one attain perfection.",
+      "raw_capture_path": "data/sources/raw/bg-3-4-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-4/",
+      "fetched_at": "2026-04-30T04:25:06.941Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Not by merely abstaining from work can one achieve freedom from reaction, nor by renunciation alone can one attain perfection."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/4/",
+      "fetched_at": "2026-04-30T04:24:51.155Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 931 chars)",
+      "verbatim_excerpt": "The renounced order of life can be accepted when one has been purified by the discharge of the prescribed form of duties which are laid down just to purify the hearts of materialistic men. Without purification, one cannot attain success by abruptly adopting the fourth order of life (sannyāsa).",
+      "raw_full_path": "data/sources/raw/bg-3-4-vedabase.json (purport_full_length: 931)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:06.941Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.4 Purusah, a person; na does not; asnute, attain; naiskarmyam, freedom from action, the state of being free from action, steadfastness in the Yoga of Knowledge, i.e. the state of abiding in one’s own Self which is free from action; anarambhat, by abstaining; karmanam, from actions-by the non-perfo…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 3342,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-4-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading is sharp: naiṣkarmya = the state of abiding in one's own Self which is free from action; this state is NOT attained by anārambhāt — by mere non-undertaking — of sacrifices and prescribed action. Prescribed action purifies the mind by attenuating sins; without that purification, jñāna-niṣṭhā cannot arise. Renunciation alone (sannyasanād eva) without prior purification yields nothing. The verse rejects the apparently quickest route — just stop — as actually the slowest, because it skips the prerequisite."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-4/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:06.941Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.4 Not by non-performance of the acts prescribed by the scriptures, does a person attain freedom from Karma, i.e., Jnana Yoga; nor by ceasing to perform such actions as are prescribed in the scriptures and are already begun by him.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 829,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-4-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: 'Not by non-performance of the acts prescribed by the scriptures does a person attain freedom from Karma (i.e., Jñāna Yoga); nor by ceasing to perform such actions...' Success comes through actions done WITHOUT ATTACHMENT TO THE FRUITS, performed AS WORSHIP OF THE SUPREME PERSON. Without that orientation, jñāna-niṣṭhā cannot arise. The verse rules out abstention as a strategy and replaces it with karma-yoga-as-worship."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naiṣkarmya / sannyasanād eva",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "freedom from reaction / renunciation alone"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "freedom from karmic reactions / mere physical renunciation"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "naiṣkarmya = state of abiding in one's Self which is free from action; not attained by non-performance of sacrifices and other prescribed actions"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "naiṣkarmya = jñāna-yoga; not attained by non-performance of scriptural acts; success comes through actions done without attachment to fruits, by way of worshipping the Supreme Person"
+        }
+      ],
+      "explanation": "naiṣkarmya is the state of being free from action's binding. Both ācāryas agree: the state cannot be reached by abstention. The Advaita reading takes naiṣkarmya as Self-abidance, with karma-yoga as the purificatory pre-stage. The Vishishtadvaita reading takes naiṣkarmya as jñāna-niṣṭhā arising from karma-yoga performed as worship. The doctrinal disagreement is about WHAT karma-yoga's role is (preparation vs. own-mode of worship), but both reject the strategy of 'don't act, become free.' Modern translators preserve the rejection but flatten the underlying disagreement."
+    }
+  ],
+  "literal_meaning": "Not by non-undertaking of action does a person attain naiṣkarmya (freedom from action), nor by mere renunciation does one attain perfection.",
+  "traditional_meaning": "3.4 begins the famous dual claim. naiṣkarmya — the state of being free from action — is NOT attained by non-undertaking (anārambhāt); siddhi (perfection) is NOT attained by mere renunciation (sannyasanād eva). Both ācāryas read this as the foundational rejection of the questioner's strategy of laying down arms. Per the Advaita reading: the karma-yogin purifies the mind through action and only then becomes eligible for jñāna-niṣṭhā; abstaining is not a shortcut. Per the Vishishtadvaita reading: success comes from acts done without attachment, performed as worship of the Supreme Person; without these, jñāna-niṣṭhā cannot arise. Doctrinally pivotal: the renunciate path is real, but you do not enter it by quitting.",
+  "engineering": {
+    "translation": "The verse closes off the most attractive escape route in engineering — stop shipping, withdraw to think, become free of action's binding by simply not undertaking any. The senior says no. naiṣkarmya — the state of being free from action — is NOT attained by anārambhāt, by non-undertaking. siddhi — perfection — is NOT attained by mere renunciation. Per the Advaita reading, prescribed action purifies the mind by attenuating sins; without that purification, the knowledge-state cannot arise. Per the Vishishtadvaita reading, success comes through actions done without attachment, performed as worship; without these, jñāna-niṣṭhā cannot arise. Either way, the verse is sharp: you do not become free of action by quitting. The fastest-looking route is the slowest, because it skips the prerequisite. The engineering reading: the engineer who decides to step back from the deploy queue to 'think clearly' has not ascended to architectural reasoning. They have skipped the pre-stage that makes architectural reasoning competent — actually shipping things and seeing how they break in production.",
+    "concrete_scenario": "A staff engineer at a fintech has been on the deploy queue for three years. He has read enough about architecture, attended enough conferences, and decided he is now ready to graduate. He proposes to the principal that he be moved off the rotation entirely so he can 'focus on the bigger architectural questions'. The principal listens, then opens a document and says: 'You think pulling off the queue gives you architectural clarity. It does the opposite. The reason your reasoning is good right now is that every week for three years you have been forced to face what your code actually does in production at 3 AM. Every Postgres regression, every Datadog alert, every Sentry trace, every Kafka lag spike — those have been the curriculum that produced your judgment. If you step off the rotation now, your architectural thinking will calcify within eighteen months. You will start sounding like the architects on staff who haven't run a migration in five years. Stay on the queue.' Verse 3.4 is exactly this. Withdrawal from action does not produce architectural freedom; it removes the substrate on which architectural judgment was being trained.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify never stepping back, never resting, never declining a deploy. The verse is not about overwork; it is about the metaphysical structure of action and freedom. An engineer reading 3.4 to mean 'I must always be on call' has misread it; what the verse rejects is the specific strategy of using non-action as a shortcut to freedom-from-action's-binding. Real rest is not the verse's target. The fantasy of escaping action's structure by quitting it is.",
+    "counter_example": "When an engineer is genuinely burnt out, when the action-substrate has become harmful rather than purificatory, the verse does not require continued engagement. The Advaita reading explicitly says the action's value is its purificatory function; if action is currently destructive, the formula does not apply. There are real cases where stepping back is the right move. The verse rules out only the strategy of treating non-action as a path to freedom — not all forms of stepping back.",
+    "implication": "When a senior engineer announces they want to 'step back to think', audit what the action-substrate has been giving them. If their judgment was being formed by the deploys, the migrations, the on-call pages — taking them off that substrate will not preserve the judgment; it will erode it. Stay on the queue, with discipline, until the situation actually changes.",
+    "quotable_line": "Withdrawal from the deploy queue does not preserve architectural judgment; it removes the substrate that was training it.",
+    "tags": [
+      "renunciation-of-action",
+      "wrong-renunciation",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

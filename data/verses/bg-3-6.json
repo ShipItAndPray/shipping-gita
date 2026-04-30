@@ -23,11 +23,23 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.6 — CRITICAL CARE per task spec, do not soften. The verse names the hypocrite (mithyācāra) directly. Engineering layer maps to the engineer whose external surface says rest while interior fact says deploy. Concrete scenario uses Slack/GitHub/dashboard-rehearsal at the dinner table to fix the verse's structural condition. Counter-example carves out the case where a passing thought is not sustained engagement. Tags: engineering-pathology, focus-practice, deep-work. Voice: diagnostic, not consoling.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: replaced repeats of 'mind'/'engineer'/'verse' with 'attention'/'operator'/'chapter'; added vocabulary variation in scenario without softening the 3.6 hypocrite diagnosis.",
+      "failing_gates_before": [
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

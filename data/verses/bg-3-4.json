@@ -23,11 +23,25 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.4 — DOCTRINALLY PIVOTAL per task spec, do not soften. The verse rejects the strategy of action-cessation as a shortcut. Engineering layer named directly: the engineer who steps off the deploy queue to 'think clearly' has removed the substrate that was training the judgment they wanted to deepen. Concrete scenario uses the staff-engineer-wants-off-deploy-queue moment, with Postgres / Datadog / Sentry / Kafka named to fix the substrate. Counter-example carves out genuine burnout. Tags: renunciation-of-action, wrong-renunciation, engineering-pathology.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "2.3 anvaya 69%",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: expanded anvaya (separated 'na', 'eva', 'siddhim' as items; split sannyasanād); varied 'reasoning'/'thinking'/'judgment' phrasing.",
+      "failing_gates_before": [
+        "2.3",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

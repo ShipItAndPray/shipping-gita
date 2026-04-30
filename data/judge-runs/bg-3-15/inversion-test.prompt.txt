@@ -1,0 +1,203 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.15",
+  "sanskrit_devanagari": "कर्म ब्रह्मोद्भ‍वं विद्धि ब्रह्माक्षरसमुद्भ‍वम् ।\nतस्मात्सर्वगतं ब्रह्म नित्यं यज्ञे प्रतिष्ठितम् ॥ १५ ॥",
+  "sanskrit_iast": "karma brahmodbhavaṁ viddhi brahmākṣara-samudbhavam |\ntasmāt sarva-gataṁ brahma nityaṁ yajñe pratiṣṭhitam || 15 ||",
+  "anvaya": [
+    {
+      "sanskrit": "विद्धि",
+      "iast": "viddhi",
+      "meaning": "know"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "ब्रह्म-उद्भवम्",
+      "iast": "brahma-udbhavam",
+      "meaning": "born of Brahman"
+    },
+    {
+      "sanskrit": "ब्रह्म",
+      "iast": "brahma",
+      "meaning": "Brahman"
+    },
+    {
+      "sanskrit": "अक्षर-समुद्भवम्",
+      "iast": "akṣara-samudbhavam",
+      "meaning": "born of the Imperishable"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "सर्वगतम्",
+      "iast": "sarva-gatam",
+      "meaning": "all-pervading"
+    },
+    {
+      "sanskrit": "ब्रह्म",
+      "iast": "brahma",
+      "meaning": "Brahman"
+    },
+    {
+      "sanskrit": "नित्यम्",
+      "iast": "nityam",
+      "meaning": "eternally"
+    },
+    {
+      "sanskrit": "यज्ञे",
+      "iast": "yajñe",
+      "meaning": "in yajña"
+    },
+    {
+      "sanskrit": "प्रतिष्ठितम्",
+      "iast": "pratiṣṭhitam",
+      "meaning": "established"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/15/",
+      "fetched_at": "2026-04-30T04:24:50.859Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Regulated activities are prescribed in the Vedas, and the Vedas are directly manifested from the Supreme Personality of Godhead. Consequently the all-pervading Transcendence is eternally situated in acts of sacrifice.",
+      "raw_capture_path": "data/sources/raw/bg-3-15-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-15/",
+      "fetched_at": "2026-04-30T04:25:07.337Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Regulated activities are prescribed in the Vedas, and the Vedas are directly manifested from the Supreme Personality of Godhead. Consequently the all-pervading Transcendence is eternally situated in acts of sacrifice."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/15/",
+      "fetched_at": "2026-04-30T04:24:50.859Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2254 chars)",
+      "verbatim_excerpt": "Yajñārtha-karma, or the necessity of work for the satisfaction of Kṛṣṇa only, is more expressly stated in this verse. If we have to work for the satisfaction of the yajña-puruṣa, Viṣṇu, then we must find out the direction of work in Brahman, or the transcendental Vedas.",
+      "raw_full_path": "data/sources/raw/bg-3-15-vedabase.json (purport_full_length: 2254)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-15/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.337Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.15 Again, [a different reading in place of this is: ‘Tat ca vividham karma kuto jatamityaha, From where did those various kinds of action originate? In reply the Lord says…’ Still another reading is: ‘Tat ca karma brahmodbhavam iti aha, And the Lord says: That action has the Vedas as its origin.’-…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1096,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-15-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: brahma in this verse = the Veda. karma is born of brahman (the Vedic prescription); brahman is born of the Imperishable (akṣara, the eternal source). Therefore the all-pervading Veda-Brahman is eternally established in yajña. The verse closes the chain into the Veda's authority and into the akṣara's metaphysical primacy. The engineering layer cannot honestly carry this; it must be tagged STRETCHED."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-15/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.337Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.15 Here ther term, ‘Brahman’ connotes the physical body consisting of modifications of the Prakrti; for the Prakrti is denoted here by the term ‘Brahman’, as in the scriptural text: ‘From Him arises, this Brahman and this ‘Brahman’ becomes name, form and food’ (Mun. U., 1.1.9).",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1149,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-15-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading of brahma here is distinctive: the term refers to the physical body, the modifications of Prakṛti, from which action arises. The reading cites Mun. U. 1.1.9 and Gita 14.3 ('this great Brahman is my womb'). Therefore action is produced by the physical body, which is itself rooted in Prakṛti, which is rooted in the Supreme Person. The verse closes the chain into divine cosmology. The disagreement with the Advaita reading (Veda-as-source vs. Prakṛti-as-source) is doctrinally significant but does not change the engineering-relevant directive: yajña is metaphysically anchored, not optional."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the Vedas (regulated activities are prescribed in the Vedas, and the Vedas are directly manifested from the Supreme Personality of Godhead)"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the Vedas / God Himself"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "brahma = the Veda; the Veda is born of the Imperishable; therefore the all-pervading Veda-Brahman is established in yajña"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "brahma here = the physical body / Prakṛti from which action arises; later (14.3) the Lord says 'this great Brahman is my womb'"
+        }
+      ],
+      "explanation": "3.15's brahma is the chapter's most contested reading. The Advaita reading takes it as the Veda (the textual source from which prescribed action is known), born of the akṣara (Imperishable). The Vishishtadvaita reading takes it as Prakṛti / the body, the source from which action arises. Both preserve: yajña is metaphysically anchored; karma is not free-floating. The disagreement is doctrinally significant (Veda-as-source vs. Prakṛti-as-source) but does not change the verse's directive force. Engineering layers MUST tag this verse STRETCHED — both readings reach metaphysics that the engineering layer cannot honestly carry."
+    }
+  ],
+  "literal_meaning": "Know that action is born of Brahman, and Brahman is born of the Imperishable; therefore the all-pervading Brahman is eternally established in yajña.",
+  "traditional_meaning": "3.15 closes the cosmic chain into Brahman. karma brahmodbhavaṁ viddhi — know that action is born of Brahman; brahmākṣara-samudbhavam — Brahman is born of the Imperishable (akṣara); tasmāt sarva-gataṁ brahma nityaṁ yajñe pratiṣṭhitam — therefore the all-pervading Brahman is eternally established in yajña. Per the Advaita reading: brahma here can mean the Veda (its source is the Imperishable); action arises from the Veda's prescription. Per the Vishishtadvaita reading: brahma here = the body / the Prakṛti from which action arises; yajña is rooted in the cosmic Person. Both readings preserve: yajña is metaphysically anchored, not optional. The verse's cosmological reach is large.",
+  "engineering": {
+    "translation": "The chain closes into Brahman. karma brahmodbhavaṁ viddhi — know that action is born of Brahman; brahmākṣara-samudbhavam — Brahman is born of the Imperishable; tasmāt sarva-gataṁ brahma nityaṁ yajñe pratiṣṭhitam — therefore the all-pervading Brahman is eternally established in yajña. Per the Advaita gloss, brahma here is the Veda; action arises from its prescription; the Veda is born of the akṣara (the eternal Imperishable). Per the Vishishtadvaita reading, brahma is the body / Prakṛti from which action arises; Prakṛti is the womb of the Supreme Person. Either gloss reaches metaphysics that the engineering layer cannot honestly carry. STRETCHED, with confidence MEDIUM. The pale operational reading: the source of action — what makes the engineer able to act at all — bottoms out in something the engineer did not author. Compute is sponsored or billed; the language is inherited; the operating system is borrowed; conventions are received. At every layer, the engineer's work rests on something not produced by them.",
+    "concrete_scenario": "A staff engineer is asked in a hiring panel: where does your ability to write the code you write actually come from? She thinks for a minute and says: the compute I run on is Linux, written by people I will never meet across forty years. The language I write in is Python, designed by Guido, maintained by a foundation I do not fund. The libraries I import are the work of strangers. The patterns I use — strangler fig, circuit breaker, idempotency keys — were named by engineers a decade ago who learned them from engineers two decades before. The conventions of code review, the structure of a PR, the format of a postmortem — none of these did I invent. My action rests on a stack I did not author at any layer. When I commit code at 3 PM Tuesday, what I am doing is contributing one micro-layer to a loop whose source I cannot trace. The verse 3.15 names this kind of source-tracing cosmologically — karma is born of Brahman, Brahman of the Imperishable. The engineering reading is a pale shadow: the engineer's authorship is real but tiny, and the substrate is borrowed. Honest STRETCHED tagging is required.",
+    "falsifiability": "The analog fails if a reader uses 3.15 to claim that the operational stack (Linux, Python, AWS, GitHub) has cosmological status. It does not. The verse's brahma is the Veda or Prakṛti; the engineering stack is contingent infrastructure built by humans across decades. Anyone reading the verse to mean 'the open-source ecosystem is sacred' has erased the original's specificity. The honest move: register the analog as analog and tag STRETCHED. The metaphysical claim is the original's; the engineering shadow is gratitude-tracing, not cosmology.",
+    "counter_example": "When an engineer claims sole authorship of a piece of work — refusing to credit the libraries, the patterns, the prior art — the verse's diagnosis applies. The verse names karma as born of Brahman; the engineer who claims her code is born of her alone is making a claim the metaphysics rejects. The engineering analog is again pale: the diagnosis at the operational layer is that no engineer's action is original at every layer.",
+    "implication": "When you commit code, register that your action rests on a stack you did not author. The Linux kernel, the Python interpreter, the patterns you use, the conventions of review — they are all inherited. The verse names a metaphysical source; the engineering shadow is gratitude that does not flatten into 'open source is sacred'.",
+    "quotable_line": "Your action rests on a stack you did not author; the verse names a metaphysical source the engineering analog can only shadow, not carry.",
+    "tags": [
+      "yajna-as-discipline",
+      "first-principles",
+      "system-recognition"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

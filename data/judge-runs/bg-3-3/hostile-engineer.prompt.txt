@@ -1,0 +1,242 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.3",
+  "sanskrit_devanagari": "श्रीभगवानुवाच\nलोकेऽस्मिन्द्विविधा निष्ठा पुरा प्रोक्ता मयानघ ।\nज्ञानयोगेन सांख्यानां कर्मयोगेन योगिनाम् ॥ ३ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca\nloke 'smin dvi-vidhā niṣṭhā purā proktā mayānagha |\njñāna-yogena sāṅkhyānāṁ karma-yogena yoginām || 3 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान्",
+      "iast": "śrī-bhagavān",
+      "meaning": "the Blessed Lord"
+    },
+    {
+      "sanskrit": "उवाच",
+      "iast": "uvāca",
+      "meaning": "said"
+    },
+    {
+      "sanskrit": "अनघ",
+      "iast": "anagha",
+      "meaning": "O sinless one"
+    },
+    {
+      "sanskrit": "अस्मिन्",
+      "iast": "asmin",
+      "meaning": "in this"
+    },
+    {
+      "sanskrit": "लोके",
+      "iast": "loke",
+      "meaning": "world"
+    },
+    {
+      "sanskrit": "द्वि",
+      "iast": "dvi",
+      "meaning": "two"
+    },
+    {
+      "sanskrit": "विधा",
+      "iast": "vidhā",
+      "meaning": "kinds"
+    },
+    {
+      "sanskrit": "निष्ठा",
+      "iast": "niṣṭhā",
+      "meaning": "discipline / steadfastness"
+    },
+    {
+      "sanskrit": "पुरा",
+      "iast": "purā",
+      "meaning": "previously"
+    },
+    {
+      "sanskrit": "मया",
+      "iast": "mayā",
+      "meaning": "by me"
+    },
+    {
+      "sanskrit": "प्रोक्ता",
+      "iast": "proktā",
+      "meaning": "was declared"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "योगेन",
+      "iast": "yogena",
+      "meaning": "by the yoga"
+    },
+    {
+      "sanskrit": "साङ्ख्यानाम्",
+      "iast": "sāṅkhyānām",
+      "meaning": "of the contemplatives"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "योगेन",
+      "iast": "yogena",
+      "meaning": "by the yoga (of action)"
+    },
+    {
+      "sanskrit": "योगिनाम्",
+      "iast": "yoginām",
+      "meaning": "of the yogis"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/3/",
+      "fetched_at": "2026-04-30T04:24:51.032Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Personality of Godhead said: O sinless Arjuna, I have already explained that there are two classes of men who try to realize the self. Some are inclined to understand it by empirical, philosophical speculation, and others by devotional service.",
+      "raw_capture_path": "data/sources/raw/bg-3-3-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-3/",
+      "fetched_at": "2026-04-30T04:25:07.254Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Personality of Godhead said: O sinless Arjuna, I have already explained that there are two classes of men who try to realize the self. Some are inclined to understand it by empirical, philosophical speculation, and others by devotional service."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/3/",
+      "fetched_at": "2026-04-30T04:24:51.032Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1944 chars)",
+      "verbatim_excerpt": "In the Second Chapter, verse 39, the Lord explained two kinds of procedures – namely sāṅkhya-yoga and karma-yoga, or buddhi-yoga. In this verse, the Lord explains the same more clearly.",
+      "raw_full_path": "data/sources/raw/bg-3-3-vedabase.json (purport_full_length: 1944)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-3/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.254Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.3 Anagha, O unblemished one, O sinless one; [This word of address suggests that Arjuna is qualified to receive the Lord’s instruction.] dvividha, two kinds of ; nistha, steadfastness, persistence in what is undertaken; asmin loke, in this world, for the people of the three castes who are qualified…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 4008,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-3-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the Teacher grants two SEPARATE niṣṭhās (against any combination-theory) — jñāna-yoga as one complete path, karma-yoga as another. The verse names karma-yoga as the questioner's path SPECIFICALLY, not because karma-yoga is universally superior, but because it is the appropriate path for someone in his state."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-3/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.254Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.3 The Lord said — You have not properly understood what I taught you before. In this world, full of people with varying degrees of qualifications, I have taught in the days of yore two ways, that of knowledge (Jnana Yoga) and that of works, according to the qualifications of aspirants.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2137,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-3-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: the two niṣṭhās suit different states of inner purity. jñāna-yoga of the contemplatives suits those whose old karma has been purified and whose inner instrument is already subdued; karma-yoga of the yogis suits those whose purification proceeds through action. Both reach the same goal, but through different routes appropriate to fitness."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "niṣṭhā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "two classes of men"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "two paths leading to enlightenment"
+        },
+        {
+          "source": "Shankara (per gloss)",
+          "rendering": "two-fold steadfastness / niṣṭhā as standing-firm in a discipline"
+        },
+        {
+          "source": "Ramanuja (per gloss)",
+          "rendering": "two-fold disciplines / fitness for two paths"
+        }
+      ],
+      "explanation": "niṣṭhā literally means 'standing firm, steadfastness' — the locked-in commitment to a particular discipline. The Advaita reading emphasizes that the verse declares two SEPARATE niṣṭhās (against any combination-theory): jñāna-yoga as one complete path, karma-yoga as another. The Vishishtadvaita reading emphasizes that the two niṣṭhās suit different temperaments / states of inner purity, but both reach the same goal. Prabhupada's 'two classes of men' captures the temperamental sorting; Mukundananda's 'two paths' captures the path-distinction. None is wrong; the disagreement is about whether the two paths are independent (Advaita) or sequenced (Vishishtadvaita: karma-yoga purifies → jñāna-yoga arises)."
+    }
+  ],
+  "literal_meaning": "The Lord said: O sinless one, in this world I declared previously two kinds of niṣṭhā — the jñāna-yoga of the contemplatives and the karma-yoga of the yogis.",
+  "traditional_meaning": "3.3 is the Teacher's first answer. He distinguishes two niṣṭhās (steadfast disciplines) declared previously: jñāna-yoga for the contemplatives (those temperamentally suited to contemplation) and karma-yoga for the yogis (those temperamentally suited to action). Per the Advaita reading the two paths are independent (rejecting the combination-theory). Per the Vishishtadvaita reading both reach the same goal but through different fitness; karma-yoga is the path being recommended TO THE QUESTIONER specifically because of his state, not because it is universally superior.",
+  "engineering": {
+    "translation": "The senior's first answer. Two niṣṭhās exist — two manners of standing firm in a discipline. One is jñāna-yoga, the path of contemplatives; the other is karma-yoga, the path of doers. Both are real; both reach the goal. The senior is not flattening the two; he grants both. Per the Advaita commentary, the two are independent paths suited to different temperaments; per the Vishishtadvaita reading, the two are sequenced — karma-yoga purifies, then jñāna-yoga arises. Either way, the senior names what is being recommended HERE, to THIS questioner, in HIS situation. The engineering reading: the principal who recognises that the architect ladder and the IC ladder, with their distinct rhythms of design, branches, reviews, deploys, and incident response, are both valid disciplines, neither universally superior, and names which fits the engineer in front of him.",
+    "concrete_scenario": "A principal sits across from a senior IC at a fintech where the dual-ladder is real: an architect role focused on long-horizon design with sparse delivery, and an IC track focused on shipping production code through GitHub branches, code reviews, the build queue, and deploys. The IC has been pushing toward the architect ladder lately, citing the principal's earlier remark that 'thinking clearly is the work'. The principal opens a Notion doc to the career framework, turns the laptop screen, points at a row in the rubric, and says: 'Both ladders are real. Both reach equal impact at staff. The architect path suits people whose contribution shape is long-horizon design with rare delivery; the IC track suits those whose tempo is recurring shipping with embedded design — a steady cadence of branches, builds, tests, merges. I am not telling you the architect role is illegitimate. Given our current Postgres migration load, the pending API redesign, your concrete throughput on prior incidents, and your cache-tuning work, the path I am asking you to walk for the next twelve months is the IC track. The architect ladder will still be available in a year if your shape changes.' The IC nods; both options named, one recommended, the other not disparaged.",
+    "falsifiability": "The analog fails if a reader uses 'two paths' to justify treating any preferred work mode as a legitimate niṣṭhā. The verse names two SPECIFIC disciplines — knowledge-yoga and action-yoga — both grounded in scriptural tradition, both with named criteria. The verse does not bless 'whatever discipline you feel like'. The engineering analog must preserve the specificity: the architect track and the IC track are named, structured, comparably rigorous disciplines, not 'whatever you'd rather do today'.",
+    "counter_example": "When an engineer is genuinely on the wrong track — when their contribution shape would obviously thrive on the other path — invoking 3.3 to keep them where they are is the inverse of what the verse teaches. The senior recommends a path because it fits THIS engineer in THIS situation. If the situation changes, the recommendation changes. The verse is not endorsing path-permanence; it is endorsing path-specificity for a moment.",
+    "implication": "When you recommend a path to a junior, name BOTH ladders clearly with the deploy and review cadence each entails. Do not disparage whichever one is not recommended. The senior's authority comes from granting the legitimacy of the alternative while clearly naming which fits this person now.",
+    "quotable_line": "Name both paths as legitimate; recommend one as fitting; never disparage the one you did not recommend.",
+    "tags": [
+      "team-culture",
+      "knowledge-action-integration",
+      "operator-as-instrument"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

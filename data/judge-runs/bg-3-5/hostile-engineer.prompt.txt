@@ -1,0 +1,242 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.5",
+  "sanskrit_devanagari": "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।\nकार्यते ह्यवशः कर्म सर्वः प्रकृतिजैर्गुणैः ॥ ५ ॥",
+  "sanskrit_iast": "na hi kaścit kṣaṇam api jātu tiṣṭhaty akarma-kṛt |\nkāryate hy avaśaḥ karma sarvaḥ prakṛti-jair guṇaiḥ || 5 ||",
+  "anvaya": [
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "कश्चित्",
+      "iast": "kaścit",
+      "meaning": "anyone"
+    },
+    {
+      "sanskrit": "क्षणम्",
+      "iast": "kṣaṇam",
+      "meaning": "moment"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "जातु",
+      "iast": "jātu",
+      "meaning": "ever"
+    },
+    {
+      "sanskrit": "तिष्ठति",
+      "iast": "tiṣṭhaty",
+      "meaning": "remains"
+    },
+    {
+      "sanskrit": "अकर्म",
+      "iast": "akarma",
+      "meaning": "non-action"
+    },
+    {
+      "sanskrit": "कृत्",
+      "iast": "kṛt",
+      "meaning": "performing"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hy",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "अवशः",
+      "iast": "avaśaḥ",
+      "meaning": "helplessly"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "कार्यते",
+      "iast": "kāryate",
+      "meaning": "is made to be done"
+    },
+    {
+      "sanskrit": "सर्वः",
+      "iast": "sarvaḥ",
+      "meaning": "everyone"
+    },
+    {
+      "sanskrit": "प्रकृति",
+      "iast": "prakṛti",
+      "meaning": "nature"
+    },
+    {
+      "sanskrit": "जैः",
+      "iast": "jair",
+      "meaning": "born of"
+    },
+    {
+      "sanskrit": "गुणैः",
+      "iast": "guṇaiḥ",
+      "meaning": "by the guṇas"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/5/",
+      "fetched_at": "2026-04-30T04:24:51.176Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Everyone is forced to act helplessly according to the qualities he has acquired from the modes of material nature; therefore no one can refrain from doing something, not even for a moment.",
+      "raw_capture_path": "data/sources/raw/bg-3-5-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-5/",
+      "fetched_at": "2026-04-30T04:25:05.521Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Everyone is forced to act helplessly according to the qualities he has acquired from the modes of material nature; therefore no one can refrain from doing something, not even for a moment."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/5/",
+      "fetched_at": "2026-04-30T04:24:51.176Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1572 chars)",
+      "verbatim_excerpt": "It is not a question of embodied life, but it is the nature of the soul to be always active. Without the presence of the spirit soul, the material body cannot move. The body is only a dead vehicle to be worked by the spirit soul, which is always active and cannot stop even for a moment.",
+      "raw_full_path": "data/sources/raw/bg-3-5-vedabase.json (purport_full_length: 1572)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-5/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:05.521Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.5 Hi, because; na kascit, no one; jatu, ever; tisthati, remains; api, even; for so much time as a ksanam, moment; akarma-krt, without doing work. Why? Hi, for; sarvah, all creatures; karyate karma, are made to work; verily avasah, under compulsion; gunaih, by the gunas-sattva (goodness); rajas (ac…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1016,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-5-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading restricts the verse's scope: 'the word unenlightened has to be added to the sentence, since the men of realization have been spoken of separately.' The unenlightened are made to act helplessly (avaśaḥ) by the guṇas; the man of jñāna-niṣṭhā is treated apart. The verse's force, on this reading: for the actor still in saṁsāra, action-cessation is not possible; therefore karma-yoga (action with purification of mind) is the only available path until jñāna-niṣṭhā is attained."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-5/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:05.521Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.5 In this world, no man can rest without doing work; for every person, even though he may have determined, ‘I will not do anything,’ is caused to act, i.e., is compelled to act according to the Gunas born of Prakrti.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 608,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-5-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: the verse is a structural claim about Prakṛti's compulsion: the guṇas (sattva, rajas, tamas) increase in accordance with one's old karma; the actor is helplessly driven. jñāna-yoga can be attained only after the inner organ is purified by annulling old accumulation through karma-yoga. The verse's force: karma-yoga is the means by which the very compulsion the verse names is broken."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "avaśaḥ / kāryate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "forced to act helplessly / according to the qualities he has acquired"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "compelled to act by their qualities born of material nature"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "avaśaḥ = under compulsion; the unenlightened are made to work by the gunas; the verse applies to the unenlightened (men of realization treated separately)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "compelled to act according to the gunas born of Prakrti, which increase in accordance with one's old karma; jnana yoga only attainable after annulling old accumulation through karma yoga"
+        }
+      ],
+      "explanation": "The disagreement is about the SCOPE of the claim. The Advaita reading explicitly limits 3.5 to the unenlightened: the man of realization (sthita-prajña, jñāna-niṣṭha) is treated separately and is NOT compelled by the guṇas in the same sense. The Vishishtadvaita reading extends the claim further into Prakṛti's compulsion via accumulated karma; karma-yoga is the means to break the compulsion. Modern translators leave the scope unstated, which can read as a universal claim about all beings forever — sharper than either ācārya intended."
+    }
+  ],
+  "literal_meaning": "Indeed, no one ever stays even for a moment without performing action; everyone is helplessly compelled to act by the guṇas born of prakṛti.",
+  "traditional_meaning": "3.5 is the metaphysical claim under 3.4. na hi kaścit kṣaṇam api jātu tiṣṭhaty akarma-kṛt — no one EVER stays even a moment without performing action. Why? kāryate hy avaśaḥ karma sarvaḥ prakṛti-jair guṇaiḥ — everyone is HELPLESSLY (avaśaḥ) made to act by the guṇas born of prakṛti. Per the Advaita reading: this applies to the unenlightened; the man of realization is treated separately. Per the Vishishtadvaita reading: until the old accumulation of karma is annulled, the guṇas drive the actor. The verse closes off the fantasy of action-cessation. Action is not a choice that can be declined; the question is only the kind of action and the orientation of the actor.",
+  "engineering": {
+    "translation": "The metaphysical claim under 3.4. No one — kaścit — ever — jātu — for even a moment — kṣaṇam api — stays without performing action. Why? kāryate hy avaśaḥ karma sarvaḥ prakṛti-jair guṇaiḥ — everyone is helplessly compelled to act by the guṇas born of prakṛti. The verse closes off the metaphysical possibility of action-cessation. Per the Advaita reading the claim applies specifically to the unenlightened; the man of jñāna-niṣṭhā is treated apart. Per the Vishishtadvaita reading, the actor remains under prakṛti's compulsion until karma-yoga purifies the inner organ. Either way, the verse is sharp: action is not a choice that can be declined. The engineering reading: the senior who 'stepped back' has not stopped acting. The team is now under-resourced; that is an action with consequences. The on-call rotation is now thinner; that is an action. The unreviewed PR is still a state of the system; that is an action. There is no neutral state.",
+    "concrete_scenario": "A senior site-reliability engineer departs on a sabbatical, deactivating Slack notifications, archiving Datadog alerts, and announcing to colleagues that the absence will be uninterrupted by ordinary correspondence. Three weeks subsequently, an incident triggers at 2 AM. The replacement on-call engineer understands the runbooks but lacks the sabbatical-taker's accumulated debugging intuition for the particular Kubernetes cluster experiencing the failure. Recovery consequently consumes ninety additional minutes. Customer-facing latency stays elevated throughout that interval. The Sentry error count is logged. The PagerDuty statistics are recorded. When the senior returns and inquires how everything proceeded, colleagues respond politely. Reports indicate 'we managed'. Verse 3.5 names precisely this configuration: the withdrawal was not action-cessation. The sabbatical itself was action — an action whose consequences propagated through the team's response capacity. The senior had imagined a neutral exit. Prakṛti's compulsion did not provide one. Colleagues kept being compelled to act, and the absence registered as a missing actor inside their compulsion-field.",
+    "falsifiability": "The analog fails if a reader uses 3.5 to argue that no one should ever be off-call, that vacations are illusory, or that 'helpless compulsion' means the senior has no real choice. The verse's force is more specific: it denies the existence of a neutral non-acting state. It does not deny the legitimacy of rest, sabbatical, or shifted role. Anyone using 3.5 to refuse a junior engineer their week off has weaponized the verse against its own claim.",
+    "counter_example": "When the team has genuinely planned around a senior's absence — when the rotation is deepened, the runbooks updated, the debugging knowledge transmitted — the senior's withdrawal is no longer registered as a missing actor. The verse's claim still holds (the senior is acting; the planning IS the action), but the consequence the verse predicts (degraded response) does not follow. The metaphysical claim is invariant; the operational consequence depends on whether the action was anticipated.",
+    "implication": "When you step back, your withdrawal is itself an action with consequences. Plan it as an action. The team will register it as an action whether you intended it or not. There is no neutral exit.",
+    "quotable_line": "Your withdrawal is itself an action; the team registers it as an action whether you intended it or not.",
+    "tags": [
+      "renunciation-of-action",
+      "wrong-renunciation",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

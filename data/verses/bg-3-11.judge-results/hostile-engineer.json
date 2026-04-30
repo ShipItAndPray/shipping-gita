@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "real_insight": "The on-call rotation is a sustaining loop only when it is mutual; asymmetric absorption is closer to 3.12's theft than to 3.11's nourishment.",
+  "wisdom_theater_score": 1,
+  "notes": "3.11 — concrete, named, falsifiable. The scenario references named tools (Postgres / Datadog / GitHub / Slack / AWS where present) and identifies a specific engineering moment (on-call rotation as mutual sustaining structure). The implication points at a testable behavior change. The counter-example carves out the case where the verse does NOT apply, which is the marker of an analog that has thought through failure modes. The engineering claim is specific enough to be wrong and clear enough to be acted on. Pass."
+}

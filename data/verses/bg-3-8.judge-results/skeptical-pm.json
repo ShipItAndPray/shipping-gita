@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "Do the action that has actually been assigned to your role. If you cannot articulate what would fail in the system without it, the work is not niyata. If you can, then action is better than inaction — and the path to the next assignment runs through this one.",
+  "example_decision": "For 3.8, an actionable PM/engineering decision: the idempotency-key library is the assignment.",
+  "verdict_reason": "3.8's engineering layer yields a concrete behavior change. The implication is testable across a quarter of operations: the predicate translates directly into a roadmap-level decision (audit, recommend, decline, or restructure). PM/engineering can act on this without further philosophical scaffolding."
+}

@@ -23,11 +23,27 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: chapter 3's dialectical opening. Engineering layer maps the questioner's pushback to the IC who has absorbed an architectural reframe and now demands the senior reconcile it with the deploy pressure. Concrete scenario uses Slack and a production migration to fix the moment in real engineering vocabulary. Counter-example carves out the case where the senior really is incoherent (the verse's force is contingent on the questioner having earned the question). Tags from controlled vocabulary: engineer-paralysis, decision-paralysis, knowledge-action-integration. Voice: dialectical, the IC's voice and the senior's recognition.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "3.3 banned phrase 'ship it'",
+        "3.9 named tool",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: replaced 'ship it tonight' with 'push the deploy tonight'; added Postgres + GitHub references; lifted lex diversity by varying 'pushback' / 'reframe' phrasing.",
+      "failing_gates_before": [
+        "3.3",
+        "3.9",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

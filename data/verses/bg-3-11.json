@@ -23,11 +23,25 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.11 names mutual nourishment between gods and creatures. STRETCHED tag honest: engineering analog is operational only (on-call rotation as a real sustaining loop); the cosmological scope (devas as real persons with the Supreme Person as their inner Self) exceeds the analog. The Vishishtadvaita reading's warning against collapsing devas into team abstractions is named explicitly. Concrete scenario uses a 4-engineer on-call rotation with mutual care of incidents and documentation. Counter-example sets up the asymmetric-absorption case (which 3.12 will sharpen). Tags: yajna-as-discipline, on-call-doctrine, team-culture.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "3.9 named tool",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: added Datadog explicit; replaced 'rotation'/'loop' repeats with 'pattern'/'arrangement'/'setup'/'cycle'.",
+      "failing_gates_before": [
+        "3.9",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

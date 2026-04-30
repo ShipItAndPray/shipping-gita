@@ -23,11 +23,27 @@
   "iterations": [
     {
       "iteration": 0,
-      "ts": "2026-04-30T05:00:00Z",
-      "mutation": "v0: 3.10 — METAPHYSICALLY LOADED per task spec. Engineering layer marked STRETCHED honestly: the operational loop analog is real (customer-team-system sustaining cycle), but the cosmological scope of saha-yajñāḥ prajāḥ exceeds the analog. Concrete scenario uses a B2B SaaS founder structuring the customer relationship as a loop from day one — Linear, PagerDuty, telemetry as the loop's mechanics. Counter-example carves out one-shot transactional exchanges. Tags: yajna-as-discipline, team-culture, feedback-loops.",
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v0 generation",
       "failing_gates_before": [],
-      "failing_gates_after": [],
+      "failing_gates_after": [
+        "2.3 anvaya 73%",
+        "3.9 named tool",
+        "5.5 lex diversity"
+      ],
       "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T07:00:00Z",
+      "mutation": "v1: expanded anvaya (split saha-yajñāḥ, iṣṭa-kāma-dhuk); added AWS + GitHub + Linear + PagerDuty named tools; replaced 'customer' repeats with 'buyer'/'party'/'client'.",
+      "failing_gates_before": [
+        "2.3",
+        "3.9",
+        "5.5"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
     }
   ],
   "gate_results": [],

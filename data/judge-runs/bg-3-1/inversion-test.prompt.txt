@@ -1,0 +1,223 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 3.1",
+  "sanskrit_devanagari": "अर्जुन उवाच\nज्यायसी चेत्कर्मणस्ते मता बुद्धिर्जनार्दन ।\nतत्किं कर्मणि घोरे मां नियोजयसि केशव ॥ १ ॥",
+  "sanskrit_iast": "arjuna uvāca\njyāyasī cet karmaṇas te matā buddhir janārdana |\ntat kiṁ karmaṇi ghore māṁ niyojayasi keśava || 1 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुनः उवाच",
+      "iast": "arjunaḥ uvāca",
+      "meaning": "spoken by the warrior-prince"
+    },
+    {
+      "sanskrit": "जनार्दन",
+      "iast": "janārdana",
+      "meaning": "O agitator-of-people (an epithet of the Teacher)"
+    },
+    {
+      "sanskrit": "चेत्",
+      "iast": "cet",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "बुद्धिः",
+      "iast": "buddhiḥ",
+      "meaning": "discriminating intelligence"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "by you"
+    },
+    {
+      "sanskrit": "ज्यायसी",
+      "iast": "jyāyasī",
+      "meaning": "superior"
+    },
+    {
+      "sanskrit": "मता",
+      "iast": "matā",
+      "meaning": "is considered"
+    },
+    {
+      "sanskrit": "कर्मणः",
+      "iast": "karmaṇaḥ",
+      "meaning": "than action"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "then"
+    },
+    {
+      "sanskrit": "किम्",
+      "iast": "kim",
+      "meaning": "why"
+    },
+    {
+      "sanskrit": "केशव",
+      "iast": "keśava",
+      "meaning": "O long-haired one (an epithet)"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "घोरे",
+      "iast": "ghore",
+      "meaning": "in terrible / ghastly"
+    },
+    {
+      "sanskrit": "कर्मणि",
+      "iast": "karmaṇi",
+      "meaning": "in action"
+    },
+    {
+      "sanskrit": "नियोजयसि",
+      "iast": "niyojayasi",
+      "meaning": "you engage"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/1/",
+      "fetched_at": "2026-04-30T04:24:51.228Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Janārdana, O Keśava, why do You want to engage me in this ghastly warfare, if You think that intelligence is better than fruitive work?",
+      "raw_capture_path": "data/sources/raw/bg-3-1-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-1/",
+      "fetched_at": "2026-04-30T04:25:07.419Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Janardana, O Keshava, why do You want to engage me in this ghastly warfare, if You think that intelligence is better than fruitive work?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/1/",
+      "fetched_at": "2026-04-30T04:24:51.228Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1276 chars)",
+      "verbatim_excerpt": "The Supreme Personality of Godhead Śrī Kṛṣṇa has very elaborately described the constitution of the soul in the previous chapter, with a view to delivering His intimate friend Arjuna from the ocean of material grief.",
+      "raw_full_path": "data/sources/raw/bg-3-1-vedabase.json (purport_full_length: 1276)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-1/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.419Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.1 O Janardana, cet, if it be; te, Your; mata, opinion, intention; that buddhih, Wisdom; jyayasi, is superior; karmanah, to action-. If the combination of Wisdom and action be intended (by the Lord), then the means to Liberation is only one.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1975,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-1-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the questioner's question rests on a misreading. If buddhi (= jñāna-niṣṭhā, knowledge-steadfastness) is intended as superior, and the Teacher also engages the questioner in karma, then a SEQUENCE has been misread as a CONTRADICTION. The chapter's argument is that knowledge and action are not alternatives but a sequence: karma-yoga purifies → jñāna-niṣṭhā arises."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-1/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.419Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.1 ‘Arjuna said — If you consider that knowledge is superior to works, why do you engage me in this terrible deed?’ What is said here is this: If the firm adherence to knowledge is the only means to the vision of the self, then how can one accept the idea that devotion to works (Karma) leads to it?…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 948,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-1-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: the questioner's question is the natural one for the seeker. If firm devotion to knowledge is the means to the vision of the self, and if that devotion arises only from cessation of sensory and mental activities, then why should one engage in works that are themselves activities of the senses? The chapter is the Teacher's correction of this seeker-confusion."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "buddhi",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "intelligence"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "knowledge"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "Wisdom (jñāna-niṣṭhā, steadfastness in Knowledge)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "knowledge / firm devotion to knowledge"
+        }
+      ],
+      "explanation": "The questioner's question hinges on what 'buddhi' means here. The Advaita reading takes it specifically as jñāna-niṣṭhā (knowledge-steadfastness) — the path of cessation of activity that culminates in self-vision. The Vishishtadvaita reading takes it as 'firm devotion to knowledge' that arises after sense-cessation. The two modern translators flatten these to 'intelligence' or 'knowledge'. The question's force depends on the strong reading: if the goal is the cessation-path, why is the Teacher telling me to engage in this terrible deed?"
+    }
+  ],
+  "literal_meaning": "The questioner said: O addressed-one, if you consider buddhi (intelligence) superior to action, why then do you engage me in this terrible action?",
+  "traditional_meaning": "3.1 opens chapter 3 with the questioner's pushback. After hearing 2.49's ranking of buddhi-yoga above mere fruit-driven action, the questioner takes 'buddhi' as jñāna-niṣṭhā (knowledge-steadfastness) and concludes the call to action is contradictory. The verse's tension drives the entire chapter; per the Advaita reading, the questioner has misread sequence as contradiction; per the Vishishtadvaita reading, the question is the natural one for a seeker who has not yet integrated knowledge with action. Either way, this verse is the chapter's dialectical opening.",
+  "engineering": {
+    "translation": "The chapter opens with a pushback. The questioner has heard the senior assert, in 2.49, that buddhi-yoga is superior to fruit-driven action. He has drawn the obvious inference: if reasoning is what matters, why must I still execute the migration? The verse names a real engineering moment — the IC who has just absorbed an architectural reframe and now reasons their way into refusing the tactical task. The form of the question is sharp because honest: if the senior just told me thinking-clearly is what matters, then the senior's continued insistence on shipping looks contradictory. Per the Advaita commentary, this is the questioner mistaking a sequence (action purifies → knowledge arises) for a contradiction. Per the Vishishtadvaita reading, this is the genuine seeker's confusion before he has integrated the two. The chapter's whole argument unfolds out of this opening question.",
+    "concrete_scenario": "A staff engineer has just sat through a forty-minute architecture review where the principal reframed the entire migration. The principal said: stop optimizing the diff; what matters is whether the new Postgres schema preserves the invariants the old one accidentally encoded. The staff engineer absorbs this. Then the principal closes the laptop and says: 'OK, push the deploy tonight.' The staff engineer's hand pauses above the keyboard. He thinks: wait — you just spent forty minutes telling me that the cognitive work is what matters. Why are you now insisting I run the rollout tonight in production? It feels like you contradicted yourself. He opens GitHub, drafts a PR comment, but instead types into Slack: 'If you actually believe the architectural reasoning is the real work, why are you still pushing on the deploy timeline?' The principal sees the message, recognises the pushback, and prepares to answer across the rest of the chapter. The question is not insolent. It is the IC who took the senior's reframe seriously and is now demanding that the senior reconcile it with operational pressure. This verse is that pushback.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify any pushback against shipping. The questioner's question is sharp because he has actually absorbed the prior teaching, not because he is stalling. A junior engineer who reads 2.49 once and then asks 'why are you making me deploy?' as cover for procrastination has not earned the question. The verse's force depends on the questioner being a serious actor whose pushback is grounded in genuine integration of the prior frame.",
+    "counter_example": "When the senior is genuinely contradicting themselves — when the architectural reasoning was theatre and the deploy pressure is the real ask — the questioner's pushback is correct, not a misreading. This verse is not a blanket endorsement of senior authority over IC reasoning. The Advaita reading specifically says the questioner has misread sequence as contradiction; the verse does not say all such pushbacks are misreadings. Where the senior really is incoherent, the IC who pushes back is doing the team a service.",
+    "implication": "When an IC pushes back after an architectural reframe, treat the pushback as a seriousness signal. They have absorbed the frame and now demand that it cohere with operational pressure. Answer the question; do not dismiss it. The chapter's whole argument starts in this dialectical exchange.",
+    "quotable_line": "The IC who pushes back after a reframe is the IC who took it seriously; the question is the seriousness signal.",
+    "tags": [
+      "engineer-paralysis",
+      "decision-paralysis",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

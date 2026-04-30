@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When you ship, ask which loop the action serves. If the answer is 'the team, the customer, the on-call rotation, the system feedback', the action is yajña-oriented and does not bind. If the answer is 'my visibility', stop and re-frame before the merge.",
+  "example_decision": "For 3.9, an actionable PM/engineering decision: two engineers, same migration, different orientation.",
+  "verdict_reason": "3.9's engineering layer yields a concrete behavior change. The implication is testable across a quarter of operations: the predicate translates directly into a roadmap-level decision (audit, recommend, decline, or restructure). PM/engineering can act on this without further philosophical scaffolding."
+}

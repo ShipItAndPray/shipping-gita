@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "actionable_predicate": "When you consume from your team's internal corpus — Notion runbooks, Slack debugging threads, the on-call rotation's institutional memory — make a habit of contributing back from your next incident. The corpus is a yajña-loop; the verse's word for non-contribution is sharp, and the operational analog preserves it.",
+  "example_decision": "For 3.13, an actionable PM/engineering decision: engineer using internal Notion corpus without writing up incidents.",
+  "verdict_reason": "3.13's engineering layer yields a concrete behavior change. The implication is testable across a quarter of operations: the predicate translates directly into a roadmap-level decision (audit, recommend, decline, or restructure). PM/engineering can act on this without further philosophical scaffolding."
+}
