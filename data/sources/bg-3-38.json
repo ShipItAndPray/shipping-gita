@@ -161,7 +161,7 @@
       "verbatim_full_length": 469,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-38-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: dhūmena āvriyate vahniḥ — as fire is covered by smoke (light covering). yathā ādarśo malena ca — as a mirror is covered by dust (moderate covering). yathā ulbena āvṛtaḥ garbhaḥ — as the embryo is covered by the womb (total covering). tathā tena idam āvṛtam — likewise this is covered by that. The three similes name three intensities of kāma's covering of jñāna. In each case the substrate is intact; only obscured."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -176,12 +176,35 @@
       "verbatim_full_length": 192,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-38-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: the verse uses three increasingly opaque coverings (smoke, dust, womb) to illustrate how kāma covers jñāna at varying intensities. The doctrinal point: the covering is removable; the discriminating function (jñāna) is structurally intact and only obscured. The remedy is uncovering, not reconstruction."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "āvriyate (covered)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "as fire is covered by smoke, as a mirror is covered by dust, or as the embryo is covered by the womb, the living entity is similarly covered by different degrees of this lust"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "as a fire is covered by smoke, a mirror by dust, and an embryo by the womb, similarly one's knowledge is covered by desire"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the three similes describe three intensities of covering: smoke partial (light desire), dust moderate (medium desire), womb total (deep desire). In all three, the covered substrate (fire, mirror, embryo) is intact — only obscured"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the three similes establish that kāma covers jñāna at varying intensities; the coverings are removable; the substrate (the discriminating function) is preserved"
+        }
+      ],
+      "explanation": "Both commentators emphasise the structural claim of the similes: covering, not destruction. The substrate is preserved. Translators capture this on the surface but Shankara's specific point about the three intensities (light/moderate/heavy) is often missed."
+    }
+  ],
+  "literal_meaning": "As fire is covered by smoke, as a mirror by dust, as the embryo is covered by the womb, so is this (knowledge) covered by that (kāma).",
+  "traditional_meaning_consensus": "Krishna gives three similes for how kāma operates: it COVERS, it does not destroy. Smoke obscures fire; dust dims a mirror; the womb covers the embryo. Three coverings of different intensities (smoke is light, dust is moderate, womb is total) describe how kāma at different intensities covers the discriminating function. The covering analogy preserves jñāna as fundamentally intact — what is needed is uncovering, not reconstruction.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

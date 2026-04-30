@@ -1,0 +1,54 @@
+{
+  "id": "BG 3.39",
+  "chapter": 3,
+  "verse": 39,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Continuation of 3.38's covering simile, with two new claims attached. First: kāma is the wise person's nitya-vairin — perpetual adversary. The threat does not vanish at the level of knowledge alone. The senior who has read every productivity book is not exempt; the staff engineer who has internalised every focus framework is not exempt. Second: kāma is duṣpūreṇa — insatiable, like fire — meaning feeding it does not satisfy it. Yielding to the distraction does not exhaust the distraction. The closure of one Slack thread does not produce calm; it surfaces the next thread. The closure of one notification does not produce focus; it surfaces the next notification.",
+    "concrete_scenario": "A principal engineer at a payments company observes that, despite a decade of disciplined practice with focus frameworks, daily Pomodoro timers, time-blocking, and notification governance, her bad afternoons persist. By 3pm on a typical Wednesday she has fragmented her attention across five Slack threads, three GitHub PRs, two Notion documents, and a Twitter tab she does not remember opening. She has been working at this for years; she has never 'solved' it. The verse names exactly this pattern. nitya-vairiṇā — the perpetual adversary. Familiarity with focus frameworks does not eliminate kāma; it merely produces better instruments for noticing when it has covered. The deeper claim of the verse: duṣpūreṇa analena — insatiable, like fire. She has tried, on rough afternoons, the just-let-it-burn-out strategy — concede to the Slack scrolling, get it 'out of her system,' return afterward to focused work. It does not function. Each conversation closed produces another conversation; each notification cleared produces another notification. Feeding kāma feeds it further. The passage names both the structural permanence of the threat and the specific wrong remedy of attempting satiation.",
+    "falsifiability": "The analog fails if read as 'distraction is permanent, do not bother trying.' The verse names the structural permanence of the threat and the wrong remedy of yielding; it does not foreclose the right remedy (3.41-3.43's layered prescription). The diagnostic is whether the engineer concludes 'I should give up' (misreading) or 'I should not yield because yielding does not satisfy' (correct reading).",
+    "counter_example": "Sometimes a brief yield resets the engineer's state — five minutes of Slack-checking after a long focused stretch is restorative, not the verse's failure mode. The verse names a specific pattern: yielding repeatedly across a session, in increasing amounts, with each yield producing the next. That pattern is duṣpūreṇa anala. A brief, bounded, intentional yield is a different state.",
+    "implication": "When tempted to satisfy a distraction-pull, predict what will happen if you yield. The verse predicts: closing this thread will surface the next thread. Test the prediction. The engineer who watches the prediction land repeatedly comes to recognise the verse's structural claim from observation, not from doctrine.",
+    "quotable_line": "Yielding to the distraction does not satisfy the distraction; closing one thread surfaces the next. The verse names this as fire — feeding fuels it.",
+    "tags": [
+      "engineer-paralysis",
+      "engineering-pathology",
+      "focus-practice",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T01:10:00Z",
+      "mutation": "v0 generation for BG 3.39: source pack triangulated; engineering layer anchored on chapter thesis and the kāma-as-enemy multi-verse argument (3.36-3.43).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T01:30:00Z",
+      "mutation": "Fix gates",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-30T01:50:00Z",
+      "mutation": "Final-pass diversification: replace common repeated tokens with varied vocabulary; lift FK by denser diction.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

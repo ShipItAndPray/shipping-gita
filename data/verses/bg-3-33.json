@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.33",
+  "chapter": 3,
+  "verse": 33,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the limit of mere willpower against prakṛti. Even the wise actor moves in accordance with his own conditioning (svasyāḥ prakṛteḥ); all beings follow their nature; nigrahaḥ (surface restraint) accomplishes little. The verse is preparatory for 3.34's more precise diagnosis: rāga and dveṣa are seated in the sense-object encounter, not in the senses; surface-suppression of acts does not address the seat. In engineering: the engineer who tries to fix a chronic productivity problem through pure willpower — 'I will just stop doom-scrolling at 2pm' — almost always fails, because willpower is operating on the surface act while the conditioning is operating in the engagement-with-stimulus pattern. The verse names this insufficiency.",
+    "concrete_scenario": "A senior engineer at a Postgres-shaped marketplace has noticed that her productivity collapses every afternoon around 2pm. She tries the willpower approach: 'starting Monday, I will not open Slack between 2pm and 4pm.' By Wednesday she has broken the rule four times. By Friday she has stopped trying. The cycle repeats next month. nigrahaḥ kiṁ kariṣyati — what will restraint accomplish? — fits her case literally. The conditioning that produces the 2pm Slack-opening is not in the surface act of opening Slack; it is in the underlying state of the afternoon (tired, low-energy, looking for a quick reward) that selects Slack as the easiest dopamine-source. Restraining the surface act (closing the laptop, blocking Slack) does not address the state. 3.34 will name where the actual obstacle sits — in the engagement (rāga-dveṣa with respect to the stimulus) — but 3.33 first names the negative result: pure willpower will not produce the change.",
+    "falsifiability": "The analog fails if read as 'restraint is useless, surrender entirely to your conditioning.' The verse is not naming surrender; it is naming the limit of nigrahaḥ specifically, while implying (through 3.34) that a different approach — addressing the seat of attachment — is required. The engineer who concludes 'fine, I will stop trying to manage my afternoons' has misread the verse; the work is harder than that, not abandoned.",
+    "counter_example": "Some willpower interventions work because they happen to disrupt the underlying conditioning: the engineer who closes Slack and is forced to re-engage with the laptop physically may, through that small friction, alter the rāga-dveṣa pattern. nigrahaḥ that incidentally addresses the seat is not the verse's failure mode; the verse's failure mode is nigrahaḥ that operates only at the surface.",
+    "implication": "When you have tried willpower against a productivity pattern three times and failed three times, stop. The verse predicts continued failure. Instead, locate the seat of the pattern — the engagement with the stimulus — and work there. The senior who recognises the 2pm pattern as an under-energy / dopamine-seeking state can address that state directly (nap, walk, snack, harder work that earns a real break) rather than fighting the surface symptom.",
+    "quotable_line": "Willpower against prakṛti is a battle the actor loses without realising it. The verse names the limit and points toward where the actual work sits.",
+    "tags": [
+      "engineer-paralysis",
+      "engineering-pathology",
+      "deep-work",
+      "focus-practice"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:50:00Z",
+      "mutation": "v0 generation for BG 3.33: source pack triangulated; engineering layer anchored on chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.41",
+  "chapter": 3,
+  "verse": 41,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna gives the first prescription. tasmāt (therefore — following from 3.40's diagnosis) — control the senses first (indriyāṇy ādau niyamya). Then end this adversary (pāpmānaṁ prajahi enam) — destroyer of jñāna and vijñāna. The verse establishes the order: senses first because they are the entry point, but the goal is decisive defeat of the deeper adversary, not just controlling its entry. In engineering terms: the first move is sense-level discipline — close Slack, mute notifications, full-screen the editor — but this is necessary, not sufficient. The deeper layers (mind, intellect) require their own prescriptions, named in 3.42-3.43.",
+    "concrete_scenario": "A senior engineer at a Kubernetes-heavy infrastructure company starts a focus block on a Tuesday morning. She does the sense-level work first, in the verse's ādau (first) sense. She closes Slack on her laptop, mutes phone notifications, full-screens the GitHub PR editor in Chrome, sets a thirty-minute timer in her terminal. The first prescription is now applied: the input streams are restrained. She experiences a noticeable shift — the constant low-grade pull toward checking is gone. But after twelve minutes she notices her mind generating internal pings ('I should check the Datadog alert that came in earlier,' 'I wonder if Marco replied to my Slack from yesterday') without external trigger. The senses are restrained; the mind is not. The verse predicted exactly this: ādau (first) addresses the entry-point but does not finish the kill. The chapter's next two verses will name the higher-layer work. The engineer is now ready to receive 3.42's diagnosis (the layers above sense) and 3.43's prescription (restrain the lower self by the higher Self).",
+    "falsifiability": "The analog fails if read as 'sense-control alone is sufficient.' The verse explicitly says ādau (first), implying that more is to come (3.42-3.43). An engineer who reads 3.41 as the complete prescription will produce the experience this scenario describes — sense-restraint engaged, mind still distracted — and conclude (incorrectly) that the verse failed. The verse said 'first,' not 'only.'",
+    "counter_example": "When the engineer's distraction is genuinely sense-level only — the engineer for whom muting Slack does in fact close the issue for the day — the verse's first prescription is sufficient. The verse is not denying that some engineers are sense-bound and benefit fully from the first prescription; it is naming the case where the deeper layers operate and the first prescription is not enough.",
+    "implication": "Apply the first prescription strictly: senses controlled first. Then observe what remains. If the work proceeds cleanly, the prescription is complete. If the mind still pings, the verse is signaling that 3.42-3.43's work is the next step.",
+    "quotable_line": "Senses first because they are the entry point. The kill of the adversary lives deeper, and the first prescription is necessary but not sufficient.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "deliberate-action",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T01:10:00Z",
+      "mutation": "v0 generation for BG 3.41: source pack triangulated; engineering layer anchored on chapter thesis and the kāma-as-enemy multi-verse argument (3.36-3.43).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T01:30:00Z",
+      "mutation": "Fix gates",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

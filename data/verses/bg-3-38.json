@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.38",
+  "chapter": 3,
+  "verse": 38,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna offers three similes for how kāma operates: it COVERS, it does not destroy. Smoke obscures fire; dust dims a mirror; the womb envelops the embryo. Three coverings of distinct intensities — light, moderate, total — describe how kāma at varying strengths obscures the discriminating function. The substrate (jñāna, the discriminating intellect) remains structurally intact beneath each covering. The remedy is uncovering, never reconstruction. In engineering terms: an engineer's clear thinking is not destroyed by distraction but obscured. The senior who, after a frustrating Slack thread, looks at a problem they would normally untangle in twenty minutes and cannot quite see it has not lost the capacity — they sit beneath a covering that needs to lift.",
+    "concrete_scenario": "A senior engineer at a Kafka-heavy streaming company spends forty minutes inside a Slack flame-thread regarding consumer-group rebalancing strategy. The thread does not directly affect her work; she gets pulled in because someone she respects has staked out a position she disagrees with. When the thread closes she returns to the architectural document she was drafting in Notion and finds her thinking dim. Concepts she had been holding cleanly are now indistinct. The cluster-controller decision tree she had been mapping out goes fuzzy. Her first reaction is alarm — has she lost the thread of the work? She has not. The verse names exactly what happened. The exchange produced kāma — desire to be right, to be seen as right, to dominate the disagreement — and its krodha-form — irritation at the colleague's stance. Together these have produced a covering on her discriminating function. dhūmena āvriyate vahniḥ — fire is covered by smoke. Her clear thinking remains intact under the obscuration; she has not lost it. The remedy is to allow the covering to lift — fifteen minutes away from the screen, a walk, a different task that does not engage the same affective circuit — and the substrate returns. The verse predicts exactly this: covering, not destruction.",
+    "falsifiability": "The analog fails if read as 'all dim thinking is a temporary covering.' Some dim thinking is real cognitive damage — sleep deprivation, illness, the onset of a deeper problem. The verse's force is on the case where the substrate is intact and the affect is producing the dimness. The diagnostic is whether the dimness lifts when the affect-state shifts. If yes, covering. If no, the substrate may be the issue.",
+    "counter_example": "Sometimes the apparent kāma-induced covering is actually pointing at real signal — the engineer's discomfort with a colleague's position may be tracking a genuine problem, and the irritation is the pre-articulate form of an objection that needs to surface. The verse is not asking the engineer to dismiss all affective states; it is naming the specific case where the affect is producing covering rather than insight.",
+    "implication": "When you find your thinking dim after an emotionally charged interaction, run the test: thirty minutes away from the screen, then return. If the dimness lifts, the verse is naming the case. If the dimness persists, look elsewhere — the issue is not 3.38's covering.",
+    "quotable_line": "Distraction does not destroy clear thinking; it covers it. The engineer's clarity remains beneath the covering and the work is to let it lift.",
+    "tags": [
+      "engineering-pathology",
+      "deep-work",
+      "focus-practice",
+      "rajas-restlessness"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T01:10:00Z",
+      "mutation": "v0 generation for BG 3.38: source pack triangulated; engineering layer anchored on chapter thesis and the kāma-as-enemy multi-verse argument (3.36-3.43).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T01:30:00Z",
+      "mutation": "Fix gates",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

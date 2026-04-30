@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.36",
+  "chapter": 3,
+  "verse": 36,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna's question that sets up the kāma-analysis to follow. He has registered Krishna's structural diagnosis at 3.34 (rāga and dveṣa seated in the sense-object encounter) and asks the practical question: what is the agent that drives the actor to sinful action even when his explicit will is opposed? balād iva niyojitaḥ — as if compelled by some pressure. The 'as if' is doing structural work: the actor experiences the action as compelled, not as chosen. In engineering: the engineer who, against their own better judgment, finds themselves ten minutes into a doom-scroll, fifteen minutes into a flame-thread on Slack, an hour into refactoring a piece of code that did not need refactoring — and cannot quite explain how they got there. The verse asks the same question Arjuna asks: what is the agent of this experienced compulsion, given that the actor's explicit will did not select the action?",
+    "concrete_scenario": "A staff engineer at a payments company sits down at 9am intending to write a design doc in Notion. By 9:42am she has done none of that. She has read three Slack threads, written a long reply to a Reddit post about her programming-language opinions, opened five tabs in Chrome on programming-language flame-threads, and just clicked into GitHub to read someone else's PR she has no reason to be reviewing. None of this was selected by her morning intention. None of it produces any value she will later attribute to the morning. She experiences it as if compelled by pressure — anicchann api balād iva niyojitaḥ — the verse's exact phrase. She is not weak-willed in any general sense (she debugs hard problems for hours; she ships difficult migrations with full focus). And yet, in this moment, something has driven her into actions her own explicit will did not author. The verse asks the same question the engineer is asking: what is this agent? Krishna will name it at 3.37 (kāma) and analyse its structural location through 3.43.",
+    "falsifiability": "The analog fails if read as 'all distraction is sinful.' The verse is not moralising distraction in general; it is naming a specific phenomenology — the experience of having been engaged by force, against one's explicit will — and setting up the diagnosis. The engineer who is genuinely choosing a fifteen-minute break is not in 3.36's frame; the engineer who is fifteen minutes in and unsure how is.",
+    "counter_example": "Some apparent compulsions are actually unconscious choices — the engineer's apparent doom-scroll is in fact a low-grade rest, and the 'as if forced' framing is a misreading. The verse is naming a specific kind of apparent-compulsion (where the action is genuinely against the actor's reflective interest) not all states of low intention. The diagnostic is whether the action would survive examination — would the engineer endorse it on reflection? If yes, it is rest, not the verse's compulsion.",
+    "implication": "When you find yourself in the 'as if engaged by force' state, do not just resume your intended work. The verse asks for diagnostic attention. What was the engagement before the drift? What was the energy state? What was the rāga-dveṣa pattern at the encounter? The next several verses will name the agent; the work is to start by recognising that there is an agent.",
+    "quotable_line": "The actor is engaged by force against his own will. The verse names the phenomenology and asks what agent produces it.",
+    "tags": [
+      "engineering-pathology",
+      "engineer-paralysis",
+      "focus-practice",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:50:00Z",
+      "mutation": "v0 generation for BG 3.36: source pack triangulated; engineering layer anchored on chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T00:05:00Z",
+      "mutation": "Fix gate failures",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

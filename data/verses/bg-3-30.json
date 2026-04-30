@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.30",
+  "chapter": 3,
+  "verse": 30,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "After the metaphysical pivot of 3.27-3.29, Krishna gives the practical instruction. Surrender all actions to me — mayi sarvāṇi karmāṇi sannyasya — with the mind fixed on the Adhyātma (inner Self), without desire (nirāśīḥ), without 'mine' (nirmamaḥ), without fever (vigata-jvaraḥ) — and act (yudhyasva). The verse is doctrinally theistic in surface and read across traditions: Advaita as surrender to the inner Self (Brahman); Vishishtadvaita and Gaudiya Vaishnava as surrender to the Lord (Krishna). The engineering layer must honor the theistic surface and stay at the operational layer of authorship-surrender. STRETCHED tag: the operational analog (releasing the 'I am the author of this outcome' framing) is real and useful, but it does not carry the theistic doctrine on its back. The engineering map is parallel to 2.47 — release the authorship of outcomes — extended into the actual mechanism of surrender, which is harder than detachment alone.",
+    "concrete_scenario": "An engineer at a Postgres-shaped fintech is about to ship a high-stakes schema migration. She has done the work — drafted the migration in GitHub, validated rollback in staging, briefed her on-call team via Slack, instrumented monitoring through Datadog. The temptation in the moment of pushing 'merge' is to grip the outcome — internally claiming authorship of the launch's reception, the metric movement, the team's reaction. The verse asks for a more demanding move than mere detachment. It asks her to actively surrender the authorship, not just release attachment to it. nirāśīḥ — without expectation. nirmamaḥ — without 'this is mine.' vigata-jvaraḥ — without the fever of stakes-coupling. She pushes merge. The launch lands well; or it does not. Either way the outcome is no longer held in the 'I authored this' framing. Actions were performed; authorship was deposited elsewhere. STRETCHED: the original passage asks the surrender be directed to the Lord (or, in Advaita, to the Self as substrate); the engineering layer only operationalises the structural move (release authorship), not the theological one.",
+    "falsifiability": "The analog fails if read as 'avoid being held accountable.' The verse is not about avoiding consequences; the engineer in the scenario will still be on the hook if the migration fails. The verse is about the inner relationship to authorship of the outcome, not the outer accountability for the action. The diagnostic: when the launch goes well, do you read your own emotional response as relief (consistent with surrender) or vindication (inconsistent with surrender)?",
+    "counter_example": "When the action requires the engineer to be invested in the outcome — when the work demands they care intensely about whether it lands — the verse is not asking for affective distance. The fever (jvara) named in the verse is a specific kind: the fever of self-verification through outcome. Caring intensely about the customer's experience and being feverish about how the launch reflects on you are different states; the verse is about the second.",
+    "implication": "After the next high-stakes ship, watch your interior reaction to the metric reading. If the relief-vs-vindication ratio is heavy on vindication, the surrender of authorship was incomplete. The verse names this; it asks for the work to be done at the level of the framing, not the surface action.",
+    "quotable_line": "Surrender of authorship is the more demanding cousin of detachment from outcome. The verse asks for both, in that order.",
+    "tags": [
+      "outcome-detachment",
+      "letting-go",
+      "doership",
+      "shipping-discipline"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:50:00Z",
+      "mutation": "v0 generation for BG 3.30: source pack triangulated; engineering layer anchored on chapter thesis. Tagged STRETCHED: the theistic surrender of 3.30 (mayi sarvāṇi karmāṇi sannyasya) carries devotional content the engineering analog can only honor at the operational layer (release of authorship of outcome).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T00:05:00Z",
+      "mutation": "Fix gate failures",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

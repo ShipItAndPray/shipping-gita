@@ -156,7 +156,7 @@
       "verbatim_full_length": 474,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-31-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: those mānavāḥ — humans — who anutiṣṭhanti — practice — me matam idam nityam — this teaching of mine, continually — being śraddhāvantaḥ — endowed with faith — and anasūyantaḥ — not finding fault — mucyante — are released — karmabhiḥ — from karma. The dual qualification (positive faith + absence of cavil) is what produces liberation through this path."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -171,12 +171,35 @@
       "verbatim_full_length": 1203,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-31-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: those who continually practice this teaching — to surrender all actions to the Lord, with the mind on the inner Self, without desire or 'mine' — being śraddhāvantaḥ (full of faith in the teaching) and anasūyantaḥ (without imputing fault to it) — are released from the bondage of karma. The verse establishes the path's accessibility: not reserved for advanced practitioners, available to anyone who practices with faith and without cavil."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "śraddhāvantaḥ / anasūyantaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "those persons who execute their duties according to My injunctions and who follow this teaching faithfully, without envy, become free from the bondage of fruitive actions"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "those who abide by these teachings of Mine, with profound faith and without cavil, are released from the bondage of karma"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "śraddhāvantaḥ — those endowed with faith — anasūyantaḥ — those who do not find fault, do not envy, do not regard the teaching as objectionable; the dual qualification matters: positive faith plus absence of cavil"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "śraddhāvantaḥ — endowed with faith in this teaching as the path to liberation — anasūyantaḥ — without imputing fault to it; for both qualifications, the result is mukti from karma"
+        }
+      ],
+      "explanation": "Translators read the dual qualification but tend to emphasise śraddhā more than anasūyā. The commentators give equal weight: the positive faith and the absence-of-cavil are paired. The verse implicitly anticipates the pattern of 3.32 (those who object to the teaching), making 3.31-3.32 a pair: faith + no-cavil → release; objection + no-implementation → loss."
+    }
+  ],
+  "literal_meaning": "Those people who, with faith and without complaint, ever follow this teaching of mine — they too are released from karma.",
+  "traditional_meaning_consensus": "Krishna names the result of following the teaching: those who do so śraddhāvantaḥ (with faith) and anasūyantaḥ (without finding fault) are released (mucyante) from karma. The verse establishes the practice's reach: it is not reserved for advanced practitioners; even 'those people' (mānavāḥ) who follow with faith and without complaint are freed.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

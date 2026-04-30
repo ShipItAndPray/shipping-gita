@@ -161,7 +161,7 @@
       "verbatim_full_length": 1501,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-42-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: indriyāṇi parāṇi āhuḥ — the senses are said to be superior (to the gross body). indriyebhyaḥ paraṁ manaḥ — superior to the senses is the mind. manasaḥ tu parā buddhiḥ — but superior to the mind is the intellect. yaḥ buddheḥ paratas tu saḥ — and that which is superior to the intellect is HE — the Self (ātman / Brahman) — the irreducible substrate. The lower four are kāma's instruments and adhiṣṭhānam; the Self is the layer above kāma's reach."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -176,12 +176,35 @@
       "verbatim_full_length": 941,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-42-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: the verse establishes the layered hierarchy of the actor's constitution. Senses, mind, intellect — all are within prakṛti and are kāma's instruments. The saḥ — He — beyond buddhi is the jīva, the individual self, distinct from prakṛti. The realised actor acts from this layer; the lower three are the layers at which kāma operates."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "yo buddheḥ paratas tu saḥ (the one beyond buddhi)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the working senses are superior to dull matter; mind is higher than the senses; intelligence is still higher than the mind; and he [the soul] is even higher than the intelligence"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the senses are superior to the body, and superior to the senses is the mind. Beyond the mind is the intellect, and even beyond the intellect is the soul"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the verse establishes the hierarchy: indriyāṇi > deha; manas > indriyāṇi; buddhi > manas; the Self (ātman / Brahman) > buddhi. The Self is the irreducible substrate; the lower layers are its instruments. This is the Vedantic ontology"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the hierarchy holds; the saḥ — He — beyond buddhi is the jīva (the individual self), distinct from the gunas of prakṛti and from the body-mind-intellect complex; the realised one acts from this layer, not from the lower three"
+        }
+      ],
+      "explanation": "The major Advaita-Vishishtadvaita disagreement appears here: the saḥ beyond buddhi is, for Shankara, the ātman identical with Brahman; for Ramanuja, the jīva as a real distinct self. Both agree it is beyond buddhi; they disagree about its ontological status. Translators flatten both to 'the soul' which obscures the distinction. STRETCHED: the engineering analog cannot fully carry the metaphysical claim about the Self; it can carry the layered architecture (input → attention → commitment → identity) honestly."
+    }
+  ],
+  "literal_meaning": "The senses are said to be superior; superior to the senses is the mind; superior to the mind is the buddhi (intellect); but THAT which is superior to buddhi is HE — the Self.",
+  "traditional_meaning_consensus": "The hierarchy. Each layer is parā (superior to / subtler than) the layer below. Senses superior to gross body (the verse implicitly contrasts indriyāṇi with deha); mind (manas) superior to senses; intellect (buddhi) superior to mind; THAT (saḥ) which is superior to buddhi is the Self. The verse establishes the metaphysical layering that 3.40's diagnostic implied. Doctrinally heavy: the 'Self superior to intellect' is the Vedantic claim about the ātman as the irreducible substrate, not collapsible to any of the lower layers.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

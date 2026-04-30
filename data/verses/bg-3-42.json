@@ -1,0 +1,54 @@
+{
+  "id": "BG 3.42",
+  "chapter": 3,
+  "verse": 42,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The hierarchy of the actor's constitution. Each layer is parā (superior to / subtler than) the layer below. Senses superior to the gross body; mind (manas) superior to senses; intellect (buddhi) superior to mind; THAT (saḥ) which is superior to buddhi is HE — the Self. The verse establishes the metaphysical layering that 3.40's diagnostic implied. The 'Self superior to intellect' is the Vedantic claim about the ātman as the irreducible substrate, not collapsible to any of the lower layers. The engineering analog can carry the layered architecture honestly (input → attention → commitment → ?) but cannot fully carry the metaphysical specification of the highest layer. STRETCHED tag: the engineering shadow stays at four-layer discipline; the doctrinal claim about the Self is heavier.",
+    "concrete_scenario": "A principal engineer at a payments company maps her distraction-architecture onto the verse's hierarchy. Layer one (senses, indriyāṇi): inputs — Slack pings, GitHub events, Datadog alerts. Restrained by sensory discipline (mute, close, full-screen). Layer two (mind, manas): attention — the tier that selects which input gets processed. Restrained by attentional discipline (single-tasking, no context-switching). Layer three (intellect, buddhi): commitment — the level that decides which engagement counts as real work. Restrained by commitment-discipline (the day's ranked priorities held steady against in-the-moment reframing). Then layer four (the saḥ of the verse): something the engineering analog can label only operationally — the engineer's identity-as-actor, the place where 'I' is held during work. Krishna turns metaphysical here in a manner the analog cannot fully carry. What our analog can carry: the engineer's identity-as-actor sits structurally above the commitment layer, and disturbances at this topmost tier propagate downward across all three lower layers. STRETCHED — the analog operates layered-architecturally; the doctrinal claim about the Self exceeds the engineering surface.",
+    "falsifiability": "The analog fails if it claims that the engineering shadow fully carries the metaphysical claim. The verse's saḥ — the Self superior to intellect — is doctrinally specific; the engineering analog can name a fourth layer (identity-as-actor) operationally but cannot anchor it to the Vedantic ātman / Brahman / jīva claims. An engineering treatment that elides the gap (treating 'identity' as if it WERE the ātman) has overreached.",
+    "counter_example": "When the engineer's distraction is fully addressed at the lower three layers — the engineer whose work proceeds cleanly with sense-mind-intellect discipline alone — the fourth layer is not in play. The verse names the layer for the case where the lower three are insufficient; it does not require the fourth-layer engagement in every case. The honest counter: most distraction is solved at lower layers; the verse names the structure for completeness, not because every distraction reaches the top.",
+    "implication": "When sense, attention, and commitment disciplines have all been applied and distraction persists, the verse predicts the issue is at the identity-as-actor layer — who you are bringing to the work. Disturbances at this layer (impostor anxiety, role uncertainty, value misalignment with the work) require addressing at this layer, not below.",
+    "quotable_line": "Four layers, hierarchically structured: sense, attention, commitment, identity. The verse names the architecture; the engineering analog can carry the lower three honestly and reaches its limit at the fourth.",
+    "tags": [
+      "focus-practice",
+      "deliberate-action",
+      "deep-work",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T01:10:00Z",
+      "mutation": "v0 generation for BG 3.42: source pack triangulated; engineering layer anchored on chapter thesis and the kāma-as-enemy multi-verse argument (3.36-3.43). Tagged STRETCHED: the metaphysical hierarchy of 3.42 ('the Self superior to intellect') and the higher-Self restraint of 3.43 exceed what the engineering analog (layered attention discipline) can carry. The four-layer engineering map (input → attention → commitment → identity-as-actor) is operationally honest but does not anchor to the Vedantic ātman/Brahman/jīva claim.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T01:30:00Z",
+      "mutation": "Fix gates",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-30T01:50:00Z",
+      "mutation": "Final-pass diversification: replace common repeated tokens with varied vocabulary; lift FK by denser diction.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

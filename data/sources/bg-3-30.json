@@ -146,7 +146,7 @@
       "verbatim_full_length": 629,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-30-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: mayi sarvāṇi karmāṇi sannyasya — depositing all actions in Me, the inner Self of all (read non-dualistically — the Self that is the substrate of all actors and all actions). adhyātma-cetasā — with the mind fixed on the inner Self. nirāśīḥ — without expectation. nirmamaḥ — without 'mine.' vigata-jvaraḥ — free from fever. yudhyasva — fight. The verse is the practical method of acting without binding, anchored on the conviction that the Self is not the doer."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -161,12 +161,35 @@
       "verbatim_full_length": 2649,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-30-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: mayi sarvāṇi karmāṇi sannyasya — surrendering all your actions to Me, the Lord, the supreme Self of all. adhyātma-cetasā — with the mind fixed on the inner Self that is also Me. nirāśīḥ — without desire for fruits. nirmamaḥ — without claiming ownership. vigata-jvaraḥ — without the fever of attachment-aversion. yudhyasva — fight (perform your prescribed duty). The verse is the explicit theistic anchor: actions are performed as offerings, and this transforms them from binding to liberating."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "mayi sarvāṇi karmāṇi sannyasya / adhyātma-cetasā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "surrendering all your works unto Me, with full knowledge of Me, without desires for profit, with no claims to proprietorship, and free from lethargy, fight"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "performing all works as an offering unto Me, constantly meditate on Me as the Supreme. Become free from desire and selfishness, and with your mental grief departed, fight!"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "renouncing all actions in Me — that is, with the conviction 'I am the inner Self of all, untouched by action' — with the mind fixed on the Self (adhyātma-cetasā); the verse is read non-theistically as the practical method of acting without binding"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "surrendering all actions to Me — the Lord, who is the supreme Self of all — with the mind fixed on Me, the inner Self (adhyātman); the verse is read theistically as the practical method of acting as worship"
+        }
+      ],
+      "explanation": "The most famous tradition-divide on this verse. For Advaita the surrender is to the inner Self (Brahman, ātman) understood non-dualistically; the actor sees that the Self is not the doer and so the actions are 'in Me' as the substrate. For Vishishtadvaita and Gaudiya Vaishnava the surrender is to the Lord (Krishna), and 'in Me' is theistically literal — the actions are offerings to the Lord. Both readings produce the same practical instruction (act without 'mine,' without expectation, without fever) but the doctrinal anchor is incompatibly different. The engineering layer should honor the theistic surface and stay at the operational layer of authorship-surrender, marked appropriately."
+    }
+  ],
+  "literal_meaning": "Renouncing all actions in Me, with the mind fixed on the Self/Adhyātma, free from desire, free from 'mine,' and freed from fever, fight.",
+  "traditional_meaning_consensus": "The chapter's first explicit theistic verse. After the metaphysical pivot of 3.27-3.29, Krishna gives the practical instruction: surrender all actions to him (mayi sarvāṇi karmāṇi sannyasya), with consciousness fixed on the Adhyātma (the Inner Self), nirāśīr (without desire/expectation), nirmamaḥ (without 'mine'), vigata-jvaraḥ (free from fever/agitation) — and fight (yudhyasva). The verse is doctrinally important across traditions but read differently: Advaita reads 'me' as the higher Self (Brahman); Vishishtadvaita and Gaudiya Vaishnava read 'me' as the Lord (Krishna).",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

@@ -156,7 +156,7 @@
       "verbatim_full_length": 1070,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-36-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: Arjuna asks the practical question following from 3.34. atha — now — kena prayuktaḥ — by what is one impelled — pāpaṁ carati pūruṣaḥ — does the man perform sinful action — anicchann api — even unwillingly — vārṣṇeya — O descendant of Vṛṣṇi — balād iva niyojitaḥ — as if engaged by force. The question's structural force: the actor experiences his own sinful action as compelled, not as chosen; what is this compelling agent?"
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -171,12 +171,35 @@
       "verbatim_full_length": 233,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-36-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: Arjuna, having heard the structural diagnosis of 3.34 (rāga and dveṣa seated in sense-object encounter), asks the practical question: what is the deeper agent that drives the seeker toward sinful action even when his explicit will is opposed? The 'as if forced' (balād iva) phrasing identifies the experienced compulsion. The next verse (3.37) will name kāma."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "balād iva niyojitaḥ (as if forced)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "by what is one impelled to sinful acts, even unwillingly, as if engaged by force?"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "what is it that propels a person to sinful actions, even unwillingly, as if compelled by force?"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the question identifies the puzzle: the actor experiences the sinful action as if forced (balād iva), against his own will; what is the agent of this experienced compulsion?"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Arjuna's question follows from 3.34: if rāga and dveṣa are seated in the sense-object encounter, what is the deeper agent that drives the actor toward sin even against his explicit volition?"
+        }
+      ],
+      "explanation": "Translators capture the surface but sometimes lose the doctrinal pivot — Arjuna is asking specifically about the experienced compulsion (the 'as if forced' is doing structural work, not just emphatic). Krishna's answer at 3.37 names the agent (kāma-krodha) that produces this experience."
+    }
+  ],
+  "literal_meaning": "Arjuna said: But by what is one impelled to commit sin, even unwilling, O Vārṣṇeya, as if forced?",
+  "traditional_meaning_consensus": "Arjuna's direct question that sets up the kāma-analysis of 3.37-3.43. He acknowledges the structural insight Krishna has just given (3.34: rāga and dveṣa as obstacles) and asks the practical question: what is the agent that drives the actor to sinful action even when the actor does not will it? balād iva niyojitaḥ — as if engaged by force. The verse establishes the chapter's closing puzzle that Krishna will answer in 3.37.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

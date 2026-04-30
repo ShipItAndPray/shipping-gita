@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.32",
+  "chapter": 3,
+  "verse": 32,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The contrapositive of 3.31. Those who object to the teaching (abhyasūyantaḥ) and do not implement it become sarva-jñāna-vimūḍhān (deluded as to all knowledge), naṣṭān (lost), acetasaḥ (mindless). The verdict is severe. Not just deluded as to this teaching — as to all knowledge. In engineering: the engineer who imports a team's discipline with running cynical objection AND fails to implement it operationally enters a structurally bad state. They have neither the discipline (their non-implementation forecloses it) nor a replacement framework (their cavil prevents construction). They drift into a state where neither the team's framework nor any other framework is operating. Learning halts. The verse names the state directly.",
+    "concrete_scenario": "An engineer joins an infrastructure company that runs a strict code-review discipline on GitHub: every PR requires two reviews from experienced engineers, with explicit signoff on listed checkboxes (security, observability via Datadog, rollback plan, test coverage in pytest). She objects publicly to the discipline — 'this is a bureaucratic ritual, real teams move faster' — and privately fails to engage with it: her own reviews are perfunctory, she does not study why each checkbox exists, she pushes back on her own PRs being held to the bar. After six months her senior writes her review. The senior could write a list of specific complaints; instead the senior writes one sentence: 'I cannot tell what discipline you are operating from.' The verse fits exactly: sarva-jñāna-vimūḍhān — she has neither built the team's framework nor an alternative — naṣṭān — she has drifted out of any framework that could continue producing learning — acetasaḥ — the discriminating function that would normally distinguish good code from bad has dimmed because no framework is feeding it.",
+    "falsifiability": "The analog fails if read as 'always conform to whatever discipline the team imposes.' The verse is naming a specific failure mode — cavil-without-implementation — not blind conformity. The engineer who, after honest implementation, replaces the team's discipline with a better one she has constructed is not in the verse's frame. The verse's force lands on the engineer who has neither implemented the team's discipline nor constructed her own.",
+    "counter_example": "Some teams have genuinely broken disciplines and the engineer's cavil is the start of necessary reform. The diagnostic is whether the cavil is paired with construction. The engineer who says 'this code-review checklist misses X' AND drafts an improved checklist AND argues for it through team channels is in a different position from the one who only objects.",
+    "implication": "When you find yourself caviling at a team's discipline, ask: am I also constructing? If yes, the cavil is reform. If no, the cavil is the verse's failure mode — neither the existing framework nor a replacement is being built; learning is halted.",
+    "quotable_line": "Cavil without construction is the worst engineering posture: neither the existing discipline nor a replacement is operating, and learning halts.",
+    "tags": [
+      "engineering-pathology",
+      "team-culture",
+      "judgment-under-uncertainty",
+      "knowing-when-not-to-ship"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:50:00Z",
+      "mutation": "v0 generation for BG 3.32: source pack triangulated; engineering layer anchored on chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T00:05:00Z",
+      "mutation": "Fix gate failures",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

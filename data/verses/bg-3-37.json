@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.37",
+  "chapter": 3,
+  "verse": 37,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna's answer to Arjuna's question. The agent of forced sinful action is kāma — desire — and its frustration-form krodha — anger. Both are born of rajo-guṇa (the mode of passion), all-devouring (mahāśanaḥ), very sinful (mahā-pāpmā). Together they constitute the single iha-vairin — the adversary in this world. The diagnostic frame for the rest of the chapter is set here: kāma and krodha are not two separate problems; they are one agent in two phases. In engineering: the engineer's kāma — the pull toward the favored framework, the next dopamine-hit on Slack, the comfortable familiar code — and the engineer's krodha — the irritation when the migration doesn't proceed cleanly, the Slack reply that is sharper than intended, the frustrated review comment — are the same agent in different phases. Same mechanism, different surface.",
+    "concrete_scenario": "A staff engineer at a Postgres-shaped marketplace observes herself across one Tuesday. At 9:15am she opens GitHub instead of the design doc she had planned to write. The pull is mild, ambient — she doesn't even register it as desire. At 11am her PR receives a critical review comment from a peer; her immediate reaction is sharper than she would consciously choose, and she begins to draft a response that is half-defensive, half-passive-aggressive. At 2:30pm a long-running deployment in Datadog hits a regression; the irritation arrives within seconds, well before she has examined what failed. Three different surface phenomena: distraction, defensiveness, irritation. The verse names them as the same agent. The first is kāma in its mild attractive form (pull toward GitHub). The second is krodha as kāma-frustrated (the comment thwarted her self-image as the author of clean work). The third is krodha in its acute form (the deploy thwarted her plan for the afternoon). Same mechanism — rajo-guṇa-samudbhavaḥ — three different presentations. Krishna identifies them collectively: viddhi enam iha vairiṇam — know this to be the adversary in this world.",
+    "falsifiability": "The analog fails if read as 'all desire and all anger are pathological.' The verse names a specific kind: kāma and krodha that drive the actor against his own explicit will (the 3.36 phenomenology). The engineer who experiences a satisfying excitement at solving a hard problem is not in 3.37's frame; the engineer pulled toward Slack against their explicit morning intention is. The diagnostic is whether the affect is selecting an action the actor's reflective self would not endorse.",
+    "counter_example": "Some forms of pull and irritation are tracking real signal — the engineer pulled toward GitHub because a critical PR is waiting is a different state from the engineer pulled toward GitHub as ambient distraction. The verse is not erasing all affect; it names the kāma-krodha that drives action against reflective will. Affect that tracks evidence and selects appropriate action is not the verse's adversary.",
+    "implication": "Audit your distractions and irritations across one workday. For each, ask: would my reflective self endorse this action / response? The instances where the answer is no are kāma-krodha in the verse's exact sense. The verse predicts they share a single agent; observe whether the same underlying state produces several of them.",
+    "quotable_line": "Distraction and irritation are the same agent in two phases. The pull and the snap come from the single mechanism the verse names.",
+    "tags": [
+      "engineering-pathology",
+      "engineer-paralysis",
+      "focus-practice",
+      "rajas-restlessness"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T01:10:00Z",
+      "mutation": "v0 generation for BG 3.37: source pack triangulated; engineering layer anchored on chapter thesis and the kāma-as-enemy multi-verse argument (3.36-3.43).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T01:30:00Z",
+      "mutation": "Fix gates",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

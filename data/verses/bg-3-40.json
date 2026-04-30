@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.40",
+  "chapter": 3,
+  "verse": 40,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the structural location of kāma. It sits in three places: the senses (indriyāṇi), the mind (manas), and the intellect (buddhi). Through these three layers it deludes the dehī — the embodied actor — by covering jñāna. The three-layer diagnosis is doctrinal: the obstacle is not unitary; it operates through a specific layered architecture. In engineering this maps cleanly: kāma sits in input-streams (senses → notification streams, Slack pings, GitHub events, Datadog alerts), in attention (manas → the attentional-allocation layer that decides which input gets processed), and in commitment (buddhi → the layer that decides which engagement becomes work). The verse predicts that the actor's distraction is structured across these three layers and the remedy must address each layer in turn.",
+    "concrete_scenario": "A staff engineer at a Postgres-shaped fintech catalogues her own afternoon distraction by layer. Layer one — senses (indriyāṇi): the Slack notification chime, the email-icon badge in Chrome, the Datadog alert on her phone, the GitHub @-mention on the second monitor. The input streams are the entry points. Layer two — mind (manas): even with the inputs muted, her attention drifts. The mind generates internal pings — 'I should check Slack,' 'I wonder if my PR has been reviewed,' 'I should look at the dashboard' — without external trigger. Layer three — intellect (buddhi): even with the mind held steady, the commitment layer wavers — the small voice that says 'this work is not as important as that other thing,' the framing that re-prioritises mid-task. The engineer realises that her usual focus-discipline addresses only the first layer (notification-blocking, full-screen mode, do-not-disturb). The second layer (the mind's internal pings) and the third layer (the buddhi's framing-shifts) operate underneath. Her mid-afternoon collapse always begins at one of those deeper layers. The verse predicted exactly this architecture.",
+    "falsifiability": "The analog fails if read as a flat list rather than a layered structure. The verse names a specific architecture — sense-input enters first, then mind allocates attention, then intellect commits — and the remedy follows the architecture. An engineer who reads the verse as 'distraction is in three places' rather than 'distraction is in three layered places' has misread it.",
+    "counter_example": "Sometimes the distraction enters at the top layer and propagates down — the engineer who reframes their morning ('this work doesn't matter as much as I thought') has had buddhi-level disturbance, and the sense-level distractions are downstream. The verse's general direction (sense → mind → intellect) holds for the typical case; reverse-cascade cases require the prescription to be applied at the actual entry-layer.",
+    "implication": "When auditing distraction, locate it by layer. Layer one (senses): can it be stopped at notification level? Layer two (mind): does it persist when notifications are off? Layer three (intellect): does it persist when the mind is steady? The verse's three-layer architecture is the map; the remedy follows.",
+    "quotable_line": "Distraction operates in three layered places: input streams, attention, commitment. The verse names the architecture; the engineer's remedy must follow it.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "engineering-pathology",
+      "deliberate-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T01:10:00Z",
+      "mutation": "v0 generation for BG 3.40: source pack triangulated; engineering layer anchored on chapter thesis and the kāma-as-enemy multi-verse argument (3.36-3.43).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

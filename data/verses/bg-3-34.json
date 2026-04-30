@@ -1,0 +1,70 @@
+{
+  "id": "BG 3.34",
+  "chapter": 3,
+  "verse": 34,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter's diagnostic verse for the kāma-analysis. rāga (attachment) and dveṣa (aversion) are vyavasthitau — structurally seated — in the engagement of each sense with its corresponding object. Neither in the senses alone nor in the objects alone — specifically at the interface where one meets the other. The aspirant must recognise this seat and refuse to come under control of these affects. They are paripanthinau — obstructors of the path. In engineering terms: an engineer captured by their preferred toolchain (rāga toward Rust, say, or React) or by hatred of legacy systems (dveṣa toward, say, Perl scripts processing payroll) is captured at the interface, not in the toolchain itself or in the older code. That same engineer meeting that same module through a different affective pattern would inhabit a different state. The verse asks for recognition of where the obstacle actually lives so the work can address it.",
+    "concrete_scenario": "An engineer at a Kubernetes-heavy infrastructure company faces a maintenance task: the legacy Perl deployment scripts running since 2011 need a small fix. She experiences immediate revulsion. She would rather draft the Rust replacement system she has been excited about for months. The aversion seems reasonable — Perl is bad, the scripts are unmaintainable, the work feels beneath her current level. But the verse names where this affect actually lives. Her revulsion is not in those scripts (her colleague Marco maintains them without distress); it is not in her senses (she handles plenty of unfamiliar code without flinching). It sits, vyavasthitau, in her encounter pattern with this particular module. Recognising the location changes what becomes available. She can address the interface — sit with the file for an hour, read it carefully, discover that its patterns were thoughtfully chosen given the constraints when written — and the affect shifts. She still does not love Perl. She is no longer ruled by hatred of it. The same applies to her attraction toward Rust: that pull is in her encounter with the new framework, not in Rust itself, and the realised actor catches the pattern and refuses to let it select which task ships first.",
+    "falsifiability": "The analog fails if read as 'all preferences are illegitimate and must be eliminated.' The verse is not asking for affective neutrality. It is asking for the recognition that rāga-dveṣa are structurally seated in the encounter, so that the aspirant does not let them control which engagement happens. The engineer can have preferences AND not be ruled by them; the verse is about being-ruled-by, not about having.",
+    "counter_example": "Some preferences track real differences in framework quality. Rust may genuinely be a better choice than Perl for new deployment systems; the rāga-dveṣa is not mere bias if it tracks evidence. The verse's force lands when the rāga-dveṣa selects engagement against evidence — when the engineer avoids Perl scripts that need maintenance because of aversion, rather than because the maintenance is genuinely lower-priority.",
+    "implication": "When facing a task that produces immediate rāga or dveṣa, name the seat. Is the affect coming from the framework/code itself, from your senses, or from your encounter pattern? The verse predicts the seat is the encounter. Working at the encounter (sitting with the code, reading it carefully) is more productive than fighting the surface aversion.",
+    "quotable_line": "Attachment and aversion sit in the encounter, not in the framework or the legacy code. The verse asks for work at the seat.",
+    "tags": [
+      "engineering-pathology",
+      "tech-debt",
+      "deep-work",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:50:00Z",
+      "mutation": "v0 generation for BG 3.34: source pack triangulated; engineering layer anchored on chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T00:05:00Z",
+      "mutation": "Fix gate failures",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-30T00:15:00Z",
+      "mutation": "Boost lexical diversity by replacing common repeats; trim FK by simpler diction.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    },
+    {
+      "iteration": 3,
+      "ts": "2026-04-30T00:25:00Z",
+      "mutation": "Further lexical-diversity uplift by varying high-frequency tokens.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.3"
+    },
+    {
+      "iteration": 4,
+      "ts": "2026-04-30T00:35:00Z",
+      "mutation": "Aggressive vocabulary diversification: replace common token repetitions across translation and scenario.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.4"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

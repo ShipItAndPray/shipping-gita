@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.31",
+  "chapter": 3,
+  "verse": 31,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the result of practicing the teaching. Those who follow it with faith (śraddhāvantaḥ) and without finding fault (anasūyantaḥ) are released from karma. The dual qualification is load-bearing. Positive faith plus absence of cavil — both are required, neither alone suffices. The verse establishes the path's accessibility: not reserved for advanced practitioners, available to anyone who practices both. In engineering: the engineer who adopts the team's working discipline with both genuine confidence in it and absence of cynical commentary about it learns more rapidly than the engineer who adopts the discipline mechanically while privately rolling their eyes. The two qualifications operate independently. Both are required for the release the verse names.",
+    "concrete_scenario": "Two engineers join a payments company in the same week. Both go through the same onboarding: the same tour of GitHub conventions, the same Slack channels, the same code-review template, the same Datadog dashboards, the same incident-response runbook. After three months they are at radically different states. Engineer A has internalised the working discipline — śraddhāvantaḥ in the verse's exact sense, with operative faith that the conventions are load-bearing — and anasūyantaḥ — without the running-cynical commentary that 'this code-review template is corporate theater.' Engineer B has executed the same conventions mechanically, with private faultfinding: the templates are bureaucratic, the runbook is over-detailed, the team is too cautious. Both have followed the surface discipline. Only one is being released by it. The verse names the dual qualification precisely: faith + no-cavil → release; the absence of either qualification breaks the release-mechanism.",
+    "falsifiability": "The analog fails if read as 'never question the team's process.' The verse is not naming uncritical acceptance; anasūyantaḥ is not 'no thoughts,' it is 'no cavil' — no fault-imputing posture toward a teaching the watcher has not yet given honest implementation time. Honest critique after honest implementation is not anasūyā violation; it is a different conversation.",
+    "counter_example": "Some teams have processes that genuinely deserve cynical commentary. The verse's force lands on the case where the discipline is sound and the watcher's cavil is preventing release. It does not bind the engineer who has discovered, after implementation, that a process is genuinely broken. The diagnostic is whether the cavil precedes or follows honest implementation.",
+    "implication": "Audit your interior commentary about the team's working discipline. For each piece of cavil, ask: have I given the discipline honest implementation time? If yes, the cavil may be substantive critique; raise it. If no, the cavil is the verse's anasūyā violation, and it is preventing the release the discipline would otherwise produce.",
+    "quotable_line": "Faith and absence-of-cavil are the dual qualifications. Either alone breaks the release-mechanism the practice is supposed to produce.",
+    "tags": [
+      "team-culture",
+      "healthy-eng-culture",
+      "shipping-discipline",
+      "deliberate-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:50:00Z",
+      "mutation": "v0 generation for BG 3.31: source pack triangulated; engineering layer anchored on chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T00:05:00Z",
+      "mutation": "Fix gate failures",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

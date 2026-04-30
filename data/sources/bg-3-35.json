@@ -166,7 +166,7 @@
       "verbatim_full_length": 897,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-35-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: śreyān svadharmaḥ viguṇaḥ — preferable is one's own dharma, deficient — paradharmāt sv-anuṣṭhitāt — than another's dharma well-performed. svadharme nidhanaṁ śreyaḥ — death in one's own dharma is preferable. paradharmaḥ bhayāvahaḥ — another's dharma is fearful. The verse anchors the chapter's call to Arjuna: his svadharma as a kṣatriya is to fight; switching to the renunciate path is paradharma for him, even if the renunciate path is generally well-formed."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -181,12 +181,35 @@
       "verbatim_full_length": 911,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-35-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: svadharma here corresponds to the actor's specific stage. For the aspirant established in sattva, svadharma is the karma-yoga path appropriate to that stage. Even performed with deficiency (viguṇaḥ) it is preferable to switching to a different path (paradharma) that does not match the actor's actual development. paradharma bhayāvahaḥ — another's dharma is fearful — because it produces dislocation, not progress."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "svadharma / viguṇaḥ / paradharma bhayāvahaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "it is far better to discharge one's prescribed duties, even though faultily, than another's duties perfectly. Destruction in the course of performing one's own duty is better than engaging in another's duties, for to follow another's path is dangerous"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "it is far better to perform one's natural prescribed duty, though tinged with faults, than to perform another's prescribed duty, though perfectly. In fact, it is preferable to die in the discharge of one's duty, than to follow the path of another, which is fraught with danger"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "svadharma = the duty corresponding to one's varṇa and āśrama. Even imperfectly performed (viguṇa, deficient in some respects) it is preferable to paradharma (another's duty) even well-performed. Death in svadharma is preferable; paradharma is bhayāvahaḥ — productive of fear, not safety"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "svadharma here = the duty appropriate to the actor's specific position; for the seeker, this is the karma-yoga path appropriate to him as established in sattva. Switching to a different path that does not match the seeker's actual stage produces fear, not progress"
+        }
+      ],
+      "explanation": "Both commentators read svadharma narrowly: it is the duty corresponding to one's specific position (varṇa for Shankara, the actor's stage-of-spiritual-development for Ramanuja). The verse is not a general endorsement of authenticity-as-such; it is a specific claim about role-appropriate action. Translators sometimes flatten this to 'one's own duty' or 'natural duty' but the technical reading is more constrained."
+    }
+  ],
+  "literal_meaning": "Better one's own dharma, deficient (viguṇaḥ), than another's dharma well-performed; better death in one's own dharma; another's dharma is fearful.",
+  "traditional_meaning_consensus": "One of the Gita's most-quoted verses. svadharma (one's own dharma — the duty appropriate to one's role, varṇa, stage of life) is better, even when performed deficiently, than paradharma (another's dharma) performed well. Death in svadharma is preferable; paradharma is bhayāvahaḥ (fearful, dangerous). The verse is doctrinally important as a foundation for the chapter's call to Arjuna to fight (his svadharma as a kṣatriya) rather than retreat into the renunciate path that is not his.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

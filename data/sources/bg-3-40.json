@@ -146,7 +146,7 @@
       "verbatim_full_length": 471,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-40-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: indriyāṇi mano buddhiḥ — the senses, mind, and intellect — asya adhiṣṭhānam ucyate — are said to be its (kāma's) seat. etaiḥ vimohayati eṣa — through these it deludes — jñānam āvṛtya dehinam — covering knowledge in the embodied one. The verse names the three-layer architecture through which kāma operates and sets up the hierarchy of 3.42."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -161,12 +161,35 @@
       "verbatim_full_length": 536,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-40-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: kāma's working location is the triple system of senses, mind, and intellect. Through these together it covers the discriminating function (jñāna) and deludes the dehī. The doctrinal claim: the obstacle has a specific layered structure, and the remedy must address each layer in turn."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "indriyāṇi-manas-buddhiḥ as the seat (adhiṣṭhānam)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the senses, the mind and the intelligence are the sitting places of this lust. Through them lust covers the real knowledge of the living entity and bewilders him"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the senses, mind, and intellect are said to be its dwelling places; through them, desire covers one's knowledge and deludes the embodied soul"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the three — indriyāṇi, manas, buddhi — are kāma's adhiṣṭhānam (seat). Through these three layers, kāma operates. The verse establishes the layered structure that 3.42 will explicitly hierarchise"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "kāma's adhiṣṭhānam — its working location — comprises the senses, mind, and intellect. Through these three together it deludes the dehī. The verse prepares the explicit hierarchy of 3.42"
+        }
+      ],
+      "explanation": "Both commentators read the three loci as a layered architecture (sense-input, attentional layer, discriminating layer). The verse is doctrinally important because it sets up 3.42's explicit hierarchisation. Translators preserve the three loci but sometimes flatten them to a list rather than a layered structure."
+    }
+  ],
+  "literal_meaning": "The senses, the mind, and the buddhi (intellect) are said to be its (kāma's) seat. Through these it deludes the embodied one (dehī), covering knowledge.",
+  "traditional_meaning_consensus": "Krishna names the structural location of kāma. It sits in three places: the senses (indriyāṇi), the mind (manas), and the intellect (buddhi). Through these three layers it deludes the dehī — the embodied actor — by covering jñāna. The three-layer diagnosis is doctrinal: the obstacle is not unitary; it operates through a specific layered architecture, and the remedy must be applied at the right layer.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

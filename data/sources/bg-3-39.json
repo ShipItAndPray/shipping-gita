@@ -146,7 +146,7 @@
       "verbatim_full_length": 1141,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-3-39-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara: āvṛtam jñānam etena — knowledge is covered by this. jñāninaḥ nitya-vairiṇā — by the constant enemy of the wise. kāma-rūpeṇa kaunteya — in the form of kāma, O son of Kunti. duṣpūreṇa analena ca — insatiable, like fire. The verse extends 3.38: kāma is structurally permanent (nitya-vairin), and feeding it (the obvious remedy) does not exhaust it (duṣpūreṇa)."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -161,12 +161,35 @@
       "verbatim_full_length": 486,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-3-39-bgus.json",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja: kāma is the jñānin's nitya-vairin — perennial enemy. The threat persists even after knowledge has been gained; jñāna alone does not eliminate kāma. duṣpūreṇa anala — insatiable, like fire — establishes that the wrong remedy (yielding to satisfy) is doubly wrong: kāma cannot be satisfied, and yielding inflames it further."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "nitya-vairiṇā / duṣpūreṇa",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "thus the wise living entity's pure consciousness becomes covered by his eternal enemy in the form of lust, which is never satisfied and which burns like fire"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the knowledge of even the most discerning gets covered by this constant enemy in the form of insatiable desire, which is never satisfied and burns like fire"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "nitya-vairin — the constant, perennial enemy of the wise; the wise are precisely those who recognise the enemy as such; duṣpūreṇa — insatiable; analena — like fire, which consumes its fuel without diminishing its hunger"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "kāma is the wise person's eternal enemy because, even after the seeker has gained knowledge, the threat does not vanish; duṣpūreṇa anala — insatiable like fire — names the futility of attempting to satisfy kāma by feeding it"
+        }
+      ],
+      "explanation": "Both commentators emphasise that nitya-vairiṇā implies the threat is structural and ongoing — the wise have not transcended it merely by knowing of it. duṣpūreṇa anala — insatiable like fire — closes the obvious wrong remedy: feeding kāma does not satisfy it. Translators capture both but sometimes obscure the structural-permanence claim."
+    }
+  ],
+  "literal_meaning": "By this constant enemy of the wise, in the form of kāma, knowledge is covered, O son of Kunti — insatiable, like fire.",
+  "traditional_meaning_consensus": "Continuation of 3.38's covering simile, with two new claims: (1) kāma is the wise person's nitya-vairin — constant enemy — meaning the threat does not vanish at the level of knowledge alone; (2) it is duṣpūreṇa — insatiable, like fire — which means feeding it does not satisfy it. Both claims sharpen the diagnosis: the enemy persists despite knowledge, and yielding to it does not exhaust it.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,
