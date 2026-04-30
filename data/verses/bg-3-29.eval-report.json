@@ -2,12 +2,12 @@
   "verse_id": "BG 3.29",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 59,
-  "failed": 1,
+  "passed": 60,
+  "failed": 0,
   "pending": 24,
   "total": 84,
-  "hard_score": 59,
-  "passable_pending_judge": 83,
+  "hard_score": 60,
+  "passable_pending_judge": 84,
   "results": [
     {
       "gate_id": "1.1",
@@ -210,7 +210,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 185"
+      "detail": "concrete_scenario words = 175"
     },
     {
       "gate_id": "3.9",
@@ -297,7 +297,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 185 (target 80-280)"
+      "detail": "concrete_scenario words = 175 (target 80-280)"
     },
     {
       "gate_id": "5.3",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 13.00 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 12.73 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,15 +313,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 275.45 (target >= 6)"
+      "detail": "sentence-length variance = 266.21 (target >= 6)"
     },
     {
       "gate_id": "5.5",
       "gate_name": "Lexical diversity > 0.55",
       "tier": 5,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "lexical diversity = 0.529 (target >= 0.55)"
+      "detail": "lexical diversity = 0.568 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -537,7 +537,7 @@
       "tier": 9,
       "passed": true,
       "pending": false,
-      "detail": "iterations recorded: 2"
+      "detail": "iterations recorded: 3"
     },
     {
       "gate_id": "9.2",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 450 (cap 600)"
+      "detail": "total verse words = 440 (cap 600)"
     },
     {
       "gate_id": "11.2",

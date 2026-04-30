@@ -2,12 +2,12 @@
   "verse_id": "BG 3.6",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 59,
-  "failed": 1,
+  "passed": 60,
+  "failed": 0,
   "pending": 24,
   "total": 84,
-  "hard_score": 59,
-  "passable_pending_judge": 83,
+  "hard_score": 60,
+  "passable_pending_judge": 84,
   "results": [
     {
       "gate_id": "1.1",
@@ -210,7 +210,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 183"
+      "detail": "concrete_scenario words = 182"
     },
     {
       "gate_id": "3.9",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 145 (target 40-180)"
+      "detail": "translation words = 146 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -297,7 +297,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 183 (target 80-280)"
+      "detail": "concrete_scenario words = 182 (target 80-280)"
     },
     {
       "gate_id": "5.3",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 9.41 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 9.73 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,15 +313,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 73.44 (target >= 6)"
+      "detail": "sentence-length variance = 71.94 (target >= 6)"
     },
     {
       "gate_id": "5.5",
       "gate_name": "Lexical diversity > 0.55",
       "tier": 5,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "lexical diversity = 0.539 (target >= 0.55)"
+      "detail": "lexical diversity = 0.551 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",

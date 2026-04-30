@@ -178,7 +178,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete=11 abstract=0 ratio=∞"
+      "detail": "concrete=14 abstract=0 ratio=∞"
     },
     {
       "gate_id": "3.5",
@@ -210,7 +210,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 183"
+      "detail": "concrete_scenario words = 180"
     },
     {
       "gate_id": "3.9",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 157 (target 40-180)"
+      "detail": "translation words = 152 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -297,7 +297,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 183 (target 80-280)"
+      "detail": "concrete_scenario words = 180 (target 80-280)"
     },
     {
       "gate_id": "5.3",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 11.19 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 11.35 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,7 +313,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 225.96 (target >= 6)"
+      "detail": "sentence-length variance = 213.18 (target >= 6)"
     },
     {
       "gate_id": "5.5",
@@ -321,7 +321,7 @@
       "tier": 5,
       "passed": false,
       "pending": false,
-      "detail": "lexical diversity = 0.524 (target >= 0.55)"
+      "detail": "lexical diversity = 0.547 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -585,7 +585,7 @@
       "tier": 10,
       "passed": true,
       "pending": false,
-      "detail": "implication words = 43"
+      "detail": "implication words = 42"
     },
     {
       "gate_id": "10.2",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 502 (cap 600)"
+      "detail": "total verse words = 493 (cap 600)"
     },
     {
       "gate_id": "11.2",

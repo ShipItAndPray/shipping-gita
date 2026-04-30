@@ -2,12 +2,12 @@
   "verse_id": "BG 3.27",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 58,
-  "failed": 2,
+  "passed": 60,
+  "failed": 0,
   "pending": 24,
   "total": 84,
-  "hard_score": 58,
-  "passable_pending_judge": 82,
+  "hard_score": 60,
+  "passable_pending_judge": 84,
   "results": [
     {
       "gate_id": "1.1",
@@ -210,7 +210,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 201"
+      "detail": "concrete_scenario words = 189"
     },
     {
       "gate_id": "3.9",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 153 (target 40-180)"
+      "detail": "translation words = 139 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -297,15 +297,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 201 (target 80-280)"
+      "detail": "concrete_scenario words = 189 (target 80-280)"
     },
     {
       "gate_id": "5.3",
       "gate_name": "Flesch-Kincaid grade 9-13",
       "tier": 5,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 14.40 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 12.36 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,15 +313,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 675.41 (target >= 6)"
+      "detail": "sentence-length variance = 578.53 (target >= 6)"
     },
     {
       "gate_id": "5.5",
       "gate_name": "Lexical diversity > 0.55",
       "tier": 5,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "lexical diversity = 0.535 (target >= 0.55)"
+      "detail": "lexical diversity = 0.590 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -537,7 +537,7 @@
       "tier": 9,
       "passed": true,
       "pending": false,
-      "detail": "iterations recorded: 2"
+      "detail": "iterations recorded: 3"
     },
     {
       "gate_id": "9.2",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 474 (cap 600)"
+      "detail": "total verse words = 448 (cap 600)"
     },
     {
       "gate_id": "11.2",
