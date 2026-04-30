@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to read · The Shipping Gita</title>
+<meta name="description" content="How to read The Shipping Gita: structure of a verse, the 84 quality gates, IP discipline, recommended order.">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" class="brand">The Shipping Gita</a>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="chapter-2.html" class="nav-link">Chapter 2</a>
+    <a href="index-by-tag.html" class="nav-link">By tag</a>
+    <a href="how-to-read.html" class="nav-link nav-active">How to read</a>
+    <a class="nav-link nav-external" href="https://github.com/ShipItAndPray/shipping-gita">GitHub</a>
+  </nav>
+</header>
+<main class="site-main">
+<article class="prose"><h1 id="how-to-read-the-shipping-gita">How to read <em>The Shipping Gita</em></h1>
+<h2 id="what-this-book-is">What this book is</h2>
+<p><em>The Shipping Gita</em> is an engineering adaptation of the Bhagavad Gita. For each of the Gita's 700 verses, it places one additional reading alongside the Sanskrit and the traditional translations: a reading in the register of someone who builds and operates software systems. Where the Gita teaches the discipline of action without grasping at outcomes, this book asks: what does that discipline look like inside an on-call rotation? Where the Gita names the substrate that is invariant under change, this book asks: what does that look like across a four-year platform migration?</p>
+<p>The engineering reading is <em>additive</em>. It does not replace the Sanskrit. It does not replace the literal meaning. It does not replace the traditional commentaries. All of those sit on the page first, and the engineering reading sits beside them, clearly labelled.</p>
+<h2 id="what-this-book-is-not">What this book is <em>not</em></h2>
+<p>This book does <strong>not</strong> claim that the Gita is &quot;really&quot; a tech manual. It is not. The Gita is a layered, deeply contested 2,500-year-old text that the world's traditions have read in many ways. Advaita, Vishishtadvaita, Dvaita, modern devotional, and academic readings all coexist. None of them is the engineering reading. The engineering reading is one register among many — it is the register the author works in, and it is the register where the author has found the Gita's operational doctrines transfer cleanly. That is the thesis the book makes, no more.</p>
+<p>This book is also <strong>not</strong> a replacement for studying the Gita itself. It is built on top of the tradition, not in place of it. Readers serious about the Gita should read the original — preferably with a translator and tradition they trust.</p>
+<h2 id="how-to-read-a-verse">How to read a verse</h2>
+<p>Every verse in this book has the same structure:</p>
+<ol><li><strong>Sanskrit anchor.</strong> The Devanāgarī and IAST text. Public domain. The original.</li><li><strong>Literal meaning.</strong> A short, plain English rendering of what the Sanskrit says, drawn from established translations.</li><li><strong>Engineering translation.</strong> A longer prose rendering in the engineering register. This is the book's own writing.</li><li><strong>The scenario.</strong> A concrete example — an actual situation an engineer or operator would recognize — that the verse maps to.</li><li><strong>Quotable line.</strong> A one-sentence callout intended to be portable.</li><li><strong>Implication.</strong> The operational doctrine the verse implies for the working engineer.</li></ol>
+<p>If you only have time for one of these, read the Sanskrit and the literal meaning. The rest is commentary.</p>
+<h2 id="quality-system-the-84-gates-in-plain-language">Quality system (the 84 gates, in plain language)</h2>
+<p>Every verse is scored against a fixed checklist of 84 quality gates before it ships. Roughly: source-pack completeness (Sanskrit triangulated across multiple authoritative sites; multiple translators captured; copyright treated correctly); engineering layer integrity (translation faithful to literal meaning; concrete scenario actually concrete; falsifiability and counter-example present; quotable line ≤ 30 words); chapter-level voice consistency; doctrine consistency across same-tag verses; honest tagging of STRETCHED and LOW-confidence verses. Verses below 70 do not ship without explicit human rescue. The chapter as a whole must hit a median ≥ 78 with ≤ 30% STRETCHED and ≤ 20% LOW. The system is documented in <code>eval/gates.json</code>.</p>
+<h2 id="ip-and-fair-use">IP and fair use</h2>
+<ul><li><strong>Sanskrit text</strong> — public domain. Reproduced in full in source packs and in the chapter.</li><li><strong>Translations</strong> — short attributed quotes, fair-use, with translator and publisher named. Verbatim translations are not reproduced in the readable chapter; they live only in the source packs.</li><li><strong>Commentaries (Shankara, Ramanuja, Prabhupada, Mukundananda, etc.)</strong> — short attributed excerpts, fair-use, with commentator, tradition, and publisher named. Verbatim excerpts are <em>not reproduced in the readable chapters</em> — they live only in the source packs as research scaffolding. The readable chapter contains only Sanskrit and the project's own engineering-layer prose.</li><li><strong>Engineering layer prose</strong> — original to this project. Released under the project's license.</li></ul>
+<h2 id="honest-scope">Honest scope</h2>
+<p>As of this writing: <strong>Chapter 2 is complete</strong> (72 verses). The other 17 chapters are not. The book is being shipped chapter by chapter, in public, with the eval scores on the table. If a chapter does not pass its quality gates, it does not ship.</p>
+<h2 id="repository">Repository</h2>
+<p>Source, eval system, source packs, and verse records are at the <a href="https://github.com/">project repository</a> — see the project's <code>README.md</code> for the canonical link.</p>
+<h2 id="recommended-reading-order">Recommended reading order</h2>
+<ol><li>Read this file (you're here).</li><li>Read <a href="./02-thesis.md"><code>02-thesis.md</code></a> — the chapter's voice spec and structural argument.</li><li>Read <a href="./02.md"><code>02.md</code></a> — the chapter itself, end to end.</li><li>Use <a href="./02-index.md"><code>02-index.md</code></a> to scan, and <a href="./02-by-tag.md"><code>02-by-tag.md</code></a> to find verses on a topic.</li></ol></article>
+</main>
+<footer class="site-footer">
+  <p>An engineering adaptation of the Bhagavad Gītā. Sanskrit is public domain. Engineering-layer prose is original to this project. Traditional commentaries are not reproduced here — they live, attributed and fair-use, in the project's private source packs.</p>
+  <p class="muted"><a href="https://github.com/ShipItAndPray/shipping-gita">https://github.com/ShipItAndPray/shipping-gita</a></p>
+</footer>
+
+</body>
+</html>
