@@ -1,0 +1,233 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.11",
+  "sanskrit_devanagari": "ये यथा मां प्रपद्यन्ते तांस्तथैव भजाम्यहम् ।\nमम वर्त्मानुवर्तन्ते मनुष्याः पार्थ सर्वशः ॥ ११ ॥",
+  "sanskrit_iast": "ye yathā māṁ prapadyante tāṁs tathaiva bhajāmy aham |\nmama vartmānuvartante manuṣyāḥ pārtha sarvaśaḥ || 11 ||",
+  "anvaya": [
+    {
+      "sanskrit": "ये",
+      "iast": "ye",
+      "meaning": "those who"
+    },
+    {
+      "sanskrit": "यथा",
+      "iast": "yathā",
+      "meaning": "as / in whatever way"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "प्रपद्यन्ते",
+      "iast": "prapadyante",
+      "meaning": "approach / take refuge"
+    },
+    {
+      "sanskrit": "तान्",
+      "iast": "tān",
+      "meaning": "them"
+    },
+    {
+      "sanskrit": "तथा एव",
+      "iast": "tathā eva",
+      "meaning": "in just that way"
+    },
+    {
+      "sanskrit": "भजामि",
+      "iast": "bhajāmi",
+      "meaning": "I receive / I requite"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "मम",
+      "iast": "mama",
+      "meaning": "of me / mine"
+    },
+    {
+      "sanskrit": "वर्त्म",
+      "iast": "vartma",
+      "meaning": "path"
+    },
+    {
+      "sanskrit": "अनुवर्तन्ते",
+      "iast": "anuvartante",
+      "meaning": "follow"
+    },
+    {
+      "sanskrit": "मनुष्याः",
+      "iast": "manuṣyāḥ",
+      "meaning": "humans"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O Pārtha (Arjuna)"
+    },
+    {
+      "sanskrit": "सर्वशः",
+      "iast": "sarvaśaḥ",
+      "meaning": "in all ways"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/11/",
+      "fetched_at": "2026-04-30T04:26:59.382Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As all surrender unto Me, I reward them accordingly. Everyone follows My path in all respects, O son of Pṛthā.",
+      "raw_capture_path": "data/sources/raw/bg-4-11-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/",
+      "fetched_at": "2026-04-30T04:27:15.805Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As all surrender unto Me, I reward them accordingly. Everyone follows My path in all respects, O son of Pritha."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/11/",
+      "fetched_at": "2026-04-30T04:26:59.382Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2748 chars)",
+      "verbatim_excerpt": "Everyone is searching for Kṛṣṇa in the different aspects of His manifestations. Kṛṣṇa, the Supreme Personality of Godhead, is partially realized in His impersonal brahma-jyotir effulgence and as the all-pervading Supersoul dwelling within everything, including the particles of atoms.",
+      "raw_full_path": "data/sources/raw/bg-4-11-vedabase.json (purport_full_length: 2748)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.805Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.11 Yatha, according to the manner in which, the purpose for which, seeking, whatever fruit; prapadyante, they approach; mam, Me; aham, I; bhajami, favour; tan, them; tatha eva, in that very manner, by granting that fruit. This is the idea. For they are not seekers of Liberation.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1745,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-11-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's claim that he reciprocates each devotee's mode of approach in the same mode — the seeker after liberation receives liberation, the seeker after worldly fruits receives those, etc. The path is the Lord's; the diversity is in the approach."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.805Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.11 Whoever desirous of resorting to Me, in whatever manner they think of Me according to their inclinations and take refuge in Me, i.e., resort to Me — I favour them in the same manner as desired by them; I reveal Myself to them.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 762,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-11-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse strongly: the Lord, being impartial yet responsive, requites each devotee according to the mode of their approach — meaning the relation is mutual. The verse is not a flat 'all paths are equal' claim; it is a reciprocity claim, where the Lord's reception is shaped by the approach itself."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ye yathā ... tāṁs tathaiva",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "As all surrender unto Me, I reward them accordingly"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Each is received in the form of their approach (worldly seekers get worldly fruits; liberation-seekers get liberation)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "The Lord's reciprocity is real and mode-shaped, not a flat path-equivalence"
+        }
+      ],
+      "explanation": "Modern popular readings often flatten this verse to 'all paths are equal.' The classical reading is sharper: the Lord's response IS shaped by the approach. Worldly approach → worldly fruit; liberation-seeking approach → liberation. The diversity is honored, but the differential receptions are also honored."
+    }
+  ],
+  "literal_meaning": "As those approach me, so I receive them; humans follow my path in all ways, Pārtha.",
+  "traditional_meaning": "Krishna names a reciprocity-principle. Whatever shape one's approach takes, the Lord's reception matches that shape. Sarvaśaḥ — in all ways — humans follow Krishna's path; the path is one but the modes of approach are many. The verse is often quoted as the Gītā's most pluralistic statement.",
+  "engineering": {
+    "translation": "Ye yathā māṁ prapadyante tāṁs tathaiva bhajāmy aham — as people approach Krishna, so he receives them; humans follow his path in all ways. The classical reading is reciprocity, not flat path-equivalence: the form of approach shapes the form of reception. The engineering reading: a senior receives juniors at the level the junior is approaching at. The struggling engineer who comes asking 'how do I make this test pass' gets the sandboxed answer; the staff engineer who comes asking 'how would you architect this control plane' gets the deep architectural conversation. The senior is not gatekeeping by withholding; they are matching reception to approach. The form of the question shapes the form of the answer. The verse honors the seekers; it does not flatten them into one undifferentiated mass.",
+    "concrete_scenario": "A principal engineer has an open Slack channel for engineering questions. In a single day she fields three messages. From a six-month engineer struggling with a flaky vitest case in a Node + TypeScript repo: 'Why does this fail intermittently in CI?' She replies with a specific debugging procedure — check the test's setup, look for timing dependencies in the GitHub Actions runner, run with a deterministic seed. Sandboxed, instrumental, complete. From a four-year engineer asking about rate-limiting algorithms for a public REST endpoint: 'Token bucket vs. sliding window — which should we use behind the API gateway?' She replies with a comparison framework — request distribution shape, burst tolerance, fairness properties, Redis vs. in-memory state — and asks for the specific traffic profile from the Datadog dashboards. Conceptual, framework-shaped. From a staff engineer asking about the team's overall Postgres migration strategy: 'I think our resource model is actually a state-machine that ought to live in our schema, not our application code. Should we lean into that?' She replies with a forty-minute conversation in person, ranging from the team's user research to the cost of migrating, to the analogy with a system she encountered at a previous company. Deep, exploratory, relational. Three different receptions for three different approaches. The path is one — engineering rigor — but the form of reception matches the form of approach.",
+    "falsifiability": "The analog fails if a reader uses 'meet juniors where they are' as cover for never giving deep answers. The verse's reciprocity is symmetric: the staff-engineer-level question gets the staff-engineer-level answer. A senior who replies to deep questions with sandboxed answers is not honoring the verse; they are flattening downward.",
+    "counter_example": "When the form of the question masks its actual depth — when a staff engineer asks a sandboxed-sounding question because they are testing whether the senior will engage — the verse's reciprocity calls for reading the actual depth, not the surface form. The senior who reflexively gives a sandboxed answer to a staff engineer who deserved more has misread the approach. The form of the question is data; the form of the asker is also data.",
+    "implication": "When you reply to a question, ask yourself: what level is this person approaching at? Match the reception to the approach. The form of your answer is part of what you are teaching.",
+    "quotable_line": "Match the reception to the approach. The form of your answer is part of what you are teaching.",
+    "tags": [
+      "code-review-discipline",
+      "team-culture",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

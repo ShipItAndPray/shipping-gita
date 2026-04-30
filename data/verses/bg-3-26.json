@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.26",
+  "chapter": 3,
+  "verse": 26,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The implementation rule for the wise. Do not preach detachment to the unwise; this produces buddhi-bheda — splitting of the intellect — in those who cannot yet implement detachment without losing their own karma. Rather, by yourself acting yuktaḥ (yoked, joined to the discipline) and samācaran (performing well), cause the unwise to enjoy their own karma. The verse charges the wise with a public-facing constraint: do not signal that action is beneath you, even if it is for you, because that signal will be read as 'action is to be abandoned' by people not yet ready to abandon it. In engineering: the senior who openly disdains shipping work, frames code review as low-leverage, or speaks of standups as beneath their level, generates exactly the buddhi-bheda the verse forbids. The juniors will mishear it as 'shipping is for losers,' and abandon their own discipline before they have earned the exemption.",
+    "concrete_scenario": "A staff engineer at a Postgres-shaped fintech, in a Slack channel where ten of her reports can read, types: 'honestly, code review is mostly theater.' She means it as a sigh; she has been doing fifty reviews a week and is tired. Within a month, three of her reports start treating code review as theater. Their reviews become rubber stamps. They merge each other's PRs in fifteen minutes regardless of complexity. None of them has reached the state where they could safely skip review (the staff engineer might be able to, since she has internalised the codebase; they have not). They have heard her phrase as license. The buddhi of the watchers has been split — they no longer trust the review-discipline they were learning to trust. The verse names exactly this pattern. The wise actor's casual signaling, even meant only for herself, becomes the unwise actor's permission. Krishna's rule: vidvān yuktaḥ samācaran joṣayet sarva-karmāṇi — the wise, yoked, performing well, should cause others to take pleasure in all their actions, including the ones the wise actor herself can already see through.",
+    "falsifiability": "The analog fails if read as 'always lie about how you find the work.' The verse is not asking for performance of enthusiasm; it is asking that the wise actor not, in front of those still building the discipline, frame the discipline as beneath them. Honest discussion of trade-offs is not buddhi-bheda; public dismissal is. The diagnostic: does the watching junior leave the conversation more committed to the discipline or less? The former is yuktaḥ-samācaran; the latter is buddhi-bheda.",
+    "counter_example": "Sometimes the discipline genuinely IS theater, and the wise actor is right to call it out — bad code-review culture, performative standups, processes that do not produce their stated outcome. The verse does not forbid honest critique; it forbids the casual signaling that destabilises a working discipline. The diagnostic is whether the discipline is functioning. If yes, do not signal otherwise to those still building it. If no, the conversation is a different one — about fixing the discipline, not abandoning it.",
+    "implication": "Audit your last five months of public-facing comments (Slack, all-hands, written communication). Count the number that, if read by a junior, would produce 'this discipline is beneath us' as the take-away. The verse predicts each such instance has produced detectable buddhi-bheda in at least one watcher.",
+    "quotable_line": "The wise actor's casual dismissal of a discipline becomes the unwise actor's license to abandon it. The verse names this transmission and forbids it.",
+    "tags": [
+      "team-culture",
+      "code-review-discipline",
+      "engineering-pathology",
+      "healthy-eng-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:10:00Z",
+      "mutation": "v0 generation for BG 3.26: source pack triangulated across 5 sources; engineering layer anchored on chapter thesis (Why the Senior Still Ships) and load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

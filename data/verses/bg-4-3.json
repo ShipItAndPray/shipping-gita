@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.3",
+  "chapter": 4,
+  "verse": 3,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna re-discloses the yoga to Arjuna and grounds the disclosure in personal relation: bhakta and sakhā — devotee and friend. Our reading: the deepest principles of a craft are not transmitted by reading documentation. They pass through a relation that combines reverence (the student takes the senior's experience seriously) and intimacy (the senior trusts the student enough to show the unrefined version of their reasoning). The supreme secret — what 4.3 calls rahasyam uttamam — is not a hidden technique. It is the unedited inner reasoning a mentor uses when no Notion doc will ever capture it: the gut sense that this Postgres migration carries risk the test suite will not catch, the architectural instinct that this abstraction will leak in two years, the calibration that says ship now and not in a sprint. Such transmission requires both the bond and the disclosure together.",
+    "concrete_scenario": "A staff engineer at a Kubernetes-native infra company sits down with a senior engineer she has worked alongside for three years. She is about to lead an architectural review for a new control plane. She asks the senior: 'I keep thinking about how to make the reconciliation loop idempotent. The textbook answer is hash the desired state. But I have a feeling that's not what you'd actually do here.' The senior — who in a code review or a design doc would never volunteer this — leans in and says: 'Honestly, the textbook is right for the simple cases. But here's what I'd watch for that the textbook doesn't say. The hash will lie when the upstream API returns a stable but ambiguous representation. I learned this the hard way at my last company in 2019. So I always add a generation number. Don't put that in the design doc. Put the hash in the design doc and the generation number in the code, with a comment.' That sentence — the unwritten judgment about when textbook-true is operationally wrong — is the supreme secret. It transmitted only because of the three-year relation.",
+    "falsifiability": "The analog fails if a reader uses it to justify gatekeeping — withholding important information from anyone outside an inner circle. The relation Krishna names (bhakta and sakhā) qualifies the receiver, but the qualification is character, not credential. A senior who hides operational truth from junior engineers because 'they haven't earned it' has misread this verse. The qualifying relation is reverence + intimacy, both available across seniority levels.",
+    "counter_example": "When a senior's 'unwritten judgment' is actually just an undocumented preference that will not survive scrutiny, dressing it up as rahasyam uttamam is the opposite of what the verse teaches. The verse's secret is content-bearing — Krishna teaches the imperishable yoga. Engineering analogs of this verse must be careful: the unwritten judgment that survives transmission is the one rooted in real failure modes, not the one rooted in personal aesthetic.",
+    "implication": "Notice when a senior tells you something they would never put in writing. That is rahasyam uttamam — the unedited reasoning. Receive it the way Arjuna received it: take it seriously, and earn the next disclosure by acting on this one.",
+    "quotable_line": "The supreme secret is the unedited reasoning a senior uses that will never make it into the design doc.",
+    "tags": [
+      "knowledge-action-integration",
+      "team-culture",
+      "first-principles"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.3 establishes that the deepest disclosure happens within a qualifying relation (bhakta + sakhā = devotee + friend). Engineering layer maps to the senior-to-staff transmission of unwritten operational judgment — what is communicated in conversation that never makes it into design docs. Concrete scenario uses a Kubernetes control plane reconciliation loop discussion, where the senior shares a generation-number trick that the textbook does not name. Counter-example carves out the case of dressing-up of personal preference as 'unwritten wisdom.' Tags: knowledge-action-integration, team-culture, first-principles.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

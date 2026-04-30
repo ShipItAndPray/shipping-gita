@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.21",
+  "chapter": 4,
+  "verse": 21,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Three things characterise the engineer that this verse describes. First, no expectation of result — niraśīḥ. The deploy is sent without rehearsing the launch tweet, the migration is run without rehearsing the credit. Second, mind and intellect under control — yata-citta-ātmā. The internal monologue of yes-but and what-if is disciplined enough that the action issues from the discriminating layer, not from the rumination layer. Third, the sense of proprietorship dropped — tyakta-sarva-parigrahaḥ. The codebase is not 'mine.' The dashboard is not 'mine.' The metric I moved is not 'my metric.' Such an engineer performs śārīraṁ kevalaṁ karma — only the action the role itself requires, no self-monument built on top — and incurs no karmic accumulation, no kilbiṣa, from doing it.",
+    "concrete_scenario": "An on-call engineer at midnight diagnoses a Kafka consumer-lag spike, finds the upstream Postgres replication lag, escalates to the DBA, pages the SRE, watches the queue drain, and writes the postmortem. Throughout the four hours she neither rehearses the next-day Slack credit nor narrates the fix as her victory. The mind-internal-monologue stays on the consumer offsets and the lag chart in Datadog. Code is committed without 'I' in the commit message; the postmortem credits the SRE and the DBA by name; no follow-up tweet is composed. The next morning the tech lead's praise lands and is acknowledged briefly and forgotten. This is śārīraṁ kevalaṁ karma in operational terms — the action the role required, performed without the self-monument. Contrast: the engineer who fixes the same incident and spends the next three days arranging for credit — Slack thread, sprint demo, performance review citation. Both fixed the system; only one performed kevalaṁ karma.",
+    "falsifiability": "The analog fails if a reader uses it to justify dropping documentation, postmortems, or credit-attribution to teammates. The verse rejects proprietorship over the work, not the discipline of the work. An engineer who concludes 'I shouldn't write a postmortem because that's ego-clinging' has misread it; the postmortem is part of śārīraṁ kevalaṁ karma — the action the role requires. What is dropped is the parigrahaḥ — the sense of ownership — not the artifact.",
+    "counter_example": "When a junior is being onboarded and needs to see the senior's reasoning made visible — design notes, decision logs, why-this-not-that — proprietorship-of-thinking is the wrong frame. The senior's job is to show the work so the junior can absorb the pattern, and that visible authorship is part of what the role requires, not a violation of this verse.",
+    "implication": "Audit one recent merge for proprietorship-residue: how much of the artifact was shaped by what the action itself required, and how much was shaped by anticipated credit? The proprietorship-residue is what the verse names as kilbiṣa-incurring.",
+    "quotable_line": "The deploy is sent without rehearsing the launch tweet. That is what this verse calls bodily-only action.",
+    "tags": [
+      "non-attachment-to-praise",
+      "shipping-discipline",
+      "doership"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T04:30:00Z",
+      "mutation": "v0 generation: triangulated source pack (vedabase + holy + bgus including Shankara, Ramanuja, Sridhara, Madhva, Keshava Kashmiri, Vishvanatha Chakravarti, Abhinavagupta). Engineering layer anchors on three privative compounds (niraśīḥ, yata-citta-ātmā, tyakta-sarva-parigrahaḥ) and śārīraṁ kevalaṁ karma. Concrete scenario: on-call Kafka/Postgres incident performed without proprietorship-residue. Counter-example: junior onboarding requires visible authorship, not violation of verse. Named tools: Kafka, Postgres, Datadog, Slack. Tags from controlled vocabulary. Iteration log captured.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

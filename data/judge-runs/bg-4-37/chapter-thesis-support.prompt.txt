@@ -1,0 +1,260 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.37",
+  "sanskrit_devanagari": "यथैधांसि समिद्धोऽग्निर्भस्मसात्कुरुतेऽर्जुन ।\nज्ञानाग्नि: सर्वकर्माणि भस्मसात्कुरुते तथा ॥ 37 ॥",
+  "sanskrit_iast": "yathaidhānsi samiddho 'gnir bhasma-sāt kurute 'rjuna\njñānāgniḥ sarva-karmāṇi bhasma-sāt kurute tathā",
+  "anvaya": [
+    {
+      "sanskrit": "यथा",
+      "iast": "yathā",
+      "meaning": "as"
+    },
+    {
+      "sanskrit": "एधांसि",
+      "iast": "edhāṁsi",
+      "meaning": "fuel"
+    },
+    {
+      "sanskrit": "समिद्धः",
+      "iast": "samiddhaḥ",
+      "meaning": "kindled"
+    },
+    {
+      "sanskrit": "अग्निः",
+      "iast": "agniḥ",
+      "meaning": "fire"
+    },
+    {
+      "sanskrit": "भस्म",
+      "iast": "bhasma",
+      "meaning": "ash"
+    },
+    {
+      "sanskrit": "सात्",
+      "iast": "sāt",
+      "meaning": "to the state of"
+    },
+    {
+      "sanskrit": "कुरुते",
+      "iast": "kurute",
+      "meaning": "reduces"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "Arjuna"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "अग्निः",
+      "iast": "agniḥ",
+      "meaning": "fire"
+    },
+    {
+      "sanskrit": "सर्व",
+      "iast": "sarva",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "similarly"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/37/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As a blazing fire turns firewood to ashes, O Arjuna, so does the fire of knowledge burn to ashes all reactions to material activities.",
+      "raw_capture_path": "data/sources/raw/bg-4-37-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/37",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.37: As a kindled fire reduces wood to ashes, O Arjun, so does the fire of knowledge burn to ashes all reactions from material activities."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/37/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Perfect knowledge of self and Superself and of their relationship is compared herein to fire. This fire not only burns up all reactions to impious activities, but also all reactions to pious activities, turning them to ashes.",
+      "verbatim_full_length": 716,
+      "raw_full_path": "data/sources/raw/bg-4-37-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-37/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.37 O Arjuna, yatha, as; a samiddhah, blazing; agnih, fire, a well lighted fire; kurute, reduces; edhamsi, pieces of wood; bhasmasat, to ashes; tatha, similarly; jnanagnih, the fire of Knowledge-Knowledge itself being the fire; kurute, reduces; bhasmasat, to ashes; sarva-karmani, all actions, i.e. it renders them…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1327,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-37-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-37/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.37 The fire of knowledge concerning the real nature of the self reduces to ashes the collection of endless Karmas accumulated from beginningless times, just as a well-kindled fire reduces to ashes a bundle of firewood.",
+      "verbatim_excerpt_length": 220,
+      "verbatim_full_length": 220,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-37-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-37/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "To remove any doubt or misconceptions that might arise from the previous verse that sins may be crossed over but not absolved Lord Krishna gives the illustration that fire of spiritual knowledge as revealed in the Vedic scriptures burns to ashes all karmas or reactions to…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 386,
+      "raw_full_path": "data/sources/raw/bg-4-37-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.37: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "As kindled fire reduces fuel to ash, Arjuna, so the fire of knowledge reduces all karma to ash.",
+  "traditional_meaning": "yathaidhāṁsi samiddho 'gnir bhasmasāt kurute 'rjuna — as kindled fire reduces fuel to ash, Arjuna — jñānāgniḥ sarva-karmāṇi bhasmasāt kurute tathā — the fire of knowledge similarly reduces all karma to ash. Shankara: the metaphor is precise — fire does not just consume one log at a time; the kindled fire reduces all fuel to the same end-state (ash). Knowledge similarly: when realised, all the karma-fabric (sarva-karmāṇi) is reduced to ineffectiveness. The verse extends 4.36's claim: not only is past wickedness crossed, the karma itself is destroyed. Ramanuja: the karma-yogin's realisation of the self destroys the karma's binding force; the deeds remain but their power to bind has been burned out.",
+  "engineering": {
+    "translation": "Krishna sharpens the metaphor. Where 4.36 named the boat that carries across, 4.37 names the fire that destroys. The senior whose understanding has reached the level of the kindled fire moves through the codebase in a way that reduces accumulated mistakes — her own and others — to ash. Operationally: when the senior who has truly internalised the system fixes a bug, the bug-class is fixed, not just the instance. When she refactors a Postgres-backed module, the patterns of confusion that produced the module's complexity are reduced, not just renamed. When she drafts a design doc, the architectural failure-modes the document targets are eliminated, not merely relocated to a future iteration. The verse names the specific quality of action that issues from realised understanding: it does not displace the problem; it reduces it. STRETCHED: the verse's claim is about karma in the metaphysical sense (the binding fabric of all past action) and the engineering shadow operates at the operational level (technical-debt reduction by understanding-illuminated work).",
+    "concrete_scenario": "A senior engineer is asked to fix a recurring issue: a particular cache-coherence bug reported six times across the past year, each instance fixed and each fix followed by recurrence. She declines to patch the seventh instance. Instead she spends a week studying the involved code-paths, reading the team's history with the bug, and tracing patterns across the six prior fixes. She produces a redesign of the Redis caching layer that eliminates the entire bug-class. Her redesign ships; recurrence stops. Six months later her colleague observes that three other recurring bug-classes in nearby code have also vanished, because her redesign clarified an invariant those bugs depended on. The fire of knowledge consumed not just the seventh instance but the bug-class plus three adjacent ones. A novice fixes the seventh instance and produces a fix; the senior reads through six years of recurrence and produces an end-of-recurrence.",
+    "falsifiability": "The analog fails if a reader concludes that sufficient understanding makes bugs go away without intervention. The fire of knowledge in the engineering shadow still requires the work of redesign, the shipping of the redesign, the observability that confirms the bug-class did not recur. The understanding does not cancel the work; it directs the work into reductive shape rather than displacing shape.",
+    "counter_example": "When a recurring bug-class is rooted in an external constraint — a vendor's flaky API, a regulatory requirement that mandates a specific (broken) behaviour, a hardware error rate — the fire of knowledge does not reduce it. The verse names the destruction of internally-rooted accumulation; externally-rooted patterns require external action.",
+    "implication": "Catalogue your recurring bug-classes. The ones you can reduce by deeper understanding are the operational shadow of this verse. The ones you cannot are not in this verse's scope.",
+    "quotable_line": "The novice fixes the seventh instance; the senior produces an end-of-recurrence.",
+    "tags": [
+      "tech-debt",
+      "essence-vs-implementation",
+      "first-principles",
+      "system-recognition"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

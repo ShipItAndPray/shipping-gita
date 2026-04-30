@@ -1,0 +1,216 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.36",
+  "sanskrit_devanagari": "अपि चेदसि पापेभ्य: सर्वेभ्य: पापकृत्तम: ।\nसर्वं ज्ञानप्लवेनैव वृजिनं सन्तरिष्यसि ॥ 36 ॥",
+  "sanskrit_iast": "api ched asi pāpebhyaḥ sarvebhyaḥ pāpa-kṛit-tamaḥ\nsarvaṁ jñāna-plavenaiva vṛijinaṁ santariṣhyasi",
+  "anvaya": [
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "चेत्",
+      "iast": "cet",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "असि",
+      "iast": "asi",
+      "meaning": "you are"
+    },
+    {
+      "sanskrit": "पापेभ्यः",
+      "iast": "pāpebhyaḥ",
+      "meaning": "than sinners"
+    },
+    {
+      "sanskrit": "सर्वेभ्यः",
+      "iast": "sarvebhyaḥ",
+      "meaning": "of all"
+    },
+    {
+      "sanskrit": "पापकृत्तमः",
+      "iast": "pāpa-kṛt-tamaḥ",
+      "meaning": "the most sinful"
+    },
+    {
+      "sanskrit": "सर्वम्",
+      "iast": "sarvam",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "ज्ञानप्लवेन",
+      "iast": "jñāna-plavena",
+      "meaning": "by the boat of knowledge"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "वृजिनम्",
+      "iast": "vṛjinam",
+      "meaning": "wickedness"
+    },
+    {
+      "sanskrit": "सन्तरिष्यसि",
+      "iast": "santariṣyasi",
+      "meaning": "you will cross over"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/36/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Even if you are considered to be the most sinful of all sinners, when you are situated in the boat of transcendental knowledge you will be able to cross over the ocean of miseries.",
+      "raw_capture_path": "data/sources/raw/bg-4-36-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/36",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.36: Even those who are considered the most immoral of all sinners can cross over this ocean of material existence by seating themselves in the boat of divine knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/36/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Proper understanding of one’s constitutional position in relationship to Kṛṣṇa is so nice that it can at once lift one from the struggle for existence which goes on in the ocean of nescience. This material world is sometimes regarded as an ocean of nescience and sometimes as a blazing forest.",
+      "verbatim_full_length": 671,
+      "raw_full_path": "data/sources/raw/bg-4-36-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-36/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.36 Api cet asi, even if you be; papa-krt-tamah, the worst sinner, extremely sinful; sarvebhyah, among all; papebhyah, the sinners (papa, lit. sin, means here sinner) ; still santarisyasi, you will cross over; sarvam, all; the vrjinam, wickedness, the ocean of wickedness, sin; [Ast. reads papa-samudram, (ocean of…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 691,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-36-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-36/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.36 Even though you be the most sinful of all sinners, you will completely cross over the sea of sins previoulsy accumulated, with the boat of knowledge concerning the self.",
+      "verbatim_excerpt_length": 174,
+      "verbatim_full_length": 174,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-36-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-36/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Lord Krishna now exclaims that even if one was an incorrigible sinner previously if they approach a self-realised being and receive this knowledge from him they will easily cross over the ocean of all their sins solely by the potency of this spiritual knowledge.",
+      "verbatim_excerpt_length": 262,
+      "verbatim_full_length": 262,
+      "raw_full_path": "data/sources/raw/bg-4-36-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.36: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Even if you are the most sinful of all sinners, by the boat of knowledge alone you will cross all wickedness.",
+  "traditional_meaning": "api ced asi pāpebhyaḥ sarvebhyaḥ pāpa-kṛt-tamaḥ — even if you are the most sinful of all sinners — sarvaṁ jñāna-plavenaiva vṛjinaṁ santariṣyasi — you will cross all wickedness by the boat (plava) of knowledge alone. Shankara: the verse stakes a strong claim — knowledge alone (jñāna-plavenaiva, with the emphatic 'eva') is sufficient to cross even the largest accumulation of evil. The metaphor is the boat carrying one across the ocean of saṁsāra. Ramanuja: the knowledge of the self, when realised, carries the karma-yogin across the prior accumulation of karma; the verse legitimises the path even for those carrying heavy past karma.",
+  "engineering": {
+    "translation": "Even if the engineer carries large accumulated technical debt — the architectural mistakes of years past, the under-tested code paths, the rushed migrations that left scars, the production incidents she caused — the boat of system-knowledge carries her across. The verse is metaphorical and the engineering analog stays metaphorical-but-honest: the senior who has worked the Postgres-and-Kafka codebase for five years, who has internalised the model deeply, can navigate the accumulated debt in a way the new hire cannot. The new hire faces the wreckage as a collection of obstacles; the senior faces the same wreckage as a known terrain to be traversed. The boat is not a magical cancellation of the debt; it is the operating fluency that lets the engineer move through it. The verse's metaphysical scope (crossing of vṛjina, the wickedness-of-saṁsāra) is preserved at source-pack level.",
+    "concrete_scenario": "A platform team inherits a six-year-old codebase from an acquisition. Three different ORMs sit in three different layers; tests reference deleted modules; Datadog dashboards point at retired endpoints; a custom job-queue exists that nobody outside the original team understands; and the system handles significant customer-facing throughput on AWS. A new engineering hire is overwhelmed for two months. A senior engineer who joined three years before the acquisition, and has worked the codebase for six months since, moves through it differently. Her past six months were substantial substrate-reading, careful inquiry, not just shipping. She has built her boat. Now when a critical bug arises in the inherited code, she navigates the wreckage in three days. The new hire would have needed six weeks. Accumulated debt is identical; what differs is the boat. STRETCHED: the verse claims metaphysical reach (sarvaṁ vṛjinam, all wickedness, ocean of saṁsāra); the engineering analog operates at the operational shadow.",
+    "falsifiability": "The analog fails if a reader uses it to imply that knowledge cancels the cost of past technical debt. The senior with the boat still pays the cost — six months of substrate-reading is itself a cost; the customers affected by past mistakes were affected; the time lost is lost. The boat lets her cross the ocean; it does not turn the ocean into a meadow. An engineer who concludes 'if I learn enough, the past debt does not matter' has misread it.",
+    "counter_example": "When the technical debt is structurally beyond any single engineer's capacity to cross — when the system is fundamentally broken at a level that requires institutional decision rather than individual fluency — the boat of knowledge does not cross it. The verse names the discipline of an individual; it does not promise that individual disciplines compensate for institutional failures.",
+    "implication": "Catalogue the technical debt you actually carry. Some of it can be crossed by deeper system-knowledge; some of it cannot. The verse describes the first; it does not authorise pretending the second does not exist.",
+    "quotable_line": "The accumulated debt is the same; what differs is the boat.",
+    "tags": [
+      "tech-debt",
+      "essence-vs-implementation",
+      "system-recognition",
+      "first-principles"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

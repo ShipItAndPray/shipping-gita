@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.28",
+  "chapter": 3,
+  "verse": 28,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The complement to 3.27. The tattva-vit (knower of the truth) sees the gunas operating among the gunas — guṇāḥ guṇeṣu vartante — and therefore does not get attached. The verse names the cognitive shift that frees the realised actor from binding-to-fruits while still permitting full action. In engineering at the operational layer: the senior who has internalised the team's collective practice sees, when an artifact ships, that the codebase produced the codebase — the system of practices, the historical decisions, the chain of contributors, the institutional knowledge — produced this output. She participates in the production but does not identify with the output. She remains unattached not because she is suppressing emotion but because she is reading authorship correctly.",
+    "concrete_scenario": "A principal engineer at a payments company observes a junior engineer's PR merge on GitHub on a Tuesday. The PR is good; the junior is pleased; Slack lights up. The principal could attribute the goodness to many things: the junior's careful work, the staff engineer's redirect at design review three weeks ago, the existing codebase whose patterns made the right move easy to spot, the test infrastructure the SRE team built that caught two issues before they reached review, the on-call rotation that surfaced the original bug-class six months ago that motivated the work in the first place. The principal sees all of this. She also sees that her own contribution was a single comment on the design review that nudged the data-model. She could claim authorship; she does not. She sees guṇāḥ guṇeṣu vartante — the system's components operating on the system's components — and her attachment to the output drops to zero. She is pleased; she is not invested. The work shipped well; the next work will also need to ship; her relationship to the output is unaffected by who applauds and who does not. This is the operational version of 3.28's tattva-vit.",
+    "falsifiability": "The analog fails if read as detachment-from-the-team. The verse's operational shadow is reading-authorship-correctly, not affective-distance. The principal who reads authorship correctly is more attentive to the team, not less, because she is now seeing every contributor whose contribution she previously collapsed into 'I.'",
+    "counter_example": "Some attachment is legitimate. The engineer whose specific bug-fix saved a launch is allowed to feel something specific about that. The verse does not erase real authorship; it asks for accurate authorship-reading. The realised actor sees both the gunas operating and her own component within them; she is detached from the inflated kartāham claim, not from her actual contribution.",
+    "implication": "When the next shipping output arrives, before allowing the kartāham reflex, list five components of the production that you did not author. The list will reveal where the gunas were operating; the dropping of attachment is the natural consequence of seeing them.",
+    "quotable_line": "The senior who reads authorship correctly is unattached not from suppressing emotion but from seeing the gunas operating among themselves.",
+    "tags": [
+      "doership",
+      "operator-system-coupling",
+      "team-culture",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:10:00Z",
+      "mutation": "v0 generation for BG 3.28: source pack triangulated across 5 sources; engineering layer anchored on chapter thesis (Why the Senior Still Ships) and load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

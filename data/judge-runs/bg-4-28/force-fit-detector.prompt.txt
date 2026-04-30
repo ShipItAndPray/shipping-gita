@@ -1,0 +1,233 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.28",
+  "sanskrit_devanagari": "द्रव्ययज्ञास्तपोयज्ञा योगयज्ञास्तथापरे ।\nस्वाध्यायज्ञानयज्ञाश्च यतय: संशितव्रता: ॥ 28 ॥",
+  "sanskrit_iast": "dravya-yajñās tapo-yajñā yoga-yajñās tathāpare\nswādhyāya-jñāna-yajñāśh cha yatayaḥ sanśhita-vratāḥ",
+  "anvaya": [
+    {
+      "sanskrit": "द्रव्य",
+      "iast": "dravya",
+      "meaning": "substance / material"
+    },
+    {
+      "sanskrit": "यज्ञाः",
+      "iast": "yajñāḥ",
+      "meaning": "sacrifices / offerings"
+    },
+    {
+      "sanskrit": "तपः",
+      "iast": "tapaḥ",
+      "meaning": "austerity"
+    },
+    {
+      "sanskrit": "यज्ञाः",
+      "iast": "yajñāḥ",
+      "meaning": "sacrifices"
+    },
+    {
+      "sanskrit": "योग",
+      "iast": "yoga",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "यज्ञाः",
+      "iast": "yajñāḥ",
+      "meaning": "sacrifices"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अपरे",
+      "iast": "apare",
+      "meaning": "others"
+    },
+    {
+      "sanskrit": "स्वाध्याय",
+      "iast": "svādhyāya",
+      "meaning": "self-study / recitation"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "यज्ञाः",
+      "iast": "yajñāḥ",
+      "meaning": "sacrifices"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "यतयः",
+      "iast": "yatayaḥ",
+      "meaning": "ascetics"
+    },
+    {
+      "sanskrit": "संशित",
+      "iast": "saṁśita",
+      "meaning": "sharp / firm"
+    },
+    {
+      "sanskrit": "व्रताः",
+      "iast": "vratāḥ",
+      "meaning": "vows"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/28/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Having accepted strict vows, some become enlightened by sacrificing their possessions, and others by performing severe austerities, by practicing the yoga of eightfold mysticism, or by studying the Vedas to advance in transcendental knowledge.",
+      "raw_capture_path": "data/sources/raw/bg-4-28-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/28",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.28: Some offer their wealth as sacrifice, while others offer severe austerities as sacrifice. Some practice the eight-fold path of yogic practices, and yet others study the scriptures and cultivate knowledge as sacrifice, while observing strict vows."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/28/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "These sacrifices may be fitted into various divisions. There are persons who are sacrificing their possessions in the form of various kinds of charities. In India, the rich mercantile community or princely orders open various kinds of charitable institutions like dharma-śālā, anna-kṣetra, atithi-śālā, anāthālaya and vi",
+      "verbatim_full_length": 2174,
+      "raw_full_path": "data/sources/raw/bg-4-28-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-28/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.28 Tatha, similarly; apare, others; are dravya-yajnah, perfomers of sacrifices through wealth-those sacrificers who spend wealth (dravya) in holy places under the idea of performing sacrifices; tapo-yajnah, performers of sacrifices through austerity, men of austerity, to whom austerity is a sacrifice; [This is…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1072,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-28-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-28/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.28 Some Karma Yogins perform the sacrifice of material objects. Some worship the gods with materials honestly acquired. Some practise charity, some engage themselves in sacrifices and in making oblations into the sacred fire. All these perform sacrifice with material objects. Some do the sacrifice of austerity by…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 814,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-28-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-28/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "There are others who unable to perform austerities themselves give charity and feed all the guests at the festivals of the Supreme Lord and also give donations to the twice born Vaisnavas and Brahmins to perform yagnas or offerings of worship to propitiate the Supreme Lord.…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 722,
+      "raw_full_path": "data/sources/raw/bg-4-28-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.28: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Substance-offerers, austerity-offerers, yoga-offerers, and study-and-knowledge-offerers — disciplined ascetics with sharp vows.",
+  "traditional_meaning": "Four more yajña-types in a single half-verse: dravya-yajñāḥ (those whose offering is material substance — almsgiving, ritual oblations, gifts), tapo-yajñāḥ (those whose offering is austerity — fasting, vow-keeping, discomfort-acceptance), yoga-yajñāḥ (those whose offering is yogic discipline), svādhyāya-jñāna-yajñāḥ (those whose offering is recitation/study leading to knowledge), all of them yatayaḥ saṁśita-vratāḥ (ascetics with sharp vows). Shankara: the verse is naming the breadth of legitimate yajña-disciplines. Ramanuja: each is a karma-yoga sub-shape; all are legitimate ways to participate in the sustaining order.",
+  "engineering": {
+    "translation": "Four more shapes of engineering yajña, each with a different offering. Dravya-yajña: material-substance contribution — the engineer who offers compute, infrastructure spend, hardware, hours; the open-source maintainer who keeps the lights on with their resources. Tapo-yajña: austerity-contribution — the engineer who keeps the on-call pager, who does the unglamorous deprecation work, who stays for the long migration; the offering is acceptance of discomfort the work requires. Yoga-yajña: practice-contribution — the engineer whose offering is the held discipline of code review, design review, test-writing, the daily practices that sustain the team's quality. Svādhyāya-jñāna-yajña: study-contribution — the engineer whose offering is reading the actual papers, the actual RFCs, the actual Postgres docs, and bringing what they read back into the team's working understanding. All four are legitimate. All require the saṁśita-vrata — the sharp vow, the held practice.",
+    "concrete_scenario": "A four-person engineering team has one engineer of each type. Avi pays the AWS bill out of his own corporate card for the open-source side project the team maintains together — dravya-yajña. Beti is the on-call lead and has held the pager for eighteen consecutive months without rotating off — tapo-yajña. Cari is the code-review and design-doc discipline-keeper; every PR she reviews comes back tighter, every design doc she comments on grows a precise diagram — yoga-yajña. Dav is the team's substrate-reader; he reads the Postgres internals papers, the Raft paper, the Aphyr Jepsen analyses, and brings them back into Slack threads when they bear on a current decision — svādhyāya-jñāna-yajña. Each is a yatayaḥ saṁśita-vrataḥ — disciplined, sharp-vowed. The team works because all four shapes are present and each is held seriously.",
+    "falsifiability": "The analog fails if a reader concludes that any sustained engineering activity counts as one of these. Each yajña-type carries a saṁśita-vrata — the sharp vow, the held practice. Reading occasional blog posts is not svādhyāya-jñāna-yajña; reading actual papers and bringing them into the team's working understanding is. The discipline qualifier is doing the work of separating yajña from going-through-motions.",
+    "counter_example": "When a team is small and early-stage, distributing one engineer to each of these yajña-shapes is wasteful; one engineer holds two or three, and that is correct. The typology names legitimate shapes, not a quota structure. Equally, larger teams may have specialised yajña-shapes (release-engineering-yajña, security-yajña, accessibility-yajña) not in this list; the list is illustrative.",
+    "implication": "Identify which yajña-shape is missing on your team. The team's pathology is most often that one of these four is structurally absent — usually svādhyāya, sometimes tapas. The diagnostic moves the question from 'who is underperforming' to 'which discipline is unrepresented.'",
+    "quotable_line": "Code, austerity, study, and the held-pager — four shapes of the same offering.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "code-review-discipline",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

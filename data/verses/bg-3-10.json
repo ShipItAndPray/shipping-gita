@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.10",
+  "chapter": 3,
+  "verse": 10,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The cosmic argument begins. Prajāpati, having created creatures along with yajña (saha-yajñāḥ prajāḥ sṛṣṭvā), said in the beginning: 'By this you shall multiply; let it be your wish-fulfilling cow.' Per the Advaita gloss, the wheel was set in motion at creation; yajña is constitutive of the cosmos, not a later add-on. Per the Vishishtadvaita reading, Prajāpati is the Supreme Person's creative agent; the wheel is real cosmic exchange. The verse's metaphysical scope is large. The engineering analog is honestly STRETCHED: the operational layer can register a sustaining loop (teams and customers and systems feeding each other through the deploy/feedback cycle), but the original's claim that this loop is COSMOLOGICALLY PRIMORDIAL — built into the structure of creation — exceeds what our analog can carry. The shadow is real; the cosmological grounding is the original's, not the analog's.",
+    "concrete_scenario": "A founder closes the company's first major contract with a customer in late 2024. The agreement is for a B2B SaaS product running on AWS. From day one, the founder structures the relationship as a sustaining cycle: the buyer pays in monthly subscriptions; the engineering team ships features and fixes through GitHub; the product surfaces telemetry that the customer reads through a dashboard; the customer files feedback through Linear; the engineering team triages and ships again. Two years later, in 2026, the loop is still running. The buyer has been retained through three pricing changes, two architecture rewrites, and one CEO change. When asked what made the relationship durable, the founder says: 'We never treated the customer as outside party. From the first day, they were inside our cycle. Every PagerDuty escalation that their incident triggered was treated as a real obligation, not a courtesy. Every Linear ticket they filed got triaged, even when unwelcome. The relationship was structured as mutual feeding from day one.' Verse 3.10 names this kind of structure cosmologically; the engineering analog is operational only.",
+    "falsifiability": "The analog fails if a reader uses 3.10 to claim that the engineering loop has cosmological status. It does not. The verse's metaphysics is real and should not be flattened into 'business relationships are sacred'. The engineering analog is at the operational layer; the cosmological scope of the original is preserved by tagging the analog STRETCHED. Anyone reading the verse to mean 'customer relationships are yajña' has erased the metaphysical scope of the original.",
+    "counter_example": "When a customer relationship is genuinely transactional — a one-time purchase with no ongoing loop — the verse's structure does not apply. The verse describes saha-yajñāḥ prajāḥ — beings created TOGETHER with yajña, in a cycle. A one-shot transaction is not the cycle. The engineering analog is for sustained operational loops, not for any commercial exchange.",
+    "implication": "If your product has a customer relationship that runs over years, structure it as a loop from day one — not as outreach plus support. The Linear ticket, the PagerDuty escalation, the monthly subscription are the loop's mechanics. Treat them as structural, not as overhead.",
+    "quotable_line": "Structure the customer relationship as a loop from day one; the Linear ticket and the PagerDuty escalation are its mechanics.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "feedback-loops"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.10 — METAPHYSICALLY LOADED per task spec. Engineering layer marked STRETCHED honestly: the operational loop analog is real (customer-team-system sustaining cycle), but the cosmological scope of saha-yajñāḥ prajāḥ exceeds the analog. Concrete scenario uses a B2B SaaS founder structuring the customer relationship as a loop from day one — Linear, PagerDuty, telemetry as the loop's mechanics. Counter-example carves out one-shot transactional exchanges. Tags: yajna-as-discipline, team-culture, feedback-loops.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

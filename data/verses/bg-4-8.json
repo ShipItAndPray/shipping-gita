@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.8",
+  "chapter": 4,
+  "verse": 8,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Paritrāṇāya sādhūnāṁ vināśāya ca duṣkṛtām — for the protection of the good, the destruction of the wicked, the firm establishment of dharma. Krishna names the threefold purpose of the avatar. The verse's metaphysical claim is far larger than any engineering analog. STRETCHED-tagged. The operational pattern at engineering scope: when a senior steps up to restore decayed discipline (4.7), the work has three phases — protect the engineers still doing the right thing (paritrāṇāya), remove or neutralise the patterns that are destroying the practice (vināśāya), and re-establish the discipline (saṁsthāpana). The verse's vināśāya does not map cleanly to engineering — Ramanuja reads even the destruction as a deliverance, and engineering analogs that flatten this to 'fire bad engineers' have misread both verse and pattern. The engineering 'destruction' is of patterns and incentive structures, not people. STRETCHED tagged honestly.",
+    "concrete_scenario": "Continuing the pattern from 4.7: the staff engineer who joined the decaying infrastructure team has stabilised the operational rhythm. Now she enters phase two. She identifies that the team's most rigorous on-call engineer has been silently absorbing the work of three less-engaged peers on the Postgres + Redis + Kubernetes incident rotation — protecting her would mean redistributing that load (paritrāṇāya) by rebalancing the PagerDuty schedule and writing GitHub PR-review responsibilities into the team charter. She identifies that the manager's habit of asking 'who caused this?' in postmortem meetings is the pattern producing the finger-pointing (vināśāya — but of the question, not the manager). She works with the manager to rephrase: 'what condition allowed this?' Within a quarter, the rigorous on-call engineer is no longer absorbing all of the deploy-rollback work silently; the bad question is gone; weekly postmortems run blameless again on Datadog incident replay. Three phases: protect the right people, neutralise the wrong patterns, establish the right discipline (saṁsthāpana). The verse's scope is far larger; the operational analog respects the limit.",
+    "falsifiability": "The analog fails most dangerously if a reader interprets 'vināśāya duṣkṛtām' as 'fire the underperformers.' Ramanuja's reading is that the destruction is itself a deliverance — the duṣkṛta's adharma is dissolved by encounter with the divine. The engineering analog is even more limited: what is destroyed is patterns, not people. Anyone using this verse to justify a culling has distorted both the verse and the analog.",
+    "counter_example": "When the operational pattern that needs neutralising is genuinely embodied in a specific person who cannot adapt, the engineering response is still not violence — it is reassignment, coaching, or in extreme cases, exit. The verse and the operational pattern do not authorise violence. The 'destruction' is metaphorical at operational scope: it is the destruction of the harmful pattern.",
+    "implication": "When a senior is restoring discipline, watch the three phases. Protect those still doing right (the rigorous engineer absorbing too much). Neutralise the patterns producing harm (the manager's blame-question). Establish the new discipline (the new postmortem template). All three together; none of them alone.",
+    "quotable_line": "Protect the right people. Neutralise the wrong patterns. Establish the new discipline. Not one of the three; all three together.",
+    "tags": [
+      "incident-response",
+      "team-culture",
+      "healthy-eng-culture"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.8 names the threefold purpose of the avatar. STRETCHED tagged. Engineering layer maps to the three operational phases of restoring a decayed team (protect / neutralise / establish), explicitly noting Ramanuja's compassionate reading of vināśāya as deliverance, NOT as 'fire underperformers.' The 'destruction' at operational scope is of patterns, not people. Concrete scenario continues the 4.7 staff engineer's restoration work. Counter-example explicitly forbids the violence-reading.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

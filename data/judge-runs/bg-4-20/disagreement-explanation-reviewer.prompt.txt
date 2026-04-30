@@ -1,0 +1,226 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.20",
+  "sanskrit_devanagari": "त्यक्त्वा कर्मफलासङ्गं नित्यतृप्तो निराश्रयः ।\nकर्मण्यभिप्रवृत्तोऽपि नैव किञ्चित्करोति सः ॥ २० ॥",
+  "sanskrit_iast": "tyaktvā karma-phalāsaṅgaṁ nitya-tṛpto nirāśrayaḥ |\nkarmaṇy abhipravṛtto 'pi naiva kiñcit karoti saḥ || 20 ||",
+  "anvaya": [
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "of action"
+    },
+    {
+      "sanskrit": "फलासङ्गम्",
+      "iast": "phalāsaṅgam",
+      "meaning": "attachment to fruits"
+    },
+    {
+      "sanskrit": "नित्य",
+      "iast": "nitya",
+      "meaning": "ever / always"
+    },
+    {
+      "sanskrit": "तृप्तः",
+      "iast": "tṛptaḥ",
+      "meaning": "satisfied / content"
+    },
+    {
+      "sanskrit": "निराश्रयः",
+      "iast": "nirāśrayaḥ",
+      "meaning": "without dependence / without shelter (in any external)"
+    },
+    {
+      "sanskrit": "कर्मणि",
+      "iast": "karmaṇi",
+      "meaning": "in action"
+    },
+    {
+      "sanskrit": "अभिप्रवृत्तः",
+      "iast": "abhipravṛttaḥ",
+      "meaning": "fully engaged"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "though"
+    },
+    {
+      "sanskrit": "न एव",
+      "iast": "na eva",
+      "meaning": "not at all"
+    },
+    {
+      "sanskrit": "किञ्चित्",
+      "iast": "kiñcit",
+      "meaning": "anything"
+    },
+    {
+      "sanskrit": "करोति",
+      "iast": "karoti",
+      "meaning": "does"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/20/",
+      "fetched_at": "2026-04-30T04:26:59.712Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Abandoning all attachment to the results of his activities, ever satisfied and independent, he performs no fruitive action, although engaged in all kinds of undertakings.",
+      "raw_capture_path": "data/sources/raw/bg-4-20-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-20/",
+      "fetched_at": "2026-04-30T04:27:14.442Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Abandoning all attachment to the results of his activities, ever satisfied and independent, he performs no fruitive action, although engaged in all kinds of undertakings."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/20/",
+      "fetched_at": "2026-04-30T04:26:59.712Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 874 chars)",
+      "verbatim_excerpt": "This freedom from the bondage of actions is possible only in Kṛṣṇa consciousness, when one is doing everything for Kṛṣṇa. A Kṛṣṇa conscious person acts out of pure love for the Supreme Personality of Godhead, and therefore he has no attraction for the results of the action.",
+      "raw_full_path": "data/sources/raw/bg-4-20-vedabase.json (purport_full_length: 874)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-20/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.442Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.20 With the help of the above-mentioned wisdom, tyaktva, having given up the idea of agentship; and phala-asangam, attachment to the results of action; he who is nitya-trptah, ever-trptah, ever-contented, i.e. has no hankering for objects; and nirasrayah, dependent on nothing-.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1928,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-20-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as the integrated portrait: the actor whose mind is released from fruit-attachment, whose contentment is intrinsic and constant (not contingent on outcomes), and who is dependent on no external support — such an actor's full engagement in action is, metaphysically, akarma. The verse is 4.18 made operational."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-20/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.442Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.20 Whoever performs actions, renouncing attachment to their fruits and is satisfied with the eternal, i.e., satisfied with his own self, and dependent on none, i.e., devoid of dependence on transient Prakrti (body and external nature) — such a perosn, even though fully engaged in actions, does not…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 438,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-20-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as the description of the karma-yogin established in the practice: the one who, having relinquished fruit-attachment, rests in the inner contentment of devotion to the Lord and does not seek refuge in any worldly support. Such a one's action, however fully performed, does not bind because it is offered, not appropriated."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naiva kiñcit karoti saḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "always engaged in work, [yet] he is doing nothing"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "his fully-engaged action is metaphysically akarma — non-binding because issuing from non-doership"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "his action does not bind because it is offered, not appropriated by an ego that claims authorship"
+        }
+      ],
+      "explanation": "All three preserve the paradox: full engagement + no doing. Shankara grounds the paradox in non-doership of the Self; Ramanuja grounds it in offered action without ego-appropriation. Both readings are coherent with 2.47 (no claim to authorship of fruits) and 4.18 (the seer's paradoxical relation to action)."
+    }
+  ],
+  "literal_meaning": "Having abandoned attachment to the fruits of action, ever content, dependent on nothing — though fully engaged in action, he does not act at all.",
+  "traditional_meaning": "The verse is the operational portrait of 4.18's seer. Three qualities are named: (1) tyaktvā karma-phalāsaṅgam — having released attachment to fruits (echoing 2.47); (2) nitya-tṛpta — ever-content; (3) nirāśraya — taking shelter in nothing external. Such a one, though fully engaged in action (karmaṇy abhipravṛttaḥ), does not act at all in the binding-sense. The verse anchors the chapter's practice in coherence with the 2.47-2.48 doctrine and prepares 4.21-4.23.",
+  "engineering": {
+    "translation": "Tyaktvā karma-phalāsaṅgaṁ nitya-tṛpto nirāśrayaḥ — having abandoned attachment to fruits, ever content, taking shelter in nothing — though fully engaged in action, he does not act at all. The verse is the operational portrait of 4.18's seer and echoes 2.47-2.48. Three qualities are named: released from fruit-attachment, ever-satisfied, dependent on nothing external. Our reading: a principal who is fully shipping but not bound by what the shipping produces; whose contentment is intrinsic, not contingent on the next promotion or the next public talk; who has not made any particular framework, manager, employer, or accolade the source of her stability. Such a builder is wholly engaged — coding, reviewing, mentoring, debugging — and yet, in the binding-sense, does not act at all. This coheres with 2.47 (no claim to authorship of fruits) and with 4.18 (the seer's paradoxical relation to doing) and anticipates BG 6's meditation chapter without overshooting.",
+    "concrete_scenario": "A principal engineer at her fifth employer in twenty years is in the most engaged phase of her career: shipping a large Postgres-to-distributed-SQL reliability migration, mentoring three staff colleagues, reviewing roughly a dozen GitHub PRs a week, taking the API gateway on-call rotation once a month through PagerDuty. By every visible measure she is fully active. A junior watching her notices an unusual absence: she does not appear to draw energy from any of the conventional markers of engineering success — not waiting for her current employer to acknowledge her, not waiting for an external conference invitation to validate the labor, not waiting for the next ladder rung. The junior asks her: 'Where does your contentment come from?' She replies: 'Nowhere external. About ten years ago I noticed that the satisfaction was independent of role, of organisation, of recognition. I'm shipping because the work is what I do; I'm not shipping in order to receive anything. The doing is full and the reception is something else.' The junior absorbs this. The senior is karmaṇy abhipravṛttaḥ — fully engaged in action — and is, in the binding-sense, not acting at all. Coherent with 2.47.",
+    "falsifiability": "The analog fails if a reader interprets 'taking shelter in nothing' as professional rootlessness. The verse names internal independence, not external isolation. The senior in the example is deeply embedded in colleagues, projects, and a profession — she is not without relationships. What she does not have is contingent contentment — happiness that requires the next external sign. The verse's nirāśraya is interior, not relational.",
+    "counter_example": "When apparent contentment is in fact resignation — when 'I'm not waiting for anything external' is a self-protective story covering an actual giving-up — the verse's claim does not apply. The diagnostic: is the engineer still sharply caring about the technical quality of the work? Resignation flattens engagement; integration preserves it. The verse and 4.18 explicitly preserve full engagement.",
+    "implication": "When you watch a senior in a fully engaged phase, ask whether their contentment appears contingent or intrinsic. The contingent senior is shipping in order to receive; the intrinsic senior is shipping because shipping is what they do. The difference is not in the visible activity. It is in what the activity is reaching for.",
+    "quotable_line": "Fully engaged, contingent on nothing — the engineering analog of the verse, coherent with 2.47, smaller than the verse's full scope.",
+    "tags": [
+      "outcome-detachment",
+      "non-attachment-to-praise",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

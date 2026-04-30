@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.17",
+  "chapter": 3,
+  "verse": 17,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names the narrow exception. The realised one — whose interior has fully turned toward the Self, no longer dependent on sense-objects for satisfaction — has no kāryam (no remaining duty owed). The engineering analog needs care here: this is not 'the senior who has earned the right to coast.' The verse names a structural transformation of orientation, not a slot on the org chart. In engineering terms the closest honest map is the engineer who has so fully internalised a system's first principles that operating on it has stopped being a string of effortful decisions — but Krishna pulls the exception back at 3.20-3.25 (even the wise act for loka-saṅgraha), so the verse cannot be used as license. It marks the limit case so the rest of the chapter can address everyone else.",
+    "concrete_scenario": "A principal engineer at a Kafka-heavy company, eighteen years on streaming systems, has reached a state where decisions about partition strategy, retention, and consumer-group rebalancing arrive in his head pre-formed. He is not effortful when discussing them; he is not pondering. The system's mechanics are so fully internalised that the kind of cognitive labour his colleagues do has, for him, dissolved. This is closer to the verse than 'I am senior and tired of writing code.' The verse describes a transformation, not an entitlement. But Krishna in the next eight verses will say: this principal engineer should still review junior PRs, still attend the architecture council, still ship a quarterly migration — for loka-saṅgraha, not for himself. The exception in 3.17 is real; it is also narrow.",
+    "falsifiability": "The analog fails the moment it is read as 'I have earned the right to step back.' The verse is not about earning; it is about a transformation. The diagnostic: the engineer who claims this verse should be willing to hold a code review at 11pm on a junior's PR, because the verse only exempts from one's own kāryam — not from loka-saṅgraha. If 'I am ātma-rati' coincides suspiciously with 'I do not have to do unpleasant work,' the claim is false.",
+    "counter_example": "Some engineers who claim a 3.17-style state are accurately describing themselves. The verse does not deny that the state exists; it only denies that the state exempts from 3.20-3.25. The counter-example is the real principal who has dissolved the effortfulness AND continues to do code review, AND is still in the on-call rotation for the systems he understands best. That is the verse's narrow hit; everything broader misreads it.",
+    "implication": "Test the claim: does the realisation-claim survive the addition of an unpleasant duty? If 'I have transcended this kind of work' tracks 'I do not enjoy this kind of work,' the realisation-claim is decoration over preference. If the realisation survives the addition of work the engineer does not want to do, the claim is at least testable.",
+    "quotable_line": "The verse describes a transformation, not an entitlement. It exempts the realised actor from his own duty, not from the team's.",
+    "tags": [
+      "letting-go",
+      "doership",
+      "right-renunciation",
+      "renunciation-of-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.17: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T22:55:00Z",
+      "mutation": "Single-mutation fix for deterministic gate failures (FK grade band, lexical diversity, named tools, quotable length).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

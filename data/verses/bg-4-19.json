@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.19",
+  "chapter": 4,
+  "verse": 19,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Whose every undertaking is free of desire-driven design, whose acts are burned by the fire of knowledge — him the wise call paṇḍita, learned. The verse names the operational signature of 4.18's seer. Our reading: a practitioner whose every project (samārambha) is uncontaminated by the question 'what will this give me?' — visibility, promotion, citation, public credit — and whose past errors have been consumed by understanding (jñānāgni) rather than psychologically held — is the builder the wise call paṇḍita. The flame metaphor is taken seriously: knowing has a destructive function on accumulated karma. A colleague who has comprehended why a prior decision was wrong is not bound by it the way one still rationalising it remains bound. Understanding burns the binding.",
+    "concrete_scenario": "A staff engineer is reviewing her own work over the past five years for a self-evaluation. She finds three significant past mistakes — a wrong API abstraction in a 2021 microservice migration, a premature Postgres index optimisation in 2023 that locked production for 40 minutes, an under-scoped Kubernetes rollout project in 2024 that paged the on-call SRE three times. She does not flinch when she names them. She writes one paragraph for each: what she did, why it was wrong, what she now understands about the schema-vs-application boundary that she did not understand then, and what she does differently as a result. The mistakes are no longer load-bearing for her self-evaluation; they have been consumed by understanding. A junior peer reading the GitHub doc is struck: 'How are you not embarrassed by these?' She answers: 'I was, when I made them. The understanding came later. Once I understood why each was wrong, the embarrassment finished its work.' The fire of knowledge has burned the binding-quality of the past actions. They are now teaching material, not psychological residue. This is paṇḍita as Krishna names it.",
+    "falsifiability": "The analog fails if a reader uses 'fire of knowledge' as a euphemism for repressing rather than understanding. The verse names a real consumption: the karma is gone, not hidden. The diagnostic: can the practitioner discuss the past mistake without affect, with full specificity, and with concrete change in subsequent practice? If yes, the fire has worked. If the discussion produces avoidance, defensiveness, or the same mistake in a new form, the fire has not yet operated.",
+    "counter_example": "When the past mistake is in fact still operating — when the engineer has narrated it as understood but is making the same kind of mistake in a different form — the fire metaphor does not apply. Real consumption shows in changed downstream practice. Pseudo-consumption is recognisable: the narrative is polished, but the pattern repeats.",
+    "implication": "Audit your last three professional mistakes. For each, ask: is this still load-bearing, or has it been consumed by understanding? Loaded mistakes still produce defensiveness in conversation. Consumed mistakes are teaching material. The audit is the available test.",
+    "quotable_line": "Loaded mistakes still produce defensiveness in conversation. Consumed mistakes are teaching material. The audit is the available test.",
+    "tags": [
+      "non-attachment-to-praise",
+      "knowledge-action-integration",
+      "calibration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.19 names the operational signature — every undertaking free of desire-driven design, actions consumed by the fire of knowledge. Engineering layer maps to the engineer who has consumed past mistakes via understanding (so they are teaching material, not psychological residue). Concrete scenario uses a staff engineer's self-evaluation that names three past mistakes (2021 abstraction, 2023 premature optimisation, 2024 under-scoping) without flinching. Counter-example tests whether the consumption is real (downstream practice change) or polished narrative (same pattern repeating).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

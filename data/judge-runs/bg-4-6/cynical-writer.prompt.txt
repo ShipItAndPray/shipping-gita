@@ -1,0 +1,210 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.6",
+  "sanskrit_devanagari": "अजोऽपि सन्नव्ययात्मा भूतानामीश्वरोऽपि सन् ।\nप्रकृतिं स्वामधिष्ठाय सम्भवाम्यात्ममायया ॥ ६ ॥",
+  "sanskrit_iast": "ajo 'pi sann avyayātmā bhūtānām īśvaro 'pi san |\nprakṛtiṁ svām adhiṣṭhāya sambhavāmy ātma-māyayā || 6 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अजः",
+      "iast": "ajaḥ",
+      "meaning": "unborn"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "though"
+    },
+    {
+      "sanskrit": "सन्",
+      "iast": "san",
+      "meaning": "being"
+    },
+    {
+      "sanskrit": "अव्ययात्मा",
+      "iast": "avyayātmā",
+      "meaning": "of imperishable nature"
+    },
+    {
+      "sanskrit": "भूतानाम्",
+      "iast": "bhūtānām",
+      "meaning": "of beings"
+    },
+    {
+      "sanskrit": "ईश्वरः",
+      "iast": "īśvaraḥ",
+      "meaning": "Lord"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "सन्",
+      "iast": "san",
+      "meaning": "being"
+    },
+    {
+      "sanskrit": "प्रकृतिम्",
+      "iast": "prakṛtim",
+      "meaning": "nature / material energy"
+    },
+    {
+      "sanskrit": "स्वाम्",
+      "iast": "svām",
+      "meaning": "my own"
+    },
+    {
+      "sanskrit": "अधिष्ठाय",
+      "iast": "adhiṣṭhāya",
+      "meaning": "presiding over / governing"
+    },
+    {
+      "sanskrit": "सम्भवामि",
+      "iast": "sambhavāmi",
+      "meaning": "I come into being"
+    },
+    {
+      "sanskrit": "आत्ममायया",
+      "iast": "ātma-māyayā",
+      "meaning": "by my own māyā"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/6/",
+      "fetched_at": "2026-04-30T04:26:59.637Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Although I am unborn and My transcendental body never deteriorates, and although I am the Lord of all living entities, by My internal energy I still appear in every millennium in My original transcendental form.",
+      "raw_capture_path": "data/sources/raw/bg-4-6-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/",
+      "fetched_at": "2026-04-30T04:27:12.436Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Although I am unborn and My transcendental body never deteriorates, and although I am the Lord of all living entities, I still appear in every millennium in My original transcendental form."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/6/",
+      "fetched_at": "2026-04-30T04:26:59.637Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4436 chars)",
+      "verbatim_excerpt": "The Lord has spoken about the peculiarity of His birth: although He may appear like an ordinary person, He remembers everything of His many, many past “births,” whereas a common man cannot remember what he has done even a few hours before.",
+      "raw_full_path": "data/sources/raw/bg-4-6-vedabase.json (purport_full_length: 4436)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:12.436Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.6 Api, san ajah, though I am birthless; and avyayatma, undecaying by nature, though I am naturally possessed of an undiminishing power of Knowledge; and so also api san, though; isvarah, the Lord, natural Ruler; bhutanam, of beings, from Brahma to a clump of grass; (still) adhisthaya, by subjugati…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 729,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-6-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's statement of the apparent paradox: the unborn and imperishable Lord appears to take birth, but only by his own māyā. Māyā here is the divine creative power, not illusion in the negative sense — Krishna's appearance is real-seeming but not bound by the causal chain that produces ordinary births."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:12.436Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.6 Without forsaking any of the My special qualities, as supreme rulership, birthless, imperishability etc., I am born by My free will. Prakrti means one’s own nature. The meaning is that by employment of My own Nature and taking a form of My choice, I incarnate by My own will (Maya).",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2429,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-6-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as central: the Lord, who is by nature unborn and imperishable and the controller of all beings, presides over his own prakṛti (his own divine body, śuddha-sattva nature) and incarnates through his own divine will (ātma-māyā as divine self-disposing). The avatar's body is real and divine, not illusory."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ātma-māyayā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "I appear in My original transcendental form (through internal potency)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "By my own māyā (divine creative power); the appearance is not bound by ordinary causation"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Through divine self-disposing — the avatar body is genuinely divine (śuddha-sattva), the result of svarūpa-saṅkalpa"
+        }
+      ],
+      "explanation": "The major fault-line: Shankara permits a reading where the avatar's body is māyā in a sense closer to 'apparent form'; Ramanuja insists the avatar's body is real and divine, not māyic in any reducing sense. Prabhupada follows the Vishishtadvaita-Gaudiya reading. This is one of the most theologically loaded verses in the chapter."
+    }
+  ],
+  "literal_meaning": "Though unborn and imperishable in nature, though Lord of beings, presiding over my own prakṛti, I come into being through my own māyā.",
+  "traditional_meaning": "Krishna states the avatar doctrine for the first time. He is unborn (aja) and imperishable (avyayātmā), the Lord (īśvara) of beings — yet, presiding over his own prakṛti (creative power), he manifests through his own māyā (yogic self-disposing power). The verse holds two simultaneous claims: ontologically Krishna does not undergo birth in the way embodied beings do; phenomenally he appears to. The mechanism is ātma-māyā — his own creative power, not external constraint.",
+  "engineering": {
+    "translation": "Krishna states the avatar doctrine: though unborn (aja) and imperishable (avyaya), though the Lord of beings, presiding over his own prakṛti, he comes into being through his own māyā. The verse holds two claims simultaneously — Krishna is metaphysically not bound by ordinary birth, yet phenomenally appears to take birth, by his own creative will. This is the largest metaphysical claim in chapter 4 and one of the largest in the Gītā. The engineering analog cannot honor the metaphysical claim. STRETCHED-tagged. The honest operational analog: the senior whose underlying expertise is invariant across stacks — what they actually know is independent of any specific framework — yet who appears in each new framework as if learning it freshly. The expertise is unchanging; the apparent re-learning is governed by the senior's choice to engage each new stack on its terms. The verse exceeds this; the analog respects the limit.",
+    "concrete_scenario": "A principal engineer with a decade of database internals expertise joins a company that uses a database she has never personally operated — a newer Postgres-derived system with custom extensions. In the first week, she sits in an onboarding session and asks beginner questions about the extension's locking semantics. A junior engineer watching is confused: 'I thought she was supposed to be a database expert?' A peer says: 'She is. What you're watching is the senior choosing to engage the specific system on its specific terms. The expertise is in the underlying lock-manager principles, the storage-layer assumptions, the transaction-isolation models. Those are unchanging. The specific quirks of this extension — those she has to learn. She is choosing to take the form of a learner here, by her own deliberate decision, because that is the right way to engage a new system. Her expertise is unchanged. Her appearance has been adapted.' The junior nods. The metaphysical scope of the verse is larger than this; the analog operates at the operational layer only.",
+    "falsifiability": "The analog fails if a reader takes it as a claim that engineers are avatars. The verse describes a metaphysical Being. The engineering analog respects only the structural pattern (invariant expertise + adapted appearance) and is explicitly STRETCHED. Anyone who reads this analog as engineers-as-divine has misread both the verse and the analog.",
+    "counter_example": "When the senior's 'invariant expertise' is in fact stack-specific — when their database knowledge was actually Oracle-specific and does not transfer to Postgres — the analog's first half collapses. The diagnostic: when the senior engages the new stack, do they ask questions about underlying principles (locks, storage, isolation) or about surface syntax? Underlying-principle questions reveal invariant expertise; surface-syntax-only questions reveal stack-bound knowledge that cannot honor the analog.",
+    "implication": "When you watch a senior ask 'beginner' questions in a new framework, watch what level the questions are at. Underlying-principle questions reveal invariant expertise being applied; surface questions reveal someone newly learning. Both are legitimate; only the first honors the structure the verse opens.",
+    "quotable_line": "Invariant expertise + adapted appearance — the operational analog of the avatar's structure, far short of the verse's metaphysical scope.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

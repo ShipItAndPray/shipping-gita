@@ -1,0 +1,218 @@
+{
+  "id": "BG 3.10",
+  "chapter": 3,
+  "verse": 10,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "सहयज्ञाः प्रजाः सृष्ट्वा पुरोवाच प्रजापतिः ।\nअनेन प्रसविष्यध्वमेष वोऽस्त्विष्टकामधुक् ॥ १० ॥",
+  "sanskrit_iast": "saha-yajñāḥ prajāḥ sṛṣṭvā purovāca prajāpatiḥ |\nanena prasaviṣyadhvam eṣa vo 'stv iṣṭa-kāma-dhuk || 10 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/10/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-3-10-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/10",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=3&field_nsutra_value=10",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-10/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-3-10-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_03.010 = MBh_06,025.010). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "सह",
+      "iast": "saha",
+      "meaning": "along with"
+    },
+    {
+      "sanskrit": "यज्ञाः",
+      "iast": "yajñāḥ",
+      "meaning": "yajña / sacrifice"
+    },
+    {
+      "sanskrit": "प्रजाः",
+      "iast": "prajāḥ",
+      "meaning": "creatures / mankind"
+    },
+    {
+      "sanskrit": "सृष्ट्वा",
+      "iast": "sṛṣṭvā",
+      "meaning": "having created"
+    },
+    {
+      "sanskrit": "पुरा उवाच",
+      "iast": "purovāca",
+      "meaning": "of old said"
+    },
+    {
+      "sanskrit": "प्रजापतिः",
+      "iast": "prajāpatiḥ",
+      "meaning": "the Lord of creatures"
+    },
+    {
+      "sanskrit": "अनेन",
+      "iast": "anena",
+      "meaning": "by this"
+    },
+    {
+      "sanskrit": "प्रसविष्यध्वम्",
+      "iast": "prasaviṣyadhvam",
+      "meaning": "you shall multiply"
+    },
+    {
+      "sanskrit": "एषः",
+      "iast": "eṣa",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "वः",
+      "iast": "vo",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "अस्तु",
+      "iast": "'stv",
+      "meaning": "let it be"
+    },
+    {
+      "sanskrit": "इष्ट",
+      "iast": "iṣṭa",
+      "meaning": "desired"
+    },
+    {
+      "sanskrit": "काम",
+      "iast": "kāma",
+      "meaning": "wishes"
+    },
+    {
+      "sanskrit": "धुक्",
+      "iast": "dhuk",
+      "meaning": "milk-yielder / cow"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/10/",
+      "fetched_at": "2026-04-30T04:24:51.084Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the beginning of creation, the Lord of all creatures sent forth generations of men and demigods, along with sacrifices for Viṣṇu, and blessed them by saying, “Be thou happy by this yajña [sacrifice] because its performance will bestow upon you everything desirable for living happily and achieving liberation.”",
+      "raw_capture_path": "data/sources/raw/bg-3-10-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-10/",
+      "fetched_at": "2026-04-30T04:25:06.098Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the beginning of creation, the Lord of all creatures sent forth generations of men and demigods, along with sacrifices for Vishnu, and blessed them by saying, “Be thou happy by this yajna [sacrifice] because its performance will bestow upon you everything desirable for living happily and achieving liberation.”"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/10/",
+      "fetched_at": "2026-04-30T04:24:51.084Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2454 chars)",
+      "verbatim_excerpt": "The material creation by the Lord of creatures (Viṣṇu) is a chance offered to the conditioned souls to come back home – back to Godhead. All living entities within the material creation are conditioned by material nature because of their forgetfulness of their relationship to Viṣṇu, or Kṛṣṇa, the Su…",
+      "raw_full_path": "data/sources/raw/bg-3-10-vedabase.json (purport_full_length: 2454)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:06.098Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.10 Pura, in the days of yore, in the beginning of creation; srstva, having created; prajah, the beings, the people of the three castes; saha-yajnah, together with the sacrifices; Prajapati, the creator of beings, uvaca, said; ‘Anena, by this sacrifice; prasavisyadhvam, you multiply.’ Prasava means…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 552,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-10-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: 3.10 cosmologically: Prajāpati at the beginning of creation set in motion the wheel by creating creatures along with yajña. The wheel is not a later development but constitutive of the cosmos. The verse establishes yajña as primordial obligation; the engineering analog must register that the verse claims metaphysical-cosmological scope, not merely operational metaphor."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-10/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:06.098Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.10 As there is the scriptural text beginning with ‘The Lord of Universe’ (Tai. Na., 11.3), it is justifiable to take the term Prajapati in its wider connotation and interpret it to mean Narayana who is the Lord of all beings, the creator of the universe and the Self of the universe.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1035,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-10-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: Prajāpati is the Supreme Person's creative agent. The instruction at creation — 'by this you shall multiply / prosper; let it be your wish-fulfilling cow' — establishes yajña as the path of mutual increase. The devas are real persons; the Supreme Person abides as their inner Self. The verse's metaphysics is robust; the engineering analog is at most a pale operational shadow."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "saha-yajñāḥ prajāḥ sṛṣṭvā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sent forth generations of men and demigods, along with sacrifices for Viṣṇu"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "Brahma created humankind along with duties (yajñas)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "Prajāpati created creatures together with yajña; yajña was set in motion at creation"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "Prajāpati created beings along with yajña and instructed them in mutual increase through yajña"
+        }
+      ],
+      "explanation": "All four agree the wheel was created by Prajāpati at creation. The disagreement: who is Prajāpati? Prabhupada (Gaudiya): Prajāpati is the creator-deity; sacrifice is for Viṣṇu specifically. Mukundananda: Brahma is the creator. The Advaita reading: Prajāpati as cosmological agent. The Vishishtadvaita reading: Prajāpati as the Supreme Person's creative agent. The engineering analog must register honestly that the verse claims yajña is COSMOLOGICALLY PRIMORDIAL — not later metaphor — and that the engineering layer's 'sustaining loop' is an analog of operational scope, not of cosmic origination."
+    }
+  ],
+  "literal_meaning": "Having created creatures along with yajña, the Lord of creatures of old said: 'By this you shall multiply; let it be your wish-fulfilling cow.'",
+  "traditional_meaning_consensus": "3.10 begins the cosmic argument. The Lord of creatures, having created beings along with yajña (saha-yajñāḥ prajāḥ sṛṣṭvā), said in the beginning: 'By this you shall multiply / prosper (prasaviṣyadhvam); let this be your iṣṭa-kāma-dhuk (wish-fulfilling cow / source of desired ends).' Per the Advaita reading: the wheel was set in motion by Prajāpati at creation; yajña is not later add-on but constitutive of the cosmos. Per the Vishishtadvaita reading: Prajāpati instructs the creatures that yajña is the path of mutual increase. The verse names yajña as cosmologically primordial, not metaphor.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

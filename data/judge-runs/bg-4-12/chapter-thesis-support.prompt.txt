@@ -1,0 +1,239 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.12",
+  "sanskrit_devanagari": "काङ्क्षन्तः कर्मणां सिद्धिं यजन्त इह देवताः ।\nक्षिप्रं हि मानुषे लोके सिद्धिर्भवति कर्मजा ॥ १२ ॥",
+  "sanskrit_iast": "kāṅkṣantaḥ karmaṇāṁ siddhiṁ yajanta iha devatāḥ |\nkṣipraṁ hi mānuṣe loke siddhir bhavati karma-jā || 12 ||",
+  "anvaya": [
+    {
+      "sanskrit": "काङ्क्षन्तः",
+      "iast": "kāṅkṣantaḥ",
+      "meaning": "desiring"
+    },
+    {
+      "sanskrit": "कर्मणाम्",
+      "iast": "karmaṇām",
+      "meaning": "of actions"
+    },
+    {
+      "sanskrit": "सिद्धिम्",
+      "iast": "siddhim",
+      "meaning": "success / fruit"
+    },
+    {
+      "sanskrit": "यजन्ते",
+      "iast": "yajante",
+      "meaning": "they sacrifice / worship"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "here (in this world)"
+    },
+    {
+      "sanskrit": "देवताः",
+      "iast": "devatāḥ",
+      "meaning": "the gods"
+    },
+    {
+      "sanskrit": "क्षिप्रम्",
+      "iast": "kṣipram",
+      "meaning": "quickly"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "मानुषे लोके",
+      "iast": "mānuṣe loke",
+      "meaning": "in the human world"
+    },
+    {
+      "sanskrit": "सिद्धिः",
+      "iast": "siddhiḥ",
+      "meaning": "success"
+    },
+    {
+      "sanskrit": "भवति",
+      "iast": "bhavati",
+      "meaning": "becomes / arises"
+    },
+    {
+      "sanskrit": "कर्मजा",
+      "iast": "karma-jā",
+      "meaning": "born of action"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/12/",
+      "fetched_at": "2026-04-30T04:26:59.600Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Men in this world desire success in fruitive activities, and therefore they worship the demigods. Quickly, of course, men get results from fruitive work in this world.",
+      "raw_capture_path": "data/sources/raw/bg-4-12-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-12/",
+      "fetched_at": "2026-04-30T04:27:12.963Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Men in this world desire success in fruitive activities, and therefore they worship the demigods. Quickly, of course, men get results from fruitive work in this world."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/12/",
+      "fetched_at": "2026-04-30T04:26:59.600Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3129 chars)",
+      "verbatim_excerpt": "There is a great misconception about the gods or demigods of this material world, and men of less intelligence, although passing as great scholars, take these demigods to be various forms of the Supreme Lord.",
+      "raw_full_path": "data/sources/raw/bg-4-12-vedabase.json (purport_full_length: 3129)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:12.963Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.12 Kanksantah, longing for, praying for; siddim, fruition, fructification of the results; karmanam, of actions; yajante, they worship; iha, here, in this world; devatah, the gods, Indra, Fire and others- which accords with the Upanisadic text, ‘While he who worships another god thinking, “He is on…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1860,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-12-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's acknowledgement that ritual worship of specific deities for specific results does produce those results, and does so quickly in the human world. The verse establishes the validity of karma-kāṇḍa (ritual action) at its own level while implicitly pointing beyond it."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-12/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:12.963Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.12 All men, desirous of the fruits of their actions, ‘sacrifice’, i.e., worship or propitiate Indra and other divinities only. But nobody worships Me abandoning attachment to fruits — Me, who am the Self of Indra and other divinities and the real enjoyer of all sacrifices.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1076,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-12-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as part of the path-equivalence claim of 4.11 made concrete: those who approach the gods seeking specific fruits do receive them. The verse honors the karma-mīmāṁsā tradition (Vedic ritualism) without denying that more comprehensive fruits await different approaches."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "siddhiḥ karma-jā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "success born of fruitive work / ritualistic activities"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "specific worldly results produced quickly by deity-directed ritual action"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the empirical fact that karma-yajña does produce its specified fruits"
+        }
+      ],
+      "explanation": "All three commentators read the verse as acknowledging that ritual worship genuinely produces its named fruits. The quietly important word is karma-jā — born of action. The fruit is a real consequence of the action, but it is the fruit-of-action level only; the verse implicitly contrasts with deeper paths."
+    }
+  ],
+  "literal_meaning": "Those desiring success of actions worship the gods here; quickly indeed in the human world is success born of action.",
+  "traditional_meaning": "Krishna acknowledges that those seeking specific outcomes through ritual action do receive those outcomes — the gods (devatāḥ) reciprocate ritual offerings with worldly results, and these results come quickly in the human realm. The verse is empirical, not condemnatory: there is a real karma-pathway to specific fruits. The implicit contrast is with the deeper liberation-path described in 4.9-4.11.",
+  "engineering": {
+    "translation": "Krishna acknowledges that those seeking specific outcomes through ritual action do receive those outcomes — and the results come quickly in the human realm. The engineering reading: when an engineer does work aimed at a specific recognised outcome (the promotion, the visibility, the conference talk), the outcome often actually arrives. The verse is not condemnatory. It is empirical: there is a real karma-pathway from specific deeds to specific fruits. The implicit contrast — which the chapter will sharpen later — is with the deeper path, where the work is done without specific outcome-aiming. Both paths are real. The first delivers what it aims at; the second delivers something else. The verse honors the first while implicitly opening room for the second.",
+    "concrete_scenario": "Two engineers at an 800-person company spend the same six months on visible work. The first targets the year-end promotion explicitly. He chooses projects with promotion-committee visibility, networks with promotion-committee members, makes sure his GitHub PRs appear in monthly demos, writes a careful self-review document linking each merge to a measurable metric on the Datadog dashboard. He gets the promotion. The verse's claim is empirical: the work aimed at the specific fruit produces the specific fruit. The second engineer spends the same six months refactoring an internal Postgres observability layer — slow-query log routing, the schema-migration runbook, the SLO dashboard — that no promotion committee will ever see, because the system needs it. He does not get the promotion in the same cycle. The first engineer's outcome is real, not illusory. Both engineers' work was real. The verse's quiet point: the outcomes are different in kind. The first engineer has the promotion; the second has the refactor. Tomorrow's on-call rotation has a different starting point for each.",
+    "falsifiability": "The analog fails if a reader reads the verse as condemning fruit-aimed work. The verse explicitly says the fruits are real (siddhir bhavati karma-jā). The implicit contrast is between two real paths, not between a real and a fake one. An engineering reading that treats outcome-seeking as automatically corrupt has misread the verse.",
+    "counter_example": "When the promotion-aimed work is also genuinely valuable to the system — when the visibility comes from real customer-impact work, not from theatre — the two paths converge. The verse's contrast is between fruit-seeking-as-end and fruit-seeking-as-incidental. The harder engineering case is the project that is BOTH visible AND substantive; that case is not what the verse is teaching the practitioner to avoid.",
+    "implication": "When you choose work, notice which voice is choosing. The voice that asks 'what will this produce that I can name and claim?' is the verse's worship-of-gods voice — and it really does produce its fruit. The voice that asks 'what does the system need?' often produces less visible fruit. Both are real. Know which voice is operating, and on which day.",
+    "quotable_line": "Fruit-aimed work delivers its fruit. The system-needs work often does not, in the same currency. Both are real paths.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "feature-bloat"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

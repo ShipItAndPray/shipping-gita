@@ -1,0 +1,54 @@
+{
+  "id": "BG 3.21",
+  "chapter": 3,
+  "verse": 21,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Whatever the śreṣṭha — the eminent, the leader, the one with established scriptural knowledge and demonstrated practice — performs, others duly perform as well. Whatever standard he establishes through his own exemplary conduct becomes the populace's binding measure. The verse is descriptive rather than motivational. It articulates a load-bearing claim about how engineering teams form their operating conventions: the senior engineer's behavior — not the senior's articulated policy, but the senior's actual visible conduct — becomes the standard the team registers as acceptable. The verse therefore assigns the śreṣṭha a function he cannot decline. The team imitates what he visibly demonstrates whether he intends to instruct them or not, and any exception he permits himself becomes the team's default operating posture.",
+    "concrete_scenario": "A staff engineer at a Postgres-shaped marketplace company privately considers code review a low-leverage activity. He believes the truly important work is system design and skips review on his own PRs (he merges with one rubber-stamp from a junior). He does this for six months. By month seven, three of his direct reports do the same: they merge with thin reviews, they treat code review as a formality, they stop catching the issues code review is supposed to catch. None of them ever heard him say code review was unimportant. They watched him not do it. By month nine the team's defect rate has crept up; by month eleven a production incident occurs that a real review would have caught. The staff engineer is genuinely shocked by the team's behavior; he tells himself he never instructed them to skip review. The verse names exactly this gap. Yad ācarati śreṣṭhas tat tad eva itaro janaḥ — what he did is what they did. The standard he set by his behavior became the team's standard, regardless of what he said.",
+    "falsifiability": "The analog fails if it is read as 'leaders must always model perfectly.' The verse is not utopian; it is observational. The realistic reading: the senior's behavior is high-bandwidth signal about what is acceptable, and any deviation from a stated standard is read as the real standard. The senior who skips review while saying review is important is teaching that review is skippable; the message is in the action, not the words.",
+    "counter_example": "When the senior's behavior diverges from team norms in a context the team has the experience to read correctly — e.g. the senior skipping review on her own emergency hotfix during a P0 — the team will not copy this in non-P0 contexts, because they have the context to distinguish. The verse's force is strongest in the gray-area cases where the team cannot distinguish 'exceptional' from 'normal' from the action alone. In those cases the action becomes the standard.",
+    "implication": "Audit your visible behaviors over the last quarter, especially the ones you would describe as 'exceptional' or 'just this once.' If a junior watching you would not be able to tell the exceptional from the normal, the exceptional has just become the team's normal. The verse is asking what you have, in fact, taught.",
+    "quotable_line": "Whatever you do, your team does — whether you intended to teach it or not. The verse is not motivational; it is observational. The senior's behavior is the team's standard.",
+    "tags": [
+      "team-culture",
+      "code-review-discipline",
+      "healthy-eng-culture",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.21: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T22:55:00Z",
+      "mutation": "Single-mutation fix for deterministic gate failures (FK grade band, lexical diversity, named tools, quotable length).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-29T23:00:00Z",
+      "mutation": "Single-mutation: lift lexical diversity / FK grade by replacing repeated tokens and elevating diction.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

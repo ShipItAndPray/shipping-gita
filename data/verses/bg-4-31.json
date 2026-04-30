@@ -1,0 +1,38 @@
+{
+  "id": "BG 4.31",
+  "chapter": 4,
+  "verse": 31,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna restates 3.12-3.13 in sharper form. The engineer who participates in the sustaining loop — who offers something into it before drawing from it — is supported by it. The engineer who only consumes from the loop — who takes the paycheck, the infrastructure, the reputation, the colleagues' work, the open-source ecosystem, the senior engineering attention they receive — without offering into it has no foothold. The verse is harder than 3.13: 'this world is not for the non-sacrificer.' Even the immediate operational world — the team's trust, the system's continued functioning, the career's continued progression — is not durably available to the engineer who only consumes. The engineering analog is honest at the operational level; the verse's metaphysical scope (yānti brahma sanātanam) extends further.",
+    "concrete_scenario": "A staff-engineer-grade IC has been on a platform team for four years. He draws senior-grade compensation, uses every team-built tool, depends on the on-call rotation his peers staff, draws on the design reviews his colleagues conduct, learns from the postmortems they write. He himself contributes the bare minimum — the assigned tickets, no design doc unless required, no code review beyond his sub-team, no on-call rotation participation, no mentoring, no oss-contribution back to the libraries he depends on. He is, in the verse's terms, ayajña — consumes from the loop, does not offer into it. The verse says: this world is not for him. Operationally, the trajectory is observable. His tech-lead conversations have become more fragile; his peer reviews have grown sharper; the next reorg moves him to a less central team; his promo packet stalls. He is not being punished; the loop is structurally unable to sustain a node that only draws.",
+    "falsifiability": "The analog fails if a reader uses it to justify performative-contribution — making sure to be seen contributing while offering nothing of substance. The verse names yajña — disciplined offering — not visible offering. The engineer who games contributions for credit is closer to the ayajña category than to the yajñin category; the loop registers the difference even when individuals do not.",
+    "counter_example": "When an engineer is in a recovery period — illness, family crisis, burnout — the consumption-without-offering pattern may be temporary and structurally appropriate. The verse describes a sustained pattern, not a phase. The team typically extends the loop's support during such periods; the verse's harder claim is for the engineer for whom this is structural posture, not phase.",
+    "implication": "Audit the last quarter: what did you draw from the loop, what did you offer into it. If the second column is mostly 'my assigned work,' the diagnostic from this verse applies. The non-sacrificer has no world here, even before any next.",
+    "quotable_line": "The loop is structurally unable to sustain a node that only draws.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "shipping-discipline",
+      "team-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T04:30:00Z",
+      "mutation": "v0 generation: source pack triangulated. Engineering analog tied tightly to chapter 3's yajña/thief-doctrine (3.12-3.13) for cross-coherence. Verse's metaphysical scope (brahma sanātanam) honestly preserved at source-pack level; engineering layer operates at operational level. Concrete scenario: 4-year staff IC who only consumes from the loop. Counter-example carves out recovery/phase periods. Tags: yajna-as-discipline, team-culture, shipping-discipline, team-pathology.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

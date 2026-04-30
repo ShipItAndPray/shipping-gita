@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.25",
+  "chapter": 3,
+  "verse": 25,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The same-surface-different-engine prescription. The unwise, attached to action, perform with full energy and full surface-completeness. The wise should perform identically — no visible slackening, no public framing of action as beneath him — but the engine differs entirely. The wise actor's motivation is asaktaḥ (without attachment) and cikīrṣuḥ loka-saṅgraham (intending the welfare of the world). Krishna's prescription is more demanding than 'do less and care less'; it is 'do exactly the same, with the same visible commitment, but for a different reason internally.' In engineering: the senior whose surface-engagement diverges from the team's — even slightly less typing, slightly less standup attention, slightly less code review investment — is teaching that a slack version of the work is acceptable. The verse forbids this precisely.",
+    "concrete_scenario": "A principal engineer at a payments company has internalised the system fully and could, on any given day, contribute less and remain net-positive. The verse asks her not to. She arrives at standup with the same focused presence she demands of her reports. She picks up the same volume of code review on GitHub as a senior IC two levels below — not less, not 'curated to high-leverage only.' She holds her PRs to the same review-bar her reports' PRs face. None of this is for her own learning (she has internalised the codebase; daily PRs no longer teach her). All of it is loka-saṅgraha — the team observes her, and any visible slackening becomes their permission. Her engine is different — she is not anxious about being seen contributing, not optimising for promotion, not chasing applause. The fuel is asaktaḥ; the visible action is yathā kurvanti bhārata. Same shape, divergent fuel.",
+    "falsifiability": "The analog fails if read as 'always perform busy-work.' The verse is not about volume; it is about the surface-quality of engagement matching what the unwise produce when they are at their honest best. If the team's modal high-engagement state is real shipping, the verse asks the wise to match that — not to manufacture the appearance of it. The diagnostic: would the wise actor's day-of-work, if recorded and shown to the team, lower or maintain the team's standard for what a workday looks like? The verse asks for maintain.",
+    "counter_example": "When the wise actor's role has shifted such that the loka-saṅgraha role is now a different surface — the principal who has moved into mentorship and architecture and explicitly handed down the daily-PR work — the verse does not require her to manufacture identical surface-engagement. Her loka-saṅgraha is now performed in the new role, not the old one. The verse's force is on the actor still in the same role as the team but tempted to a slack version of it.",
+    "implication": "Compare your own surface-day to the team's modal high-engagement day. If your typical day reads, to a watching engineer, as a slack version of theirs, the verse is naming you. The fix is to either match their surface (verse's prescription) or formally exit the role to one where your surface matches the new role's expectation.",
+    "quotable_line": "Same surface, different engine. The wise actor's day looks identical to the unwise actor's; only the fuel beneath the action has changed.",
+    "tags": [
+      "team-culture",
+      "shipping-discipline",
+      "non-attachment-to-praise",
+      "duty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:10:00Z",
+      "mutation": "v0 generation for BG 3.25: source pack triangulated across 5 sources; engineering layer anchored on chapter thesis (Why the Senior Still Ships) and load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T23:30:00Z",
+      "mutation": "Lift lex diversity / FK / trim translation",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

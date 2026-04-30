@@ -1,0 +1,218 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.42",
+  "sanskrit_devanagari": "तस्मादज्ञानसम्भूतं हृत्स्थं ज्ञानासिनात्मन: ।\nछित्त्वैनं संशयं योगमातिष्ठोत्तिष्ठ भारत ॥ 42 ॥",
+  "sanskrit_iast": "tasmād ajñāna-sambhūtaṁ hṛit-sthaṁ jñānāsinātmanaḥ\nchhittvainaṁ sanśhayaṁ yogam ātiṣhṭhottiṣhṭha bhārata",
+  "anvaya": [
+    {
+      "iast": "tasmāt",
+      "meaning": "therefore",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ajñāna",
+      "meaning": "sambhūtam—born of ignorance",
+      "sanskrit": ""
+    },
+    {
+      "iast": "hṛit",
+      "meaning": "stham—situated in the heart",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñāna",
+      "meaning": "of knowledge",
+      "sanskrit": ""
+    },
+    {
+      "iast": "asinā",
+      "meaning": "with the sword",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ātmanaḥ",
+      "meaning": "of the self",
+      "sanskrit": ""
+    },
+    {
+      "iast": "chhittvā",
+      "meaning": "cut asunder",
+      "sanskrit": ""
+    },
+    {
+      "iast": "enam",
+      "meaning": "this",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sanśhayam",
+      "meaning": "doubt",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yogam",
+      "meaning": "in karm yog",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ātiṣhṭha",
+      "meaning": "take shelter",
+      "sanskrit": ""
+    },
+    {
+      "iast": "uttiṣhṭha",
+      "meaning": "arise",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/42/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Therefore the doubts which have arisen in your heart out of ignorance should be slashed by the weapon of knowledge. Armed with yoga, O Bhārata, stand and fight.",
+      "raw_capture_path": "data/sources/raw/bg-4-42-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/42",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.42: Therefore, with the sword of knowledge, cut asunder the doubts that have arisen in your heart. O scion of Bharat, establish yourself in karm yog. Arise, stand up, and take action!"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/42/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The yoga system instructed in this chapter is called sanātana-yoga, or eternal activities performed by the living entity. This yoga has two divisions of sacrificial actions: one is called sacrifice of one’s material possessions, and the other is called knowledge of self, which is pure spiritual activity.",
+      "verbatim_full_length": 3244,
+      "raw_full_path": "data/sources/raw/bg-4-42-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-42/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.42 Tasmat, therefore, O scion of the Bharata dynasty; atistha, take recourse to, i.e. undertake; yogam, yoga -performance of actions, which is a means to full Illumination; and now, uttistha, rise up for battle; chittva, cutting asunder; jnanasina, with the sword of Knowledge-Knowledge is full Illumination, which is…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 880,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-42-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-42/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.42 Therefore, after sundering this doubt concerning the self, born of beginningless ignorance and present in the heart, by the sword of the knowledge of the self in the manner explained before, practise the Karma Yoga taught by Me. For that, rise up, O Arjuna.",
+      "verbatim_excerpt_length": 262,
+      "verbatim_full_length": 262,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-42-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-42/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Lord Krishna is instructing Arjuna to destroy all doubts arising from ignorance of the atma or soul and having discrimination between the soul and the body take refuge in karma yoga or the performance of prescribed Vedic activities which is the means to atma tattva or soul…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 286,
+      "raw_full_path": "data/sources/raw/bg-4-42-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.42: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Therefore with the sword of knowledge cut this doubt of the heart born of ignorance; resort to yoga, arise, Bhārata.",
+  "traditional_meaning": "tasmād ajñāna-sambhūtaṁ hṛt-sthaṁ jñānāsinātmanaḥ — therefore the heart-seated, ignorance-born (doubt) — chittvainaṁ saṁśayaṁ yogam ātiṣṭhottiṣṭha bhārata — having cut this doubt with the sword of knowledge of the self, resort to yoga, arise! Shankara: the chapter's closing instruction. The doubt named in 4.40 — the saṁśayātmā's pathology — is now to be cut by the jñānāsi (sword of knowledge), the knowledge of the self the chapter has been describing. The verb is imperative: chittvā ... ātiṣṭha ... uttiṣṭha — cut, resort, arise. Three imperatives stacked. Ramanuja: the chapter ends by calling Arjuna into the practice — the knowledge that resolves the doubt is jñāna of the ātman, and the consequence is the immediate practice of karma-yoga.",
+  "engineering": {
+    "translation": "The chapter closes with three stacked imperatives: cut decisively, resort to disciplined practice, arise into action. An engineer who has been hedging — wearing the disguise of careful deliberation while genuinely paralysed by doubt — is now told to sever residual indecision with the discriminating sword this chapter has progressively forged. Its blade is the substrate-knowledge worked out across 4.33-4.40. Cutting is decisive; this blade is real; doubt is named ajñāna-sambhūtam — born of ignorance — and therefore destructible by understanding. This chapter does not close with reflection; it closes with imperative voice. Stop hedging consequential decisions. Sever residual indecision. Ship the architectural commitment. The voice is sharp because Arjuna's situation requires the sharpness; the chapter has earned the imperative because it has spent forty-one verses building the case. The engineer who has done the chapter's work is now being told: resort to yoga, arise.",
+    "concrete_scenario": "A senior engineer has been deliberating for ten weeks about whether to commit her team to the new Postgres-vector-database technology in production. She has completed substrate-reading, conducted two architecture interviews with existing adopters, mapped the trade-off matrix, and quantified the migration cost. Her oscillation is no longer learning anything fresh; it is recycling identical considerations. The chapter's closing verse arrives. The instruction: deliberation is over. The sword has been forged across the past ten weeks. Cut the doubt. Resort to the discipline. Arise — that is, ship the decision, ship the migration plan, ship next quarter's commitment. Action is what the chapter has been building toward. Endless deliberation is what the chapter has been instructing her to abandon. She closes the Notion design doc, schedules the architecture review for Monday morning on the team calendar, and drafts the GitHub migration-timeline issue. The chapter's last word — uttiṣṭha, arise — is what is being performed.",
+    "falsifiability": "The analog fails if a reader hears 'cut the doubt' as 'ignore the deliberation.' The sword is the substrate-knowledge built across the chapter; cutting the doubt with the sword is acting from realised understanding, not acting in defiance of careful thought. The verse follows 4.34-4.40; it does not bypass them. An engineer who reads this verse out of chapter-context and concludes 'just decide already' has misread it.",
+    "counter_example": "When the deliberation has not yet built the sword — when the engineer has not done the substrate-reading, has not talked to adopters, has not understood the trade-offs — the verse does not authorise premature cutting. Cutting requires a sword. Sword requires the chapter's prior work. The verse closes the chapter; it does not stand alone.",
+    "implication": "Identify one decision that has been open longer than the substrate-work justifies. The sword has been forged; the cutting is what is missing. Cut. Resort. Arise.",
+    "quotable_line": "She closes the design doc. She schedules the architecture review for Monday. The chapter's last word — arise — is what is being performed.",
+    "tags": [
+      "shipping-discipline",
+      "decision-paralysis",
+      "engineer-paralysis",
+      "deliberate-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,222 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.25",
+  "sanskrit_devanagari": "दैवमेवापरे यज्ञं योगिन: पर्युपासते ।\nब्रह्माग्नावपरे यज्ञं यज्ञेनैवोपजुह्वति ॥ 25 ॥",
+  "sanskrit_iast": "daivam evāpare yajñaṁ yoginaḥ paryupāsate\nbrahmāgnāvapare yajñaṁ yajñenaivopajuhvati",
+  "anvaya": [
+    {
+      "iast": "daivam",
+      "meaning": "the celestial gods",
+      "sanskrit": ""
+    },
+    {
+      "iast": "eva",
+      "meaning": "indeed",
+      "sanskrit": ""
+    },
+    {
+      "iast": "apare",
+      "meaning": "others",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñam",
+      "meaning": "sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yoginaḥ",
+      "meaning": "spiritual practioners",
+      "sanskrit": ""
+    },
+    {
+      "iast": "paryupāsate",
+      "meaning": "worship",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "of the Supreme Truth",
+      "sanskrit": ""
+    },
+    {
+      "iast": "agnau",
+      "meaning": "in the fire",
+      "sanskrit": ""
+    },
+    {
+      "iast": "apare",
+      "meaning": "others",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñam",
+      "meaning": "sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñena",
+      "meaning": "by sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "eva",
+      "meaning": "indeed",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/25/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Some yogīs perfectly worship the demigods by offering different sacrifices to them, and some offer sacrifices in the fire of the Supreme Brahman.",
+      "raw_capture_path": "data/sources/raw/bg-4-25-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/25",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.25: Some yogis worship the celestial gods with material offerings unto them. Others worship perfectly who offer the self as sacrifice in the fire of the Supreme Truth."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/25/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "As described above, a person engaged in discharging duties in Kṛṣṇa consciousness is also called a perfect yogī or a first-class mystic. But there are others also, who perform similar sacrifices in the worship of demigods, and still others who sacrifice to the Supreme Brahman, or the impersonal feature of the Supreme L",
+      "verbatim_full_length": 2577,
+      "raw_full_path": "data/sources/raw/bg-4-25-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-25/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.25 Apare, other; yoginah, yogis, ritualists; pari-upasate, undertake; yajnam, sacrifice; daivam, to gods; eva, alone. A sacrifice by which the gods are adored is daiva-yajna; they perform only that. This is the meaning. Brahma-agnau, in the fire of Brahman: By the word brahman is meant That which is referred to in…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 2153,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-25-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-25/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.25 Some Karma Yogins resort to the sacrifice relating to gods, i.e., the sacrifice which takes the form of worshipping gods. The meaning is that they have steadfast devotion only in this. ‘Others offer sacrifice into the fire of Brahman solely by means of sacrifice.’ Here the term, ‘sacrifice’ is used in the sense…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 587,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-25-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-25/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The ability to see the Brahman or spiritual substratum pervading all existence everywhere is factually a potent form of yagna or offerings of worship as propitiation to the Supreme Lord Krishns. This type of yagna is superior to all other yagnas. In order to show its…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 916,
+      "raw_full_path": "data/sources/raw/bg-4-25-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.25: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Some yogis offer sacrifice to the gods; others offer the self in the fire of brahman.",
+  "traditional_meaning": "First entry in the yajña-typology block (4.25-4.30). Krishna names a typology: some yogis perform sacrifice oriented toward the deities (devam evāpare yajñaṁ yoginaḥ paryupāsate), others offer the self by the self into the fire of brahman (brahmāgnāv apare yajñaṁ yajñenaivopajuhvati). Shankara: the first is karma-yoga oriented to the divine personalities; the second is jñāna-yoga in which the self is offered in the brahman-fire. Ramanuja: both are valid paths within the larger karma-yoga framework, the first ritual-devotional, the second jñāna-internal. The chapter is about to enumerate further yajña-types; this verse establishes that the typology exists.",
+  "engineering": {
+    "translation": "Engineers who participate in the work-loop do so in different shapes. Some — the larger group — orient their work toward visible artefacts and recognised deities of the operational system: the dashboards, the metrics, the customers, the team. Their work is offered into those visible loops. Others orient their work into a less visible fire: the substrate-understanding of the system itself, where the act of careful inquiry is the work and the work disappears into the substrate. Both are valid disciplines; the chapter is opening a typology, not declaring one superior. Each shape names a real engineering practice.",
+    "concrete_scenario": "On the same eight-person platform team, two senior engineers operate in different shapes. The first orients to the visible artefacts: the latency dashboard in Datadog, the customer-facing API contract, the on-call rotation, the quarterly customer-satisfaction NPS. Her work is offered into those — 'a 30ms p99 reduction in the gateway cut customer complaints by 15%.' The second engineer orients to the substrate: the data model that underlies the API contract, the consistency invariants of the caching layer, the design assumptions of the queue topology. He produces fewer visible artefacts; what he produces is a clarity-of-substrate that the rest of the team draws on without naming. Six months in, the platform has moved forward in two complementary directions. Neither shape was more legitimate. The verse is not yet ranking; it is naming.",
+    "falsifiability": "The analog fails if a reader uses it to justify pure abstraction-work with no shipping. The verse names two shapes both of which are yajña — both of which are disciplined offerings into a sustaining loop. The substrate-oriented engineer who never produces output anyone can verify is not in this verse; they are in the no-yajña category that 4.31 will name. Equally the artefact-oriented engineer who refuses to engage substrate is not 'simpler'; they are participating in their own legitimate yajña.",
+    "counter_example": "When the team's substrate is well-understood and stable, the substrate-oriented yajña has less to offer; the team needs more artefact-shipping. When the team's substrate is broken or hidden, the artefact-oriented yajña produces shippable-but-fragile results; the team needs more substrate-attention. The two shapes are complementary; their relative weights depend on the team's actual current state, not on a doctrinal preference for one shape.",
+    "implication": "Inventory the yajña-shape of every senior engineer on the team. A team with eight artefact-oriented engineers and zero substrate-oriented engineers will ship rapidly into a structure that is decaying underneath it. The shapes need each other.",
+    "quotable_line": "Some engineers offer their work to the visible dashboards. Others offer it to the substrate. The verse names both as sacrifice.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "first-principles",
+      "essence-vs-implementation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

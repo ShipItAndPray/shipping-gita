@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.11",
+  "chapter": 4,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Ye yathā māṁ prapadyante tāṁs tathaiva bhajāmy aham — as people approach Krishna, so he receives them; humans follow his path in all ways. The classical reading is reciprocity, not flat path-equivalence: the form of approach shapes the form of reception. The engineering reading: a senior receives juniors at the level the junior is approaching at. The struggling engineer who comes asking 'how do I make this test pass' gets the sandboxed answer; the staff engineer who comes asking 'how would you architect this control plane' gets the deep architectural conversation. The senior is not gatekeeping by withholding; they are matching reception to approach. The form of the question shapes the form of the answer. The verse honors the seekers; it does not flatten them into one undifferentiated mass.",
+    "concrete_scenario": "A principal engineer has an open Slack channel for engineering questions. In a single day she fields three messages. From a six-month engineer struggling with a flaky vitest case in a Node + TypeScript repo: 'Why does this fail intermittently in CI?' She replies with a specific debugging procedure — check the test's setup, look for timing dependencies in the GitHub Actions runner, run with a deterministic seed. Sandboxed, instrumental, complete. From a four-year engineer asking about rate-limiting algorithms for a public REST endpoint: 'Token bucket vs. sliding window — which should we use behind the API gateway?' She replies with a comparison framework — request distribution shape, burst tolerance, fairness properties, Redis vs. in-memory state — and asks for the specific traffic profile from the Datadog dashboards. Conceptual, framework-shaped. From a staff engineer asking about the team's overall Postgres migration strategy: 'I think our resource model is actually a state-machine that ought to live in our schema, not our application code. Should we lean into that?' She replies with a forty-minute conversation in person, ranging from the team's user research to the cost of migrating, to the analogy with a system she encountered at a previous company. Deep, exploratory, relational. Three different receptions for three different approaches. The path is one — engineering rigor — but the form of reception matches the form of approach.",
+    "falsifiability": "The analog fails if a reader uses 'meet juniors where they are' as cover for never giving deep answers. The verse's reciprocity is symmetric: the staff-engineer-level question gets the staff-engineer-level answer. A senior who replies to deep questions with sandboxed answers is not honoring the verse; they are flattening downward.",
+    "counter_example": "When the form of the question masks its actual depth — when a staff engineer asks a sandboxed-sounding question because they are testing whether the senior will engage — the verse's reciprocity calls for reading the actual depth, not the surface form. The senior who reflexively gives a sandboxed answer to a staff engineer who deserved more has misread the approach. The form of the question is data; the form of the asker is also data.",
+    "implication": "When you reply to a question, ask yourself: what level is this person approaching at? Match the reception to the approach. The form of your answer is part of what you are teaching.",
+    "quotable_line": "Match the reception to the approach. The form of your answer is part of what you are teaching.",
+    "tags": [
+      "code-review-discipline",
+      "team-culture",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.11 is the most-quoted pluralism verse in the Gītā but the classical reading is reciprocity, not flat equivalence. Engineering layer maps to the senior matching reception-form to approach-form. Concrete scenario uses a principal engineer's Slack channel fielding three different-level questions in a single day, with three correspondingly-shaped responses. Counter-example carves out the case where surface form masks actual depth. Tags: code-review-discipline, team-culture, knowledge-action-integration.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.7",
+  "chapter": 4,
+  "verse": 7,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Yadā yadā hi dharmasya glānir bhavati bhārata — whenever dharma decays and adharma rises, Krishna manifests himself. The verse's metaphysical claim is the recurring cosmic incarnation of the Lord. The engineering analog cannot honor this claim. STRETCHED-tagged. The operational pattern that DOES honor the verse at its own scope: when a team's operational discipline decays catastrophically — when blameless postmortems give way to finger-pointing, when on-call rotations break down, when runbook updates lag months behind reality — there is a recurring pattern by which a senior engineer arrives, sometimes from outside, sometimes already on the team but assuming the role, and re-establishes the practices. This is a real, observable engineering phenomenon. It is NOT what the verse is teaching. The verse claims a metaphysical Being. The engineering pattern operates at operational scope. The analog respects the scope-difference and is explicitly STRETCHED.",
+    "concrete_scenario": "An infrastructure team at a 2,000-person company is in operational decay. Eighteen months ago, they ran weekly blameless postmortems and the runbooks were current in Notion. Six months ago, the lead SRE left, the postmortem cadence dropped to monthly, the runbooks decayed, and the team's incident-recovery time crept from 12 minutes to 47. Datadog dashboards went unmaintained; PagerDuty rotations became confused. Then a staff engineer who had been on a different team — but had watched this pattern decay before — asked to transfer in. In her first three weeks she did not propose a re-org or a new tool. She started running daily 15-minute incident reviews on the prior 24 hours. She rewrote four runbooks for the Postgres replication failover, the Redis cache eviction storms, the Kubernetes pod-scheduler edge case, and the deploy-pipeline rollback path. She paired with on-call engineers during their shifts. By month three, postmortems were weekly again, recovery time was 18 minutes, and the team's discipline was restored. The verse's metaphysical claim is far larger than this; the operational pattern is what the verse opens at engineering scope. STRETCHED, with full disclosure.",
+    "falsifiability": "The analog fails if a reader takes the engineering pattern (senior steps up during operational decay) as identifying the senior with what the verse names. The verse names a metaphysical Being who incarnates yuge yuge across cosmic ages. The engineering pattern is a recurring human phenomenon at operational scope. The analog must not flatten the verse into the pattern; it must respect the scope-gap. Anyone who concludes 'engineers are avatars' has fundamentally distorted the verse.",
+    "counter_example": "When operational discipline declines but no senior steps up — when the team simply continues to decay — the engineering pattern does not occur. The verse's claim is recurrence-across-cosmic-ages; the engineering analog cannot promise recurrence on any specific team. The pattern is empirical-frequent, not guaranteed.",
+    "implication": "When operational discipline on a team decays catastrophically, watch for the senior who quietly steps up. Their first moves will not be re-orgs or new tools. They will be reviewing yesterday's incident, rewriting one runbook, pairing with on-call. That is the pattern operating. The verse's claim is far larger.",
+    "quotable_line": "When operational discipline decays, watch for the quiet senior — daily incident reviews, one rewritten runbook, paired on-call shifts. The pattern operates. The verse's claim is far larger.",
+    "tags": [
+      "incident-response",
+      "team-culture",
+      "team-pathology"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.7 is the famous yadā yadā hi verse. STRETCHED tagged honestly. The chapter thesis explicitly requires that the engineering analog operate at operational scope only and that the verse's metaphysical claim be preserved at source-pack level. Engineering layer names a real recurring engineering phenomenon (senior steps up during operational decay) without claiming it IS what the verse is about. Concrete scenario at a 2000-person company infrastructure team going through operational decay and being restored by a staff engineer doing daily incident reviews + runbook rewrites + paired on-call. The verse-scope-vs-analog-scope difference is named explicitly. Tags: incident-response, team-culture, team-pathology.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

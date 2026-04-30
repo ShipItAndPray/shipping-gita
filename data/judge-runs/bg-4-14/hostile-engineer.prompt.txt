@@ -1,0 +1,233 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.14",
+  "sanskrit_devanagari": "न मां कर्माणि लिम्पन्ति न मे कर्मफले स्पृहा ।\nइति मां योऽभिजानाति कर्मभिर्न स बध्यते ॥ १४ ॥",
+  "sanskrit_iast": "na māṁ karmāṇi limpanti na me karma-phale spṛhā |\niti māṁ yo 'bhijānāti karmabhir na sa badhyate || 14 ||",
+  "anvaya": [
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "लिम्पन्ति",
+      "iast": "limpanti",
+      "meaning": "smear / bind"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "of me"
+    },
+    {
+      "sanskrit": "कर्मफले",
+      "iast": "karma-phale",
+      "meaning": "in the fruits of action"
+    },
+    {
+      "sanskrit": "स्पृहा",
+      "iast": "spṛhā",
+      "meaning": "longing / craving"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "अभिजानाति",
+      "iast": "abhijānāti",
+      "meaning": "knows clearly"
+    },
+    {
+      "sanskrit": "कर्मभिः",
+      "iast": "karmabhiḥ",
+      "meaning": "by actions"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "बध्यते",
+      "iast": "badhyate",
+      "meaning": "is bound"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/14/",
+      "fetched_at": "2026-04-30T04:26:59.559Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "There is no work that affects Me; nor do I aspire for the fruits of action. One who understands this truth about Me also does not become entangled in the fruitive reactions of work.",
+      "raw_capture_path": "data/sources/raw/bg-4-14-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-14/",
+      "fetched_at": "2026-04-30T04:27:15.291Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "There is no work that affects Me; nor do I aspire for the fruits of action. One who understands this truth about Me also does not become entangled in the fruitive reactions of work."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/14/",
+      "fetched_at": "2026-04-30T04:26:59.559Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2967 chars)",
+      "verbatim_excerpt": "As there are constitutional laws in the material world stating that the king can do no wrong, or that the king is not subject to the state laws, similarly the Lord, although He is the creator of this material world, is not affected by the activities of the material world.",
+      "raw_full_path": "data/sources/raw/bg-4-14-vedabase.json (purport_full_length: 2967)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-14/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.291Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.14 Because of the absence of egoism, those karmani, actions; na limpanti, do not taint; mam, Me, by becoming the originators of body etc. And me, for Me; na sprha, there is no hankering for the results of those actions.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 798,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-14-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as the model: the Lord acts (creates the four varṇas, sustains the world) without being bound, because he has no spṛhā for fruits. The knower who recognises this mode of acting — and adopts it — is similarly unbound. Knowledge of the Lord's non-binding action becomes the practitioner's release."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-14/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.291Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.14 These actions of varied nature like creation etc., do not contaminate Me i.e., do not bind Me. For the distinctions of gods, men etc., are not brought about by Me, but by the particular Karmas, good and evil, of created beings.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2302,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-14-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as Krishna's self-revelation: he acts but is not bound because his action is performed without desire for fruits. The bhakta who knows this and acts in the same mode (without selfish desire, in service to the Lord) is also released from karmic binding."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "abhijānāti",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "knows in truth"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "knows clearly enough to adopt the same mode of action"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "knows with the recognition that issues in devotion-shaped action"
+        }
+      ],
+      "explanation": "All three read abhijānāti as more than nominal recognition — it is a knowledge that becomes practice. Shankara emphasises the cognitive-imitative aspect (knowing how the Lord acts → acting that way). Ramanuja emphasises the relational aspect (knowing the Lord → devotion-shaped action). The verse's force is in the practical consequence, not the propositional content."
+    }
+  ],
+  "literal_meaning": "Actions do not smear me; I have no longing for the fruits of action; whoever clearly knows me thus is not bound by actions.",
+  "traditional_meaning": "Krishna names two facts: actions do not bind him (na limpanti), and he has no longing for fruits (na spṛhā). The verse then closes with the soteriological claim: whoever knows Krishna's mode of acting — engaged action without binding — is themselves freed from binding by their own actions. The verse models for the practitioner what right-action looks like: action without longing for fruits.",
+  "engineering": {
+    "translation": "Na māṁ karmāṇi limpanti na me karma-phale spṛhā — actions do not bind me; I have no longing for the fruits of action; whoever knows me thus is not bound. Krishna gives the operational signature of his own mode of acting and links knowledge of it to the practitioner's release. The engineering reading: when a senior acts without longing for specific recognised fruits — without aiming at the visible promotion-currency, without aiming at the citation-count of the design doc, without aiming at the credit on the postmortem — their actions do not bind them to the political-emotional load that fruit-aimed action accumulates. The engineer who knows the senior's mode and adopts it has the same release. The verse offers the practitioner the senior's own mode of acting as imitable.",
+    "concrete_scenario": "A senior engineer leads the redesign of a critical Stripe-integrated payments service: idempotency keys, webhook handling, the Postgres-Kafka outbox pattern. She does the design well, ships it via a series of GitHub PRs reviewed by the SRE on-call lead, and watches a junior peer — a fast-talking architect type — present the redesign at the org-wide architecture forum and receive most of the visible credit. The earlier-career version of her would have felt the missing recognition as a wound; would have spent three weeks litigating, in conversation and in DMs, who actually wrote the migration scripts and added the Datadog instrumentation; would have accumulated political residue that affected the next two projects. The current version of her notices the missing recognition, registers it, and proceeds with the next service redesign. The credit asymmetry is real. The binding it would have produced six years ago is gone. A junior watching this asks her later: 'How are you not angry?' She replies: 'I'm not exactly not-angry. I noticed it. It just didn't catch. I think because the work itself was the point — I would have done it the same way if no one had presented it.' The junior, who has been quietly furious about a similar credit-loss the previous month, files this away. Whoever knows the senior's mode and adopts it is not bound.",
+    "falsifiability": "The analog fails if a reader reads it as endorsing chronic credit-loss as a virtue. The verse names a release from binding, not an endorsement of others' wrongdoing. A senior who allows systematic credit-theft in the name of detachment has misunderstood the verse — Krishna acts to re-establish dharma, not to enable adharma.",
+    "counter_example": "When credit asymmetry is part of a structural pattern — when one demographic systematically loses credit to another in the same room — the verse does not authorise individual non-attachment as a substitute for naming the pattern. The senior's release from individual binding does not absolve her of the structural responsibility to name what is happening. The verse's freedom is for the practitioner; the dharma-restoration work continues.",
+    "implication": "When you watch a senior absorb a credit-loss without binding, watch carefully. The release is real and is achievable. The work it does not absolve them of is naming the pattern when the pattern is structural.",
+    "quotable_line": "The release from binding is real. The structural work continues — the senior's freedom is from individual binding, not from collective dharma-restoration.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-culture",
+      "outcome-detachment"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

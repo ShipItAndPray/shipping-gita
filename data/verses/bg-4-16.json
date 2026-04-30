@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.16",
+  "chapter": 4,
+  "verse": 16,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Even the wise are confused about action and inaction. Krishna acknowledges genuine difficulty and promises to declare the teaching that resolves it. The engineering reading: the question of whether someone is moving the system forward is actually hard. Even seasoned reviewers are confused about it. The engineer who is typing all day may be producing nothing; the engineer who appears to be sitting idle in meetings may be shaping outcomes. The senior who treats this question as obvious has not understood it. The verse establishes a precondition for 4.18: the seeing the verse will name is not trivial. It is the kind of seeing that even kavi (the wise, the seers) struggle with.",
+    "concrete_scenario": "A VP of Engineering reviews her staff engineers' last-quarter contributions on the GitHub dashboard and the team's Notion review document. Two stand out as unusual cases. Engineer A merged 47 pull requests, attended 60 meetings, sent 3,400 Slack messages, and shipped two minor features behind feature flags on Vercel. Engineer B merged 4 PRs, attended 90 meetings, sent 800 Slack messages, and shipped nothing visible — but during this quarter, three different teams independently report that the architectural direction of their Postgres-and-Redis-backed service changed because of conversations they had with B. The VP is genuinely uncertain how to evaluate them. By every conventional metric, A is more 'productive.' By the actual measure of system change, B may be moving more. The VP has been an engineering leader for fourteen years and is sitting with the verse's confusion: even she, the wise one in this evaluation, is not sure what counts as action and what counts as inaction. She schedules a separate hour with each engineer's manager to dig in. The verse's claim is honest: this is genuinely hard, even for seers.",
+    "falsifiability": "The analog fails if a reader treats the difficulty as license for permanent indecision. The verse promises that the teaching that follows (4.17-4.18) resolves the confusion. The engineering analog assumes the senior, having sat with the difficulty, will go through it — not avoid it. A VP who never resolves Engineer A vs Engineer B has not honored the next verse.",
+    "counter_example": "When one engineer's surface-busy and another's surface-idle are easily resolved by reading their actual contributions — when a 30-minute look at code, design docs, and meeting outcomes makes it obvious — the verse's claim of subtle confusion does not apply. The verse names cases where even careful evaluation produces uncertainty.",
+    "implication": "When you evaluate two engineers whose surface metrics diverge from your gut sense of who is moving the system, take the question seriously. The verse promises that there is a way of seeing that resolves it. 4.18 will declare that seeing.",
+    "quotable_line": "When the surface-busy and the surface-idle resist easy ranking, the difficulty is real, not yours alone.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "team-state",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.16 acknowledges genuine confusion among the wise about action/inaction. Engineering layer maps to the VP-of-Engineering case where conventional metrics rank Engineer A above Engineer B but actual system-change suggests the reverse, and the seasoned VP is genuinely uncertain. Concrete scenario establishes the difficulty without resolving it (4.18 will). Counter-example carves out easy cases where the question is not actually subtle.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

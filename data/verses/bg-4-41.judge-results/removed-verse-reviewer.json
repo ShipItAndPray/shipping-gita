@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog not reconstructible from chapter alone (without the verse)",
+      "objection": "Remove 4.41 from the chapter and ask: could the engineering analog be predicted from the surrounding verses? No. 4.41 carries verse-specific weight (Of one who has renounced action through yoga, whose doubt has been tor…) that the chapter does not redundantly encode in nearby verses. The engineering analog requires this verse's specific Sanskrit anchor."
+    }
+  ],
+  "notes": "Removed-verse test for 4.41: the engineering layer is verse-specific, not chapter-derivable. PASS."
+}

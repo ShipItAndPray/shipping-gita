@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.20",
+  "chapter": 3,
+  "verse": 20,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Janaka and others reached perfection by action alone — not by abandoning it. The verse names a precedent (Janaka, the philosopher-king of Mithila, the realised actor par excellence in the Indian tradition) and a motivation (loka-saṅgraha — holding the world together). Two claims stack: realisation does not contradict action, and even the realised one has reason to act beyond his own purification — the welfare of the world. The engineering map is precise: the principal engineer who has internalised the systems does not therefore exit them. The reason is structural — the team, the customer, the on-call rotation, the review queue — they all depend on his continued participation. His withdrawal is not a neutral act; it is a load redistributed.",
+    "concrete_scenario": "At a Kubernetes-heavy infrastructure company a principal engineer has, over fifteen years, internalised the cluster-controller architecture so completely that operating on it is effortless. He could, on paper, retreat to architecture review and let the team run the day-to-day. He does not. Every other Wednesday he picks up two PRs from the review queue — one from the most-junior engineer on the team, one from the most-senior — and reviews them with full attention. He carries the on-call pager one rotation per quarter. He files one incident write-up per year that names something the team is doing wrong, and signs it. None of this work is for his own purification (he is past the point where these activities teach him anything new). All of it is loka-saṅgraha — he is keeping the team's standard at the level his presence makes possible. The day he stops, the standard drops, and not because anyone is malicious — because the visible top of the team determines what 'good' looks like to everyone below. Janaka acted for the same reason.",
+    "falsifiability": "The analog fails if it is read as 'seniors must do everything.' The verse names a specific motivation — the welfare of the world — for a specific actor — the realised one. The senior who is acting from career-motivation, ego, or fear is not the actor 3.20 is describing; he is in 3.19. The verse is naming the motivation, not the surface activity.",
+    "counter_example": "Some realised actors do step back. A principal who has trained five successors and quietly hands them the keys is not in violation of 3.20; his loka-saṅgraha now happens through the successors he has produced. The verse does not require the principal to stay forever; it requires that the function — keeping the team's standard at the level his presence makes possible — continue to be served.",
+    "implication": "If you are in the Janaka position — internalised the system, no longer learning from operating it — name the loka-saṅgraha function your continued participation serves. If you cannot name it, ask whether you are still serving it. If you are not, the position is being held by inertia, not by 3.20.",
+    "quotable_line": "Janaka acted not for himself but to keep the team's standard at the level his presence made possible.",
+    "tags": [
+      "team-culture",
+      "duty",
+      "operator-system-coupling",
+      "right-renunciation"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.20: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T22:55:00Z",
+      "mutation": "Single-mutation fix for deterministic gate failures (FK grade band, lexical diversity, named tools, quotable length).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,220 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.33",
+  "sanskrit_devanagari": "श्रेयान्द्रव्यमयाद्यज्ञाज्ज्ञानयज्ञ: परन्तप ।\nसर्वं कर्माखिलं पार्थ ज्ञाने परिसमाप्यते ॥ 33 ॥",
+  "sanskrit_iast": "śhreyān dravya-mayād yajñāj jñāna-yajñaḥ parantapa\nsarvaṁ karmākhilaṁ pārtha jñāne parisamāpyate",
+  "anvaya": [
+    {
+      "iast": "śhreyān",
+      "meaning": "superior",
+      "sanskrit": ""
+    },
+    {
+      "iast": "dravya",
+      "meaning": "mayāt—of material possessions",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñāt",
+      "meaning": "than the sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñāna",
+      "meaning": "yajñaḥ—sacrifice performed in knowledge",
+      "sanskrit": ""
+    },
+    {
+      "iast": "parantapa",
+      "meaning": "subduer of enemies, Arjun",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sarvam",
+      "meaning": "all",
+      "sanskrit": ""
+    },
+    {
+      "iast": "karma",
+      "meaning": "works",
+      "sanskrit": ""
+    },
+    {
+      "iast": "akhilam",
+      "meaning": "all",
+      "sanskrit": ""
+    },
+    {
+      "iast": "pārtha",
+      "meaning": "Arjun, the son of Pritha",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñāne",
+      "meaning": "in knowledge",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/33/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O chastiser of the enemy, the sacrifice performed in knowledge is better than the mere sacrifice of material possessions. After all, O son of Pṛthā, all sacrifices of work culminate in transcendental knowledge.",
+      "raw_capture_path": "data/sources/raw/bg-4-33-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/33",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.33: O subduer of enemies, sacrifice performed in knowledge is superior to any mechanical material sacrifice. After all, O Parth, all sacrifices of work culminate in knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/33/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The purpose of all sacrifices is to arrive at the status of complete knowledge, then to gain release from material miseries and, ultimately, to engage in loving transcendental service to the Supreme Lord (Kṛṣṇa consciousness).",
+      "verbatim_full_length": 1284,
+      "raw_full_path": "data/sources/raw/bg-4-33-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-33/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.33 O destroyer of enemies, jnana-yajnah, Knowledge considered as a sacrifice; is sreyan, greater; dravyamayat yajnat, than sacrifices requiring materials [Including study of the Vedas, etc. also.] For, a sacrifice performed with materials is an originator of results, [Worldly prosperity, attaining heaven, etc.], but…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1356,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-33-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-33/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.33 Karma Yoga has two aspects — knowledge and material ingredients. Of these two, the component of knowledge is superior to the component of material ingredients. Knowledge is the culmination of all actions and of everything else, accessories and other things helpful. This knowledge alone, which is to be obtained by…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 498,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-33-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-33/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Here the superiority of yagnas or offerings of worship to propitiate the Supreme Lord performed in jnana yoga or in the cultivation of Vedic knowledge is being explained by Lord Krishna. The yagna accomplished by knowledge is superior to the yagna performed by material…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 911,
+      "raw_full_path": "data/sources/raw/bg-4-33-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.33: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Greater than substance-yajña is knowledge-yajña, scorcher-of-foes; all action without exception culminates in knowledge.",
+  "traditional_meaning": "śreyān dravya-mayād yajñāj jñāna-yajñaḥ paran-tapa — knowledge-yajña is greater than substance-yajña, scorcher-of-foes — sarvaṁ karmākhilaṁ pārtha jñāne parisamāpyate — all action, in its entirety, culminates in knowledge. Shankara: the ranking is sharp — jñāna-yajña is greater because it directly destroys ignorance (avidyā) which is the root of bondage; substance-yajña purifies but does not directly liberate. The closing pāda is doctrinally pivotal: every action without exception (sarvaṁ akhilam) finds its complete fulfillment (parisamāpyate) in knowledge. Action does not end at the action; action terminates in knowledge. Ramanuja: jñāna-yajña includes ātma-jñāna (knowledge of the self), and karma-yoga itself culminates in this; the verse legitimises the path while ranking knowledge above substance-offering.",
+  "engineering": {
+    "translation": "The verse's central engineering claim. Knowledge-yajña — the disciplined offering of understanding — is greater than substance-yajña — the disciplined offering of volume. The engineer who ships one well-aimed change because she has held the Postgres query-planner model in her head for years produces more durable value than the engineer who ships ten unaimed changes because they happened to be in her queue. The verse's second claim is harder: all action, without exception, culminates in knowledge. Every shipped artefact eventually finds its full meaning at the level of what was understood when it was made. The volume engineer's ten changes accumulate into a substrate-decay that the team will pay down later; the understanding engineer's one change accumulates into substrate-clarity that the team will draw on later. Both terminate in jñāna — but with opposite signs. CRITICAL: the verse is not anti-shipping; jñāna-yajña is itself a yajña, a discipline performed. It is shipping illuminated by understanding, not understanding without shipping.",
+    "concrete_scenario": "Two senior engineers join the same team in the same quarter. The first ships fifty PRs in six months — every assigned ticket, every quick win, every requested feature. The team's velocity dashboard reads green. Underneath, the codebase has accumulated complexity: three slightly-different versions of the same caching pattern, two parallel approaches to background job retry, four configs that each look correct in isolation but interact unpredictably. Her work is dravya-yajña — substance offered in volume. The second engineer ships fifteen PRs in the same six months. Every PR consolidates, refactors, or simplifies. Three of her PRs delete more code than they add. Her sixth-month review is mixed; her velocity number is half her colleague's. Eighteen months later, the team's debugging time has dropped 40%, the on-call burden has dropped 30%, two complex outages did not happen because two interaction-bugs were already gone. Her work was jñāna-yajña — substance offered illuminated by understanding. The verse's claim is testable: across two cycles, the jñāna-yajña column produces more durable system value than the dravya-yajña column. Not in spite of less volume; because the volume was illuminated.",
+    "falsifiability": "The analog fails if a reader concludes 'thinking is better than shipping.' The verse explicitly says jñāna-yajña — knowledge-as-yajña — and yajña is performed action. The engineer who reads about the system for years without shipping has not honored the verse; she has bypassed the yajña-condition. The diagnostic: across two cycles, the jñāna-yajña engineer ships less but the system improves more. If the system did not improve, the work was not jñāna-yajña; it was contemplation.",
+    "counter_example": "When the team is structurally under-resourced and the work is genuinely volume-constrained — high-frequency feature requests, regulatory deadlines that require literal coverage, a backlog that cannot be reduced through clarity — the dravya-yajña engineer is doing the work the team needs. The verse ranks knowledge-yajña higher in the long run; it does not collapse the legitimacy of substance-yajña. Both are yajña.",
+    "implication": "Across the next two quarters, observe the substrate. The jñāna-yajña engineer's work shows up as substrate-clarity that the team draws on; the dravya-yajña engineer's work shows up as backlog-coverage. Both are valuable; the verse's claim is that the first is greater in the long run.",
+    "quotable_line": "Three of her PRs delete more code than they add. The verse calls this knowledge-yajña.",
+    "tags": [
+      "essence-vs-implementation",
+      "first-principles",
+      "shipping-discipline",
+      "tech-debt",
+      "yajna-as-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

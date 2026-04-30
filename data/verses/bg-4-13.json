@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.13",
+  "chapter": 4,
+  "verse": 13,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Cātur-varṇyaṁ mayā sṛṣṭaṁ guṇa-karma-vibhāgaśaḥ — the four-fold typology was created by me according to the division of guṇa and karma. The verse explicitly says guṇa and karma — intrinsic disposition and acquired action — NOT birth. The honest engineering reading honors what is actually said: practitioners fall into a small number of recognisable archetypes, distinguished by inner disposition (guṇa) and the kind of labor that disposition produces (karma). The architect who thinks in protocols and invariants. The builder who reaches first for shipping and iteration. The mentor who thinks in transmission and pedagogy. The operator who thinks about stability and incident response. Each shape is real. They are separated by character + acquired practice, not by job title or family lineage. STRETCHED-tagged because the contested historical caste-by-birth reading makes any analog doctrinally fraught. Our reading honors Krishna's stated criterion (guṇa-karma) and explicitly disavows any birth-based interpretation.",
+    "concrete_scenario": "A staff engineer onboarding into a 400-person org notices, in her first three months, that there are four recognisable archetypes among the seasoned ICs. The architects (Maya, Devon, two others) immediately reach for protocol questions: what is the API contract, what invariants must hold, what is the wire format on the gRPC boundary. The builders (Priya, Carlos, three others) reach for shipping questions: what is the smallest thing that can go to production behind a feature flag this week. The mentors (Alex, Naomi, two others) reach for transmission questions: how will the next person pick this up, what documentation survives my eventual departure. The operators (Hiroshi, Maria, three others) reach for stability questions: what fails first when this Postgres load doubles. None of these are job titles — all four are nominally 'staff engineers.' The distinction is guṇa (inner disposition) plus karma (the kind of practice that disposition has produced over years). The org needs all four shapes. The verse's claim is far older and more loaded than this; our reading respects what Krishna explicitly says (typology by guṇa-karma) and does not smuggle in any caste-by-birth interpretation.",
+    "falsifiability": "The analog fails most dangerously if a reader takes the engineering archetype-typology as a legitimate analog for the historical caste reading. Krishna explicitly says guṇa-karma. The engineering analog must explicitly say the same: typology by intrinsic disposition + acquired practice, not by lineage, not by hireability, not by class. Any analog that treats some archetypes as 'higher' than others has distorted both verse and analog.",
+    "counter_example": "When the engineering 'archetype' is in fact a stereotype based on background or institution, the analog inverts. The diagnostic: ask whether the same person, given different formative experience, could have become a different archetype. If yes, the typology is by guṇa-karma in the relevant sense (formative + dispositional). If no, the typology is birth-based and the analog has failed.",
+    "implication": "When you map your team, name the archetypes by what the engineers actually DO — the kind of question they reach for first — not by their nominal title. The map by guṇa-karma is more useful for staffing decisions than the map by ladder level.",
+    "quotable_line": "Map the team by the question each engineer reaches for first, not by ladder level. That is the typology this verse opens.",
+    "tags": [
+      "team-state",
+      "engineering-pathology",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.13 is the chapter's most doctrinally fraught verse. STRETCHED tagged honestly per chapter thesis. The engineering layer explicitly preserves Krishna's stated criterion (guṇa-karma — intrinsic disposition + acquired action) and explicitly disavows the historical caste-by-birth reading. Concrete scenario uses a staff engineer mapping a 400-person org's four archetypes (architect / builder / teacher / operator) by what each engineer reaches for first, not by title. Counter-example explicitly tests whether the typology is dispositional or birth-based. Per chapter thesis: this verse requires the most care.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

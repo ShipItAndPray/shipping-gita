@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.2",
+  "chapter": 4,
+  "verse": 2,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names a hard fact: even authentic transmission decays without sustained practice. The yoga that the rājarṣis (royal sages) knew was lost over time. The decay is not because the yoga was insufficient; it is because the chain of competent receivers broke. The engineering reading: the operational discipline a senior team practiced in 2018 — careful runbooks, blameless postmortems, scoped on-call duties — disappears within three years if the receivers are not trained, the practice is not sustained, and the conditions under which it was learned are not transmitted. The institutional memory is fragile in exactly the way Krishna names. What dies is not the principle; what dies is the chain of people who could practice it.",
+    "concrete_scenario": "A fast-growing infrastructure team at a data-platform company hits a production incident in 2026. The on-call engineer pages the SRE lead. They reach for the runbook — which exists, in Notion, last updated in 2022 by an engineer who left in 2023. The runbook references a deploy script that was renamed, a Datadog dashboard that was archived, and a pager rotation that was reorganised. The principles the runbook encodes are still correct. But the chain of people who knew how to apply them, when, and against what failure modes is gone. The new SRE hired in 2025 reads the document, reads the postmortem, and re-derives the response from first principles in 90 minutes — buying themselves a working playbook for the next incident, but the team has now lost three years of cumulative debugging intuition because no one was assigned to keep transmitting it. The yoga was lost.",
+    "falsifiability": "The analog fails if a reader uses it to justify hoarding institutional knowledge — to make themselves indispensable by withholding transmission. The verse's force runs the other way: the loss of the yoga is bad news. The remedy is sustained transmission, not protected scarcity. A senior who interprets this verse as 'I am the only one who knows; this is good for my career' has inverted what the verse actually mourns.",
+    "counter_example": "When a discipline is inherited but the conditions that made it necessary have changed — when the original constraint that produced the runbook no longer applies — the loss of that specific practice is not the loss the verse names. The verse mourns the loss of practices whose principles still apply. The corollary: distinguish the principle (which the verse defends) from the specific practice it generated (which may legitimately retire).",
+    "implication": "Audit your team's tribal knowledge. For every operational principle the team practices, ask: if the senior person who holds this left tomorrow, would the principle survive? If not, the chain is already breaking. Begin transmission now, not at the exit interview.",
+    "quotable_line": "What dies is not the principle; what dies is the chain of people who could practice it.",
+    "tags": [
+      "team-culture",
+      "tech-debt",
+      "incident-response"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.2 names the decay of authentic transmission. Engineering layer maps to the documented-but-orphaned runbook scenario: principles preserved in writing, but the human chain of competent receivers broken. Concrete scenario at a 2026 infra team where a 2022 runbook still 'works' but the cumulative debugging intuition is lost. Counter-example carves out the case where an inherited practice has legitimately retired. Tags: team-culture, tech-debt, incident-response.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

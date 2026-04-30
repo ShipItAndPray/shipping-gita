@@ -1,0 +1,38 @@
+{
+  "id": "BG 4.28",
+  "chapter": 4,
+  "verse": 28,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Four more shapes of engineering yajña, each with a different offering. Dravya-yajña: material-substance contribution — the engineer who offers compute, infrastructure spend, hardware, hours; the open-source maintainer who keeps the lights on with their resources. Tapo-yajña: austerity-contribution — the engineer who keeps the on-call pager, who does the unglamorous deprecation work, who stays for the long migration; the offering is acceptance of discomfort the work requires. Yoga-yajña: practice-contribution — the engineer whose offering is the held discipline of code review, design review, test-writing, the daily practices that sustain the team's quality. Svādhyāya-jñāna-yajña: study-contribution — the engineer whose offering is reading the actual papers, the actual RFCs, the actual Postgres docs, and bringing what they read back into the team's working understanding. All four are legitimate. All require the saṁśita-vrata — the sharp vow, the held practice.",
+    "concrete_scenario": "A four-person engineering team has one engineer of each type. Avi pays the AWS bill out of his own corporate card for the open-source side project the team maintains together — dravya-yajña. Beti is the on-call lead and has held the pager for eighteen consecutive months without rotating off — tapo-yajña. Cari is the code-review and design-doc discipline-keeper; every PR she reviews comes back tighter, every design doc she comments on grows a precise diagram — yoga-yajña. Dav is the team's substrate-reader; he reads the Postgres internals papers, the Raft paper, the Aphyr Jepsen analyses, and brings them back into Slack threads when they bear on a current decision — svādhyāya-jñāna-yajña. Each is a yatayaḥ saṁśita-vrataḥ — disciplined, sharp-vowed. The team works because all four shapes are present and each is held seriously.",
+    "falsifiability": "The analog fails if a reader concludes that any sustained engineering activity counts as one of these. Each yajña-type carries a saṁśita-vrata — the sharp vow, the held practice. Reading occasional blog posts is not svādhyāya-jñāna-yajña; reading actual papers and bringing them into the team's working understanding is. The discipline qualifier is doing the work of separating yajña from going-through-motions.",
+    "counter_example": "When a team is small and early-stage, distributing one engineer to each of these yajña-shapes is wasteful; one engineer holds two or three, and that is correct. The typology names legitimate shapes, not a quota structure. Equally, larger teams may have specialised yajña-shapes (release-engineering-yajña, security-yajña, accessibility-yajña) not in this list; the list is illustrative.",
+    "implication": "Identify which yajña-shape is missing on your team. The team's pathology is most often that one of these four is structurally absent — usually svādhyāya, sometimes tapas. The diagnostic moves the question from 'who is underperforming' to 'which discipline is unrepresented.'",
+    "quotable_line": "Code, austerity, study, and the held-pager — four shapes of the same offering.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "code-review-discipline",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T04:30:00Z",
+      "mutation": "v0 generation: source pack triangulated. Engineering analog maps the four yajña types to four real engineering disciplines: infra-funding (dravya), on-call/discomfort-work (tapas), code-review/design-review (yoga), substrate-reading (svādhyāya). Concrete scenario: 4-person team, one of each type. Counter-example: small/early teams legitimately combine, larger teams legitimately specialise. Named tools: AWS, Postgres, Raft, Jepsen. Tags: yajna-as-discipline, team-culture, code-review-discipline, deep-work.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

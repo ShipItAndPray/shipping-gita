@@ -1,0 +1,226 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.19",
+  "sanskrit_devanagari": "यस्य सर्वे समारम्भाः कामसङ्कल्पवर्जिताः ।\nज्ञानाग्निदग्धकर्माणं तमाहुः पण्डितं बुधाः ॥ १९ ॥",
+  "sanskrit_iast": "yasya sarve samārambhāḥ kāma-saṅkalpa-varjitāḥ |\njñānāgni-dagdha-karmāṇaṁ tam āhuḥ paṇḍitaṁ budhāḥ || 19 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यस्य",
+      "iast": "yasya",
+      "meaning": "whose"
+    },
+    {
+      "sanskrit": "सर्वे",
+      "iast": "sarve",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "समारम्भाः",
+      "iast": "samārambhāḥ",
+      "meaning": "undertakings / ventures"
+    },
+    {
+      "sanskrit": "काम",
+      "iast": "kāma",
+      "meaning": "of desire"
+    },
+    {
+      "sanskrit": "सङ्कल्प",
+      "iast": "saṅkalpa",
+      "meaning": "of design / mental resolve"
+    },
+    {
+      "sanskrit": "वर्जिताः",
+      "iast": "varjitāḥ",
+      "meaning": "free / abandoned"
+    },
+    {
+      "sanskrit": "ज्ञानाग्नि",
+      "iast": "jñānāgni",
+      "meaning": "fire of knowledge"
+    },
+    {
+      "sanskrit": "दग्ध",
+      "iast": "dagdha",
+      "meaning": "burned"
+    },
+    {
+      "sanskrit": "कर्माणम्",
+      "iast": "karmāṇam",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "him"
+    },
+    {
+      "sanskrit": "आहुः",
+      "iast": "āhuḥ",
+      "meaning": "they call"
+    },
+    {
+      "sanskrit": "पण्डितम्",
+      "iast": "paṇḍitam",
+      "meaning": "learned"
+    },
+    {
+      "sanskrit": "बुधाः",
+      "iast": "budhāḥ",
+      "meaning": "the wise"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/19/",
+      "fetched_at": "2026-04-30T04:26:59.609Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One is understood to be in full knowledge whose every endeavor is devoid of desire for sense gratification. He is said by sages to be a worker for whom the reactions of work have been burned up by the fire of perfect knowledge.",
+      "raw_capture_path": "data/sources/raw/bg-4-19-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-19/",
+      "fetched_at": "2026-04-30T04:27:15.220Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One is understood to be in full knowledge whose every endeavor is devoid of desire for sense gratification. He is said by sages to be a worker for whom the reactions of work have been burned up by the fire of perfect knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/19/",
+      "fetched_at": "2026-04-30T04:26:59.609Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 616 chars)",
+      "verbatim_excerpt": "Only a person in full knowledge can understand the activities of a person in Kṛṣṇa consciousness. Because the person in Kṛṣṇa consciousness is devoid of all kinds of sense-gratificatory propensities, it is to be understood that he has burned up the reactions of his work by perfect knowledge of his c…",
+      "raw_full_path": "data/sources/raw/bg-4-19-vedabase.json (purport_full_length: 616)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-19/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.220Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.19 Budhah, the wise, the knowers of Brahman; ahuh, call; tam, him; panditam, learned, in the real sense; yasya, whose, of the one who perceives as stated above; samarambhah, actions-whatever are undertaken; are sarve, all; kama-sankalpa-varjitah, devoid of desires and the thoughts which are their…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2090,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-19-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as a definition: the paṇḍita is not the one with information but the one whose actions issue from knowledge — whose undertakings are uncontaminated by desire-driven design and whose karma is consumed by the fire of self-knowledge. The metaphor of fire-burning-karma is taken seriously: knowledge is what neutralises the binding force of action."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-19/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.220Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.19 In the case of an aspirant for release, all undertakings of actions in the form of obligatory, occasional and desiderative acts accomplished through the acquisition of materials for their performance as also other works, are free from desire, i.e., are devoid of attachment to fruits.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 940,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-19-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as describing the karma-yogin in whom devotion-shaped action is so settled that all undertakings are free of selfish design. Knowledge (here jñāna in the bhakti-integrated sense) becomes the fire that burns the binding-quality of past karma, so the practitioner's karmic balance is consumed. The verse links knowledge with action in the act of consuming."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "jñānāgni-dagdha-karma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "whose actions are burned up by the fire of perfect knowledge"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "actions consumed by the fire of self-knowledge — knowledge that destroys karmic binding"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "actions whose binding-quality is burned by knowledge integrated with devotion"
+        }
+      ],
+      "explanation": "The fire-of-knowledge metaphor is preserved across all three readings. Shankara reads the fire as Self-knowledge specifically; Ramanuja reads it as bhakti-integrated knowledge; Prabhupada flattens to 'perfect knowledge.' All agree the metaphor is real: knowledge has a destructive function on accumulated karma. The verse is the chapter's introduction of this powerful image, which 4.36-4.37 will elaborate."
+    }
+  ],
+  "literal_meaning": "Whose every undertaking is free from desire-driven design, whose actions are burned by the fire of knowledge — him the wise call learned (paṇḍita).",
+  "traditional_meaning": "The verse names the practitioner: every samārambha (undertaking) is free of kāma-saṅkalpa (desire-driven design / planning powered by craving). The result: the practitioner's actions are burned by jñānāgni — the fire of knowledge — and produce no further binding. Such a one is paṇḍita (learned) according to the budhāḥ (the wise). The verse builds on 4.18 by giving the operational signature of the seer.",
+  "engineering": {
+    "translation": "Whose every undertaking is free of desire-driven design, whose acts are burned by the fire of knowledge — him the wise call paṇḍita, learned. The verse names the operational signature of 4.18's seer. Our reading: a practitioner whose every project (samārambha) is uncontaminated by the question 'what will this give me?' — visibility, promotion, citation, public credit — and whose past errors have been consumed by understanding (jñānāgni) rather than psychologically held — is the builder the wise call paṇḍita. The flame metaphor is taken seriously: knowing has a destructive function on accumulated karma. A colleague who has comprehended why a prior decision was wrong is not bound by it the way one still rationalising it remains bound. Understanding burns the binding.",
+    "concrete_scenario": "A staff engineer is reviewing her own work over the past five years for a self-evaluation. She finds three significant past mistakes — a wrong API abstraction in a 2021 microservice migration, a premature Postgres index optimisation in 2023 that locked production for 40 minutes, an under-scoped Kubernetes rollout project in 2024 that paged the on-call SRE three times. She does not flinch when she names them. She writes one paragraph for each: what she did, why it was wrong, what she now understands about the schema-vs-application boundary that she did not understand then, and what she does differently as a result. The mistakes are no longer load-bearing for her self-evaluation; they have been consumed by understanding. A junior peer reading the GitHub doc is struck: 'How are you not embarrassed by these?' She answers: 'I was, when I made them. The understanding came later. Once I understood why each was wrong, the embarrassment finished its work.' The fire of knowledge has burned the binding-quality of the past actions. They are now teaching material, not psychological residue. This is paṇḍita as Krishna names it.",
+    "falsifiability": "The analog fails if a reader uses 'fire of knowledge' as a euphemism for repressing rather than understanding. The verse names a real consumption: the karma is gone, not hidden. The diagnostic: can the practitioner discuss the past mistake without affect, with full specificity, and with concrete change in subsequent practice? If yes, the fire has worked. If the discussion produces avoidance, defensiveness, or the same mistake in a new form, the fire has not yet operated.",
+    "counter_example": "When the past mistake is in fact still operating — when the engineer has narrated it as understood but is making the same kind of mistake in a different form — the fire metaphor does not apply. Real consumption shows in changed downstream practice. Pseudo-consumption is recognisable: the narrative is polished, but the pattern repeats.",
+    "implication": "Audit your last three professional mistakes. For each, ask: is this still load-bearing, or has it been consumed by understanding? Loaded mistakes still produce defensiveness in conversation. Consumed mistakes are teaching material. The audit is the available test.",
+    "quotable_line": "Loaded mistakes still produce defensiveness in conversation. Consumed mistakes are teaching material. The audit is the available test.",
+    "tags": [
+      "non-attachment-to-praise",
+      "knowledge-action-integration",
+      "calibration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

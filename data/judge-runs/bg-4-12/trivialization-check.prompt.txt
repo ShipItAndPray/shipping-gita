@@ -1,0 +1,207 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.12",
+  "sanskrit_devanagari": "काङ्क्षन्तः कर्मणां सिद्धिं यजन्त इह देवताः ।\nक्षिप्रं हि मानुषे लोके सिद्धिर्भवति कर्मजा ॥ १२ ॥",
+  "sanskrit_iast": "kāṅkṣantaḥ karmaṇāṁ siddhiṁ yajanta iha devatāḥ |\nkṣipraṁ hi mānuṣe loke siddhir bhavati karma-jā || 12 ||",
+  "anvaya": [
+    {
+      "sanskrit": "काङ्क्षन्तः",
+      "iast": "kāṅkṣantaḥ",
+      "meaning": "desiring"
+    },
+    {
+      "sanskrit": "कर्मणाम्",
+      "iast": "karmaṇām",
+      "meaning": "of actions"
+    },
+    {
+      "sanskrit": "सिद्धिम्",
+      "iast": "siddhim",
+      "meaning": "success / fruit"
+    },
+    {
+      "sanskrit": "यजन्ते",
+      "iast": "yajante",
+      "meaning": "they sacrifice / worship"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "here (in this world)"
+    },
+    {
+      "sanskrit": "देवताः",
+      "iast": "devatāḥ",
+      "meaning": "the gods"
+    },
+    {
+      "sanskrit": "क्षिप्रम्",
+      "iast": "kṣipram",
+      "meaning": "quickly"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "मानुषे लोके",
+      "iast": "mānuṣe loke",
+      "meaning": "in the human world"
+    },
+    {
+      "sanskrit": "सिद्धिः",
+      "iast": "siddhiḥ",
+      "meaning": "success"
+    },
+    {
+      "sanskrit": "भवति",
+      "iast": "bhavati",
+      "meaning": "becomes / arises"
+    },
+    {
+      "sanskrit": "कर्मजा",
+      "iast": "karma-jā",
+      "meaning": "born of action"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/12/",
+      "fetched_at": "2026-04-30T04:26:59.600Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Men in this world desire success in fruitive activities, and therefore they worship the demigods. Quickly, of course, men get results from fruitive work in this world.",
+      "raw_capture_path": "data/sources/raw/bg-4-12-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-12/",
+      "fetched_at": "2026-04-30T04:27:12.963Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Men in this world desire success in fruitive activities, and therefore they worship the demigods. Quickly, of course, men get results from fruitive work in this world."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/12/",
+      "fetched_at": "2026-04-30T04:26:59.600Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3129 chars)",
+      "verbatim_excerpt": "There is a great misconception about the gods or demigods of this material world, and men of less intelligence, although passing as great scholars, take these demigods to be various forms of the Supreme Lord.",
+      "raw_full_path": "data/sources/raw/bg-4-12-vedabase.json (purport_full_length: 3129)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:12.963Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.12 Kanksantah, longing for, praying for; siddim, fruition, fructification of the results; karmanam, of actions; yajante, they worship; iha, here, in this world; devatah, the gods, Indra, Fire and others- which accords with the Upanisadic text, ‘While he who worships another god thinking, “He is on…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1860,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-12-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's acknowledgement that ritual worship of specific deities for specific results does produce those results, and does so quickly in the human world. The verse establishes the validity of karma-kāṇḍa (ritual action) at its own level while implicitly pointing beyond it."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-12/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:12.963Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.12 All men, desirous of the fruits of their actions, ‘sacrifice’, i.e., worship or propitiate Indra and other divinities only. But nobody worships Me abandoning attachment to fruits — Me, who am the Self of Indra and other divinities and the real enjoyer of all sacrifices.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1076,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-12-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as part of the path-equivalence claim of 4.11 made concrete: those who approach the gods seeking specific fruits do receive them. The verse honors the karma-mīmāṁsā tradition (Vedic ritualism) without denying that more comprehensive fruits await different approaches."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "siddhiḥ karma-jā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "success born of fruitive work / ritualistic activities"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "specific worldly results produced quickly by deity-directed ritual action"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the empirical fact that karma-yajña does produce its specified fruits"
+        }
+      ],
+      "explanation": "All three commentators read the verse as acknowledging that ritual worship genuinely produces its named fruits. The quietly important word is karma-jā — born of action. The fruit is a real consequence of the action, but it is the fruit-of-action level only; the verse implicitly contrasts with deeper paths."
+    }
+  ],
+  "literal_meaning": "Those desiring success of actions worship the gods here; quickly indeed in the human world is success born of action.",
+  "traditional_meaning": "Krishna acknowledges that those seeking specific outcomes through ritual action do receive those outcomes — the gods (devatāḥ) reciprocate ritual offerings with worldly results, and these results come quickly in the human realm. The verse is empirical, not condemnatory: there is a real karma-pathway to specific fruits. The implicit contrast is with the deeper liberation-path described in 4.9-4.11.",
+  "engineering": {
+    "translation": "Krishna acknowledges that those seeking specific outcomes through ritual action do receive those outcomes — and the results come quickly in the human realm. The engineering reading: when an engineer does work aimed at a specific recognised outcome (the promotion, the visibility, the conference talk), the outcome often actually arrives. The verse is not condemnatory. It is empirical: there is a real karma-pathway from specific deeds to specific fruits. The implicit contrast — which the chapter will sharpen later — is with the deeper path, where the work is done without specific outcome-aiming. Both paths are real. The first delivers what it aims at; the second delivers something else. The verse honors the first while implicitly opening room for the second.",
+    "concrete_scenario": "Two engineers at an 800-person company spend the same six months on visible work. The first targets the year-end promotion explicitly. He chooses projects with promotion-committee visibility, networks with promotion-committee members, makes sure his GitHub PRs appear in monthly demos, writes a careful self-review document linking each merge to a measurable metric on the Datadog dashboard. He gets the promotion. The verse's claim is empirical: the work aimed at the specific fruit produces the specific fruit. The second engineer spends the same six months refactoring an internal Postgres observability layer — slow-query log routing, the schema-migration runbook, the SLO dashboard — that no promotion committee will ever see, because the system needs it. He does not get the promotion in the same cycle. The first engineer's outcome is real, not illusory. Both engineers' work was real. The verse's quiet point: the outcomes are different in kind. The first engineer has the promotion; the second has the refactor. Tomorrow's on-call rotation has a different starting point for each.",
+    "falsifiability": "The analog fails if a reader reads the verse as condemning fruit-aimed work. The verse explicitly says the fruits are real (siddhir bhavati karma-jā). The implicit contrast is between two real paths, not between a real and a fake one. An engineering reading that treats outcome-seeking as automatically corrupt has misread the verse.",
+    "counter_example": "When the promotion-aimed work is also genuinely valuable to the system — when the visibility comes from real customer-impact work, not from theatre — the two paths converge. The verse's contrast is between fruit-seeking-as-end and fruit-seeking-as-incidental. The harder engineering case is the project that is BOTH visible AND substantive; that case is not what the verse is teaching the practitioner to avoid.",
+    "implication": "When you choose work, notice which voice is choosing. The voice that asks 'what will this produce that I can name and claim?' is the verse's worship-of-gods voice — and it really does produce its fruit. The voice that asks 'what does the system need?' often produces less visible fruit. Both are real. Know which voice is operating, and on which day.",
+    "quotable_line": "Fruit-aimed work delivers its fruit. The system-needs work often does not, in the same currency. Both are real paths.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "feature-bloat"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

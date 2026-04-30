@@ -1,0 +1,216 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.10",
+  "sanskrit_devanagari": "वीतरागभयक्रोधा मन्मया मामुपाश्रिताः ।\nबहवो ज्ञानतपसा पूता मद्भावमागताः ॥ १० ॥",
+  "sanskrit_iast": "vīta-rāga-bhaya-krodhā man-mayā mām upāśritāḥ |\nbahavo jñāna-tapasā pūtā mad-bhāvam āgatāḥ || 10 ||",
+  "anvaya": [
+    {
+      "sanskrit": "वीत",
+      "iast": "vīta",
+      "meaning": "freed from"
+    },
+    {
+      "sanskrit": "राग",
+      "iast": "rāga",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "भय",
+      "iast": "bhaya",
+      "meaning": "fear"
+    },
+    {
+      "sanskrit": "क्रोधाः",
+      "iast": "krodhāḥ",
+      "meaning": "anger (pl., 'free of these')"
+    },
+    {
+      "sanskrit": "मन्",
+      "iast": "man",
+      "meaning": "in me"
+    },
+    {
+      "sanskrit": "मयाः",
+      "iast": "mayāḥ",
+      "meaning": "absorbed"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "उपाश्रिताः",
+      "iast": "upāśritāḥ",
+      "meaning": "having taken refuge"
+    },
+    {
+      "sanskrit": "बहवः",
+      "iast": "bahavaḥ",
+      "meaning": "many"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "of knowledge"
+    },
+    {
+      "sanskrit": "तपसा",
+      "iast": "tapasā",
+      "meaning": "by austerity"
+    },
+    {
+      "sanskrit": "पूताः",
+      "iast": "pūtāḥ",
+      "meaning": "purified"
+    },
+    {
+      "sanskrit": "मद्",
+      "iast": "mad",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "भावम्",
+      "iast": "bhāvam",
+      "meaning": "state / nature"
+    },
+    {
+      "sanskrit": "आगताः",
+      "iast": "āgatāḥ",
+      "meaning": "have come"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me – and thus they all attained transcendental love for Me.",
+      "raw_capture_path": "data/sources/raw/bg-4-10-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me—and thus they all attained transcendental love for Me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4322 chars)",
+      "verbatim_excerpt": "As described above, it is very difficult for a person who is too materially affected to understand the personal nature of the Supreme Absolute Truth. Generally, people who are attached to the bodily conception of life are so absorbed in materialism that it is almost impossible for them to understand…",
+      "raw_full_path": "data/sources/raw/bg-4-10-vedabase.json (purport_full_length: 4322)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.10 Bahavah, many; vita-raga-bhaya-krodhah, who were devoid of attachment, fear and anger; manmayah, who were absorbed in Me, who were knowers of Brahman, who were seers of (their) identity with God; mam upasrithah, who had taken refuge only in Me, the supreme God, i.e.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 899,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-10-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as naming the fruits of knowledge accompanied by the renunciation of the three psychological disturbances (rāga, bhaya, krodha) and the adoption of the Lord as refuge. Jñāna-tapas is the austerity OF knowledge — the discipline of holding right knowledge against the tendency to relapse into ignorance."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.10 Purified by the austerity called knowledge of the truth of My life and deeds, many have become transformed in this manner. The Sruti says to the same effect: ‘The wise know well the manner in which He is born’ (Tai. A., 3.13.1). ‘Dhiras’ means the foremost among the wise.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 437,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-10-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as describing the bhakta who has integrated devotion (manmayā), taken refuge (upāśrita), and been purified by the austerity of knowledge (jñāna-tapas) — and who, having done so, has actually reached mad-bhāva (the state of being like the Lord). The verse is reassurance through precedent: this is not theoretical, many have crossed."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mad-bhāvam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "transcendental love for Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "my state — i.e., Brahman, the Self"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the state of being like the Lord (sādharmya), not identity"
+        }
+      ],
+      "explanation": "The standard difference: Shankara reads mad-bhāva as the impersonal Brahman-state; Ramanuja reads it as sādharmya (similarity-of-nature) without identity; Prabhupada reads it as transcendental love. All three preserve the soteriological force of the verse but differ on what 'reaching Krishna's state' actually means."
+    }
+  ],
+  "literal_meaning": "Freed from attachment, fear, and anger, absorbed in me, taking refuge in me — many, purified by the austerity of knowledge, have come to my state.",
+  "traditional_meaning": "Krishna names the qualifying conditions for the result described in 4.9. The qualifying conditions are: freedom from rāga (attachment), bhaya (fear), and krodha (anger); manmayā (absorption in Krishna); upāśrita (taking refuge in Krishna); and purification by jñāna-tapas (the austerity of knowledge). The verse is empirical, not promissory: bahavaḥ (many) have already attained mad-bhāva (Krishna's state). The result is named, the conditions are named.",
+  "engineering": {
+    "translation": "Vīta-rāga-bhaya-krodhāḥ — freed from attachment, fear, and anger; absorbed in me; taking refuge in me; purified by the austerity of knowledge — many have come to my condition. Krishna names the qualifying preconditions and reports the result: bahavaḥ (many) have already attained mad-bhāva. The verse's soteriological scope exceeds engineering reach. STRETCHED-tagged. The operational pattern at our scope: a practitioner who has worked through her attachment to specific tools, her fear of being wrong in public, and her irritation at low-quality work — and who has taken shelter in the craft's discipline itself rather than in any particular framework — is purified by sustained study (jñāna-tapas). Many builders have crossed into such a posture. It is empirical, not theoretical. The verse claims metaphysical reaching of Krishna's nature; the analog names only the recognisable bearing of the seasoned, integrated, discriminating engineer.",
+    "concrete_scenario": "A staff engineer with eighteen years of experience sits in a contentious GitHub PR review for a Postgres-to-Redis caching migration. A junior engineer has criticised her design choice publicly on Slack, in terms that earlier in her career would have made her angry. She reads the criticism, feels nothing in particular, and replies on Slack: 'You're partly right and partly wrong. The part you're right about: the cache-invalidation abstraction will leak in two years if traffic patterns shift. The part you're wrong about: the alternative you propose has a worse failure mode under the specific failover case I designed for, when Datadog alerts on the read-replica lag exceeding 200ms. Let's pair Wednesday at the dashboard and walk through the trade-off.' The reply is technically precise, free of defensiveness, free of ego-protection, free of the impulse to win the public exchange. She has not worked at being free of those impulses. They have simply receded over years of practice. She has taken refuge not in being right, not in being respected, but in the discipline of accurate technical reasoning. Her colleagues recognise the state when they see it. Many have crossed. The verse's metaphysical scope is far larger; the operational state is real and recognisable.",
+    "falsifiability": "The analog fails if a reader interprets the engineer's state as enlightenment. The verse names mad-bhāva — the Lord's state. The engineering analog names a working professional state. The two are not the same. The diagnostic: the engineer in this state still has technical preferences, still pushes back, still cares about outcomes. They are not detached in the radical sense the verse names. They are operationally seasoned in a way the verse opens up at much smaller scale.",
+    "counter_example": "When apparent calm is in fact dissociation — when the engineer is unmoved by criticism because they have stopped caring, not because they have integrated — the analog inverts. The verse's freedom-from-anger is alongside fierce engagement (Krishna is teaching Arjuna to fight, after all). The engineering analog must preserve this: the seasoned engineer cares more, not less, while also being free from the reactive grip.",
+    "implication": "Watch the senior under public criticism. Defensiveness signals attachment. Dissociation signals withdrawal. Free-and-engaged response — technically precise, ego-uninvolved, still caring about the outcome — is the operational signature of the state the verse opens at far larger scope.",
+    "quotable_line": "Free-and-engaged: technically precise, ego-uninvolved, still caring about the outcome. The operational signature, far short of what the verse is naming.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-state",
+      "outcome-detachment"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

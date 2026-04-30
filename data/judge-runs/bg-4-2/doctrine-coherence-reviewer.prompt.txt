@@ -1,0 +1,248 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.2",
+  "sanskrit_devanagari": "एवं परम्पराप्राप्तमिमं राजर्षयो विदुः ।\nस कालेनेह महता योगो नष्टः परन्तप ॥ २ ॥",
+  "sanskrit_iast": "evaṁ paramparā-prāptam imaṁ rājarṣayo viduḥ |\nsa kāleneha mahatā yogo naṣṭaḥ paran-tapa || 2 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "परम्पराप्राप्तम्",
+      "iast": "paramparā-prāptam",
+      "meaning": "received in succession / by lineage"
+    },
+    {
+      "sanskrit": "इमम्",
+      "iast": "imam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "राजर्षयः",
+      "iast": "rājarṣayaḥ",
+      "meaning": "the royal sages"
+    },
+    {
+      "sanskrit": "विदुः",
+      "iast": "viduḥ",
+      "meaning": "knew"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "कालेन",
+      "iast": "kālena",
+      "meaning": "by time"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "in this world"
+    },
+    {
+      "sanskrit": "महता",
+      "iast": "mahatā",
+      "meaning": "long / great"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "the yoga"
+    },
+    {
+      "sanskrit": "नष्टः",
+      "iast": "naṣṭaḥ",
+      "meaning": "lost / destroyed"
+    },
+    {
+      "sanskrit": "परन्तप",
+      "iast": "paran-tapa",
+      "meaning": "O scorcher of foes (Arjuna)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/2/",
+      "fetched_at": "2026-04-30T04:26:59.198Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This supreme science was thus received through the chain of disciplic succession, and the saintly kings understood it in that way. But in course of time the succession was broken, and therefore the science as it is appears to be lost.",
+      "raw_capture_path": "data/sources/raw/bg-4-2-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-2/",
+      "fetched_at": "2026-04-30T04:27:14.295Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This supreme science was thus received through the chain of disciplic succession, and the saintly kings understood it in that way. But in course of time the succession was broken, and therefore the science as it is appears to be lost."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/2/",
+      "fetched_at": "2026-04-30T04:26:59.198Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1535 chars)",
+      "verbatim_excerpt": "It is clearly stated that the Gītā was especially meant for the saintly kings because they were to execute its purpose in ruling over the citizens. Certainly Bhagavad-gītā was never meant for the demonic persons, who would dissipate its value for no one’s benefit and would devise all types of interp…",
+      "raw_full_path": "data/sources/raw/bg-4-2-vedabase.json (purport_full_length: 1535)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.295Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.2 Rajarsayah, the king-sages, those who were kings and sages (at the same time); viduh, knew; imam, this Yoga; which was evam parampara-praptam, received thus through a regular succession of Ksatriyas.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 735,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-2-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads naṣṭaḥ as the yoga having become disrupted because the strength of those receiving it had weakened — those without self-control received it, leading to its decline. The yoga itself is not destroyed in essence; the chain of competent receivers broke."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-2/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.295Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.1 – 4.2 The Lord said — This Karma Yoga declared to you should not be considered as having been taught now merely, for creating encouragement in you for war. I Myself had taught this Yoga to Vivasvan at the commencement of Manu’s age as a means for all beings to attain release, which is man’s supr…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 544,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-2-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as continuous with 4.1: this yoga was passed through royal sages who knew it, but in the long course of time it was lost — meaning unrealised, no longer practiced as the path to liberation it was given as. The verse establishes the necessity of Krishna's re-instruction."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naṣṭaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "lost (the chain was broken)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "lost in the sense that competent receivers (those with self-control) became scarce"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "lost in the sense of unrealised — the yoga as a path to liberation ceased to be lived"
+        }
+      ],
+      "explanation": "All three agree the yoga was 'lost' but locate the loss differently. Prabhupada flattens to a broken transmission chain. Shankara emphasises the receiver-side — when those receiving the yoga lacked self-control, the yoga's transmission failed. Ramanuja emphasises the praxis-side — the yoga ceased to be lived as a soteriological path. The Advaita reading is more focused on epistemic competence; the Vishishtadvaita reading is more focused on lived practice."
+    }
+  ],
+  "literal_meaning": "Thus received in lineage, the royal sages knew this yoga; over a long time, Arjuna, that yoga was lost in this world.",
+  "traditional_meaning": "The lineage of paramparā is acknowledged: royal sages preserved the yoga across generations. But Krishna names a fact that bears doctrinal weight — the yoga was lost (naṣṭaḥ) over time. This sets up 4.3, where Krishna explains why he is re-imparting it now. The verse honors the principle that even authentic transmission decays without sustained practice and worthy successors.",
+  "engineering": {
+    "translation": "Krishna names a hard fact: even authentic transmission decays without sustained practice. The yoga that the rājarṣis (royal sages) knew was lost over time. The decay is not because the yoga was insufficient; it is because the chain of competent receivers broke. The engineering reading: the operational discipline a senior team practiced in 2018 — careful runbooks, blameless postmortems, scoped on-call duties — disappears within three years if the receivers are not trained, the practice is not sustained, and the conditions under which it was learned are not transmitted. The institutional memory is fragile in exactly the way Krishna names. What dies is not the principle; what dies is the chain of people who could practice it.",
+    "concrete_scenario": "A fast-growing infrastructure team at a data-platform company hits a production incident in 2026. The on-call engineer pages the SRE lead. They reach for the runbook — which exists, in Notion, last updated in 2022 by an engineer who left in 2023. The runbook references a deploy script that was renamed, a Datadog dashboard that was archived, and a pager rotation that was reorganised. The principles the runbook encodes are still correct. But the chain of people who knew how to apply them, when, and against what failure modes is gone. The new SRE hired in 2025 reads the document, reads the postmortem, and re-derives the response from first principles in 90 minutes — buying themselves a working playbook for the next incident, but the team has now lost three years of cumulative debugging intuition because no one was assigned to keep transmitting it. The yoga was lost.",
+    "falsifiability": "The analog fails if a reader uses it to justify hoarding institutional knowledge — to make themselves indispensable by withholding transmission. The verse's force runs the other way: the loss of the yoga is bad news. The remedy is sustained transmission, not protected scarcity. A senior who interprets this verse as 'I am the only one who knows; this is good for my career' has inverted what the verse actually mourns.",
+    "counter_example": "When a discipline is inherited but the conditions that made it necessary have changed — when the original constraint that produced the runbook no longer applies — the loss of that specific practice is not the loss the verse names. The verse mourns the loss of practices whose principles still apply. The corollary: distinguish the principle (which the verse defends) from the specific practice it generated (which may legitimately retire).",
+    "implication": "Audit your team's tribal knowledge. For every operational principle the team practices, ask: if the senior person who holds this left tomorrow, would the principle survive? If not, the chain is already breaking. Begin transmission now, not at the exit interview.",
+    "quotable_line": "What dies is not the principle; what dies is the chain of people who could practice it.",
+    "tags": [
+      "team-culture",
+      "tech-debt",
+      "incident-response"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

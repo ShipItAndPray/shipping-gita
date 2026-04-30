@@ -1,0 +1,245 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.16",
+  "sanskrit_devanagari": "किं कर्म किमकर्मेति कवयोऽप्यत्र मोहिताः ।\nतत्ते कर्म प्रवक्ष्यामि यज्ज्ञात्वा मोक्ष्यसेऽशुभात् ॥ १६ ॥",
+  "sanskrit_iast": "kiṁ karma kim akarmeti kavayo 'py atra mohitāḥ |\ntat te karma pravakṣyāmi yaj jñātvā mokṣyase 'śubhāt || 16 ||",
+  "anvaya": [
+    {
+      "sanskrit": "किम्",
+      "iast": "kim",
+      "meaning": "what"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "किम्",
+      "iast": "kim",
+      "meaning": "what"
+    },
+    {
+      "sanskrit": "अकर्म",
+      "iast": "akarma",
+      "meaning": "inaction"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "कवयः",
+      "iast": "kavayaḥ",
+      "meaning": "the wise / the seers"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "अत्र",
+      "iast": "atra",
+      "meaning": "here / in this matter"
+    },
+    {
+      "sanskrit": "मोहिताः",
+      "iast": "mohitāḥ",
+      "meaning": "are confused"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "प्रवक्ष्यामि",
+      "iast": "pravakṣyāmi",
+      "meaning": "I shall declare"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "which"
+    },
+    {
+      "sanskrit": "ज्ञात्वा",
+      "iast": "jñātvā",
+      "meaning": "having known"
+    },
+    {
+      "sanskrit": "मोक्ष्यसे",
+      "iast": "mokṣyase",
+      "meaning": "you will be freed"
+    },
+    {
+      "sanskrit": "अशुभात्",
+      "iast": "aśubhāt",
+      "meaning": "from the inauspicious / from evil"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/16/",
+      "fetched_at": "2026-04-30T04:26:59.637Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Even the intelligent are bewildered in determining what is action and what is inaction. Now I shall explain to you what action is, knowing which you shall be liberated from all misfortune.",
+      "raw_capture_path": "data/sources/raw/bg-4-16-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-16/",
+      "fetched_at": "2026-04-30T04:27:15.770Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Even the intelligent are bewildered in determining what is action and what is inaction. Now I shall explain to you what action is, knowing which you shall be liberated from all misfortune."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/16/",
+      "fetched_at": "2026-04-30T04:26:59.637Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1866 chars)",
+      "verbatim_excerpt": "Action in Kṛṣṇa consciousness has to be executed in accord with the examples of previous bona fide devotees. This is recommended in the fifteenth verse. Why such action should not be independent will be explained in the text to follow.To act in Kṛṣṇa consciousness, one has to follow the leadership o…",
+      "raw_full_path": "data/sources/raw/bg-4-16-vedabase.json (purport_full_length: 1866)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-16/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.770Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.16 Kavayah api, even the intelligent; mohitah, are confounded in this subject of action etc.; iti atra, as to; kim karma, what is action; and kim akarma, what is inaction. Therefore, pravaksyami, I shall tell; te, you; of karma, action; akarma ca, as also of inaction; jnatva, by knowing; yat, whic…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 648,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-16-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's preparatory statement: the matter of action vs. inaction is so subtle that even the seers are confused. The verse signals that the teaching that follows (4.18 in particular) is one that requires careful attention. The fruit (mokṣa from aśubha) is named to establish stakes."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-16/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.770Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.16 What is the form of the action which should be done by an aspirant for liberation? And what is non-action? Knowledge about the true nature of the acting self, is spoken of as non-action.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 672,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-16-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as Krishna explicitly addressing the difficulty: distinguishing action from inaction is hard even for the wise. The verse establishes that what follows is doctrinally important — the teaching that releases from the inauspicious (the bondage of karma)."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "kavayaḥ ... mohitāḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Even the intelligent are bewildered in determining what is action and what is inaction"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Even the seers (kavi) are confused — the matter is genuinely subtle"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "The wise themselves find this difficult; therefore Krishna declares it explicitly"
+        }
+      ],
+      "explanation": "All three read mohitāḥ honestly as 'confused' — Krishna is not being rhetorical. The matter genuinely escapes ordinary discrimination. The verse's role is to motivate close attention to 4.17-4.18."
+    }
+  ],
+  "literal_meaning": "What is action and what is inaction — even the wise are confused here; I shall declare to you that action knowing which you will be freed from the inauspicious.",
+  "traditional_meaning": "Krishna pivots into the action-in-inaction discussion. He acknowledges that even kavi (the wise, the seers) are confused about the distinction between karma and akarma. The implication: this is not a trivial dyad. Krishna will now declare the precise teaching that resolves the confusion. The verse sets up 4.17 (the threefold typology) and 4.18 (the headline seeing).",
+  "engineering": {
+    "translation": "Even the wise are confused about action and inaction. Krishna acknowledges genuine difficulty and promises to declare the teaching that resolves it. The engineering reading: the question of whether someone is moving the system forward is actually hard. Even seasoned reviewers are confused about it. The engineer who is typing all day may be producing nothing; the engineer who appears to be sitting idle in meetings may be shaping outcomes. The senior who treats this question as obvious has not understood it. The verse establishes a precondition for 4.18: the seeing the verse will name is not trivial. It is the kind of seeing that even kavi (the wise, the seers) struggle with.",
+    "concrete_scenario": "A VP of Engineering reviews her staff engineers' last-quarter contributions on the GitHub dashboard and the team's Notion review document. Two stand out as unusual cases. Engineer A merged 47 pull requests, attended 60 meetings, sent 3,400 Slack messages, and shipped two minor features behind feature flags on Vercel. Engineer B merged 4 PRs, attended 90 meetings, sent 800 Slack messages, and shipped nothing visible — but during this quarter, three different teams independently report that the architectural direction of their Postgres-and-Redis-backed service changed because of conversations they had with B. The VP is genuinely uncertain how to evaluate them. By every conventional metric, A is more 'productive.' By the actual measure of system change, B may be moving more. The VP has been an engineering leader for fourteen years and is sitting with the verse's confusion: even she, the wise one in this evaluation, is not sure what counts as action and what counts as inaction. She schedules a separate hour with each engineer's manager to dig in. The verse's claim is honest: this is genuinely hard, even for seers.",
+    "falsifiability": "The analog fails if a reader treats the difficulty as license for permanent indecision. The verse promises that the teaching that follows (4.17-4.18) resolves the confusion. The engineering analog assumes the senior, having sat with the difficulty, will go through it — not avoid it. A VP who never resolves Engineer A vs Engineer B has not honored the next verse.",
+    "counter_example": "When one engineer's surface-busy and another's surface-idle are easily resolved by reading their actual contributions — when a 30-minute look at code, design docs, and meeting outcomes makes it obvious — the verse's claim of subtle confusion does not apply. The verse names cases where even careful evaluation produces uncertainty.",
+    "implication": "When you evaluate two engineers whose surface metrics diverge from your gut sense of who is moving the system, take the question seriously. The verse promises that there is a way of seeing that resolves it. 4.18 will declare that seeing.",
+    "quotable_line": "When the surface-busy and the surface-idle resist easy ranking, the difficulty is real, not yours alone.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "team-state",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

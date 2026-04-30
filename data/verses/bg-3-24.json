@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.24",
+  "chapter": 3,
+  "verse": 24,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names three consequences of his hypothetical disengagement, stacked: utsīdeyur lokāḥ (these worlds would collapse), saṅkarasya kartā syām (I would cause the confusion-of-classes), upahanyām imāḥ prajāḥ (I would destroy these creatures). The verse establishes that loka-saṅgraha is not optional. In engineering: the senior who steps away while the team's ordering depends on her presence does not produce a neutral redistribution. The team's mapping of roles to functions — who reviews what, who carries the on-call, who blesses architectural moves — was held in place partly by her presence. Her absence collapses that mapping and the team enters a phase where roles drift, responsibilities mix, and the function the team performed reliably stops being performed reliably.",
+    "concrete_scenario": "A staff engineer at a Kubernetes-heavy infrastructure company has held the role of 'final blessing on cluster-controller PRs' for four years. Not formally — there is no OWNERS file naming her — but in practice every cluster-controller PR has been routed through her. She knows this is sustainable only because she is there. Then she takes a sabbatical, three months, no Slack, no GitHub. Within five weeks the team begins to drift. PR-A goes through with a thin review; PR-B introduces a subtle race condition that would have been caught; PR-C re-introduces a class of bug that was killed two years ago. The roles haven't formally changed — there is no new OWNERS file — but the function-to-role mapping that her presence sustained has dissolved. saṅkara, in the verse's exact sense: the orderly assignment of functions to actors has unmixed, and now everyone reviews everything badly. The verse fits literally: utsīdeyur ime lokāḥ (this little world has begun to collapse), saṅkarasya kartrī (she has, by stepping away from the function only she was structurally holding, become its cause).",
+    "falsifiability": "The analog fails if read as 'no senior may ever take leave.' The verse is naming the consequence-side of disengagement that does not arrange for succession. The senior who arranges for a successor — trains them, names them in OWNERS, hands them the keys before stepping away — is preserving the function while the actor changes. The verse's force lands on disengagement that does not preserve the function.",
+    "counter_example": "Some disengagement is legitimate: the senior who has correctly judged that the function does not actually need her, the senior who is removing herself from a chokepoint that should never have been a chokepoint. In both cases the apparent saṅkara is the dissolution of an unhealthy concentration, not the dissolution of a healthy order. The verse is about the latter; the former is a separate move.",
+    "implication": "Audit: what functions does your presence quietly hold that are not recorded in OWNERS, in the on-call rotation, in the architecture council membership? List them. Now ask: if you stepped away tomorrow, which of these functions would survive the transition? The ones that would not survive are the verse's saṅkara-risk; arrange for them before disengaging.",
+    "quotable_line": "The senior holds functions her formal role does not name. Disengaging without arranging for them is the precise move the verse calls saṅkara — the dissolution of the role-to-function mapping.",
+    "tags": [
+      "team-culture",
+      "operator-system-coupling",
+      "duty",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:10:00Z",
+      "mutation": "v0 generation for BG 3.24: source pack triangulated across 5 sources; engineering layer anchored on chapter thesis (Why the Senior Still Ships) and load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

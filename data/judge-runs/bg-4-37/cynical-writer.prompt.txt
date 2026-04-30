@@ -1,0 +1,226 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.37",
+  "sanskrit_devanagari": "यथैधांसि समिद्धोऽग्निर्भस्मसात्कुरुतेऽर्जुन ।\nज्ञानाग्नि: सर्वकर्माणि भस्मसात्कुरुते तथा ॥ 37 ॥",
+  "sanskrit_iast": "yathaidhānsi samiddho 'gnir bhasma-sāt kurute 'rjuna\njñānāgniḥ sarva-karmāṇi bhasma-sāt kurute tathā",
+  "anvaya": [
+    {
+      "sanskrit": "यथा",
+      "iast": "yathā",
+      "meaning": "as"
+    },
+    {
+      "sanskrit": "एधांसि",
+      "iast": "edhāṁsi",
+      "meaning": "fuel"
+    },
+    {
+      "sanskrit": "समिद्धः",
+      "iast": "samiddhaḥ",
+      "meaning": "kindled"
+    },
+    {
+      "sanskrit": "अग्निः",
+      "iast": "agniḥ",
+      "meaning": "fire"
+    },
+    {
+      "sanskrit": "भस्म",
+      "iast": "bhasma",
+      "meaning": "ash"
+    },
+    {
+      "sanskrit": "सात्",
+      "iast": "sāt",
+      "meaning": "to the state of"
+    },
+    {
+      "sanskrit": "कुरुते",
+      "iast": "kurute",
+      "meaning": "reduces"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "Arjuna"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "अग्निः",
+      "iast": "agniḥ",
+      "meaning": "fire"
+    },
+    {
+      "sanskrit": "सर्व",
+      "iast": "sarva",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "तथा",
+      "iast": "tathā",
+      "meaning": "similarly"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/37/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As a blazing fire turns firewood to ashes, O Arjuna, so does the fire of knowledge burn to ashes all reactions to material activities.",
+      "raw_capture_path": "data/sources/raw/bg-4-37-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/37",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.37: As a kindled fire reduces wood to ashes, O Arjun, so does the fire of knowledge burn to ashes all reactions from material activities."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/37/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Perfect knowledge of self and Superself and of their relationship is compared herein to fire. This fire not only burns up all reactions to impious activities, but also all reactions to pious activities, turning them to ashes.",
+      "verbatim_full_length": 716,
+      "raw_full_path": "data/sources/raw/bg-4-37-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-37/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.37 O Arjuna, yatha, as; a samiddhah, blazing; agnih, fire, a well lighted fire; kurute, reduces; edhamsi, pieces of wood; bhasmasat, to ashes; tatha, similarly; jnanagnih, the fire of Knowledge-Knowledge itself being the fire; kurute, reduces; bhasmasat, to ashes; sarva-karmani, all actions, i.e. it renders them…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1327,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-37-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-37/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.37 The fire of knowledge concerning the real nature of the self reduces to ashes the collection of endless Karmas accumulated from beginningless times, just as a well-kindled fire reduces to ashes a bundle of firewood.",
+      "verbatim_excerpt_length": 220,
+      "verbatim_full_length": 220,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-37-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-37/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "To remove any doubt or misconceptions that might arise from the previous verse that sins may be crossed over but not absolved Lord Krishna gives the illustration that fire of spiritual knowledge as revealed in the Vedic scriptures burns to ashes all karmas or reactions to…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 386,
+      "raw_full_path": "data/sources/raw/bg-4-37-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.37: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "As kindled fire reduces fuel to ash, Arjuna, so the fire of knowledge reduces all karma to ash.",
+  "traditional_meaning": "yathaidhāṁsi samiddho 'gnir bhasmasāt kurute 'rjuna — as kindled fire reduces fuel to ash, Arjuna — jñānāgniḥ sarva-karmāṇi bhasmasāt kurute tathā — the fire of knowledge similarly reduces all karma to ash. Shankara: the metaphor is precise — fire does not just consume one log at a time; the kindled fire reduces all fuel to the same end-state (ash). Knowledge similarly: when realised, all the karma-fabric (sarva-karmāṇi) is reduced to ineffectiveness. The verse extends 4.36's claim: not only is past wickedness crossed, the karma itself is destroyed. Ramanuja: the karma-yogin's realisation of the self destroys the karma's binding force; the deeds remain but their power to bind has been burned out.",
+  "engineering": {
+    "translation": "Krishna sharpens the metaphor. Where 4.36 named the boat that carries across, 4.37 names the fire that destroys. The senior whose understanding has reached the level of the kindled fire moves through the codebase in a way that reduces accumulated mistakes — her own and others — to ash. Operationally: when the senior who has truly internalised the system fixes a bug, the bug-class is fixed, not just the instance. When she refactors a Postgres-backed module, the patterns of confusion that produced the module's complexity are reduced, not just renamed. When she drafts a design doc, the architectural failure-modes the document targets are eliminated, not merely relocated to a future iteration. The verse names the specific quality of action that issues from realised understanding: it does not displace the problem; it reduces it. STRETCHED: the verse's claim is about karma in the metaphysical sense (the binding fabric of all past action) and the engineering shadow operates at the operational level (technical-debt reduction by understanding-illuminated work).",
+    "concrete_scenario": "A senior engineer is asked to fix a recurring issue: a particular cache-coherence bug reported six times across the past year, each instance fixed and each fix followed by recurrence. She declines to patch the seventh instance. Instead she spends a week studying the involved code-paths, reading the team's history with the bug, and tracing patterns across the six prior fixes. She produces a redesign of the Redis caching layer that eliminates the entire bug-class. Her redesign ships; recurrence stops. Six months later her colleague observes that three other recurring bug-classes in nearby code have also vanished, because her redesign clarified an invariant those bugs depended on. The fire of knowledge consumed not just the seventh instance but the bug-class plus three adjacent ones. A novice fixes the seventh instance and produces a fix; the senior reads through six years of recurrence and produces an end-of-recurrence.",
+    "falsifiability": "The analog fails if a reader concludes that sufficient understanding makes bugs go away without intervention. The fire of knowledge in the engineering shadow still requires the work of redesign, the shipping of the redesign, the observability that confirms the bug-class did not recur. The understanding does not cancel the work; it directs the work into reductive shape rather than displacing shape.",
+    "counter_example": "When a recurring bug-class is rooted in an external constraint — a vendor's flaky API, a regulatory requirement that mandates a specific (broken) behaviour, a hardware error rate — the fire of knowledge does not reduce it. The verse names the destruction of internally-rooted accumulation; externally-rooted patterns require external action.",
+    "implication": "Catalogue your recurring bug-classes. The ones you can reduce by deeper understanding are the operational shadow of this verse. The ones you cannot are not in this verse's scope.",
+    "quotable_line": "The novice fixes the seventh instance; the senior produces an end-of-recurrence.",
+    "tags": [
+      "tech-debt",
+      "essence-vs-implementation",
+      "first-principles",
+      "system-recognition"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

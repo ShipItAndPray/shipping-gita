@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.14",
+  "chapter": 3,
+  "verse": 14,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The cosmic chain. annād bhavanti bhūtāni — beings come from food; parjanyād anna-sambhavaḥ — food's origin is rain; yajñād bhavati parjanyaḥ — rain comes from yajña; yajñaḥ karma-samudbhavaḥ — yajña is born of action. Per the Advaita gloss the loop rests on Vedic cosmology (citing Manu 6.76: oblations into fire reach the sun, from sun comes rain, from rain comes food). Per the Vishishtadvaita commentary the chain is metaphysically real: yajña arises from the agent's act of collecting materials and performing the rite; karma in turn arises from brahman / the body born of Prakṛti. The verse names a closed loop: action → yajña → rain → food → beings → action. The engineering analog is HONESTLY STRETCHED — the original's cosmological scope exceeds anything our operational layer can carry. The pale shadow: compute → deploy → working system → revenue → salary → compute. A real cycle, but only the operational shadow of the cosmic original.",
+    "concrete_scenario": "A staff engineer at a fintech sits during a quarterly review and traces what supports her work. Compute runs on AWS; AWS bills the company; the company's revenue is the customer subscription; the subscription is paid because the deployed product works; the deploy works because her prior code shipped without regression; that code shipped because the team's review and testing infrastructure ran; the review pipeline runs because the SRE team maintained it; the SRE team is funded out of the same revenue. She follows the chain and recognises that her current line of code at 3 PM Tuesday rests on a cycle six layers deep, every one of which is itself rooted in someone's prior effort. Verse 3.14 names a chain like this cosmologically — action → yajña → rain → food → beings → action. The engineering trace is a pale operational analog. The original's reach is far larger. The honest move is to register the analog as analog: the cycle she just followed is real, and it is the operational shadow of the cosmic chain the verse describes, not its identity.",
+    "falsifiability": "The analog fails if a reader uses 3.14 to claim that 'the AWS-billing-customer-subscription-engineer-salary loop' has cosmological status. It does not. The verse's chain is metaphysically grounded in Vedic cosmology; the engineering chain is operational and contingent. Anyone reading the verse to mean 'the SaaS economy is yajña' has erased the original's specificity. The honest move is to register the analog at the operational layer and tag the metaphysical reach STRETCHED.",
+    "counter_example": "When the engineer is operating outside the loop — when the work is funded by venture capital and not yet by customer revenue, or when the compute is sponsored rather than billed — the operational chain the analog points at is missing pieces. The verse's chain is closed (action returns to action via yajña, rain, food, beings); the engineering analog is closed only when the operational loop is fully formed. Pre-revenue startups do not yet have the closed loop the analog requires.",
+    "implication": "Trace your work's operational chain six layers deep at least once a quarter. Compute, billing, revenue, deploy, review infrastructure, SRE — they all rest on each other. Recognise the loop as a loop; do not mistake the analog for the original's cosmological scope.",
+    "quotable_line": "Your code at 3 PM Tuesday rests on a six-layer operational loop; the verse's chain is larger; do not mistake the analog for the original.",
+    "tags": [
+      "yajna-as-discipline",
+      "system-recognition",
+      "feedback-loops"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.14 — METAPHYSICALLY LOADED per task spec. STRETCHED tag honest: the original's cosmological chain (action → yajña → rain → food → beings) exceeds anything the engineering layer can carry. The operational analog is a pale six-layer trace (compute → AWS bill → customer subscription → deploy → review infrastructure → SRE → revenue). Concrete scenario uses a staff engineer tracing the chain. Counter-example carves out pre-revenue startups where the loop is not yet closed. Tags: yajna-as-discipline, system-recognition, feedback-loops.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,254 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.10",
+  "sanskrit_devanagari": "वीतरागभयक्रोधा मन्मया मामुपाश्रिताः ।\nबहवो ज्ञानतपसा पूता मद्भावमागताः ॥ १० ॥",
+  "sanskrit_iast": "vīta-rāga-bhaya-krodhā man-mayā mām upāśritāḥ |\nbahavo jñāna-tapasā pūtā mad-bhāvam āgatāḥ || 10 ||",
+  "anvaya": [
+    {
+      "sanskrit": "वीत",
+      "iast": "vīta",
+      "meaning": "freed from"
+    },
+    {
+      "sanskrit": "राग",
+      "iast": "rāga",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "भय",
+      "iast": "bhaya",
+      "meaning": "fear"
+    },
+    {
+      "sanskrit": "क्रोधाः",
+      "iast": "krodhāḥ",
+      "meaning": "anger (pl., 'free of these')"
+    },
+    {
+      "sanskrit": "मन्",
+      "iast": "man",
+      "meaning": "in me"
+    },
+    {
+      "sanskrit": "मयाः",
+      "iast": "mayāḥ",
+      "meaning": "absorbed"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "उपाश्रिताः",
+      "iast": "upāśritāḥ",
+      "meaning": "having taken refuge"
+    },
+    {
+      "sanskrit": "बहवः",
+      "iast": "bahavaḥ",
+      "meaning": "many"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "of knowledge"
+    },
+    {
+      "sanskrit": "तपसा",
+      "iast": "tapasā",
+      "meaning": "by austerity"
+    },
+    {
+      "sanskrit": "पूताः",
+      "iast": "pūtāḥ",
+      "meaning": "purified"
+    },
+    {
+      "sanskrit": "मद्",
+      "iast": "mad",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "भावम्",
+      "iast": "bhāvam",
+      "meaning": "state / nature"
+    },
+    {
+      "sanskrit": "आगताः",
+      "iast": "āgatāḥ",
+      "meaning": "have come"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me – and thus they all attained transcendental love for Me.",
+      "raw_capture_path": "data/sources/raw/bg-4-10-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me—and thus they all attained transcendental love for Me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4322 chars)",
+      "verbatim_excerpt": "As described above, it is very difficult for a person who is too materially affected to understand the personal nature of the Supreme Absolute Truth. Generally, people who are attached to the bodily conception of life are so absorbed in materialism that it is almost impossible for them to understand…",
+      "raw_full_path": "data/sources/raw/bg-4-10-vedabase.json (purport_full_length: 4322)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.10 Bahavah, many; vita-raga-bhaya-krodhah, who were devoid of attachment, fear and anger; manmayah, who were absorbed in Me, who were knowers of Brahman, who were seers of (their) identity with God; mam upasrithah, who had taken refuge only in Me, the supreme God, i.e.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 899,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-10-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as naming the fruits of knowledge accompanied by the renunciation of the three psychological disturbances (rāga, bhaya, krodha) and the adoption of the Lord as refuge. Jñāna-tapas is the austerity OF knowledge — the discipline of holding right knowledge against the tendency to relapse into ignorance."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.10 Purified by the austerity called knowledge of the truth of My life and deeds, many have become transformed in this manner. The Sruti says to the same effect: ‘The wise know well the manner in which He is born’ (Tai. A., 3.13.1). ‘Dhiras’ means the foremost among the wise.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 437,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-10-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as describing the bhakta who has integrated devotion (manmayā), taken refuge (upāśrita), and been purified by the austerity of knowledge (jñāna-tapas) — and who, having done so, has actually reached mad-bhāva (the state of being like the Lord). The verse is reassurance through precedent: this is not theoretical, many have crossed."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mad-bhāvam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "transcendental love for Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "my state — i.e., Brahman, the Self"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the state of being like the Lord (sādharmya), not identity"
+        }
+      ],
+      "explanation": "The standard difference: Shankara reads mad-bhāva as the impersonal Brahman-state; Ramanuja reads it as sādharmya (similarity-of-nature) without identity; Prabhupada reads it as transcendental love. All three preserve the soteriological force of the verse but differ on what 'reaching Krishna's state' actually means."
+    }
+  ],
+  "literal_meaning": "Freed from attachment, fear, and anger, absorbed in me, taking refuge in me — many, purified by the austerity of knowledge, have come to my state.",
+  "traditional_meaning": "Krishna names the qualifying conditions for the result described in 4.9. The qualifying conditions are: freedom from rāga (attachment), bhaya (fear), and krodha (anger); manmayā (absorption in Krishna); upāśrita (taking refuge in Krishna); and purification by jñāna-tapas (the austerity of knowledge). The verse is empirical, not promissory: bahavaḥ (many) have already attained mad-bhāva (Krishna's state). The result is named, the conditions are named.",
+  "engineering": {
+    "translation": "Vīta-rāga-bhaya-krodhāḥ — freed from attachment, fear, and anger; absorbed in me; taking refuge in me; purified by the austerity of knowledge — many have come to my condition. Krishna names the qualifying preconditions and reports the result: bahavaḥ (many) have already attained mad-bhāva. The verse's soteriological scope exceeds engineering reach. STRETCHED-tagged. The operational pattern at our scope: a practitioner who has worked through her attachment to specific tools, her fear of being wrong in public, and her irritation at low-quality work — and who has taken shelter in the craft's discipline itself rather than in any particular framework — is purified by sustained study (jñāna-tapas). Many builders have crossed into such a posture. It is empirical, not theoretical. The verse claims metaphysical reaching of Krishna's nature; the analog names only the recognisable bearing of the seasoned, integrated, discriminating engineer.",
+    "concrete_scenario": "A staff engineer with eighteen years of experience sits in a contentious GitHub PR review for a Postgres-to-Redis caching migration. A junior engineer has criticised her design choice publicly on Slack, in terms that earlier in her career would have made her angry. She reads the criticism, feels nothing in particular, and replies on Slack: 'You're partly right and partly wrong. The part you're right about: the cache-invalidation abstraction will leak in two years if traffic patterns shift. The part you're wrong about: the alternative you propose has a worse failure mode under the specific failover case I designed for, when Datadog alerts on the read-replica lag exceeding 200ms. Let's pair Wednesday at the dashboard and walk through the trade-off.' The reply is technically precise, free of defensiveness, free of ego-protection, free of the impulse to win the public exchange. She has not worked at being free of those impulses. They have simply receded over years of practice. She has taken refuge not in being right, not in being respected, but in the discipline of accurate technical reasoning. Her colleagues recognise the state when they see it. Many have crossed. The verse's metaphysical scope is far larger; the operational state is real and recognisable.",
+    "falsifiability": "The analog fails if a reader interprets the engineer's state as enlightenment. The verse names mad-bhāva — the Lord's state. The engineering analog names a working professional state. The two are not the same. The diagnostic: the engineer in this state still has technical preferences, still pushes back, still cares about outcomes. They are not detached in the radical sense the verse names. They are operationally seasoned in a way the verse opens up at much smaller scale.",
+    "counter_example": "When apparent calm is in fact dissociation — when the engineer is unmoved by criticism because they have stopped caring, not because they have integrated — the analog inverts. The verse's freedom-from-anger is alongside fierce engagement (Krishna is teaching Arjuna to fight, after all). The engineering analog must preserve this: the seasoned engineer cares more, not less, while also being free from the reactive grip.",
+    "implication": "Watch the senior under public criticism. Defensiveness signals attachment. Dissociation signals withdrawal. Free-and-engaged response — technically precise, ego-uninvolved, still caring about the outcome — is the operational signature of the state the verse opens at far larger scope.",
+    "quotable_line": "Free-and-engaged: technically precise, ego-uninvolved, still caring about the outcome. The operational signature, far short of what the verse is naming.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-state",
+      "outcome-detachment"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

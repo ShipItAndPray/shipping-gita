@@ -1,0 +1,214 @@
+{
+  "id": "BG 4.11",
+  "chapter": 4,
+  "verse": 11,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "ये यथा मां प्रपद्यन्ते तांस्तथैव भजाम्यहम् ।\nमम वर्त्मानुवर्तन्ते मनुष्याः पार्थ सर्वशः ॥ ११ ॥",
+  "sanskrit_iast": "ye yathā māṁ prapadyante tāṁs tathaiva bhajāmy aham |\nmama vartmānuvartante manuṣyāḥ pārtha sarvaśaḥ || 11 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/11/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-4-11-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/11",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=4&field_nsutra_value=11",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-4-11-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_04.011 = MBh_06,026.011). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "ये",
+      "iast": "ye",
+      "meaning": "those who"
+    },
+    {
+      "sanskrit": "यथा",
+      "iast": "yathā",
+      "meaning": "as / in whatever way"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "प्रपद्यन्ते",
+      "iast": "prapadyante",
+      "meaning": "approach / take refuge"
+    },
+    {
+      "sanskrit": "तान्",
+      "iast": "tān",
+      "meaning": "them"
+    },
+    {
+      "sanskrit": "तथा एव",
+      "iast": "tathā eva",
+      "meaning": "in just that way"
+    },
+    {
+      "sanskrit": "भजामि",
+      "iast": "bhajāmi",
+      "meaning": "I receive / I requite"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "मम",
+      "iast": "mama",
+      "meaning": "of me / mine"
+    },
+    {
+      "sanskrit": "वर्त्म",
+      "iast": "vartma",
+      "meaning": "path"
+    },
+    {
+      "sanskrit": "अनुवर्तन्ते",
+      "iast": "anuvartante",
+      "meaning": "follow"
+    },
+    {
+      "sanskrit": "मनुष्याः",
+      "iast": "manuṣyāḥ",
+      "meaning": "humans"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O Pārtha (Arjuna)"
+    },
+    {
+      "sanskrit": "सर्वशः",
+      "iast": "sarvaśaḥ",
+      "meaning": "in all ways"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/11/",
+      "fetched_at": "2026-04-30T04:26:59.382Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As all surrender unto Me, I reward them accordingly. Everyone follows My path in all respects, O son of Pṛthā.",
+      "raw_capture_path": "data/sources/raw/bg-4-11-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/",
+      "fetched_at": "2026-04-30T04:27:15.805Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As all surrender unto Me, I reward them accordingly. Everyone follows My path in all respects, O son of Pritha."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/11/",
+      "fetched_at": "2026-04-30T04:26:59.382Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2748 chars)",
+      "verbatim_excerpt": "Everyone is searching for Kṛṣṇa in the different aspects of His manifestations. Kṛṣṇa, the Supreme Personality of Godhead, is partially realized in His impersonal brahma-jyotir effulgence and as the all-pervading Supersoul dwelling within everything, including the particles of atoms.",
+      "raw_full_path": "data/sources/raw/bg-4-11-vedabase.json (purport_full_length: 2748)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.805Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.11 Yatha, according to the manner in which, the purpose for which, seeking, whatever fruit; prapadyante, they approach; mam, Me; aham, I; bhajami, favour; tan, them; tatha eva, in that very manner, by granting that fruit. This is the idea. For they are not seekers of Liberation.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1745,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-11-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's claim that he reciprocates each devotee's mode of approach in the same mode — the seeker after liberation receives liberation, the seeker after worldly fruits receives those, etc. The path is the Lord's; the diversity is in the approach."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-11/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.805Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.11 Whoever desirous of resorting to Me, in whatever manner they think of Me according to their inclinations and take refuge in Me, i.e., resort to Me — I favour them in the same manner as desired by them; I reveal Myself to them.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 762,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-11-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse strongly: the Lord, being impartial yet responsive, requites each devotee according to the mode of their approach — meaning the relation is mutual. The verse is not a flat 'all paths are equal' claim; it is a reciprocity claim, where the Lord's reception is shaped by the approach itself."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "ye yathā ... tāṁs tathaiva",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "As all surrender unto Me, I reward them accordingly"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Each is received in the form of their approach (worldly seekers get worldly fruits; liberation-seekers get liberation)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "The Lord's reciprocity is real and mode-shaped, not a flat path-equivalence"
+        }
+      ],
+      "explanation": "Modern popular readings often flatten this verse to 'all paths are equal.' The classical reading is sharper: the Lord's response IS shaped by the approach. Worldly approach → worldly fruit; liberation-seeking approach → liberation. The diversity is honored, but the differential receptions are also honored."
+    }
+  ],
+  "literal_meaning": "As those approach me, so I receive them; humans follow my path in all ways, Pārtha.",
+  "traditional_meaning_consensus": "Krishna names a reciprocity-principle. Whatever shape one's approach takes, the Lord's reception matches that shape. Sarvaśaḥ — in all ways — humans follow Krishna's path; the path is one but the modes of approach are many. The verse is often quoted as the Gītā's most pluralistic statement.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

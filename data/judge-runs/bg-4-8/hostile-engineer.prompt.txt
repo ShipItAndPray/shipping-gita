@@ -1,0 +1,203 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.8",
+  "sanskrit_devanagari": "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।\nधर्मसंस्थापनार्थाय सम्भवामि युगे युगे ॥ ८ ॥",
+  "sanskrit_iast": "paritrāṇāya sādhūnāṁ vināśāya ca duṣkṛtām |\ndharma-saṁsthāpanārthāya sambhavāmi yuge yuge || 8 ||",
+  "anvaya": [
+    {
+      "sanskrit": "परित्राणाय",
+      "iast": "paritrāṇāya",
+      "meaning": "for the protection / deliverance"
+    },
+    {
+      "sanskrit": "साधूनाम्",
+      "iast": "sādhūnām",
+      "meaning": "of the good / saintly"
+    },
+    {
+      "sanskrit": "विनाशाय",
+      "iast": "vināśāya",
+      "meaning": "for the destruction"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "दुष्कृताम्",
+      "iast": "duṣkṛtām",
+      "meaning": "of evildoers"
+    },
+    {
+      "sanskrit": "धर्म",
+      "iast": "dharma",
+      "meaning": "dharma"
+    },
+    {
+      "sanskrit": "संस्थापनार्थाय",
+      "iast": "saṁsthāpanārthāya",
+      "meaning": "for the purpose of firm establishment"
+    },
+    {
+      "sanskrit": "सम्भवामि",
+      "iast": "sambhavāmi",
+      "meaning": "I am born / I come forth"
+    },
+    {
+      "sanskrit": "युगे",
+      "iast": "yuge",
+      "meaning": "in (each) age"
+    },
+    {
+      "sanskrit": "युगे",
+      "iast": "yuge",
+      "meaning": "in (each) age (repeated)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/8/",
+      "fetched_at": "2026-04-30T04:26:59.552Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "To deliver the pious and to annihilate the miscreants, as well as to reestablish the principles of religion, I Myself appear, millennium after millennium.",
+      "raw_capture_path": "data/sources/raw/bg-4-8-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-8/",
+      "fetched_at": "2026-04-30T04:27:13.197Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "To deliver the pious and to annihilate the miscreants, as well as to reestablish the principles of religion, I Myself appear, millennium after millennium."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/8/",
+      "fetched_at": "2026-04-30T04:26:59.552Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3590 chars)",
+      "verbatim_excerpt": "According to Bhagavad-gītā, a sādhu (holy man) is a man in Kṛṣṇa consciousness. A person may appear to be irreligious, but if he has the qualifications of Kṛṣṇa consciousness wholly and fully, he is to be understood to be a sādhu.",
+      "raw_full_path": "data/sources/raw/bg-4-8-vedabase.json (purport_full_length: 3590)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:13.197Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.8 Paritranaya, for the protection; sadhunam, of the pious, the followers of the virtuous path; vinasaya, for the destruction; duskrtam, of the evil-doers, of the sinful ones; and also dharmasamsthapanarthaya, for establishing virtue fully;-for that purpose, sambhavami, I manifest Myself; yuge yuge…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 315,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-8-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as the explicit purpose-statement of incarnation: protection of the dharma-keepers, destruction of the dharma-violators, and the firm reinstatement of dharma itself. All three are aimed at preserving the conditions under which liberation remains accessible."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-8/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:13.197Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.8 The good are those who follow the Dharma, as defined above. They are the foremost among the Vaisnavas, who have taken refuge in Me. While My name, acts and form are inaccessible to speech and thought, these devotees cannot get support, sustenance etc., for themselves without perceiving Me.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1015,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-8-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as expanding 4.7's mechanism into purpose. The Lord's incarnation is not punitive in any narrow sense; the destruction of the wicked is itself a deliverance for them (their adharma is dissolved by encounter with the divine), and the protection of the saintly is the preservation of those whose lives sustain the dharma. The repeated yuge yuge marks the regularity, not the rarity."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vināśāya duṣkṛtām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "to annihilate the miscreants"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "destruction of the dharma-violators, aimed at restoring the conditions for liberation"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the destruction is itself a deliverance — encounter with the divine dissolves the duṣkṛta's adharma"
+        }
+      ],
+      "explanation": "The fault-line is whether 'destruction' is read narrowly (punishment) or broadly (transformation by divine encounter). Ramanuja's compassionate reading is distinctive: the wicked are not merely punished, they are released. The Vishishtadvaita reading is theologically closer to a soteriology of grace. Engineering layers must not flatten this verse into 'remove bad actors'; the Sanskrit allows multiple readings."
+    }
+  ],
+  "literal_meaning": "For the protection of the good, the destruction of the wicked, and the firm establishment of dharma — I come forth age after age.",
+  "traditional_meaning": "The threefold purpose of the avatar: (1) paritrāṇāya sādhūnām — protection of the virtuous, (2) vināśāya duṣkṛtām — destruction of the wicked, (3) dharma-saṁsthāpanārtha — re-establishment of dharma. The verse is the most quoted in popular religious culture. Yuge yuge marks recurrence: this is not a one-time intervention but a cyclical pattern across cosmic ages.",
+  "engineering": {
+    "translation": "Paritrāṇāya sādhūnāṁ vināśāya ca duṣkṛtām — for the protection of the good, the destruction of the wicked, the firm establishment of dharma. Krishna names the threefold purpose of the avatar. The verse's metaphysical claim is far larger than any engineering analog. STRETCHED-tagged. The operational pattern at engineering scope: when a senior steps up to restore decayed discipline (4.7), the work has three phases — protect the engineers still doing the right thing (paritrāṇāya), remove or neutralise the patterns that are destroying the practice (vināśāya), and re-establish the discipline (saṁsthāpana). The verse's vināśāya does not map cleanly to engineering — Ramanuja reads even the destruction as a deliverance, and engineering analogs that flatten this to 'fire bad engineers' have misread both verse and pattern. The engineering 'destruction' is of patterns and incentive structures, not people. STRETCHED tagged honestly.",
+    "concrete_scenario": "Continuing the pattern from 4.7: the staff engineer who joined the decaying infrastructure team has stabilised the operational rhythm. Now she enters phase two. She identifies that the team's most rigorous on-call engineer has been silently absorbing the work of three less-engaged peers on the Postgres + Redis + Kubernetes incident rotation — protecting her would mean redistributing that load (paritrāṇāya) by rebalancing the PagerDuty schedule and writing GitHub PR-review responsibilities into the team charter. She identifies that the manager's habit of asking 'who caused this?' in postmortem meetings is the pattern producing the finger-pointing (vināśāya — but of the question, not the manager). She works with the manager to rephrase: 'what condition allowed this?' Within a quarter, the rigorous on-call engineer is no longer absorbing all of the deploy-rollback work silently; the bad question is gone; weekly postmortems run blameless again on Datadog incident replay. Three phases: protect the right people, neutralise the wrong patterns, establish the right discipline (saṁsthāpana). The verse's scope is far larger; the operational analog respects the limit.",
+    "falsifiability": "The analog fails most dangerously if a reader interprets 'vināśāya duṣkṛtām' as 'fire the underperformers.' Ramanuja's reading is that the destruction is itself a deliverance — the duṣkṛta's adharma is dissolved by encounter with the divine. The engineering analog is even more limited: what is destroyed is patterns, not people. Anyone using this verse to justify a culling has distorted both the verse and the analog.",
+    "counter_example": "When the operational pattern that needs neutralising is genuinely embodied in a specific person who cannot adapt, the engineering response is still not violence — it is reassignment, coaching, or in extreme cases, exit. The verse and the operational pattern do not authorise violence. The 'destruction' is metaphorical at operational scope: it is the destruction of the harmful pattern.",
+    "implication": "When a senior is restoring discipline, watch the three phases. Protect those still doing right (the rigorous engineer absorbing too much). Neutralise the patterns producing harm (the manager's blame-question). Establish the new discipline (the new postmortem template). All three together; none of them alone.",
+    "quotable_line": "Protect the right people. Neutralise the wrong patterns. Establish the new discipline. Not one of the three; all three together.",
+    "tags": [
+      "incident-response",
+      "team-culture",
+      "healthy-eng-culture"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

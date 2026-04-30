@@ -1,0 +1,216 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.18",
+  "sanskrit_devanagari": "कर्मण्यकर्म यः पश्येदकर्मणि च कर्म यः ।\nस बुद्धिमान्मनुष्येषु स युक्तः कृत्स्नकर्मकृत् ॥ १८ ॥",
+  "sanskrit_iast": "karmaṇy akarma yaḥ paśyed akarmaṇi ca karma yaḥ |\nsa buddhimān manuṣyeṣu sa yuktaḥ kṛtsna-karma-kṛt || 18 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कर्मणि",
+      "iast": "karmaṇi",
+      "meaning": "in action"
+    },
+    {
+      "sanskrit": "अकर्म",
+      "iast": "akarma",
+      "meaning": "inaction"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "पश्येत्",
+      "iast": "paśyet",
+      "meaning": "should see"
+    },
+    {
+      "sanskrit": "अकर्मणि",
+      "iast": "akarmaṇi",
+      "meaning": "in inaction"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "बुद्धिमान्",
+      "iast": "buddhimān",
+      "meaning": "wise / discerning"
+    },
+    {
+      "sanskrit": "मनुष्येषु",
+      "iast": "manuṣyeṣu",
+      "meaning": "among humans"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "established (in yoga)"
+    },
+    {
+      "sanskrit": "कृत्स्नकर्मकृत्",
+      "iast": "kṛtsna-karma-kṛt",
+      "meaning": "doer of all action"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/18/",
+      "fetched_at": "2026-04-30T04:26:59.250Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who sees inaction in action and action in inaction is intelligent among men, and he is in the transcendental position, although engaged in all sorts of activities.",
+      "raw_capture_path": "data/sources/raw/bg-4-18-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-18/",
+      "fetched_at": "2026-04-30T04:27:13.165Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who sees inaction in action, and action in inaction, is intelligent among men, and he is in the transcendental position, although engaged in all sorts of activities."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/18/",
+      "fetched_at": "2026-04-30T04:26:59.250Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 994 chars)",
+      "verbatim_excerpt": "A person acting in Kṛṣṇa consciousness is naturally free from the bonds of karma. His activities are all performed for Kṛṣṇa; therefore he does not enjoy or suffer any of the effects of work.",
+      "raw_full_path": "data/sources/raw/bg-4-18-vedabase.json (purport_full_length: 994)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-18/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:13.165Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.18 Since engagement and non-engagement (in action) depend on an agent, therefore, yah, he who; pasyet, ie. pasyati, finds; akarma, inaction, absence of action; karmani, in action-karma means whatever is done, action in general; in tha action-; and yah, who; finds karma, action; akarmani, in inacti…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 10968,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-18-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara famously reads this verse as resolving the action/inaction confusion through the doctrine of non-doership: in the actor who has realised the Self (which is non-acting), even visible action is metaphysically akarma — there is no doer. Conversely, in the ignorant person who abstains from physical action but whose mind is still filled with desires and intentions, that abstention is itself karma. The verse names the seeing that recognises both — the discriminative knowledge of the non-doing Self that grounds free action."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-18/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:13.165Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.18 Here by the term ‘non-action’, the knowledge of the self, which is distinct from action and which forms the subject under consideration, is meant. ‘He who sees non-action in action and also action in non-action,’ denotes him who can perceive knowledge of the self even while action is being perf…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1450,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-18-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as resolving the confusion through the doctrine of unattached action: the karma-yogin who acts without ego (nirahaṅkāra) and without longing for fruits (niṣphala-kāma) sees that such action is, in the relevant sense, akarma — it does not bind. Conversely, the apparent abstainer whose mind is still engaged in desire-driven cognition is performing karma though appearing inactive. The seeing is recognition of agency-as-binding versus agency-as-unbinding."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "akarma in karma / karma in akarma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "One who sees inaction in action and action in inaction is intelligent among men"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Action with realisation of non-doership is metaphysically akarma; abstention with desire is metaphysically karma"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Action without ego/desire is non-binding (akarma in the relevant sense); abstention with desire is itself binding karma"
+        }
+      ],
+      "explanation": "The deepest doctrinal verse in chapter 4. Shankara reads the resolution metaphysically (non-doership of the Self). Ramanuja reads it phenomenologically (action without ego-and-desire is non-binding). Both readings agree: the surface (motion vs. stillness) does not disclose the doctrinal status of the action. The verse rewards a seeing that goes beyond surface."
+    }
+  ],
+  "literal_meaning": "He who sees inaction in action and action in inaction — he is wise among humans; he is established in yoga, the doer of all action.",
+  "traditional_meaning": "The chapter's headline verse and one of the most famous verses in the entire Gītā. Krishna names a single discriminative seeing in two directions: (1) seeing inaction (akarma) in apparent action (karma) — the actor who acts without doership; (2) seeing action (karma) in apparent inaction (akarma) — the apparent non-doer who is actually performing action (or whose 'inaction' is itself a positive karma). The one who sees both ways is buddhimān (wise) among humans, yukta (established in yoga), and — crucially — kṛtsna-karma-kṛt (the doer of all action). The verse rejects the equation of yoga with idleness: the right-seer is the most effective actor, not the least.",
+  "engineering": {
+    "translation": "Karmaṇy akarma yaḥ paśyet akarmaṇi ca karma yaḥ — sa buddhimān manuṣyeṣu, sa yuktaḥ kṛtsna-karma-kṛt. The chapter's headline verse and one of the most famous in the entire Gītā. Krishna names a single discriminative seeing in two directions. First: perceiving non-doing in apparent doing. A senior whose external activity looks heavy but who is, in Shankara's metaphysical reading, non-doing — acting from settled discrimination, no ego claiming authorship. Second: perceiving doing in apparent stillness. The colleague whose external behavior is silence — sitting in the meeting, not typing, not speaking for fifteen minutes — yet whose presence reshapes the discussion's direction by the questions she asks at minute sixteen. Whoever sees both ways is buddhimān (wise) among humans, yukta (established in yoga), and kṛtsna-karma-kṛt (doer of all action). The compressed insight: surface behavior does not disclose what is moving the system.",
+    "concrete_scenario": "Two engineers in the same architecture review for a Kubernetes-hosted, Postgres-backed payment platform. Engineer A is typing rapidly for the entire 90 minutes — taking notes, drafting Slack messages, opening JIRA tickets, sketching code in a GitHub gist. Visible action. Engineer B sits with her laptop closed for the first 50 minutes, watches the discussion, then asks two questions in the final 40 minutes that visibly redirect the architectural decision toward a different rollback strategy. Visible silence followed by minimal speech. Six months later, the senior tech lead reviewing the meeting recording for a postmortem realises: A's typing produced 14 tickets none of which were ever closed and a Slack thread that was deleted. The system did not move because of A. B's two questions caused the team to abandon a fragile abstraction in the deploy pipeline and choose a different one — visible in the Datadog dashboards as a 40% drop in failed deploys. The system moved decisively because of B. From the surface, A was acting and B was inactive. From the verse, B was the kṛtsna-karma-kṛt — the doer of all action — and A's frenetic motion was the metaphysical akarma in the negative sense (motion that produces no movement). The senior who sees both ways during the meeting itself, not in the postmortem six months later, is the verse's buddhimān.",
+    "falsifiability": "The analog fails if a reader uses it to romanticise silence over action — to claim that the engineer who never speaks must therefore be moving the system. Most silence is silence. Most typing is typing. The verse names a discrimination, not a default. The diagnostic: when the silent engineer speaks (or the silent engineer's recommendations land), does the system actually move? When the typing engineer's tickets close (or their PRs merge), does the system move? Right-seeing measures motion-of-system, not motion-of-fingers.",
+    "counter_example": "When an engineer is genuinely contributing through both typing and speaking — when their visible activity correlates well with system motion — the verse's two directions of seeing are not applicable. The verse rewards the cases where surface and depth diverge. When they coincide, the discrimination is not needed and the verse does not flatter ordinary cases.",
+    "implication": "Evaluate engineers by motion-of-system, not motion-of-fingers. The senior whose visible work looks heavy but whose system has not moved is in akarma-disguised-as-karma. The senior whose visible work looks light but whose questions reshape the system is in karma-disguised-as-akarma. The seeing of both is the wisdom Krishna names.",
+    "quotable_line": "Frenetic motion that moves nothing; quiet presence that moves everything. The seeing of both is what this verse calls wise.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "engineering-pathology",
+      "knowledge-action-integration",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

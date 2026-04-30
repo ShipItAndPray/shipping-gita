@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.12",
+  "chapter": 4,
+  "verse": 12,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna acknowledges that those seeking specific outcomes through ritual action do receive those outcomes — and the results come quickly in the human realm. The engineering reading: when an engineer does work aimed at a specific recognised outcome (the promotion, the visibility, the conference talk), the outcome often actually arrives. The verse is not condemnatory. It is empirical: there is a real karma-pathway from specific deeds to specific fruits. The implicit contrast — which the chapter will sharpen later — is with the deeper path, where the work is done without specific outcome-aiming. Both paths are real. The first delivers what it aims at; the second delivers something else. The verse honors the first while implicitly opening room for the second.",
+    "concrete_scenario": "Two engineers at an 800-person company spend the same six months on visible work. The first targets the year-end promotion explicitly. He chooses projects with promotion-committee visibility, networks with promotion-committee members, makes sure his GitHub PRs appear in monthly demos, writes a careful self-review document linking each merge to a measurable metric on the Datadog dashboard. He gets the promotion. The verse's claim is empirical: the work aimed at the specific fruit produces the specific fruit. The second engineer spends the same six months refactoring an internal Postgres observability layer — slow-query log routing, the schema-migration runbook, the SLO dashboard — that no promotion committee will ever see, because the system needs it. He does not get the promotion in the same cycle. The first engineer's outcome is real, not illusory. Both engineers' work was real. The verse's quiet point: the outcomes are different in kind. The first engineer has the promotion; the second has the refactor. Tomorrow's on-call rotation has a different starting point for each.",
+    "falsifiability": "The analog fails if a reader reads the verse as condemning fruit-aimed work. The verse explicitly says the fruits are real (siddhir bhavati karma-jā). The implicit contrast is between two real paths, not between a real and a fake one. An engineering reading that treats outcome-seeking as automatically corrupt has misread the verse.",
+    "counter_example": "When the promotion-aimed work is also genuinely valuable to the system — when the visibility comes from real customer-impact work, not from theatre — the two paths converge. The verse's contrast is between fruit-seeking-as-end and fruit-seeking-as-incidental. The harder engineering case is the project that is BOTH visible AND substantive; that case is not what the verse is teaching the practitioner to avoid.",
+    "implication": "When you choose work, notice which voice is choosing. The voice that asks 'what will this produce that I can name and claim?' is the verse's worship-of-gods voice — and it really does produce its fruit. The voice that asks 'what does the system need?' often produces less visible fruit. Both are real. Know which voice is operating, and on which day.",
+    "quotable_line": "Fruit-aimed work delivers its fruit. The system-needs work often does not, in the same currency. Both are real paths.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "feature-bloat"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.12 acknowledges fruit-aimed worship of gods produces its specific fruits quickly. Engineering layer maps to the empirically-real promotion-aimed work pathway, NOT condemning it but distinguishing it from system-needs work. Concrete scenario uses two engineers at the same company over six months — one promotion-aimed, one refactoring an internal observability layer. Both produce real outcomes; the outcomes are different in kind. Counter-example carves out the converged case (visible AND substantive). Tags: fruits-of-action, outcome-detachment, feature-bloat.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

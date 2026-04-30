@@ -1,0 +1,209 @@
+{
+  "id": "BG 4.1",
+  "chapter": 4,
+  "verse": 1,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "श्रीभगवानुवाच\nइमं विवस्वते योगं प्रोक्तवानहमव्ययम् ।\nविवस्वान्मनवे प्राह मनुरिक्ष्वाकवेऽब्रवीत् ॥ १ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca\nimaṁ vivasvate yogaṁ proktavān aham avyayam |\nvivasvān manave prāha manur ikṣvākave 'bravīt || 1 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/1/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-4-1-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/1",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=4&field_nsutra_value=1",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-1/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-4-1-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_04.001 = MBh_06,026.001). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान् उवाच",
+      "iast": "śrī-bhagavān uvāca",
+      "meaning": "the Supreme Lord said"
+    },
+    {
+      "sanskrit": "इमम्",
+      "iast": "imam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "अव्ययम्",
+      "iast": "avyayam",
+      "meaning": "imperishable"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga / science of union"
+    },
+    {
+      "sanskrit": "विवस्वते",
+      "iast": "vivasvate",
+      "meaning": "to Vivasvān (the sun-god)"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "प्रोक्तवान्",
+      "iast": "proktavān",
+      "meaning": "did teach / instructed"
+    },
+    {
+      "sanskrit": "विवस्वान्",
+      "iast": "vivasvān",
+      "meaning": "Vivasvān"
+    },
+    {
+      "sanskrit": "मनवे",
+      "iast": "manave",
+      "meaning": "to Manu (the lawgiver)"
+    },
+    {
+      "sanskrit": "प्राह",
+      "iast": "prāha",
+      "meaning": "spoke"
+    },
+    {
+      "sanskrit": "मनुः",
+      "iast": "manuḥ",
+      "meaning": "Manu"
+    },
+    {
+      "sanskrit": "इक्ष्वाकवे",
+      "iast": "ikṣvākave",
+      "meaning": "to (king) Ikṣvāku"
+    },
+    {
+      "sanskrit": "अब्रवीत्",
+      "iast": "abravīt",
+      "meaning": "spoke / declared"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/1/",
+      "fetched_at": "2026-04-30T04:26:59.435Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Personality of Godhead, Lord Śrī Kṛṣṇa, said: I instructed this imperishable science of yoga to the sun-god, Vivasvān, and Vivasvān instructed it to Manu, the father of mankind, and Manu in turn instructed it to Ikṣvāku.",
+      "raw_capture_path": "data/sources/raw/bg-4-1-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-1/",
+      "fetched_at": "2026-04-30T04:27:15.240Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Personality of Godhead, Lord Sri Krishna, said: I instructed this imperishable science of yoga to the sun-god, Vivasvan, and Vivasvan instructed it to Manu, the father of mankind, and Manu in turn instructed it to Ikshavaku."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/1/",
+      "fetched_at": "2026-04-30T04:26:59.435Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4388 chars)",
+      "verbatim_excerpt": "Herein we find the history of the Bhagavad-gītā traced from a remote time when it was delivered to the royal order of all planets, beginning from the sun planet. The kings of all planets are especially meant for the protection of the inhabitants, and therefore the royal order should understand the s…",
+      "raw_full_path": "data/sources/raw/bg-4-1-vedabase.json (purport_full_length: 4388)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-1/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.240Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.1 In the beginning of creation, with a veiw to infusing vigour into the Ksatriyas who are the protectors of the world, aham, I; proktavan, imparted; imam, this; avyayam, imperishable; yogam, Yoga, presented in the (preceding) two chapters; vivasvate, to Vivasvan, the Sun.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 890,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-1-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna establishing that yoga was first imparted to Vivasvān at the beginning of creation in order to infuse strength into the kṣatriyas (warrior-rulers) so they could protect the brāhmaṇas and uphold the world. The yoga is both imperishable and originally given for the kṣatriya's purpose of protecting dharma."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-1/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.240Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.1 – 4.2 The Lord said — This Karma Yoga declared to you should not be considered as having been taught now merely, for creating encouragement in you for war. I Myself had taught this Yoga to Vivasvan at the commencement of Manu’s age as a means for all beings to attain release, which is man’s supr…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 544,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-1-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja groups verses 4.1-4.2 and reads them as Krishna saying: this karma yoga should not be taken as something taught now merely to encourage Arjuna to fight. Krishna originally taught this yoga to Vivasvān at the beginning of Manu's age as the means by which all beings attain release (the supreme end). Vivasvān taught Manu, Manu taught Ikṣvāku, and royal sages knew this yoga across generations."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "yogam (avyayam)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "this imperishable science of yoga (the science of one's relationship to the Supreme)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the imperishable yoga, originally taught to give strength to kṣatriyas for protecting dharma"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "karma yoga as the means for all beings to attain release / the supreme end"
+        }
+      ],
+      "explanation": "Prabhupada renders 'yoga' as 'the science of one's relationship to the Supreme' — a Gaudiya devotional emphasis. Shankara reads the yoga as originally aimed at kṣatriyas for the protection of dharma (a kṣatriya-svadharma emphasis consistent with Advaita's social-order reading). Ramanuja reads the yoga as karma-yoga aimed at universal release — a Vishishtadvaita reading that emphasises the soteriological scope. All three agree the yoga is avyaya (imperishable) and was transmitted by lineage; they differ on whom the yoga is primarily aimed at."
+    }
+  ],
+  "literal_meaning": "The Lord said: I taught this imperishable yoga to Vivasvān; Vivasvān spoke it to Manu; Manu spoke it to Ikṣvāku.",
+  "traditional_meaning_consensus": "Krishna opens chapter 4 by establishing the antiquity of the teaching through paramparā (lineage). The yoga he is teaching Arjuna is the same imperishable (avyaya) yoga he originally taught to Vivasvān (the sun-god), who passed it to Manu (the progenitor of humankind), who passed it to Ikṣvāku (founder of the solar dynasty). The stake: the teaching's authority is not novel but lineaged. The verse opens the chapter's first thread (lineage and divine action).",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

@@ -1,0 +1,209 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.7",
+  "sanskrit_devanagari": "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।\nअभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥ ७ ॥",
+  "sanskrit_iast": "yadā yadā hi dharmasya glānir bhavati bhārata |\nabhyutthānam adharmasya tadātmānaṁ sṛjāmy aham || 7 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यदा यदा",
+      "iast": "yadā yadā",
+      "meaning": "whenever"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "धर्मस्य",
+      "iast": "dharmasya",
+      "meaning": "of dharma / righteousness"
+    },
+    {
+      "sanskrit": "ग्लानिः",
+      "iast": "glāniḥ",
+      "meaning": "decline"
+    },
+    {
+      "sanskrit": "भवति",
+      "iast": "bhavati",
+      "meaning": "becomes / arises"
+    },
+    {
+      "sanskrit": "भारत",
+      "iast": "bhārata",
+      "meaning": "O descendant of Bharata"
+    },
+    {
+      "sanskrit": "अभ्युत्थानम्",
+      "iast": "abhyutthānam",
+      "meaning": "rise / predominance"
+    },
+    {
+      "sanskrit": "अधर्मस्य",
+      "iast": "adharmasya",
+      "meaning": "of adharma"
+    },
+    {
+      "sanskrit": "तदा",
+      "iast": "tadā",
+      "meaning": "then"
+    },
+    {
+      "sanskrit": "आत्मानम्",
+      "iast": "ātmānam",
+      "meaning": "myself"
+    },
+    {
+      "sanskrit": "सृजामि",
+      "iast": "sṛjāmi",
+      "meaning": "I send forth / manifest"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/7/",
+      "fetched_at": "2026-04-30T04:26:59.606Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Whenever and wherever there is a decline in religious practice, O descendant of Bharata, and a predominant rise of irreligion – at that time I descend Myself.",
+      "raw_capture_path": "data/sources/raw/bg-4-7-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-7/",
+      "fetched_at": "2026-04-30T04:27:14.089Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Whenever and wherever there is a decline in religious practice, O descendant of Bharata, and a predominant rise of irreligion—at that time I descend Myself."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/7/",
+      "fetched_at": "2026-04-30T04:26:59.606Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3832 chars)",
+      "verbatim_excerpt": "The word sṛjāmi is significant herein. Sṛjāmi cannot be used in the sense of creation, because, according to the previous verse, there is no creation of the Lord’s form or body, since all of the forms are eternally existent. Therefore, sṛjāmi means that the Lord manifests Himself as He is.",
+      "raw_full_path": "data/sources/raw/bg-4-7-vedabase.json (purport_full_length: 3832)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-7/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.089Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.7 O scion of the Bharata dynasty, yada yada hi, whenever; bhavati, there is; a glanih, decline, decrease; dharmasya, of virtue consisting of the duties of castes and stages of life of living beings, which are the means to achieving properity and Liberation; and abhyutthanam, increase, rise; adharm…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 392,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-7-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads dharma here as 'virtue consisting of the duties of castes and stages of life of living beings, which are the means to achieving prosperity and Liberation.' When that declines and adharma rises, the Lord manifests himself through māyā. The mechanism is consistent with 4.6 — appearance, not origination."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-7/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.089Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.7 There is no restriction as to the time of My birth; whenever the Dharma taught by the Vedas that must be observed according to the arrangements of the four stations and the four stages of life declines, and Adharma, its opposite, increases, then I Myself, by My own will and in the manner stated,…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 360,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-7-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja explicitly says: 'There is no restriction as to the time of My birth.' Whenever the Dharma taught by the Vedas — the dharma of the four stations and stages of life — declines and adharma increases, the Lord by his own will incarnates in the manner stated (4.6). The incarnation is regular, will-governed, real-bodied."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "dharma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "religious practice"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the duties of castes and stages of life, which are means to prosperity and Liberation"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the Dharma taught by the Vedas, observed according to the arrangements of the four stations and four stages"
+        }
+      ],
+      "explanation": "All three commentators read 'dharma' as the structured order of duties prescribed for varṇas (stations) and āśramas (stages). Modern translations often flatten dharma to 'religion' or 'righteousness' but the classical reading is more specific — the structured sociocultural-soteriological order. The engineering analog must respect this scope: not 'morality in general' but 'the operational discipline of a structured order'."
+    }
+  ],
+  "literal_meaning": "Whenever there is decline of dharma, Bharata, and rise of adharma, then I manifest myself.",
+  "traditional_meaning": "The most famous verse of chapter 4. Krishna names the cyclical pattern: when dharma declines (glāniḥ) and adharma rises, he manifests (sṛjāmi ātmānam). The verb sṛjāmi is striking — usually 'I create,' here applied reflexively (I manifest myself). Prabhupada explicitly notes that sṛjāmi here cannot mean 'create' since the Lord's form is eternal; it means 'manifest' in the sense of self-disposing appearance. The verse is the doctrinal centerpiece of the avatar block.",
+  "engineering": {
+    "translation": "Yadā yadā hi dharmasya glānir bhavati bhārata — whenever dharma decays and adharma rises, Krishna manifests himself. The verse's metaphysical claim is the recurring cosmic incarnation of the Lord. The engineering analog cannot honor this claim. STRETCHED-tagged. The operational pattern that DOES honor the verse at its own scope: when a team's operational discipline decays catastrophically — when blameless postmortems give way to finger-pointing, when on-call rotations break down, when runbook updates lag months behind reality — there is a recurring pattern by which a senior engineer arrives, sometimes from outside, sometimes already on the team but assuming the role, and re-establishes the practices. This is a real, observable engineering phenomenon. It is NOT what the verse is teaching. The verse claims a metaphysical Being. The engineering pattern operates at operational scope. The analog respects the scope-difference and is explicitly STRETCHED.",
+    "concrete_scenario": "An infrastructure team at a 2,000-person company is in operational decay. Eighteen months ago, they ran weekly blameless postmortems and the runbooks were current in Notion. Six months ago, the lead SRE left, the postmortem cadence dropped to monthly, the runbooks decayed, and the team's incident-recovery time crept from 12 minutes to 47. Datadog dashboards went unmaintained; PagerDuty rotations became confused. Then a staff engineer who had been on a different team — but had watched this pattern decay before — asked to transfer in. In her first three weeks she did not propose a re-org or a new tool. She started running daily 15-minute incident reviews on the prior 24 hours. She rewrote four runbooks for the Postgres replication failover, the Redis cache eviction storms, the Kubernetes pod-scheduler edge case, and the deploy-pipeline rollback path. She paired with on-call engineers during their shifts. By month three, postmortems were weekly again, recovery time was 18 minutes, and the team's discipline was restored. The verse's metaphysical claim is far larger than this; the operational pattern is what the verse opens at engineering scope. STRETCHED, with full disclosure.",
+    "falsifiability": "The analog fails if a reader takes the engineering pattern (senior steps up during operational decay) as identifying the senior with what the verse names. The verse names a metaphysical Being who incarnates yuge yuge across cosmic ages. The engineering pattern is a recurring human phenomenon at operational scope. The analog must not flatten the verse into the pattern; it must respect the scope-gap. Anyone who concludes 'engineers are avatars' has fundamentally distorted the verse.",
+    "counter_example": "When operational discipline declines but no senior steps up — when the team simply continues to decay — the engineering pattern does not occur. The verse's claim is recurrence-across-cosmic-ages; the engineering analog cannot promise recurrence on any specific team. The pattern is empirical-frequent, not guaranteed.",
+    "implication": "When operational discipline on a team decays catastrophically, watch for the senior who quietly steps up. Their first moves will not be re-orgs or new tools. They will be reviewing yesterday's incident, rewriting one runbook, pairing with on-call. That is the pattern operating. The verse's claim is far larger.",
+    "quotable_line": "When operational discipline decays, watch for the quiet senior — daily incident reviews, one rewritten runbook, paired on-call shifts. The pattern operates. The verse's claim is far larger.",
+    "tags": [
+      "incident-response",
+      "team-culture",
+      "team-pathology"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

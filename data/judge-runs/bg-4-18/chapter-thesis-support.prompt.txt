@@ -1,0 +1,250 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.18",
+  "sanskrit_devanagari": "कर्मण्यकर्म यः पश्येदकर्मणि च कर्म यः ।\nस बुद्धिमान्मनुष्येषु स युक्तः कृत्स्नकर्मकृत् ॥ १८ ॥",
+  "sanskrit_iast": "karmaṇy akarma yaḥ paśyed akarmaṇi ca karma yaḥ |\nsa buddhimān manuṣyeṣu sa yuktaḥ kṛtsna-karma-kṛt || 18 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कर्मणि",
+      "iast": "karmaṇi",
+      "meaning": "in action"
+    },
+    {
+      "sanskrit": "अकर्म",
+      "iast": "akarma",
+      "meaning": "inaction"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "पश्येत्",
+      "iast": "paśyet",
+      "meaning": "should see"
+    },
+    {
+      "sanskrit": "अकर्मणि",
+      "iast": "akarmaṇi",
+      "meaning": "in inaction"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "बुद्धिमान्",
+      "iast": "buddhimān",
+      "meaning": "wise / discerning"
+    },
+    {
+      "sanskrit": "मनुष्येषु",
+      "iast": "manuṣyeṣu",
+      "meaning": "among humans"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "established (in yoga)"
+    },
+    {
+      "sanskrit": "कृत्स्नकर्मकृत्",
+      "iast": "kṛtsna-karma-kṛt",
+      "meaning": "doer of all action"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/18/",
+      "fetched_at": "2026-04-30T04:26:59.250Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who sees inaction in action and action in inaction is intelligent among men, and he is in the transcendental position, although engaged in all sorts of activities.",
+      "raw_capture_path": "data/sources/raw/bg-4-18-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-18/",
+      "fetched_at": "2026-04-30T04:27:13.165Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who sees inaction in action, and action in inaction, is intelligent among men, and he is in the transcendental position, although engaged in all sorts of activities."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/18/",
+      "fetched_at": "2026-04-30T04:26:59.250Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 994 chars)",
+      "verbatim_excerpt": "A person acting in Kṛṣṇa consciousness is naturally free from the bonds of karma. His activities are all performed for Kṛṣṇa; therefore he does not enjoy or suffer any of the effects of work.",
+      "raw_full_path": "data/sources/raw/bg-4-18-vedabase.json (purport_full_length: 994)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-18/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:13.165Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.18 Since engagement and non-engagement (in action) depend on an agent, therefore, yah, he who; pasyet, ie. pasyati, finds; akarma, inaction, absence of action; karmani, in action-karma means whatever is done, action in general; in tha action-; and yah, who; finds karma, action; akarmani, in inacti…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 10968,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-18-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara famously reads this verse as resolving the action/inaction confusion through the doctrine of non-doership: in the actor who has realised the Self (which is non-acting), even visible action is metaphysically akarma — there is no doer. Conversely, in the ignorant person who abstains from physical action but whose mind is still filled with desires and intentions, that abstention is itself karma. The verse names the seeing that recognises both — the discriminative knowledge of the non-doing Self that grounds free action."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-18/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:13.165Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.18 Here by the term ‘non-action’, the knowledge of the self, which is distinct from action and which forms the subject under consideration, is meant. ‘He who sees non-action in action and also action in non-action,’ denotes him who can perceive knowledge of the self even while action is being perf…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1450,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-18-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as resolving the confusion through the doctrine of unattached action: the karma-yogin who acts without ego (nirahaṅkāra) and without longing for fruits (niṣphala-kāma) sees that such action is, in the relevant sense, akarma — it does not bind. Conversely, the apparent abstainer whose mind is still engaged in desire-driven cognition is performing karma though appearing inactive. The seeing is recognition of agency-as-binding versus agency-as-unbinding."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "akarma in karma / karma in akarma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "One who sees inaction in action and action in inaction is intelligent among men"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Action with realisation of non-doership is metaphysically akarma; abstention with desire is metaphysically karma"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Action without ego/desire is non-binding (akarma in the relevant sense); abstention with desire is itself binding karma"
+        }
+      ],
+      "explanation": "The deepest doctrinal verse in chapter 4. Shankara reads the resolution metaphysically (non-doership of the Self). Ramanuja reads it phenomenologically (action without ego-and-desire is non-binding). Both readings agree: the surface (motion vs. stillness) does not disclose the doctrinal status of the action. The verse rewards a seeing that goes beyond surface."
+    }
+  ],
+  "literal_meaning": "He who sees inaction in action and action in inaction — he is wise among humans; he is established in yoga, the doer of all action.",
+  "traditional_meaning": "The chapter's headline verse and one of the most famous verses in the entire Gītā. Krishna names a single discriminative seeing in two directions: (1) seeing inaction (akarma) in apparent action (karma) — the actor who acts without doership; (2) seeing action (karma) in apparent inaction (akarma) — the apparent non-doer who is actually performing action (or whose 'inaction' is itself a positive karma). The one who sees both ways is buddhimān (wise) among humans, yukta (established in yoga), and — crucially — kṛtsna-karma-kṛt (the doer of all action). The verse rejects the equation of yoga with idleness: the right-seer is the most effective actor, not the least.",
+  "engineering": {
+    "translation": "Karmaṇy akarma yaḥ paśyet akarmaṇi ca karma yaḥ — sa buddhimān manuṣyeṣu, sa yuktaḥ kṛtsna-karma-kṛt. The chapter's headline verse and one of the most famous in the entire Gītā. Krishna names a single discriminative seeing in two directions. First: perceiving non-doing in apparent doing. A senior whose external activity looks heavy but who is, in Shankara's metaphysical reading, non-doing — acting from settled discrimination, no ego claiming authorship. Second: perceiving doing in apparent stillness. The colleague whose external behavior is silence — sitting in the meeting, not typing, not speaking for fifteen minutes — yet whose presence reshapes the discussion's direction by the questions she asks at minute sixteen. Whoever sees both ways is buddhimān (wise) among humans, yukta (established in yoga), and kṛtsna-karma-kṛt (doer of all action). The compressed insight: surface behavior does not disclose what is moving the system.",
+    "concrete_scenario": "Two engineers in the same architecture review for a Kubernetes-hosted, Postgres-backed payment platform. Engineer A is typing rapidly for the entire 90 minutes — taking notes, drafting Slack messages, opening JIRA tickets, sketching code in a GitHub gist. Visible action. Engineer B sits with her laptop closed for the first 50 minutes, watches the discussion, then asks two questions in the final 40 minutes that visibly redirect the architectural decision toward a different rollback strategy. Visible silence followed by minimal speech. Six months later, the senior tech lead reviewing the meeting recording for a postmortem realises: A's typing produced 14 tickets none of which were ever closed and a Slack thread that was deleted. The system did not move because of A. B's two questions caused the team to abandon a fragile abstraction in the deploy pipeline and choose a different one — visible in the Datadog dashboards as a 40% drop in failed deploys. The system moved decisively because of B. From the surface, A was acting and B was inactive. From the verse, B was the kṛtsna-karma-kṛt — the doer of all action — and A's frenetic motion was the metaphysical akarma in the negative sense (motion that produces no movement). The senior who sees both ways during the meeting itself, not in the postmortem six months later, is the verse's buddhimān.",
+    "falsifiability": "The analog fails if a reader uses it to romanticise silence over action — to claim that the engineer who never speaks must therefore be moving the system. Most silence is silence. Most typing is typing. The verse names a discrimination, not a default. The diagnostic: when the silent engineer speaks (or the silent engineer's recommendations land), does the system actually move? When the typing engineer's tickets close (or their PRs merge), does the system move? Right-seeing measures motion-of-system, not motion-of-fingers.",
+    "counter_example": "When an engineer is genuinely contributing through both typing and speaking — when their visible activity correlates well with system motion — the verse's two directions of seeing are not applicable. The verse rewards the cases where surface and depth diverge. When they coincide, the discrimination is not needed and the verse does not flatter ordinary cases.",
+    "implication": "Evaluate engineers by motion-of-system, not motion-of-fingers. The senior whose visible work looks heavy but whose system has not moved is in akarma-disguised-as-karma. The senior whose visible work looks light but whose questions reshape the system is in karma-disguised-as-akarma. The seeing of both is the wisdom Krishna names.",
+    "quotable_line": "Frenetic motion that moves nothing; quiet presence that moves everything. The seeing of both is what this verse calls wise.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "engineering-pathology",
+      "knowledge-action-integration",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

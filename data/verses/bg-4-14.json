@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.14",
+  "chapter": 4,
+  "verse": 14,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Na māṁ karmāṇi limpanti na me karma-phale spṛhā — actions do not bind me; I have no longing for the fruits of action; whoever knows me thus is not bound. Krishna gives the operational signature of his own mode of acting and links knowledge of it to the practitioner's release. The engineering reading: when a senior acts without longing for specific recognised fruits — without aiming at the visible promotion-currency, without aiming at the citation-count of the design doc, without aiming at the credit on the postmortem — their actions do not bind them to the political-emotional load that fruit-aimed action accumulates. The engineer who knows the senior's mode and adopts it has the same release. The verse offers the practitioner the senior's own mode of acting as imitable.",
+    "concrete_scenario": "A senior engineer leads the redesign of a critical Stripe-integrated payments service: idempotency keys, webhook handling, the Postgres-Kafka outbox pattern. She does the design well, ships it via a series of GitHub PRs reviewed by the SRE on-call lead, and watches a junior peer — a fast-talking architect type — present the redesign at the org-wide architecture forum and receive most of the visible credit. The earlier-career version of her would have felt the missing recognition as a wound; would have spent three weeks litigating, in conversation and in DMs, who actually wrote the migration scripts and added the Datadog instrumentation; would have accumulated political residue that affected the next two projects. The current version of her notices the missing recognition, registers it, and proceeds with the next service redesign. The credit asymmetry is real. The binding it would have produced six years ago is gone. A junior watching this asks her later: 'How are you not angry?' She replies: 'I'm not exactly not-angry. I noticed it. It just didn't catch. I think because the work itself was the point — I would have done it the same way if no one had presented it.' The junior, who has been quietly furious about a similar credit-loss the previous month, files this away. Whoever knows the senior's mode and adopts it is not bound.",
+    "falsifiability": "The analog fails if a reader reads it as endorsing chronic credit-loss as a virtue. The verse names a release from binding, not an endorsement of others' wrongdoing. A senior who allows systematic credit-theft in the name of detachment has misunderstood the verse — Krishna acts to re-establish dharma, not to enable adharma.",
+    "counter_example": "When credit asymmetry is part of a structural pattern — when one demographic systematically loses credit to another in the same room — the verse does not authorise individual non-attachment as a substitute for naming the pattern. The senior's release from individual binding does not absolve her of the structural responsibility to name what is happening. The verse's freedom is for the practitioner; the dharma-restoration work continues.",
+    "implication": "When you watch a senior absorb a credit-loss without binding, watch carefully. The release is real and is achievable. The work it does not absolve them of is naming the pattern when the pattern is structural.",
+    "quotable_line": "The release from binding is real. The structural work continues — the senior's freedom is from individual binding, not from collective dharma-restoration.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-culture",
+      "outcome-detachment"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.14 establishes the imitable mode — Krishna's actions don't bind because he has no longing for fruits, and whoever knows this is similarly unbound. Engineering layer maps to the senior's release from credit-loss binding via internalised non-attachment. Concrete scenario uses a service redesign with credit absorbed by a fast-talking peer; the senior's earlier-career self would have litigated for three weeks, the current self registers and proceeds. Counter-example carves out structural credit-loss patterns (where individual non-attachment is not enough).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

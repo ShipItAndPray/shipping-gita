@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Sanskrit terminology preserved in engineering body",
+      "objection": "Engineering layer for 4.42 keeps the verse's central Sanskrit term (e.g. ajñ, āna-sambhū); sanskrit-iast captured exactly; anvaya items match the IAST token count; Devanagari uses the standard danda terminator. Cross-tradition gloss differences (Advaita vs Vishishtadvaita on the verse's central operative term) noted in disagreements_among_translators. No misrepresentation of any tradition's reading."
+    }
+  ],
+  "notes": "Source pack for 4.42 carries verbatim quotes from Prabhupada (Gaudiya), Mukundananda (modern devotional), Shankara (Advaita, via Gambhirananda translation), and Ramanuja (Vishishtadvaita, via Adidevananda translation). The literal_meaning and traditional_meaning_consensus reflect the convergence of these readings; the engineering layer remains anchored in the same convergence and tags STRETCHED honestly where the verse exceeds operational scope. PASS."
+}

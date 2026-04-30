@@ -1,0 +1,202 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.2",
+  "sanskrit_devanagari": "एवं परम्पराप्राप्तमिमं राजर्षयो विदुः ।\nस कालेनेह महता योगो नष्टः परन्तप ॥ २ ॥",
+  "sanskrit_iast": "evaṁ paramparā-prāptam imaṁ rājarṣayo viduḥ |\nsa kāleneha mahatā yogo naṣṭaḥ paran-tapa || 2 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "परम्पराप्राप्तम्",
+      "iast": "paramparā-prāptam",
+      "meaning": "received in succession / by lineage"
+    },
+    {
+      "sanskrit": "इमम्",
+      "iast": "imam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "राजर्षयः",
+      "iast": "rājarṣayaḥ",
+      "meaning": "the royal sages"
+    },
+    {
+      "sanskrit": "विदुः",
+      "iast": "viduḥ",
+      "meaning": "knew"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "कालेन",
+      "iast": "kālena",
+      "meaning": "by time"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "in this world"
+    },
+    {
+      "sanskrit": "महता",
+      "iast": "mahatā",
+      "meaning": "long / great"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "the yoga"
+    },
+    {
+      "sanskrit": "नष्टः",
+      "iast": "naṣṭaḥ",
+      "meaning": "lost / destroyed"
+    },
+    {
+      "sanskrit": "परन्तप",
+      "iast": "paran-tapa",
+      "meaning": "O scorcher of foes (Arjuna)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/2/",
+      "fetched_at": "2026-04-30T04:26:59.198Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This supreme science was thus received through the chain of disciplic succession, and the saintly kings understood it in that way. But in course of time the succession was broken, and therefore the science as it is appears to be lost.",
+      "raw_capture_path": "data/sources/raw/bg-4-2-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-2/",
+      "fetched_at": "2026-04-30T04:27:14.295Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This supreme science was thus received through the chain of disciplic succession, and the saintly kings understood it in that way. But in course of time the succession was broken, and therefore the science as it is appears to be lost."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/2/",
+      "fetched_at": "2026-04-30T04:26:59.198Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1535 chars)",
+      "verbatim_excerpt": "It is clearly stated that the Gītā was especially meant for the saintly kings because they were to execute its purpose in ruling over the citizens. Certainly Bhagavad-gītā was never meant for the demonic persons, who would dissipate its value for no one’s benefit and would devise all types of interp…",
+      "raw_full_path": "data/sources/raw/bg-4-2-vedabase.json (purport_full_length: 1535)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.295Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.2 Rajarsayah, the king-sages, those who were kings and sages (at the same time); viduh, knew; imam, this Yoga; which was evam parampara-praptam, received thus through a regular succession of Ksatriyas.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 735,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-2-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads naṣṭaḥ as the yoga having become disrupted because the strength of those receiving it had weakened — those without self-control received it, leading to its decline. The yoga itself is not destroyed in essence; the chain of competent receivers broke."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-2/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.295Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.1 – 4.2 The Lord said — This Karma Yoga declared to you should not be considered as having been taught now merely, for creating encouragement in you for war. I Myself had taught this Yoga to Vivasvan at the commencement of Manu’s age as a means for all beings to attain release, which is man’s supr…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 544,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-2-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as continuous with 4.1: this yoga was passed through royal sages who knew it, but in the long course of time it was lost — meaning unrealised, no longer practiced as the path to liberation it was given as. The verse establishes the necessity of Krishna's re-instruction."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naṣṭaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "lost (the chain was broken)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "lost in the sense that competent receivers (those with self-control) became scarce"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "lost in the sense of unrealised — the yoga as a path to liberation ceased to be lived"
+        }
+      ],
+      "explanation": "All three agree the yoga was 'lost' but locate the loss differently. Prabhupada flattens to a broken transmission chain. Shankara emphasises the receiver-side — when those receiving the yoga lacked self-control, the yoga's transmission failed. Ramanuja emphasises the praxis-side — the yoga ceased to be lived as a soteriological path. The Advaita reading is more focused on epistemic competence; the Vishishtadvaita reading is more focused on lived practice."
+    }
+  ],
+  "literal_meaning": "Thus received in lineage, the royal sages knew this yoga; over a long time, Arjuna, that yoga was lost in this world.",
+  "traditional_meaning": "The lineage of paramparā is acknowledged: royal sages preserved the yoga across generations. But Krishna names a fact that bears doctrinal weight — the yoga was lost (naṣṭaḥ) over time. This sets up 4.3, where Krishna explains why he is re-imparting it now. The verse honors the principle that even authentic transmission decays without sustained practice and worthy successors.",
+  "engineering": {
+    "translation": "Krishna names a hard fact: even authentic transmission decays without sustained practice. The yoga that the rājarṣis (royal sages) knew was lost over time. The decay is not because the yoga was insufficient; it is because the chain of competent receivers broke. The engineering reading: the operational discipline a senior team practiced in 2018 — careful runbooks, blameless postmortems, scoped on-call duties — disappears within three years if the receivers are not trained, the practice is not sustained, and the conditions under which it was learned are not transmitted. The institutional memory is fragile in exactly the way Krishna names. What dies is not the principle; what dies is the chain of people who could practice it.",
+    "concrete_scenario": "A fast-growing infrastructure team at a data-platform company hits a production incident in 2026. The on-call engineer pages the SRE lead. They reach for the runbook — which exists, in Notion, last updated in 2022 by an engineer who left in 2023. The runbook references a deploy script that was renamed, a Datadog dashboard that was archived, and a pager rotation that was reorganised. The principles the runbook encodes are still correct. But the chain of people who knew how to apply them, when, and against what failure modes is gone. The new SRE hired in 2025 reads the document, reads the postmortem, and re-derives the response from first principles in 90 minutes — buying themselves a working playbook for the next incident, but the team has now lost three years of cumulative debugging intuition because no one was assigned to keep transmitting it. The yoga was lost.",
+    "falsifiability": "The analog fails if a reader uses it to justify hoarding institutional knowledge — to make themselves indispensable by withholding transmission. The verse's force runs the other way: the loss of the yoga is bad news. The remedy is sustained transmission, not protected scarcity. A senior who interprets this verse as 'I am the only one who knows; this is good for my career' has inverted what the verse actually mourns.",
+    "counter_example": "When a discipline is inherited but the conditions that made it necessary have changed — when the original constraint that produced the runbook no longer applies — the loss of that specific practice is not the loss the verse names. The verse mourns the loss of practices whose principles still apply. The corollary: distinguish the principle (which the verse defends) from the specific practice it generated (which may legitimately retire).",
+    "implication": "Audit your team's tribal knowledge. For every operational principle the team practices, ask: if the senior person who holds this left tomorrow, would the principle survive? If not, the chain is already breaking. Begin transmission now, not at the exit interview.",
+    "quotable_line": "What dies is not the principle; what dies is the chain of people who could practice it.",
+    "tags": [
+      "team-culture",
+      "tech-debt",
+      "incident-response"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

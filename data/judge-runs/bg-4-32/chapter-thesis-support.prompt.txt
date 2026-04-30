@@ -1,0 +1,255 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.32",
+  "sanskrit_devanagari": "एवं बहुविधा यज्ञा वितता ब्रह्मणो मुखे ।\nकर्मजान्विद्धि तान्सर्वानेवं ज्ञात्वा विमोक्ष्यसे ॥ 32 ॥",
+  "sanskrit_iast": "evaṁ bahu-vidhā yajñā vitatā brahmaṇo mukhe\nkarma-jān viddhi tān sarvān evaṁ jñātvā vimokṣhyase",
+  "anvaya": [
+    {
+      "iast": "evam",
+      "meaning": "thus",
+      "sanskrit": ""
+    },
+    {
+      "iast": "bahu",
+      "meaning": "vidhāḥ—various kinds of",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñāḥ",
+      "meaning": "sacrifices",
+      "sanskrit": ""
+    },
+    {
+      "iast": "vitatāḥ",
+      "meaning": "have been described",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahmaṇaḥ",
+      "meaning": "of the Vedas",
+      "sanskrit": ""
+    },
+    {
+      "iast": "mukhe",
+      "meaning": "through the mouth",
+      "sanskrit": ""
+    },
+    {
+      "iast": "karma",
+      "meaning": "jān—originating from works",
+      "sanskrit": ""
+    },
+    {
+      "iast": "viddhi",
+      "meaning": "know",
+      "sanskrit": ""
+    },
+    {
+      "iast": "tān",
+      "meaning": "them",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sarvān",
+      "meaning": "all",
+      "sanskrit": ""
+    },
+    {
+      "iast": "evam",
+      "meaning": "thus",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñātvā",
+      "meaning": "having known",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/32/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All these different types of sacrifice are approved by the Vedas, and all of them are born of different types of work. Knowing them as such, you will become liberated.",
+      "raw_capture_path": "data/sources/raw/bg-4-32-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/32",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.32: All these different kinds of sacrifice have been described in the Vedas. Know them as originating from different types of work; this understanding cuts the knots of material bondage."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/32/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Different types of sacrifice, as discussed above, are mentioned in the Vedas to suit the different types of worker. Because men are so deeply absorbed in the bodily concept, these sacrifices are so arranged that one can work either with the body, with the mind or with the intelligence.",
+      "verbatim_full_length": 433,
+      "raw_full_path": "data/sources/raw/bg-4-32-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-32/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.32 Evam, thus; bahu-vidha yajnah, various kinds of sacrifices as described; vitatah, lie spread; mukhe, at the mouth, at the door; brahmanah, of the Vedas. Those which are known through the Vedas- as for instance, ‘We offer the vital force into speech’, etc.-are said to be vitatah, spread, elaborated; mukhe, at the…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1168,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-32-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-32/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.32 Thus there are many kinds of Kamra Yoga, which are spread out for the attainment of the Brahman. That means, they lead to the realisaion of the true nature of the individual self. Know that all these are forms of Karma Yoga, which have been previoulsy defined and diversified, as born of actions. That means, know…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 707,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-32-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-32/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Now Lord Krishna concludes His appraisal of yagnas or offerings of worship to propitiate the Supreme Lord in karma yoga or prescribed Vedic activities in order to adequately praise yagnas performed in jnana yoga or the cultivation of Vedic knowledge. Thus yagna is directly…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 712,
+      "raw_full_path": "data/sources/raw/bg-4-32-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.32: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Many such yajñas are spread before the mouth of brahman; know all of them as born of action — knowing thus, you will be liberated.",
+  "traditional_meaning": "evaṁ bahu-vidhā yajñā vitatā brahmaṇo mukhe — thus the many-formed yajñas are spread before the mouth of brahman (i.e., taught in the Vedas / received in revelation). karma-jān viddhi tān sarvān — know them all as born of action. evaṁ jñātvā vimokṣyase — knowing thus, you will be liberated. Shankara: the verse closes the typology by emphasising that all the yajña-shapes are karma-ja — produced through action — and that understanding this generates liberation. Ramanuja: knowing the diversity of the yajña-shapes and that each is action-of-the-actor frees one from anxiety about which form to take and binds one to disciplined practice within whichever form fits.",
+  "engineering": {
+    "translation": "Two doctrinal moves close the typology. First: the many shapes named are all karma-jān — born of action. None of them is achieved by mere intent or reflection; each is constituted in the doing. The yajña of substrate-reading is constituted by the actual reading; the yajña of code review is constituted by the actual reviewing; the yajña of regulated attention is constituted by the actual regulation. Second: the knowing — evaṁ jñātvā — itself liberates. Not the choosing of one form, but the seeing-clearly of the typology. The engineer who has understood that there are many legitimate shapes of disciplined participation is freed from anxiety about choosing the correct shape, and freed for the practice of whichever shape fits her present GitHub queue and Slack threads.",
+    "concrete_scenario": "Two engineers absorb the typology of legitimate engineering disciplines (4.25-4.31). The first becomes preoccupied with which shape is correct: should she become the substrate-reader, the on-call lead, the design-review keeper. Six months pass in oscillation between shapes, no commitment held. Her colleague understands that the shapes are karma-ja — constituted by doing — and selects whichever shape fits her current work and the team's current needs. She is the design-review keeper this quarter on Notion; next quarter she may be the on-call lead on PagerDuty; the typology has freed her into practice rather than into choice-anxiety. The verse's evaṁ jñātvā vimokṣyase — knowing thus, liberated — names the second engineer's configuration.",
+    "falsifiability": "The analog fails if a reader concludes that any engineering activity counts as yajña simply because they have understood the typology. The understanding is not the discipline; it is the liberation from anxiety-about-discipline. The discipline still must be performed. The verse says 'know them all as born of action' — the action is not optional; the cognitive freedom is the freedom from picking-anxiety.",
+    "counter_example": "When an engineer is genuinely mismatched to a role — a substrate-reader assigned to high-velocity feature shipping, a yoga-yajña reviewer assigned to a maintenance team — the verse's freedom is not freedom from discernment about role-fit. Knowing the typology liberates from picking-anxiety, not from accurate self-assessment.",
+    "implication": "Stop searching for the right yajña-shape. Pick the one your current work and team need. The form is karma-ja — it constitutes itself in the doing.",
+    "quotable_line": "She is the design-review keeper this quarter; she may be the on-call lead next quarter. The typology has freed her into practice.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "deliberate-action",
+      "decision-paralysis"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

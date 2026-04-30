@@ -1,0 +1,38 @@
+{
+  "id": "BG 4.18",
+  "chapter": 4,
+  "verse": 18,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Karmaṇy akarma yaḥ paśyet akarmaṇi ca karma yaḥ — sa buddhimān manuṣyeṣu, sa yuktaḥ kṛtsna-karma-kṛt. The chapter's headline verse and one of the most famous in the entire Gītā. Krishna names a single discriminative seeing in two directions. First: perceiving non-doing in apparent doing. A senior whose external activity looks heavy but who is, in Shankara's metaphysical reading, non-doing — acting from settled discrimination, no ego claiming authorship. Second: perceiving doing in apparent stillness. The colleague whose external behavior is silence — sitting in the meeting, not typing, not speaking for fifteen minutes — yet whose presence reshapes the discussion's direction by the questions she asks at minute sixteen. Whoever sees both ways is buddhimān (wise) among humans, yukta (established in yoga), and kṛtsna-karma-kṛt (doer of all action). The compressed insight: surface behavior does not disclose what is moving the system.",
+    "concrete_scenario": "Two engineers in the same architecture review for a Kubernetes-hosted, Postgres-backed payment platform. Engineer A is typing rapidly for the entire 90 minutes — taking notes, drafting Slack messages, opening JIRA tickets, sketching code in a GitHub gist. Visible action. Engineer B sits with her laptop closed for the first 50 minutes, watches the discussion, then asks two questions in the final 40 minutes that visibly redirect the architectural decision toward a different rollback strategy. Visible silence followed by minimal speech. Six months later, the senior tech lead reviewing the meeting recording for a postmortem realises: A's typing produced 14 tickets none of which were ever closed and a Slack thread that was deleted. The system did not move because of A. B's two questions caused the team to abandon a fragile abstraction in the deploy pipeline and choose a different one — visible in the Datadog dashboards as a 40% drop in failed deploys. The system moved decisively because of B. From the surface, A was acting and B was inactive. From the verse, B was the kṛtsna-karma-kṛt — the doer of all action — and A's frenetic motion was the metaphysical akarma in the negative sense (motion that produces no movement). The senior who sees both ways during the meeting itself, not in the postmortem six months later, is the verse's buddhimān.",
+    "falsifiability": "The analog fails if a reader uses it to romanticise silence over action — to claim that the engineer who never speaks must therefore be moving the system. Most silence is silence. Most typing is typing. The verse names a discrimination, not a default. The diagnostic: when the silent engineer speaks (or the silent engineer's recommendations land), does the system actually move? When the typing engineer's tickets close (or their PRs merge), does the system move? Right-seeing measures motion-of-system, not motion-of-fingers.",
+    "counter_example": "When an engineer is genuinely contributing through both typing and speaking — when their visible activity correlates well with system motion — the verse's two directions of seeing are not applicable. The verse rewards the cases where surface and depth diverge. When they coincide, the discrimination is not needed and the verse does not flatter ordinary cases.",
+    "implication": "Evaluate engineers by motion-of-system, not motion-of-fingers. The senior whose visible work looks heavy but whose system has not moved is in akarma-disguised-as-karma. The senior whose visible work looks light but whose questions reshape the system is in karma-disguised-as-akarma. The seeing of both is the wisdom Krishna names.",
+    "quotable_line": "Frenetic motion that moves nothing; quiet presence that moves everything. The seeing of both is what this verse calls wise.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "engineering-pathology",
+      "knowledge-action-integration",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.18 is the chapter's headline verse and one of the most important in the entire Gītā. Per chapter thesis, MAXIMUM rigor required. Both directions of the seeing preserved: (1) action-in-apparent-inaction (the silent engineer reshaping the meeting), (2) inaction-in-apparent-action (the frenetic typer producing no system motion). Engineering layer maps to motion-of-system vs. motion-of-fingers. Concrete scenario uses two engineers in the same architecture review with diverging surface-vs-system-motion. The kṛtsna-karma-kṛt clause preserved (the right-seer is the most effective actor, not the least). Tags: judgment-under-uncertainty, engineering-pathology, knowledge-action-integration, deep-work.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

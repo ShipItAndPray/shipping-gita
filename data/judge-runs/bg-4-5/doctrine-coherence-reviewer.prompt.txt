@@ -1,0 +1,268 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.5",
+  "sanskrit_devanagari": "श्रीभगवानुवाच\nबहूनि मे व्यतीतानि जन्मानि तव चार्जुन ।\nतान्यहं वेद सर्वाणि न त्वं वेत्थ परन्तप ॥ ५ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca\nbahūni me vyatītāni janmāni tava cārjuna |\ntāny ahaṁ veda sarvāṇi na tvaṁ vettha paran-tapa || 5 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान् उवाच",
+      "iast": "śrī-bhagavān uvāca",
+      "meaning": "the Lord said"
+    },
+    {
+      "sanskrit": "बहूनि",
+      "iast": "bahūni",
+      "meaning": "many"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "of me"
+    },
+    {
+      "sanskrit": "व्यतीतानि",
+      "iast": "vyatītāni",
+      "meaning": "have passed"
+    },
+    {
+      "sanskrit": "जन्मानि",
+      "iast": "janmāni",
+      "meaning": "births"
+    },
+    {
+      "sanskrit": "तव",
+      "iast": "tava",
+      "meaning": "of you"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    },
+    {
+      "sanskrit": "तानि",
+      "iast": "tāni",
+      "meaning": "those"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "वेद",
+      "iast": "veda",
+      "meaning": "know"
+    },
+    {
+      "sanskrit": "सर्वाणि",
+      "iast": "sarvāṇi",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "वेत्थ",
+      "iast": "vettha",
+      "meaning": "know"
+    },
+    {
+      "sanskrit": "परन्तप",
+      "iast": "paran-tapa",
+      "meaning": "O scorcher of foes"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/5/",
+      "fetched_at": "2026-04-30T04:26:59.719Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Personality of Godhead said: Many, many births both you and I have passed. I can remember all of them, but you cannot, O subduer of the enemy!",
+      "raw_capture_path": "data/sources/raw/bg-4-5-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-5/",
+      "fetched_at": "2026-04-30T04:27:15.793Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Personality of Godhead said: Many, many births both you and I have passed. I can remember all of them, but you cannot, O subduer of the enemy!"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/5/",
+      "fetched_at": "2026-04-30T04:26:59.719Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3940 chars)",
+      "verbatim_excerpt": "In the Brahma-saṁhitā (5.33) we have information of many, many incarnations of the Lord. It is stated there:advaitam acyutam anādim ananta-rūpamādyaṁ purāṇa-puruṣaṁ nava-yauvanaṁ cavedeṣu durlabham adurlabham ātma-bhaktaugovindam ādi-puruṣaṁ tam ahaṁ bhajāmi“I worship the Supreme Personality of Godh…",
+      "raw_full_path": "data/sources/raw/bg-4-5-vedabase.json (purport_full_length: 3940)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-5/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.793Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.5 O Arjuna, bahuni, many; janmani, lives; me, of Mine; vyatitani, have passed; tava ca, and so have yours. Aham, I; veda know; tani, them; sarvani, all; (but) tvam, you; va vetta, know not, due to your power of understanding being obstructed by righteousness, unrighteousness, etc.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 612,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-5-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna establishing that ordinary jīva consciousness loses awareness across births, whereas the Lord retains full knowledge of his successive births because his nature is unobscured by māyā. The asymmetry lies in unobstructed self-knowledge."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-5/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.793Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.5 The Lord said — By this, the reality of the Lord’s birth is declared in the sentence, ‘Many births of Mine have passed.’ ‘So is it with you’ is added by way of illustration. The mode of incarnation, the reality of His body and the cause of His birth are explained in the following verse.",
+      "verbatim_excerpt_length": 291,
+      "verbatim_full_length": 291,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-5-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as Krishna's claim that he is sarvajña (all-knowing) — knowing his own previous births and those of all beings — while Arjuna, being an embodied jīva, does not have this knowledge. The verse establishes Krishna's omniscience without yet naming the avatar mechanism."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "veda / vettha",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Many, many births both you and I have passed. I can remember all of them, but you cannot, O subduer of the enemy!"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Krishna retains unobscured self-knowledge across births; Arjuna's jīva consciousness is veiled by māyā and cannot recall"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Krishna is sarvajña (omniscient over all beings' births); Arjuna's knowledge is bounded by jīva-level cognition"
+        }
+      ],
+      "explanation": "Prabhupada reads 'veda' simply as 'remember.' Shankara emphasises the metaphysical mechanism (māyā veils the jīva but not the Lord). Ramanuja emphasises the scope (Krishna knows all beings' births, not just his own). The three readings together preserve the asymmetry the verse establishes without flattening it into ordinary memory."
+    }
+  ],
+  "literal_meaning": "The Lord said: Many of my births have passed, and yours too, Arjuna; I know all of them, you do not, scorcher of foes.",
+  "traditional_meaning": "Krishna answers Arjuna's chronological question by declaring an asymmetry: both have had many births, but only Krishna remembers them. The verse sets up the avatar doctrine without yet stating it: the difference between Krishna and Arjuna is not that one has been born and the other has not; it is that one knows all his births and the other does not. The verse foregrounds knowledge as the discriminator.",
+  "engineering": {
+    "translation": "Krishna answers Arjuna's chronological question with an asymmetry: many of his own births and Arjuna's have passed; Krishna knows them all, Arjuna does not. The verse makes a metaphysical claim — multi-life knowledge — that exceeds operational reach. The honest engineering analog runs only at the operational layer: a senior who has watched two or three decades of frameworks rise and fall holds insight that transcends any specific stack. They have seen Perl, Java, Ruby, Python, Go, Rust — and the principles that transferred across all of them. A junior has not. The asymmetry is not metaphysical recall across lifetimes; it is empirical multi-stack experience. STRETCHED-tagged: the verse claims more than the operational analog can honor.",
+    "concrete_scenario": "A staff engineer with twenty-two years of experience and a senior with seven years sit in an architecture review for a new event-streaming platform. The discussion turns to back-pressure. The junior proposes a Redis-backed buffer with a max-queue-depth circuit breaker. The veteran replies: 'That works. I've also seen this exact pattern at three previous companies — once on an in-memory broker in 2007, once on RabbitMQ in 2014, once on Kafka in 2019. Each time, the failure mode wasn't the queue depth. It was that the consumer's processing time was non-uniform under load, and a depth-based circuit breaker fires too late. What you actually want is a latency-based trip that pages the consumer's owner, not the producer's owner.' The junior absorbs this. The asymmetry is not metaphysical. It is empirical: the elder has watched the same shape fail in three different incarnations. The novice has not. The verse's metaphysical claim exceeds this; our operational reading respects what is opened up.",
+    "falsifiability": "The analog fails if a reader takes the verse's metaphysical claim as a literal endorsement of senior-engineer omniscience. The senior who claims to have seen everything has not. The verse claims Krishna has, but Krishna is the Lord. The engineering analog operates only at the level of empirical multi-stack experience and honors the verse by being smaller than it.",
+    "counter_example": "When the senior's claim of multi-stack experience is shallow — when 'I've seen this before' means they read about it once — the asymmetry the engineering analog names does not exist. The diagnostic: ask the senior to name the specific failure modes they saw at the specific previous companies. If they cannot, the empirical knowledge is not what they claimed.",
+    "implication": "When a senior claims to have seen a pattern across decades, the right test is to ask for the specific failure modes at the specific previous appearances. Multi-stack empirical knowledge resolves into specifics; theatre resolves into generalities.",
+    "quotable_line": "The senior's asymmetric knowledge is not omniscience. It is the specific failure modes seen at specific previous appearances.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

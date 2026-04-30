@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.11",
+  "chapter": 3,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The mutual nourishment. devān bhāvayatānena — by this (yajña) sustain the gods; te devā bhāvayantu vaḥ — let them sustain you. parasparaṁ bhāvayantaḥ śreyaḥ param avāpsyatha — feeding each other, you shall attain the supreme good. Per the Advaita gloss, the gods are pleased by oblations and reciprocate with rain, food, worldly goods. Per the Vishishtadvaita reading — important here — the devas are real persons with the Supreme Person as their inner Self; the mutual exchange is real cosmic structure. The Vishishtadvaita position specifically rules out collapsing the devas into 'team abstractions'. The engineering analog must respect this restriction: the operational sustaining loop IS an analog of mutual feeding, but the team, the customer, the on-call rotation are NOT what the devas are. The original's ontology is cosmological. Tag honestly STRETCHED. The pale operational reading: the loop is real; the analogy to devas-and-creatures is a shadow.",
+    "concrete_scenario": "A staff engineer has been on the same on-call rotation for two years alongside three other engineers. They have a working pattern: each pages the others sparingly, each documents incidents in GitHub thoroughly, each respects the off-call boundary. The arrangement is mutual — each engineer's care for the rotation is what makes it a working sustaining structure for all four members. When a junior asks how they manage on-call quality, the staff engineer explains: 'We feed the rotation, and it feeds us. I document my Datadog incidents at 4 AM because I want to be paged at 4 AM by someone who has done the same. The reciprocity is the structure. If one of us defects, everything breaks for everybody.' Verse 3.11 describes this kind of mutual feeding cosmologically. The engineering analog is operational only — our setup is a real sustaining loop, but it is not the cosmic exchange between gods and creatures the verse names. The Vishishtadvaita reading specifically warns against collapsing the devas into team abstractions; the engineering layer respects this caution by tagging STRETCHED.",
+    "falsifiability": "The analog fails if a reader uses 3.11 to argue that the engineering team is a divine system, or that the on-call rotation has cosmological status. The verse's mutual nourishment is between creatures and devas, not between human teams. The engineering analog is for operational loops where the structure of mutual care produces sustaining behavior. Reading the verse as 'your team is sacred' has erased the original's specificity.",
+    "counter_example": "When the on-call rotation is functioning as a hierarchy rather than a mutual exchange — when one engineer absorbs all the pages because the others are protected — the verse's structure does not apply. The verse describes parasparam (mutually) explicitly. Asymmetric absorption is not mutual nourishment; it is theft of one engineer's recovery time, and the verse's diagnosis at 3.12 (the thief) is closer to that situation.",
+    "implication": "Audit your on-call rotation for symmetry. If one engineer is absorbing more pages than they are causing, the loop is not mutual. The supreme good — paraṁ śreyaḥ — comes from mutual nourishment, not from one engineer carrying the others.",
+    "quotable_line": "The on-call rotation is a sustaining loop only when it is mutual; asymmetric absorption is closer to 3.12's theft than to 3.11's nourishment.",
+    "tags": [
+      "yajna-as-discipline",
+      "on-call-doctrine",
+      "team-culture"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.11 names mutual nourishment between gods and creatures. STRETCHED tag honest: engineering analog is operational only (on-call rotation as a real sustaining loop); the cosmological scope (devas as real persons with the Supreme Person as their inner Self) exceeds the analog. The Vishishtadvaita reading's warning against collapsing devas into team abstractions is named explicitly. Concrete scenario uses a 4-engineer on-call rotation with mutual care of incidents and documentation. Counter-example sets up the asymmetric-absorption case (which 3.12 will sharpen). Tags: yajna-as-discipline, on-call-doctrine, team-culture.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

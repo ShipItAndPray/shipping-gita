@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.27",
+  "chapter": 3,
+  "verse": 27,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter's metaphysically loaded verse. Actions are done by the gunas of prakṛti; the ahaṅkāra-vimūḍha — the one whose self-conception is deluded by ego — claims kartāham (I am the doer). The engineering layer must stay at the operational layer here — the metaphysical claim about the Self's non-doership exceeds what the analog can carry — but the operational shadow is real. Engineering map: the engineer who claims sole credit for what the team's collective practice produced is making an operational version of the kartāham claim. The code review that caught the bug, the on-call shift that surfaced the regression, the design discussion that reshaped the proposal, the staff context the senior brought, the institutional memory the principal carried — all contributed to the artifact. The engineer who says 'I shipped this' is reading collective production as personal authorship. STRETCHED: the metaphysical claim is more demanding; the operational shadow is honest but limited.",
+    "concrete_scenario": "A senior engineer at a Kubernetes-heavy infrastructure company merges a major migration on GitHub on a Friday afternoon. Datadog shows the system stable; Slack lights up with congratulations. He writes a retrospective in Notion that is, in tone, 'I shipped this.' The retrospective does not name: the staff engineer who, six months ago in a design review, redirected the proposal away from a class of failure modes; the SRE on-call who, three weeks ago, caught a config bug that would have caused a cascading failure; the principal who silently re-reviewed the PR at midnight on Wednesday and left twelve comments that materially changed the implementation; the documentation that two retired engineers had written six years earlier and that had carried the institutional memory of why the cluster-controller works the way it does. He does not name any of this. He thinks of the shipping as his shipping. The verse names this exactly: prakṛter guṇaiḥ kriyamāṇāni karmāṇi sarvaśaḥ — actions are done by the gunas in every respect — ahaṅkāra-vimūḍhātmā kartāham iti manyate — the ego-deluded self thinks 'I am the doer.' The operational shadow of the metaphysical claim: the team's collective practice produced the artifact; the kartāham claim is a misreading.",
+    "falsifiability": "The analog fails if read as 'never take credit.' The verse's operational shadow is not 'reject all attribution.' It is 'attribute the action to its actual sources, including the parts of the production that lie outside your direct authorship.' The diagnostic: does the retrospective name at least three contributors whose contribution materially shaped the outcome? If yes, the kartāham misreading is being avoided. If no, the verse names the writer.",
+    "counter_example": "Sometimes the action is genuinely individual — the engineer who, alone over six weeks, with no review and no help, debugs a deeply opaque issue. Even here the verse's operational shadow holds at the meta-layer (the system's documentation, the build infrastructure, the chain of code reviews on prior PRs that produced the maintainable codebase he is debugging) — but at the immediate-credit layer the individual contribution is real. The verse does not erase real authorship; it warns against the operational habit of reading collective production as individual authorship.",
+    "implication": "On the next shipping retrospective you write, list explicitly the five contributors whose contribution shaped the outcome — including those whose contribution was historical, structural, or invisible. If the list is hard to fill, the kartāham misreading has already happened.",
+    "quotable_line": "The team's collective practice produced the artifact. The 'I shipped this' framing is the operational version of the verse's kartāham misreading.",
+    "tags": [
+      "doership",
+      "team-culture",
+      "operator-system-coupling",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:10:00Z",
+      "mutation": "v0 generation for BG 3.27: source pack triangulated across 5 sources; engineering layer anchored on chapter thesis (Why the Senior Still Ships) and load-bearing claims for this verse. Tagged STRETCHED: the metaphysical claim of 3.27 (gunas as the actual agent of action; the Self's non-doership) exceeds what the engineering analog can carry. The operational shadow (collective production misread as personal authorship) is honest but more limited than the doctrinal claim.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T23:30:00Z",
+      "mutation": "Lift lex diversity / FK / trim translation",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

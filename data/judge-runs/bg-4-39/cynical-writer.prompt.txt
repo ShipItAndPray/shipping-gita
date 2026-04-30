@@ -1,0 +1,216 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.39",
+  "sanskrit_devanagari": "श्रद्धावान् लभते ज्ञानं तत्पर: संयतेन्द्रिय: ।\nज्ञानं लब्ध्वा परां शान्तिमचिरेणाधिगच्छति ॥ 39 ॥",
+  "sanskrit_iast": "śhraddhāvānllabhate jñānaṁ tat-paraḥ sanyatendriyaḥ\njñānaṁ labdhvā parāṁ śhāntim achireṇādhigachchhati",
+  "anvaya": [
+    {
+      "iast": "śhraddhāvān",
+      "meaning": "a faithful person",
+      "sanskrit": ""
+    },
+    {
+      "iast": "labhate",
+      "meaning": "achieves",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñānam",
+      "meaning": "divine knowledge",
+      "sanskrit": ""
+    },
+    {
+      "iast": "tat",
+      "meaning": "paraḥ—devoted (to that)",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sanyata",
+      "meaning": "controlled",
+      "sanskrit": ""
+    },
+    {
+      "iast": "indriyaḥ",
+      "meaning": "senses",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñānam",
+      "meaning": "transcendental knowledge",
+      "sanskrit": ""
+    },
+    {
+      "iast": "labdhvā",
+      "meaning": "having achieved",
+      "sanskrit": ""
+    },
+    {
+      "iast": "parām",
+      "meaning": "supreme",
+      "sanskrit": ""
+    },
+    {
+      "iast": "śhāntim",
+      "meaning": "peace",
+      "sanskrit": ""
+    },
+    {
+      "iast": "achireṇa",
+      "meaning": "without delay",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/39/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A faithful man who is dedicated to transcendental knowledge and who subdues his senses is eligible to achieve such knowledge, and having achieved it he quickly attains the supreme spiritual peace.",
+      "raw_capture_path": "data/sources/raw/bg-4-39-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/39",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.39: Those whose faith is deep and who have practiced controlling their mind and senses attain divine knowledge. Through such transcendental knowledge, they quickly attain everlasting supreme peace."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/39/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Such knowledge in Kṛṣṇa consciousness can be achieved by a faithful person who believes firmly in Kṛṣṇa. One is called a faithful man who thinks that simply by acting in Kṛṣṇa consciousness he can attain the highest perfection.",
+      "verbatim_full_length": 644,
+      "raw_full_path": "data/sources/raw/bg-4-39-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-39/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.39 Sraddhavan, the man who has faith; labhate, attains; jnanam, Knowledge. Even when one has faith, he may be indolent. Therefore the Lord says, tatparah, who is diligent, steadfast in the service of the teacher, etc., which are the means of attaining Knowledge. Even when one has faith and is diligent, one may not…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1311,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-39-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-39/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.39 After attaining knowledge through instruction in the manner described, he must have firm faith in it and the possibility of its development into ripe knowledge. He must be intent on it, i.e., his mind must be focussed thereupon. He must control his senses and keep them away from all their objects. Soon will he…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 519,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-39-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-39/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The person with faith who follows the Vedic instructions of the spiritual master and who wholeheartedly believes in the knowledge of the Vedic scriptures and who is self-controlled; only such a person receives spiritual realisation and none other. Therefore before ones receives…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 558,
+      "raw_full_path": "data/sources/raw/bg-4-39-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.39: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "The one with faith, intent, restrained-of-senses obtains knowledge; obtaining it, immediately attains supreme peace.",
+  "traditional_meaning": "śraddhāvāl labhate jñānaṁ tat-paraḥ saṁyatendriyaḥ — the one with faith, who is intent (devoted to that), with senses restrained, obtains knowledge — jñānaṁ labdhvā parāṁ śāntim acireṇādhigacchati — having obtained knowledge, attains supreme peace without delay. Shankara: three pre-conditions are stated for the attainment of knowledge: śraddhā (faith in the teaching and the teacher), tat-paratva (single-minded devotion to it), saṁyatendriyatva (sense-restraint). When these are present, knowledge is obtained, and when knowledge is obtained, supreme peace follows immediately (acireṇa, without long delay). Ramanuja: the karma-yogin with these three qualities matures into knowledge, and the peace that follows is the fruit of the entire path.",
+  "engineering": {
+    "translation": "Three conditions must hold for the knowledge that 4.33-4.38 has been describing to actually arrive. First, śraddhā — working faith, grounded in observed senior practice, that disciplines of code review and substrate-reading are genuine, that something exists to be understood, that whoever holds it is not bullshitting. Without śraddhā practice cannot begin; an engineer falls back to comfortable cynicism in Slack DMs. Second, tat-paratva — devotion toward that practice; centring it, not relegating it to peripheral status; an engineer becomes not casually understanding-curious but genuinely oriented toward substrate-work. Third, saṁyatendriya — restrained senses; attention stays unscattered by feeds, controversies, status games. When all three are present, knowledge does come. And when it arrives, parā śāntiḥ — supreme peace — follows without delay. Engineering shadow: an engineer who has truly understood her system carries a particular low-noise, low-anxiety operating state that her unsettled colleague lacks. STRETCHED: 'supreme peace' in this verse extends beyond operational equanimity.",
+    "concrete_scenario": "Two engineers across the same year. The first has śraddhā — believes the substrate-work is real and worthwhile; tat-paratva — has reorganised her week around it; saṁyatendriya — has closed Hacker News and turned off Slack notifications during work blocks. The second is sceptical that substrate-work matters, has not committed to it, and has thirty browser tabs open and Slack pings every minute. By year-end the first has internalised the consensus layer's actual model, ships clean Postgres-schema migrations, and merges design-doc-aligned PRs and operates at a different level of clarity; the second has consumed twenty articles about distributed systems on Hacker News and is no clearer than she was. The first has a kind of low-anxiety operating posture; the second is more anxious than she was. The verse's three pre-conditions are real and they are testable. The verse's claim — that peace follows the realisation acireṇa, without long delay — has its operational shadow in the first engineer's settled state.",
+    "falsifiability": "The analog fails if a reader uses śraddhā as 'positive thinking' or saṁyatendriya as 'gritty discipline.' Śraddhā is grounded confidence based on seeing the discipline work in others; saṁyatendriya is sense-restraint as a discipline because the alternative is observed to fragment attention. Faith without grounds is not śraddhā; restraint without observed consequences is not saṁyatendriya.",
+    "counter_example": "When the work environment is itself fragmented — constant context-switching demanded by the role, no possibility of sustained attention, structural fragmentation — the three conditions cannot be assembled by individual will. The verse describes a configuration that requires environmental cooperation; an environment that prevents the configuration is itself the obstacle.",
+    "implication": "Audit your week for the three conditions. The one most often missing is saṁyatendriya — the senses are scattered. The first move is the restraint, not the faith.",
+    "quotable_line": "Faith, devotion, sense-restraint: three conditions, and the knowledge comes.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "calibration",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

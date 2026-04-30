@@ -1,0 +1,259 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.31",
+  "sanskrit_devanagari": "यज्ञशिष्टामृतभुजो यान्ति ब्रह्म सनातनम् ।\nनायं लोकोऽस्त्ययज्ञस्य कुतोऽन्य: कुरुसत्तम ॥ 31 ॥",
+  "sanskrit_iast": "yajña-śhiṣhṭāmṛita-bhujo yānti brahma sanātanam\nnāyaṁ loko 'styayajñasya kuto 'nyaḥ kuru-sattama",
+  "anvaya": [
+    {
+      "iast": "yajña",
+      "meaning": "śhiṣhṭa amṛita-bhujaḥ—they partake of the nectarean remnants of sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yānti",
+      "meaning": "go",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "the Absolute Truth",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sanātanam",
+      "meaning": "eternal",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "never",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ayam",
+      "meaning": "this",
+      "sanskrit": ""
+    },
+    {
+      "iast": "lokaḥ",
+      "meaning": "planet",
+      "sanskrit": ""
+    },
+    {
+      "iast": "asti",
+      "meaning": "is",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ayajñasya",
+      "meaning": "for one who performs no sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "kutaḥ",
+      "meaning": "how",
+      "sanskrit": ""
+    },
+    {
+      "iast": "anyaḥ",
+      "meaning": "other (world)",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/31/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O best of the Kuru dynasty, without sacrifice one can never live happily on this planet or in this life: what then of the next?",
+      "raw_capture_path": "data/sources/raw/bg-4-31-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/31",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.31: Those who know the secret of sacrifice, and engaging in it, partake of its remnants that are like nectar, advance toward the Absolute Truth. O best of the Kurus, those who perform no sacrifice find no happiness either in this world or the next."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/31/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Whatever form of material existence one is in, one is invariably ignorant of his real situation. In other words, existence in the material world is due to the multiple reactions to our sinful lives. Ignorance is the cause of sinful life, and sinful life is the cause of one’s dragging on in material existence.",
+      "verbatim_full_length": 1852,
+      "raw_full_path": "data/sources/raw/bg-4-31-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-31/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.31 Yajna-sista-amrta-bhujah, those who partake of the nectar left over after a sacrifice, i.e. those who, after performing the sacrifices described above, eat, during the leisure after the sacrifice, the food called nectar, as prescribed by the injunctions; yanti, reach; sanatanam brahma, the eternal Brahman. For…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1207,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-31-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-31/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.31 He ‘who offers no sacrifices,’ i.e., he who does not devote himself to obligatory and occasional actions, preceded by the performance of the ‘great sacrifices’ etc., will not be able to achieve human ends which are associated with the material world and are called by the names of virtue, wealth and worldly…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 873,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-31-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-31/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Having performed yagna or offerings of worship that are not prohibited by the Vedic scriptures and after duly propitiating the Supreme Lord. Those who partake of the sanctified food remnants that is leftover which is ambrosial nectar they become spiritualised and attain by…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 823,
+      "raw_full_path": "data/sources/raw/bg-4-31-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.31: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Those who eat the nectar-remnants of yajña reach the eternal brahman; not even this world is for the non-sacrificer, much less the next.",
+  "traditional_meaning": "yajña-śiṣṭāmṛta-bhujo yānti brahma sanātanam — those who consume the nectar-remnants left over from yajña reach the eternal brahman. nāyaṁ loko 'sty ayajñasya kuto 'nyaḥ kuru-sattama — this world is not for the non-sacrificer, much less any other world. Shankara: the yajña-śiṣṭa is what is given to the gods first and consumed afterward as remnants; consuming the remnants is the disciplined participation in the cycle. The negative claim is sharp: non-yajña actors have no foothold even in this world. Ramanuja: the doctrine reinforces 3.13's thief-claim — those who consume from the sustaining order without offering into it are unsupported.",
+  "engineering": {
+    "translation": "Krishna restates 3.12-3.13 in sharper form. The engineer who participates in the sustaining loop — who offers something into it before drawing from it — is supported by it. The engineer who only consumes from the loop — who takes the paycheck, the infrastructure, the reputation, the colleagues' work, the open-source ecosystem, the senior engineering attention they receive — without offering into it has no foothold. The verse is harder than 3.13: 'this world is not for the non-sacrificer.' Even the immediate operational world — the team's trust, the system's continued functioning, the career's continued progression — is not durably available to the engineer who only consumes. The engineering analog is honest at the operational level; the verse's metaphysical scope (yānti brahma sanātanam) extends further.",
+    "concrete_scenario": "A staff-engineer-grade IC has been on a platform team for four years. He draws senior-grade compensation, uses every team-built tool, depends on the on-call rotation his peers staff, draws on the design reviews his colleagues conduct, learns from the postmortems they write. He himself contributes the bare minimum — the assigned tickets, no design doc unless required, no code review beyond his sub-team, no on-call rotation participation, no mentoring, no oss-contribution back to the libraries he depends on. He is, in the verse's terms, ayajña — consumes from the loop, does not offer into it. The verse says: this world is not for him. Operationally, the trajectory is observable. His tech-lead conversations have become more fragile; his peer reviews have grown sharper; the next reorg moves him to a less central team; his promo packet stalls. He is not being punished; the loop is structurally unable to sustain a node that only draws.",
+    "falsifiability": "The analog fails if a reader uses it to justify performative-contribution — making sure to be seen contributing while offering nothing of substance. The verse names yajña — disciplined offering — not visible offering. The engineer who games contributions for credit is closer to the ayajña category than to the yajñin category; the loop registers the difference even when individuals do not.",
+    "counter_example": "When an engineer is in a recovery period — illness, family crisis, burnout — the consumption-without-offering pattern may be temporary and structurally appropriate. The verse describes a sustained pattern, not a phase. The team typically extends the loop's support during such periods; the verse's harder claim is for the engineer for whom this is structural posture, not phase.",
+    "implication": "Audit the last quarter: what did you draw from the loop, what did you offer into it. If the second column is mostly 'my assigned work,' the diagnostic from this verse applies. The non-sacrificer has no world here, even before any next.",
+    "quotable_line": "The loop is structurally unable to sustain a node that only draws.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "shipping-discipline",
+      "team-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

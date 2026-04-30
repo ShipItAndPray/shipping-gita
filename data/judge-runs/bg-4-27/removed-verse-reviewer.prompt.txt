@@ -1,0 +1,231 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.27",
+  "sanskrit_devanagari": "सर्वाणीन्द्रियकर्माणि प्राणकर्माणि चापरे ।\nआत्मसंयमयोगाग्नौ जुह्वति ज्ञानदीपिते ॥ 27 ॥",
+  "sanskrit_iast": "sarvāṇīndriya-karmāṇi prāṇa-karmāṇi chāpare\nātma-sanyama-yogāgnau juhvati jñāna-dīpite",
+  "anvaya": [
+    {
+      "sanskrit": "सर्वाणि",
+      "iast": "sarvāṇi",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "इन्द्रिय",
+      "iast": "indriya",
+      "meaning": "the senses"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions / functions"
+    },
+    {
+      "sanskrit": "प्राणकर्माणि",
+      "iast": "prāṇa-karmāṇi",
+      "meaning": "actions of the life-breaths"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अपरे",
+      "iast": "apare",
+      "meaning": "others"
+    },
+    {
+      "sanskrit": "आत्मसंयम",
+      "iast": "ātma-saṁyama",
+      "meaning": "self-restraint"
+    },
+    {
+      "sanskrit": "योग",
+      "iast": "yoga",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "अग्नौ",
+      "iast": "agnau",
+      "meaning": "into the fire"
+    },
+    {
+      "sanskrit": "जुह्वति",
+      "iast": "juhvati",
+      "meaning": "offer"
+    },
+    {
+      "sanskrit": "ज्ञानदीपिते",
+      "iast": "jñāna-dīpite",
+      "meaning": "kindled by knowledge"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/27/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Others, who are interested in achieving self-realization through control of the mind and senses, offer the functions of all the senses, and of the life breath, as oblations into the fire of the controlled mind.",
+      "raw_capture_path": "data/sources/raw/bg-4-27-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/27",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.27: Some, inspired by knowledge, offer the functions of all their senses and their life energy in the fire of the controlled mind."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/27/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The yoga system conceived by Patañjali is referred to herein. In the Yoga-sūtra of Patañjali, the soul is called pratyag-ātmā and parāg-ātmā. As long as the soul is attached to sense enjoyment it is called parāg-ātmā, but as soon as the same soul becomes detached from such sense enjoyment it is called pratyag-ātmā.",
+      "verbatim_full_length": 1287,
+      "raw_full_path": "data/sources/raw/bg-4-27-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-27/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.27 Further, apare, others; juhvati, offer, i.e. merge; sarvani, all; indriya-karmani, the activities of the organs; and also the prana-karmani, activities of the vital force- prana means the air in the body; they offer its activities such as contraction, expansion, etc; atma-samyama yoga-agnau, into the fire of the…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 785,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-27-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-27/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.27 Some again offer as oblations all the functions of the senses, the activities of the vital breath etc., into the fire of Yoga of restraint of the mind kindled by knowledge. They endeavour to prevent the mind from getting attached to the functions of the senses and vital breaths. That is, by contemplating on the…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 407,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-27-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-27/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Others refers to those in jnana yoga or cultivation of Vedic knowledge who meditate in self-purification by offering all their senses like hearing and seeing along with all their organs like the ears and eyes and offer as well the assimilation of all food and drink along with…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 1152,
+      "raw_full_path": "data/sources/raw/bg-4-27-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.27: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Still others offer the actions of the senses and the life-breaths in the fire of self-restraint, kindled by knowledge.",
+  "traditional_meaning": "A third (and more interior) yajña-type. sarvāṇīndriya-karmāṇi prāṇa-karmāṇi cāpare — others offer all the actions of the senses and all the actions of the life-breaths — ātma-saṁyama-yogāgnau juhvati jñāna-dīpite — into the fire of self-restraining yoga, kindled by knowledge. Shankara: this is the more advanced internal yajña, in which the entire activity-fabric of the senses and the prāṇas is offered into a single fire — ātma-saṁyama — that is itself ignited by jñāna. Ramanuja: the prāṇāyāma and indriya-saṁyama practices read as offerings.",
+  "engineering": {
+    "translation": "The most interior of the yajñas so far named. Where 4.26 named two shapes — restraint-of-senses or engagement-of-senses — 4.27 names a deeper move: the offering of the entire activity-fabric of one's perception and energy into a single fire of self-restraint, and that fire is itself lit by understanding. Operationally: an engineer who has, through deep understanding, arrived at a single integrating practice — call it deep work, call it system contemplation, call it engineering meditation — into which smaller activities of attention (email-checking, Slack-scrolling, dashboard-refreshing) and activities of energy (pacing, snack-fetching, hour-marking) are offered. The fire is the integrated practice; the kindling is the understanding of why this matters.",
+    "concrete_scenario": "A principal engineer with eight years of deliberate practice arrives at a single workday shape. From 9am to 1pm she inhabits one practice: engineering attention undivided on the system, smaller habits dissolved into it. The GitHub notifications are quiet — not because she silenced them, but because she has lost the gravitational pull toward them. The Datadog refreshes have ceased — not because she chose postponement, but because attention has nowhere to flow but into the substrate. The hour-marking has stopped; she does not know what time it is until 1pm. This is jñāna-dīpita — discipline kindled by understanding so deeply that effort to maintain it has dissolved. The verse describes such a configuration. Achieving it is the work of years; the verse names the destination, not the daily struggle.",
+    "falsifiability": "The analog fails if a reader uses it to bypass the years of deliberate practice the verse implies. The configuration described is jñāna-dīpita — kindled by knowledge — meaning earned through discipline, not through identification with the description. An engineer who reads this verse and concludes she is already in this state has misread it.",
+    "counter_example": "When an engineer is early in her career and the basic operational habits — testing, documentation, code review participation — are not yet stable, the verse's integrated-fire is not the right target. The earlier yajña-types of 4.25-4.26 are. The verse names the late-stage configuration; it does not authorise skipping the earlier disciplines.",
+    "implication": "If you have a single integrating practice that the smaller activities dissolve into, observe it without disturbing it. If you do not, do not try to manufacture one. The verse describes a destination of years of practice, not a technique.",
+    "quotable_line": "The hour-marking has stopped; she does not know what time it is until 1pm. That is the integrated fire.",
+    "tags": [
+      "deep-work",
+      "yajna-as-discipline",
+      "focus-practice",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

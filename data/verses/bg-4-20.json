@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.20",
+  "chapter": 4,
+  "verse": 20,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Tyaktvā karma-phalāsaṅgaṁ nitya-tṛpto nirāśrayaḥ — having abandoned attachment to fruits, ever content, taking shelter in nothing — though fully engaged in action, he does not act at all. The verse is the operational portrait of 4.18's seer and echoes 2.47-2.48. Three qualities are named: released from fruit-attachment, ever-satisfied, dependent on nothing external. Our reading: a principal who is fully shipping but not bound by what the shipping produces; whose contentment is intrinsic, not contingent on the next promotion or the next public talk; who has not made any particular framework, manager, employer, or accolade the source of her stability. Such a builder is wholly engaged — coding, reviewing, mentoring, debugging — and yet, in the binding-sense, does not act at all. This coheres with 2.47 (no claim to authorship of fruits) and with 4.18 (the seer's paradoxical relation to doing) and anticipates BG 6's meditation chapter without overshooting.",
+    "concrete_scenario": "A principal engineer at her fifth employer in twenty years is in the most engaged phase of her career: shipping a large Postgres-to-distributed-SQL reliability migration, mentoring three staff colleagues, reviewing roughly a dozen GitHub PRs a week, taking the API gateway on-call rotation once a month through PagerDuty. By every visible measure she is fully active. A junior watching her notices an unusual absence: she does not appear to draw energy from any of the conventional markers of engineering success — not waiting for her current employer to acknowledge her, not waiting for an external conference invitation to validate the labor, not waiting for the next ladder rung. The junior asks her: 'Where does your contentment come from?' She replies: 'Nowhere external. About ten years ago I noticed that the satisfaction was independent of role, of organisation, of recognition. I'm shipping because the work is what I do; I'm not shipping in order to receive anything. The doing is full and the reception is something else.' The junior absorbs this. The senior is karmaṇy abhipravṛttaḥ — fully engaged in action — and is, in the binding-sense, not acting at all. Coherent with 2.47.",
+    "falsifiability": "The analog fails if a reader interprets 'taking shelter in nothing' as professional rootlessness. The verse names internal independence, not external isolation. The senior in the example is deeply embedded in colleagues, projects, and a profession — she is not without relationships. What she does not have is contingent contentment — happiness that requires the next external sign. The verse's nirāśraya is interior, not relational.",
+    "counter_example": "When apparent contentment is in fact resignation — when 'I'm not waiting for anything external' is a self-protective story covering an actual giving-up — the verse's claim does not apply. The diagnostic: is the engineer still sharply caring about the technical quality of the work? Resignation flattens engagement; integration preserves it. The verse and 4.18 explicitly preserve full engagement.",
+    "implication": "When you watch a senior in a fully engaged phase, ask whether their contentment appears contingent or intrinsic. The contingent senior is shipping in order to receive; the intrinsic senior is shipping because shipping is what they do. The difference is not in the visible activity. It is in what the activity is reaching for.",
+    "quotable_line": "Fully engaged, contingent on nothing — the engineering analog of the verse, coherent with 2.47, smaller than the verse's full scope.",
+    "tags": [
+      "outcome-detachment",
+      "non-attachment-to-praise",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.20 is the operational portrait of 4.18's seer and explicitly cohere with 2.47-2.48. Engineering layer maps to the principal engineer fully engaged but contingent on no external sign of contentment. Concrete scenario uses a senior at her fifth company in 20 years, in the most engaged phase, with intrinsic contentment that does not draw energy from promotion/recognition/talks. Counter-example carves out resignation (which the verse explicitly is not endorsing). Cross-reference to 2.47 explicitly preserved per chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

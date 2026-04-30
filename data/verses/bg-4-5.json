@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.5",
+  "chapter": 4,
+  "verse": 5,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna answers Arjuna's chronological question with an asymmetry: many of his own births and Arjuna's have passed; Krishna knows them all, Arjuna does not. The verse makes a metaphysical claim — multi-life knowledge — that exceeds operational reach. The honest engineering analog runs only at the operational layer: a senior who has watched two or three decades of frameworks rise and fall holds insight that transcends any specific stack. They have seen Perl, Java, Ruby, Python, Go, Rust — and the principles that transferred across all of them. A junior has not. The asymmetry is not metaphysical recall across lifetimes; it is empirical multi-stack experience. STRETCHED-tagged: the verse claims more than the operational analog can honor.",
+    "concrete_scenario": "A staff engineer with twenty-two years of experience and a senior with seven years sit in an architecture review for a new event-streaming platform. The discussion turns to back-pressure. The junior proposes a Redis-backed buffer with a max-queue-depth circuit breaker. The veteran replies: 'That works. I've also seen this exact pattern at three previous companies — once on an in-memory broker in 2007, once on RabbitMQ in 2014, once on Kafka in 2019. Each time, the failure mode wasn't the queue depth. It was that the consumer's processing time was non-uniform under load, and a depth-based circuit breaker fires too late. What you actually want is a latency-based trip that pages the consumer's owner, not the producer's owner.' The junior absorbs this. The asymmetry is not metaphysical. It is empirical: the elder has watched the same shape fail in three different incarnations. The novice has not. The verse's metaphysical claim exceeds this; our operational reading respects what is opened up.",
+    "falsifiability": "The analog fails if a reader takes the verse's metaphysical claim as a literal endorsement of senior-engineer omniscience. The senior who claims to have seen everything has not. The verse claims Krishna has, but Krishna is the Lord. The engineering analog operates only at the level of empirical multi-stack experience and honors the verse by being smaller than it.",
+    "counter_example": "When the senior's claim of multi-stack experience is shallow — when 'I've seen this before' means they read about it once — the asymmetry the engineering analog names does not exist. The diagnostic: ask the senior to name the specific failure modes they saw at the specific previous companies. If they cannot, the empirical knowledge is not what they claimed.",
+    "implication": "When a senior claims to have seen a pattern across decades, the right test is to ask for the specific failure modes at the specific previous appearances. Multi-stack empirical knowledge resolves into specifics; theatre resolves into generalities.",
+    "quotable_line": "The senior's asymmetric knowledge is not omniscience. It is the specific failure modes seen at specific previous appearances.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.5 makes a metaphysical claim (multi-life knowledge) that exceeds operational engineering reach. STRETCHED tag honestly applied. Engineering layer maps only to the operational asymmetry between multi-stack-experienced staff and less-experienced engineer. Concrete scenario uses a back-pressure pattern across three previous companies (in-memory broker 2007, RabbitMQ 2014, Kafka 2019). Counter-example carves out the case where 'multi-stack' claim is shallow. Per chapter thesis: the avatar block (4.5-4.10) requires honest STRETCHED tagging; this verse honors that requirement.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

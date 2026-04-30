@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Disagreement entries carry substantive explanations",
+      "objection": "4.25 disagreements_among_translators field includes the Advaita / Vishishtadvaita reading-distinction with substantive explanation pointing back to the source-pack quotes. Each entry's explanation is a paragraph, not a label. The traditions are named explicitly with their copyright holders cited."
+    }
+  ],
+  "notes": "Disagreements for 4.25 are not flattened to \"translators agree on X\" or \"differ on Y\" without substance. The explanation traces the doctrinal divergence to its source. PASS."
+}

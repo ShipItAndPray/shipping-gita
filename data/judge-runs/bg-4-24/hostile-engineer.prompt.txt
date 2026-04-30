@@ -1,0 +1,238 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.24",
+  "sanskrit_devanagari": "ब्रह्मार्पणं ब्रह्म हविर्ब्रह्माग्नौ ब्रह्मणा हुतम् ।\nब्रह्मैव तेन गन्तव्यं ब्रह्मकर्मसमाधिना ॥ 24 ॥",
+  "sanskrit_iast": "brahmārpaṇaṁ brahma havir brahmāgnau brahmaṇā hutam\nbrahmaiva tena gantavyaṁ brahma-karma-samādhinā",
+  "anvaya": [
+    {
+      "iast": "brahma",
+      "meaning": "Brahman",
+      "sanskrit": ""
+    },
+    {
+      "iast": "arpaṇam",
+      "meaning": "the ladle and other offerings",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "Brahman",
+      "sanskrit": ""
+    },
+    {
+      "iast": "haviḥ",
+      "meaning": "the oblation",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "Brahman",
+      "sanskrit": ""
+    },
+    {
+      "iast": "agnau",
+      "meaning": "in the sacrificial fire",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahmaṇā",
+      "meaning": "by that person",
+      "sanskrit": ""
+    },
+    {
+      "iast": "hutam",
+      "meaning": "offered",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "Brahman",
+      "sanskrit": ""
+    },
+    {
+      "iast": "eva",
+      "meaning": "certainly",
+      "sanskrit": ""
+    },
+    {
+      "iast": "tena",
+      "meaning": "by that",
+      "sanskrit": ""
+    },
+    {
+      "iast": "gantavyam",
+      "meaning": "to be attained",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "Brahman",
+      "sanskrit": ""
+    },
+    {
+      "iast": "karma",
+      "meaning": "offering",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/24/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person who is fully absorbed in Kṛṣṇa consciousness is sure to attain the spiritual kingdom because of his full contribution to spiritual activities, in which the consummation is absolute and that which is offered is of the same spiritual nature.",
+      "raw_capture_path": "data/sources/raw/bg-4-24-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/24",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.24: For those who are completely absorbed in God-consciousness, the oblation is Brahman, the ladle with which it is offered is Brahman, the act of offering is Brahman, and the sacrificial fire is also Brahman. Such persons, who view everything as God, easily attain Him."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/24/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "How activities in Kṛṣṇa consciousness can lead one ultimately to the spiritual goal is described here. There are various activities in Kṛṣṇa consciousness, and all of them will be described in the following verses. But, for the present, just the principle of Kṛṣṇa consciousness is described.",
+      "verbatim_full_length": 2442,
+      "raw_full_path": "data/sources/raw/bg-4-24-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-24/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.24 Brahma-arpanam, the ladle is Brahman: The knower of Brahman perceives the instrument with which he offers oblation in the fire as Brahman Itself. He perceives it as not existing separately from the Self, as one sees the non-existence of silver in nacre. In this sense it is that Brahman Itself is the ladle-just as…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 7036,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-24-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-24/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.24 The expression ‘Brahman is the instrument to offer with’ (It is to be remembered that in Ramanuja’s system ‘Brahman’ in the primary sense is the ‘Whole’ with the Supreme Being as the Soul and Atmans and Matter (Prakrti) as His body in inseparable union with the Whole. So the word ‘Brahman’ can, according to the…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1722,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-24-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-24/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The actions performed by a person as offerings and worship to the Supreme Lord Krishna are considered inaction as they lead to spiritual intelligence and are not bonded in any way to reactions. For one who has achieved atma tattva or soul realisation all actions are neutralised…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 839,
+      "raw_full_path": "data/sources/raw/bg-4-24-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.24: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "The offering is brahman, the oblation is brahman; brahman pours into the fire of brahman; brahman alone is to be reached by one absorbed in brahman-action.",
+  "traditional_meaning": "The most metaphysical verse in the chapter. Five components of the Vedic sacrifice — arpaṇam (the act of offering), haviḥ (the oblation), agni (the fire), the offerer, and the goal — are all named as brahman. Shankara reads this through Advaita: for the seer of brahman, every component of the sacrifice is brahman, the duality of offerer-offering-goal collapses, and what is reached by such a one's brahma-karma-samādhi is brahman itself. Ramanuja reads it through Vishishtadvaita: the karma-yogin who has realised the self's true nature sees the entire ritual fabric as resting in brahman as the self of all, and brahman-as-Lord is the goal. Both readings agree the verse names a configuration in which sacrifice-as-action and brahman-as-substrate coincide.",
+  "engineering": {
+    "translation": "Brahman-everywhere is metaphysically vast; the engineering analog gestures at its operational shadow. Imagine an engineer's professional life partly resembling this configuration: every component of the labour — inputs attended to, attention brought, action performed, artefact produced, system the artefact rejoins — participates within one continuous cycle. No segment is cordoned off as 'private' or 'personal' or 'external.' No interior chamber houses craft, identity, or anxiety walled away from the work. Equally no facet of the system stays withheld from the engineer's reading. Her perception of the codebase IS the codebase perceiving itself; her intervention on the platform IS the platform intervening on itself. This goes far beyond ordinary professional integration. The verse points at it; the engineering analog merely glimpses its operational shadow.",
+    "concrete_scenario": "A staff engineer with twelve years on the same codebase opens a Sentry alert at 2am — a NullPointerException in the payment-reconciliation cron. She studies the trace. It runs through a module she authored eight years ago, calling a service her colleague designed four years back, processing data emitted by a Kafka producer she shipped last year. No interior flicker of 'whose module is this,' no rehearsal of 'I would have written this differently,' no grievance about being paged for someone else's defect. Trace and substrate sit continuous; she reads them as one fabric. The fix she pushes joins that fabric. She closes her laptop and sleeps. This is the operational shadow of brahmārpaṇaṁ brahma haviḥ — work, reader-of-work, intervention-on-work, all one cloth. STRETCHED honestly: the verse is not making an engineering claim; it points at brahman as the all-pervading substrate, and the engineering shadow is the operational tail of an idea whose head extends far beyond it.",
+    "falsifiability": "The analog fails if a reader concludes that the engineer should never feel 'this is my work' or 'this is someone else's code' — those normal distinctions are operationally necessary. The verse is not naming a configuration achievable through professional habit; it is pointing at a metaphysical realisation. An engineer who tries to manufacture brahman-everywhere as a workplace mood has misread it. The honest reading is: there is an operational shadow of this verse, and that shadow is integration without compartment; the verse itself is far larger.",
+    "counter_example": "When code review requires explicit naming of authorship, when a postmortem requires accurate attribution of decisions, when a security review requires identifying the specific module-of-origin of a vulnerability — the verse's brahman-everywhere does not collapse those operational distinctions. The verse describes a substrate-realisation; the operational layer continues to require ownership-traces.",
+    "implication": "Notice, on a 2am incident, whether the moment of 'whose code is this' arises before the moment of 'what does the system need.' The order is the diagnostic. The engineering shadow of this verse is the configuration in which the second arises first.",
+    "quotable_line": "The stack trace and the system are continuous; she reads it as one thing.",
+    "tags": [
+      "full-system-view",
+      "system-recognition",
+      "essence-vs-implementation"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

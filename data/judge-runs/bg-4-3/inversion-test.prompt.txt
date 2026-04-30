@@ -1,0 +1,239 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.3",
+  "sanskrit_devanagari": "स एवायं मया तेऽद्य योगः प्रोक्तः पुरातनः ।\nभक्तोऽसि मे सखा चेति रहस्यं ह्येतदुत्तमम् ॥ ३ ॥",
+  "sanskrit_iast": "sa evāyaṁ mayā te 'dya yogaḥ proktaḥ purātanaḥ |\nbhakto 'si me sakhā ceti rahasyaṁ hy etad uttamam || 3 ||",
+  "anvaya": [
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "very same"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "मया",
+      "iast": "mayā",
+      "meaning": "by me"
+    },
+    {
+      "sanskrit": "ते",
+      "iast": "te",
+      "meaning": "to you"
+    },
+    {
+      "sanskrit": "अद्य",
+      "iast": "adya",
+      "meaning": "today"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "the yoga"
+    },
+    {
+      "sanskrit": "प्रोक्तः",
+      "iast": "proktaḥ",
+      "meaning": "is taught / declared"
+    },
+    {
+      "sanskrit": "पुरातनः",
+      "iast": "purātanaḥ",
+      "meaning": "ancient"
+    },
+    {
+      "sanskrit": "भक्तः",
+      "iast": "bhaktaḥ",
+      "meaning": "devotee"
+    },
+    {
+      "sanskrit": "असि",
+      "iast": "asi",
+      "meaning": "you are"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "of me / my"
+    },
+    {
+      "sanskrit": "सखा",
+      "iast": "sakhā",
+      "meaning": "friend"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "रहस्यम्",
+      "iast": "rahasyam",
+      "meaning": "secret"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "उत्तमम्",
+      "iast": "uttamam",
+      "meaning": "supreme / highest"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/3/",
+      "fetched_at": "2026-04-30T04:26:59.362Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "That very ancient science of the relationship with the Supreme is today told by Me to you because you are My devotee as well as My friend and can therefore understand the transcendental mystery of this science.",
+      "raw_capture_path": "data/sources/raw/bg-4-3-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-3/",
+      "fetched_at": "2026-04-30T04:27:15.271Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "That very ancient science of the relationship with the Supreme is today told by Me to you because you are My devotee as well as My friend and can therefore understand the transcendental mystery of this science."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/3/",
+      "fetched_at": "2026-04-30T04:26:59.362Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1031 chars)",
+      "verbatim_excerpt": "There are two classes of men, namely the devotee and the demon. The Lord selected Arjuna as the recipient of this great science owing to his being a devotee of the Lord, but for the demon it is not possible to understand this great mysterious science.",
+      "raw_full_path": "data/sources/raw/bg-4-3-vedabase.json (purport_full_length: 1031)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-3/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.271Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.3 Sah, that; puratanah, ancient; yogah, Yoga; eva, itself; ayam, which is this; proktah, has been taught; te, to you; maya, by Me; adya, today; iti, considering that; asi, you are; me, My; bhaktah, devotee; ca sakha, and friend. Hi, for; etat, this Yoga, i.e.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 468,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-3-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna explaining why he re-imparts the yoga to Arjuna: because Arjuna is both bhakta and sakhā, he is a fit receiver. The relation qualifies Arjuna; the relation is what makes possible the disclosure of rahasyam uttamam."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-3/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.271Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.3 It is the same ancient, unchanged Yoga which is now taught to you, who out of friendship and overwhelming devotion have resorted to Me whole-heartedly. The meaning is that it has been taught to you fully with all its accessories.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 457,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-3-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as emphasising that the relationship of devotion and friendship is itself the qualification — Arjuna's reverence and intimacy combined make him capable of receiving the highest secret. The teaching is given on the basis of the relation, not on the basis of merit alone."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "rahasyam uttamam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the supreme secret (of the science of yoga)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the highest secret — the yoga whose depth makes it secret to those without the qualifying relation"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the supreme mystery accessible through the qualifying relation of devotee + friend"
+        }
+      ],
+      "explanation": "All three agree this is the highest teaching. They differ on what makes it 'secret': for Prabhupada it is the depth of the science itself; for Shankara it is the relational qualification of the receiver; for Ramanuja the relation IS the access. The Vishishtadvaita reading binds the secret-ness more tightly to bhakti."
+    }
+  ],
+  "literal_meaning": "That very same ancient yoga is today told by me to you; you are my devotee and friend, and this is the supreme secret.",
+  "traditional_meaning": "Krishna re-discloses the yoga to Arjuna and grounds the disclosure in personal relation: bhakta (devotee) and sakhā (friend). The verse names the teaching as rahasyam uttamam — the supreme secret — meaning the deepest teaching. The combination of relation (devotee + friend) and content (supreme secret) establishes the conditions of authentic transmission: the teaching's depth requires a worthy receiver, characterised by both reverence and intimacy.",
+  "engineering": {
+    "translation": "Krishna re-discloses the yoga to Arjuna and grounds the disclosure in personal relation: bhakta and sakhā — devotee and friend. Our reading: the deepest principles of a craft are not transmitted by reading documentation. They pass through a relation that combines reverence (the student takes the senior's experience seriously) and intimacy (the senior trusts the student enough to show the unrefined version of their reasoning). The supreme secret — what 4.3 calls rahasyam uttamam — is not a hidden technique. It is the unedited inner reasoning a mentor uses when no Notion doc will ever capture it: the gut sense that this Postgres migration carries risk the test suite will not catch, the architectural instinct that this abstraction will leak in two years, the calibration that says ship now and not in a sprint. Such transmission requires both the bond and the disclosure together.",
+    "concrete_scenario": "A staff engineer at a Kubernetes-native infra company sits down with a senior engineer she has worked alongside for three years. She is about to lead an architectural review for a new control plane. She asks the senior: 'I keep thinking about how to make the reconciliation loop idempotent. The textbook answer is hash the desired state. But I have a feeling that's not what you'd actually do here.' The senior — who in a code review or a design doc would never volunteer this — leans in and says: 'Honestly, the textbook is right for the simple cases. But here's what I'd watch for that the textbook doesn't say. The hash will lie when the upstream API returns a stable but ambiguous representation. I learned this the hard way at my last company in 2019. So I always add a generation number. Don't put that in the design doc. Put the hash in the design doc and the generation number in the code, with a comment.' That sentence — the unwritten judgment about when textbook-true is operationally wrong — is the supreme secret. It transmitted only because of the three-year relation.",
+    "falsifiability": "The analog fails if a reader uses it to justify gatekeeping — withholding important information from anyone outside an inner circle. The relation Krishna names (bhakta and sakhā) qualifies the receiver, but the qualification is character, not credential. A senior who hides operational truth from junior engineers because 'they haven't earned it' has misread this verse. The qualifying relation is reverence + intimacy, both available across seniority levels.",
+    "counter_example": "When a senior's 'unwritten judgment' is actually just an undocumented preference that will not survive scrutiny, dressing it up as rahasyam uttamam is the opposite of what the verse teaches. The verse's secret is content-bearing — Krishna teaches the imperishable yoga. Engineering analogs of this verse must be careful: the unwritten judgment that survives transmission is the one rooted in real failure modes, not the one rooted in personal aesthetic.",
+    "implication": "Notice when a senior tells you something they would never put in writing. That is rahasyam uttamam — the unedited reasoning. Receive it the way Arjuna received it: take it seriously, and earn the next disclosure by acting on this one.",
+    "quotable_line": "The supreme secret is the unedited reasoning a senior uses that will never make it into the design doc.",
+    "tags": [
+      "knowledge-action-integration",
+      "team-culture",
+      "first-principles"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

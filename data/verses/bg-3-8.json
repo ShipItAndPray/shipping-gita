@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.8",
+  "chapter": 3,
+  "verse": 8,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter's most direct doctrinal statement. niyataṁ kuru karma tvam — perform your prescribed (regulated) action; karma jyāyo hy akarmaṇaḥ — action is better than inaction. The pragmatic floor: śarīra-yātrāpi ca te na prasidhyed akarmaṇaḥ — even your bodily maintenance would not succeed without action. Per the Advaita reading, niyata = nityam (regulated, daily duty); the verse argues from necessity to value. Per the Vishishtadvaita reading, niyata-karma covers obligatory and occasional acts; their performance, freed from attachment, becomes the means of purification. The engineering reading: do the action that has been assigned to your role. Action is better than inaction not as motivational poster but as structural claim — without continuous action, the operational substrate that supports everything (your income, the team's trust in you, the system's continued functioning) does not survive. The verse's force is from necessity backed by metaphysics. Action is not optional.",
+    "concrete_scenario": "A backend engineer has been assigned to maintain the team's idempotency-key library. It is unglamorous work: fixing edge cases, updating documentation, processing GitHub issues. He has been hinting at the principal that he would rather contribute to the new event-streaming initiative — more visible, more interesting, more career-defining. The principal, in their 1:1, says: 'The idempotency library is what is assigned to you. Two things. First, it is the duty that the team needs done; without it, the payments service fails silently. The bodily maintenance of the system depends on this work. Second, action is better than inaction here even by your own metrics: if you do this consistently for the next quarter, your visibility goes up, not down, because the principal who hands out the event-streaming project watches who actually ships their assignment. niyataṁ kuru karma tvam. Perform what was assigned. The path to the next project runs through this one.' The engineer recognises the verse. Action surpasses inaction not just because the team needs it, but because the structure of the system depends on continued effort by everyone with an assignment.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify any assigned work as inherently better than self-directed work. The verse names niyata-karma — prescribed, regulated, role-appropriate action. It does not say 'whatever your manager assigns is the right work'. The diagnostic is whether the assignment is grounded in the team's actual operational need (the idempotency library is) or in the manager's preference for keeping you busy. The verse blesses the former and is silent on the latter.",
+    "counter_example": "When the assigned work is genuinely makework — busy-work that does not connect to the team's operational need — invoking 3.8 to keep the engineer doing it is the inverse of what the verse teaches. niyata is content-bearing: the prescribed action serves the system's continued functioning. The Advaita reading specifically grounds the verse in necessity. If the necessity is not real, the verse's force does not apply.",
+    "implication": "Do the action that has actually been assigned to your role. If you cannot articulate what would fail in the system without it, the work is not niyata. If you can, then action is better than inaction — and the path to the next assignment runs through this one.",
+    "quotable_line": "Action is better than inaction not as slogan but as structure: without it, the system's bodily maintenance does not survive.",
+    "tags": [
+      "prescribed-action",
+      "duty",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.8 is the chapter's most direct doctrinal statement. Engineering layer maps niyata-karma to role-assigned operational work that the team actually needs (idempotency-key library scenario). Counter-example carves out genuine makework. Tags: prescribed-action, duty, shipping-discipline. Echoes 2.47 via 'karmaṇy evādhikāras te' → 'niyataṁ kuru karma tvam' (the abstract injunction made concrete).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

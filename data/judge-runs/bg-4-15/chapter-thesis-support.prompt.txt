@@ -1,0 +1,254 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.15",
+  "sanskrit_devanagari": "एवं ज्ञात्वा कृतं कर्म पूर्वैरपि मुमुक्षुभिः ।\nकुरु कर्मैव तस्मात्त्वं पूर्वैः पूर्वतरं कृतम् ॥ १५ ॥",
+  "sanskrit_iast": "evaṁ jñātvā kṛtaṁ karma pūrvair api mumukṣubhiḥ |\nkuru karmaiva tasmāt tvaṁ pūrvaiḥ pūrvataraṁ kṛtam || 15 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "ज्ञात्वा",
+      "iast": "jñātvā",
+      "meaning": "having known"
+    },
+    {
+      "sanskrit": "कृतम्",
+      "iast": "kṛtam",
+      "meaning": "was done"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "पूर्वैः",
+      "iast": "pūrvaiḥ",
+      "meaning": "by ancestors"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "मुमुक्षुभिः",
+      "iast": "mumukṣubhiḥ",
+      "meaning": "by those seeking liberation"
+    },
+    {
+      "sanskrit": "कुरु",
+      "iast": "kuru",
+      "meaning": "do / perform"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "पूर्वैः",
+      "iast": "pūrvaiḥ",
+      "meaning": "by ancestors"
+    },
+    {
+      "sanskrit": "पूर्वतरम्",
+      "iast": "pūrvataram",
+      "meaning": "in earlier times"
+    },
+    {
+      "sanskrit": "कृतम्",
+      "iast": "kṛtam",
+      "meaning": "performed"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/15/",
+      "fetched_at": "2026-04-30T04:26:59.525Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All the liberated souls in ancient times acted with this understanding of My transcendental nature. Therefore you should perform your duty, following in their footsteps.",
+      "raw_capture_path": "data/sources/raw/bg-4-15-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-15/",
+      "fetched_at": "2026-04-30T04:27:15.767Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All the liberated souls in ancient times acted with this understanding of My transcendental nature. Therefore you should perform your duty, following in their footsteps."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/15/",
+      "fetched_at": "2026-04-30T04:26:59.525Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1557 chars)",
+      "verbatim_excerpt": "There are two classes of men. Some of them are full of polluted material things within their hearts, and some of them are materially free. Kṛṣṇa consciousness is equally beneficial for both of these persons.",
+      "raw_full_path": "data/sources/raw/bg-4-15-vedabase.json (purport_full_length: 1557)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-15/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.767Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.15 Jnatva, having known; evam, thus, that ‘I am not an agent; I have no desire for the results of actions’; karma, duties; krtam, were undertaken; api, even; purvaih, by the ancient; mumuksubhih, seekers of Liberation. Tasmat, therefore; tvam, you; kuru, undertake; karma, action; eva, itself.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1291,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-15-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as the directive that follows from the doctrine: knowing right-action does not bind, perform action as the liberated ancients did. The verse explicitly forbids inaction-as-renunciation; karma is to be done, not abandoned, in the manner the ancients did."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-15/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.767Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.15 Actions of the kind described above were performed even by the aspirants of old for liberation, who have become free from evil after knowing Me in this way. Therefore, after having got rid of the sins by knowledge of Me in the aforesaid way, perform actions in the same way as they were performe…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 568,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-15-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as authoritative: the practice of karma-yoga in the manner the ancients (Vivasvān, Manu, Ikṣvāku, the rājarṣis) practiced it — engaged action without longing for fruits — is what Arjuna is being told to do. The lineage is the model; the action is the practice."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "pūrvataram kṛtam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "as performed by the ancients in days of yore"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "as the liberation-seeking ancients performed it, knowing right-action does not bind"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "in the manner Vivasvān, Manu, and the royal sages practiced karma-yoga across generations"
+        }
+      ],
+      "explanation": "All three read pūrvataram as anchoring the directive in lineage-practice. The verse closes the chapter's first major movement by connecting the avatar doctrine back to the original paramparā opening (4.1-4.3). The instruction is to do the practice the lineage already did."
+    }
+  ],
+  "literal_meaning": "Knowing thus, action was performed by the ancients seeking liberation; therefore you also perform action, as performed by the ancients in earlier times.",
+  "traditional_meaning": "Krishna closes the avatar block by pointing back to the disciplic tradition: the ancients (pūrvaiḥ) who sought liberation (mumukṣubhiḥ) performed action knowing what 4.14 has just established — that right-action does not bind. The instruction is: act as they acted. The verse re-grounds the chapter's teaching in lineage, completing the arc opened at 4.1-4.3 (paramparā) and now expressed as a directive: do as the lineage did.",
+  "engineering": {
+    "translation": "Krishna closes the avatar block by directing back to lineage: the ancients seeking liberation performed action this way; do as they did. The engineering reading: the senior who has just transmitted the mode of acting (4.14) closes by pointing the student to the lineage of practitioners who have already done it this way — not as a rhetorical flourish but as instruction. The directive is concrete: act as the lineage acted. Not stop-acting (the verse explicitly forbids this); not improvise from scratch; act as the transmitters of the practice acted. The engineering analog: when a senior teaches a mode, they should be able to point to the engineers, named or unnamed, who practiced it before — making the mode imitable, traceable, and verifiable.",
+    "concrete_scenario": "A staff engineer finishes mentoring a senior engineer on a high-stakes architectural decision: a Postgres logical-replication rollout that will let the team migrate the multi-tenant schema without downtime. The mentee is convinced of the principle but uncertain about applying it. The staff engineer says: 'You have three concrete people in this company who have done exactly this kind of decision in the same shape. Maya did it for the auth service in 2024 with a Datadog-instrumented blue-green deploy. Devon did it for the rate-limiter in 2023 with a feature-flag rollout via LaunchDarkly. Hiroshi did it for the storage layer in 2022 with a backfill script and a CI canary. Go look at their design docs in the GitHub wiki. Read the postmortems where they got it partly wrong. The principle is real and the application is documented. Don't improvise this from scratch. Act as they did.' The mentee spends two days reading the prior designs. By the time she presents her own design, it is recognisably continuous with the prior three — and corrects a failure mode none of them quite caught. The lineage is honored; the practice is alive. The verse's instruction made operational.",
+    "falsifiability": "The analog fails if a reader takes 'act as the ancients did' as license for cargo-culting prior solutions. The verse's lineage is content-bearing — the ancients knew (jñātvā) what they were doing. The engineering analog assumes the prior design docs are still intelligible: the engineers reading them can reconstruct the reasoning. If the prior designs are opaque, the lineage has decayed and the directive cannot be honored without first reconstruction.",
+    "counter_example": "When the system genuinely is novel — when no one has done this kind of decision before in this company — the directive 'act as the ancients did' fails because there are no ancients. The senior's right move is to acknowledge the novelty and proceed by first principles, not to fabricate a fake lineage. The verse's lineage is real; engineering analogs that fake lineage have inverted the verse.",
+    "implication": "When you teach a mode, name the prior practitioners. Make their design docs and their postmortems reachable. The directive 'act as they did' is operationally usable only if the lineage is operationally accessible.",
+    "quotable_line": "Name the prior practitioners. Make their docs reachable. The directive 'act as they did' is usable only if the lineage is accessible.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.16",
+  "chapter": 3,
+  "verse": 16,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names a specific kind of failure: consuming from a sustaining loop while withholding contribution from it. Three terms stack — aghāyuḥ (the life accumulates sin), indriyārāmaḥ (the life is exhausted in sense-objects rather than offering), moghaṁ jīvati (the life produces nothing the loop accumulates as merit). In the engineering layer the wheel is the operational sustaining loop: customer feedback, code review, on-call coverage, incident response, the maintenance work that keeps systems alive. The senior engineer who consumes from this loop — drawing salary, reputation, learning, clean infrastructure — while withdrawing contribution is the verse's diagnostic case. 'Lives in vain' is not an emotional verdict; it is a structural one. The output of the engineer is not entering the loop the engineer is consuming.",
+    "concrete_scenario": "It is mid-quarter at a Postgres-shaped fintech. A staff engineer with seven years on the platform has, over the past two quarters, drifted to a posture of 'thinking work' — long Notion docs on system design, architecture review meetings, occasional commentary in incident postmortems. He has not merged a PR in eleven weeks. He still draws salary, still has access to GitHub, still gets the Datadog alerts on his old service. Code review goes around him; the on-call rotation has been quietly rebalanced to compensate; the migration he was supposed to lead has slipped two quarters. In one-on-ones he describes the work as 'too tactical for where I am now.' The verse names exactly this: the engineer is consuming from the sustaining loop (salary, reputation, infrastructure, the team's continued execution) while not turning the wheel. The output of his attention is not entering the loop his attention is sustained by. The verdict is not about his subjective experience; it is structural — the loop is being drained.",
+    "falsifiability": "The analog fails if a reader takes 'always be merging PRs' from this verse. The verse is not about volume; it is about the relation between consumption and contribution. An engineer on PTO is not consuming the loop in the active sense; an engineer in deep design work over six weeks producing a real RFC IS contributing. The diagnostic is whether the output of the engineer's attention is entering the loop they draw from, not whether they shipped this week.",
+    "counter_example": "The verse does not bind the genuine renunciate (3.17-3.18). An engineer who has formally exited — left the company, taken sabbatical, declined the salary — is not in the verse's frame. The verse names the position of someone still inside the loop, still drawing from it, but no longer turning it. The legitimate exit is a separate conversation; the verse is about the half-exit that pretends to be still-engaged.",
+    "implication": "Audit: across the last 90 days, what concretely entered the sustaining loop from your output? Not 'I had thoughts about the system' — what merged, what review you did, what incident you triaged, what teammate you unblocked. If the answer is sparse, the verse is naming you, regardless of what your title is.",
+    "quotable_line": "The wheel was set in motion before you arrived. To consume from it while not turning it is the precise definition of theft this verse names.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "shipping-discipline",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.16: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

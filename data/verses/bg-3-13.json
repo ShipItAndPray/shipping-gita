@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.13",
+  "chapter": 3,
+  "verse": 13,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse is sharper still. yajña-śiṣṭāśinaḥ santaḥ mucyante sarva-kilbiṣaiḥ — the saintly, eaters of yajña remnants, are released from ALL sins. bhuñjate te tv aghaṁ pāpā ye pacanty ātma-kāraṇāt — but those wicked who cook for their OWN sake EAT SIN. Per the Advaita reading, the verse is grounded in the householder's pañca-mahā-yajña — the five great daily offerings — and what remains becomes the householder's nectar-food. Per the Vishishtadvaita reading, the offering reaches the Supreme Person abiding as the Self of all deities. Both ācāryas treat 'eat sin' as a literal claim about the karmic structure of unoffered consumption, not metaphor. Engineering layers MUST preserve the sharpness; softening to 'inefficient' or 'imbalanced' consumption misreads the verse. The operational analog: the engineer who consumes the loop's outputs without first contributing is, structurally, eating sin.",
+    "concrete_scenario": "A team has a working internal Postgres-tuning practice. Engineers write up debugging sessions in Notion within twenty-four hours of resolving a production issue; the next engineer who hits a similar issue reads the writeup, applies the fix, and writes up their case in turn, extending the corpus. Over three years the corpus has grown to two hundred entries and has saved the team an estimated thousand hours of debugging time. A new senior IC joins. He reads the corpus extensively (consumption), applies fixes from it (consumption), but never writes up his own incidents (no contribution). When asked, he says he is too busy. After six months his incident-recovery time is the team's fastest — because he has consumed the corpus's accumulated wisdom without contributing back. The principal looks at the data and says, in a 1:1: 'You have been eating from a yajña that other people prepared, and you have not added to the offering. The verse 3.13 calls this aghaṁ bhuñjate — eating sin. I am not using the language metaphorically. The corpus survives only if everyone who eats from it also cooks for it. You have been a parasite on a sustaining loop; this stops, or you are removed from the team.' The sharpness is preserved.",
+    "falsifiability": "The analog fails if a reader uses 'eats sin' to shame any engineer for using internal documentation without immediately contributing back. Engineers in their first month of a role legitimately consume more than they contribute. The verse's force is structural and sustained — about the actor who systematically consumes from a sustaining loop without adding to it. Reading the verse as 'always document immediately or you are wicked' has flattened it into productivity coaching.",
+    "counter_example": "When the consumption is from a corpus the engineer has no expertise to contribute to — a junior backend engineer reading the team's Kubernetes runbooks because they need to debug an incident outside their specialty — the verse's diagnosis does not apply. The verse describes the actor who consumes from a loop they could contribute to but choose not to. Consumption without contribution-capacity is not theft; consumption without contribution-willingness is.",
+    "implication": "When you consume from your team's internal corpus — Notion runbooks, Slack debugging threads, the on-call rotation's institutional memory — make a habit of contributing back from your next incident. The corpus is a yajña-loop; the verse's word for non-contribution is sharp, and the operational analog preserves it.",
+    "quotable_line": "When you consume from a team's internal corpus, contribute from your next incident; the verse's word for non-contribution is sharp.",
+    "tags": [
+      "team-culture",
+      "team-pathology",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.13 — CRITICAL CARE per task spec, do not soften 'eats sin'. Engineering layer maps to a Postgres-tuning Notion corpus that survives only via mutual contribution; the engineer who consumes without writing up is structurally eating sin. STRETCHED tag honest: operational analog is real, but the verse's metaphysical scope (offerings to the Supreme Person via deities) exceeds it. Counter-example carves out the case where the consumer has no contribution-capacity. Tags: team-culture, team-pathology, knowledge-action-integration. Sharpness preserved per task spec.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

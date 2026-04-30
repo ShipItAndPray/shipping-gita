@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.15",
+  "chapter": 4,
+  "verse": 15,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna closes the avatar block by directing back to lineage: the ancients seeking liberation performed action this way; do as they did. The engineering reading: the senior who has just transmitted the mode of acting (4.14) closes by pointing the student to the lineage of practitioners who have already done it this way — not as a rhetorical flourish but as instruction. The directive is concrete: act as the lineage acted. Not stop-acting (the verse explicitly forbids this); not improvise from scratch; act as the transmitters of the practice acted. The engineering analog: when a senior teaches a mode, they should be able to point to the engineers, named or unnamed, who practiced it before — making the mode imitable, traceable, and verifiable.",
+    "concrete_scenario": "A staff engineer finishes mentoring a senior engineer on a high-stakes architectural decision: a Postgres logical-replication rollout that will let the team migrate the multi-tenant schema without downtime. The mentee is convinced of the principle but uncertain about applying it. The staff engineer says: 'You have three concrete people in this company who have done exactly this kind of decision in the same shape. Maya did it for the auth service in 2024 with a Datadog-instrumented blue-green deploy. Devon did it for the rate-limiter in 2023 with a feature-flag rollout via LaunchDarkly. Hiroshi did it for the storage layer in 2022 with a backfill script and a CI canary. Go look at their design docs in the GitHub wiki. Read the postmortems where they got it partly wrong. The principle is real and the application is documented. Don't improvise this from scratch. Act as they did.' The mentee spends two days reading the prior designs. By the time she presents her own design, it is recognisably continuous with the prior three — and corrects a failure mode none of them quite caught. The lineage is honored; the practice is alive. The verse's instruction made operational.",
+    "falsifiability": "The analog fails if a reader takes 'act as the ancients did' as license for cargo-culting prior solutions. The verse's lineage is content-bearing — the ancients knew (jñātvā) what they were doing. The engineering analog assumes the prior design docs are still intelligible: the engineers reading them can reconstruct the reasoning. If the prior designs are opaque, the lineage has decayed and the directive cannot be honored without first reconstruction.",
+    "counter_example": "When the system genuinely is novel — when no one has done this kind of decision before in this company — the directive 'act as the ancients did' fails because there are no ancients. The senior's right move is to acknowledge the novelty and proceed by first principles, not to fabricate a fake lineage. The verse's lineage is real; engineering analogs that fake lineage have inverted the verse.",
+    "implication": "When you teach a mode, name the prior practitioners. Make their design docs and their postmortems reachable. The directive 'act as they did' is operationally usable only if the lineage is operationally accessible.",
+    "quotable_line": "Name the prior practitioners. Make their docs reachable. The directive 'act as they did' is usable only if the lineage is accessible.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.15 closes the avatar block by directing back to lineage-practice. Engineering layer maps to the senior pointing the mentee to three named prior practitioners' design docs and postmortems, making the practice imitable and traceable. Concrete scenario uses a high-stakes architectural decision where the mentor names Maya/Devon/Hiroshi as prior practitioners. Counter-example carves out genuinely novel cases where there are no ancients.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

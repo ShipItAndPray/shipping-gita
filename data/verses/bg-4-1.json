@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.1",
+  "chapter": 4,
+  "verse": 1,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna opens chapter 4 by establishing transmission. The yoga he teaches Arjuna is not novel; it was given originally to the lineage's founder, then passed to the next link, then to the next. A teacher's authority is not personal invention but stewardship of an older deposit. Our reading: a senior who arrives at a meeting and says 'this is older than any of us' is not displaying false humility — they are naming the actual provenance of the principle about to be applied. The schema-evolution discipline this Postgres codebase has came from someone who learned it from someone who learned it from someone who built the first migration framework in 2008. The on-call rotation pattern your team uses came from a Google SRE who learned it from a hospital ICU shift-handoff protocol. The teacher's authority is the lineage; principles outlive people.",
+    "concrete_scenario": "It is the kickoff for a new payments service rewrite at a Series-B fintech. The CTO opens the architecture review by saying: 'Before we start, I want to name where the convention I'm about to insist on actually came from. The pattern I'm going to ask us to use — strict idempotency keys on every write endpoint, with deterministic replay through Kafka — I learned in 2014 from a Stripe senior who learned it from a senior at PayPal who learned it from someone who built the original MasterCard settlement system in the eighties. None of us invented any of this. We are stewards of a four-decade discipline that has prevented more financial incidents than any of us will ever directly witness. So when I push back on shortcuts during code review, I am not pushing back on you. I am protecting a tradition older than this company.' The room shifts. The principle is no longer 'the CTO's preference.' It is paramparā, and the engineers receiving it now know what they hold.",
+    "falsifiability": "The analog fails if a reader uses 'lineage' as cover for unjustified authority — 'we've always done it this way' as a substitute for explaining why. The verse's lineage is content-bearing: the yoga that was transmitted is named, its purpose is named, its imperishability is named. A team that invokes lineage without being able to articulate what the principle actually is, why it works, and what failure mode it prevents has not honored this verse — they have reduced lineage to inertia. The diagnostic: can the senior, when asked, explain the principle's origin AND its mechanism? If yes, this is paramparā. If only origin, it is appeal to authority.",
+    "counter_example": "When the inherited pattern is genuinely wrong — when the lineage's principle was a workaround for a constraint that no longer exists, when the transmission has corrupted the original — invoking lineage to defend it is the opposite of what this verse teaches. Krishna re-discloses the yoga in 4.3 because the transmission had been lost. The corollary engineering case: when an inherited pattern fails under current load, the senior's responsibility is to revisit the original principle, not to defend the inheritance. Lineage is custodianship, not preservation-for-its-own-sake.",
+    "implication": "When you invoke a principle in a code review, name where it came from if you can. The team that hears 'this came from someone who learned it from someone who built the original' learns more than from 'this is best practice' — even when the latter is faster.",
+    "quotable_line": "The teacher's authority is the lineage; the principles survive the people.",
+    "tags": [
+      "first-principles",
+      "team-culture",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: chapter-opening verse establishes paramparā. Engineering layer maps the disciplic-transmission claim to engineering institutional memory: the senior-to-senior transmission of operational principles. Concrete scenario uses a CTO opening a payments service architecture review, explicitly naming the four-decade lineage of idempotency-key discipline (Stripe → PayPal → MasterCard settlement). Counter-example carves out the case where lineage has corrupted (echoing 4.2's loss of the yoga). Tags from controlled vocabulary: first-principles, team-culture, knowledge-action-integration.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

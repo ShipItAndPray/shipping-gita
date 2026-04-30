@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.3",
+  "chapter": 3,
+  "verse": 3,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The senior's first answer. There exist two niṣṭhās — two manners of standing firm in a discipline. One is jñāna-yoga, the path of contemplatives; the other is karma-yoga, the path of doers. Both are real; both reach the goal. The senior is not flattening the two; he grants both. Per the Advaita commentary, the two are independent paths suited to different temperaments; per the Vishishtadvaita reading, the two are sequenced — karma-yoga purifies, then jñāna-yoga arises. Either way, the senior names what is being recommended HERE, to THIS questioner, in HIS situation. The engineering reading: the principal who recognises that the architect ladder and the IC ladder are both valid disciplines, neither universally superior, and names which one the engineer in front of him is being asked to walk — not because the alternative is illegitimate, but because this fits.",
+    "concrete_scenario": "A principal sits with a senior IC at a fintech where the dual-ladder is real: an architect track focused on long-horizon design with sparse delivery, and an IC track focused on shipping production code through GitHub and the deploy queue. The IC has been pushing toward the architect ladder lately, citing the principal's earlier remark that 'thinking clearly is the work'. The principal opens Notion to the career framework, then turns the laptop screen, points at a row in the rubric, and says: 'Both ladders are real. Both reach the same level of impact at staff. The architect path suits people whose contribution shape is long-horizon design with rare delivery; the IC path suits those whose contribution shape is recurring shipping with embedded design. I am not telling you the architect track is illegitimate. I am telling you that for the next twelve months, given our current Postgres migration load and your specific strengths, the path I am asking you to walk is the IC track. The architect ladder will still be there in a year if your shape changes.' The IC nods. Two paths named, one recommended, the other not disparaged. This is what 3.3 does in the chapter.",
+    "falsifiability": "The analog fails if a reader uses 'two paths' to justify treating any preferred work mode as a legitimate niṣṭhā. The verse names two SPECIFIC disciplines — knowledge-yoga and action-yoga — both grounded in scriptural tradition, both with named criteria. The verse does not bless 'whatever discipline you feel like'. The engineering analog must preserve the specificity: the architect track and the IC track are named, structured, comparably rigorous disciplines, not 'whatever you'd rather do today'.",
+    "counter_example": "When an engineer is genuinely on the wrong track — when their contribution shape would obviously thrive on the other path — invoking 3.3 to keep them where they are is the inverse of what the verse teaches. The senior recommends a path because it fits THIS engineer in THIS situation. If the situation changes, the recommendation changes. The verse is not endorsing path-permanence; it is endorsing path-specificity for a moment.",
+    "implication": "When you recommend a path to a junior, name BOTH ladders clearly. Do not disparage the one you are not recommending. The senior's authority comes from granting the legitimacy of the alternative while clearly naming which fits this person now.",
+    "quotable_line": "Name both paths as legitimate; recommend one as fitting; never disparage the one you did not recommend.",
+    "tags": [
+      "team-culture",
+      "knowledge-action-integration",
+      "operator-as-instrument"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.3 grants two paths and names karma-yoga as the path for the questioner specifically. Engineering layer maps to the dual-ladder career conversation: architect track vs IC track, both legitimate, one recommended for THIS engineer in THIS situation. Concrete scenario uses Notion's career framework and a principal-senior IC conversation. Counter-example carves out the case where the engineer is genuinely on the wrong track. Tags: team-culture, knowledge-action-integration, operator-as-instrument.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

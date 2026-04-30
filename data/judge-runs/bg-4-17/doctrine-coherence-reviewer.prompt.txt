@@ -1,0 +1,248 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.17",
+  "sanskrit_devanagari": "कर्मणो ह्यपि बोद्धव्यं बोद्धव्यं च विकर्मणः ।\nअकर्मणश्च बोद्धव्यं गहना कर्मणो गतिः ॥ १७ ॥",
+  "sanskrit_iast": "karmaṇo hy api boddhavyaṁ boddhavyaṁ ca vikarmaṇaḥ |\nakarmaṇaś ca boddhavyaṁ gahanā karmaṇo gatiḥ || 17 ||",
+  "anvaya": [
+    {
+      "sanskrit": "कर्मणः",
+      "iast": "karmaṇaḥ",
+      "meaning": "of action"
+    },
+    {
+      "sanskrit": "हि अपि",
+      "iast": "hi api",
+      "meaning": "indeed even"
+    },
+    {
+      "sanskrit": "बोद्धव्यम्",
+      "iast": "boddhavyam",
+      "meaning": "is to be known"
+    },
+    {
+      "sanskrit": "बोद्धव्यम्",
+      "iast": "boddhavyam",
+      "meaning": "is to be known"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "विकर्मणः",
+      "iast": "vikarmaṇaḥ",
+      "meaning": "of forbidden action"
+    },
+    {
+      "sanskrit": "अकर्मणः",
+      "iast": "akarmaṇaḥ",
+      "meaning": "of inaction"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "बोद्धव्यम्",
+      "iast": "boddhavyam",
+      "meaning": "is to be known"
+    },
+    {
+      "sanskrit": "गहना",
+      "iast": "gahanā",
+      "meaning": "deep / impenetrable"
+    },
+    {
+      "sanskrit": "कर्मणः",
+      "iast": "karmaṇaḥ",
+      "meaning": "of action"
+    },
+    {
+      "sanskrit": "गतिः",
+      "iast": "gatiḥ",
+      "meaning": "the way / course"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/17/",
+      "fetched_at": "2026-04-30T04:26:59.604Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The intricacies of action are very hard to understand. Therefore one should know properly what action is, what forbidden action is and what inaction is.",
+      "raw_capture_path": "data/sources/raw/bg-4-17-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-17/",
+      "fetched_at": "2026-04-30T04:27:13.062Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The intricacies of action are very hard to understand. Therefore one should know properly what action is, what forbidden action is, and what inaction is."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/17/",
+      "fetched_at": "2026-04-30T04:26:59.604Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 973 chars)",
+      "verbatim_excerpt": "If one is serious about liberation from material bondage, one has to understand the distinctions between action, inaction and unauthorized actions. One has to apply oneself to such an analysis of action, reaction and perverted actions because it is a very difficult subject matter.",
+      "raw_full_path": "data/sources/raw/bg-4-17-vedabase.json (purport_full_length: 973)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-17/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:13.062Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.17 Hi, for; there is something boddhavyam, to be known; api, even; karmanah, about action enjoined by the scriptures; and there is certainly something to be known vikarmanah, about prohibited action; so, also, there is something to be known akarmanah, about inaction, about sitting quietly.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 709,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-17-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads vikarma as 'prohibited action' (action contrary to dharma) — the third term that complicates the simple action/inaction dyad. The threefold typology (right action, prohibited action, inaction) must all be discriminated. Gahanā gatiḥ signals: this is genuinely hard, not merely rhetorical difficulty."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-17/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:13.062Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.17 There is something which ought to be known in regard to action (Karma) which forms the means of attaining release. So also is the case in regard to ‘multi-form or varied forms of action’ (Vikarma).",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1123,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-17-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the threefold typology as karma (Vedic-prescribed action), vikarma (action against the Veda), and akarma (the abstention from action which itself is a karma in a sense). All three require understanding. The way of action is deep because what looks like inaction may be karma, what looks like karma may be akarma — the surface does not disclose the doctrinal status."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vikarma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "forbidden work"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "prohibited action / action contrary to dharma"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "action against the Veda's prescriptions"
+        }
+      ],
+      "explanation": "All three read vikarma as 'wrong-action' — forbidden, prohibited, or against the Vedic order. The verse is uncontroversial on this point. The interesting term is akarma — what counts as 'inaction.' The classical commentators split on whether akarma is mere abstention or whether it is a positive non-doership state. 4.18 will resolve this."
+    }
+  ],
+  "literal_meaning": "The truth of action is to be known, and the truth of forbidden action, and the truth of inaction; the way of action is profound.",
+  "traditional_meaning": "Krishna names a threefold typology: karma (right action), vikarma (forbidden action / wrong action), and akarma (inaction). All three must be understood (boddhavyam). The closing claim — gahanā karmaṇo gatiḥ — names the depth: the way of action is profound, deep, hard to penetrate. The verse is the philosophical setup for the headline 4.18.",
+  "engineering": {
+    "translation": "Karmaṇo hy api boddhavyaṁ — the truth of action, of forbidden action, and of inaction must all be understood; the way of conduct is profound. Krishna names a threefold typology before delivering 4.18. Our reading: there are three categories of behavior to distinguish — right deed (work that moves the system forward), wrong deed (work that actively damages it), and pure absence (no motion). All require careful discrimination. Vikarma is not merely 'less good' than karma; it sits in its own bucket. A practitioner who ships a feature that erodes user trust has not done less right-acting; they have done vikarma. The colleague who refuses to ship a feature for principled reasons has not done inaction; they have done a kind of acting that 4.18 will sharpen.",
+    "concrete_scenario": "A senior reviews three different sprint outcomes from three colleagues on the GitHub dashboard. Engineer A shipped a checkout-flow improvement that lifted conversion 2%, instrumented in Datadog. Right deed — work that moved the platform forward in the direction it actually wanted to go. Engineer B shipped a feature that increased login friction in a way that lifted security metrics by 0.3% and dropped seven-day retention by 4%. Vikarma — the launch wasn't just suboptimal, it was directionally wrong against a measure the team had not foregrounded. Engineer C shipped nothing but spent the sprint blocking an architectural decision that would have committed the team to a vendor lock-in for years. From the surface, C did 'less' than the others. From the verse's typology, C may have done right-deed and B may have done vikarma — and naming this is harder than calling A productive. The way of conduct is profound; this is what Krishna means.",
+    "falsifiability": "The analog fails if a reader treats vikarma as merely a label for unpopular decisions. Vikarma is action against the system's actual interest, not against management's stated preference. The diagnostic: did the action measurably move the system in a direction the system did not want to go, by the system's own measures? If yes, vikarma. If only against a stated preference, the verdict is unclear and the verse does not authorise the label.",
+    "counter_example": "When a feature ship reduces a vanity metric but improves the actual user experience, the verse's typology resists the easy 'B did vikarma' verdict. The harder evaluation requires reading the system's actual measures (retention, NPS, customer-reported satisfaction) against the surface metric. The verse rewards careful discrimination, not snap labeling.",
+    "implication": "When you evaluate work, distinguish three categories not two. Right-action moves the system forward by its own measures. Vikarma moves it backward. Inaction is absence. The mid-engineer's 'unshipped' sprint may be any of the three — and the discrimination is the senior's actual job.",
+    "quotable_line": "Right-action moves the system forward. Vikarma moves it backward. Inaction is absence. Three categories, not two — and the discrimination is the senior's job.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "engineering-pathology",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

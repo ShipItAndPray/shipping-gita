@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.10",
+  "chapter": 4,
+  "verse": 10,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Vīta-rāga-bhaya-krodhāḥ — freed from attachment, fear, and anger; absorbed in me; taking refuge in me; purified by the austerity of knowledge — many have come to my condition. Krishna names the qualifying preconditions and reports the result: bahavaḥ (many) have already attained mad-bhāva. The verse's soteriological scope exceeds engineering reach. STRETCHED-tagged. The operational pattern at our scope: a practitioner who has worked through her attachment to specific tools, her fear of being wrong in public, and her irritation at low-quality work — and who has taken shelter in the craft's discipline itself rather than in any particular framework — is purified by sustained study (jñāna-tapas). Many builders have crossed into such a posture. It is empirical, not theoretical. The verse claims metaphysical reaching of Krishna's nature; the analog names only the recognisable bearing of the seasoned, integrated, discriminating engineer.",
+    "concrete_scenario": "A staff engineer with eighteen years of experience sits in a contentious GitHub PR review for a Postgres-to-Redis caching migration. A junior engineer has criticised her design choice publicly on Slack, in terms that earlier in her career would have made her angry. She reads the criticism, feels nothing in particular, and replies on Slack: 'You're partly right and partly wrong. The part you're right about: the cache-invalidation abstraction will leak in two years if traffic patterns shift. The part you're wrong about: the alternative you propose has a worse failure mode under the specific failover case I designed for, when Datadog alerts on the read-replica lag exceeding 200ms. Let's pair Wednesday at the dashboard and walk through the trade-off.' The reply is technically precise, free of defensiveness, free of ego-protection, free of the impulse to win the public exchange. She has not worked at being free of those impulses. They have simply receded over years of practice. She has taken refuge not in being right, not in being respected, but in the discipline of accurate technical reasoning. Her colleagues recognise the state when they see it. Many have crossed. The verse's metaphysical scope is far larger; the operational state is real and recognisable.",
+    "falsifiability": "The analog fails if a reader interprets the engineer's state as enlightenment. The verse names mad-bhāva — the Lord's state. The engineering analog names a working professional state. The two are not the same. The diagnostic: the engineer in this state still has technical preferences, still pushes back, still cares about outcomes. They are not detached in the radical sense the verse names. They are operationally seasoned in a way the verse opens up at much smaller scale.",
+    "counter_example": "When apparent calm is in fact dissociation — when the engineer is unmoved by criticism because they have stopped caring, not because they have integrated — the analog inverts. The verse's freedom-from-anger is alongside fierce engagement (Krishna is teaching Arjuna to fight, after all). The engineering analog must preserve this: the seasoned engineer cares more, not less, while also being free from the reactive grip.",
+    "implication": "Watch the senior under public criticism. Defensiveness signals attachment. Dissociation signals withdrawal. Free-and-engaged response — technically precise, ego-uninvolved, still caring about the outcome — is the operational signature of the state the verse opens at far larger scope.",
+    "quotable_line": "Free-and-engaged: technically precise, ego-uninvolved, still caring about the outcome. The operational signature, far short of what the verse is naming.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-state",
+      "outcome-detachment"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.10 names the conditions and reports the result (bahavaḥ have attained). STRETCHED tagged honestly. Engineering layer maps to the operational signature of the seasoned engineer — free from rāga/bhaya/krodha, taking refuge in the discipline of the craft itself. Concrete scenario uses a public Slack criticism and the senior's free-and-engaged response. Counter-example carves out dissociation (which the verse explicitly is not endorsing — Krishna is teaching Arjuna to fight).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,209 @@
+{
+  "id": "BG 4.6",
+  "chapter": 4,
+  "verse": 6,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "अजोऽपि सन्नव्ययात्मा भूतानामीश्वरोऽपि सन् ।\nप्रकृतिं स्वामधिष्ठाय सम्भवाम्यात्ममायया ॥ ६ ॥",
+  "sanskrit_iast": "ajo 'pi sann avyayātmā bhūtānām īśvaro 'pi san |\nprakṛtiṁ svām adhiṣṭhāya sambhavāmy ātma-māyayā || 6 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/6/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-4-6-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/6",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=4&field_nsutra_value=6",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-4-6-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_04.006 = MBh_06,026.006). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "अजः",
+      "iast": "ajaḥ",
+      "meaning": "unborn"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "though"
+    },
+    {
+      "sanskrit": "सन्",
+      "iast": "san",
+      "meaning": "being"
+    },
+    {
+      "sanskrit": "अव्ययात्मा",
+      "iast": "avyayātmā",
+      "meaning": "of imperishable nature"
+    },
+    {
+      "sanskrit": "भूतानाम्",
+      "iast": "bhūtānām",
+      "meaning": "of beings"
+    },
+    {
+      "sanskrit": "ईश्वरः",
+      "iast": "īśvaraḥ",
+      "meaning": "Lord"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "सन्",
+      "iast": "san",
+      "meaning": "being"
+    },
+    {
+      "sanskrit": "प्रकृतिम्",
+      "iast": "prakṛtim",
+      "meaning": "nature / material energy"
+    },
+    {
+      "sanskrit": "स्वाम्",
+      "iast": "svām",
+      "meaning": "my own"
+    },
+    {
+      "sanskrit": "अधिष्ठाय",
+      "iast": "adhiṣṭhāya",
+      "meaning": "presiding over / governing"
+    },
+    {
+      "sanskrit": "सम्भवामि",
+      "iast": "sambhavāmi",
+      "meaning": "I come into being"
+    },
+    {
+      "sanskrit": "आत्ममायया",
+      "iast": "ātma-māyayā",
+      "meaning": "by my own māyā"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/6/",
+      "fetched_at": "2026-04-30T04:26:59.637Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Although I am unborn and My transcendental body never deteriorates, and although I am the Lord of all living entities, by My internal energy I still appear in every millennium in My original transcendental form.",
+      "raw_capture_path": "data/sources/raw/bg-4-6-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/",
+      "fetched_at": "2026-04-30T04:27:12.436Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Although I am unborn and My transcendental body never deteriorates, and although I am the Lord of all living entities, I still appear in every millennium in My original transcendental form."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/6/",
+      "fetched_at": "2026-04-30T04:26:59.637Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4436 chars)",
+      "verbatim_excerpt": "The Lord has spoken about the peculiarity of His birth: although He may appear like an ordinary person, He remembers everything of His many, many past “births,” whereas a common man cannot remember what he has done even a few hours before.",
+      "raw_full_path": "data/sources/raw/bg-4-6-vedabase.json (purport_full_length: 4436)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:12.436Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.6 Api, san ajah, though I am birthless; and avyayatma, undecaying by nature, though I am naturally possessed of an undiminishing power of Knowledge; and so also api san, though; isvarah, the Lord, natural Ruler; bhutanam, of beings, from Brahma to a clump of grass; (still) adhisthaya, by subjugati…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 729,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-6-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Krishna's statement of the apparent paradox: the unborn and imperishable Lord appears to take birth, but only by his own māyā. Māyā here is the divine creative power, not illusion in the negative sense — Krishna's appearance is real-seeming but not bound by the causal chain that produces ordinary births."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-6/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:12.436Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.6 Without forsaking any of the My special qualities, as supreme rulership, birthless, imperishability etc., I am born by My free will. Prakrti means one’s own nature. The meaning is that by employment of My own Nature and taking a form of My choice, I incarnate by My own will (Maya).",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2429,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-6-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as central: the Lord, who is by nature unborn and imperishable and the controller of all beings, presides over his own prakṛti (his own divine body, śuddha-sattva nature) and incarnates through his own divine will (ātma-māyā as divine self-disposing). The avatar's body is real and divine, not illusory."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "ātma-māyayā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "I appear in My original transcendental form (through internal potency)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "By my own māyā (divine creative power); the appearance is not bound by ordinary causation"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Through divine self-disposing — the avatar body is genuinely divine (śuddha-sattva), the result of svarūpa-saṅkalpa"
+        }
+      ],
+      "explanation": "The major fault-line: Shankara permits a reading where the avatar's body is māyā in a sense closer to 'apparent form'; Ramanuja insists the avatar's body is real and divine, not māyic in any reducing sense. Prabhupada follows the Vishishtadvaita-Gaudiya reading. This is one of the most theologically loaded verses in the chapter."
+    }
+  ],
+  "literal_meaning": "Though unborn and imperishable in nature, though Lord of beings, presiding over my own prakṛti, I come into being through my own māyā.",
+  "traditional_meaning_consensus": "Krishna states the avatar doctrine for the first time. He is unborn (aja) and imperishable (avyayātmā), the Lord (īśvara) of beings — yet, presiding over his own prakṛti (creative power), he manifests through his own māyā (yogic self-disposing power). The verse holds two simultaneous claims: ontologically Krishna does not undergo birth in the way embodied beings do; phenomenally he appears to. The mechanism is ātma-māyā — his own creative power, not external constraint.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

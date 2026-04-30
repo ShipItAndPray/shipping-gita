@@ -1,0 +1,274 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.9",
+  "sanskrit_devanagari": "जन्म कर्म च मे दिव्यमेवं यो वेत्ति तत्त्वतः ।\nत्यक्त्वा देहं पुनर्जन्म नैति मामेति सोऽर्जुन ॥ ९ ॥",
+  "sanskrit_iast": "janma karma ca me divyam evaṁ yo vetti tattvataḥ |\ntyaktvā dehaṁ punar janma naiti mām eti so 'rjuna || 9 ||",
+  "anvaya": [
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "of me"
+    },
+    {
+      "sanskrit": "दिव्यम्",
+      "iast": "divyam",
+      "meaning": "divine / transcendental"
+    },
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "वेत्ति",
+      "iast": "vetti",
+      "meaning": "knows"
+    },
+    {
+      "sanskrit": "तत्त्वतः",
+      "iast": "tattvataḥ",
+      "meaning": "in truth / in essence"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "देहम्",
+      "iast": "deham",
+      "meaning": "the body"
+    },
+    {
+      "sanskrit": "पुनः",
+      "iast": "punaḥ",
+      "meaning": "again"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "एति",
+      "iast": "eti",
+      "meaning": "comes to / attains"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "एति",
+      "iast": "eti",
+      "meaning": "comes"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "Arjuna"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/9/",
+      "fetched_at": "2026-04-30T04:26:59.077Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows the transcendental nature of My appearance and activities does not, upon leaving the body, take his birth again in this material world, but attains My eternal abode, O Arjuna.",
+      "raw_capture_path": "data/sources/raw/bg-4-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-9/",
+      "fetched_at": "2026-04-30T04:27:15.802Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows the transcendental nature of My appearance and activities does not, upon leaving the body, take his birth again in this material world, but attains My eternal abode, O Arjuna."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/9/",
+      "fetched_at": "2026-04-30T04:26:59.077Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3337 chars)",
+      "verbatim_excerpt": "The Lord’s descent from His transcendental abode is already explained in the sixth verse. One who can understand the truth of the appearance of the Personality of Godhead is already liberated from material bondage, and therefore he returns to the kingdom of God immediately after quitting this presen…",
+      "raw_full_path": "data/sources/raw/bg-4-9-vedabase.json (purport_full_length: 3337)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-9/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.802Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.9 Yah, he who; evam, thus, as described; vetti, knows tattvatah, truly, as they are in reality; that divyam, divine, supernatural; janma, birth, which is a form of Maya; ca karma, and actions, such as protection of the pious, etc.; mama, of Mine; na eti, does not get; punarjanma, rebirth; tyaktva,…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 494,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-9-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as naming the fruit of correct knowledge of the avatar's nature: such a knower is freed from the cycle of rebirth and reaches the Lord. The crucial qualifier is tattvataḥ — knowledge in essence, not nominal recognition."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-9/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.802Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.9 He who knows truly My life and actions, super-natural and special to Me, which are intended solely for the protection of the good and to enable them to take refuge in Me, — Me who am devoid of birth, unlike ordinary beings whose birth is caused by Karma associated with Prakrti and its three Guna…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 821,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-9-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as central to bhakti soteriology: knowing the Lord's birth and action as divine (not ordinary, not māyic-in-the-illusory-sense) generates the relation of devotion that, at death, brings the devotee to the Lord. The fruit is union with Krishna, not impersonal liberation."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mām eti",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "attains My eternal abode (Goloka, the spiritual world)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "reaches Brahman / the Self that the Lord is"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "reaches the Lord himself in personal union (sāyujya)"
+        }
+      ],
+      "explanation": "The classic Advaita-Vishishtadvaita-Gaudiya difference on what 'reaching Krishna' is. For Shankara, mām eti is reaching the impersonal Self (Krishna's deepest identity is Brahman). For Ramanuja, it is sāyujya — personal union with the Lord. For Prabhupada, it is going to Goloka, the spiritual planet of Krishna's pastimes. The engineering layer should preserve the verse's claim (knowledge → liberation) without flattening to a sectarian reading."
+    }
+  ],
+  "literal_meaning": "He who knows in truth my birth and action as divine — leaving the body, he does not come to birth again; he comes to me, Arjuna.",
+  "traditional_meaning": "The verse names the soteriological consequence of right knowledge of the avatar. To know Krishna's birth and action as divyam (divine, not ordinary) is liberating: such a knower, on dropping the body, does not return to saṁsāra but reaches Krishna. The verse links knowledge (vetti tattvataḥ) to the transcending of rebirth — the chapter's first explicit linking of jñāna to mokṣa.",
+  "engineering": {
+    "translation": "Janma karma ca me divyam evaṁ yo vetti tattvataḥ — whoever knows my birth and action as divine, in essence, leaving the body, does not come to birth again; he comes to me. The verse's soteriological claim — knowledge of the avatar's nature → release from rebirth → reaching Krishna — exceeds engineering analog reach. STRETCHED-tagged. The operational pattern at engineering scope: a junior who understands the senior's mode of acting at the level of essence (tattvataḥ) — not the surface behaviors but the underlying discrimination behind them — does not have to relearn fundamentals each time they switch teams. They carry the mode onward. They become the next mentor in whichever room they enter. The metaphysical claim about not-returning-to-birth and reaching-Krishna is far larger; this pattern operates only at the carry-forward layer of internalised judgment.",
+    "concrete_scenario": "A senior engineer changes companies for the fourth time in fifteen years. At each previous company she has carried forward not the specific tools or codebase patterns but the underlying discriminations: when to ship, when to delay, what level of rigor a payment system needs versus an internal CLI, how to talk to a junior without crushing them. At the new company in 2026 — a healthcare AI startup — none of her previous Postgres + Datadog + GitHub Actions tooling transfers cleanly. The codebase is in Rust, she has worked mostly in Go. The compliance regime is HIPAA-specific, she has worked mostly in fintech. None of it matters. By month four she is leading the API design review for the new event-streaming endpoint and writing the migration plan for the schema rollout. Not because she has special information about Rust or HIPAA, but because the underlying discriminations she internalised at three previous companies — the ones that survive any specific stack — apply here too. She has 'left the body' (the previous codebase, the previous deploy pipeline, the previous on-call doctrine) and yet has not returned to birth (does not have to relearn the basics). The verse's scope is far larger; the operational pattern operates only at the carry-forward level.",
+    "falsifiability": "The analog fails if a reader takes the verse as a claim about literal reincarnation OR if they take the engineering pattern as guaranteeing senior-engineer non-mortality. The senior's ability to carry forward is real but bounded; the verse's claim is about the soteriological release of the realised knower. The engineering pattern names a small operational consequence; the verse names a vast metaphysical one.",
+    "counter_example": "When the senior's previous knowledge was actually stack-specific — when their 'discriminations' were in fact Java-shop habits that do not transfer to a Rust shop — the carry-forward fails. The diagnostic: at the new company, does the senior contribute to architectural discussions in week four, or is she still asking onboarding questions in month four? Real internalised discriminations transfer; stack-bound habits do not.",
+    "implication": "Audit your own internalised judgments. The ones that have transferred across the last two companies are the candidates for tattvataḥ knowledge — knowledge in essence. The ones that needed full relearning at each switch were stack-bound, not essential. The verse's claim is far larger; the engineering audit is the available operational version.",
+    "quotable_line": "Real discriminations transfer across companies. Stack-bound habits do not. The audit is your own carry-forward across the last two switches.",
+    "tags": [
+      "first-principles",
+      "long-term-thinking",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

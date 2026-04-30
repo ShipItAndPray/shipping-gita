@@ -1,0 +1,249 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.35",
+  "sanskrit_devanagari": "यज्ज्ञात्वा न पुनर्मोहमेवं यास्यसि पाण्डव ।\nयेन भूतान्यशेषेण द्रक्ष्यस्यात्मन्यथो मयि ॥ 35 ॥",
+  "sanskrit_iast": "yaj jñātvā na punar moham evaṁ yāsyasi pāṇḍava\nyena bhūtānyaśheṣheṇa drakṣhyasyātmanyatho mayi",
+  "anvaya": [
+    {
+      "iast": "yat",
+      "meaning": "which",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñātvā",
+      "meaning": "having known",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "never",
+      "sanskrit": ""
+    },
+    {
+      "iast": "punaḥ",
+      "meaning": "again",
+      "sanskrit": ""
+    },
+    {
+      "iast": "moham",
+      "meaning": "delusion",
+      "sanskrit": ""
+    },
+    {
+      "iast": "evam",
+      "meaning": "like this",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yāsyasi",
+      "meaning": "you shall get",
+      "sanskrit": ""
+    },
+    {
+      "iast": "pāṇḍava",
+      "meaning": "Arjun, the son of Pandu",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yena",
+      "meaning": "by this",
+      "sanskrit": ""
+    },
+    {
+      "iast": "bhūtāni",
+      "meaning": "living beings",
+      "sanskrit": ""
+    },
+    {
+      "iast": "aśheṣhāṇi",
+      "meaning": "all",
+      "sanskrit": ""
+    },
+    {
+      "iast": "drakṣhyasi",
+      "meaning": "you will see",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ātmani",
+      "meaning": "within me (Shree Krishna)",
+      "sanskrit": ""
+    },
+    {
+      "iast": "atho",
+      "meaning": "that is to say",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/35/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Having obtained real knowledge from a self-realized soul, you will never fall again into such illusion, for by this knowledge you will see that all living beings are but part of the Supreme, or, in other words, that they are Mine.",
+      "raw_capture_path": "data/sources/raw/bg-4-35-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/35",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.35: Following this path and having achieved enlightenment from a Guru, O Arjun, you will no longer fall into delusion. In the light of that knowledge, you will see that all living beings are but parts of the Supreme, and are within Me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/35/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The result of receiving knowledge from a self-realized soul, or one who knows things as they are, is learning that all living beings are parts and parcels of the Supreme Personality of Godhead, Lord Śrī Kṛṣṇa. The sense of an existence separate from Kṛṣṇa is called māyā (mā – not, yā – this).",
+      "verbatim_full_length": 3300,
+      "raw_full_path": "data/sources/raw/bg-4-35-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-35/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.35 Jnatva, knowing; yat, which-by acquiring which Knowledge imparted by them; O Pandava, na vasyasi, you will not come under; moham, delusion; punah, again; evam, in this way, in the way you have come under delusion now. Besides, yena, through which Knowledge; draksyasi, you will see directly; bhutani, all beings;…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 713,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-35-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-35/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.35 Having which knowledge, you will not again fall into this delusion of mistaking the body etc., for the self, which is the cause of possessiveness etc. By this (knowledge) you will see in yourself all the beings which appear in diversity of forms such as gods, men etc.; for between you and other beings there is…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1532,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-35-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-35/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Lord Krishna now reveals the results of spiritual knowledge that came by inquiring from a self-realised being and that is one will never again be deluded by the illusionary energy thinking that friends and relatives can actually cease to exist. By this spiritual knowledge one…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 623,
+      "raw_full_path": "data/sources/raw/bg-4-35-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.35: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Knowing this, you will not fall into delusion again, son of Pandu; you will see all beings within the self, and then in me.",
+  "traditional_meaning": "yaj jñātvā na punar moham evaṁ yāsyasi pāṇḍava — knowing which, you will not fall into delusion again — yena bhūtāny aśeṣeṇa drakṣyasy ātmany atho mayi — by which you will see all beings without exception within the self, and then in me. Shankara: the knowledge transmitted by the tattva-darśins (4.34) operates this way — it terminates the recurrence of delusion (moha) and produces the seeing of all beings as resting in the self and in brahman. Ramanuja: the same knowledge produces the seeing of all beings as resting in the self (as the universal selves' inner controller) and in Krishna (as the supreme self).",
+  "engineering": {
+    "translation": "Two effects of transmitted knowledge are named. First, na punar moham — recurrence of delusion ends. A senior who has seen the system does not fall into the same kind of confusion again over the same kind of question. The novice's confusion-pattern repeats; the seasoned engineer's confusion-pattern does not (her confusions occur at the next stratum up). Second, the seeing of all beings within the self — a recognition that the system is one fabric. A senior with deep system-knowledge perceives how Kafka topics, Postgres tables, Redis caches, the gateway proxy, the inbound customer-request all interlock as one continuous mesh; a novice sees five disconnected components. This verse's language reaches further (then in me) and the engineering analog stops at its operational shadow.",
+    "concrete_scenario": "A senior engineer with seven years on the same codebase is debugging a payment-reconciliation discrepancy. Within twenty minutes she identifies that the discrepancy lives at an intersection of Kafka producer's at-least-once semantics, the database's serializable-isolation transaction boundary, and reconciliation-cron batch-window logic. She does not perceive five components; she perceives one mesh in which the bug is necessarily occurring. A first-year engineer on the same team sees five disconnected pieces and would have spent two weeks isolating each individually. This verse's na punar moham does not mean a senior never becomes confused; it means the same kind of confusion does not recur. Its drakṣyasy ātmany — see all beings in the self — has its operational shadow in such seeing of the system as one mesh. STRETCHED: this verse's metaphysical claim (all beings in the self, then in me) is much larger than the engineering shadow.",
+    "falsifiability": "The analog fails if a reader concludes that seven years of experience automatically produces this seeing. Many engineers have ten years of experience and still see five disconnected components. The seeing-as-one-fabric is the result of the disciplined attention named in 4.33-4.34, not of mere tenure. Time is necessary; time is not sufficient.",
+    "counter_example": "When the system is genuinely sharded across organisational and technical boundaries that no individual engineer has visibility into — a payment integration with a vendor whose internals are opaque, a regulatory requirement enforced by external auditors with their own model — the seeing-as-one-fabric is not available, no matter how long the engineer has been on the team. The verse names a seeing of what the engineer's attention can reach; it does not promise visibility through opaque boundaries.",
+    "implication": "Notice when the same kind of confusion recurs versus when only the next-level-up confusion occurs. The first is the novice's pattern; the second is the senior's. The shift is the verse's na punar moham at operational scope.",
+    "quotable_line": "She does not see five components; she sees one fabric in which the bug is necessarily occurring.",
+    "tags": [
+      "full-system-view",
+      "system-recognition",
+      "first-principles",
+      "essence-vs-implementation"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,38 @@
+{
+  "id": "BG 4.23",
+  "chapter": 4,
+  "verse": 23,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Three configurations together produce action that does not stick. Gata-saṅga: the engineer is not glued to a particular team-territory, codebase, technology stack, or role-shape. Mukta: liberated from the inner alternation of grasping (rāga, this is mine, more please) and aversion (dveṣa, not this, never this). Jñānāvasthita-cetas: the mind sits in the system-understanding, not in the latest controversy or the political weather. When such an engineer acts yajñāya — for the sustaining loop, not for self-monument — the whole karmic residue of the action (samagraṁ karma) dissolves. Operationally: the merge ships and produces no entanglement. No follow-up self-narrative, no debt-of-credit owed, no anchored grievance for next quarter.",
+    "concrete_scenario": "A staff engineer is asked to lead the three-month database migration off the legacy MySQL schema onto Postgres. She has no particular attachment to MySQL or Postgres; she has no political stake in the team's ownership of the database; she has no anxiety about credit. Her mind sits in the actual schema model — foreign keys, transaction semantics, lock behaviour, index migrations. For three months she ships migrations, runs cutovers in Datadog, conducts blameless incident reviews when shadow-mode reads diverge, mentors two junior engineers through their first production schema change. At the end of the migration the system is running on Postgres, the team has two more production-shaped engineers, the senior is unencumbered — no residual grievance about the colleague who took two weeks off mid-project, no banked credit being held for next promo cycle, no self-narrative being maintained. The migration as a load on her attention has dissolved (pravilīyate).",
+    "falsifiability": "The analog fails if a reader uses it to justify abandoning ownership of a long-running system. The verse describes a configuration of mind, not a refusal of stewardship. An engineer who concludes 'I have no attachment to this codebase, therefore I will not maintain it' has misread it. Gata-saṅga is freedom from the grasping; it is not freedom from the duty.",
+    "counter_example": "When a long-running maintenance commitment requires sustained attention — a critical infrastructure system, a regulated codebase under audit, a customer integration with deep dependency — the verse's gata-saṅga does not authorise withdrawal. The engineer remains in stewardship; what dissolves is the residual self-narrative that would otherwise accumulate around the work, not the work itself.",
+    "implication": "After your next major project closes, observe the residue: is your attention still on it three weeks later, in self-narrative, in held grievance, in stored credit? The residue is the karma the verse says dissolves when the configuration is correct.",
+    "quotable_line": "The migration shipped, and the senior was unencumbered. That is what this verse calls action that dissolves.",
+    "tags": [
+      "non-attachment-to-praise",
+      "shipping-discipline",
+      "essence-vs-implementation",
+      "letting-go"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T04:30:00Z",
+      "mutation": "v0 generation: source pack triangulated. Engineering layer maps the three pre-conditions (gata-saṅga, mukta, jñānāvasthita-cetas) onto operational engineering configurations. yajñāya is mapped to 'for the sustaining loop' (per chapter 3 yajña-doctrine), not metaphysical worship. Concrete scenario: 3-month MySQL→Postgres migration. Counter-example: stewardship of long-running systems. Named tools: MySQL, Postgres, Datadog. Tags drawn from controlled vocabulary including letting-go.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

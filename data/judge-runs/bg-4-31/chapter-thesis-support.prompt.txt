@@ -1,0 +1,250 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.31",
+  "sanskrit_devanagari": "यज्ञशिष्टामृतभुजो यान्ति ब्रह्म सनातनम् ।\nनायं लोकोऽस्त्ययज्ञस्य कुतोऽन्य: कुरुसत्तम ॥ 31 ॥",
+  "sanskrit_iast": "yajña-śhiṣhṭāmṛita-bhujo yānti brahma sanātanam\nnāyaṁ loko 'styayajñasya kuto 'nyaḥ kuru-sattama",
+  "anvaya": [
+    {
+      "iast": "yajña",
+      "meaning": "śhiṣhṭa amṛita-bhujaḥ—they partake of the nectarean remnants of sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yānti",
+      "meaning": "go",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahma",
+      "meaning": "the Absolute Truth",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sanātanam",
+      "meaning": "eternal",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "never",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ayam",
+      "meaning": "this",
+      "sanskrit": ""
+    },
+    {
+      "iast": "lokaḥ",
+      "meaning": "planet",
+      "sanskrit": ""
+    },
+    {
+      "iast": "asti",
+      "meaning": "is",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ayajñasya",
+      "meaning": "for one who performs no sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "kutaḥ",
+      "meaning": "how",
+      "sanskrit": ""
+    },
+    {
+      "iast": "anyaḥ",
+      "meaning": "other (world)",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/31/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "O best of the Kuru dynasty, without sacrifice one can never live happily on this planet or in this life: what then of the next?",
+      "raw_capture_path": "data/sources/raw/bg-4-31-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/31",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.31: Those who know the secret of sacrifice, and engaging in it, partake of its remnants that are like nectar, advance toward the Absolute Truth. O best of the Kurus, those who perform no sacrifice find no happiness either in this world or the next."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/31/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Whatever form of material existence one is in, one is invariably ignorant of his real situation. In other words, existence in the material world is due to the multiple reactions to our sinful lives. Ignorance is the cause of sinful life, and sinful life is the cause of one’s dragging on in material existence.",
+      "verbatim_full_length": 1852,
+      "raw_full_path": "data/sources/raw/bg-4-31-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-31/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.31 Yajna-sista-amrta-bhujah, those who partake of the nectar left over after a sacrifice, i.e. those who, after performing the sacrifices described above, eat, during the leisure after the sacrifice, the food called nectar, as prescribed by the injunctions; yanti, reach; sanatanam brahma, the eternal Brahman. For…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1207,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-31-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-31/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.31 He ‘who offers no sacrifices,’ i.e., he who does not devote himself to obligatory and occasional actions, preceded by the performance of the ‘great sacrifices’ etc., will not be able to achieve human ends which are associated with the material world and are called by the names of virtue, wealth and worldly…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 873,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-31-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-31/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Having performed yagna or offerings of worship that are not prohibited by the Vedic scriptures and after duly propitiating the Supreme Lord. Those who partake of the sanctified food remnants that is leftover which is ambrosial nectar they become spiritualised and attain by…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 823,
+      "raw_full_path": "data/sources/raw/bg-4-31-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.31: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Those who eat the nectar-remnants of yajña reach the eternal brahman; not even this world is for the non-sacrificer, much less the next.",
+  "traditional_meaning": "yajña-śiṣṭāmṛta-bhujo yānti brahma sanātanam — those who consume the nectar-remnants left over from yajña reach the eternal brahman. nāyaṁ loko 'sty ayajñasya kuto 'nyaḥ kuru-sattama — this world is not for the non-sacrificer, much less any other world. Shankara: the yajña-śiṣṭa is what is given to the gods first and consumed afterward as remnants; consuming the remnants is the disciplined participation in the cycle. The negative claim is sharp: non-yajña actors have no foothold even in this world. Ramanuja: the doctrine reinforces 3.13's thief-claim — those who consume from the sustaining order without offering into it are unsupported.",
+  "engineering": {
+    "translation": "Krishna restates 3.12-3.13 in sharper form. The engineer who participates in the sustaining loop — who offers something into it before drawing from it — is supported by it. The engineer who only consumes from the loop — who takes the paycheck, the infrastructure, the reputation, the colleagues' work, the open-source ecosystem, the senior engineering attention they receive — without offering into it has no foothold. The verse is harder than 3.13: 'this world is not for the non-sacrificer.' Even the immediate operational world — the team's trust, the system's continued functioning, the career's continued progression — is not durably available to the engineer who only consumes. The engineering analog is honest at the operational level; the verse's metaphysical scope (yānti brahma sanātanam) extends further.",
+    "concrete_scenario": "A staff-engineer-grade IC has been on a platform team for four years. He draws senior-grade compensation, uses every team-built tool, depends on the on-call rotation his peers staff, draws on the design reviews his colleagues conduct, learns from the postmortems they write. He himself contributes the bare minimum — the assigned tickets, no design doc unless required, no code review beyond his sub-team, no on-call rotation participation, no mentoring, no oss-contribution back to the libraries he depends on. He is, in the verse's terms, ayajña — consumes from the loop, does not offer into it. The verse says: this world is not for him. Operationally, the trajectory is observable. His tech-lead conversations have become more fragile; his peer reviews have grown sharper; the next reorg moves him to a less central team; his promo packet stalls. He is not being punished; the loop is structurally unable to sustain a node that only draws.",
+    "falsifiability": "The analog fails if a reader uses it to justify performative-contribution — making sure to be seen contributing while offering nothing of substance. The verse names yajña — disciplined offering — not visible offering. The engineer who games contributions for credit is closer to the ayajña category than to the yajñin category; the loop registers the difference even when individuals do not.",
+    "counter_example": "When an engineer is in a recovery period — illness, family crisis, burnout — the consumption-without-offering pattern may be temporary and structurally appropriate. The verse describes a sustained pattern, not a phase. The team typically extends the loop's support during such periods; the verse's harder claim is for the engineer for whom this is structural posture, not phase.",
+    "implication": "Audit the last quarter: what did you draw from the loop, what did you offer into it. If the second column is mostly 'my assigned work,' the diagnostic from this verse applies. The non-sacrificer has no world here, even before any next.",
+    "quotable_line": "The loop is structurally unable to sustain a node that only draws.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "shipping-discipline",
+      "team-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

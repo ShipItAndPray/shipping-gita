@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.1",
+  "chapter": 3,
+  "verse": 1,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter opens with a pushback. The questioner has heard the senior assert, in 2.49, that buddhi-yoga is superior to fruit-driven action. He has drawn the obvious inference: if reasoning is what matters, why must I still execute the migration? The verse names a real engineering moment — the IC who has just absorbed an architectural reframe and now reasons their way into refusing the tactical task. The form of the question is sharp because honest: if the senior just told me thinking-clearly is what matters, then the senior's continued insistence on shipping looks contradictory. Per the Advaita commentary, this is the questioner mistaking a sequence (action purifies → knowledge arises) for a contradiction. Per the Vishishtadvaita reading, this is the genuine seeker's confusion before he has integrated the two. The chapter's whole argument unfolds out of this opening question.",
+    "concrete_scenario": "A staff engineer has just sat through a forty-minute architecture review where the principal reframed the entire migration. The principal said: stop optimizing the diff; what matters is whether the new Postgres schema preserves the invariants the old one accidentally encoded. The staff engineer absorbs this. Then the principal closes the laptop and says: 'OK, push the deploy tonight.' The staff engineer's hand pauses above the keyboard. He thinks: wait — you just spent forty minutes telling me that the cognitive work is what matters. Why are you now insisting I run the rollout tonight in production? It feels like you contradicted yourself. He opens GitHub, drafts a PR comment, but instead types into Slack: 'If you actually believe the architectural reasoning is the real work, why are you still pushing on the deploy timeline?' The principal sees the message, recognises the pushback, and prepares to answer across the rest of the chapter. The question is not insolent. It is the IC who took the senior's reframe seriously and is now demanding that the senior reconcile it with operational pressure. This verse is that pushback.",
+    "falsifiability": "The analog fails if a reader uses this verse to justify any pushback against shipping. The questioner's question is sharp because he has actually absorbed the prior teaching, not because he is stalling. A junior engineer who reads 2.49 once and then asks 'why are you making me deploy?' as cover for procrastination has not earned the question. The verse's force depends on the questioner being a serious actor whose pushback is grounded in genuine integration of the prior frame.",
+    "counter_example": "When the senior is genuinely contradicting themselves — when the architectural reasoning was theatre and the deploy pressure is the real ask — the questioner's pushback is correct, not a misreading. This verse is not a blanket endorsement of senior authority over IC reasoning. The Advaita reading specifically says the questioner has misread sequence as contradiction; the verse does not say all such pushbacks are misreadings. Where the senior really is incoherent, the IC who pushes back is doing the team a service.",
+    "implication": "When an IC pushes back after an architectural reframe, treat the pushback as a seriousness signal. They have absorbed the frame and now demand that it cohere with operational pressure. Answer the question; do not dismiss it. The chapter's whole argument starts in this dialectical exchange.",
+    "quotable_line": "The IC who pushes back after a reframe is the IC who took it seriously; the question is the seriousness signal.",
+    "tags": [
+      "engineer-paralysis",
+      "decision-paralysis",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: chapter 3's dialectical opening. Engineering layer maps the questioner's pushback to the IC who has absorbed an architectural reframe and now demands the senior reconcile it with the deploy pressure. Concrete scenario uses Slack and a production migration to fix the moment in real engineering vocabulary. Counter-example carves out the case where the senior really is incoherent (the verse's force is contingent on the questioner having earned the question). Tags from controlled vocabulary: engineer-paralysis, decision-paralysis, knowledge-action-integration. Voice: dialectical, the IC's voice and the senior's recognition.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

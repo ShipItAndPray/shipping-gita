@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.19",
+  "chapter": 3,
+  "verse": 19,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Therefore — having marked the exception — perform always (satatam) the action that ought to be done (kāryaṁ karma), without attachment (asaktaḥ); for the man who acts without attachment attains the Supreme. The verse pivots from exception back to rule. Two conditions stack: kāryam — the action that ought to be done, not arbitrary occupation — and asaktaḥ — without attachment. Both conditions are load-bearing, neither sufficient alone. The engineer who ships the wrong work tirelessly fails the kāryam requirement; the engineer who ships the right work for praise fails the asaktaḥ requirement. The verse names both as compulsory and announces the destination: param āpnoti — attainment of the Supreme — equating karma-yoga with jñāna-yoga in liberative result.",
+    "concrete_scenario": "An engineer at a payments company has two PRs sitting unmerged on her GitHub draft tab on a Tuesday morning. PR-A is a refactor of the internal CLI she finds intellectually pleasing — she has been wanting to clean it up for months. PR-B is an idempotency-key fix on the Stripe charge-webhook endpoint that the on-call team has been routing around for two sprints. Both are 'work.' Only one is kāryam — the action that ought to be done — by any honest reading. The verse asks her to ship PR-B. Now consider the second filter. She ships PR-B. Slack lights up; her tech lead writes 'huge unblock.' She reads it twice, registers it, and notices that the ratio of pleasure-derived-from-praise to pleasure-derived-from-the-fix is roughly 70/30. The verse asks her to bring it closer to 0/100. Asaktaḥ is not 'feel nothing'; it is 'do not let the praise become the engine that selects the next ticket.' Both conditions — kāryam and asaktaḥ — must hold simultaneously for the verse's discipline to apply.",
+    "falsifiability": "The analog fails if either condition is dropped. 'Always be working' without kāryam produces volume on the wrong axis. 'Always be detached' without kāryam produces detachment from work that should bind, not work that should not. The diagnostic is the conjunction: is this both the work that ought to be done AND being shipped without praise-coupling?",
+    "counter_example": "When the kāryam itself is contested — two engineers honestly disagree on what the right work is this sprint — the verse is not the resolution. The verse assumes kāryam has been identified; the work of identification is upstream. Engineers using 3.19 to break a tie about which PR to ship are using the verse for a question it is not answering.",
+    "implication": "Two-filter audit on every sprint: (1) is the work I am doing kāryam — the action that ought to be done — by an honest reading? (2) is the engine of my shipping the work itself, or the praise that arrives after? Both filters must clear. Either alone is not the verse's discipline.",
+    "quotable_line": "Two conditions, both load-bearing: the right work, shipped without coupling to its applause. Either condition alone is not what this verse calls karma-yoga.",
+    "tags": [
+      "shipping-discipline",
+      "outcome-detachment",
+      "non-attachment-to-praise",
+      "prescribed-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.19: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T22:55:00Z",
+      "mutation": "Single-mutation fix for deterministic gate failures (FK grade band, lexical diversity, named tools, quotable length).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

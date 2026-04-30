@@ -1,0 +1,220 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.13",
+  "sanskrit_devanagari": "चातुर्वर्ण्यं मया सृष्टं गुणकर्मविभागशः ।\nतस्य कर्तारमपि मां विद्ध्यकर्तारमव्ययम् ॥ १३ ॥",
+  "sanskrit_iast": "cātur-varṇyaṁ mayā sṛṣṭaṁ guṇa-karma-vibhāgaśaḥ |\ntasya kartāram api māṁ viddhy akartāram avyayam || 13 ||",
+  "anvaya": [
+    {
+      "sanskrit": "चातुः",
+      "iast": "cātur",
+      "meaning": "four-fold"
+    },
+    {
+      "sanskrit": "वर्ण्यम्",
+      "iast": "varṇyam",
+      "meaning": "varṇa-classification"
+    },
+    {
+      "sanskrit": "मया",
+      "iast": "mayā",
+      "meaning": "by me"
+    },
+    {
+      "sanskrit": "सृष्टम्",
+      "iast": "sṛṣṭam",
+      "meaning": "was created"
+    },
+    {
+      "sanskrit": "गुण",
+      "iast": "guṇa",
+      "meaning": "of guṇa (intrinsic disposition)"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "of karma (acquired action)"
+    },
+    {
+      "sanskrit": "विभागशः",
+      "iast": "vibhāgaśaḥ",
+      "meaning": "according to the division"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "of that"
+    },
+    {
+      "sanskrit": "कर्तारम्",
+      "iast": "kartāram",
+      "meaning": "doer / creator"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "though"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "विद्धि",
+      "iast": "viddhi",
+      "meaning": "know"
+    },
+    {
+      "sanskrit": "अकर्तारम्",
+      "iast": "akartāram",
+      "meaning": "non-doer"
+    },
+    {
+      "sanskrit": "अव्ययम्",
+      "iast": "avyayam",
+      "meaning": "unchanging"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/13/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "According to the three modes of material nature and the work associated with them, the four divisions of human society are created by Me. And although I am the creator of this system, you should know that I am yet the nondoer, being unchangeable.",
+      "raw_capture_path": "data/sources/raw/bg-4-13-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/",
+      "fetched_at": "2026-04-30T04:27:14.861Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "According to the three modes of material nature and the work associated with them, the four divisions of human society are created by Me. And although I am the creator of this system, you should know that I am yet the nondoer, being unchangeable."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/13/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2125 chars)",
+      "verbatim_excerpt": "The Lord is the creator of everything. Everything is born of Him, everything is sustained by Him, and everything, after annihilation, rests in Him. He is therefore the creator of the four divisions of the social order, beginning with the intelligent class of men, technically called brāhmaṇas due to…",
+      "raw_full_path": "data/sources/raw/bg-4-13-vedabase.json (purport_full_length: 2125)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.861Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.13 Catur-varnyam-meaning the same as catvarah varnah, the four castes; srstam, have been created; maya, by Me who am God, which accords with such Vedic texts as, ‘The Brahmanas were His face…’ (Rg. 10.90.12); guna-karma-vibhagasah, through a classification of the gunas and duties. [A.G.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1948,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-13-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads guṇa-karma-vibhāgaśaḥ as: the four varṇas were created according to the division of guṇa (sattva, rajas, tamas) and the corresponding karma (action) appropriate to each. This is a typology by intrinsic and acquired qualities, not by birth-line. The akartā / avyaya clause is read in Advaita fashion: the Lord as Brahman is creator only at the empirical level; in essence, he is non-doer."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.861Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.13 The whole universe beginning with Brahma and ending with a cluster of grass, with the system of four stations divided according to Sattva and other Gunas and by actions like self-control corresponding to the Gunas, was created by Me. The mention of ‘creation’ is for illustration.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 505,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-13-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as the Lord's declaration that the four-fold ordering of human society reflects an underlying division by guṇa and karma — the Lord's creative ordering follows the intrinsic and acquired qualities of beings. The Lord is creator at the cosmic level but, by his nature as the unchanging substrate, is also akartā in the deeper sense."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "cātur-varṇyam ... guṇa-karma-vibhāgaśaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the four divisions of human society, according to the modes of material nature and the work attributed to them"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the four varṇas, created according to the division of the three guṇas and the karma corresponding to each"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the four-fold ordering, reflecting the underlying division by intrinsic guṇa and acquired karma"
+        }
+      ],
+      "explanation": "What the verse explicitly says: typology by guṇa and karma. What the verse does NOT say: typology by birth. The historical caste-by-birth reading is a later extension, contested even within tradition. Engineering layers must honor what the verse explicitly says (typology by intrinsic disposition + acquired action) and not smuggle in the birth-based reading. This is a STRETCHED-tag candidate verse if the engineering layer cannot honor both halves cleanly."
+    }
+  ],
+  "literal_meaning": "The four-fold typology was created by me according to the division of guṇa and karma; though I am its creator, know me as non-doer, unchanging.",
+  "traditional_meaning": "The chapter's most doctrinally fraught verse. Krishna explicitly says cātur-varṇya was created BY GUṆA AND KARMA — by intrinsic disposition (guṇa) and acquired action (karma) — NOT by birth. The historical caste-by-birth reading is an extension; the verse itself says guṇa-karma. The second hemistich adds: though Krishna is the creator of the typology, he is also non-doer (akartā), unchanging (avyaya). Both halves of the verse are loaded — the first by the historical caste-system reading, the second by the metaphysical claim of agency-without-binding.",
+  "engineering": {
+    "translation": "Cātur-varṇyaṁ mayā sṛṣṭaṁ guṇa-karma-vibhāgaśaḥ — the four-fold typology was created by me according to the division of guṇa and karma. The verse explicitly says guṇa and karma — intrinsic disposition and acquired action — NOT birth. The honest engineering reading honors what is actually said: practitioners fall into a small number of recognisable archetypes, distinguished by inner disposition (guṇa) and the kind of labor that disposition produces (karma). The architect who thinks in protocols and invariants. The builder who reaches first for shipping and iteration. The mentor who thinks in transmission and pedagogy. The operator who thinks about stability and incident response. Each shape is real. They are separated by character + acquired practice, not by job title or family lineage. STRETCHED-tagged because the contested historical caste-by-birth reading makes any analog doctrinally fraught. Our reading honors Krishna's stated criterion (guṇa-karma) and explicitly disavows any birth-based interpretation.",
+    "concrete_scenario": "A staff engineer onboarding into a 400-person org notices, in her first three months, that there are four recognisable archetypes among the seasoned ICs. The architects (Maya, Devon, two others) immediately reach for protocol questions: what is the API contract, what invariants must hold, what is the wire format on the gRPC boundary. The builders (Priya, Carlos, three others) reach for shipping questions: what is the smallest thing that can go to production behind a feature flag this week. The mentors (Alex, Naomi, two others) reach for transmission questions: how will the next person pick this up, what documentation survives my eventual departure. The operators (Hiroshi, Maria, three others) reach for stability questions: what fails first when this Postgres load doubles. None of these are job titles — all four are nominally 'staff engineers.' The distinction is guṇa (inner disposition) plus karma (the kind of practice that disposition has produced over years). The org needs all four shapes. The verse's claim is far older and more loaded than this; our reading respects what Krishna explicitly says (typology by guṇa-karma) and does not smuggle in any caste-by-birth interpretation.",
+    "falsifiability": "The analog fails most dangerously if a reader takes the engineering archetype-typology as a legitimate analog for the historical caste reading. Krishna explicitly says guṇa-karma. The engineering analog must explicitly say the same: typology by intrinsic disposition + acquired practice, not by lineage, not by hireability, not by class. Any analog that treats some archetypes as 'higher' than others has distorted both verse and analog.",
+    "counter_example": "When the engineering 'archetype' is in fact a stereotype based on background or institution, the analog inverts. The diagnostic: ask whether the same person, given different formative experience, could have become a different archetype. If yes, the typology is by guṇa-karma in the relevant sense (formative + dispositional). If no, the typology is birth-based and the analog has failed.",
+    "implication": "When you map your team, name the archetypes by what the engineers actually DO — the kind of question they reach for first — not by their nominal title. The map by guṇa-karma is more useful for staffing decisions than the map by ladder level.",
+    "quotable_line": "Map the team by the question each engineer reaches for first, not by ladder level. That is the typology this verse opens.",
+    "tags": [
+      "team-state",
+      "engineering-pathology",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

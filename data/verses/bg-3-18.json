@@ -1,0 +1,54 @@
+{
+  "id": "BG 3.18",
+  "chapter": 3,
+  "verse": 18,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse completes the exception of 3.17 with a triple-negation: for the realised one, no purpose is served by acting (kṛtenārthaḥ na), no purpose is served by not-acting (akṛtena ... kaścana na), and there is no being on whom his purposes depend (na cāsya sarva-bhūteṣu kaścid artha-vyapāśrayaḥ). The completeness matters because the next verse pivots back to the rule. The exception is described here precisely so the rule can apply to everyone else cleanly. Engineering map: the rare engineer who genuinely has no remaining purpose to serve through any specific shipping outcome — neither personal advancement, nor team approval, nor resolution of an open question — is a structurally different actor from the one for whom action still serves something. The verse is naming the limit; it is not naming most of us.",
+    "concrete_scenario": "Late at night the CTO of a Postgres-shaped logistics company sits in front of a Datadog dashboard. The next deploy is the inventory-service rewrite his successor has been driving on GitHub. The CTO helped draft the rollout plan, reviewed the rollback runbook, briefed the on-call rotation through Slack. He has nothing personal at stake: not promotion (he leaves in eight months), not reputation (settled), not approval (his colleagues already trust him), not learning (this is his fifth such launch). For him at this moment the verse fits literally — kṛtenārtho nāsti (no purpose served by shipping today's code), akṛtenārtho nāsti (no purpose served by abstaining), na artha-vyapāśrayaḥ (no person on whom remaining purposes hang). And yet he runs the deploy. The next verse, 3.19, explains why. The point of 3.18 is that even when these structural conditions for the exception are met, the chapter pivots immediately back to action. The verse is not the conclusion; it is the limit-case named precisely so the rule applies cleanly to everyone outside it.",
+    "falsifiability": "The analog fails when a reader uses 3.18 to justify withdrawal. The verse is not the conclusion of the chapter; it is the limit-case described so the rule can apply to everyone outside it. An engineer who concludes 'no purpose is served by my shipping today' has — almost certainly — misread the verse, since most engineers do have remaining purposes (career, team approval, resolution of a question they care about). The verse is asking whether the purposes are absent; almost always, they are not.",
+    "counter_example": "The CTO above is a real example. The actual realised actor is rarer than the rhetoric of realisation. The counter-example is everywhere else: the engineer who claims the exemption while still working through a perf cycle, while still seeking team approval, while still measuring himself against peers. That engineer is not in 3.18's frame; he is in 3.19's.",
+    "implication": "List the actual purposes your shipping serves: career, the question, the team, the customer, the learning. If the list is non-empty, you are not the actor of 3.18. The verse describes someone whose list is empty — and even that person, per 3.19, still acts.",
+    "quotable_line": "The actor with an empty list still acts. The verse closes the exit even where the exit conditions are met.",
+    "tags": [
+      "doership",
+      "letting-go",
+      "renunciation-of-action",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.18: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T22:55:00Z",
+      "mutation": "Single-mutation fix for deterministic gate failures (FK grade band, lexical diversity, named tools, quotable length).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-04-29T23:00:00Z",
+      "mutation": "Single-mutation: lift lexical diversity / FK grade by replacing repeated tokens and elevating diction.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

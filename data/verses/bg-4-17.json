@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.17",
+  "chapter": 4,
+  "verse": 17,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Karmaṇo hy api boddhavyaṁ — the truth of action, of forbidden action, and of inaction must all be understood; the way of conduct is profound. Krishna names a threefold typology before delivering 4.18. Our reading: there are three categories of behavior to distinguish — right deed (work that moves the system forward), wrong deed (work that actively damages it), and pure absence (no motion). All require careful discrimination. Vikarma is not merely 'less good' than karma; it sits in its own bucket. A practitioner who ships a feature that erodes user trust has not done less right-acting; they have done vikarma. The colleague who refuses to ship a feature for principled reasons has not done inaction; they have done a kind of acting that 4.18 will sharpen.",
+    "concrete_scenario": "A senior reviews three different sprint outcomes from three colleagues on the GitHub dashboard. Engineer A shipped a checkout-flow improvement that lifted conversion 2%, instrumented in Datadog. Right deed — work that moved the platform forward in the direction it actually wanted to go. Engineer B shipped a feature that increased login friction in a way that lifted security metrics by 0.3% and dropped seven-day retention by 4%. Vikarma — the launch wasn't just suboptimal, it was directionally wrong against a measure the team had not foregrounded. Engineer C shipped nothing but spent the sprint blocking an architectural decision that would have committed the team to a vendor lock-in for years. From the surface, C did 'less' than the others. From the verse's typology, C may have done right-deed and B may have done vikarma — and naming this is harder than calling A productive. The way of conduct is profound; this is what Krishna means.",
+    "falsifiability": "The analog fails if a reader treats vikarma as merely a label for unpopular decisions. Vikarma is action against the system's actual interest, not against management's stated preference. The diagnostic: did the action measurably move the system in a direction the system did not want to go, by the system's own measures? If yes, vikarma. If only against a stated preference, the verdict is unclear and the verse does not authorise the label.",
+    "counter_example": "When a feature ship reduces a vanity metric but improves the actual user experience, the verse's typology resists the easy 'B did vikarma' verdict. The harder evaluation requires reading the system's actual measures (retention, NPS, customer-reported satisfaction) against the surface metric. The verse rewards careful discrimination, not snap labeling.",
+    "implication": "When you evaluate work, distinguish three categories not two. Right-action moves the system forward by its own measures. Vikarma moves it backward. Inaction is absence. The mid-engineer's 'unshipped' sprint may be any of the three — and the discrimination is the senior's actual job.",
+    "quotable_line": "Right-action moves the system forward. Vikarma moves it backward. Inaction is absence. Three categories, not two — and the discrimination is the senior's job.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "engineering-pathology",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.17 names the threefold typology (karma / vikarma / akarma). Engineering layer maps to right-action / wrong-action / inaction in engineering terms, with the harder middle category (vikarma) preserved. Concrete scenario uses three engineers' sprint outcomes — A shipping a conversion lift (right action), B shipping a security feature that hurt retention (vikarma), C blocking a vendor-lock-in decision (right-action that looked like inaction). Counter-example carves out the case where vanity-metric vs. actual-experience distinction matters.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

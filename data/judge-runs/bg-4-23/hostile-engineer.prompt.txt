@@ -1,0 +1,209 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.23",
+  "sanskrit_devanagari": "गतसङ्गस्य मुक्तस्य ज्ञानावस्थितचेतस: ।\nयज्ञायाचरत: कर्म समग्रं प्रविलीयते ॥ 23 ॥",
+  "sanskrit_iast": "gata-saṅgasya muktasya jñānāvasthita-chetasaḥ\nyajñāyācharataḥ karma samagraṁ pravilīyate",
+  "anvaya": [
+    {
+      "iast": "gata",
+      "meaning": "saṅgasya—free from material attachments",
+      "sanskrit": ""
+    },
+    {
+      "iast": "muktasya",
+      "meaning": "of the liberated",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñāna",
+      "meaning": "avasthita—established in divine knowledge",
+      "sanskrit": ""
+    },
+    {
+      "iast": "chetasaḥ",
+      "meaning": "whose intellect",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñāya",
+      "meaning": "as a sacrifice (to God)",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ācharataḥ",
+      "meaning": "performing",
+      "sanskrit": ""
+    },
+    {
+      "iast": "karma",
+      "meaning": "action",
+      "sanskrit": ""
+    },
+    {
+      "iast": "samagram",
+      "meaning": "completely",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/23/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The work of a man who is unattached to the modes of material nature and who is fully situated in transcendental knowledge merges entirely into transcendence.",
+      "raw_capture_path": "data/sources/raw/bg-4-23-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/23",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.23: They are released from the bondage of material attachments and their intellect is established in divine knowledge. Since they perform all actions as a sacrifice (to God), they are freed from all karmic reactions."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/23/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Becoming fully Kṛṣṇa conscious, one is freed from all dualities and thus is free from the contaminations of the material modes. He can become liberated because he knows his constitutional position in relationship with Kṛṣṇa, and thus his mind cannot be drawn from Kṛṣṇa consciousness.",
+      "verbatim_full_length": 604,
+      "raw_full_path": "data/sources/raw/bg-4-23-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.23 Muktasya, of the liberated person who has become relieved of such bondages as righteousness and unrighteousness, etc.; gatasangasya, who has got rid of attachment, who has become detached from everything; jnana-avasthita-cetasah, whose mind is fixed in Knowledge only; his karma, actions; acaratah, undertaken;…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 762,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-23-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-23/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.23 Of a person whose attachment to all objects is gone because of his mind being established in the knowledge of the self, who is therefore liberated from accepting all worldly possessions and who is engaged in the performance of sacrifices etc., as described above — in the case of such a person his beginningless…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 826,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-23-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-23/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "One who is desireless, free from attraction and repulsion, who performs every action as an act of yagnaya or as offering and worship to the Supreme Lord Krishna. For one situated in karma yoga or the performance of prescribed Vedic activities all their actions become inaction…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 564,
+      "raw_full_path": "data/sources/raw/bg-4-23-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.23: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Of one free of attachment, liberated, mind established in knowledge — action performed for sacrifice dissolves entirely.",
+  "traditional_meaning": "Three qualifications produce action that dissolves: gata-saṅgasya (one whose attachment is gone), muktasya (one liberated — i.e., from rāga-dveṣa), jñānāvasthita-cetasaḥ (one whose mind is established in knowledge). When such a person acts yajñāya — for the sake of sacrifice — the entire karma-fabric (samagraṁ karma) of the action pravilīyate (dissolves completely). Shankara: the dissolution is total because the action issues from the brahma-frame; nothing accumulates because there is no agent-claim to attach to. Ramanuja: yajñāya here means the action performed as worship-of-the-Lord; when the karma-yogin acts in this frame, the action's normally-binding character melts away.",
+  "engineering": {
+    "translation": "Three configurations together produce action that does not stick. Gata-saṅga: the engineer is not glued to a particular team-territory, codebase, technology stack, or role-shape. Mukta: liberated from the inner alternation of grasping (rāga, this is mine, more please) and aversion (dveṣa, not this, never this). Jñānāvasthita-cetas: the mind sits in the system-understanding, not in the latest controversy or the political weather. When such an engineer acts yajñāya — for the sustaining loop, not for self-monument — the whole karmic residue of the action (samagraṁ karma) dissolves. Operationally: the merge ships and produces no entanglement. No follow-up self-narrative, no debt-of-credit owed, no anchored grievance for next quarter.",
+    "concrete_scenario": "A staff engineer is asked to lead the three-month database migration off the legacy MySQL schema onto Postgres. She has no particular attachment to MySQL or Postgres; she has no political stake in the team's ownership of the database; she has no anxiety about credit. Her mind sits in the actual schema model — foreign keys, transaction semantics, lock behaviour, index migrations. For three months she ships migrations, runs cutovers in Datadog, conducts blameless incident reviews when shadow-mode reads diverge, mentors two junior engineers through their first production schema change. At the end of the migration the system is running on Postgres, the team has two more production-shaped engineers, the senior is unencumbered — no residual grievance about the colleague who took two weeks off mid-project, no banked credit being held for next promo cycle, no self-narrative being maintained. The migration as a load on her attention has dissolved (pravilīyate).",
+    "falsifiability": "The analog fails if a reader uses it to justify abandoning ownership of a long-running system. The verse describes a configuration of mind, not a refusal of stewardship. An engineer who concludes 'I have no attachment to this codebase, therefore I will not maintain it' has misread it. Gata-saṅga is freedom from the grasping; it is not freedom from the duty.",
+    "counter_example": "When a long-running maintenance commitment requires sustained attention — a critical infrastructure system, a regulated codebase under audit, a customer integration with deep dependency — the verse's gata-saṅga does not authorise withdrawal. The engineer remains in stewardship; what dissolves is the residual self-narrative that would otherwise accumulate around the work, not the work itself.",
+    "implication": "After your next major project closes, observe the residue: is your attention still on it three weeks later, in self-narrative, in held grievance, in stored credit? The residue is the karma the verse says dissolves when the configuration is correct.",
+    "quotable_line": "The migration shipped, and the senior was unencumbered. That is what this verse calls action that dissolves.",
+    "tags": [
+      "non-attachment-to-praise",
+      "shipping-discipline",
+      "essence-vs-implementation",
+      "letting-go"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,208 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.34",
+  "sanskrit_devanagari": "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।\nउपदेक्ष्यन्ति ते ज्ञानं ज्ञानिनस्तत्त्वदर्शिन: ॥ 34 ॥",
+  "sanskrit_iast": "tad viddhi praṇipātena paripraśhnena sevayā\nupadekṣhyanti te jñānaṁ jñāninas tattva-darśhinaḥ",
+  "anvaya": [
+    {
+      "iast": "tat",
+      "meaning": "the truth",
+      "sanskrit": ""
+    },
+    {
+      "iast": "viddhi",
+      "meaning": "try to learn",
+      "sanskrit": ""
+    },
+    {
+      "iast": "praṇipātena",
+      "meaning": "by approaching a spiritual master",
+      "sanskrit": ""
+    },
+    {
+      "iast": "paripraśhnena",
+      "meaning": "by humble inquiries",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sevayā",
+      "meaning": "by rendering service",
+      "sanskrit": ""
+    },
+    {
+      "iast": "upadekṣhyanti",
+      "meaning": "can impart",
+      "sanskrit": ""
+    },
+    {
+      "iast": "te",
+      "meaning": "unto you",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñānam",
+      "meaning": "knowledge",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñāninaḥ",
+      "meaning": "the enlightened",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/34/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Just try to learn the truth by approaching a spiritual master. Inquire from him submissively and render service unto him. The self-realized souls can impart knowledge unto you because they have seen the truth.",
+      "raw_capture_path": "data/sources/raw/bg-4-34-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/34",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.34: Learn the Truth by approaching a spiritual master. Inquire from him with reverence and render service unto him. Such an enlightened Saint can impart knowledge unto you because he has seen the Truth."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/34/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The path of spiritual realization is undoubtedly difficult. The Lord therefore advises us to approach a bona fide spiritual master in the line of disciplic succession from the Lord Himself. No one can be a bona fide spiritual master without following this principle of disciplic succession.",
+      "verbatim_full_length": 1998,
+      "raw_full_path": "data/sources/raw/bg-4-34-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-34/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.34 Viddhi, know; tat, that, the process by which It is acquired; by approaching teachers pranipatena, through prostration, by lying fully streched on the ground with face downward, with prolonged salutation; pariprasnena, through inquiry, as to how bondage and Liberation come, and what are Knowledge and ignorance;…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1383,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-34-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-34/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.34 This is the knowledge concerning the self that has been taught by Me in the verses beginning with ‘Know that to be indestructibe’ (2.17) and ending with ‘this has been given to you’ (2.39). So engaged in appropriate actions, you can learn, according to the maturity of your competence, this wisdom from the wise,…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 853,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-34-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-34/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The means to acquire atma tattva or soul realisation is being stated here: How is this knowledge to be acquired? Lord Krishna reveals it is by inquiry. Inquire from a self-realised being by falling submissively at his feet just like a stick before him. Questions should be asked…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 742,
+      "raw_full_path": "data/sources/raw/bg-4-34-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.34: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Know that by approach, by question, by service; the knowers of truth, having seen, will instruct you in knowledge.",
+  "traditional_meaning": "tad viddhi praṇipātena paripraśnena sevayā — know that (the knowledge of 4.33) by praṇipāta (humble approach, prostration), paripraśna (probing question), sevā (service) — upadekṣyanti te jñānaṁ jñāninas tattva-darśinaḥ — the jñānins, the seers-of-truth, will instruct you. Shankara: the three actions name the disciple's complete relationship to the teacher — physical/attitudinal humility, intellectual engagement, and service that is the condition under which the transmission becomes possible. Ramanuja: praṇipāta is the recognition of the teacher's authority; paripraśna is the directed inquiry that allows the teacher to teach precisely; sevā is the personal service that proves the disciple's earnestness. THE most-quoted Gita verse on guru-shishya transmission.",
+  "engineering": {
+    "translation": "Three coordinated movements together permit knowledge to flow from senior practitioner to junior practitioner. Praṇipāta designates humble approach. The junior arrives oriented toward someone who has perceived what she has not yet perceived; not deferential, but learning-postured. Paripraśna — probing question. The well-formed question demonstrates the asker has tried, hit a real boundary, knows what she is asking. The lazy 'how do I do X' is not paripraśna; the question 'I tried X with approach A and got result B; my model says C; what assumption Y am I missing' is. Sevā — service. THIS IS THE LOAD-BEARING PART. Sevā is not deference. Sevā designates the unglamorous work performed alongside. Picking up the on-call rotation that lets the senior have the focus required to mentor. Doing the integration-test cleanup the senior never reaches. Sitting in the architecture review and capturing actual notes while the senior thinks. The transmission flows along this work-alongside, not along the tutorial conversation.",
+    "concrete_scenario": "A junior engineer wants distributed-systems mentorship from a principal on her team. Across six months she enacts three movements. Praṇipāta: rather than assuming on-demand instruction, she watches initially, requests a regular weekly slot, treats every slot as a gift, prepares thoroughly beforehand. Paripraśna: rather than asking vague 'tell me about distributed systems' questions, she arrives with 'I read your consensus-rewrite design doc; I do not understand why Raft was chosen over a multi-Paxos variant given the cluster sizes mentioned; my reading of the original Raft paper alongside Lamport's critique suggests the answer might be X.' Sevā: she takes on integration-test cleanup that her teacher has been deferring for months. She covers PagerDuty rotations during weeks her teacher needs continuous focus for composing the Q3 architecture review. She volunteers for AWS budget tracking that her teacher dislikes. None of this involves distributed-systems learning directly. Every bit sustains a relationship across six months in which actual learning happens — not within tutorial sessions but along Slack threads, design-doc comments, post-review conversations. Transmission flowed along sevā more than along paripraśna. This is what the verse describes.",
+    "falsifiability": "The analog fails if a reader concludes that sevā means deference, flattery, or compulsive self-effacement. Sevā is the unglamorous work alongside the senior, not the polishing of the senior's ego. An engineer who does the senior's slide deck because the senior is bad at slides is doing sevā; an engineer who praises the senior's mediocre design doc to gain favour is not. The diagnostic is whether the work-alongside is real work or theatre.",
+    "counter_example": "When a senior is not actually a tattva-darśin — when the 'principal engineer' is grade-not-substance, when the senior has stopped learning, when the senior is using the relationship for free labour rather than transmission — the verse's three movements do not apply. Praṇipāta to a non-knower is misplaced; paripraśna to one who cannot see is unanswered; sevā to one who is exploitative is theft. The verse names a relationship to actual jñānins; not all senior titles carry the substance.",
+    "implication": "Across your career, identify two or three actual tattva-darśins and form the three-part relationship with each. Across your career, identify three or four juniors approaching you and recognise whether they have brought the three movements; teach those who have, do not teach those who have not.",
+    "quotable_line": "Sevā is not deference. Sevā is the unglamorous work alongside.",
+    "tags": [
+      "team-culture",
+      "knowledge-action-integration",
+      "deep-work",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,214 @@
+{
+  "id": "BG 4.4",
+  "chapter": 4,
+  "verse": 4,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "अर्जुन उवाच\nअपरं भवतो जन्म परं जन्म विवस्वतः ।\nकथमेतद्विजानीयां त्वमादौ प्रोक्तवानिति ॥ ४ ॥",
+  "sanskrit_iast": "arjuna uvāca\naparaṁ bhavato janma paraṁ janma vivasvataḥ |\nkatham etad vijānīyāṁ tvam ādau proktavān iti || 4 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/4/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-4-4-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/4",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=4&field_nsutra_value=4",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-4-4-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_04.004 = MBh_06,026.004). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुन उवाच",
+      "iast": "arjuna uvāca",
+      "meaning": "Arjuna said"
+    },
+    {
+      "sanskrit": "अपरम्",
+      "iast": "aparam",
+      "meaning": "later"
+    },
+    {
+      "sanskrit": "भवतः",
+      "iast": "bhavataḥ",
+      "meaning": "of you"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "परम्",
+      "iast": "param",
+      "meaning": "earlier"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "विवस्वतः",
+      "iast": "vivasvataḥ",
+      "meaning": "of Vivasvān"
+    },
+    {
+      "sanskrit": "कथम्",
+      "iast": "katham",
+      "meaning": "how"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "विजानीयाम्",
+      "iast": "vijānīyām",
+      "meaning": "I should understand"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "आदौ",
+      "iast": "ādau",
+      "meaning": "in the beginning"
+    },
+    {
+      "sanskrit": "प्रोक्तवान्",
+      "iast": "proktavān",
+      "meaning": "did teach"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/4/",
+      "fetched_at": "2026-04-30T04:26:58.962Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: The sun-god Vivasvān is senior by birth to You. How am I to understand that in the beginning You instructed this science to him?",
+      "raw_capture_path": "data/sources/raw/bg-4-4-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/",
+      "fetched_at": "2026-04-30T04:27:14.357Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: The sun-god Vivasvān is senior by birth to You. How am I to understand that in the beginning You instructed this science to him?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/4/",
+      "fetched_at": "2026-04-30T04:26:58.962Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2569 chars)",
+      "verbatim_excerpt": "Arjuna is an accepted devotee of the Lord, so how could he not believe Kṛṣṇa’s words? The fact is that Arjuna is not inquiring for himself but for those who do not believe in the Supreme Personality of Godhead or for the demons who do not like the idea that Kṛṣṇa should be accepted as the Supreme Pe…",
+      "raw_full_path": "data/sources/raw/bg-4-4-vedabase.json (purport_full_length: 2569)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.357Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.4 Bhavatah, Your; janma, was aparam, later, in the abode of Vasudeva; (whereas) the birth vivasvatah, of Visvasvan, the Sun; was param, earlier, in the beginning of creation. Therefore, katham, how; vijanyam, am I to understand; etat, this, as not inconsistent; iti, that; tvam, You, yourself; who…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 552,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-4-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Arjuna raising the apparent contradiction between Krishna's recent birth and the antiquity of the original teaching to Vivasvān. The question is necessary in order to elicit Krishna's doctrine of recurring births and divine knowledge spanning them."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.357Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.4 Arjuna said — According to the calculation of time, your birth was indeed later, contemporaneous with our births. And the birth of Vivasvan was at an earlier time, reckoned as twenty-eight cycles of units of four Yugas each.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2323,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-4-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as Arjuna's doubt arising specifically because Krishna seems to be a normal human born in this age, whereas the teaching is ancient. The question is what creates space for Krishna to declare in 4.5-4.9 that he is not bound by ordinary birth."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "katham etad vijānīyām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "How am I to understand that in the beginning You instructed this science?"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Arjuna's sincere question, raised in order that the doctrine of Krishna's transcendental nature may be declared"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Arjuna's doubt is honest and necessary; it is the cue for Krishna's revelation of his recurring incarnations"
+        }
+      ],
+      "explanation": "All three commentators agree Arjuna's question is genuine, not adversarial. Both classical commentators read it as a teaching device — the question's role is to make space for the avatar doctrine that follows. None of them read Arjuna as challenging Krishna's authority."
+    }
+  ],
+  "literal_meaning": "Arjuna said: Your birth was later, Vivasvān's was earlier; how should I understand that you taught it in the beginning?",
+  "traditional_meaning_consensus": "Arjuna asks the obvious chronological question: Krishna's birth in this lifetime is recent; Vivasvān is from a remote epoch. How can the same person have taught Vivasvān? The question is sincere, not skeptical — it sets up Krishna's answer at 4.5 about identity-across-births. This is Arjuna's only major interruption in the first ten verses of the chapter.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

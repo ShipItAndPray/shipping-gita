@@ -1,0 +1,268 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.22",
+  "sanskrit_devanagari": "यदृच्छालाभसन्तुष्टो द्वन्द्वातीतो विमत्सर: ।\nसम: सिद्धावसिद्धौ च कृत्वापि न निबध्यते ॥ 22 ॥",
+  "sanskrit_iast": "yadṛichchhā-lābha-santuṣhṭo dvandvātīto vimatsaraḥ\nsamaḥ siddhāvasiddhau cha kṛitvāpi na nibadhyate",
+  "anvaya": [
+    {
+      "iast": "yadṛichchhā",
+      "meaning": "which comes of its own accord",
+      "sanskrit": ""
+    },
+    {
+      "iast": "lābha",
+      "meaning": "gain",
+      "sanskrit": ""
+    },
+    {
+      "iast": "santuṣhṭaḥ",
+      "meaning": "contented",
+      "sanskrit": ""
+    },
+    {
+      "iast": "dvandva",
+      "meaning": "duality",
+      "sanskrit": ""
+    },
+    {
+      "iast": "atītaḥ",
+      "meaning": "surpassed",
+      "sanskrit": ""
+    },
+    {
+      "iast": "vimatsaraḥ",
+      "meaning": "free from envy",
+      "sanskrit": ""
+    },
+    {
+      "iast": "samaḥ",
+      "meaning": "equipoised",
+      "sanskrit": ""
+    },
+    {
+      "iast": "siddhau",
+      "meaning": "in success",
+      "sanskrit": ""
+    },
+    {
+      "iast": "asiddhau",
+      "meaning": "failure",
+      "sanskrit": ""
+    },
+    {
+      "iast": "cha",
+      "meaning": "and",
+      "sanskrit": ""
+    },
+    {
+      "iast": "kṛitvā",
+      "meaning": "performing",
+      "sanskrit": ""
+    },
+    {
+      "iast": "api",
+      "meaning": "even",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "never",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/22/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "He who is satisfied with gain which comes of its own accord, who is free from duality and does not envy, who is steady in both success and failure, is never entangled, although performing actions.",
+      "raw_capture_path": "data/sources/raw/bg-4-22-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/22",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.22: Content with whatever gain comes of its own accord, and free from envy, they are beyond the dualities of life. Being equipoised in success and failure, they are not bound by their actions, even while performing all kinds of activities."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/22/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "A Kṛṣṇa conscious person does not make much endeavor even to maintain his body. He is satisfied with gains which are obtained of their own accord. He neither begs nor borrows, but he labors honestly as far as is in his power, and is satisfied with whatever is obtained by his own honest labor.",
+      "verbatim_full_length": 905,
+      "raw_full_path": "data/sources/raw/bg-4-22-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-22/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.22 Yadrccha-labha-santustah, remaining satisfied with what comes unasked for-yadrccha-labha means coming to possess something without having prayed for it; feeling contented with that-. Dvandva-atitah,having transcended the dualities-one is said to be beyond dualities when his mind is not distressed even when…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 2526,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-22-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-22/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.22 Content with whatever chance may bring for the maintenance of the body; ‘rising above the pairs of opposites’ means enduring cold, heat and such other experiences until one has completed the practice of Karma Yoga; ‘free from ill-will?’ i.e., free from ill-will towards others, seeing his own Karma as the cause of…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 588,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-22-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-22/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Completely content with what comes, unsought, by its own accord, patiently enduring all dualities such as success and failure, happiness and disappointment, free from elation and depression, not subject to jealousy and envy. Lord Krishna confirms that such a person is not bound…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 416,
+      "raw_full_path": "data/sources/raw/bg-4-22-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.22: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Content with what comes by chance, beyond the dualities, free of envy, equal in success and failure — though acting, he is not bound.",
+  "traditional_meaning": "The verse continues 4.21's portrait: yad-ṛcchā-lābha-santuṣṭaḥ (content with what arrives by chance), dvandvātītaḥ (gone beyond the pairs of opposites — heat/cold, gain/loss, praise/blame), vimatsaraḥ (free of envy/competitive resentment), samaḥ siddhāv asiddhau ca (equal in success and failure). The actor with these qualities, though performing action, is not bound (kṛtvāpi na nibadhyate). Shankara emphasises: the equanimity is not artificial restraint but flows from the dvandva-transcendence which itself flows from the dropped agent-claim of 4.21. Ramanuja: the karma-yogin's equanimity is the direct fruit of correct buddhi-yoga and is what makes continued action liberating rather than binding.",
+  "engineering": {
+    "translation": "The freed engineer is described in this verse through four positive characteristics. First, contented with what spontaneously arrives — yad-ṛcchā-lābha-santuṣṭaḥ. When the team is assigned the legacy Postgres migration nobody volunteered for, she accepts the assignment without resentment. When the on-call rotation lands on a holiday weekend, she registers the inconvenience without becoming aggrieved. Second, beyond the dualities — dvandvātītaḥ. Praise and critical feedback arrive within the same GitHub code review without flipping her internal disposition. Third, free of envy — vimatsaraḥ. The peer's promotion is registered without competitive contraction. Fourth, equal in success and failure — samaḥ siddhāv asiddhau. The launch performed well; she returns home. The launch faltered; she returns home. Action performed from this configuration does not bind her.",
+    "concrete_scenario": "Two senior engineers on the same platform team handle the quarterly performance-review cycle differently from one another. The first, samaḥ siddhāv asiddhau, reads her review — a strong rating, a stretch goal, a critical comment about cross-team communication — and registers the three signals with the same disciplined inner posture. She updates her goals doc in Notion, files one GitHub issue capturing the cross-team coupling pattern, schedules one conversation with the cross-team lead via Slack, and is back in her code by 11am. Her peer, who did equally good work, opens his review and is hijacked for the day. The strong rating is rehearsed for an hour in a private slack channel, the critical comment is litigated in his head against his peer's better rating, the stretch goal is converted into a performance anxiety. Both shipped the same migration last quarter. Only one of them is, in the verse's terms, kṛtvāpi na nibadhyate — having acted, not bound. The second engineer's binding is not in the action; it is in the dual-acceptance loop that ran for the day after.",
+    "falsifiability": "The analog fails if a reader concludes that the freed engineer should not request a raise, decline an unfair load, or push back on a wrong rating. Equanimity in the verse is not passivity. The engineer who quietly eats every assigned holiday rotation forever has not transcended duality; she has suppressed her own reading of fairness. The verse names a state from which clear action issues, not a state in which assertion is impossible.",
+    "counter_example": "When a structural inequity is being normalised — pay disparity, an unfair on-call distribution, scope-creep without acknowledgement — the verse's equanimity does not require silent absorption. The dvandva-transcendence is at the level of the inner reaction; the outer action remains responsive to fairness, including the fairness of one's own treatment.",
+    "implication": "Across the next two performance cycles, observe the gap between the review-event and the recovery-of-attention. The engineer whose equanimity is rising will close that gap. The artefact-density of the next sprint is the test, not the inner narrative about the review.",
+    "quotable_line": "Praise and criticism arrive in the same review. The freed engineer is back in her code by 11am.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-state",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

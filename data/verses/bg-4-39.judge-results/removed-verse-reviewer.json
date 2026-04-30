@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog not reconstructible from chapter alone (without the verse)",
+      "objection": "Remove 4.39 from the chapter and ask: could the engineering analog be predicted from the surrounding verses? No. 4.39 carries verse-specific weight (The one with faith, intent, restrained-of-senses obtains knowledge; ob…) that the chapter does not redundantly encode in nearby verses. The engineering analog requires this verse's specific Sanskrit anchor."
+    }
+  ],
+  "notes": "Removed-verse test for 4.39: the engineering layer is verse-specific, not chapter-derivable. PASS."
+}

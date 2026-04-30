@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.15",
+  "chapter": 3,
+  "verse": 15,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chain closes into Brahman. karma brahmodbhavaṁ viddhi — know that action is born of Brahman; brahmākṣara-samudbhavam — Brahman is born of the Imperishable; tasmāt sarva-gataṁ brahma nityaṁ yajñe pratiṣṭhitam — therefore the all-pervading Brahman is eternally established in yajña. Per the Advaita gloss, brahma here is the Veda; action arises from its prescription; the Veda is born of the akṣara (the eternal Imperishable). Per the Vishishtadvaita reading, brahma is the body / Prakṛti from which action arises; Prakṛti is the womb of the Supreme Person. Either gloss reaches metaphysics that the engineering layer cannot honestly carry. STRETCHED, with confidence MEDIUM. The pale operational reading: the source of action — what makes the engineer able to act at all — bottoms out in something the engineer did not author. Compute is sponsored or billed; the language is inherited; the operating system is borrowed; conventions are received. At every layer, the engineer's work rests on something not produced by them.",
+    "concrete_scenario": "A staff engineer is asked in a hiring panel: where does your ability to write the code you write actually come from? She thinks for a minute and says: the compute I run on is Linux, written by people I will never meet across forty years. The language I write in is Python, designed by Guido, maintained by a foundation I do not fund. The libraries I import are the work of strangers. The patterns I use — strangler fig, circuit breaker, idempotency keys — were named by engineers a decade ago who learned them from engineers two decades before. The conventions of code review, the structure of a PR, the format of a postmortem — none of these did I invent. My action rests on a stack I did not author at any layer. When I commit code at 3 PM Tuesday, what I am doing is contributing one micro-layer to a loop whose source I cannot trace. The verse 3.15 names this kind of source-tracing cosmologically — karma is born of Brahman, Brahman of the Imperishable. The engineering reading is a pale shadow: the engineer's authorship is real but tiny, and the substrate is borrowed. Honest STRETCHED tagging is required.",
+    "falsifiability": "The analog fails if a reader uses 3.15 to claim that the operational stack (Linux, Python, AWS, GitHub) has cosmological status. It does not. The verse's brahma is the Veda or Prakṛti; the engineering stack is contingent infrastructure built by humans across decades. Anyone reading the verse to mean 'the open-source ecosystem is sacred' has erased the original's specificity. The honest move: register the analog as analog and tag STRETCHED. The metaphysical claim is the original's; the engineering shadow is gratitude-tracing, not cosmology.",
+    "counter_example": "When an engineer claims sole authorship of a piece of work — refusing to credit the libraries, the patterns, the prior art — the verse's diagnosis applies. The verse names karma as born of Brahman; the engineer who claims her code is born of her alone is making a claim the metaphysics rejects. The engineering analog is again pale: the diagnosis at the operational layer is that no engineer's action is original at every layer.",
+    "implication": "When you commit code, register that your action rests on a stack you did not author. The Linux kernel, the Python interpreter, the patterns you use, the conventions of review — they are all inherited. The verse names a metaphysical source; the engineering shadow is gratitude that does not flatten into 'open source is sacred'.",
+    "quotable_line": "Your action rests on a stack you did not author; the verse names a metaphysical source the engineering analog can only shadow, not carry.",
+    "tags": [
+      "yajna-as-discipline",
+      "first-principles",
+      "system-recognition"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.15 — MOST METAPHYSICALLY LOADED of the block. STRETCHED tag honest: the verse's brahma (the Veda per Advaita, Prakṛti per Vishishtadvaita) reaches metaphysics the engineering layer cannot carry. The pale operational reading: the engineer's action rests on a stack she did not author at any layer (Linux, Python, libraries, patterns, review conventions). Concrete scenario uses a hiring-panel question 'where does your ability to write code come from'. Counter-example uses the engineer-claiming-sole-authorship case. Tags: yajna-as-discipline, first-principles, system-recognition.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

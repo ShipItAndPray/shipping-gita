@@ -1,0 +1,214 @@
+{
+  "id": "BG 4.13",
+  "chapter": 4,
+  "verse": 13,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "चातुर्वर्ण्यं मया सृष्टं गुणकर्मविभागशः ।\nतस्य कर्तारमपि मां विद्ध्यकर्तारमव्ययम् ॥ १३ ॥",
+  "sanskrit_iast": "cātur-varṇyaṁ mayā sṛṣṭaṁ guṇa-karma-vibhāgaśaḥ |\ntasya kartāram api māṁ viddhy akartāram avyayam || 13 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/13/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-4-13-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/13",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=4&field_nsutra_value=13",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-4-13-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_04.013 = MBh_06,026.013). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "चातुः",
+      "iast": "cātur",
+      "meaning": "four-fold"
+    },
+    {
+      "sanskrit": "वर्ण्यम्",
+      "iast": "varṇyam",
+      "meaning": "varṇa-classification"
+    },
+    {
+      "sanskrit": "मया",
+      "iast": "mayā",
+      "meaning": "by me"
+    },
+    {
+      "sanskrit": "सृष्टम्",
+      "iast": "sṛṣṭam",
+      "meaning": "was created"
+    },
+    {
+      "sanskrit": "गुण",
+      "iast": "guṇa",
+      "meaning": "of guṇa (intrinsic disposition)"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "of karma (acquired action)"
+    },
+    {
+      "sanskrit": "विभागशः",
+      "iast": "vibhāgaśaḥ",
+      "meaning": "according to the division"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "of that"
+    },
+    {
+      "sanskrit": "कर्तारम्",
+      "iast": "kartāram",
+      "meaning": "doer / creator"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "though"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "me"
+    },
+    {
+      "sanskrit": "विद्धि",
+      "iast": "viddhi",
+      "meaning": "know"
+    },
+    {
+      "sanskrit": "अकर्तारम्",
+      "iast": "akartāram",
+      "meaning": "non-doer"
+    },
+    {
+      "sanskrit": "अव्ययम्",
+      "iast": "avyayam",
+      "meaning": "unchanging"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/13/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "According to the three modes of material nature and the work associated with them, the four divisions of human society are created by Me. And although I am the creator of this system, you should know that I am yet the nondoer, being unchangeable.",
+      "raw_capture_path": "data/sources/raw/bg-4-13-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/",
+      "fetched_at": "2026-04-30T04:27:14.861Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "According to the three modes of material nature and the work associated with them, the four divisions of human society are created by Me. And although I am the creator of this system, you should know that I am yet the nondoer, being unchangeable."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/13/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2125 chars)",
+      "verbatim_excerpt": "The Lord is the creator of everything. Everything is born of Him, everything is sustained by Him, and everything, after annihilation, rests in Him. He is therefore the creator of the four divisions of the social order, beginning with the intelligent class of men, technically called brāhmaṇas due to…",
+      "raw_full_path": "data/sources/raw/bg-4-13-vedabase.json (purport_full_length: 2125)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.861Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.13 Catur-varnyam-meaning the same as catvarah varnah, the four castes; srstam, have been created; maya, by Me who am God, which accords with such Vedic texts as, ‘The Brahmanas were His face…’ (Rg. 10.90.12); guna-karma-vibhagasah, through a classification of the gunas and duties. [A.G.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1948,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-13-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads guṇa-karma-vibhāgaśaḥ as: the four varṇas were created according to the division of guṇa (sattva, rajas, tamas) and the corresponding karma (action) appropriate to each. This is a typology by intrinsic and acquired qualities, not by birth-line. The akartā / avyaya clause is read in Advaita fashion: the Lord as Brahman is creator only at the empirical level; in essence, he is non-doer."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-13/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.861Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.13 The whole universe beginning with Brahma and ending with a cluster of grass, with the system of four stations divided according to Sattva and other Gunas and by actions like self-control corresponding to the Gunas, was created by Me. The mention of ‘creation’ is for illustration.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 505,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-13-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as the Lord's declaration that the four-fold ordering of human society reflects an underlying division by guṇa and karma — the Lord's creative ordering follows the intrinsic and acquired qualities of beings. The Lord is creator at the cosmic level but, by his nature as the unchanging substrate, is also akartā in the deeper sense."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "cātur-varṇyam ... guṇa-karma-vibhāgaśaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the four divisions of human society, according to the modes of material nature and the work attributed to them"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the four varṇas, created according to the division of the three guṇas and the karma corresponding to each"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the four-fold ordering, reflecting the underlying division by intrinsic guṇa and acquired karma"
+        }
+      ],
+      "explanation": "What the verse explicitly says: typology by guṇa and karma. What the verse does NOT say: typology by birth. The historical caste-by-birth reading is a later extension, contested even within tradition. Engineering layers must honor what the verse explicitly says (typology by intrinsic disposition + acquired action) and not smuggle in the birth-based reading. This is a STRETCHED-tag candidate verse if the engineering layer cannot honor both halves cleanly."
+    }
+  ],
+  "literal_meaning": "The four-fold typology was created by me according to the division of guṇa and karma; though I am its creator, know me as non-doer, unchanging.",
+  "traditional_meaning_consensus": "The chapter's most doctrinally fraught verse. Krishna explicitly says cātur-varṇya was created BY GUṆA AND KARMA — by intrinsic disposition (guṇa) and acquired action (karma) — NOT by birth. The historical caste-by-birth reading is an extension; the verse itself says guṇa-karma. The second hemistich adds: though Krishna is the creator of the typology, he is also non-doer (akartā), unchanging (avyaya). Both halves of the verse are loaded — the first by the historical caste-system reading, the second by the metaphysical claim of agency-without-binding.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

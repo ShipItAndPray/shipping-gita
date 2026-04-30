@@ -1,0 +1,241 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.40",
+  "sanskrit_devanagari": "अज्ञश्चाश्रद्दधानश्च संशयात्मा विनश्यति ।\nनायं लोकोऽस्ति न परो न सुखं संशयात्मन: ॥ 40 ॥",
+  "sanskrit_iast": "ajñaśh chāśhraddadhānaśh cha sanśhayātmā vinaśhyati\nnāyaṁ loko 'sti na paro na sukhaṁ sanśhayātmanaḥ",
+  "anvaya": [
+    {
+      "iast": "ajñaḥ",
+      "meaning": "the ignorant",
+      "sanskrit": ""
+    },
+    {
+      "iast": "cha",
+      "meaning": "and",
+      "sanskrit": ""
+    },
+    {
+      "iast": "aśhraddadhānaḥ",
+      "meaning": "without faith",
+      "sanskrit": ""
+    },
+    {
+      "iast": "cha",
+      "meaning": "and",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sanśhaya",
+      "meaning": "skeptical",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ātmā",
+      "meaning": "a person",
+      "sanskrit": ""
+    },
+    {
+      "iast": "vinaśhyati",
+      "meaning": "falls down",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "never",
+      "sanskrit": ""
+    },
+    {
+      "iast": "ayam",
+      "meaning": "in this",
+      "sanskrit": ""
+    },
+    {
+      "iast": "lokaḥ",
+      "meaning": "world",
+      "sanskrit": ""
+    },
+    {
+      "iast": "asti",
+      "meaning": "is",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "not",
+      "sanskrit": ""
+    },
+    {
+      "iast": "paraḥ",
+      "meaning": "in the next",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "not",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sukham",
+      "meaning": "happiness",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/40/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "But ignorant and faithless persons who doubt the revealed scriptures do not attain God consciousness; they fall down. For the doubting soul there is happiness neither in this world nor in the next.",
+      "raw_capture_path": "data/sources/raw/bg-4-40-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/40",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.40: But persons who possess neither faith nor knowledge, and who are of a doubting nature, suffer a downfall. For the skeptical souls, there is no happiness either in this world or the next."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/40/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Out of many standard and authoritative revealed scriptures, the Bhagavad-gītā is the best. Persons who are almost like animals have no faith in, or knowledge of, the standard revealed scriptures; and some, even though they have knowledge of, or can cite passages from, the revealed scriptures, have actually no faith in",
+      "verbatim_full_length": 1253,
+      "raw_full_path": "data/sources/raw/bg-4-40-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-40/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.40 Ajnah, one who is ignorant, who has not known the Self; and asradda-dhanah, who is faithless; [Ast. adds here: guruvakya-sastresu avisvasavan, who has no faith in the instructions of the teacher and the scriptures.-Tr.] and samsaya-atma, who has a doubting mind; vinasyati, perishes. Although the ignorant and the…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 754,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-40-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-40/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.40 ‘The ignorant,’ i.e., one devoid of knowledge received through instruction, ‘the faithless’ or one who has no faith in developing this knowledge taught to him, i.e., who does not strive to progress quickly, and ‘the doubting one,’ i.e., one who is full of doubts in regard to the knowledge taught — such persons…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1014,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-40-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-40/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "After previously describing the qualifications of an aspirant for spiritual knowledge now Lord Krishna describes the characteristics of one who is unfit and not qualified for spiritual knowledge. One who is ignorant, of little faith, who does not follow instructions of the…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 808,
+      "raw_full_path": "data/sources/raw/bg-4-40-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.40: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "The ignorant, the faithless, the doubting one is destroyed; not for the doubting is this world or the next or happiness.",
+  "traditional_meaning": "ajñaś cāśraddadhānaś ca saṁśayātmā vinaśyati — the ignorant, the faithless, and the doubting one is destroyed — nāyaṁ loko 'sti na paro na sukhaṁ saṁśayātmanaḥ — for the doubting one, neither this world nor the next nor happiness exists. Shankara: three failure-modes — ignorance (ajñā), faithlessness (aśraddhā), and chronic doubt (saṁśaya) — and the third is named as especially destructive (the verse repeats saṁśayātmanaḥ in the second hemistich). Ramanuja: chronic doubt prevents the karma-yoga path from progressing; the doubter is structurally unable to commit to the practice that would resolve the doubt.",
+  "engineering": {
+    "translation": "The verse names three failure modes and singles out the third. Ajñā designates ignorance, the configuration of having not yet reached substrate-knowledge. Aśraddhā designates faithlessness, the configuration of having no grounded confidence that disciplined practice is real. Saṁśayātmā designates chronic doubt, an internalised structural inability to commit to a path long enough for the path to be evaluated. The third is the most destructive because the doubter cannot ship, cannot complete the substrate-reading, cannot stay with the architectural choice long enough for it to either work or fail informatively. The closing pāda is sharp: not for the doubter is this world or the next or happiness. The engineering shadow at operational scope: the engineer in chronic decision-paralysis does not produce; her work-output is structurally lower than even the ignorant or the faithless engineer's. The verse and the chapter's closing imperative (4.42) are connected: the doubter is the one the chapter is about to instruct to cut the doubt.",
+    "concrete_scenario": "Three engineers face the same architectural choice — pick a queue technology for a new service. The first, ignorant, selects the wrong queue because she has not read enough; she ships, the system surfaces problems, the team learns, and she now possesses verifiable understanding. The second, faithless, doubts that any choice meaningfully matters; she picks one randomly and stays uncommitted; her work emerges mediocre but produces output. The third, the doubter, spends three months unable to choose. She investigates Kafka, then RabbitMQ, then SQS, then Redis Streams, then circles back to Kafka. She drafts three design docs. She schedules four architecture reviews. She does not ship. The team's project is blocked. After three months she is reassigned to a different team and someone else picks the queue (any queue) and ships in two weeks. The verse names the doubter's pathology precisely: structural inability to commit. Its operational shadow is observable.",
+    "falsifiability": "The analog fails if a reader confuses doubt with deliberation. Deliberation that resolves into a choice is not saṁśaya; saṁśaya is the chronic state in which deliberation does not resolve. The diagnostic is the timeline: a two-week deliberation that resolves is healthy; a three-month deliberation that has not converged is the verse's failure mode.",
+    "counter_example": "When a decision has genuine high reversibility cost and limited information — a foundational architecture choice for a regulated system, a vendor lock-in for a multi-year contract — extended deliberation may be appropriate. The verse names chronic doubt as a structural disposition, not careful slow decision-making in genuinely consequential contexts. The diagnostic remains the same — does deliberation resolve — but the timeline scale shifts.",
+    "implication": "Identify any decision in your queue that has been open for more than two months without convergence. The chronic-open decisions are the operational shadow of saṁśaya; they are eating more than the eventual wrong-decision would have.",
+    "quotable_line": "The team's project is blocked for three months. Then someone else picks the queue and ships in two weeks.",
+    "tags": [
+      "decision-paralysis",
+      "engineer-paralysis",
+      "shipping-discipline",
+      "judgment-under-uncertainty"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

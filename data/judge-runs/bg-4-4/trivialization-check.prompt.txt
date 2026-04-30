@@ -1,0 +1,217 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.4",
+  "sanskrit_devanagari": "अर्जुन उवाच\nअपरं भवतो जन्म परं जन्म विवस्वतः ।\nकथमेतद्विजानीयां त्वमादौ प्रोक्तवानिति ॥ ४ ॥",
+  "sanskrit_iast": "arjuna uvāca\naparaṁ bhavato janma paraṁ janma vivasvataḥ |\nkatham etad vijānīyāṁ tvam ādau proktavān iti || 4 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुन उवाच",
+      "iast": "arjuna uvāca",
+      "meaning": "Arjuna said"
+    },
+    {
+      "sanskrit": "अपरम्",
+      "iast": "aparam",
+      "meaning": "later"
+    },
+    {
+      "sanskrit": "भवतः",
+      "iast": "bhavataḥ",
+      "meaning": "of you"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "परम्",
+      "iast": "param",
+      "meaning": "earlier"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "विवस्वतः",
+      "iast": "vivasvataḥ",
+      "meaning": "of Vivasvān"
+    },
+    {
+      "sanskrit": "कथम्",
+      "iast": "katham",
+      "meaning": "how"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "विजानीयाम्",
+      "iast": "vijānīyām",
+      "meaning": "I should understand"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "आदौ",
+      "iast": "ādau",
+      "meaning": "in the beginning"
+    },
+    {
+      "sanskrit": "प्रोक्तवान्",
+      "iast": "proktavān",
+      "meaning": "did teach"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/4/",
+      "fetched_at": "2026-04-30T04:26:58.962Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: The sun-god Vivasvān is senior by birth to You. How am I to understand that in the beginning You instructed this science to him?",
+      "raw_capture_path": "data/sources/raw/bg-4-4-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/",
+      "fetched_at": "2026-04-30T04:27:14.357Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: The sun-god Vivasvān is senior by birth to You. How am I to understand that in the beginning You instructed this science to him?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/4/",
+      "fetched_at": "2026-04-30T04:26:58.962Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2569 chars)",
+      "verbatim_excerpt": "Arjuna is an accepted devotee of the Lord, so how could he not believe Kṛṣṇa’s words? The fact is that Arjuna is not inquiring for himself but for those who do not believe in the Supreme Personality of Godhead or for the demons who do not like the idea that Kṛṣṇa should be accepted as the Supreme Pe…",
+      "raw_full_path": "data/sources/raw/bg-4-4-vedabase.json (purport_full_length: 2569)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.357Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.4 Bhavatah, Your; janma, was aparam, later, in the abode of Vasudeva; (whereas) the birth vivasvatah, of Visvasvan, the Sun; was param, earlier, in the beginning of creation. Therefore, katham, how; vijanyam, am I to understand; etat, this, as not inconsistent; iti, that; tvam, You, yourself; who…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 552,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-4-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as Arjuna raising the apparent contradiction between Krishna's recent birth and the antiquity of the original teaching to Vivasvān. The question is necessary in order to elicit Krishna's doctrine of recurring births and divine knowledge spanning them."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-4/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.357Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.4 Arjuna said — According to the calculation of time, your birth was indeed later, contemporaneous with our births. And the birth of Vivasvan was at an earlier time, reckoned as twenty-eight cycles of units of four Yugas each.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 2323,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-4-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as Arjuna's doubt arising specifically because Krishna seems to be a normal human born in this age, whereas the teaching is ancient. The question is what creates space for Krishna to declare in 4.5-4.9 that he is not bound by ordinary birth."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "katham etad vijānīyām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "How am I to understand that in the beginning You instructed this science?"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Arjuna's sincere question, raised in order that the doctrine of Krishna's transcendental nature may be declared"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Arjuna's doubt is honest and necessary; it is the cue for Krishna's revelation of his recurring incarnations"
+        }
+      ],
+      "explanation": "All three commentators agree Arjuna's question is genuine, not adversarial. Both classical commentators read it as a teaching device — the question's role is to make space for the avatar doctrine that follows. None of them read Arjuna as challenging Krishna's authority."
+    }
+  ],
+  "literal_meaning": "Arjuna said: Your birth was later, Vivasvān's was earlier; how should I understand that you taught it in the beginning?",
+  "traditional_meaning": "Arjuna asks the obvious chronological question: Krishna's birth in this lifetime is recent; Vivasvān is from a remote epoch. How can the same person have taught Vivasvān? The question is sincere, not skeptical — it sets up Krishna's answer at 4.5 about identity-across-births. This is Arjuna's only major interruption in the first ten verses of the chapter.",
+  "engineering": {
+    "translation": "Arjuna asks the obvious chronological question: how can Krishna, born recently in this lifetime, have been the original instructor of Vivasvān, a figure from a remote epoch? The inquiry is sincere, not skeptical. Our reading: when a senior invokes a principle older than their own career — the idempotency pattern, the leader-election protocol, the Postgres MVCC discipline — the student's right move is to ask the chronological question. How does this senior have access to a principle that predates them? Krishna's answer at 4.5 will concern the kind of knowing involved, not the surface validity of the question. When a senior says 'this approach has held for forty years across mainframe, client-server, and cloud,' the honest engineer asks 'how do you know?' That is Arjuna's inquiry, and it opens the door to genuine transmission.",
+    "concrete_scenario": "A junior engineer in a GitHub PR review at a database company asks the principal architect: 'You keep saying this MVCC pattern has worked since the seventies in production systems. But you've only been writing code professionally since 2002. How do you actually know it has held up since the seventies?' The architect pauses. The junior is not being adversarial; they are being honest. The architect replies: 'Good question. I know two ways. First: I worked at Oracle for eleven years on a Postgres-adjacent codebase that traces back to 1979, and the original MVCC implementation comments are still in the source control history with the original engineers' names. Second: I learned the technique from someone who learned it from someone who was in the System R discussions at IBM. I do not hold first-person memory of the seventies. I hold transmitted knowledge plus archaeological code reading.' The junior nods. Chronology has been honored. The architect's authority is now stronger, not weaker, because the question was asked and the response was specific.",
+    "falsifiability": "The analog fails if a reader uses it to justify treating senior invocations of principle as automatically suspect. Arjuna's question is sincere, not adversarial. The engineering analog is: ask the chronological question once, accept the answer if it is specific (transmission lineage + first-person partial-coverage), and stop asking unless the answer was hand-waving. A junior who turns every senior invocation into a courtroom cross-examination has misread the relation Arjuna and Krishna have just established at 4.3.",
+    "counter_example": "When the senior's claim genuinely is fabricated — when 'this pattern has worked for forty years' is a rhetorical flourish for what is actually a personal preference from 2018 — the junior's chronological question reveals the gap. The verse and the analog assume a real lineage that responds to the question with content. If the question reveals no content, the chain is not what was claimed.",
+    "implication": "When a senior invokes long-standing principle, ask the chronological question once, kindly. The answer reveals whether the claim is paramparā or theatre. Both you and the senior are better off after the question.",
+    "quotable_line": "Ask the chronological question once. The answer reveals whether the senior is transmitting or theatricalising.",
+    "tags": [
+      "first-principles",
+      "code-review-discipline",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

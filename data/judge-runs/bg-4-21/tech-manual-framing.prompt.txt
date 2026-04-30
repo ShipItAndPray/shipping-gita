@@ -1,0 +1,224 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.21",
+  "sanskrit_devanagari": "निराशीर्यतचित्तात्मा त्यक्तसर्वपरिग्रह: ।\nशारीरं केवलं कर्म कुर्वन्नाप्नोति किल्बिषम् ॥ 21 ॥",
+  "sanskrit_iast": "nirāśhīr yata-chittātmā tyakta-sarva-parigrahaḥ\nśhārīraṁ kevalaṁ karma kurvan nāpnoti kilbiṣham",
+  "anvaya": [
+    {
+      "iast": "nirāśhīḥ",
+      "meaning": "free from expectations",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yata",
+      "meaning": "controlled",
+      "sanskrit": ""
+    },
+    {
+      "iast": "chitta",
+      "meaning": "ātmā—mind and intellect",
+      "sanskrit": ""
+    },
+    {
+      "iast": "tyakta",
+      "meaning": "having abandoned",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sarva",
+      "meaning": "all",
+      "sanskrit": ""
+    },
+    {
+      "iast": "parigrahaḥ",
+      "meaning": "the sense of ownership",
+      "sanskrit": ""
+    },
+    {
+      "iast": "śhārīram",
+      "meaning": "bodily",
+      "sanskrit": ""
+    },
+    {
+      "iast": "kevalam",
+      "meaning": "only",
+      "sanskrit": ""
+    },
+    {
+      "iast": "karma",
+      "meaning": "actions",
+      "sanskrit": ""
+    },
+    {
+      "iast": "kurvan",
+      "meaning": "performing",
+      "sanskrit": ""
+    },
+    {
+      "iast": "na",
+      "meaning": "never",
+      "sanskrit": ""
+    },
+    {
+      "iast": "āpnoti",
+      "meaning": "incurs",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/21/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a man of understanding acts with mind and intelligence perfectly controlled, gives up all sense of proprietorship over his possessions and acts only for the bare necessities of life. Thus working, he is not affected by sinful reactions.",
+      "raw_capture_path": "data/sources/raw/bg-4-21-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/21",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.21: Free from expectations and the sense of ownership, with the mind and intellect fully controlled, they incur no sin even though performing actions by their body."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/21/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "A Kṛṣṇa conscious person does not expect good or bad results in his activities. His mind and intelligence are fully controlled. He knows that because he is part and parcel of the Supreme, the part played by him, as a part and parcel of the whole, is not his own activity but is only being done through him by the…",
+      "verbatim_full_length": 1389,
+      "raw_full_path": "data/sources/raw/bg-4-21-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-21/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.21 Nirasih, one who is without solicitation-one from whom asisah [Asih is a kind of desire that can be classed under prayer. (Some translate it as desire, hope.-Tr.)], solicitations, have departed; yata-citta-atma, who has the mind and organs under control-one by whom have been controlled (yatau) both the internal…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 4535,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-21-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-21/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.21 ‘Free from desire’ means having no attachment to the fruits of actions. ‘His intellect and mind controlled’ means one whose intellect and mind are under control. ‘Giving up all possessions’ means one who, on account of his having the self as his primary objective, is devoid of the sense of ownership in relation…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 684,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-21-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-21/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Lord Krishna continuing this theme now explains that one who is completely free from desire does not become tainted by the disease of materialism while performing the natural functions that occur automatically to insure bodily maintenance. Another interpretation of this verse…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 815,
+      "raw_full_path": "data/sources/raw/bg-4-21-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.21: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Free from expectation, with mind and intellect controlled, having abandoned all sense of possession — performing only bodily action, one does not incur sin.",
+  "traditional_meaning": "Krishna sketches the freed actor in negative terms: niraśīḥ (free of expectation for results), yata-citta-ātmā (mind and intellect held in restraint), tyakta-sarva-parigrahaḥ (the sense of proprietorship abandoned). Such a one performs only śārīraṁ kevalaṁ karma — action restricted to what the embodied state itself requires — and incurs no kilbiṣa (sin / karmic stain). Shankara reads kevalaṁ tightly: action without the agent-ship-claim ('I do'), so even what looks like ordinary embodied activity does not bind. Ramanuja: the karma-yogin engaged only in bodily action sees the self by that very practice and need not move to a separate jñāna-yoga.",
+  "engineering": {
+    "translation": "Three things characterise the engineer that this verse describes. First, no expectation of result — niraśīḥ. The deploy is sent without rehearsing the launch tweet, the migration is run without rehearsing the credit. Second, mind and intellect under control — yata-citta-ātmā. The internal monologue of yes-but and what-if is disciplined enough that the action issues from the discriminating layer, not from the rumination layer. Third, the sense of proprietorship dropped — tyakta-sarva-parigrahaḥ. The codebase is not 'mine.' The dashboard is not 'mine.' The metric I moved is not 'my metric.' Such an engineer performs śārīraṁ kevalaṁ karma — only the action the role itself requires, no self-monument built on top — and incurs no karmic accumulation, no kilbiṣa, from doing it.",
+    "concrete_scenario": "An on-call engineer at midnight diagnoses a Kafka consumer-lag spike, finds the upstream Postgres replication lag, escalates to the DBA, pages the SRE, watches the queue drain, and writes the postmortem. Throughout the four hours she neither rehearses the next-day Slack credit nor narrates the fix as her victory. The mind-internal-monologue stays on the consumer offsets and the lag chart in Datadog. Code is committed without 'I' in the commit message; the postmortem credits the SRE and the DBA by name; no follow-up tweet is composed. The next morning the tech lead's praise lands and is acknowledged briefly and forgotten. This is śārīraṁ kevalaṁ karma in operational terms — the action the role required, performed without the self-monument. Contrast: the engineer who fixes the same incident and spends the next three days arranging for credit — Slack thread, sprint demo, performance review citation. Both fixed the system; only one performed kevalaṁ karma.",
+    "falsifiability": "The analog fails if a reader uses it to justify dropping documentation, postmortems, or credit-attribution to teammates. The verse rejects proprietorship over the work, not the discipline of the work. An engineer who concludes 'I shouldn't write a postmortem because that's ego-clinging' has misread it; the postmortem is part of śārīraṁ kevalaṁ karma — the action the role requires. What is dropped is the parigrahaḥ — the sense of ownership — not the artifact.",
+    "counter_example": "When a junior is being onboarded and needs to see the senior's reasoning made visible — design notes, decision logs, why-this-not-that — proprietorship-of-thinking is the wrong frame. The senior's job is to show the work so the junior can absorb the pattern, and that visible authorship is part of what the role requires, not a violation of this verse.",
+    "implication": "Audit one recent merge for proprietorship-residue: how much of the artifact was shaped by what the action itself required, and how much was shaped by anticipated credit? The proprietorship-residue is what the verse names as kilbiṣa-incurring.",
+    "quotable_line": "The deploy is sent without rehearsing the launch tweet. That is what this verse calls bodily-only action.",
+    "tags": [
+      "non-attachment-to-praise",
+      "shipping-discipline",
+      "doership"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

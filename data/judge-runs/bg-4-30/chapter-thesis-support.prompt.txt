@@ -1,0 +1,265 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.30",
+  "sanskrit_devanagari": "अपरे नियताहाराः प्राणान्प्राणेषु जुह्वति ।\nसर्वेऽप्येते यज्ञविदो यज्ञक्षपितकल्मषाः ॥ ३० ॥",
+  "sanskrit_iast": "apare niyatāhārāḥ prāṇān prāṇeṣu juhvati |\nsarve 'pyete yajña-vido yajña-kṣapita-kalmaṣāḥ || 30 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अपरे",
+      "iast": "apare",
+      "meaning": "others"
+    },
+    {
+      "sanskrit": "नियत",
+      "iast": "niyata",
+      "meaning": "regulated"
+    },
+    {
+      "sanskrit": "आहाराः",
+      "iast": "āhārāḥ",
+      "meaning": "of food / consumption"
+    },
+    {
+      "sanskrit": "प्राणान्",
+      "iast": "prāṇān",
+      "meaning": "the life-breaths"
+    },
+    {
+      "sanskrit": "प्राणेषु",
+      "iast": "prāṇeṣu",
+      "meaning": "in the life-breaths"
+    },
+    {
+      "sanskrit": "जुह्वति",
+      "iast": "juhvati",
+      "meaning": "they offer"
+    },
+    {
+      "sanskrit": "सर्वे",
+      "iast": "sarve",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "एते",
+      "iast": "ete",
+      "meaning": "these"
+    },
+    {
+      "sanskrit": "यज्ञ",
+      "iast": "yajña",
+      "meaning": "sacrifice"
+    },
+    {
+      "sanskrit": "विदः",
+      "iast": "vidaḥ",
+      "meaning": "knowers"
+    },
+    {
+      "sanskrit": "यज्ञ",
+      "iast": "yajña",
+      "meaning": "sacrifice"
+    },
+    {
+      "sanskrit": "क्षपित",
+      "iast": "kṣapita",
+      "meaning": "destroyed"
+    },
+    {
+      "sanskrit": "कल्मषाः",
+      "iast": "kalmaṣāḥ",
+      "meaning": "defilements"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/30/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All these performers who know the meaning of sacrifice become cleansed of sinful reactions, and, having tasted the nectar of the results of sacrifices, they advance toward the supreme eternal atmosphere.",
+      "raw_capture_path": "data/sources/raw/bg-4-30-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/30",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.29-30: Still others offer as sacrifice the outgoing breath in the incoming breath, while some offer the incoming breath into the outgoing breath. Some arduously practice prāṇāyām and restrain the incoming and outgoing breaths, purely absorbed in the regulation of the life-energy. Yet others curtail their food intake and offer the breath into the life-energy as sacrifice. All these knowers of sacrifice are cleansed of their impurities as a result of such performances."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/30/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "From the foregoing explanation of different types of sacrifice (namely sacrifice of one’s possessions, study of the Vedas or philosophical doctrines, and performance of the yoga system), it is found that the common aim of all is to control the senses.",
+      "verbatim_full_length": 942,
+      "raw_full_path": "data/sources/raw/bg-4-30-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-30/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.30 Besides, apare, others; niyata-aharah, having their food regulated; juhvati, offer; pranan, the vital forces, the different kinds of vital forces; pranesu, in the vital forces themselves. Whichever function of the vital forces is brought under control, in it they offer the other functions. These latter become, as…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 566,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-30-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-30/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.29 – 4.30 Other Karma Yogins are devoted to the practice of breath control. They are of three types because of the differences in inhalation, exhalation and stoppage of breath. Puraka (inhalation) is that in which the inward breath is sacrificed in the outward breath. Recaka (exhalation) is that when the outward…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1242,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-30-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-30/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Now Lord Krishna is confirming the result accruing to the 12 previously mentioned yagnas or offering of worship to propitiate the Supreme Lord who have accomplished this and that they have purified themselves having absolved all their sins by yagna.",
+      "verbatim_excerpt_length": 249,
+      "verbatim_full_length": 249,
+      "raw_full_path": "data/sources/raw/bg-4-30-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.30: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Others, with regulated eating, offer the life-breaths in the life-breaths — all of these are knowers of yajña, their wickedness destroyed by yajña.",
+  "traditional_meaning": "Closing verse of the yajña-typology block (4.25-4.30). apare niyatāhārāḥ prāṇān prāṇeṣu juhvati — others, of regulated diet, offer the prāṇas in the prāṇas — sarve 'py ete yajña-vido yajña-kṣapita-kalmaṣāḥ — all these are knowers of yajña, their kalmaṣa (defilement, sin) destroyed by yajña. Shankara: the niyatāhāra practitioner offers the life-breaths in a more interior way; the closing claim — all the yajña-types named have their defilement destroyed by yajña — is the doctrinal payoff of the typology. Ramanuja: each yajña-type, performed correctly, purifies the actor; the typology is presented to legitimise multiple paths.",
+  "engineering": {
+    "translation": "The verse closes the typology with two moves. First, one more shape: niyatāhārāḥ — those of regulated consumption — who offer the life-faculties into the life-faculties; in engineering terms, the practitioner whose discipline includes the regulation of input-consumption itself (what they read, what news they take in, what conversations they enter, what dashboards they refresh). Second, and load-bearing, the closing claim: all the yajña-types named — every shape from 4.25 onward — are knowers of yajña, and their defilement is destroyed by yajña. The diversity of legitimate shapes is affirmed; what unites them is the discipline-of-the-form, not the form itself.",
+    "concrete_scenario": "On the same platform team, six engineers have six different forms of yajña — substrate-reading, deep-work blocks, on-call discipline, design-review keeping, regulated attention-rhythm, regulated information-diet (the engineer who unsubscribed from twelve newsletters, who closes Hacker News before standup, who does not refresh the GitHub feed every twenty minutes). Each is a yajña-knower. None is doing it wrong. The platform has a coherent culture not because the six engineers practice the same form but because all six practice their forms with the saṁśita-vrata — the sharp vow. Mapped operationally: a team in which everyone holds some shape of practice has lower error rates. It has lower attrition. It produces denser artefacts. The shapes do not need to match. The discipline does.",
+    "falsifiability": "The analog fails if a reader uses it to mean that any habit is yajña. Niyatāhāra is regulation, not preference. The engineer who 'never reads the news' because she finds it boring is not in this verse; the engineer who has chosen, as discipline, to regulate her input-consumption because she has noticed its effect on her substrate-attention is. The chosenness is the discipline.",
+    "counter_example": "When the team's environment requires high information-fluency — early-stage startup, fast-moving research domain — the regulated-input yajña is partially in tension with the work. The discipline can shift toward regulated-output (less hot-take-shipping) rather than regulated-input. Different shapes for different terrains.",
+    "implication": "Audit your inputs: how many are habits, how many are choices. The shift from habit to choice is the diagnostic; what is consumed matters less than whether the consumption is being chosen.",
+    "quotable_line": "All six engineers practice different forms. None is doing it wrong. What unites them is the sharp vow.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "focus-practice",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

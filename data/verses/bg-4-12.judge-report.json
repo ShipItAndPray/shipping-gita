@@ -1,0 +1,219 @@
+{
+  "verse_id": "BG 4.12",
+  "mode": "stub",
+  "generated_at": "2026-04-30T04:56:21.774Z",
+  "judges_run": 23,
+  "pending": 23,
+  "passed": 0,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/chapter-thesis-support.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.760Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/chapter-thesis-support.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.763Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/cynical-writer.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.764Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/disagreement-explanation-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.764Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/distortion-test.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.766Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/distortion-test.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.766Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/doctrine-coherence-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.767Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/doctrine-coherence-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.767Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/force-fit-detector.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.768Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/force-fit-detector.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.768Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/hostile-engineer.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.769Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/indian-philosopher.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.769Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/indian-philosopher.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.769Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/inversion-test.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.770Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/inversion-test.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.770Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/removed-verse-reviewer.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.771Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/reproducibility-check.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.771Z"
+    },
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/sanskrit-scholar.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.772Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/skeptical-pm.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.772Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/skeptical-pm.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.772Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/tech-manual-framing.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.773Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/trivialization-check.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.773Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PENDING",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-4-12/voice-consistency.prompt.txt"
+      },
+      "ts": "2026-04-30T04:56:21.774Z"
+    }
+  ]
+}

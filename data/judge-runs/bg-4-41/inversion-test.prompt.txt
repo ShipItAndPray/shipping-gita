@@ -1,0 +1,215 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.41",
+  "sanskrit_devanagari": "योगसंन्यस्तकर्माणं ज्ञानसञ्छिन्नसंशयम् ।\nआत्मवन्तं न कर्माणि निबध्नन्ति धनञ्जय ॥ 41 ॥",
+  "sanskrit_iast": "yoga-sannyasta-karmāṇaṁ jñāna-sañchhinna-sanśhayam\nātmavantaṁ na karmāṇi nibadhnanti dhanañjaya",
+  "anvaya": [
+    {
+      "sanskrit": "योग",
+      "iast": "yoga",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "सन्न्यस्त",
+      "iast": "sannyasta",
+      "meaning": "renounced"
+    },
+    {
+      "sanskrit": "कर्माणम्",
+      "iast": "karmāṇam",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "सञ्छिन्न",
+      "iast": "saṁchinna",
+      "meaning": "cut completely"
+    },
+    {
+      "sanskrit": "संशयम्",
+      "iast": "saṁśayam",
+      "meaning": "doubt"
+    },
+    {
+      "sanskrit": "आत्मवन्तम्",
+      "iast": "ātmavantam",
+      "meaning": "established in the self"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "निबध्नन्ति",
+      "iast": "nibadhnanti",
+      "meaning": "bind"
+    },
+    {
+      "sanskrit": "धनञ्जय",
+      "iast": "dhanañjaya",
+      "meaning": "Dhanañjaya"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/41/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who acts in devotional service, renouncing the fruits of his actions, and whose doubts have been destroyed by transcendental knowledge, is situated factually in the self. Thus he is not bound by the reactions of work, O conqueror of riches.",
+      "raw_capture_path": "data/sources/raw/bg-4-41-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/41",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.41: O Arjun, actions do not bind those who have renounced karm in the fire of Yog, whose doubts have been dispelled by knowledge, and who are situated in knowledge of the self."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/41/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "One who follows the instruction of the Bhagavad-gītā, as it is imparted by the Lord, the Personality of Godhead Himself, becomes free from all doubts by the grace of transcendental knowledge. He, as a part and parcel of the Lord, in full Kṛṣṇa consciousness, is already established in self-knowledge.",
+      "verbatim_full_length": 352,
+      "raw_full_path": "data/sources/raw/bg-4-41-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-41/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.41 Yoga-sannyasta-karmanam, one who has renounced actions through yoga: that person who is a knower of the supreme Goal, by whom actions called righteous or unrighteous have been renounced through the yoga characterized as the Knowledge of the supreme Goal. How does one become detached from actions through yoga? The…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1180,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-41-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-41/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.41 The countless ancient Karmas which constitute the cause of bondage, do not bind him who has renounced actions through Karma Yoga in the manner explained before, who has sundered all doubts concerning the self by the knowledge of the self in the manner explained before, and who is of steady mind, i.e., unshakable,…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 387,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-41-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-41/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The dual method of realising the Brahman or the spiritual substratum pervading all existence has been taught with karma yoga or the performance as prescribed Vedic activities as the beginning stage and jnana yoga or the cultivation of Vedic knowledge as the intermediate stage in…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 812,
+      "raw_full_path": "data/sources/raw/bg-4-41-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.41: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Of one who has renounced action through yoga, whose doubt has been torn by knowledge, established in the self — actions do not bind, Dhanañjaya.",
+  "traditional_meaning": "yoga-sannyasta-karmāṇaṁ jñāna-saṁchinna-saṁśayam — of one who has renounced action through yoga, whose doubt has been completely cut by knowledge — ātmavantaṁ na karmāṇi nibadhnanti dhanañjaya — established in the self, Dhanañjaya, actions do not bind him. Shankara: three qualifications — action renounced through yoga (the karma-yoga frame), doubt cut by knowledge, established in the self. The conjunction of all three produces the configuration in which actions occur but do not bind. Ramanuja: the verse summarises chapters 2-4: the karma-yogin who has done the work of disciplined action and has had his doubt cut by knowledge sits in the self and acts without binding.",
+  "engineering": {
+    "translation": "The chapter's penultimate verse pulls together its argument. Three things together produce action that does not bind. First, yoga-sannyasta-karman — actions renounced through yoga; not abandoned, but performed within the karma-yoga frame, with the agent-claim and fruit-attachment dropped (chapters 2-3 worked this through). Second, jñāna-saṁchinna-saṁśaya — doubt severed by knowledge; not suppressed, but actually resolved through understanding (chapter 4.33-4.40 worked this through). Third, ātmavantam — established in one's own self; the configuration of inner stability emerging from the prior two. An engineer who has all three configurations in place — disciplined-action frame from chapter 2, doubt-resolved-by-substrate-knowledge state from this chapter's middle, resulting inner stability — performs actions that do not accumulate karmic residue. The chapter has been arguing toward this verse.",
+    "concrete_scenario": "A staff engineer reflects on three years of growth. Year one: she absorbed the karma-yoga frame — the discipline of action without grasping — through chapter-2 doctrines. She stopped rehearsing launches and started shipping clean. Year two: she completed substrate-reading work — chapter 4's jñāna-yajña — and the chronic doubts that had been blocking her resolved. She knew the Raft consensus layer, knew the Kafka queue, knew the Postgres database. Year three: a quiet inner stability emerged that was not the result of effort — it was the natural consequence of the prior two years' work. Now her actions arrive without rehearsal, without doubt, without rumination. She ships, she is done, the next thing arrives. The verse names this configuration; three years of practice are the operational shadow of how it is built. The verse's na karmāṇi nibadhnanti — actions do not bind — has its operational shadow in the absence of post-action rumination, the absence of credit-anxiety, the absence of next-move paralysis.",
+    "falsifiability": "The analog fails if a reader concludes that this configuration is achievable in months rather than years, or by intent rather than by the disciplines that 4.34-4.40 named. The verse names a destination that is the result of the chapter's full work; it does not authorise skipping to the destination. An engineer who reads this verse and identifies with its description has misread it; the description is a recognition of an achieved state, not a self-image to adopt.",
+    "counter_example": "When the engineer's environment forces continuous reactive decision-making — a constantly-firefighting team, an early-stage company with no stable substrate to learn — the prior conditions cannot be assembled. The verse describes a configuration that requires environmental cooperation; in environments that prevent it, the verse names a destination unavailable until the environment shifts.",
+    "implication": "Across three years of practice, observe whether the post-action rumination, the credit-anxiety, and the next-move paralysis are decreasing. The trajectory of those three is the trajectory of the verse's operational shadow.",
+    "quotable_line": "She ships, she is done, the next thing arrives. The verse calls this not bound by action.",
+    "tags": [
+      "shipping-discipline",
+      "non-attachment-to-praise",
+      "first-principles",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

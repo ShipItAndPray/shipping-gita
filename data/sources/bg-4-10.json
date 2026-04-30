@@ -1,0 +1,219 @@
+{
+  "id": "BG 4.10",
+  "chapter": 4,
+  "verse": 10,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "वीतरागभयक्रोधा मन्मया मामुपाश्रिताः ।\nबहवो ज्ञानतपसा पूता मद्भावमागताः ॥ १० ॥",
+  "sanskrit_iast": "vīta-rāga-bhaya-krodhā man-mayā mām upāśritāḥ |\nbahavo jñāna-tapasā pūtā mad-bhāvam āgatāḥ || 10 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-4-10-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/10",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=4&field_nsutra_value=10",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-4-10-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_04.010 = MBh_06,026.010). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "वीत",
+      "iast": "vīta",
+      "meaning": "freed from"
+    },
+    {
+      "sanskrit": "राग",
+      "iast": "rāga",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "भय",
+      "iast": "bhaya",
+      "meaning": "fear"
+    },
+    {
+      "sanskrit": "क्रोधाः",
+      "iast": "krodhāḥ",
+      "meaning": "anger (pl., 'free of these')"
+    },
+    {
+      "sanskrit": "मन्",
+      "iast": "man",
+      "meaning": "in me"
+    },
+    {
+      "sanskrit": "मयाः",
+      "iast": "mayāḥ",
+      "meaning": "absorbed"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "उपाश्रिताः",
+      "iast": "upāśritāḥ",
+      "meaning": "having taken refuge"
+    },
+    {
+      "sanskrit": "बहवः",
+      "iast": "bahavaḥ",
+      "meaning": "many"
+    },
+    {
+      "sanskrit": "ज्ञान",
+      "iast": "jñāna",
+      "meaning": "of knowledge"
+    },
+    {
+      "sanskrit": "तपसा",
+      "iast": "tapasā",
+      "meaning": "by austerity"
+    },
+    {
+      "sanskrit": "पूताः",
+      "iast": "pūtāḥ",
+      "meaning": "purified"
+    },
+    {
+      "sanskrit": "मद्",
+      "iast": "mad",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "भावम्",
+      "iast": "bhāvam",
+      "meaning": "state / nature"
+    },
+    {
+      "sanskrit": "आगताः",
+      "iast": "āgatāḥ",
+      "meaning": "have come"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me – and thus they all attained transcendental love for Me.",
+      "raw_capture_path": "data/sources/raw/bg-4-10-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me—and thus they all attained transcendental love for Me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/10/",
+      "fetched_at": "2026-04-30T04:26:59.467Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4322 chars)",
+      "verbatim_excerpt": "As described above, it is very difficult for a person who is too materially affected to understand the personal nature of the Supreme Absolute Truth. Generally, people who are attached to the bodily conception of life are so absorbed in materialism that it is almost impossible for them to understand…",
+      "raw_full_path": "data/sources/raw/bg-4-10-vedabase.json (purport_full_length: 4322)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.10 Bahavah, many; vita-raga-bhaya-krodhah, who were devoid of attachment, fear and anger; manmayah, who were absorbed in Me, who were knowers of Brahman, who were seers of (their) identity with God; mam upasrithah, who had taken refuge only in Me, the supreme God, i.e.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 899,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-10-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as naming the fruits of knowledge accompanied by the renunciation of the three psychological disturbances (rāga, bhaya, krodha) and the adoption of the Lord as refuge. Jñāna-tapas is the austerity OF knowledge — the discipline of holding right knowledge against the tendency to relapse into ignorance."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-10/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:14.297Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.10 Purified by the austerity called knowledge of the truth of My life and deeds, many have become transformed in this manner. The Sruti says to the same effect: ‘The wise know well the manner in which He is born’ (Tai. A., 3.13.1). ‘Dhiras’ means the foremost among the wise.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 437,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-10-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as describing the bhakta who has integrated devotion (manmayā), taken refuge (upāśrita), and been purified by the austerity of knowledge (jñāna-tapas) — and who, having done so, has actually reached mad-bhāva (the state of being like the Lord). The verse is reassurance through precedent: this is not theoretical, many have crossed."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "mad-bhāvam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "transcendental love for Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "my state — i.e., Brahman, the Self"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the state of being like the Lord (sādharmya), not identity"
+        }
+      ],
+      "explanation": "The standard difference: Shankara reads mad-bhāva as the impersonal Brahman-state; Ramanuja reads it as sādharmya (similarity-of-nature) without identity; Prabhupada reads it as transcendental love. All three preserve the soteriological force of the verse but differ on what 'reaching Krishna's state' actually means."
+    }
+  ],
+  "literal_meaning": "Freed from attachment, fear, and anger, absorbed in me, taking refuge in me — many, purified by the austerity of knowledge, have come to my state.",
+  "traditional_meaning_consensus": "Krishna names the qualifying conditions for the result described in 4.9. The qualifying conditions are: freedom from rāga (attachment), bhaya (fear), and krodha (anger); manmayā (absorption in Krishna); upāśrita (taking refuge in Krishna); and purification by jñāna-tapas (the austerity of knowledge). The verse is empirical, not promissory: bahavaḥ (many) have already attained mad-bhāva (Krishna's state). The result is named, the conditions are named.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

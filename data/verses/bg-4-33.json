@@ -1,0 +1,47 @@
+{
+  "id": "BG 4.33",
+  "chapter": 4,
+  "verse": 33,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse's central engineering claim. Knowledge-yajña — the disciplined offering of understanding — is greater than substance-yajña — the disciplined offering of volume. The engineer who ships one well-aimed change because she has held the Postgres query-planner model in her head for years produces more durable value than the engineer who ships ten unaimed changes because they happened to be in her queue. The verse's second claim is harder: all action, without exception, culminates in knowledge. Every shipped artefact eventually finds its full meaning at the level of what was understood when it was made. The volume engineer's ten changes accumulate into a substrate-decay that the team will pay down later; the understanding engineer's one change accumulates into substrate-clarity that the team will draw on later. Both terminate in jñāna — but with opposite signs. CRITICAL: the verse is not anti-shipping; jñāna-yajña is itself a yajña, a discipline performed. It is shipping illuminated by understanding, not understanding without shipping.",
+    "concrete_scenario": "Two senior engineers join the same team in the same quarter. The first ships fifty PRs in six months — every assigned ticket, every quick win, every requested feature. The team's velocity dashboard reads green. Underneath, the codebase has accumulated complexity: three slightly-different versions of the same caching pattern, two parallel approaches to background job retry, four configs that each look correct in isolation but interact unpredictably. Her work is dravya-yajña — substance offered in volume. The second engineer ships fifteen PRs in the same six months. Every PR consolidates, refactors, or simplifies. Three of her PRs delete more code than they add. Her sixth-month review is mixed; her velocity number is half her colleague's. Eighteen months later, the team's debugging time has dropped 40%, the on-call burden has dropped 30%, two complex outages did not happen because two interaction-bugs were already gone. Her work was jñāna-yajña — substance offered illuminated by understanding. The verse's claim is testable: across two cycles, the jñāna-yajña column produces more durable system value than the dravya-yajña column. Not in spite of less volume; because the volume was illuminated.",
+    "falsifiability": "The analog fails if a reader concludes 'thinking is better than shipping.' The verse explicitly says jñāna-yajña — knowledge-as-yajña — and yajña is performed action. The engineer who reads about the system for years without shipping has not honored the verse; she has bypassed the yajña-condition. The diagnostic: across two cycles, the jñāna-yajña engineer ships less but the system improves more. If the system did not improve, the work was not jñāna-yajña; it was contemplation.",
+    "counter_example": "When the team is structurally under-resourced and the work is genuinely volume-constrained — high-frequency feature requests, regulatory deadlines that require literal coverage, a backlog that cannot be reduced through clarity — the dravya-yajña engineer is doing the work the team needs. The verse ranks knowledge-yajña higher in the long run; it does not collapse the legitimacy of substance-yajña. Both are yajña.",
+    "implication": "Across the next two quarters, observe the substrate. The jñāna-yajña engineer's work shows up as substrate-clarity that the team draws on; the dravya-yajña engineer's work shows up as backlog-coverage. Both are valuable; the verse's claim is that the first is greater in the long run.",
+    "quotable_line": "Three of her PRs delete more code than they add. The verse calls this knowledge-yajña.",
+    "tags": [
+      "essence-vs-implementation",
+      "first-principles",
+      "shipping-discipline",
+      "tech-debt",
+      "yajna-as-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T04:30:00Z",
+      "mutation": "v0 generation: source pack triangulated. CRITICAL CARE per task spec: 4.33 ranks jñāna-yajña > dravya-yajña and must NOT collapse to 'thinking > doing.' Engineering layer preserves jñāna-yajña as 'shipping illuminated by understanding,' not 'understanding without shipping.' Concrete scenario: two senior engineers, one ships 50 PRs (dravya), one ships 15 PRs that delete more than add (jñāna); 18-month substrate effects diverge. Counter-example: under-resourced volume-constrained teams legitimately need dravya-yajña. Falsifiability sharply rejects 'reading-without-shipping' interpretation. Named tools: PR, caching pattern, background job retry. Tags: essence-vs-implementation, first-principles, shipping-discipline, tech-debt, yajna-as-discipline.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-30T05:30:00Z",
+      "mutation": "v1: deterministic-gate fixes — IAST normalisation, named-tool additions, lexical-diversity lift, banned-phrase replacements, FK-grade adjustments. Single-cause mutations per Karpathy autoresearch.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

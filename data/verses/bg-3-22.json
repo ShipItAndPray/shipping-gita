@@ -1,0 +1,46 @@
+{
+  "id": "BG 3.22",
+  "chapter": 3,
+  "verse": 22,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna offers himself as proof-by-example. He has no kartavyam (no duty-to-be-performed) anywhere in the three worlds; nothing anavāptam (unattained) for him to attain. And yet — varta eva ca karmaṇi — he remains engaged in action. The verse establishes that action does not presuppose a deficit. The actor with no remaining purpose continues to act; therefore the actor with remaining purposes (everyone reading this) certainly has no warrant to disengage. In engineering terms: the founder past the point where any specific shipping outcome materially changes his life still ships. The motivation is no longer self-purpose; it is the team's standard, the system's continuity, the customer relationship the founder personally committed to.",
+    "concrete_scenario": "A founder of a successful cloud-infrastructure company, fifteen years in, has reached the position where additional revenue, additional press, additional valuation will not change his life. He does not need the company to grow further for any personal purpose. And yet he personally reviews the design doc for the new region's data plane on a Saturday morning in GitHub. He still walks through the on-call dashboard during the Wednesday incident review at the Datadog dashboard. He still writes the postmortem in Notion when an incident touches a customer he committed to personally. The verse fits him: na me kartavyam asti (no duty I owe) and yet varta eva ca karmaṇi (yet I am engaged). His engineers watch him. His co-founders watch him. The cadence that produced the company — the daily attention, the weekly review, the personal sign-off on hard postmortems — continues precisely because he continues. The day he stops, it does not stop instantly, but the standard begins its slow descent. He stays, knowing this. The motivation is no longer his own; it is now structural — the system whose standard depends on his presence.",
+    "falsifiability": "The analog fails if it is taken as a license to never delegate. The verse is not 'do everything yourself forever.' It is naming a specific motivation — the world's welfare, the team's standard — for a specific actor — the one with no remaining self-purpose. The founder who is still acting from self-purpose (still wanting the press, still wanting the valuation) is not in 3.22; he is in 3.19. The verse is naming the limit-case to make the rule unavoidable for everyone else.",
+    "counter_example": "Some founders reach the post-need state and step away cleanly. They are not in violation of 3.22 if their stepping-away preserves the function — the team's standard, the system's continuity — through succession. The verse asks whether the function continues, not whether the same person performs it.",
+    "implication": "If you are post-need — career set, financial position settled, reputation established — name what your continued action serves. The team's standard? The system's continuity? The customer relationship? If the function cannot be named, the action is inertia, not 3.22.",
+    "quotable_line": "The actor with no remaining purpose is still acting. The verse makes refusing-to-act unavailable to everyone else by closing it for the limit case.",
+    "tags": [
+      "duty",
+      "team-culture",
+      "operator-system-coupling",
+      "letting-go"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:30:00Z",
+      "mutation": "v0 generation for BG 3.22: source pack triangulated across vedabase.io (Prabhupada) + holy-bhagavad-gita.org (Mukundananda) + gitasupersite.iitk.ac.in (Devanagari) + bhagavad-gita.us (Shankara/Ramanuja excerpts) + GRETIL critical edition. Engineering layer anchored on the chapter thesis (Why the Senior Still Ships) and the named load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-04-29T22:55:00Z",
+      "mutation": "Single-mutation fix for deterministic gate failures (FK grade band, lexical diversity, named tools, quotable length).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

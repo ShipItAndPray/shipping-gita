@@ -1,0 +1,237 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.32",
+  "sanskrit_devanagari": "एवं बहुविधा यज्ञा वितता ब्रह्मणो मुखे ।\nकर्मजान्विद्धि तान्सर्वानेवं ज्ञात्वा विमोक्ष्यसे ॥ 32 ॥",
+  "sanskrit_iast": "evaṁ bahu-vidhā yajñā vitatā brahmaṇo mukhe\nkarma-jān viddhi tān sarvān evaṁ jñātvā vimokṣhyase",
+  "anvaya": [
+    {
+      "iast": "evam",
+      "meaning": "thus",
+      "sanskrit": ""
+    },
+    {
+      "iast": "bahu",
+      "meaning": "vidhāḥ—various kinds of",
+      "sanskrit": ""
+    },
+    {
+      "iast": "yajñāḥ",
+      "meaning": "sacrifices",
+      "sanskrit": ""
+    },
+    {
+      "iast": "vitatāḥ",
+      "meaning": "have been described",
+      "sanskrit": ""
+    },
+    {
+      "iast": "brahmaṇaḥ",
+      "meaning": "of the Vedas",
+      "sanskrit": ""
+    },
+    {
+      "iast": "mukhe",
+      "meaning": "through the mouth",
+      "sanskrit": ""
+    },
+    {
+      "iast": "karma",
+      "meaning": "jān—originating from works",
+      "sanskrit": ""
+    },
+    {
+      "iast": "viddhi",
+      "meaning": "know",
+      "sanskrit": ""
+    },
+    {
+      "iast": "tān",
+      "meaning": "them",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sarvān",
+      "meaning": "all",
+      "sanskrit": ""
+    },
+    {
+      "iast": "evam",
+      "meaning": "thus",
+      "sanskrit": ""
+    },
+    {
+      "iast": "jñātvā",
+      "meaning": "having known",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/32/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All these different types of sacrifice are approved by the Vedas, and all of them are born of different types of work. Knowing them as such, you will become liberated.",
+      "raw_capture_path": "data/sources/raw/bg-4-32-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/32",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.32: All these different kinds of sacrifice have been described in the Vedas. Know them as originating from different types of work; this understanding cuts the knots of material bondage."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/32/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Different types of sacrifice, as discussed above, are mentioned in the Vedas to suit the different types of worker. Because men are so deeply absorbed in the bodily concept, these sacrifices are so arranged that one can work either with the body, with the mind or with the intelligence.",
+      "verbatim_full_length": 433,
+      "raw_full_path": "data/sources/raw/bg-4-32-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-32/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.32 Evam, thus; bahu-vidha yajnah, various kinds of sacrifices as described; vitatah, lie spread; mukhe, at the mouth, at the door; brahmanah, of the Vedas. Those which are known through the Vedas- as for instance, ‘We offer the vital force into speech’, etc.-are said to be vitatah, spread, elaborated; mukhe, at the…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 1168,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-32-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-32/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.32 Thus there are many kinds of Kamra Yoga, which are spread out for the attainment of the Brahman. That means, they lead to the realisaion of the true nature of the individual self. Know that all these are forms of Karma Yoga, which have been previoulsy defined and diversified, as born of actions. That means, know…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 707,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-32-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-32/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Now Lord Krishna concludes His appraisal of yagnas or offerings of worship to propitiate the Supreme Lord in karma yoga or prescribed Vedic activities in order to adequately praise yagnas performed in jnana yoga or the cultivation of Vedic knowledge. Thus yagna is directly…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 712,
+      "raw_full_path": "data/sources/raw/bg-4-32-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.32: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Many such yajñas are spread before the mouth of brahman; know all of them as born of action — knowing thus, you will be liberated.",
+  "traditional_meaning": "evaṁ bahu-vidhā yajñā vitatā brahmaṇo mukhe — thus the many-formed yajñas are spread before the mouth of brahman (i.e., taught in the Vedas / received in revelation). karma-jān viddhi tān sarvān — know them all as born of action. evaṁ jñātvā vimokṣyase — knowing thus, you will be liberated. Shankara: the verse closes the typology by emphasising that all the yajña-shapes are karma-ja — produced through action — and that understanding this generates liberation. Ramanuja: knowing the diversity of the yajña-shapes and that each is action-of-the-actor frees one from anxiety about which form to take and binds one to disciplined practice within whichever form fits.",
+  "engineering": {
+    "translation": "Two doctrinal moves close the typology. First: the many shapes named are all karma-jān — born of action. None of them is achieved by mere intent or reflection; each is constituted in the doing. The yajña of substrate-reading is constituted by the actual reading; the yajña of code review is constituted by the actual reviewing; the yajña of regulated attention is constituted by the actual regulation. Second: the knowing — evaṁ jñātvā — itself liberates. Not the choosing of one form, but the seeing-clearly of the typology. The engineer who has understood that there are many legitimate shapes of disciplined participation is freed from anxiety about choosing the correct shape, and freed for the practice of whichever shape fits her present GitHub queue and Slack threads.",
+    "concrete_scenario": "Two engineers absorb the typology of legitimate engineering disciplines (4.25-4.31). The first becomes preoccupied with which shape is correct: should she become the substrate-reader, the on-call lead, the design-review keeper. Six months pass in oscillation between shapes, no commitment held. Her colleague understands that the shapes are karma-ja — constituted by doing — and selects whichever shape fits her current work and the team's current needs. She is the design-review keeper this quarter on Notion; next quarter she may be the on-call lead on PagerDuty; the typology has freed her into practice rather than into choice-anxiety. The verse's evaṁ jñātvā vimokṣyase — knowing thus, liberated — names the second engineer's configuration.",
+    "falsifiability": "The analog fails if a reader concludes that any engineering activity counts as yajña simply because they have understood the typology. The understanding is not the discipline; it is the liberation from anxiety-about-discipline. The discipline still must be performed. The verse says 'know them all as born of action' — the action is not optional; the cognitive freedom is the freedom from picking-anxiety.",
+    "counter_example": "When an engineer is genuinely mismatched to a role — a substrate-reader assigned to high-velocity feature shipping, a yoga-yajña reviewer assigned to a maintenance team — the verse's freedom is not freedom from discernment about role-fit. Knowing the typology liberates from picking-anxiety, not from accurate self-assessment.",
+    "implication": "Stop searching for the right yajña-shape. Pick the one your current work and team need. The form is karma-ja — it constitutes itself in the doing.",
+    "quotable_line": "She is the design-review keeper this quarter; she may be the on-call lead next quarter. The typology has freed her into practice.",
+    "tags": [
+      "yajna-as-discipline",
+      "team-culture",
+      "deliberate-action",
+      "decision-paralysis"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

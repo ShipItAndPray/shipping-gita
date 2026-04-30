@@ -1,0 +1,213 @@
+{
+  "id": "BG 3.2",
+  "chapter": 3,
+  "verse": 2,
+  "fetched_at": "2026-04-30T04:30:00Z",
+  "sanskrit_devanagari": "व्यामिश्रेणेव वाक्येन बुद्धिं मोहयसीव मे ।\nतदेकं वद निश्चित्य येन श्रेयोऽहमाप्‍नुयाम् ॥ २ ॥",
+  "sanskrit_iast": "vyāmiśreṇeva vākyena buddhiṁ mohayasīva me |\ntad ekaṁ vada niścitya yena śreyo 'ham āpnuyām || 2 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:46Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-3-2-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/2",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=3&field_nsutra_value=2",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/",
+      "fetched_at": "2026-04-30T04:25:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-3-2-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_03.002 = MBh_06,025.002). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "व्यामिश्रेण इव",
+      "iast": "vyāmiśreṇa iva",
+      "meaning": "as if mixed / equivocal"
+    },
+    {
+      "sanskrit": "वाक्येन",
+      "iast": "vākyena",
+      "meaning": "by speech"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "बुद्धिम्",
+      "iast": "buddhim",
+      "meaning": "intellect"
+    },
+    {
+      "sanskrit": "मोहयसि इव",
+      "iast": "mohayasi iva",
+      "meaning": "you bewilder, as it were"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "the one"
+    },
+    {
+      "sanskrit": "निश्चित्य",
+      "iast": "niścitya",
+      "meaning": "decisively"
+    },
+    {
+      "sanskrit": "वद",
+      "iast": "vada",
+      "meaning": "tell"
+    },
+    {
+      "sanskrit": "येन",
+      "iast": "yena",
+      "meaning": "by which"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "श्रेयः",
+      "iast": "śreyaḥ",
+      "meaning": "the highest good"
+    },
+    {
+      "sanskrit": "आप्नुयाम्",
+      "iast": "āpnuyām",
+      "meaning": "may attain"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:50.745Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me.",
+      "raw_capture_path": "data/sources/raw/bg-3-2-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/3/2/",
+      "fetched_at": "2026-04-30T04:24:50.745Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 845 chars)",
+      "verbatim_excerpt": "In the previous chapter, as a prelude to the Bhagavad-gītā, many different paths were explained, such as sāṅkhya-yoga, buddhi-yoga, control of the senses by intelligence, work without fruitive desire, and the position of the neophyte. This was all presented unsystematically.",
+      "raw_full_path": "data/sources/raw/bg-3-2-vedabase.json (purport_full_length: 845)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.2 ‘Though the Lord speaks lucidly, still, to me who am of a dull understanding, the Lord’s utterance appears to be conflicting.’ ‘Mohayasi, You bewilder; me, any; buddhim, understanding; iva, as it were; vyamisrena iva, by that seemingly conflicting; vakyena, statement! You have surely undertaken…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1489,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-3-2-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "The Advaita reading: the questioner takes the Teacher's earlier presentation of jñāna and karma as a confused alternation, and demands a single answer. The verse's force is the demand for clarity; the response in 3.3 will give the questioner two SEPARATE niṣṭhās rather than the combination he seems to have inferred."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-3-2/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:25:07.268Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "3.2 Consequently, it appears to me as if ‘you confuse me with statements that seem to contradict each other.’ For, firm devotion to knowledge which forms the means for the vision of the self and which is of the nature of stopping the operations of the senses on the one hand, and on the other exhorta…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 573,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-3-2-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "The Vishishtadvaita reading: this is the legitimate plea of one who has not yet seen how the two paths integrate. Without clarity, action is paralyzed. The chapter's response gives the integration: karma-yoga is not a lesser path; it is the path that fits the questioner's situation."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "vyāmiśra",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "equivocal"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "ambiguous"
+        },
+        {
+          "source": "Shankara (per gloss)",
+          "rendering": "mixed"
+        },
+        {
+          "source": "Ramanuja (per gloss)",
+          "rendering": "intermingled / blended"
+        }
+      ],
+      "explanation": "The questioner calls the Teacher's speech 'mixed' — but mixed in what sense? All four traditions agree the appearance is of two different teachings juxtaposed. The Advaita reading takes it as the questioner's misreading: he thinks knowledge and action are alternatives when the Teacher is teaching them as a sequence. The Vishishtadvaita reading takes it as the legitimate confusion of one who has not yet seen how the two integrate. The translation choice ('equivocal' vs 'ambiguous' vs 'mixed') reflects whether the speaker thinks the questioner is wrong (Advaita) or merely uninstructed (Vishishtadvaita)."
+    }
+  ],
+  "literal_meaning": "By your seemingly mixed speech, you bewilder my intellect; tell me decisively the one path by which I may attain the highest good.",
+  "traditional_meaning_consensus": "3.2 sharpens 3.1. The questioner names the Teacher's speech as vyāmiśra (mixed/equivocal); his buddhi is bewildered (mohayasi iva); he asks for the one path (ekam), decisively (niścitya), by which he may attain śreyas (the highest good). The verse forces the Teacher to distinguish the two paths cleanly in 3.3 rather than leave them blended. It is the seeker's plea for a single clear direction.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

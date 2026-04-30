@@ -1,0 +1,221 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.15",
+  "sanskrit_devanagari": "एवं ज्ञात्वा कृतं कर्म पूर्वैरपि मुमुक्षुभिः ।\nकुरु कर्मैव तस्मात्त्वं पूर्वैः पूर्वतरं कृतम् ॥ १५ ॥",
+  "sanskrit_iast": "evaṁ jñātvā kṛtaṁ karma pūrvair api mumukṣubhiḥ |\nkuru karmaiva tasmāt tvaṁ pūrvaiḥ pūrvataraṁ kṛtam || 15 ||",
+  "anvaya": [
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "ज्ञात्वा",
+      "iast": "jñātvā",
+      "meaning": "having known"
+    },
+    {
+      "sanskrit": "कृतम्",
+      "iast": "kṛtam",
+      "meaning": "was done"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "पूर्वैः",
+      "iast": "pūrvaiḥ",
+      "meaning": "by ancestors"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "मुमुक्षुभिः",
+      "iast": "mumukṣubhiḥ",
+      "meaning": "by those seeking liberation"
+    },
+    {
+      "sanskrit": "कुरु",
+      "iast": "kuru",
+      "meaning": "do / perform"
+    },
+    {
+      "sanskrit": "कर्म",
+      "iast": "karma",
+      "meaning": "action"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "त्वम्",
+      "iast": "tvam",
+      "meaning": "you"
+    },
+    {
+      "sanskrit": "पूर्वैः",
+      "iast": "pūrvaiḥ",
+      "meaning": "by ancestors"
+    },
+    {
+      "sanskrit": "पूर्वतरम्",
+      "iast": "pūrvataram",
+      "meaning": "in earlier times"
+    },
+    {
+      "sanskrit": "कृतम्",
+      "iast": "kṛtam",
+      "meaning": "performed"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/15/",
+      "fetched_at": "2026-04-30T04:26:59.525Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All the liberated souls in ancient times acted with this understanding of My transcendental nature. Therefore you should perform your duty, following in their footsteps.",
+      "raw_capture_path": "data/sources/raw/bg-4-15-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-15/",
+      "fetched_at": "2026-04-30T04:27:15.767Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "All the liberated souls in ancient times acted with this understanding of My transcendental nature. Therefore you should perform your duty, following in their footsteps."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/15/",
+      "fetched_at": "2026-04-30T04:26:59.525Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1557 chars)",
+      "verbatim_excerpt": "There are two classes of men. Some of them are full of polluted material things within their hearts, and some of them are materially free. Kṛṣṇa consciousness is equally beneficial for both of these persons.",
+      "raw_full_path": "data/sources/raw/bg-4-15-vedabase.json (purport_full_length: 1557)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-15/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:27:15.767Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.15 Jnatva, having known; evam, thus, that ‘I am not an agent; I have no desire for the results of actions’; karma, duties; krtam, were undertaken; api, even; purvaih, by the ancient; mumuksubhih, seekers of Liberation. Tasmat, therefore; tvam, you; kuru, undertake; karma, action; eva, itself.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1291,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-15-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the verse as the directive that follows from the doctrine: knowing right-action does not bind, perform action as the liberated ancients did. The verse explicitly forbids inaction-as-renunciation; karma is to be done, not abandoned, in the manner the ancients did."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-15/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:27:15.767Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.15 Actions of the kind described above were performed even by the aspirants of old for liberation, who have become free from evil after knowing Me in this way. Therefore, after having got rid of the sins by knowledge of Me in the aforesaid way, perform actions in the same way as they were performe…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 568,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-15-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads the verse as authoritative: the practice of karma-yoga in the manner the ancients (Vivasvān, Manu, Ikṣvāku, the rājarṣis) practiced it — engaged action without longing for fruits — is what Arjuna is being told to do. The lineage is the model; the action is the practice."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "pūrvataram kṛtam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "as performed by the ancients in days of yore"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "as the liberation-seeking ancients performed it, knowing right-action does not bind"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "in the manner Vivasvān, Manu, and the royal sages practiced karma-yoga across generations"
+        }
+      ],
+      "explanation": "All three read pūrvataram as anchoring the directive in lineage-practice. The verse closes the chapter's first major movement by connecting the avatar doctrine back to the original paramparā opening (4.1-4.3). The instruction is to do the practice the lineage already did."
+    }
+  ],
+  "literal_meaning": "Knowing thus, action was performed by the ancients seeking liberation; therefore you also perform action, as performed by the ancients in earlier times.",
+  "traditional_meaning": "Krishna closes the avatar block by pointing back to the disciplic tradition: the ancients (pūrvaiḥ) who sought liberation (mumukṣubhiḥ) performed action knowing what 4.14 has just established — that right-action does not bind. The instruction is: act as they acted. The verse re-grounds the chapter's teaching in lineage, completing the arc opened at 4.1-4.3 (paramparā) and now expressed as a directive: do as the lineage did.",
+  "engineering": {
+    "translation": "Krishna closes the avatar block by directing back to lineage: the ancients seeking liberation performed action this way; do as they did. The engineering reading: the senior who has just transmitted the mode of acting (4.14) closes by pointing the student to the lineage of practitioners who have already done it this way — not as a rhetorical flourish but as instruction. The directive is concrete: act as the lineage acted. Not stop-acting (the verse explicitly forbids this); not improvise from scratch; act as the transmitters of the practice acted. The engineering analog: when a senior teaches a mode, they should be able to point to the engineers, named or unnamed, who practiced it before — making the mode imitable, traceable, and verifiable.",
+    "concrete_scenario": "A staff engineer finishes mentoring a senior engineer on a high-stakes architectural decision: a Postgres logical-replication rollout that will let the team migrate the multi-tenant schema without downtime. The mentee is convinced of the principle but uncertain about applying it. The staff engineer says: 'You have three concrete people in this company who have done exactly this kind of decision in the same shape. Maya did it for the auth service in 2024 with a Datadog-instrumented blue-green deploy. Devon did it for the rate-limiter in 2023 with a feature-flag rollout via LaunchDarkly. Hiroshi did it for the storage layer in 2022 with a backfill script and a CI canary. Go look at their design docs in the GitHub wiki. Read the postmortems where they got it partly wrong. The principle is real and the application is documented. Don't improvise this from scratch. Act as they did.' The mentee spends two days reading the prior designs. By the time she presents her own design, it is recognisably continuous with the prior three — and corrects a failure mode none of them quite caught. The lineage is honored; the practice is alive. The verse's instruction made operational.",
+    "falsifiability": "The analog fails if a reader takes 'act as the ancients did' as license for cargo-culting prior solutions. The verse's lineage is content-bearing — the ancients knew (jñātvā) what they were doing. The engineering analog assumes the prior design docs are still intelligible: the engineers reading them can reconstruct the reasoning. If the prior designs are opaque, the lineage has decayed and the directive cannot be honored without first reconstruction.",
+    "counter_example": "When the system genuinely is novel — when no one has done this kind of decision before in this company — the directive 'act as the ancients did' fails because there are no ancients. The senior's right move is to acknowledge the novelty and proceed by first principles, not to fabricate a fake lineage. The verse's lineage is real; engineering analogs that fake lineage have inverted the verse.",
+    "implication": "When you teach a mode, name the prior practitioners. Make their design docs and their postmortems reachable. The directive 'act as they did' is operationally usable only if the lineage is operationally accessible.",
+    "quotable_line": "Name the prior practitioners. Make their docs reachable. The directive 'act as they did' is usable only if the lineage is accessible.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

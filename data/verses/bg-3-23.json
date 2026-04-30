@@ -1,0 +1,38 @@
+{
+  "id": "BG 3.23",
+  "chapter": 3,
+  "verse": 23,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna sharpens his proof-by-example. If even he were to step away from action — even momentarily, jātu — men would walk away with him. The atandritaḥ qualifier matters: it is not just whether he acts, but whether he acts without slack. Slack action by the śreṣṭha is read by the populace as the new ceiling. The verse thus makes the senior's quality-of-engagement a load-bearing variable, not just their presence. In engineering: it is not enough that the staff engineer attend the standup; the question is whether they attend it engaged or distracted, because distracted-attendance becomes the team's permission to also be distracted.",
+    "concrete_scenario": "A staff engineer at a Postgres-shaped logistics platform attends every Wednesday architecture review on Zoom for six straight months. Her camera is on. She is technically present. She is also reading Slack, drafting a code review in GitHub, and occasionally clarifying a question on the chat in another company's open-source repo. The other engineers in the room watch her. They notice. After two months three of them start doing the same: cameras on, half-attending, multitasking through the meeting. After four months the architecture review has become a meeting where decisions are made by the two people who happen to be paying full attention; the rest are present but slack — atandritaḥ violated. The staff engineer is genuinely confused when the architecture review's decision quality drops; she would tell you she has not changed her behavior. The verse names exactly the gap. Yadi hy ahaṁ na varteyaṁ jātu karmaṇy atandritaḥ — if I were not to engage diligently — mama vartmānuvartante manuṣyāḥ — men follow my path. Slackness is a path the senior teaches by walking it.",
+    "falsifiability": "The analog fails if read as 'always be at maximum intensity.' The verse is naming the relationship between the senior's quality-of-engagement and the team's ceiling, not demanding constant exertion. The diagnostic: across the last quarter of meetings, what was the modal quality of your attention, and is the team's modal quality now lower than yours, equal, or higher? The verse predicts the team converges to your modal quality.",
+    "counter_example": "Some senior multitasking is legitimate — the senior who half-attends a meeting that does not need her full attention but is still present for the rare moment she is needed is making a different bet. The verse's force lands when the meeting genuinely needs full attention and the senior is signaling otherwise. In meetings that genuinely don't need full senior attention, the more honest move is to delegate or skip; partial attendance teaches partial attendance.",
+    "implication": "Pick three recurring meetings you attend. For each, ask: at what fraction of attention am I actually present? Now ask: is the team's fraction higher, equal, or lower than mine? The verse predicts equal-or-lower. If the answer is lower, your slack is the team's ceiling.",
+    "quotable_line": "Slack action by the senior is read as the new ceiling. The team converges not to the senior's words but to the senior's modal quality of attention.",
+    "tags": [
+      "team-culture",
+      "deep-work",
+      "focus-practice",
+      "engineering-pathology"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T23:10:00Z",
+      "mutation": "v0 generation for BG 3.23: source pack triangulated across 5 sources; engineering layer anchored on chapter thesis (Why the Senior Still Ships) and load-bearing claims for this verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

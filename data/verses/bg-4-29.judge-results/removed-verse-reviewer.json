@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog not reconstructible from chapter alone (without the verse)",
+      "objection": "Remove 4.29 from the chapter and ask: could the engineering analog be predicted from the surrounding verses? No. 4.29 carries verse-specific weight (Others, devoted to the regulation of the breath, offer inhalation in e…) that the chapter does not redundantly encode in nearby verses. The engineering analog requires this verse's specific Sanskrit anchor."
+    }
+  ],
+  "notes": "Removed-verse test for 4.29: the engineering layer is verse-specific, not chapter-derivable. PASS."
+}

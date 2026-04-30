@@ -1,0 +1,37 @@
+{
+  "id": "BG 4.9",
+  "chapter": 4,
+  "verse": 9,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Janma karma ca me divyam evaṁ yo vetti tattvataḥ — whoever knows my birth and action as divine, in essence, leaving the body, does not come to birth again; he comes to me. The verse's soteriological claim — knowledge of the avatar's nature → release from rebirth → reaching Krishna — exceeds engineering analog reach. STRETCHED-tagged. The operational pattern at engineering scope: a junior who understands the senior's mode of acting at the level of essence (tattvataḥ) — not the surface behaviors but the underlying discrimination behind them — does not have to relearn fundamentals each time they switch teams. They carry the mode onward. They become the next mentor in whichever room they enter. The metaphysical claim about not-returning-to-birth and reaching-Krishna is far larger; this pattern operates only at the carry-forward layer of internalised judgment.",
+    "concrete_scenario": "A senior engineer changes companies for the fourth time in fifteen years. At each previous company she has carried forward not the specific tools or codebase patterns but the underlying discriminations: when to ship, when to delay, what level of rigor a payment system needs versus an internal CLI, how to talk to a junior without crushing them. At the new company in 2026 — a healthcare AI startup — none of her previous Postgres + Datadog + GitHub Actions tooling transfers cleanly. The codebase is in Rust, she has worked mostly in Go. The compliance regime is HIPAA-specific, she has worked mostly in fintech. None of it matters. By month four she is leading the API design review for the new event-streaming endpoint and writing the migration plan for the schema rollout. Not because she has special information about Rust or HIPAA, but because the underlying discriminations she internalised at three previous companies — the ones that survive any specific stack — apply here too. She has 'left the body' (the previous codebase, the previous deploy pipeline, the previous on-call doctrine) and yet has not returned to birth (does not have to relearn the basics). The verse's scope is far larger; the operational pattern operates only at the carry-forward level.",
+    "falsifiability": "The analog fails if a reader takes the verse as a claim about literal reincarnation OR if they take the engineering pattern as guaranteeing senior-engineer non-mortality. The senior's ability to carry forward is real but bounded; the verse's claim is about the soteriological release of the realised knower. The engineering pattern names a small operational consequence; the verse names a vast metaphysical one.",
+    "counter_example": "When the senior's previous knowledge was actually stack-specific — when their 'discriminations' were in fact Java-shop habits that do not transfer to a Rust shop — the carry-forward fails. The diagnostic: at the new company, does the senior contribute to architectural discussions in week four, or is she still asking onboarding questions in month four? Real internalised discriminations transfer; stack-bound habits do not.",
+    "implication": "Audit your own internalised judgments. The ones that have transferred across the last two companies are the candidates for tattvataḥ knowledge — knowledge in essence. The ones that needed full relearning at each switch were stack-bound, not essential. The verse's claim is far larger; the engineering audit is the available operational version.",
+    "quotable_line": "Real discriminations transfer across companies. Stack-bound habits do not. The audit is your own carry-forward across the last two switches.",
+    "tags": [
+      "first-principles",
+      "long-term-thinking",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 4.9 is the soteriological consequence of correct knowledge of the avatar's nature. STRETCHED tagged honestly per chapter thesis. Engineering layer maps to the carry-forward of internalised judgment across stack and company changes — the senior who 'leaves the body' (the previous codebase) without 'returning to birth' (relearning basics). Concrete scenario uses an engineer changing companies 4 times in 15 years, internalised discriminations transferring across Go-to-Rust and fintech-to-healthcare-AI. The metaphysical scope-gap is named explicitly.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,250 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 4.26",
+  "sanskrit_devanagari": "श्रोत्रादीनीन्द्रियाण्यन्ये संयमाग्निषु जुह्वति ।\nशब्दादीन्विषयानन्य इन्द्रियाग्निषु जुह्वति ॥ 26 ॥",
+  "sanskrit_iast": "śhrotrādīnīndriyāṇyanye sanyamāgniṣhu juhvati\nśhabdādīn viṣhayānanya indriyāgniṣhu juhvati",
+  "anvaya": [
+    {
+      "iast": "śhrotra",
+      "meaning": "ādīni—such as the hearing process",
+      "sanskrit": ""
+    },
+    {
+      "iast": "indriyāṇi",
+      "meaning": "senses",
+      "sanskrit": ""
+    },
+    {
+      "iast": "anye",
+      "meaning": "others",
+      "sanskrit": ""
+    },
+    {
+      "iast": "sanyama",
+      "meaning": "restraint",
+      "sanskrit": ""
+    },
+    {
+      "iast": "agniṣhu",
+      "meaning": "in the sacrficial fire",
+      "sanskrit": ""
+    },
+    {
+      "iast": "juhvati",
+      "meaning": "sacrifice",
+      "sanskrit": ""
+    },
+    {
+      "iast": "śhabda",
+      "meaning": "ādīn—sound vibration, etc",
+      "sanskrit": ""
+    },
+    {
+      "iast": "viṣhayān",
+      "meaning": "objects of sense-gratification",
+      "sanskrit": ""
+    },
+    {
+      "iast": "anye",
+      "meaning": "others",
+      "sanskrit": ""
+    },
+    {
+      "iast": "indriya",
+      "meaning": "of the senses",
+      "sanskrit": ""
+    },
+    {
+      "iast": "agniṣhu",
+      "meaning": "in the fire",
+      "sanskrit": ""
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/26/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Some [the unadulterated brahmacārīs] sacrifice the hearing process and the senses in the fire of mental control, and others [the regulated householders] sacrifice the objects of the senses in the fire of the senses.",
+      "raw_capture_path": "data/sources/raw/bg-4-26-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/4/verse/26",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "BG 4.26: Others offer hearing and other senses in the sacrificial fire of restraint. Still others offer sound and other objects of the senses as sacrifice in the fire of the senses."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/4/26/",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "The members of the four divisions of human life, namely the brahmacārī, the gṛhastha, the vānaprastha and the sannyāsī, are all meant to become perfect yogīs or transcendentalists. Since human life is not meant for our enjoying sense gratification like the animals, the four orders of human life are so arranged that one",
+      "verbatim_full_length": 1508,
+      "raw_full_path": "data/sources/raw/bg-4-26-vedabase.json"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-26/?cm=adi-shankaracharya",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.26 Anye, others, other yogis; juhvati, offer; indriyani, the organs; viz srotradini, car etc.; samyama-agnisu, in the fires of self-control. The plural (in fires) is used because self-control is possible in respect of each of the organs. Self-control itself is the fire. In that they make the offering, i.e. they…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 663,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-4-26-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-26/?cm=ramanuja",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "4.26 Others endeavour towards the restraint of the senses like ear and the rest, i.e., keep themselves away from the objects pleasing to the senses. Other Yogins endeavour to prevent the attachment of the senses to sound and other objects of the senses, i.e., they abstain from the sense objects even when they are…",
+      "verbatim_excerpt_length": 320,
+      "verbatim_full_length": 413,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-4-26-bgus.json"
+    },
+    {
+      "commentator": "Sri Sridhara Swami",
+      "tradition": "Rudra Sampradaya",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-4-26/?cm=sridhara-swami",
+      "fetched_at": "2026-04-30T04:30:00Z",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "Lord Krishna continues stating that others like the Brahmacari’s or those practising celibacy offer each particular sense as a sacrifice in the fire of self-discipline and restraining the senses lead a life of self control. The householders offer the sense objects themselves…",
+      "verbatim_excerpt_length": 280,
+      "verbatim_full_length": 439,
+      "raw_full_path": "data/sources/raw/bg-4-26-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "key-term-of-this-verse",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "see verbatim_quote above"
+        },
+        {
+          "source": "Shankara (Advaita)",
+          "rendering": "see verbatim_excerpt above"
+        },
+        {
+          "source": "Ramanuja (Vishishtadvaita)",
+          "rendering": "see verbatim_excerpt above"
+        }
+      ],
+      "explanation": "For 4.26: see traditional_meaning_consensus below for the resolution. Translators agree on the verse's substantive direction; nuance differs by tradition (Advaita reads through ātma-jñāna and the dropping of the agent-claim; Vishishtadvaita reads through karma-yoga as worship of the Lord with the self oriented to brahman). The engineering layer respects what all four agree on and tags STRETCHED where a verse extends beyond the operational scope."
+    }
+  ],
+  "literal_meaning": "Some offer the senses (hearing and others) in the fires of restraint; others offer the sense-objects (sound and others) in the fires of the senses.",
+  "traditional_meaning": "Two further yajña-types. (a) śrotrādīnīndriyāṇy anye saṁyamāgniṣu juhvati: some offer hearing and the other senses in the fires of restraint — sense-control as oblation. (b) śabdādīn viṣayān anya indriyāgniṣu juhvati: others offer sound and the other sense-objects into the fires of the senses themselves — i.e., they engage with sense-objects but in the disciplined frame of yajña, with the senses themselves as the receiving fires. Shankara: (a) is the brahmacāri-style restraint-yajña; (b) is the householder-style sense-engagement performed as offering. Ramanuja reads both as legitimate disciplines within the karma-yoga frame.",
+  "engineering": {
+    "translation": "Two more legitimate disciplines. First: an engineer who oblates her senses into a disciplining flame — extended deep-work blocks where Slack pings stay muted, GitHub notifications stay silenced, Datadog tab stays closed, notifications muted, meetings declined, attention restricted to the codebase. The senses (the hearing of pings, the seeing of feeds) are offered into the disciplining fire; the offering is the holding of attention. Second: another engineer engages sense-objects (conversations, meetings, peer reviews, shared dashboards) within a disciplined frame — her senses themselves become receiving fires, her engagement becomes the offering. Both are yajña. The first appears as withdrawal; the second appears as immersion. Both are disciplined practices within the same chapter.",
+    "concrete_scenario": "Two senior engineers on the same platform team manage attention differently across one week. Avita books four-hour deep-work blocks in her calendar, silences Slack, declines two non-essential meetings, and completes a hundred-line refactor of the consensus protocol module on GitHub. Her offering is the held attention; her flame is saṁyama. The second engineer, Bharat, keeps Slack open, attends every architecture review, joins every incident triage, and writes nothing-of-his-own that week — yet four design proposals across the team grew sharper because he was in the room asking the substrate question. His offering is the engaged sense-faculty; his flame is the live conversation. By Friday the team has both a tighter consensus protocol module and four sharper design proposals. The verse names both shapes as legitimate yajña.",
+    "falsifiability": "The analog fails if a reader uses it to justify either compulsive busyness ('I am in every meeting, that is my yajña') or compulsive withdrawal ('I block Slack always, that is my yajña'). Both modes are yajña only when they are disciplined practices, not when they are reactive defaults. The diagnostic is whether the mode is chosen for the sustaining loop or chosen because the alternative feels uncomfortable.",
+    "counter_example": "When the codebase requires an architectural reframe that no single engineer can hold alone, the saṁyama-only engineer is in the wrong configuration; the work needs the conversation-based offering. When the team is shipping noise because nobody has held substrate-attention, the conversation-only engineer is in the wrong configuration; the work needs the withdrawal-based offering. The two shapes are situational, not dispositional.",
+    "implication": "Pick one mode of yajña you are comfortable with and one you are not. Practise the uncomfortable mode for one week. The discipline is in the choice, not in the comfort.",
+    "quotable_line": "Slack closed for four hours, or Slack open and questioning every design — both can be discipline. Neither is automatically discipline.",
+    "tags": [
+      "deep-work",
+      "yajna-as-discipline",
+      "focus-practice",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

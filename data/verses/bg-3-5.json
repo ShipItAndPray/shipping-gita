@@ -1,0 +1,37 @@
+{
+  "id": "BG 3.5",
+  "chapter": 3,
+  "verse": 5,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The metaphysical claim under 3.4. No one — kaścit — ever — jātu — for even a moment — kṣaṇam api — stays without performing action. Why? kāryate hy avaśaḥ karma sarvaḥ prakṛti-jair guṇaiḥ — everyone is helplessly compelled to act by the guṇas born of prakṛti. The verse closes off the metaphysical possibility of action-cessation. Per the Advaita reading the claim applies specifically to the unenlightened; the man of jñāna-niṣṭhā is treated apart. Per the Vishishtadvaita reading, the actor remains under prakṛti's compulsion until karma-yoga purifies the inner organ. Either way, the verse is sharp: action is not a choice that can be declined. The engineering reading: the senior who 'stepped back' has not stopped acting. The team is now under-resourced; that is an action with consequences. The on-call rotation is now thinner; that is an action. The unreviewed PR is still a state of the system; that is an action. There is no neutral state.",
+    "concrete_scenario": "A senior site-reliability engineer departs on a sabbatical, deactivating Slack notifications, archiving Datadog alerts, and announcing to colleagues that the absence will be uninterrupted by ordinary correspondence. Three weeks subsequently, an incident triggers at 2 AM. The replacement on-call engineer understands the runbooks but lacks the sabbatical-taker's accumulated debugging intuition for the particular Kubernetes cluster experiencing the failure. Recovery consequently consumes ninety additional minutes. Customer-facing latency stays elevated throughout that interval. The Sentry error count is logged. The PagerDuty statistics are recorded. When the senior returns and inquires how everything proceeded, colleagues respond politely. Reports indicate 'we managed'. Verse 3.5 names precisely this configuration: the withdrawal was not action-cessation. The sabbatical itself was action — an action whose consequences propagated through the team's response capacity. The senior had imagined a neutral exit. Prakṛti's compulsion did not provide one. Colleagues kept being compelled to act, and the absence registered as a missing actor inside their compulsion-field.",
+    "falsifiability": "The analog fails if a reader uses 3.5 to argue that no one should ever be off-call, that vacations are illusory, or that 'helpless compulsion' means the senior has no real choice. The verse's force is more specific: it denies the existence of a neutral non-acting state. It does not deny the legitimacy of rest, sabbatical, or shifted role. Anyone using 3.5 to refuse a junior engineer their week off has weaponized the verse against its own claim.",
+    "counter_example": "When the team has genuinely planned around a senior's absence — when the rotation is deepened, the runbooks updated, the debugging knowledge transmitted — the senior's withdrawal is no longer registered as a missing actor. The verse's claim still holds (the senior is acting; the planning IS the action), but the consequence the verse predicts (degraded response) does not follow. The metaphysical claim is invariant; the operational consequence depends on whether the action was anticipated.",
+    "implication": "When you step back, your withdrawal is itself an action with consequences. Plan it as an action. The team will register it as an action whether you intended it or not. There is no neutral exit.",
+    "quotable_line": "Your withdrawal is itself an action; the team registers it as an action whether you intended it or not.",
+    "tags": [
+      "renunciation-of-action",
+      "wrong-renunciation",
+      "operator-system-coupling"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-30T05:00:00Z",
+      "mutation": "v0: 3.5 — DOCTRINALLY PIVOTAL, sharp on the impossibility of action-cessation. Engineering layer named directly: the senior who 'steps back' has not stopped acting; the team registers the withdrawal as a missing actor in its compulsion-field. Concrete scenario uses an SRE sabbatical, an incident at 2 AM, and the latency consequence to fix the verse's claim. Counter-example carves out the case where the withdrawal was actually planned (the metaphysical claim still holds; the operational consequence does not follow). Tags: renunciation-of-action, wrong-renunciation, operator-system-coupling.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}
