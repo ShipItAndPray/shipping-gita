@@ -1,0 +1,270 @@
+# Judge persona: skeptical product manager
+
+You are a senior product manager. You read this verse's engineering layer and ask: would this change a real roadmap decision tomorrow?
+
+## Your task
+
+Decide whether the verse provides an actionable predicate — a rule that, when applied, changes what gets shipped, prioritized, killed, or kept.
+
+Specifically:
+
+1. After reading this verse, can you imagine a specific PM moment (a sprint planning, a roadmap review, a feature kill decision, a launch retro) where someone would say "by the principle of this verse, we should do X instead of Y"?
+2. Does the verse name a concrete decision predicate, or only a vague stance?
+3. Could two PMs disagree about whether the verse applies to a given decision? (If no — if it applies to everything — it is too vague.)
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "actionable_predicate": "<one-sentence rule that can be applied to roadmap decisions, or 'none'>",
+  "example_decision": "<one concrete sprint/roadmap moment where this verse would change behavior>",
+  "objection": "<reason this verse is not actionable, or 'none'>"
+}
+```
+
+## Calibration
+
+- `actionable_predicate == "none"` ⇒ FAIL.
+- The example decision must be specific (not "any time you feel pressure"). Specific = a named situation type with a named choice.
+- "Trust the process" is not a predicate. "Don't pull stories from next sprint to hit current sprint metrics" is a predicate.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.36",
+  "sanskrit_devanagari": "असंयतात्मना योगो दुष्प्राप इति मे मतिः ।\nवश्यात्मना तु यतता शक्योऽवाप्तुमुपायतः ॥ ३६ ॥",
+  "sanskrit_iast": "asaṁyatātmanā yogo duṣprāpa iti me matiḥ |\nvaśyātmanā tu yatatā śakyo 'vāptum upāyataḥ || 36 ||",
+  "anvaya": [
+    {
+      "sanskrit": "असंयतात्मना",
+      "iast": "asaṁyatātmanā",
+      "meaning": "by one of unrestrained self / uncontrolled mind"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "दुष्प्रापः",
+      "iast": "duṣprāpaḥ",
+      "meaning": "hard to attain"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "मतिः",
+      "iast": "matiḥ",
+      "meaning": "opinion / view"
+    },
+    {
+      "sanskrit": "वश्यात्मना",
+      "iast": "vaśyātmanā",
+      "meaning": "by one whose self is mastered"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "यतता",
+      "iast": "yatatā",
+      "meaning": "by the one who strives"
+    },
+    {
+      "sanskrit": "शक्यः",
+      "iast": "śakyaḥ",
+      "meaning": "is possible / can be"
+    },
+    {
+      "sanskrit": "अवाप्तुम्",
+      "iast": "avāptum",
+      "meaning": "to attain"
+    },
+    {
+      "sanskrit": "उपायतः",
+      "iast": "upāyataḥ",
+      "meaning": "by appropriate means"
+    },
+    {
+      "sanskrit": "asaṁyatātmanā",
+      "iast": "asaṁyatātmanā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogo",
+      "iast": "yogo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duṣprāpa",
+      "iast": "duṣprāpa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "iti",
+      "iast": "iti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "me",
+      "iast": "me",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "matiḥ",
+      "iast": "matiḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vaśyātmanā",
+      "iast": "vaśyātmanā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tu",
+      "iast": "tu",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yatatā",
+      "iast": "yatatā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śakyo",
+      "iast": "śakyo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'vāptum",
+      "iast": "'vāptum",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "upāyataḥ",
+      "iast": "upāyataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/36/",
+      "fetched_at": "2026-05-02T02:25:33.595Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "For one whose mind is unbridled, self-realization is difficult work. But he whose mind is controlled and who strives by appropriate means is assured of success. That is My opinion.",
+      "raw_capture_path": "data/sources/raw/bg-6-36-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/36/",
+      "fetched_at": "2026-05-02T03:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Yog is difficult to attain for one whose mind is unbridled. However, those who have learnt to control the mind, and who strive earnestly by proper means, can attain perfection in Yog. This is My opinion."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/36/",
+      "fetched_at": "2026-05-02T02:25:33.595Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 857 chars)",
+      "verbatim_excerpt": "The Supreme Personality of Godhead declares that one who does not accept the proper treatment to detach the mind from material engagement can hardly achieve success in self-realization. Trying to practice yoga while engaging the mind in material enjoyment is like trying to ignite a fire while pouring water on it.",
+      "raw_full_path": "data/sources/raw/bg-6-36-vedabase.json (purport_full_length: 857)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-36/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:22.027Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.36 Me, My; matih, conviction; is iti, that; Yoga is dusprapah, difficult to be attained; asamyata-atmana, by one of uncontrolled mind, by one who has not controlled his mind, the internal organ, by practice and detachment. Tu, but, on the other hand; sakyah, Yoga is possible; avaptum, to",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 904,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-36-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-36/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:22.027Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.36 Yoga is hard to attain even in spite of great efforts by one of unrestrained self, i.e., of unrestrained mind. But the same Yoga which is of the form of sameness of vision can be attained by proper means by one who is striving, whose ‘mind is subdued,’ i.e., by one whose mind is conqu",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 768,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-36-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "upāyataḥ (by appropriate means)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "by appropriate means"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "through the means described above (abhyāsa and vairāgya from 6.35)"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "by karma-yoga, of the nature of the Lord's worship, which includes within itself jñāna"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "by proper means"
+        }
+      ],
+      "explanation": "Shankara reads upāya narrowly as the abhyāsa-vairāgya pair just named in 6.35. Ramanuja reads upāya broadly to include karma-yoga + jñāna + worship. The verse itself does not specify; both are honest readings. Across traditions, the operational point is preserved: yoga is not attainable without method. The unrestrained practitioner who tries without proper means fails; the disciplined practitioner who strives by proper means succeeds. The verse closes the practice-instruction and opens the question of what happens when one strives but falls (6.37 onwards)."
+    }
+  ],
+  "literal_meaning": "Yoga is hard to attain for the unrestrained-self, in My view; but for the disciplined-self, striving by proper means, it can be attained.",
+  "traditional_meaning": "6.36 closes the practice-instruction with Krishna's diagnostic verdict. asaṁyatātmanā — by one whose self is unrestrained — yoga is duṣprāpa, hard to attain. The phrase asaṁyatātmā mirrors the bidirectional self-as-friend / self-as-enemy claim from 6.5-6.6. But by the vaśyātma — the one whose self is mastered — striving (yatatā) by proper means (upāyataḥ), it is achievable. Shankara names the means as the practice and detachment of 6.35. Ramanuja: the means is karma-yoga, of the nature of the Lord's worship, which includes within itself jñāna. The verse rules out two failure-modes: (1) the unrestrained practitioner who tries without method; (2) the would-be practitioner who declares the practice impossible. The disciplined self striving by upāya — proper means — can attain. The verse functions as the bridge to Arjuna's next question (6.37) about what happens to one who falls from yoga.",
+  "engineering": {
+    "translation": "Krishna closes the practice-instruction with a verdict. Yoga is duṣprāpa — hard to attain — for the asaṁyatātma, the one of unrestrained self. The phrase echoes 6.5-6.6's bidirectional self-as-friend / self-as-obstacle claim. The unrestrained self acts against the work. But — vaśyātmanā tu yatatā śakyo 'vāptum upāyataḥ — by the disciplined-self, striving by proper means, it can be attained. Three conditions stack: (1) vaśyātmā — self mastered, not unrestrained; (2) yatatā — actively striving, not passively waiting; (3) upāyataḥ — by proper means, by method. Shankara reads upāya narrowly as the abhyāsa-vairāgya pair from 6.35. Ramanuja broadens it to karma-yoga. The verse rules out two failure-modes: the unrestrained practitioner who tries without method (will fail), and the would-be practitioner who declares the practice impossible (Arjuna's 6.33-34, now answered). Method is not optional. Striving is not optional. Mastery of self is not optional.",
+    "concrete_scenario": "Two engineers attempt identical consequential focused work over twelve months — a deep refactor of a Postgres-backed billing service carrying nine years of architectural drift. Engineer A is asaṁyatātma — willing but undisciplined: she works long hours, cares about outcome, intends well. However she has no daily block, no closed-Slack protocol, no review cadence, no vairāgya practice. She tries earnestly. By month three the refactor is twenty percent complete; by month six she feels exhausted; by month twelve nothing has shipped and a junior teammate has assumed the remaining migration. Engineer B is vaśyātma yatatā upāyataḥ — mastered-self, actively striving, through proper means. Her schedule blocks 9-to-noon mornings. A daily 30-minute review walks yesterday's diff. One architecture-decision-record gets written monthly. Each Friday afternoon a pair-session with a peer surfaces blind spots in the design. She cultivates abhyāsa (returning attention to the problem class daily) plus vairāgya (releasing grip on the launch date) simultaneously. Both engineers want this project. One possesses upāya; the other lacks it. By month twelve Engineer B ships the migration cleanly; the team absorbs the architectural changes; the service runs without alerts. The verse names this difference precisely: yoga is duṣprāpa for the undisciplined, attainable for the mastered-and-striving by upāya. The failure mode is neither laziness nor unwillingness; it is sincere effort lacking proper means.",
+    "falsifiability": "The analog fails if a reader takes 'method' as productivity-system fetishism — believing that Notion templates, time-tracking tools, or weekly review rituals constitute the upāya the verse names. They do not. Upāya is the abhyāsa-vairāgya pair from 6.35 (Shankara's reading) or karma-yoga (Ramanuja's reading) — substantive disciplines anchored in the chapter's prior somatic instruction. An engineer who has elaborate productivity tooling but no daily attention-return practice and no release of outcome-grip has not acquired the upāya the verse names. Tooling without discipline is not method.",
+    "counter_example": "When the engineer's discipline is in fact rigidity — refusing to update the method when evidence indicates it is not working, defending the system over the work — the verse does not endorse this. vaśyātmā striving by upāya is method-as-instrument-of-attainment, not method-as-identity. The disciplined self who cannot adjust the method when it is failing has confused the means with the end. The verse is operational: the means is hard-won, but it is in service of the attainment, not its replacement.",
+    "implication": "If your honest experience matches Engineer A — sincere effort, no method, no progress — the verse does not say try harder. It says acquire the means. The chapter has just named them: practice and dispassion (6.35). Without these, the work is duṣprāpa. With them, attainable.",
+    "quotable_line": "Sincere effort without method is duṣprāpa — not impossible, but not attainable. The verse rules this out.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

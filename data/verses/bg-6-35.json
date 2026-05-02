@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.35",
+  "chapter": 6,
+  "verse": 35,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The two-handed answer. The verse opens with explicit agreement: asaṁśayam — without doubt, the mind is hard to restrain and restless. The teacher does not contradict the question at 6.33-6.34. Then tu — but — the corrective: abhyāsena ca vairāgyeṇa ca gṛhyate — by practice AND dispassion, it is grasped. The pairing is non-negotiable: two distinct disciplines joined by ca (and). NOT a single instruction. Both required. Per Shankara: abhyāsa is the repeated returning of attention to a chosen object. Vairāgya is the absence of hankering for objects of enjoyment. The engineering layer must preserve both as distinct: abhyāsa is daily return-practice; vairāgya is reduced grip on outcomes and praise. Patañjali Yoga Sūtra 1.12 names the same pair (abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ).",
+    "concrete_scenario": "Trace one engineer across two years to observe both disciplines working distinctly. Year 1, Quarter 1: she sits down each morning at 9:00 to a closed-Slack closed-Datadog block on the order-routing latency problem in Kafka, where her mind constantly wanders and she returns it to the partition assignment repeatedly. The first week she returns attention forty times hourly; by Quarter 2 the rate falls to twenty; by Quarter 4 only eight. This compounding capacity-through-repetition is abhyāsa — repeated bringing-back, on schedule, against the same problem-class, performed daily. Year 2 begins differently because she notices a separate kind of pull. Her project now matters publicly: the team watches, recognition affects upcoming promotion, a rival's parallel work advances faster than expected. The mind is no longer pulling toward Slack; it pulls toward imagined outcomes — praise, painful comparison, performance review. She watches the pull and permits it to pass without grasping. By Quarter 4 the imagined outcome has weakened. This is vairāgya — release of grip on result, praise, comparison, relative-position. Two years; two distinct disciplines; one yoked operator. Compare an engineer who only practices abhyāsa: she returns attention faithfully, but each return arrives loaded with anxiety about the launch, Sentry-watching turning compulsive, dashboard-refreshing continuing the day after deploy. Discipline of return is present, but discipline of release is absent. Consider the inverse — an engineer with strong vairāgya, unmoved by outcomes, who never built the daily return-protocol: her unbothered state is undisciplined drift. Krishna names both because both are simultaneously required.",
+    "falsifiability": "The analog fails if a reader collapses the two disciplines into one — 'practice with detachment' as a single instruction. The verse names ca (and). Two hands. Either hand alone is structurally insufficient. An engineer who reads 6.35 as 'just keep practicing and the mind will calm' has dropped vairāgya. An engineer who reads it as 'just stop caring and the mind will be free' has dropped abhyāsa. Both readings invert the verse. The two-handed nature is doctrinally non-negotiable across Shankara, Ramanuja, Patañjali.",
+    "counter_example": "When 'vairāgya' as engineering reduces to detachment from feedback — not reading dashboards, not running postmortems, not learning from outcomes — the verse does not endorse this. Vairāgya in the verse is non-attachment to results, NOT non-attention to feedback. The Datadog dashboard must still be read; the postmortem must still be run; what is released is the grip on the metric as a measure of self-worth. Counter-distorted vairāgya is an inversion. Similarly, abhyāsa that becomes self-punishing willpower-against-the-mind has become a different thing than the verse names; Shankara's gloss is repetition, not coercion.",
+    "implication": "Audit both hands. Do I have a daily return-practice (abhyāsa)? AND reduced grip on the outcomes that pull me from it (vairāgya)? If only one, the chapter says it will not hold.",
+    "quotable_line": "Practice AND dispassion. Two hands. Either alone is structurally insufficient.",
+    "tags": ["focus-practice", "deep-work", "outcome-detachment"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:00Z",
+      "mutation": "v0 generation: BG 6.35 THE TWO-HANDED ANSWER drafted with MAXIMUM CRITICAL CARE per chapter-6 thesis flag — abhyāsa AND vairāgya MUST be preserved as distinct disciplines. Translation explicitly names both, foregrounds ca (and), defines each separately per Shankara, cites Patañjali Yoga Sūtra 1.12 for cross-corpus confirmation. Engineering analog uses two-year trace showing both disciplines distinctly: Year 1 abhyāsa (return to problem class daily), Year 2 vairāgya (release grip on outcomes). Counter-example explicitly guards against the two failure modes: (1) abhyāsa-only (compulsive Sentry-watching despite practice), (2) vairāgya-only (detachment without daily return-discipline). Falsifiability explicitly names the doctrinal non-negotiability of the two-handed structure. Implication is a self-audit prompt for both hands. Confidence HIGH; STRONG analog. NOT collapsed to one.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

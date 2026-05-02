@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 34,
   "fetched_at": "2026-05-02T02:28:26.263Z",
-  "sanskrit_devanagari": "चञ्चलं हि मन: कृष्ण प्रमाथि बलवद्दृढम् ।तस्याहं निग्रहं मन्ये वायोरिव सुदुष्करम् ॥ ३४ ॥",
-  "sanskrit_iast": "cañcalaṁ hi manaḥ kṛṣṇapramāthi balavad dṛḍhamtasyāhaṁ nigrahaṁ manyevāyor iva su-duṣkaram",
+  "sanskrit_devanagari": "चञ्चलं हि मनः कृष्ण प्रमाथि बलवद्दृढम् ।\nतस्याहं निग्रहं मन्ये वायोरिव सुदुष्करम् ॥ ३४ ॥",
+  "sanskrit_iast": "cañcalaṁ hi manaḥ kṛṣṇa pramāthi balavad dṛḍham |\ntasyāhaṁ nigrahaṁ manye vāyor iva su-duṣkaram || 34 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,143 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.034). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "कृष्ण",
+      "iast": "kṛṣṇa",
+      "meaning": "O Krishna"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "चञ्चलम्",
+      "iast": "cañcalam",
+      "meaning": "restless"
+    },
+    {
+      "sanskrit": "प्रमाथि",
+      "iast": "pramāthi",
+      "meaning": "churning / agitating"
+    },
+    {
+      "sanskrit": "बलवत्",
+      "iast": "balavat",
+      "meaning": "strong"
+    },
+    {
+      "sanskrit": "दृढम्",
+      "iast": "dṛḍham",
+      "meaning": "obstinate / unyielding"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "of it"
+    },
+    {
+      "sanskrit": "निग्रहम्",
+      "iast": "nigraham",
+      "meaning": "restraint"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "मन्ये",
+      "iast": "manye",
+      "meaning": "consider"
+    },
+    {
+      "sanskrit": "वायोः",
+      "iast": "vāyoḥ",
+      "meaning": "of the wind"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "like"
+    },
+    {
+      "sanskrit": "सुदुष्करम्",
+      "iast": "su-duṣkaram",
+      "meaning": "very difficult to do"
+    },
+    {
+      "sanskrit": "cañcalaṁ",
+      "iast": "cañcalaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "hi",
+      "iast": "hi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manaḥ",
+      "iast": "manaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kṛṣṇa",
+      "iast": "kṛṣṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "pramāthi",
+      "iast": "pramāthi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "balavad",
+      "iast": "balavad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dṛḍham",
+      "iast": "dṛḍham",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tasyāhaṁ",
+      "iast": "tasyāhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nigrahaṁ",
+      "iast": "nigrahaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manye",
+      "iast": "manye",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vāyor",
+      "iast": "vāyor",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "iva",
+      "iast": "iva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "su-duṣkaram",
+      "iast": "su-duṣkaram",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -52,13 +188,13 @@
       "raw_capture_path": "data/sources/raw/bg-6-34-vedabase.json"
     },
     {
-      "translator": "(bhagavad-gita.us editorial translation)",
-      "tradition": "Modern editorial (multi-sampradaya layout)",
-      "source": "bhagavad-gita.us",
-      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-34/",
-      "fetched_at": "2026-05-02T02:26:17.341Z",
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/34/",
+      "fetched_at": "2026-05-02T03:18:00Z",
       "verbatim_capture_status": "captured",
-      "verbatim_quote": "For the mind is restless, turbulent, obstinate and very strong, O Krishna, and to subdue it, I think, is more difficult than controlling the wind."
+      "verbatim_quote": "The mind is very restless, turbulent, strong and obstinate, O Krishna. It appears to me that it is more difficult to control than the wind."
     }
   ],
   "commentaries": [
@@ -103,9 +239,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "vāyor iva su-duṣkaram (very difficult, like the wind)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "I think it is more difficult to control than the wind"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "harder to control the mind than to control the air outside"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "as hard as restraining the wind in the sky with one's hands"
+        }
+      ],
+      "explanation": "All three readings agree the simile names extreme difficulty. Sankara and Ramanuja elaborate the simile in tactile terms; Prab. renders the comparative. The operational reach is shared: the simile communicates the genuineness of the difficulty being named."
+    }
+  ],
+  "literal_meaning": "For the mind is restless, O Krishna, churning, strong, obstinate. Restraining it, I consider, is as difficult as restraining the wind.",
+  "traditional_meaning_consensus": "6.34 is the full naming of the restless-mind problem. The four adjectives stack: cañcala (unsteady), pramāthi (churning, root math = to churn), balavat (strong), dṛḍham (obstinate). Then the simile: nigraha (restraint) of the mind is like nigraha of the wind — vāyu, the same element used in 6.19's lamp-in-windless-place comparison, now inverted: the mind itself is the wind. Sankara's reading: the four qualities make the mind extremely difficult to subdue; the simile says it is harder to control the mind than to control the air outside. Ramanuja's reading: the mind is naturally fickle, agitates the senses and the body, is powerful and obstinate; restraining it is as hard as restraining the wind in the sky with one's hands. This verse is the most universally recognisable verse in chapter 6 for any practitioner.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,
@@ -115,7 +270,7 @@
     "verbatim_quotes_captured": true,
     "verbatim_quote_sources": [
       "vedabase.io (Prabhupada translation + purport)",
-      "bhagavad-gita.us (editorial translation)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
       "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
       "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
     ],

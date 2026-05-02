@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 33,
   "fetched_at": "2026-05-02T02:28:26.104Z",
-  "sanskrit_devanagari": "अर्जुन उवाचयोऽयं योगस्त्वया प्रोक्त: साम्येन मधुसूदन ।एतस्याहं न पश्यामि चञ्चलत्वात्स्थितिं स्थिराम् ॥ ३३ ॥",
-  "sanskrit_iast": "arjuna uvācayo ’yaṁ yogas tvayā proktaḥsāmyena madhusūdanaetasyāhaṁ na paśyāmicañcalatvāt sthitiṁ sthirām",
+  "sanskrit_devanagari": "अर्जुन उवाच ।\nयोऽयं योगस्त्वया प्रोक्तः साम्येन मधुसूदन ।\nएतस्याहं न पश्यामि चञ्चलत्वात्स्थितिं स्थिराम् ॥ ३३ ॥",
+  "sanskrit_iast": "arjuna uvāca |\nyo 'yaṁ yogas tvayā proktaḥ sāmyena madhusūdana |\netasyāhaṁ na paśyāmi cañcalatvāt sthitiṁ sthirām || 33 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,153 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.033). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुनः उवाच",
+      "iast": "arjunaḥ uvāca",
+      "meaning": "the speaker said"
+    },
+    {
+      "sanskrit": "मधुसूदन",
+      "iast": "madhusūdana",
+      "meaning": "O slayer of Madhu"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "which"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "त्वया",
+      "iast": "tvayā",
+      "meaning": "by you"
+    },
+    {
+      "sanskrit": "प्रोक्तः",
+      "iast": "proktaḥ",
+      "meaning": "spoken / taught"
+    },
+    {
+      "sanskrit": "साम्येन",
+      "iast": "sāmyena",
+      "meaning": "by equanimity / equality"
+    },
+    {
+      "sanskrit": "एतस्य",
+      "iast": "etasya",
+      "meaning": "of this"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "न पश्यामि",
+      "iast": "na paśyāmi",
+      "meaning": "do not see"
+    },
+    {
+      "sanskrit": "चञ्चलत्वात्",
+      "iast": "cañcalatvāt",
+      "meaning": "due to restlessness"
+    },
+    {
+      "sanskrit": "स्थितिम्",
+      "iast": "sthitim",
+      "meaning": "stable continuation"
+    },
+    {
+      "sanskrit": "स्थिराम्",
+      "iast": "sthirām",
+      "meaning": "firm / steady"
+    },
+    {
+      "sanskrit": "arjuna",
+      "iast": "arjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yo",
+      "iast": "yo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'yaṁ",
+      "iast": "'yaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogas",
+      "iast": "yogas",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tvayā",
+      "iast": "tvayā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "proktaḥ",
+      "iast": "proktaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sāmyena",
+      "iast": "sāmyena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "madhusūdana",
+      "iast": "madhusūdana",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "etasyāhaṁ",
+      "iast": "etasyāhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyāmi",
+      "iast": "paśyāmi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cañcalatvāt",
+      "iast": "cañcalatvāt",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthitiṁ",
+      "iast": "sthitiṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthirām",
+      "iast": "sthirām",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -52,13 +198,13 @@
       "raw_capture_path": "data/sources/raw/bg-6-33-vedabase.json"
     },
     {
-      "translator": "(bhagavad-gita.us editorial translation)",
-      "tradition": "Modern editorial (multi-sampradaya layout)",
-      "source": "bhagavad-gita.us",
-      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/",
-      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/33/",
+      "fetched_at": "2026-05-02T03:18:00Z",
       "verbatim_capture_status": "captured",
-      "verbatim_quote": "Arjuna said: O Madhusudana, the system of yoga which You have summarized appears impractical and unendurable to me, for the mind is restless and unsteady."
+      "verbatim_quote": "Arjun said: The system of Yog that you have described, O Madhusudan, appears impractical and unattainable to me, due to the restless mind."
     }
   ],
   "commentaries": [
@@ -103,9 +249,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "sāmyena (by equanimity / equality)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "the system of yoga which You have summarized / equanimous in all"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "yoga taught in the form of equanimity, referring to 6.29-6.32"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "yoga described as samadarshana — same-seeing of self in all beings"
+        }
+      ],
+      "explanation": "All three readings agree that sāmyena refers back to the equanimity-and-same-seeing material of 6.29-6.32. The operational reach is shared: the speaker names the practical impossibility of maintaining the equanimity-state."
+    }
+  ],
+  "literal_meaning": "The speaker said: this yoga of equanimity that you have spoken of, O Madhusūdana — its firm continuation I do not see, because of restlessness.",
+  "traditional_meaning_consensus": "6.33 is the dialectical break of chapter 6. The student interrupts after the long meditation-instruction (6.10-6.32) and names the practical difficulty. The 'sāmyena' refers back to 6.29-6.32's same-seeing equanimity-yoga. The claim is honest: he does not see how this state can be maintained sthirām (firmly) given the cañcalatva (restlessness) of the mind he is about to describe in 6.34. Sankara's reading: he sees no firm position of this yoga taught in the form of equanimity, because of the restlessness of the mind. Ramanuja's reading: he does not perceive the steady continuance of this yoga which has been described as samadarshana, because of the natural restlessness of the mind. Both traditions read this verse as pre-figuring the explicit restless-mind question of 6.34.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,
@@ -115,7 +280,7 @@
     "verbatim_quotes_captured": true,
     "verbatim_quote_sources": [
       "vedabase.io (Prabhupada translation + purport)",
-      "bhagavad-gita.us (editorial translation)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
       "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
       "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
     ],

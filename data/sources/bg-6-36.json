@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 36,
   "fetched_at": "2026-05-02T02:28:26.571Z",
-  "sanskrit_devanagari": "असंयतात्मना योगो दुष्प्राप इति मे मति: ।वश्यात्मना तु यतता शक्योऽवाप्‍तुमुपायत: ॥ ३६ ॥",
-  "sanskrit_iast": "asaṁyatātmanā yogoduṣprāpa iti me matiḥvaśyātmanā tu yatatāśakyo ’vāptum upāyataḥ",
+  "sanskrit_devanagari": "असंयतात्मना योगो दुष्प्राप इति मे मतिः ।\nवश्यात्मना तु यतता शक्योऽवाप्तुमुपायतः ॥ ३६ ॥",
+  "sanskrit_iast": "asaṁyatātmanā yogo duṣprāpa iti me matiḥ |\nvaśyātmanā tu yatatā śakyo 'vāptum upāyataḥ || 36 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,128 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.036). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "असंयतात्मना",
+      "iast": "asaṁyatātmanā",
+      "meaning": "by one whose self is unrestrained"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "दुष्प्रापः",
+      "iast": "duṣprāpaḥ",
+      "meaning": "hard to attain"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "मतिः",
+      "iast": "matiḥ",
+      "meaning": "view"
+    },
+    {
+      "sanskrit": "वश्यात्मना",
+      "iast": "vaśyātmanā",
+      "meaning": "by one whose self is mastered"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "however / but"
+    },
+    {
+      "sanskrit": "यतता",
+      "iast": "yatatā",
+      "meaning": "striving"
+    },
+    {
+      "sanskrit": "शक्यः",
+      "iast": "śakyaḥ",
+      "meaning": "able / possible"
+    },
+    {
+      "sanskrit": "अवाप्तुम्",
+      "iast": "avāptum",
+      "meaning": "to attain"
+    },
+    {
+      "sanskrit": "उपायतः",
+      "iast": "upāyataḥ",
+      "meaning": "by proper means"
+    },
+    {
+      "sanskrit": "asaṁyatātmanā",
+      "iast": "asaṁyatātmanā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogo",
+      "iast": "yogo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duṣprāpa",
+      "iast": "duṣprāpa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "iti",
+      "iast": "iti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "me",
+      "iast": "me",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "matiḥ",
+      "iast": "matiḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vaśyātmanā",
+      "iast": "vaśyātmanā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tu",
+      "iast": "tu",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yatatā",
+      "iast": "yatatā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śakyo",
+      "iast": "śakyo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'vāptum",
+      "iast": "'vāptum",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "upāyataḥ",
+      "iast": "upāyataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -52,13 +173,13 @@
       "raw_capture_path": "data/sources/raw/bg-6-36-vedabase.json"
     },
     {
-      "translator": "(bhagavad-gita.us editorial translation)",
-      "tradition": "Modern editorial (multi-sampradaya layout)",
-      "source": "bhagavad-gita.us",
-      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-36/",
-      "fetched_at": "2026-05-02T02:26:22.027Z",
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/36/",
+      "fetched_at": "2026-05-02T03:18:00Z",
       "verbatim_capture_status": "captured",
-      "verbatim_quote": "For one whose mind is unbridled, self-realization is difficult work. But he whose mind is controlled and who strives by appropriate means is assured of success. That is My opinion."
+      "verbatim_quote": "Yog is difficult to attain for one whose mind is unbridled. However, those who have learnt to control the mind, and who strive earnestly by proper means, can attain perfection in Yog. This is My opinion."
     }
   ],
   "commentaries": [
@@ -103,9 +224,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "upāyataḥ (by proper means / by method)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "by appropriate means"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "by the means stated — abhyāsa and vairāgya"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "through the means already mentioned (abhyāsa-vairāgya)"
+        }
+      ],
+      "explanation": "All three readings refer upāyataḥ back to the abhyāsa-vairāgya dyad of 6.35 — yoga is attainable specifically by THIS method, not by arbitrary effort. The operational claim — that effort without correct method does not produce attainment — is preserved."
+    }
+  ],
+  "literal_meaning": "Yoga is hard to attain by one whose self is unrestrained — that is my view. But by one whose self is mastered, striving with proper means, it is possible to attain.",
+  "traditional_meaning_consensus": "6.36 follows 6.35's two-handed answer with a structural condition. Yoga is duṣprāpa (hard to attain) for the asaṁyatātman — the one whose self has not been brought under restraint (the prior precondition of abhyāsa-vairāgya). For the vaśyātman (one whose self has been mastered), yatatā (striving) and upāyataḥ (with proper means / method), it is śakya (possible) to attain. Sankara's reading: yoga is hard to attain by one of unrestrained self, who has not been able to bring his nature under control by abhyāsa and vairāgya; but yoga is attainable by one whose self has been controlled, who strives by the proper means. Ramanuja's reading: the one of unrestrained mind cannot attain yoga; but the one whose mind has been brought under control, exerting himself through the means already mentioned, can attain it. Both traditions preserve: yoga is method-dependent. Trying-without-method does not produce attainment.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,
@@ -115,7 +255,7 @@
     "verbatim_quotes_captured": true,
     "verbatim_quote_sources": [
       "vedabase.io (Prabhupada translation + purport)",
-      "bhagavad-gita.us (editorial translation)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
       "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
       "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
     ],

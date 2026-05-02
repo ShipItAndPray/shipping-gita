@@ -1,0 +1,327 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.34",
+  "sanskrit_devanagari": "चञ्चलं हि मनः कृष्ण प्रमाथि बलवद्दृढम् ।\nतस्याहं निग्रहं मन्ये वायोरिव सुदुष्करम् ॥ ३४ ॥",
+  "sanskrit_iast": "cañcalaṁ hi manaḥ kṛṣṇa pramāthi balavad dṛḍham |\ntasyāhaṁ nigrahaṁ manye vāyor iva su-duṣkaram || 34 ||",
+  "anvaya": [
+    {
+      "sanskrit": "चञ्चलम्",
+      "iast": "cañcalam",
+      "meaning": "restless / flickering"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "कृष्ण",
+      "iast": "kṛṣṇa",
+      "meaning": "O Kṛṣṇa"
+    },
+    {
+      "sanskrit": "प्रमाथि",
+      "iast": "pramāthi",
+      "meaning": "turbulent / churning / agitating"
+    },
+    {
+      "sanskrit": "बलवत्",
+      "iast": "balavat",
+      "meaning": "strong"
+    },
+    {
+      "sanskrit": "दृढम्",
+      "iast": "dṛḍham",
+      "meaning": "obstinate / firm"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "its"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "निग्रहम्",
+      "iast": "nigraham",
+      "meaning": "restraining / subduing"
+    },
+    {
+      "sanskrit": "मन्ये",
+      "iast": "manye",
+      "meaning": "think / consider"
+    },
+    {
+      "sanskrit": "वायोः",
+      "iast": "vāyoḥ",
+      "meaning": "of the wind"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "like / as"
+    },
+    {
+      "sanskrit": "सुदुष्करम्",
+      "iast": "su-duṣkaram",
+      "meaning": "very difficult"
+    },
+    {
+      "sanskrit": "cañcalaṁ",
+      "iast": "cañcalaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "hi",
+      "iast": "hi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manaḥ",
+      "iast": "manaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kṛṣṇa",
+      "iast": "kṛṣṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "pramāthi",
+      "iast": "pramāthi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "balavad",
+      "iast": "balavad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dṛḍham",
+      "iast": "dṛḍham",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tasya",
+      "iast": "tasya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ahaṁ",
+      "iast": "ahaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nigrahaṁ",
+      "iast": "nigrahaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manye",
+      "iast": "manye",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vāyor",
+      "iast": "vāyor",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "iva",
+      "iast": "iva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "su-duṣkaram",
+      "iast": "su-duṣkaram",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/34/",
+      "fetched_at": "2026-05-02T02:25:30.516Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The mind is restless, turbulent, obstinate and very strong, O Kṛṣṇa, and to subdue it, I think, is more difficult than controlling the wind.",
+      "raw_capture_path": "data/sources/raw/bg-6-34-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/34/",
+      "fetched_at": "2026-05-02T03:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The mind is very restless, turbulent, strong and obstinate, O Krishna. It appears to me that it is more difficult to control than the wind."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/34/",
+      "fetched_at": "2026-05-02T02:25:30.516Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1817 chars)",
+      "verbatim_excerpt": "The mind is so strong and obstinate that it sometimes overcomes the intelligence, although the mind is supposed to be subservient to the intelligence. For a man in the practical world who has to fight so many opposing elements, it is certainly very difficult to control the mind.",
+      "raw_full_path": "data/sources/raw/bg-6-34-vedabase.json (purport_full_length: 1817)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-34/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:17.341Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.35 Mahabaho, O mighty-armed one; asamsayam, undoubtedly-there is no doubt with regard to this; that the manah, mind; is durnigraham, untractable; and calm, restless. Tu, but; it-the modifications of the mind in the form of distractions-grhyate, is brought under control; abhyasena, throug",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 752,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-34-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-34/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:17.341Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.35 The Lord said — No doubt, the mind is hard to subdue on account of its fickle nature. However, it can be subdued with difficulty by cultivating favourable attitude in the direction of the self by repeated contemplation of Its being a mind of auspicious attributes (these being eternali",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 474,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-34-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "pramāthi (turbulent / churning / agitating)",
+      "positions": [
+        {
+          "source": "Prabhupada (synonyms)",
+          "rendering": "agitating"
+        },
+        {
+          "source": "Prabhupada (translation)",
+          "rendering": "turbulent"
+        },
+        {
+          "source": "Shankara/Sridhara",
+          "rendering": "tempestuous, capable of agitating the body and the senses"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "turbulent"
+        },
+        {
+          "source": "Keshava Kashmiri",
+          "rendering": "turbulent in its actions and tenacious in its selections"
+        }
+      ],
+      "explanation": "pramāthi has both senses — what is itself turbulent, and what causes turbulence in something else. The Sanskrit allows both. Sridhara and Keshava Kashmiri foreground the second sense (the mind agitates the body and senses). Prabhupada uses both renderings in synonyms (agitating) and translation (turbulent). The engineering analog can hold both senses: the mind is itself restless, and it generates restlessness in the operator's whole working system."
+    }
+  ],
+  "literal_meaning": "For the mind is restless, turbulent, strong, obstinate, O Kṛṣṇa; restraining it, I think, is as hard as restraining the wind.",
+  "traditional_meaning": "6.34 is the second half of Arjuna's pushback. Four predicates are stacked: cañcalam (restless / flickering), pramāthi (turbulent / churning), balavat (strong), dṛḍham (obstinate). The simile is sharp: nigraham vāyor iva su-duṣkaram — restraining it (the mind) is as difficult as restraining the wind. Sridhara: the mind is by nature restless and fickle, also tempestuous, capable of agitating body and senses; it is very hard to remove from accustomed sense-attachments. Keshava Kashmiri: everyone can verify this by observing one's own mind. The verse is universally recognized — across traditions and across centuries the predicates of the mind are confirmed. It is the canonical statement of the practitioner's actual difficulty. Krishna's two-handed reply follows immediately.",
+  "engineering": {
+    "translation": "Arjuna continues — the second half of his pushback. Four predicates of the mind are stacked: cañcalam (restless / flickering), pramāthi (turbulent, churning, capable of agitating other systems), balavat (strong), dṛḍham (obstinate, firm). Then the simile: tasyāhaṁ nigrahaṁ manye vāyor iva su-duṣkaram — restraining it, I think, is harder than restraining the wind. The verse is universally recognized. Sridhara: the mind is by nature restless, also tempestuous, capable of agitating body and senses; very hard to remove from accustomed sense-attachments. Keshava Kashmiri: anyone can verify this by observing one's own mind. The simile is doctrinally sharp — the wind is the canonical thing-that-cannot-be-restrained. Arjuna chooses the most extreme available comparison. He is not understating. The engineering analog is direct: every operator who has tried to hold attention on a single problem under organisational pressure has experienced their mind moving with exactly these four predicates. The verse legitimizes the experience. Krishna's response immediately follows. STRONG analog. The verse will be quoted whenever the engineering chapter discusses the actual difficulty of focus.",
+    "concrete_scenario": "A senior engineering manager attempts to write a one-page architecture document on a Tuesday morning. The document is consequential — it will frame the next two quarters of the team's roadmap. She has cleared the calendar, closed Slack, set the focus timer. Within ten minutes the predicates arrive in sequence. First cañcalam: the mind flickers — what was that Sentry alert from yesterday? Then pramāthi: a churning anxiety about a junior's resignation surfaces, agitating the body, raising the heart rate, pulling awareness into a recursive worry-loop. Then balavat: the worry is strong; it does not yield to noticing. Then dṛḍham: it is obstinate; pushing against it makes it firmer, like trying to grasp wind in a fist. By 9:30 the document is unwritten and her attention has spent thirty minutes circling the resignation, the alert, an unfinished email, three open browser tabs about Kubernetes operator patterns she had been researching last week. The verse names exactly this experience. Arjuna would recognize it. Krishna does not deny it. The wind comparison is precise: the mind under load behaves like the wind on the day a hurricane is approaching — every restraint amplifies its force. The honest engineer at 9:30 does not pretend the morning is salvageable. She names the day's failure mode, schedules the document for tomorrow's first block under different conditions, and addresses what is actually moving the mind.",
+    "falsifiability": "The analog fails if a reader treats this verse as endorsement of giving up on focus-work because it is too hard. It is not. Arjuna names the difficulty; the chapter does not stop here. The next verse is Krishna's two-handed answer. An engineer who reads 6.34 alone, without 6.35, has read half the dialogue and walked away. The verse names the difficulty so honestly precisely because the answer that follows requires the difficulty to be named honestly first. Skipping 6.35 inverts the verse.",
+    "counter_example": "When the engineer's reported wind-like mind is in fact the predictable result of skipping the chapter's earlier somatic instruction — the closed-Slack block, the moderation in food and sleep, the workspace setup, the regular practice — the verse does not name this. Arjuna's pushback at 6.34 follows the chapter's somatic instruction; he has been listening. The engineer who has not slept, has not eaten, has not closed the channels, who then complains the mind is wind-like is naming a different thing than the verse names. Conditions amplify the wind; without those conditions, Arjuna's question is unearned.",
+    "implication": "When the four predicates arrive — restless, churning, strong, obstinate — name them in sequence. The naming is what Arjuna does. It does not stop the wind, but it positions you to receive Krishna's answer, which the next verse provides.",
+    "quotable_line": "Restraining the mind is harder than restraining the wind — and Arjuna knows the wind comparison is the most extreme he has.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "rajas-restlessness"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

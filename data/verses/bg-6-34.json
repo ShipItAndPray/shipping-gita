@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.34",
+  "chapter": 6,
+  "verse": 34,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna continues — the second half of his pushback. Four predicates of the mind are stacked: cañcalam (restless / flickering), pramāthi (turbulent, churning, capable of agitating other systems), balavat (strong), dṛḍham (obstinate, firm). Then the simile: tasyāhaṁ nigrahaṁ manye vāyor iva su-duṣkaram — restraining it, I think, is harder than restraining the wind. The verse is universally recognized. Sridhara: the mind is by nature restless, also tempestuous, capable of agitating body and senses; very hard to remove from accustomed sense-attachments. Keshava Kashmiri: anyone can verify this by observing one's own mind. The simile is doctrinally sharp — the wind is the canonical thing-that-cannot-be-restrained. Arjuna chooses the most extreme available comparison. He is not understating. The engineering analog is direct: every operator who has tried to hold attention on a single problem under organisational pressure has experienced their mind moving with exactly these four predicates. The verse legitimizes the experience. Krishna's response immediately follows. STRONG analog. The verse will be quoted whenever the engineering chapter discusses the actual difficulty of focus.",
+    "concrete_scenario": "A senior engineering manager attempts to write a one-page architecture document on a Tuesday morning. The document is consequential — it will frame the next two quarters of the team's roadmap. She has cleared the calendar, closed Slack, set the focus timer. Within ten minutes the predicates arrive in sequence. First cañcalam: the mind flickers — what was that Sentry alert from yesterday? Then pramāthi: a churning anxiety about a junior's resignation surfaces, agitating the body, raising the heart rate, pulling awareness into a recursive worry-loop. Then balavat: the worry is strong; it does not yield to noticing. Then dṛḍham: it is obstinate; pushing against it makes it firmer, like trying to grasp wind in a fist. By 9:30 the document is unwritten and her attention has spent thirty minutes circling the resignation, the alert, an unfinished email, three open browser tabs about Kubernetes operator patterns she had been researching last week. The verse names exactly this experience. Arjuna would recognize it. Krishna does not deny it. The wind comparison is precise: the mind under load behaves like the wind on the day a hurricane is approaching — every restraint amplifies its force. The honest engineer at 9:30 does not pretend the morning is salvageable. She names the day's failure mode, schedules the document for tomorrow's first block under different conditions, and addresses what is actually moving the mind.",
+    "falsifiability": "The analog fails if a reader treats this verse as endorsement of giving up on focus-work because it is too hard. It is not. Arjuna names the difficulty; the chapter does not stop here. The next verse is Krishna's two-handed answer. An engineer who reads 6.34 alone, without 6.35, has read half the dialogue and walked away. The verse names the difficulty so honestly precisely because the answer that follows requires the difficulty to be named honestly first. Skipping 6.35 inverts the verse.",
+    "counter_example": "When the engineer's reported wind-like mind is in fact the predictable result of skipping the chapter's earlier somatic instruction — the closed-Slack block, the moderation in food and sleep, the workspace setup, the regular practice — the verse does not name this. Arjuna's pushback at 6.34 follows the chapter's somatic instruction; he has been listening. The engineer who has not slept, has not eaten, has not closed the channels, who then complains the mind is wind-like is naming a different thing than the verse names. Conditions amplify the wind; without those conditions, Arjuna's question is unearned.",
+    "implication": "When the four predicates arrive — restless, churning, strong, obstinate — name them in sequence. The naming is what Arjuna does. It does not stop the wind, but it positions you to receive Krishna's answer, which the next verse provides.",
+    "quotable_line": "Restraining the mind is harder than restraining the wind — and Arjuna knows the wind comparison is the most extreme he has.",
+    "tags": ["focus-practice", "deep-work", "rajas-restlessness"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:34:00Z",
+      "mutation": "v0 generation: BG 6.34 ARJUNA'S RESTLESS-MIND QUESTION (second half) drafted with maximum rigor per chapter-6 thesis flag — universally recognizable to every engineer. Anchored on the four predicates (cañcalam, pramāthi, balavat, dṛḍham) and the wind simile. Sridhara and Keshava Kashmiri commentaries cited verbatim. Engineering analog: senior engineering manager attempting consequential architecture document, predicates arrive in sequence, hurricane-day wind comparison. Counter-example explicitly distinguishes the verse's legitimate naming from cover for not having done somatic prep (6.10-6.19). Tools: Slack, Sentry, Kubernetes, focus timer. Confidence HIGH; STRONG analog. The verse legitimizes the actual experience; the answer follows at 6.35.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

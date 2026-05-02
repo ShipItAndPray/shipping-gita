@@ -1,0 +1,274 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.35",
+  "sanskrit_devanagari": "श्रीभगवानुवाच\nअसंशयं महाबाहो मनो दुर्निग्रहं चलम् ।\nअभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते ॥ ३५ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca\nasaṁśayaṁ mahā-bāho mano durnigrahaṁ calam |\nabhyāsena tu kaunteya vairāgyeṇa ca gṛhyate || 35 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान् उवाच",
+      "iast": "śrī-bhagavān uvāca",
+      "meaning": "the Blessed Lord said"
+    },
+    {
+      "sanskrit": "असंशयम्",
+      "iast": "asaṁśayam",
+      "meaning": "without doubt"
+    },
+    {
+      "sanskrit": "महाबाहो",
+      "iast": "mahā-bāho",
+      "meaning": "O mighty-armed one"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "दुर्निग्रहम्",
+      "iast": "durnigraham",
+      "meaning": "hard to restrain"
+    },
+    {
+      "sanskrit": "चलम्",
+      "iast": "calam",
+      "meaning": "restless"
+    },
+    {
+      "sanskrit": "अभ्यासेन",
+      "iast": "abhyāsena",
+      "meaning": "by practice"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "कौन्तेय",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī"
+    },
+    {
+      "sanskrit": "वैराग्येण",
+      "iast": "vairāgyeṇa",
+      "meaning": "by dispassion / non-attachment"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "गृह्यते",
+      "iast": "gṛhyate",
+      "meaning": "is grasped / brought under control"
+    },
+    {
+      "sanskrit": "śrī-bhagavān",
+      "iast": "śrī-bhagavān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "asaṁśayaṁ",
+      "iast": "asaṁśayaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mahā-bāho",
+      "iast": "mahā-bāho",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mano",
+      "iast": "mano",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "durnigrahaṁ",
+      "iast": "durnigrahaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "calam",
+      "iast": "calam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "abhyāsena",
+      "iast": "abhyāsena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tu",
+      "iast": "tu",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kaunteya",
+      "iast": "kaunteya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vairāgyeṇa",
+      "iast": "vairāgyeṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gṛhyate",
+      "iast": "gṛhyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/35/",
+      "fetched_at": "2026-05-02T02:25:32.079Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Lord Śrī Kṛṣṇa said: O mighty-armed son of Kuntī, it is undoubtedly very difficult to curb the restless mind, but it is possible by suitable practice and by detachment.",
+      "raw_capture_path": "data/sources/raw/bg-6-35-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/35/",
+      "fetched_at": "2026-05-02T03:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Lord Krishna said: O mighty-armed son of Kunti, what you say is correct; the mind is indeed very difficult to restrain. But by practice and detachment, it can be controlled."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/35/",
+      "fetched_at": "2026-05-02T02:25:32.079Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1936 chars)",
+      "verbatim_excerpt": "The difficulty of controlling the obstinate mind, as expressed by Arjuna, is accepted by the Personality of Godhead. But at the same time He suggests that by practice and detachment it is possible.",
+      "raw_full_path": "data/sources/raw/bg-6-35-vedabase.json (purport_full_length: 1936)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-35/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:19.613Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.35 Mahabaho, O mighty-armed one; asamsayam, undoubtedly-there is no doubt with regard to this; that the manah, mind; is durnigraham, untractable; and calm, restless. Tu, but; it-the modifications of the mind in the form of distractions-grhyate, is brought under control; abhyasena, throug",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 752,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-35-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-35/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:19.613Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.35 The Lord said — No doubt, the mind is hard to subdue on account of its fickle nature. However, it can be subdued with difficulty by cultivating favourable attitude in the direction of the self by repeated contemplation of Its being a mind of auspicious attributes (these being eternali",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 474,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-35-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "abhyāsa and vairāgya (practice and dispassion)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "practice and detachment"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "abhyāsa = repetition of some idea or thought of the mind on some mental plane (concentration on a chosen object); vairāgya = absence of hankering for seen and unseen objects of enjoyment, through the practice of seeing the defects in them"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "by repeated contemplation of the self's auspicious attributes, and by absence of hankering produced by seeing the host of evil qualities in objects other than the self"
+        },
+        {
+          "source": "Patañjali Yoga Sūtra 1.12",
+          "rendering": "abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ — by practice and dispassion the (modifications of the mind) are restrained"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "practice and detachment"
+        }
+      ],
+      "explanation": "All commentators agree the verse names two distinct disciplines, joined by 'ca' (and). They are NOT collapsible to a single instruction. abhyāsa is the positive movement (repeated returning of attention to a chosen object); vairāgya is the negative movement (release of grip on the objects that pull attention away). Both are required. Shankara explicitly defines each separately. The engineering analog must preserve both as distinct: the engineer's compounding practice of focus AND the engineer's reduced grip on outcomes/distractions. Patañjali's later sūtra (1.12) names the same pair in nearly identical language — strong cross-corpus confirmation."
+    }
+  ],
+  "literal_meaning": "The Blessed Lord said: Without doubt, mighty-armed one, the mind is hard to restrain and restless; but by practice (abhyāsa) and dispassion (vairāgya) it is grasped.",
+  "traditional_meaning": "6.35 is Krishna's two-handed answer. asaṁśayam — without doubt — Krishna explicitly agrees that the mind is hard to restrain and restless. He does not pretend otherwise. Then: tu — but — abhyāsena ca vairāgyeṇa ca gṛhyate. By practice (abhyāsa) and by dispassion (vairāgya), it is grasped. Shankara glosses abhyāsa as 'repetition of some idea or thought of the mind on some mental plane' (concentration on an object) and vairāgya as 'absence of hankering for the seen and unseen objects of enjoyment, through the practice of seeing the defects in them.' Ramanuja: by repeated contemplation on the self's auspicious attributes, and by absence of hankering through seeing the evil qualities in objects other than the self. Both hands are required; neither alone is sufficient. The pairing is the canonical answer of the Bhagavad Gītā to the practitioner's restlessness, echoed verbatim in Patañjali Yoga Sūtra 1.12 (abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ).",
+  "engineering": {
+    "translation": "Krishna's two-handed answer. The verse opens with explicit agreement: asaṁśayam — without doubt, mighty-armed one, the mind is hard to restrain and restless. Krishna does not contradict Arjuna at 6.33-6.34. Then tu — but — the corrective: abhyāsena ca vairāgyeṇa ca gṛhyate — by practice AND dispassion, it is grasped. The pairing is non-negotiable: two distinct disciplines joined by ca (and). NOT a single instruction. Both required. Shankara: abhyāsa is the repeated returning of attention to a chosen object. Vairāgya is the absence of hankering for objects of enjoyment, cultivated through seeing their defects. The engineering layer must preserve both as distinct. abhyāsa engineering-side: years of compounding focus-practice, attention returned to the problem repeatedly. Vairāgya engineering-side: the senior's reduced grip on outcomes, praise, distractions. Patañjali Yoga Sūtra 1.12 names the same pair (abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ).",
+    "concrete_scenario": "Trace one engineer across two years to observe both disciplines working distinctly. Year 1, Quarter 1: she sits down each morning at 9:00 to a closed-Slack closed-Datadog block on the order-routing latency problem in Kafka, where her mind constantly wanders and she returns it to the partition assignment repeatedly. The first week she returns attention forty times hourly; by Quarter 2 the rate falls to twenty; by Quarter 4 only eight. This compounding capacity-through-repetition is abhyāsa — repeated bringing-back, on schedule, against the same problem-class, performed daily. Year 2 begins differently because she notices a separate kind of pull. Her project now matters publicly: the team watches, recognition affects upcoming promotion, a rival's parallel work advances faster than expected. The mind is no longer pulling toward Slack; it pulls toward imagined outcomes — praise, painful comparison, performance review. She watches the pull and permits it to pass without grasping. By Quarter 4 the imagined outcome has weakened. This is vairāgya — release of grip on result, praise, comparison, relative-position. Two years; two distinct disciplines; one yoked operator. Compare an engineer who only practices abhyāsa: she returns attention faithfully, but each return arrives loaded with anxiety about the launch, Sentry-watching turning compulsive, dashboard-refreshing continuing the day after deploy. Discipline of return is present, but discipline of release is absent. Consider the inverse — an engineer with strong vairāgya, unmoved by outcomes, who never built the daily return-protocol: her unbothered state is undisciplined drift. Krishna names both because both are simultaneously required.",
+    "falsifiability": "The analog fails if a reader collapses the two disciplines into one — 'practice with detachment' as a single instruction. The verse names ca (and). Two hands. Either hand alone is structurally insufficient. An engineer who reads 6.35 as 'just keep practicing and the mind will calm' has dropped vairāgya. An engineer who reads it as 'just stop caring and the mind will be free' has dropped abhyāsa. Both readings invert the verse. The two-handed nature is doctrinally non-negotiable across Shankara, Ramanuja, Patañjali.",
+    "counter_example": "When 'vairāgya' as engineering reduces to detachment from feedback — not reading dashboards, not running postmortems, not learning from outcomes — the verse does not endorse this. Vairāgya in the verse is non-attachment to results, NOT non-attention to feedback. The Datadog dashboard must still be read; the postmortem must still be run; what is released is the grip on the metric as a measure of self-worth. Counter-distorted vairāgya is an inversion. Similarly, abhyāsa that becomes self-punishing willpower-against-the-mind has become a different thing than the verse names; Shankara's gloss is repetition, not coercion.",
+    "implication": "Audit both hands. Do I have a daily return-practice (abhyāsa)? AND reduced grip on the outcomes that pull me from it (vairāgya)? If only one, the chapter says it will not hold.",
+    "quotable_line": "Practice AND dispassion. Two hands. Either alone is structurally insufficient.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "outcome-detachment"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

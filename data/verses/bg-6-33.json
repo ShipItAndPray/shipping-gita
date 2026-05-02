@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.33",
+  "chapter": 6,
+  "verse": 33,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna interrupts. Across the chapter so far, Krishna has described a yogic state — equal-vision among beings, settled mind in the Self, the lamp in a windless place. Arjuna names what every honest practitioner names at this point: 'This yoga of equality you have described, Madhusūdana — etasyāhaṁ na paśyāmi sthitiṁ sthirām — I do not see firm continuance for it, on account of the mind's restlessness.' The verse legitimizes the actual difficulty. Arjuna does not pretend agreement. He does not perform deference. He says straight that he cannot see how the state Krishna has just described could hold. Vishvanatha makes the empirical point: 'This state will last for three or four days. Why? Because the mind is unsteady.' This verse is recognizable to every engineer who has tried to focus, every practitioner who has tried any contemplative discipline, every operator who has watched their attention fragment under load. The chapter's pivot from somatic instruction to dialectical break happens here. The teacher's response — at 6.35 — will not deny the difficulty. STRONG analog. The verse validates rather than dismisses.",
+    "concrete_scenario": "An engineer five years into the work has read every available essay on deep work. She configured the Slack-closed Datadog-closed phone-in-another-room block. She experimented through every recognised system — Pomodoro, two-hour intervals, four-hour stretches, the 9-to-noon morning ritual. Each approach delivers maybe three or four good days; by the fifth, discipline cracks open: she opens Slack mid-block, scans GitHub notifications, gets pulled into an incident channel for ten minutes, returns to the problem with the thread severed. Next week she resets and retries; identical arc. Reading 6.19 — the lamp in a windless place — she experiences this description as both true and unattainable simultaneously. She remembers a senior colleague who clearly holds the state the chapter describes; that senior is not performing it but inhabiting it. Yet Arjuna's exact words apply to her: 'I do not see firm continuance, due to the mind's restlessness.' Three or four days hold; then wind returns. This verse is what an engineer is permitted to feel without disqualification from the practice. Krishna does not call Arjuna unsuited for yoga at 6.34 — he responds at 6.35 with the two-handed prescription. STRONG analog: every engineer who has attempted focused work has been Arjuna at exactly this moment, whether or not they have used the term.",
+    "falsifiability": "The analog fails if a reader takes Arjuna's question as defeatism — proof that the practice is impossible and should be abandoned. It is not. Arjuna's pushback is the chapter's pivot, the move that opens the doorway to Krishna's two-handed answer at 6.35. The engineer who reads 6.33 as 'see, the chapter contradicts itself, focus-doctrine is bunk' has misread Arjuna's function. The honest engineer who names the difficulty out loud has matched Arjuna; the dishonest engineer who pretends there is no difficulty has skipped the verse.",
+    "counter_example": "When the engineer's reported restless-mind difficulty is in fact unwillingness to do the work — using the question 'I cannot focus' as cover for not having tried the structural setup that 6.10-6.19 already prescribed — the verse does not endorse this. Arjuna in 6.33 has been listening to the practice-instruction; his question follows the chapter's somatic specifics. The engineer who has not yet built the closed-Slack closed-Datadog block has not earned Arjuna's question. The verse names a real difficulty for those who have done the structural work; it does not excuse skipping it.",
+    "implication": "When you find yourself unable to sustain the focus the chapter describes, do not assume you have failed at yoga. Krishna does not. Arjuna's question is the doorway, not the failure. Speak the difficulty honestly; the answer follows.",
+    "quotable_line": "Three or four days the practice holds; then the wind returns. Arjuna names this; Krishna does not deny it.",
+    "tags": ["focus-practice", "deep-work", "engineer-paralysis"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 6.33 ARJUNA'S RESTLESS-MIND QUESTION (first half) drafted with maximum rigor per chapter-6 thesis flag — universally recognizable to every engineer. Anchored on the verse's legitimizing function: Arjuna's pushback is the doorway, not the failure. Vishvanatha verbatim ('three or four days') captures the empirical lifespan of focus-practice in honest terms. Engineering analog explicitly maps Arjuna onto the engineer who has read every essay on deep work, set up the structural block, and watched it fail by day five. Counter-example explicitly distinguishes the verse's legitimate question from cover for not having done the structural work (6.10-6.19). Tools: Slack, Datadog, GitHub, Pomodoro, incident channel. Confidence HIGH; STRONG analog because the verse maps near-perfectly onto a universal engineering experience.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

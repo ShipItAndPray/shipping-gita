@@ -1,0 +1,299 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.33",
+  "sanskrit_devanagari": "अर्जुन उवाच\nयोऽयं योगस्त्वया प्रोक्तः साम्येन मधुसूदन ।\nएतस्याहं न पश्यामि चञ्चलत्वात्स्थितिं स्थिराम् ॥ ३३ ॥",
+  "sanskrit_iast": "arjuna uvāca\nyo 'yaṁ yogas tvayā proktaḥ sāmyena madhusūdana |\netasyāhaṁ na paśyāmi cañcalatvāt sthitiṁ sthirām || 33 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुनः उवाच",
+      "iast": "arjunaḥ uvāca",
+      "meaning": "Arjuna said"
+    },
+    {
+      "sanskrit": "यः अयम्",
+      "iast": "yaḥ ayam",
+      "meaning": "this which"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "त्वया",
+      "iast": "tvayā",
+      "meaning": "by you"
+    },
+    {
+      "sanskrit": "प्रोक्तः",
+      "iast": "proktaḥ",
+      "meaning": "spoken / declared"
+    },
+    {
+      "sanskrit": "साम्येन",
+      "iast": "sāmyena",
+      "meaning": "as equality / by equal-vision"
+    },
+    {
+      "sanskrit": "मधुसूदन",
+      "iast": "madhusūdana",
+      "meaning": "O Madhusūdana (slayer of Madhu)"
+    },
+    {
+      "sanskrit": "एतस्य",
+      "iast": "etasya",
+      "meaning": "of this"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "पश्यामि",
+      "iast": "paśyāmi",
+      "meaning": "see / perceive"
+    },
+    {
+      "sanskrit": "चञ्चलत्वात्",
+      "iast": "cañcalatvāt",
+      "meaning": "due to restlessness"
+    },
+    {
+      "sanskrit": "स्थितिम्",
+      "iast": "sthitim",
+      "meaning": "the firm continuance / stable state"
+    },
+    {
+      "sanskrit": "स्थिराम्",
+      "iast": "sthirām",
+      "meaning": "steady / lasting"
+    },
+    {
+      "sanskrit": "arjuna",
+      "iast": "arjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yo",
+      "iast": "yo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'yaṁ",
+      "iast": "'yaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogas",
+      "iast": "yogas",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tvayā",
+      "iast": "tvayā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "proktaḥ",
+      "iast": "proktaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sāmyena",
+      "iast": "sāmyena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "madhusūdana",
+      "iast": "madhusūdana",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "etasya",
+      "iast": "etasya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ahaṁ",
+      "iast": "ahaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyāmi",
+      "iast": "paśyāmi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cañcalatvāt",
+      "iast": "cañcalatvāt",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthitiṁ",
+      "iast": "sthitiṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthirām",
+      "iast": "sthirām",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/33/",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Madhusūdana, the system of yoga which You have summarized appears impractical and unendurable to me, for the mind is restless and unsteady.",
+      "raw_capture_path": "data/sources/raw/bg-6-33-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/33/",
+      "fetched_at": "2026-05-02T03:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjun said: The system of Yog that you have described, O Madhusudan, appears impractical and unattainable to me, due to the restless mind."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/33/",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1716 chars)",
+      "verbatim_excerpt": "The system of mysticism described by Lord Kṛṣṇa to Arjuna beginning with the words śucau deśe and ending with yogī paramaḥ is here being rejected by Arjuna out of a feeling of inability. It is not possible for an ordinary man to leave home and go to a secluded place in the mountains or jungles to practice yoga in this",
+      "raw_full_path": "data/sources/raw/bg-6-33-vedabase.json (purport_full_length: 1716)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.33 O Madhusudana, ayam, this; yogah, Yoga; yah proktah, that has been spoken of; tvaya, by You; samyena, as sameness; na pasyami, I do not see, I cannot conceive;-what?-etasya, its; sthiram, steady, undisturbed; sthitim, continuance; cancalatvat, owing to the unsteadiness of the mind, wh",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 308,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-33-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.33 Arjuna said — This Yoga as explained by you consists in maintaining equality of vision everywhere, viz., i) among themselves which have been so far known to be of different kinds such as gods and men, and ii) between the individual selves and the Supreme, in so far as (a) all the selv",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 527,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-33-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sāmyena (with equality / by equal-vision)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "summarized [as a system of yoga], appears impractical and unendurable"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "this Yoga that has been spoken of by You as sameness (samyena) — its steady undisturbed continuance I do not see"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "this Yoga as explained by you consists in maintaining equality of vision everywhere — i) among beings of different kinds, ii) between individual selves and the Supreme"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "the system of Yog you have described appears impractical and unattainable"
+        }
+      ],
+      "explanation": "Shankara reads sāmyena narrowly — the equality-state Krishna has just summarised. Ramanuja reads it more broadly to include both equality-among-beings and equality-of-individual-self-with-Supreme. Prabhupada and Mukundananda render Arjuna's pushback as practical impossibility ('impractical and unendurable'). Across all readings the operational point is preserved: Arjuna is naming the gap between the state Krishna has described and the engineer/practitioner's actual lived experience of mental restlessness."
+    }
+  ],
+  "literal_meaning": "Arjuna said: This yoga of equality You have described, Madhusūdana, I do not see firm continuance for it, on account of the restlessness (of the mind).",
+  "traditional_meaning": "6.33 is one of only two places in chapter 6 where Arjuna interrupts. He addresses Krishna as Madhusūdana (slayer of Madhu — the demon-slayer epithet). The yoga of equality (sāmyena) just summarised at 6.29-6.32, Arjuna says, he cannot see having any sthiti sthirā — firm or steady continuance — because of the mind's cañcalatva (restlessness). Shankara: 'I do not see, I cannot conceive, its steady undisturbed continuance, owing to the unsteadiness of the mind, which is well known.' Ramanuja: the yoga of equal-vision both among beings and between individual self and Supreme is what Arjuna cannot see established. Vishvanatha: 'This state will last for three or four days. Why? Because the mind is unsteady.' The verse legitimizes Arjuna's honest pushback; Krishna's answer at 6.35 will not deny it.",
+  "engineering": {
+    "translation": "Arjuna interrupts. Across the chapter so far, Krishna has described a yogic state — equal-vision among beings, settled mind in the Self, the lamp in a windless place. Arjuna names what every honest practitioner names at this point: 'This yoga of equality you have described, Madhusūdana — etasyāhaṁ na paśyāmi sthitiṁ sthirām — I do not see firm continuance for it, on account of the mind's restlessness.' The verse legitimizes the actual difficulty. Arjuna does not pretend agreement. He does not perform deference. He says straight that he cannot see how the state Krishna has just described could hold. Vishvanatha makes the empirical point: 'This state will last for three or four days. Why? Because the mind is unsteady.' This verse is recognizable to every engineer who has tried to focus, every practitioner who has tried any contemplative discipline, every operator who has watched their attention fragment under load. The chapter's pivot from somatic instruction to dialectical break happens here. The teacher's response — at 6.35 — will not deny the difficulty. STRONG analog. The verse validates rather than dismisses.",
+    "concrete_scenario": "An engineer five years into the work has read every available essay on deep work. She configured the Slack-closed Datadog-closed phone-in-another-room block. She experimented through every recognised system — Pomodoro, two-hour intervals, four-hour stretches, the 9-to-noon morning ritual. Each approach delivers maybe three or four good days; by the fifth, discipline cracks open: she opens Slack mid-block, scans GitHub notifications, gets pulled into an incident channel for ten minutes, returns to the problem with the thread severed. Next week she resets and retries; identical arc. Reading 6.19 — the lamp in a windless place — she experiences this description as both true and unattainable simultaneously. She remembers a senior colleague who clearly holds the state the chapter describes; that senior is not performing it but inhabiting it. Yet Arjuna's exact words apply to her: 'I do not see firm continuance, due to the mind's restlessness.' Three or four days hold; then wind returns. This verse is what an engineer is permitted to feel without disqualification from the practice. Krishna does not call Arjuna unsuited for yoga at 6.34 — he responds at 6.35 with the two-handed prescription. STRONG analog: every engineer who has attempted focused work has been Arjuna at exactly this moment, whether or not they have used the term.",
+    "falsifiability": "The analog fails if a reader takes Arjuna's question as defeatism — proof that the practice is impossible and should be abandoned. It is not. Arjuna's pushback is the chapter's pivot, the move that opens the doorway to Krishna's two-handed answer at 6.35. The engineer who reads 6.33 as 'see, the chapter contradicts itself, focus-doctrine is bunk' has misread Arjuna's function. The honest engineer who names the difficulty out loud has matched Arjuna; the dishonest engineer who pretends there is no difficulty has skipped the verse.",
+    "counter_example": "When the engineer's reported restless-mind difficulty is in fact unwillingness to do the work — using the question 'I cannot focus' as cover for not having tried the structural setup that 6.10-6.19 already prescribed — the verse does not endorse this. Arjuna in 6.33 has been listening to the practice-instruction; his question follows the chapter's somatic specifics. The engineer who has not yet built the closed-Slack closed-Datadog block has not earned Arjuna's question. The verse names a real difficulty for those who have done the structural work; it does not excuse skipping it.",
+    "implication": "When you find yourself unable to sustain the focus the chapter describes, do not assume you have failed at yoga. Krishna does not. Arjuna's question is the doorway, not the failure. Speak the difficulty honestly; the answer follows.",
+    "quotable_line": "Three or four days the practice holds; then the wind returns. Arjuna names this; Krishna does not deny it.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "engineer-paralysis"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

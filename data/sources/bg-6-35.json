@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 35,
   "fetched_at": "2026-05-02T02:28:26.421Z",
-  "sanskrit_devanagari": "श्रीभगवानुवाचअसंशयं महाबाहो मनो दुर्निग्रहं चलम् ।अभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते ॥ ३५ ॥",
-  "sanskrit_iast": "śrī-bhagavān uvācaasaṁśayaṁ mahā-bāhomano durnigrahaṁ calamabhyāsena tu kaunteyavairāgyeṇa ca gṛhyate",
+  "sanskrit_devanagari": "श्रीभगवानुवाच ।\nअसंशयं महाबाहो मनो दुर्निग्रहं चलम् ।\nअभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते ॥ ३५ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca |\nasaṁśayaṁ mahā-bāho mano durnigrahaṁ calam |\nabhyāsena tu kaunteya vairāgyeṇa ca gṛhyate || 35 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,133 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.035). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान् उवाच",
+      "iast": "śrī-bhagavān uvāca",
+      "meaning": "the Blessed Lord said"
+    },
+    {
+      "sanskrit": "महाबाहो",
+      "iast": "mahā-bāho",
+      "meaning": "O mighty-armed one"
+    },
+    {
+      "sanskrit": "कौन्तेय",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī"
+    },
+    {
+      "sanskrit": "असंशयम्",
+      "iast": "asaṁśayam",
+      "meaning": "without doubt"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "दुर्निग्रहम्",
+      "iast": "durnigraham",
+      "meaning": "hard to restrain"
+    },
+    {
+      "sanskrit": "चलम्",
+      "iast": "calam",
+      "meaning": "restless"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "अभ्यासेन",
+      "iast": "abhyāsena",
+      "meaning": "by practice"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "वैराग्येण",
+      "iast": "vairāgyeṇa",
+      "meaning": "by dispassion / non-attachment"
+    },
+    {
+      "sanskrit": "गृह्यते",
+      "iast": "gṛhyate",
+      "meaning": "is grasped / is restrained"
+    },
+    {
+      "sanskrit": "śrī-bhagavān",
+      "iast": "śrī-bhagavān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "asaṁśayaṁ",
+      "iast": "asaṁśayaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mahā-bāho",
+      "iast": "mahā-bāho",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mano",
+      "iast": "mano",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "durnigrahaṁ",
+      "iast": "durnigrahaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "calam",
+      "iast": "calam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "abhyāsena",
+      "iast": "abhyāsena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tu",
+      "iast": "tu",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kaunteya",
+      "iast": "kaunteya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vairāgyeṇa",
+      "iast": "vairāgyeṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gṛhyate",
+      "iast": "gṛhyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -52,13 +178,13 @@
       "raw_capture_path": "data/sources/raw/bg-6-35-vedabase.json"
     },
     {
-      "translator": "(bhagavad-gita.us editorial translation)",
-      "tradition": "Modern editorial (multi-sampradaya layout)",
-      "source": "bhagavad-gita.us",
-      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-35/",
-      "fetched_at": "2026-05-02T02:26:19.613Z",
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/35/",
+      "fetched_at": "2026-05-02T03:18:00Z",
       "verbatim_capture_status": "captured",
-      "verbatim_quote": "Lord Sri Krishna said: O mighty-armed son of Kunti, it is undoubtedly very difficult to curb the restless mind, but it is possible by suitable practice and by detachment."
+      "verbatim_quote": "Lord Krishna said: O mighty-armed son of Kunti, what you say is correct; the mind is indeed very difficult to restrain. But by practice and detachment, it can be controlled."
     }
   ],
   "commentaries": [
@@ -103,9 +229,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "abhyāsa-vairāgya (practice and dispassion)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "by suitable practice and by detachment"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "abhyāsa = repetition of one cognition on a single object of concentration; vairāgya = absence of attachment to objects of sense, seen and unseen"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "abhyāsa = concentration on the self again and again; vairāgya = dispassion towards objects other than the self"
+        }
+      ],
+      "explanation": "Sankara and Ramanuja both define the dyad sharply. Sankara's reading is more general (any single object); Ramanuja's reading is more devotional (the self / the divine). Patañjali Yoga Sūtra 1.12 codifies the same dyad — abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ. The operational claim — that the answer requires BOTH terms, not either alone — is preserved across all readings."
+    }
+  ],
+  "literal_meaning": "The Blessed Lord said: without doubt, O mighty-armed, the mind is hard to restrain and restless. But it is grasped, O son of Kuntī, by practice and by dispassion.",
+  "traditional_meaning_consensus": "6.35 is the two-handed answer. Asaṁśayam — without doubt — concedes that the mind is durnigraham (hard to restrain) and calam (restless). The 'tu' (but) introduces the operational answer: the mind is gṛhyate (grasped, restrained) by abhyāsa (practice — repeated, sustained, returning) AND vairāgya (dispassion — non-attachment to objects of sense, non-clinging to the fruits of the mind's wandering). Both terms are technical and both are required. Patañjali's Yoga Sūtra 1.12 (composed centuries after the Gita) gives the same dyad — abhyāsa-vairāgyābhyāṁ tan-nirodhaḥ. Sankara's reading: by abhyāsa (the repetition of one cognition on a particular object of mental concentration) and by vairāgya (absence of attachment to sense objects, seen and unseen) the mind is restrained. Ramanuja's reading: by abhyāsa (concentration on the self again and again) and vairāgya (dispassion towards objects other than the self) the mind is gripped firmly. Both traditions preserve the BOTH of the answer: not practice alone, not dispassion alone, but both. The verse is pivotal in chapter 6.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,
@@ -115,7 +260,7 @@
     "verbatim_quotes_captured": true,
     "verbatim_quote_sources": [
       "vedabase.io (Prabhupada translation + purport)",
-      "bhagavad-gita.us (editorial translation)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
       "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
       "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
     ],

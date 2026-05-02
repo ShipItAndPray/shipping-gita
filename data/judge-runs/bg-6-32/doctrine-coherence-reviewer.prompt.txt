@@ -1,0 +1,342 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.32",
+  "sanskrit_devanagari": "आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन ।\nसुखं वा यदि वा दुःखं स योगी परमो मतः ॥ ३२ ॥",
+  "sanskrit_iast": "ātmaupamyena sarvatra samaṁ paśyati yo 'rjuna |\nsukhaṁ vā yadi vā duḥkhaṁ sa yogī paramo mataḥ || 32 ||",
+  "anvaya": [
+    {
+      "sanskrit": "आत्मौपम्येन",
+      "iast": "ātma-aupamyena",
+      "meaning": "by analogy with the self / by the same standard one would apply to oneself"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere / in all beings"
+    },
+    {
+      "sanskrit": "समम्",
+      "iast": "samam",
+      "meaning": "alike / equally"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "he who"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "pleasure / happiness"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "यदि",
+      "iast": "yadi",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "दुःखम्",
+      "iast": "duḥkham",
+      "meaning": "pain / sorrow"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "योगी",
+      "iast": "yogī",
+      "meaning": "the yogin"
+    },
+    {
+      "sanskrit": "परमः",
+      "iast": "paramaḥ",
+      "meaning": "supreme / highest"
+    },
+    {
+      "sanskrit": "मतः",
+      "iast": "mataḥ",
+      "meaning": "is considered"
+    },
+    {
+      "sanskrit": "ātma-aupamyena",
+      "iast": "ātma-aupamyena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sarvatra",
+      "iast": "sarvatra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "samaṁ",
+      "iast": "samaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyati",
+      "iast": "paśyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yo",
+      "iast": "yo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'rjuna",
+      "iast": "'rjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sukhaṁ",
+      "iast": "sukhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vā",
+      "iast": "vā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yadi",
+      "iast": "yadi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vā",
+      "iast": "vā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duḥkhaṁ",
+      "iast": "duḥkhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogī",
+      "iast": "yogī",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paramo",
+      "iast": "paramo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mataḥ",
+      "iast": "mataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/32/",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "He is a perfect yogī who, by comparison to his own self, sees the true equality of all beings, in both their happiness and their distress, O Arjuna!",
+      "raw_capture_path": "data/sources/raw/bg-6-32-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/32/",
+      "fetched_at": "2026-05-02T03:18:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "I regard them to be perfect yogis who see the true equality of all living beings and respond to the joys and sorrows of others as if they were their own."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/32/",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1567 chars)",
+      "verbatim_excerpt": "One who is Kṛṣṇa conscious is a perfect yogī; he is aware of everyone’s happiness and distress by dint of his own personal experience. The cause of the distress of a living entity is forgetfulness of his relationship with God.",
+      "raw_full_path": "data/sources/raw/bg-6-32-vedabase.json (purport_full_length: 1567)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.32 Atma-aupamyena: Atma means the self, i.e. oneself. That by which a comparison is made is an upama. The abstract from of that is aupamya. Atma-aupamya means a standard as would be applicable to oneself. O Arjuna, yah, he who; pasyati, judges; sarvatra, in all beings; samam, by the same",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1210,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-32-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.32 (iv) He who — because of the similarity between his own self and other selves, as they are all constituted similarly of uncontracted knowledge in their essential being — views the pleasures in the form of the birth of a son and the sorrows in the form of the death of a son of his own ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 912,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-32-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ātma-aupamyena (by analogy with the self)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "by comparison to his own self"
+        },
+        {
+          "source": "Shankara",
+          "rendering": "by the same standard one would apply to oneself: 'as happiness is dear to me, so to all; as pain is hateful to me, so to all'"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "because of the similarity-of-selves (all equally constituted of uncontracted knowledge), he views joys and sorrows of self and others as equal"
+        },
+        {
+          "source": "Mukundananda",
+          "rendering": "respond to the joys and sorrows of others as if they were their own"
+        }
+      ],
+      "explanation": "Shankara's reading is ethical/operational (apply your own standard to others). Ramanuja's reading is metaphysical (the selves are similar in essence, hence equally affected). Prabhupada and Mukundananda render it with both flavours present. The engineering analog has stronger operational reach via Shankara's reading: the senior reads another's pleasure or pain by analogy with their own."
+    }
+  ],
+  "literal_meaning": "He who, by analogy with himself, sees alike everywhere — pleasure or pain — that yogi, O Arjuna, is considered supreme.",
+  "traditional_meaning": "6.32 names by what diagnostic the supreme yogi is recognised: ātma-aupamyena — by analogy with the self. Shankara: as happiness is dear to me, so it is dear to all; as pain is hateful, so to all; one who sees through this same standard is the supreme yogi. Ramanuja: because of the similarity of selves (all equally constituted of uncontracted knowledge), he views his and others' joys and sorrows as equal. The verse has stronger operational reach than 6.29-6.31 — the diagnostic 'judge another's pain by your own standard' is ethically and practically translatable. The verse coheres with 5.18-5.20 (sama-darśana) and prefigures Arjuna's restless-mind question at 6.33 — Arjuna will respond by reading his own restlessness back into the practice.",
+  "engineering": {
+    "translation": "By analogy with the self (ātma-aupamyena) — by what yardstick one would apply inwardly — the supreme yogi sees alike everywhere, whether pleasure or pain. Shankara is operationally explicit: as happiness is dear to me, so to all; as suffering is hateful to me, so to all; whoever judges thus is the highest yogin. Ramanuja reads it through similarity-of-selves but the operational claim coincides. This engineering analog has stronger reach than 6.29-6.31: the senior reads a junior's frustration with a flaky test by what calibrated standard they would read their own; reads a peer's pride in a hard-won deploy through this same lens. Diagnosis here is not sympathy or social-skill; it is perceptual capacity to apply self-as-instrument when registering another's state. Code-reviewers, incident-commanders, engineering managers share this single function. What ruler measures inwardly also measures outwardly. STRONG analog.",
+    "concrete_scenario": "A principal engineer reviews a GitHub pull request from a two-year engineer who refactored a flaky end-to-end test suite at midnight after their third repro attempt against a Postgres race condition. The diff is messy. Dead code remains from debugging. A vitest unit case has been disabled with a comment 'will fix tomorrow.' The reviewer has been here. She remembers, twelve years ago, leaving a similar artifact under matching conditions — same kind of leftover code, same disabled assertion, same exhausted midnight push. The frustration in the PR description — 'finally caught the race; took three nights' — registers in her by analogy against her own recollected experience from that earlier incident. She does not approve; the dead code must come out and the assertion be re-enabled. But what she writes names the achievement first, requests cleanup second, and offers to pair on it tomorrow. Compare a reviewer reading the same diff without analogy: six terse blocking comments on style; the achievement invisible; this junior feels punished for shipping fix. The verse names supreme yogin by exactly such diagnostic — sukhaṁ vā yadi vā duḥkhaṁ — registering joy or sorrow in another through the yardstick of one's own remembered substrate. Perception of another's state is calibrated against self. That is what distinguishes a senior reviewer from a linter.",
+    "falsifiability": "The analog fails if a reader treats this verse as a doctrine of empathy as performance — saying 'I understand' without actually applying the self-standard. The verse names a perceptual capacity, not a verbal protocol. An engineer who has not run a flaky test at midnight cannot read this PR by analogy because the analog substrate does not exist. The capacity is built by accumulated experience that becomes available as a reading-frame. No experience-substrate, no analogy, no supreme yogi. Empathy-as-words misses the verse.",
+    "counter_example": "When the senior over-identifies with the junior — projecting their own past struggles onto a different situation, missing what is actually happening because they assume it matches their memory — the verse does not endorse this. ātma-aupamyena is a calibration tool, not a substitution. The analog informs the reading; it does not replace the reading. When a junior's pain is from a cause the senior never encountered, projecting from self produces misreading. The verse names a capacity, not a default.",
+    "implication": "Before responding to a junior's pull request, message, or incident report, run a brief self-check: in their position, with their experience-level, on their schedule, what would I be feeling? Use the answer as a calibration input, not as the answer.",
+    "quotable_line": "The supreme yogi reads another's pain by the same standard they read their own; the senior code reviewer does the same.",
+    "tags": [
+      "team-state",
+      "code-review-discipline",
+      "operator-as-instrument"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

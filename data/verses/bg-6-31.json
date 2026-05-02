@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.31",
+  "chapter": 6,
+  "verse": 31,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "STRETCHED. The verse names a theistic destination: the yogi established in oneness, worshipping the Lord as residing in all beings, abides in the Lord whatever the outward activity. Shankara: 'exists in the supreme state of Viṣṇu, ever-free.' Ramanuja: the yogin has the same form of uncontracted knowledge as the Lord. The metaphysical scope exceeds operational reach. The honest engineering rung is narrower: the senior whose engagement with the substrate — codebase, production system, team — is uniform across every motion, because their work-state IS the system's state at the layer they touch. Debugging Postgres at 2 AM, reviewing a junior's pull request, sitting in planning, writing a runbook — the mode of engagement is the same. No on-stage and off-stage. The senior does not 'abide in the Lord'; that is the verse's reach, not engineering's. The structural feature of unbroken-engagement is what the analog can honestly recognise.",
+    "concrete_scenario": "A staff SRE at a payments company, eight years on the team, moves through one Tuesday whose substrate-engagement remains continuous regardless of activity. At 9:15 AM she debugs a Kafka consumer-lag spike, walking the partition assignments in Datadog. At 10:30 she joins a postmortem for last week's PagerDuty incident and names the cascade without blaming the on-call engineer. At 11:45 she reviews a junior's Terraform pull request, leaves three comments, and approves with one block on the IAM policy. At 1:00 she eats lunch at her desk, opens the runbook for the upcoming Postgres migration, and edits two steps. At 2:30 she pairs with a new hire for ninety minutes on an Elasticsearch cluster they have never seen before. At 4:30 she writes a one-page architecture document on the proposed sharding scheme. At 6:00 she closes the laptop. The mode of engagement does not switch across these motions: she is not performing seniority during the postmortem and resting during code review; she is not 'on' during pairing and 'off' during documentation. The verse's full claim — that such a yogi abides in the Lord — exceeds this engineering analog by a metaphysical distance the analog cannot travel. What the analog can honestly recognise: the senior's relationship to the production system has stopped being a sequence of discrete tasks and has become continuous engagement at uniform intensity. Wherever she is in the system, she is fully there.",
+    "falsifiability": "The analog fails if a reader takes it as a claim that engineering tenure produces the yogi's state, or that a senior's continuous engagement IS the verse's 'abiding in Me.' It is not. The verse is theistic; the engineering analog operates at a much narrower scope (continuity of substrate-engagement across activities, not metaphysical union). Anyone reading 6.31 as 'the senior IS the system, in the verse's full sense' has over-reached the analog.",
+    "counter_example": "When the senior's apparent continuous engagement is in fact perfectionism or workaholism — never disengaging because anxiety drives the engagement, not because the work-state has settled — the verse does not name this. The yogi's abiding is settled-and-released, not gripped-and-anxious. An engineer who works through every meeting, every meal, every weekend out of fear of dropping a thread has not reached the verse's analog; they have reached its inversion.",
+    "implication": "Audit your engagement-mode across one workday. Notice whether you switch modes — performance during the visible meetings, slack during the invisible work — or whether the engagement is continuous. The senior's mark is not intensity; it is the absence of mode-switching.",
+    "quotable_line": "The senior does not switch modes between the visible work and the invisible work. The engagement is continuous.",
+    "tags": ["operator-as-instrument", "operator-system-coupling", "team-state"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:21:00Z",
+      "mutation": "v0 generation: BG 6.31 drafted with STRETCHED tag and confidence MEDIUM honoring chapter-6 thesis flag — verse is theistic (yogi abides in Me) and the metaphysical scope exceeds operational engineering. Engineering analog scoped deliberately downward to continuity of substrate-engagement across activities. Translation explicitly names the scope-mismatch and quotes Shankara and Ramanuja verbatim. Falsifiability explicitly guards against the misread that engineering tenure produces the yogi-state. Counter-example distinguishes settled engagement from anxious workaholism. Tools: Kafka, Datadog, PagerDuty, Terraform, IAM, Elasticsearch, Postgres. Per chapter thesis: STRETCHED honestly.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

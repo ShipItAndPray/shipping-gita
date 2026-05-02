@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.32",
+  "chapter": 6,
+  "verse": 32,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "By analogy with the self (ātma-aupamyena) — by what yardstick one would apply inwardly — the supreme yogi sees alike everywhere, whether pleasure or pain. Shankara is operationally explicit: as happiness is dear to me, so to all; as suffering is hateful to me, so to all; whoever judges thus is the highest yogin. Ramanuja reads it through similarity-of-selves but the operational claim coincides. This engineering analog has stronger reach than 6.29-6.31: the senior reads a junior's frustration with a flaky test by what calibrated standard they would read their own; reads a peer's pride in a hard-won deploy through this same lens. Diagnosis here is not sympathy or social-skill; it is perceptual capacity to apply self-as-instrument when registering another's state. Code-reviewers, incident-commanders, engineering managers share this single function. What ruler measures inwardly also measures outwardly. STRONG analog.",
+    "concrete_scenario": "A principal engineer reviews a GitHub pull request from a two-year engineer who refactored a flaky end-to-end test suite at midnight after their third repro attempt against a Postgres race condition. The diff is messy. Dead code remains from debugging. A vitest unit case has been disabled with a comment 'will fix tomorrow.' The reviewer has been here. She remembers, twelve years ago, leaving a similar artifact under matching conditions — same kind of leftover code, same disabled assertion, same exhausted midnight push. The frustration in the PR description — 'finally caught the race; took three nights' — registers in her by analogy against her own recollected experience from that earlier incident. She does not approve; the dead code must come out and the assertion be re-enabled. But what she writes names the achievement first, requests cleanup second, and offers to pair on it tomorrow. Compare a reviewer reading the same diff without analogy: six terse blocking comments on style; the achievement invisible; this junior feels punished for shipping fix. The verse names supreme yogin by exactly such diagnostic — sukhaṁ vā yadi vā duḥkhaṁ — registering joy or sorrow in another through the yardstick of one's own remembered substrate. Perception of another's state is calibrated against self. That is what distinguishes a senior reviewer from a linter.",
+    "falsifiability": "The analog fails if a reader treats this verse as a doctrine of empathy as performance — saying 'I understand' without actually applying the self-standard. The verse names a perceptual capacity, not a verbal protocol. An engineer who has not run a flaky test at midnight cannot read this PR by analogy because the analog substrate does not exist. The capacity is built by accumulated experience that becomes available as a reading-frame. No experience-substrate, no analogy, no supreme yogi. Empathy-as-words misses the verse.",
+    "counter_example": "When the senior over-identifies with the junior — projecting their own past struggles onto a different situation, missing what is actually happening because they assume it matches their memory — the verse does not endorse this. ātma-aupamyena is a calibration tool, not a substitution. The analog informs the reading; it does not replace the reading. When a junior's pain is from a cause the senior never encountered, projecting from self produces misreading. The verse names a capacity, not a default.",
+    "implication": "Before responding to a junior's pull request, message, or incident report, run a brief self-check: in their position, with their experience-level, on their schedule, what would I be feeling? Use the answer as a calibration input, not as the answer.",
+    "quotable_line": "The supreme yogi reads another's pain by the same standard they read their own; the senior code reviewer does the same.",
+    "tags": ["team-state", "code-review-discipline", "operator-as-instrument"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:25:00Z",
+      "mutation": "v0 generation: BG 6.32 ANALOGY-WITH-SELF engineering layer drafted with maximum care per chapter-6 thesis flag — STRONG engineering analog, prefigures Arjuna's restless-mind question at 6.33. Anchored on Shankara's operational reading (as happiness is dear to me, so to all) and Ramanuja's metaphysical reading (similarity-of-selves) with both operational claims preserved. Engineering analog: senior's perceptual capacity to read another by self-standard. Counter-example explicitly distinguishes calibration from projection (the failure mode of over-identification). Anchored on code-review and incident-command — the canonical sites where this perceptual capacity matters. Tools: pull request, flaky test, end-to-end suite, midnight commit, race condition. Confidence HIGH; not STRETCHED.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

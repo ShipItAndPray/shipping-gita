@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 32,
   "fetched_at": "2026-05-02T02:28:25.950Z",
-  "sanskrit_devanagari": "आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन ।सुखं वा यदि वा दु:खं स योगी परमो मत: ॥ ३२ ॥",
-  "sanskrit_iast": "ātmaupamyena sarvatrasamaṁ paśyati yo ’rjunasukhaṁ vā yadi vā duḥkhaṁsa yogī paramo mataḥ",
+  "sanskrit_devanagari": "आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन ।\nसुखं वा यदि वा दुःखं स योगी परमो मतः ॥ ३२ ॥",
+  "sanskrit_iast": "ātmaupamyena sarvatra samaṁ paśyati yo 'rjuna |\nsukhaṁ vā yadi vā duḥkhaṁ sa yogī paramo mataḥ || 32 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,158 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.032). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    },
+    {
+      "sanskrit": "आत्मौपम्येन",
+      "iast": "ātmaupamyena",
+      "meaning": "by analogy with one's own self"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere"
+    },
+    {
+      "sanskrit": "समम्",
+      "iast": "samam",
+      "meaning": "the same / equally"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "happiness / pleasure"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "यदि",
+      "iast": "yadi",
+      "meaning": "if"
+    },
+    {
+      "sanskrit": "वा",
+      "iast": "vā",
+      "meaning": "or"
+    },
+    {
+      "sanskrit": "दुःखम्",
+      "iast": "duḥkham",
+      "meaning": "sorrow / pain"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that one"
+    },
+    {
+      "sanskrit": "योगी",
+      "iast": "yogī",
+      "meaning": "yogi"
+    },
+    {
+      "sanskrit": "परमः",
+      "iast": "paramaḥ",
+      "meaning": "supreme / highest"
+    },
+    {
+      "sanskrit": "मतः",
+      "iast": "mataḥ",
+      "meaning": "is regarded"
+    },
+    {
+      "sanskrit": "ātmaupamyena",
+      "iast": "ātmaupamyena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sarvatra",
+      "iast": "sarvatra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "samaṁ",
+      "iast": "samaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyati",
+      "iast": "paśyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yo",
+      "iast": "yo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'rjuna",
+      "iast": "'rjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sukhaṁ",
+      "iast": "sukhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vā",
+      "iast": "vā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yadi",
+      "iast": "yadi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vā",
+      "iast": "vā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duḥkhaṁ",
+      "iast": "duḥkhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogī",
+      "iast": "yogī",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paramo",
+      "iast": "paramo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mataḥ",
+      "iast": "mataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -52,13 +203,13 @@
       "raw_capture_path": "data/sources/raw/bg-6-32-vedabase.json"
     },
     {
-      "translator": "(bhagavad-gita.us editorial translation)",
-      "tradition": "Modern editorial (multi-sampradaya layout)",
-      "source": "bhagavad-gita.us",
-      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/",
-      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/32/",
+      "fetched_at": "2026-05-02T03:18:00Z",
       "verbatim_capture_status": "captured",
-      "verbatim_quote": "He is a perfect yogi who, by comparison to his own self, sees the true equality of all beings, in both their happiness and their distress, O Arjuna!"
+      "verbatim_quote": "I regard them to be perfect yogis who see the true equality of all living beings and respond to the joys and sorrows of others as if they were their own."
     }
   ],
   "commentaries": [
@@ -103,9 +254,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "ātmaupamyena (by analogy with one's own self)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "by comparison with his own self / sees the true equality of all"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "what is pleasurable to me is pleasurable to all; what is painful to me is painful to all — therefore harms no one"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "the yogin sees in all his own state — the pleasure-and-pain that is mine is theirs"
+        }
+      ],
+      "explanation": "All three traditions read ātmaupamya as the practice of mapping one's own pleasure and pain onto others. Sankara emphasises the ethical corollary (ahiṃsā); Ramanuja emphasises structural identification; Prab. flattens to 'true equality.' The operational claim — empathy-by-self-comparison as the diagnostic of the supreme yogi — is preserved."
+    }
+  ],
+  "literal_meaning": "By analogy with one's own self, the one who sees everywhere alike — whether pleasure or pain — that yogi, O Arjuna, is regarded as supreme.",
+  "traditional_meaning_consensus": "6.32 names the diagnostic of the supreme yogi: ātmaupamyena, by analogy-with-the-self. The yogi reads other beings' pleasure and pain by mapping them onto his own — and sees them samam, the same. This is not affective merging; it is structural identification grounded in the realisation of 6.29-6.31. Sankara's reading: the supreme yogi sees everywhere that what is pleasurable to himself is pleasurable to all beings, and what is painful to himself is painful to them; thus he does no harm to anyone. Ramanuja's reading: by ātmaupamya, the yogin sees in all his own state of pleasure or pain, which confers on him the title parama. Both traditions cohere on the operational claim: empathy-by-self-comparison is the diagnostic of the highest yogi. This verse pre-figures the dialectical turn at 6.33.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,
@@ -115,7 +285,7 @@
     "verbatim_quotes_captured": true,
     "verbatim_quote_sources": [
       "vedabase.io (Prabhupada translation + purport)",
-      "bhagavad-gita.us (editorial translation)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
       "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
       "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
     ],

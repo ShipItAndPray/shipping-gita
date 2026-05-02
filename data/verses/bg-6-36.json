@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.36",
+  "chapter": 6,
+  "verse": 36,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna closes the practice-instruction with a verdict. Yoga is duṣprāpa — hard to attain — for the asaṁyatātma, the one of unrestrained self. The phrase echoes 6.5-6.6's bidirectional self-as-friend / self-as-obstacle claim. The unrestrained self acts against the work. But — vaśyātmanā tu yatatā śakyo 'vāptum upāyataḥ — by the disciplined-self, striving by proper means, it can be attained. Three conditions stack: (1) vaśyātmā — self mastered, not unrestrained; (2) yatatā — actively striving, not passively waiting; (3) upāyataḥ — by proper means, by method. Shankara reads upāya narrowly as the abhyāsa-vairāgya pair from 6.35. Ramanuja broadens it to karma-yoga. The verse rules out two failure-modes: the unrestrained practitioner who tries without method (will fail), and the would-be practitioner who declares the practice impossible (Arjuna's 6.33-34, now answered). Method is not optional. Striving is not optional. Mastery of self is not optional.",
+    "concrete_scenario": "Two engineers attempt identical consequential focused work over twelve months — a deep refactor of a Postgres-backed billing service carrying nine years of architectural drift. Engineer A is asaṁyatātma — willing but undisciplined: she works long hours, cares about outcome, intends well. However she has no daily block, no closed-Slack protocol, no review cadence, no vairāgya practice. She tries earnestly. By month three the refactor is twenty percent complete; by month six she feels exhausted; by month twelve nothing has shipped and a junior teammate has assumed the remaining migration. Engineer B is vaśyātma yatatā upāyataḥ — mastered-self, actively striving, through proper means. Her schedule blocks 9-to-noon mornings. A daily 30-minute review walks yesterday's diff. One architecture-decision-record gets written monthly. Each Friday afternoon a pair-session with a peer surfaces blind spots in the design. She cultivates abhyāsa (returning attention to the problem class daily) plus vairāgya (releasing grip on the launch date) simultaneously. Both engineers want this project. One possesses upāya; the other lacks it. By month twelve Engineer B ships the migration cleanly; the team absorbs the architectural changes; the service runs without alerts. The verse names this difference precisely: yoga is duṣprāpa for the undisciplined, attainable for the mastered-and-striving by upāya. The failure mode is neither laziness nor unwillingness; it is sincere effort lacking proper means.",
+    "falsifiability": "The analog fails if a reader takes 'method' as productivity-system fetishism — believing that Notion templates, time-tracking tools, or weekly review rituals constitute the upāya the verse names. They do not. Upāya is the abhyāsa-vairāgya pair from 6.35 (Shankara's reading) or karma-yoga (Ramanuja's reading) — substantive disciplines anchored in the chapter's prior somatic instruction. An engineer who has elaborate productivity tooling but no daily attention-return practice and no release of outcome-grip has not acquired the upāya the verse names. Tooling without discipline is not method.",
+    "counter_example": "When the engineer's discipline is in fact rigidity — refusing to update the method when evidence indicates it is not working, defending the system over the work — the verse does not endorse this. vaśyātmā striving by upāya is method-as-instrument-of-attainment, not method-as-identity. The disciplined self who cannot adjust the method when it is failing has confused the means with the end. The verse is operational: the means is hard-won, but it is in service of the attainment, not its replacement.",
+    "implication": "If your honest experience matches Engineer A — sincere effort, no method, no progress — the verse does not say try harder. It says acquire the means. The chapter has just named them: practice and dispassion (6.35). Without these, the work is duṣprāpa. With them, attainable.",
+    "quotable_line": "Sincere effort without method is duṣprāpa — not impossible, but not attainable. The verse rules this out.",
+    "tags": ["focus-practice", "deep-work", "shipping-discipline"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:43:00Z",
+      "mutation": "v0 generation: BG 6.36 METHOD-OR-FAIL drafted with attention to chapter-6 thesis flag — the verse closes the practice-instruction by ruling out the two failure modes (unrestrained-but-trying / declares-impossible). Three required conditions explicitly named: vaśyātmā, yatatā, upāyataḥ. Engineering analog uses Engineer-A vs Engineer-B comparison over twelve months on a Postgres-backed billing service refactor — sincere effort without method fails; method-equipped striving succeeds. Counter-example explicitly distinguishes method-as-instrument from method-as-rigidity (defending the system over the work). Falsifiability explicitly names the productivity-tooling fetishism failure mode. Tools: Postgres, billing service, Slack, architecture decision record. Confidence HIGH; STRONG analog with method-emphasis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}
