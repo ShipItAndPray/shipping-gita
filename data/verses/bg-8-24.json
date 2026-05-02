@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.24",
+  "chapter": 8,
+  "verse": 24,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Fire, light, day, the bright (waxing) fortnight, the six months of the northern course of the sun (uttarāyaṇa) — knowers of Brahman who depart at these times go to Brahman. Shankara reads each item as a deity presiding over a period of time, the so-called Northern Path (devayāna). Ramanuja reads them as denoting a path with deities beginning with day and ending with year. The verse's content is cosmic eschatology; this is the bright path of non-return. STRETCHED maximally — there is essentially no operational analog. Engineering cannot translate fire/light/day/bright-fortnight/uttarāyaṇa into any infrastructure or process content without trivialising the verse. Confidence LOW. The honest engineering response is to mark this verse explicitly as the chapter's metaphysical apex of eschatology and acknowledge the engineering layer cannot reach it.",
+    "concrete_scenario": "I cannot honestly describe a software-engineering scenario whose structure replicates 'fire, light, day, the bright fortnight, the six months of the northern course of the sun.' Any attempt — 'ship in daylight not at midnight,' 'merge during business hours not at 3am,' 'deploy in the bright half of the sprint' — would be trivialisation, exactly the failure mode the chapter-8 thesis warns against. What an engineer CAN do is recognise that the chapter has reached a register the operational layer cannot follow, and read the verse at its own scope. The verse names a cosmic mechanism by which knowers of Brahman attain Brahman; this is doctrinal Vedānta drawn from the Chāndogya Upaniṣad's worship-of-five-fires (5.10), preserved at source-pack level. The engineering layer holds the source pack open and stops. This is the chapter's most STRETCHED verse so far; the project's discipline of honest scope-marking is exactly what is asked here. The empty operational analog is the truthful one. A staff engineer reading this verse on a Saturday morning has the source pack, the commentaries, and the chapter thesis — and the discipline to read the verse as Vedānta, not as a productivity slogan dressed in Sanskrit.",
+    "falsifiability": "The analog fails the moment any reader attempts to map fire/light/day/bright-fortnight/uttarāyaṇa onto deployment timing, sprint cadence, code-review windows, or any other engineering content. There is no map. The verse names cosmic eschatology. Anyone who produces a 'bright path = clean shipping' reading has produced the trivialisation the chapter-8 thesis explicitly forbids.",
+    "counter_example": "When a reader insists that 'ship in the bright fortnight' is the verse's engineering content, the verse rejects this entirely. The verse is not about shipping. The engineering layer's honest response here is silence-with-source-pack, not cleverness.",
+    "implication": "Read this verse at source-pack scope only. Do not produce an engineering analog. The discipline of marking exactly where operational reach ends is the project's contribution at this verse.",
+    "quotable_line": "There is no honest engineering analog for fire-light-day-bright-fortnight-uttarāyaṇa; the project's discipline is to mark exactly where the operational layer ends.",
+    "tags": [
+      "scope-discipline",
+      "knowing-when-not-to-ship",
+      "operator-system-coupling"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.24: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

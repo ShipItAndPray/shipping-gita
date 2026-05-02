@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.20",
+  "chapter": 8,
+  "verse": 20,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names a second unmanifest beyond the first unmanifest — sanātana, eternal, that does not perish when all manifested beings perish. Shankara reads this as the supreme Brahman, the immutable beyond Hiraṇyagarbha and prakṛti. Ramanuja reads it as the self (ātman) in its essential nature, distinct from inanimate prakṛti. The metaphysical reach is large. STRETCHED. The honest engineering analog scopes downward: the substrate-of-substrates that does not unmake itself when frameworks cycle. Beneath any given React or Vue render layer is the DOM; beneath that is the browser; beneath that is what the customer actually wanted on the screen. The verse does not claim that this layered substrate is the akṣara — it claims a metaphysical Reality. The engineering layer can recognise the structural shape (a layer that survives every implementation rewrite below it) without identifying the two. This is the chapter at its cosmological register; the operational analog acknowledges the gap.",
+    "concrete_scenario": "An engineer at a fintech has shepherded the same domain — settlement reconciliation between a Postgres ledger and a partner bank's webhook — through three full rewrites. Round one was a Rails monolith with cron-driven batch matchers. Round two was a Kafka-stream rewrite into a Kotlin service with idempotent consumers. Round three is a Temporal-workflow refactor on Kubernetes. Each generation perished completely: the Rails code is deleted; the Kafka topology is decommissioned; the Datadog dashboards from each era are gone. What did not perish is the requirement that two columns must always reconcile within fifteen minutes, plus the fraud-pattern that every generation has had to re-detect. The frameworks generated and were annihilated; the load-bearing requirement persisted across all three. The verse's claim is metaphysical and reaches far past this. The structural insight the engineering layer can honor: the customer-truth-beneath-the-implementations is more durable than any one of them. The chapter is teaching a Reality the analog can only shadow.",
+    "falsifiability": "The analog fails if a reader concludes that 'customer requirements' or 'invariants' are what the verse calls the higher unmanifest. They are not. The verse names a metaphysical Reality (the supreme Brahman per Shankara, the self per Ramanuja). The engineering analog points only at the structural pattern: a substrate that survives implementation churn. Anyone who reads this verse as 'find your real requirements' has flattened a cosmological claim into project-management advice. The scope difference is not a translation gap — it is the entire content of the verse.",
+    "counter_example": "When the so-called invariant that survived two rewrites was in fact wrong — a misencoded requirement that nobody questioned because nobody had to — the analog does not endorse mistaking a long-standing pattern for the akṣara. Survival across implementation cycles is not metaphysical permanence. Engineering substrates are still empirical; the akṣara is not.",
+    "implication": "When you have lived through three full implementation cycles in the same domain, listen for what did not change across all three. That layer is more durable than the frameworks that came and went. Do not confuse it with what the verse names. The verse points beyond.",
+    "quotable_line": "Frameworks generate and annihilate; what survives the rewrites is a substrate the engineering layer can describe — and the verse points beyond it.",
+    "tags": [
+      "essence-vs-implementation",
+      "interface-stability",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.20: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

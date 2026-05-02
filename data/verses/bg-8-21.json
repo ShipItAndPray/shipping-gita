@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.21",
+  "chapter": 8,
+  "verse": 21,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The previously-named unmanifest is here called akṣara — the imperishable. The Vedāntists call it the supreme destination; reaching it, one does not return. Krishna names it as his own paramaṁ dhāma, supreme abode. The metaphysical claim is non-return from the cycle of birth-and-death. STRETCHED. The honest operational analog: the deepest substrate beneath the framework cycles, once truly recognised, is no longer something one is bewildered into chasing on the next migration. The senior who has named that substrate stops mistaking the next React-to-Svelte rewrite for the work itself. The verse claims metaphysical non-return; the engineering analog can describe a working stability — once the customer-load-bearing layer is named, it is not unnamed by the next framework cycle. The reach of the verse is larger than this analog. Confidence MEDIUM with explicit STRETCHED.",
+    "concrete_scenario": "Eleven years into a career, a backend engineer has finally articulated to herself, in writing, what she actually does: she keeps a financial ledger consistent under partial failure. She wrote that sentence after watching three wholesale migrations — Sidekiq to RabbitMQ, RabbitMQ to Kafka, Kafka to Temporal — and noticing that her own work across all three had the same shape. Now Datadog alerts that her partner-bank webhook handler is dropping events on retries; she diagnoses it in twenty minutes because she knows where to look. A new junior pings her on Slack about a Hadoop-to-Spark migration on the analytics side; her first question is about idempotency invariants. The frame she has named no longer un-names itself when the surface tools rotate. This is what the engineering layer can describe at the operational rung. The verse's paramaṁ dhāma reaches past this.",
+    "falsifiability": "The analog fails if a reader takes 'I have named what I actually do' as identifying with the verse's paramaṁ dhāma. The verse names a metaphysical destination from which there is no return; the engineering analog names a working clarity that survives the next quarterly tool-rotation. These are not the same. Anyone who concludes from this verse that career-clarity is mokṣa has fundamentally over-claimed.",
+    "counter_example": "When the named substrate turns out to be parochial — when a senior engineer's 'this is what I actually do' was a frame from a single industry that does not generalise — the analog does not endorse confusing personal articulation with universal claim. The akṣara is not personal; the engineering substrate-articulation often is.",
+    "implication": "Write down, in one or two sentences, what your work actually is beneath the rotation of your current stack. If you cannot, you have not seen the substrate yet. The verse points to a destination farther in.",
+    "quotable_line": "When you can write what your work actually is in one sentence beneath the framework cycle, you have named a substrate; the verse names a destination beyond it.",
+    "tags": [
+      "essence-vs-implementation",
+      "first-principles",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.21: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

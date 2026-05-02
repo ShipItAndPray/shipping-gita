@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.25",
+  "chapter": 8,
+  "verse": 25,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Smoke, night, the dark (waning) fortnight, the six months of the southern course of the sun (dakṣiṇāyana) — the yogi who departs at these times reaches lunar light and returns. Shankara reads this as the Path of the Manes (pitṛyāna): smoke, night, dark fortnight, southern solstice — each a deity presiding over a period of time. The yogi here is the man-of-actions (karmin) who, having reached the lunar realm and exhausted the merit, returns to embodied existence. STRETCHED maximally — same scope-mismatch as 8.24. Engineering cannot translate smoke/night/dark-fortnight/dakṣiṇāyana into operational content without trivialising. Confidence LOW. The verse names the cosmological dark path of return; the engineering layer holds the source pack open and stops.",
+    "concrete_scenario": "Same discipline as 8.24. I cannot honestly describe a software-engineering scenario whose structure replicates the southern path of departure. Any attempt to map smoke/night/dark-fortnight/dakṣiṇāyana onto sprint failures, deploy disasters, or 'sloppy shipping' would be exactly the trivialisation the chapter-8 thesis forbids. The verse is paired with 8.24 as the dark path counterpart; together they name the two cosmic eschatological paths, devayāna and pitṛyāna. The engineering layer's honest response: read at source-pack scope, preserve Shankara's reading (deities presiding over periods of time, the man-of-actions reaching the lunar realm and returning when merit is exhausted), preserve Ramanuja's reading (the dark path is for ritualists who have not yet known the self), and stop. A staff engineer reading 8.24 and 8.25 on a Saturday morning sees the chapter at its eschatological apex and reads the Sanskrit, the commentaries, and the chapter-8 thesis together. The engineering analog is silence — a deliberate, honest silence that the chapter's discipline endorses.",
+    "falsifiability": "The analog fails the moment any reader maps smoke/night/dark-fortnight/dakṣiṇāyana onto bad shipping, missed deadlines, or any engineering pattern. The verse names cosmic eschatology paired with 8.24's bright path; both are Vedānta, both come from Chāndogya 5.10. Anyone who produces a 'dark path = sloppy code' reading has produced exactly the trivialisation the chapter-8 thesis forbids.",
+    "counter_example": "When a reader insists that 'avoid the dark path' is the engineering content, the verse rejects this entirely. There is no clean-vs-sloppy reading available. The discipline is silence-with-source-pack.",
+    "implication": "Read this verse at source-pack scope only. Do not produce an engineering analog. Pair it with 8.24 as the chapter's eschatological apex; let the source pack carry the doctrine.",
+    "quotable_line": "Smoke-night-dark-fortnight-dakṣiṇāyana is paired Vedānta with 8.24; the engineering layer's honest response is silence with the source pack open.",
+    "tags": [
+      "scope-discipline",
+      "knowing-when-not-to-ship",
+      "rollback-readiness"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.25: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

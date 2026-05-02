@@ -1,0 +1,33 @@
+{
+  "id": "BG 8.4",
+  "chapter": 8,
+  "verse": 4,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna delivers questions four through six in one verse. adhibhūta is the perishable existence (kṣaraḥ bhāvaḥ). adhidaiva is the puruṣa, the cosmic Person — Shankara identifies him with Hiranyagarbha-in-the-Sun, Ramanuja with the puruṣa superior to Indra and Prajapati. adhiyajña is Krishna himself, dwelling in this very body. The structural pivot lands here: the Lord-of-the-offering is not external. The engineering layer remains STRETCHED. Each Sanskrit term carries doctrinal weight — adhibhūta names the perishable layer of reality, adhidaiva names the cosmic-Person principle, adhiyajña names the inner presider. Engineering glosses do not arbitrate Vedānta disagreements about puruṣa. What is recognisable structurally is the threefold layering of perishable / cosmic / inner-presider, and the senior teacher's willingness to identify themselves with the inner principle. The Sanskrit terms remain at source-pack level.",
+    "concrete_scenario": "Anjali continues her three-breath answers. The perishable layer (adhibhūta) — what changes across the next decade — is the Postgres schema, the current Kafka topology, the SDK clients, the Datadog dashboards: replaced and replaced and replaced. The cosmic-Person principle (adhidaiva) — what acts on the system from above the operational layer — Anjali names hesitantly, marking it STRETCHED at the engineering layer: it is the regulatory regime, the payment-network's economic gravity, the macro-direction of the fraud economy. These are not engineering concepts but they shape engineering decisions from outside. The inner presider (adhiyajña) is the question Devon has been waiting for. After a long pause, Anjali says: in the body of this code, I am the adhiyajña. The senior who has been here since 1998 IS the inner principle of the offering, dwelling in the body of the codebase, until Friday. After Friday the question shifts — who, in the body of this code, is the adhiyajña now? Devon writes: Marco, by Anjali's earlier naming, with the niyatātma prerequisite still being practised. The verse's force is that the senior names themselves directly as the inner principle while still embodied — and the chapter's central practice (8.5) follows from that naming.",
+    "falsifiability": "The analog fails if a reader concludes that the senior engineer literally is the Lord-of-the-offering in the Vedānta sense, or that Hiranyagarbha is the regulatory regime. The Sanskrit terms are doctrinally specific. The engineering scenario uses the threefold structural layering as a frame for talking about what changes (perishable), what acts from above (cosmic-Person scope), and who carries the inner principle. It does not translate Vedānta cosmology. Anyone using this verse as an org-chart template has trivialized the metaphysics.",
+    "counter_example": "When the senior engineer cannot name themselves as the inner presider — when no single carrier of the daily offering exists, when the system has drifted into purely-process-driven operation with no actual inner principle — the verse's structural pivot does not bless that. The verse names a teacher who can identify themselves with the central principle of the practice while still embodied. If the principle is unowned, the chapter's central practice (remember-at-the-end) loses its anchor. The pivot is conditional on someone actually carrying it.",
+    "implication": "Ask the senior to name themselves directly: in this code-body, who is the inner presider? If they refuse to name a carrier, the system has no adhiyajña and the chapter's practice cannot apply. If they name themselves, ask immediately who succeeds them — the inner principle survives the body but only through prepared receivers.",
+    "quotable_line": "Ask the senior to name the inner principle of the daily offering — and then ask who carries it after Friday.",
+    "tags": ["operator-system-coupling", "knowledge-action-integration", "team-state"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:45:00Z",
+      "mutation": "v0 generation: 8.4 is Krishna's three-term answer (adhibhūta / adhidaiva / adhiyajña) with the structural pivot at adhiyajño 'ham (I am the adhiyajña in this body). STRETCHED honestly — the Sanskrit terms name doctrinal substrates over which Advaita, Vishishtadvaita disagree maximally on puruṣa. Engineering analog scopes to the threefold layering of perishable / cosmic-scope / inner-presider, and the senior's willingness to name themselves as the inner principle. Confidence MEDIUM. Sanskrit terms preserved verbatim; engineering glosses do not substitute for doctrinal content.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

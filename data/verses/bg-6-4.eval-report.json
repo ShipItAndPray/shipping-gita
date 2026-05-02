@@ -163,7 +163,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "falsifiability len = 402"
+      "detail": "falsifiability len = 393"
     },
     {
       "gate_id": "3.3",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 116 (target 40-180)"
+      "detail": "translation words = 108 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 11.06 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 11.03 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,7 +313,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 340.65 (target >= 6)"
+      "detail": "sentence-length variance = 323.29 (target >= 6)"
     },
     {
       "gate_id": "5.5",
@@ -321,7 +321,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "lexical diversity = 0.567 (target >= 0.55)"
+      "detail": "lexical diversity = 0.586 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 432 (cap 600)"
+      "detail": "total verse words = 424 (cap 600)"
     },
     {
       "gate_id": "11.2",

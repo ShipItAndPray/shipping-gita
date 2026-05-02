@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.26",
+  "chapter": 8,
+  "verse": 26,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "These two paths — the bright (śukla) and the dark (kṛṣṇa) — are eternal in the world according to Vedic opinion; by the one one goes to non-return, by the other one returns. Shankara: white because revealing of knowledge, black because absent of revelation; both eternal because the world is eternal. Ramanuja: corroborated by Chāndogya 5.10.1 and 5.10.3 — those who know go to the light, those who do village-rites pass to the smoke. STRETCHED. Engineering analog very thin. Honest structural shadow: every system has a path that compounds (the work that builds substrate-knowledge that does not unmake itself) and a path that recurs (the work that produces a deliverable, gets celebrated, exhausts its merit, and is replaced by the next deliverable). The shadow names a real engineering pattern of compounding-vs-recurring work, but the verse's reach is far larger. Confidence LOW.",
+    "concrete_scenario": "Two senior engineers at the same payment-processing company. Engineer A spent the last five years deepening a single substrate: idempotency invariants for partial-failure handling across the company's Stripe integration, the partner-bank webhook layer, and the internal Kafka transactional outbox. She has written design docs that other teams reference, mentored three SREs into the same skill, and the work compounds — each year her diagnoses get faster, her invariants reach further. Engineer B has shipped twelve features in the same five years: a new merchant dashboard, a refunds flow, three onboarding redesigns, four A/B-tested paywall variants. He has been promoted faster, lauded in all-hands more often, and his deliverables compound less — each one is celebrated, each one is replaced eighteen months later. Both are valuable to the company. The structural insight the engineering layer can recognise: compounding work and recurring work differ in their durability. The verse claims the two paths are śāśvate, eternal, in cosmic register; the engineering shadow is much smaller. The verse's reach exceeds this analog.",
+    "falsifiability": "The analog fails if a reader concludes that 'compounding work = devayāna, recurring work = pitṛyāna' is what the verse means. It is not. The verse claims cosmic eternal paths in the post-mortem passage of consciousness. The engineering shadow names only a pattern of work durability. The scope-mismatch is the entire content.",
+    "counter_example": "When 'compounding work' has actually become rigidity — the senior who refuses to ship anything new because it would not be 'substrate-deepening enough' — the analog does not endorse this. Compounding is not refusal; it is durable-and-receiving. The same distinction Shankara draws between knowledge-revealing and absence-of-revelation is structural, not behavioral.",
+    "implication": "Audit your last twelve months of work. Some of it compounded into substrate that does not unmake itself; some of it produced a deliverable that has already been replaced. Both kinds of work are needed; the verse's claim about them is far larger than this distinction.",
+    "quotable_line": "Compounding work and recurring work are both real and both needed; the verse names eternal paths the engineering shadow can only partially shadow.",
+    "tags": [
+      "long-term-thinking",
+      "tech-debt",
+      "scope-discipline"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.26: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

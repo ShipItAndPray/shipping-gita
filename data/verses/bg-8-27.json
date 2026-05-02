@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.27",
+  "chapter": 8,
+  "verse": 27,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Knowing these two paths, no yogi is deluded; therefore, at all times, be yoked in yoga, Arjuna. Shankara: knowing the two courses (one to worldly life, one to liberation), no yogi becomes deluded; therefore at all times be steadfast in yoga. Ramanuja: knowing the two paths, the yogi goes by the path of gods (his own); therefore be integrated in yoga every day. STRETCHED. The first half (knowing the two paths) is anchored in the eschatological content of 8.23-8.26 the engineering layer cannot honor. The second half (sarveṣu kāleṣu yogayuktaḥ — at all times be yoked) carries a thin operational analog: continuous discipline rather than situational discipline, the same nityasaḥ principle as 8.14. Confidence MEDIUM-LOW. The verse's first half exceeds the analog; the second half has an operational shadow.",
+    "concrete_scenario": "Two infrastructure engineers respond to a 2am Datadog page about a Postgres replica falling behind primary. Engineer A is yoked at all times: she has been doing daily incident reviews, weekly runbook updates, monthly chaos-engineering drills against the failover path for eighteen months. When the page fires, her hands move through the runbook from muscle memory; she has the replica back in sync in twenty-three minutes. Engineer B is yoked situationally: he is competent but practices these skills only when there is an incident. The same page fires; he opens the runbook, reads, hesitates, makes a wrong call on which replica to promote, and recovery takes an hour and forty minutes. Both engineers are senior; one is sarveṣu kāleṣu yogayuktaḥ in the operational sense (continuously yoked), the other is yuktaḥ when the alert fires. The verse names this distinction at cosmic register — the yogi continuously yoked in yoga across all times. The engineering analog scopes downward to the operational rung. The first half of the verse (no delusion about the two paths) exceeds this analog entirely.",
+    "falsifiability": "The analog fails if a reader takes operational continuous-yokedness as identifying with the verse's yogayuktaḥ. The verse names a state of being-yoked-to-yoga as cosmic discipline; the engineering analog names continuous operational practice. The first is metaphysical; the second is empirical. The 8.14 nityasaḥ principle is the same shape, scoped operationally. Anyone who reads the verse as 'practice continuously' has read its second half operationally and missed its first half.",
+    "counter_example": "When 'continuous practice' has hardened into ritualism with no remaining attentional content — the engineer who runs the chaos-engineering drill mechanically because it is on the calendar, with no live observation of what the drill is teaching — the analog does not endorse this. Yoga-yukta at the operational layer is yoked-and-attentive, not yoked-and-routine.",
+    "implication": "Audit your last quarter of operational practice. Was your discipline continuous or situational? The second half of this verse, scoped operationally, carries the same nityasaḥ-principle as 8.14. The first half of this verse exceeds the engineering layer.",
+    "quotable_line": "Sarveṣu kāleṣu yogayuktaḥ — at all times yoked: the engineering layer can describe continuous operational practice; the verse's first half exceeds this entirely.",
+    "tags": [
+      "focus-practice",
+      "incident-response",
+      "deliberate-action"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.27: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

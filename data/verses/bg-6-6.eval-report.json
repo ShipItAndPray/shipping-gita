@@ -2,12 +2,12 @@
   "verse_id": "BG 6.6",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 58,
-  "failed": 2,
+  "passed": 59,
+  "failed": 1,
   "pending": 24,
   "total": 84,
-  "hard_score": 58,
-  "passable_pending_judge": 82,
+  "hard_score": 59,
+  "passable_pending_judge": 83,
   "results": [
     {
       "gate_id": "1.1",
@@ -163,7 +163,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "falsifiability len = 549"
+      "detail": "falsifiability len = 470"
     },
     {
       "gate_id": "3.3",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 176 (target 40-180)"
+      "detail": "translation words = 166 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -305,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 10.73 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 10.79 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,7 +313,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 138.49 (target >= 6)"
+      "detail": "sentence-length variance = 125.44 (target >= 6)"
     },
     {
       "gate_id": "5.5",
@@ -321,7 +321,7 @@
       "tier": 5,
       "passed": false,
       "pending": false,
-      "detail": "lexical diversity = 0.523 (target >= 0.55)"
+      "detail": "lexical diversity = 0.537 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -519,9 +519,9 @@
       "gate_id": "8.4",
       "gate_name": "Battlefield metaphor only when verse supports it",
       "tier": 8,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "battle metaphor used; chapter=6 (allowed: ch<=2)."
+      "detail": "no battle metaphor."
     },
     {
       "gate_id": "8.5",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 538 (cap 600)"
+      "detail": "total verse words = 528 (cap 600)"
     },
     {
       "gate_id": "11.2",

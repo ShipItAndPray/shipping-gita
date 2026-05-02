@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.19",
+  "chapter": 6,
+  "verse": 19,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Yathā dīpo nivātastho neṅgate sopamā smṛtā — as a lamp situated in a windless place does not flicker, that simile is recalled for the yogi of yoked-mind engaged in the yoga of the Self. This is the chapter's most-quoted single image and one of the four or five most-quoted similes in the Gita. The verse is precise. The lamp does not stop flickering because it has been told to; it does not flicker because the wind that would cause it to has been removed. Shankara: the simile is recalled by knowers of Yoga who understand the movements of the mind. Ramanuja: the self remains with its steadily illumining light of knowledge because all other activities of the mind have ceased. The engineering rung the verse names is sharp: the senior engineer whose attention does not flicker has not won this through willpower; she has won it through the construction of conditions under which flickering does not generate. The wind has been removed. The Slack notifications, the open Sentry tab, the half-finished design doc, the unread Twitter timeline, the running internal argument with yesterday's review — these are the wind. The senior whose attention is steady has organised her work-block so the wind is structurally absent. The flame, in that absence, is naturally still. STRONG analog. The verse will be quoted heavily in the engineering version of the chapter; the analog must hold the simile's exactness.",
+    "concrete_scenario": "A principal engineer at a hedge fund holds a single problem in mind for two hours every morning before lunch. Today the problem is the latency outlier in the order-routing service — the p99 has crept from 3.2ms to 4.7ms across six weeks, and no single change explains it. From 9:00 to 11:00 her attention does not flicker. She is not white-knuckling focus. The screen shows one window: a Jupyter notebook running against the Kafka offset history. Slack is closed (not muted — closed). The phone is in another room. Her email client is not open. Her browser has one tab. She has told the team she is unreachable until 11. At 9:47 she finds the change — a JVM-flag tweak from week 4 that affects GC behavior under specific load patterns. She files the GitHub issue at 10:12. She uses the remaining 48 minutes to sketch the rollback. At 11:00 she rejoins the team. The flame did not flicker because the wind was not present. Compare the engineer who spends the same 9-11 block tab-switching between Jupyter, Slack, two GitHub PRs, an email about benefits, and Twitter. Same hours, same problem, same intelligence. The flame flickers; the JVM-flag change is not found by 11; it is found by 4 PM after a third pass. The verse, scoped to engineering, is precise: still attention is the absence of wind, not the presence of will.",
+    "falsifiability": "The analog fails if a reader treats this verse as the doctrine of focus-through-willpower. It is not. The lamp's stillness is not the lamp's effort; the wind has been removed. An engineer who reads this verse as 'discipline yourself to focus' has inverted it. The doctrine is structural: build the conditions; the steady attention follows. The verse does not endorse pure-willpower focus practices.",
+    "counter_example": "When the engineer's apparent steady attention is in fact dissociation — running on autopilot through a problem she has done a hundred times, eyes on the screen but no genuine engagement — the verse does not name this. The lamp's flame is alive and illuminating. The yogi's still attention is not absence of motion; it is undisturbed alive engagement. Steady-and-empty is not the simile.",
+    "implication": "When you find your attention flickering, do not first try to discipline the attention. First locate the wind. Remove the source; the flame settles on its own.",
+    "quotable_line": "The lamp is steady because the wind is absent — not because the lamp has been disciplined into stillness.",
+    "tags": ["focus-practice", "deep-work", "operator-as-instrument"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:55:00Z",
+      "mutation": "v0 generation: BG 6.19 LAMP SIMILE engineering layer drafted with maximum rigor per chapter-6 thesis flag — this is the chapter's most-quoted image and will be reused heavily. Anchored sharply on the structural reading: lamp does not flicker because the wind has been removed, not because the lamp has been disciplined. Shankara/Ramanuja both preserved. Engineering analog explicitly distinguishes structural-stillness from willpower-stillness. Counter-example explicitly distinguishes alive-engagement from dissociation. Tools: Jupyter, Kafka, JVM, GitHub, Slack, Twitter. Confidence HIGH.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

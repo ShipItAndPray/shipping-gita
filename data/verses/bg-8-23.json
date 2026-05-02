@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.23",
+  "chapter": 8,
+  "verse": 23,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna pivots: 'I shall now tell you, Bhārata, of the time at which yogis depart and either do not return or return.' This verse opens the eschatology of departure that runs through 8.27. The verse's content is the cosmic mechanism of post-mortem passage. STRETCHED — at the operational layer there is essentially no analog. The verse names a cosmological doctrine the engineering layer cannot honor. The thinnest possible operational shadow is the obvious teacher's pivot — 'now I shall describe two outcomes that depend on the conditions of departure' — but the content of the doctrine is metaphysical. Confidence LOW with explicit STRETCHED. Falsifiability rejects any claim that the engineering layer substitutes for the original eschatology.",
+    "concrete_scenario": "A senior engineer at a healthcare company is opening a design review for a Kubernetes node-eviction policy. She tells the room: 'I'm now going to walk through two scenarios — the case where a node is gracefully drained on a planned upgrade and the case where it dies hard from a hardware fault. The downstream behavior of the in-flight Postgres connections, the Sidekiq job retries, and the active grpc streams differs in each case. Pay attention to which condition we are in, because the recovery path is not the same.' The structural shape — the senior teacher pivots to a two-outcomes-depending-on-departure-conditions exposition — is what an engineer can recognise. But the verse names not graceful-vs-hard-eviction; it names a cosmological doctrine of post-mortem passage. The engineering layer can shadow the structural pivot only. The doctrine itself the analog cannot reach. The chapter explicitly acknowledges this scope-mismatch and the verse marks where the analog runs out.",
+    "falsifiability": "The analog fails if a reader takes the engineering 'two-outcomes-by-departure-conditions' shape as identifying with what the verse names. The verse names cosmic eschatology — the path by which a soul departs the body and either reaches non-return or returns. The engineering shadow is only structural (a teacher pivots to a conditional-outcomes exposition). Anyone who reads this verse as 'document your shutdown paths' has trivialised it.",
+    "counter_example": "When the engineer's two-outcomes pivot is in fact a single deterministic outcome dressed up as a fork — performance theatre instead of genuine conditional analysis — the analog does not endorse this. The verse names a real cosmological fork; engineering shadows must also be genuinely two-outcomes, not staged.",
+    "implication": "Recognise this verse as the chapter's pivot into eschatological doctrine. The engineering layer cannot cross with it; the structural shape (teacher opens a two-outcomes exposition) is the only operational shadow available. Read 8.24-8.27 with the same scope-honesty.",
+    "quotable_line": "The verse pivots into eschatology; the engineering layer can shadow only the structural shape of the teacher's pivot, not its content.",
+    "tags": [
+      "scope-discipline",
+      "operator-system-coupling",
+      "rollback-readiness"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.23: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

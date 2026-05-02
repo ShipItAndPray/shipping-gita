@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.28",
+  "chapter": 8,
+  "verse": 28,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Whatever fruit of merit (puṇyaphalam) is declared for study of the Vedas, sacrifices, austerities, gifts — the yogi who knows this transcends all of it; reaches the supreme primal abode. The closing verse of chapter 8. Shankara: having known what was spoken in answer to Arjuna's seven questions, the yogi goes beyond all merit-fruits and reaches the supreme primal abode (Brahman). Ramanuja: by immense joy from knowing the greatness of the Lord taught in chapters 7 and 8, the yogi regards all merit-fruits as straw and reaches the supreme, primal, beginningless abode. STRETCHED. The engineering analog at substrate scope: the senior whose practice has internalised the chapter's content no longer accumulates by individual deliverables — what they hold is more durable than any single accolade. The verse's metaphysical reach (paraṁ sthānam ādyam) exceeds this. Confidence MEDIUM-LOW.",
+    "concrete_scenario": "A principal engineer has been at the same company for eighteen years. Twice she has been finalist for a prominent industry award; twice she has not won. Her LinkedIn has a single line: 'I make the systems work.' She is not on the conference circuit; her GitHub has three years of empty commit history because her work happens in a private monorepo. Her name appears nowhere in the tech press. Internally, she is the engineer the CTO Slack-DMs when a Postgres replication failure cascades into a Datadog blackout during a peak shopping window; she diagnosed last year's worst incident in fifty-one minutes. The mid-career engineer in the same building who did win the award and gave the conference talk is not lesser; he holds the puṇyaphalam of those activities, which is real and named in the verse. But her practice has compounded into a substrate-knowledge that does not depend on award-fruits, talk-fruits, or visibility-fruits. The verse's reach (the supreme primal abode) is metaphysical; the operational shadow is the senior whose work has internalised the substrate so deeply that the merit-accounting of individual deliverables no longer governs her motion. The chapter closes here. The reach of the closing claim is past where engineering can travel; the operational rung is reachable.",
+    "falsifiability": "The analog fails if a reader concludes that internalised seniority IS what the verse names by paraṁ sthānam ādyam. The verse names a metaphysical destination; the engineering analog names an operational rung. Anyone who reads this verse as 'be the unsung internal hero' has produced exactly the productivity-slogan trivialisation the chapter-8 thesis forbids. The verse closes a chapter on cosmology and eschatology; the engineering analog acknowledges scope-mismatch at the closing.",
+    "counter_example": "When the so-called internalised substrate is in fact bitterness — the senior who scoffs at colleagues' awards because she did not win one and tells herself she is past such things — the analog does not endorse this. Beyond-merit at the operational layer is post-attainment, not pre-grasping. Failure to win an award is not the same as transcending the merit-economy; the verse names the second, not the first.",
+    "implication": "When you have lived through enough cycles of merit-accounting (promotions, awards, talks, recognition) to see the cycle clearly, ask whether your practice has internalised the substrate beneath the accounting. If yes, the chapter's closing claim has an operational rung you can recognise. The full verse reaches farther.",
+    "quotable_line": "The chapter closes on a destination past where engineering can travel; the operational rung — substrate-knowledge that does not depend on the merit-economy of individual deliverables — is reachable.",
+    "tags": [
+      "non-attachment-to-praise",
+      "long-term-thinking",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.28: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

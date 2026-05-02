@@ -2,12 +2,12 @@
   "verse_id": "BG 6.7",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 57,
-  "failed": 3,
+  "passed": 58,
+  "failed": 2,
   "pending": 24,
   "total": 84,
-  "hard_score": 57,
-  "passable_pending_judge": 81,
+  "hard_score": 58,
+  "passable_pending_judge": 82,
   "results": [
     {
       "gate_id": "1.1",
@@ -176,9 +176,9 @@
       "gate_id": "3.4",
       "gate_name": "Concrete-noun to abstract-noun ratio >= 2:1",
       "tier": 3,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "concrete=5 abstract=3 ratio=1.67"
+      "detail": "concrete=5 abstract=2 ratio=2.50"
     },
     {
       "gate_id": "3.5",
@@ -290,7 +290,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 168 (target 40-180)"
+      "detail": "translation words = 166 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -306,7 +306,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 11.88 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 11.97 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -314,7 +314,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 159.90 (target >= 6)"
+      "detail": "sentence-length variance = 152.68 (target >= 6)"
     },
     {
       "gate_id": "5.5",
@@ -322,7 +322,7 @@
       "tier": 5,
       "passed": false,
       "pending": false,
-      "detail": "lexical diversity = 0.524 (target >= 0.55)"
+      "detail": "lexical diversity = 0.530 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -626,7 +626,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 491 (cap 600)"
+      "detail": "total verse words = 489 (cap 600)"
     },
     {
       "gate_id": "11.2",

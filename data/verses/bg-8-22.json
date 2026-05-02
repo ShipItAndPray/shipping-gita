@@ -1,0 +1,37 @@
+{
+  "id": "BG 8.22",
+  "chapter": 8,
+  "verse": 22,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the supreme Person (paraḥ puruṣaḥ) within whom beings dwell, by whom all this is pervaded — attainable by ananyā bhakti, undivided devotion. The Sanskrit metaphysics is dense: Shankara reads ananyā bhakti as one-pointed devotion characterised by Self-knowledge; Ramanuja reads it as undivided devotion to the Supreme Person, prefigured in 7.7's 'all this is strung on Me as gems on a thread.' Engineering cannot honor this metaphysics. STRETCHED, MEDIUM-LOW confidence. The thinnest honest analog: the deepest substrate of a system is reached not by mixed-mode toolchain-hopping but by sustained, single-channel attention from one engineer over years. Bhakti is not toolchain-loyalty; the analog acknowledges the scope-mismatch and stops short.",
+    "concrete_scenario": "A staff engineer at a logistics company has worked on the same routing problem — vehicle routing under stochastic demand — for nine continuous years. She has watched colleagues rotate: one to a payments rewrite, one to an ML platform, two to a Kubernetes migration. Each time the company offered her a 'more visible' team and each time she stayed. Across nine years she has read every major paper on the problem, written four whitepapers, mentored three junior engineers into the same focus, and built a routing service in Rust on Postgres that the company runs in production today. The depth she has reached on that one problem is not reached by anyone who rotated. The verse names ananyā bhakti as the means to the supreme Person; the engineering analog can describe sustained single-channel attention as one operational shadow of that — but only the structural shape of single-channel-ness, not the metaphysical content. The verse reaches past the analog.",
+    "falsifiability": "The analog fails if a reader concludes that any nine-year engineer is engaged in bhakti, or that staying on one problem is what the verse means. The verse names devotion to a Supreme Person attainable by undivided love; the engineering analog only describes the structural shape of single-channel attention. Anyone who reads this verse as career advice has lost the verse entirely.",
+    "counter_example": "When sustained attention has hardened into stagnation — the engineer who has spent nine years on one problem because she is afraid to move, not because the problem warranted it — the analog does not endorse this. ananyā at the operational layer is undivided-and-receiving; stagnation is undivided-and-closed. They are structurally distinguishable.",
+    "implication": "If you have worked on the same problem domain for many years voluntarily, with growing depth and freedom to leave, you have an operational shadow of what the verse names. Do not mistake the shadow for the thing. The verse reaches farther.",
+    "quotable_line": "Ananyā bhakti is not toolchain loyalty; the engineering analog can only describe single-channel attention sustained across years, and the verse reaches past it.",
+    "tags": [
+      "deep-work",
+      "focus-practice",
+      "scope-discipline"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:00:00Z",
+      "mutation": "v0 generation for BG 8.22: chapter-8 thesis-aligned engineering layer with explicit STRETCHED tagging where the verse's metaphysical content exceeds operational scope. Source pack triangulated across vedabase + bhagavad-gita.us + GRETIL critical edition + holy-bhagavad-gita.org. Verbatim Shankara + Ramanuja excerpts captured at fair-use length (≤300 chars). Engineering analog scopes to operational rung only; falsifiability paragraph rejects misreadings; counter-example identifies failure mode honestly. Per chapter-thesis sanction, STRETCHED rate >30% with explicit acknowledgment is the doctrinally correct outcome for chapter 8.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

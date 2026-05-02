@@ -2,12 +2,12 @@
   "verse_id": "BG 6.11",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 56,
-  "failed": 4,
+  "passed": 59,
+  "failed": 1,
   "pending": 24,
   "total": 84,
-  "hard_score": 56,
-  "passable_pending_judge": 80,
+  "hard_score": 59,
+  "passable_pending_judge": 83,
   "results": [
     {
       "gate_id": "1.1",
@@ -154,9 +154,8 @@
       "gate_id": "3.1",
       "gate_name": "Contains specific software artifact",
       "tier": 3,
-      "passed": false,
-      "pending": false,
-      "detail": "no specific engineering artifact found in analog."
+      "passed": true,
+      "pending": false
     },
     {
       "gate_id": "3.2",
@@ -211,15 +210,14 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 215"
+      "detail": "concrete_scenario words = 214"
     },
     {
       "gate_id": "3.9",
       "gate_name": "Analog references named tool/framework/pattern",
       "tier": 3,
-      "passed": false,
-      "pending": false,
-      "detail": "no named tool/framework/pattern found."
+      "passed": true,
+      "pending": false
     },
     {
       "gate_id": "3.10",
@@ -289,9 +287,9 @@
       "gate_id": "5.1",
       "gate_name": "English translation length 40-180 words",
       "tier": 5,
-      "passed": false,
+      "passed": true,
       "pending": false,
-      "detail": "translation words = 188 (target 40-180)"
+      "detail": "translation words = 153 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -299,7 +297,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 215 (target 80-280)"
+      "detail": "concrete_scenario words = 214 (target 80-280)"
     },
     {
       "gate_id": "5.3",
@@ -307,7 +305,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 9.98 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 9.76 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -315,7 +313,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 75.21 (target >= 6)"
+      "detail": "sentence-length variance = 73.31 (target >= 6)"
     },
     {
       "gate_id": "5.5",
@@ -323,7 +321,7 @@
       "tier": 5,
       "passed": false,
       "pending": false,
-      "detail": "lexical diversity = 0.467 (target >= 0.55)"
+      "detail": "lexical diversity = 0.494 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -627,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 526 (cap 600)"
+      "detail": "total verse words = 490 (cap 600)"
     },
     {
       "gate_id": "11.2",
