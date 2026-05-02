@@ -39,7 +39,53 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.029). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "सर्व-भूत-स्थम्",
+      "iast": "sarva-bhūta-stham",
+      "meaning": "situated in all beings"
+    },
+    {
+      "sanskrit": "आत्मानम्",
+      "iast": "ātmānam",
+      "meaning": "the Self"
+    },
+    {
+      "sanskrit": "सर्व-भूतानि",
+      "iast": "sarva-bhūtāni",
+      "meaning": "all beings"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in the Self"
+    },
+    {
+      "sanskrit": "ईक्षते",
+      "iast": "īkṣate",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "योग-युक्त-आत्मा",
+      "iast": "yoga-yukta-ātmā",
+      "meaning": "the self yoked in yoga"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere"
+    },
+    {
+      "sanskrit": "सम-दर्शनः",
+      "iast": "sama-darśanaḥ",
+      "meaning": "of equal vision"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +149,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "sama-darśanaḥ (equal vision)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "A true yogī observes Me in all beings and also sees every being in Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "vision of sameness everywhere — knowledge of the identity of the Self and Brahman everywhere, in all conditioned states"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "all selves separated from Prakṛti are by Themselves only of the nature of knowledge; inequalities pertain only to Prakṛti / bodies"
+        }
+      ],
+      "explanation": "Sama-darśanaḥ is read by Shankara as ontological identity (one Brahman in all); by Ramanuja as functional similarity (all selves identical-in-nature, inequalities residing in Prakṛti); by Prabhupada as theistic perception (Lord in all beings). The traditions agree the verse names equal vision; they differ on whether the ground is non-duality, qualified non-duality, or theistic immanence."
+    }
+  ],
+  "literal_meaning": "The yogi whose self is yoked sees the Self situated in all beings, and all beings in the Self; everywhere, of equal vision.",
+  "traditional_meaning_consensus": "6.29 names the doctrine of sama-darśana (equal vision) as the fruit of yoked-self perception. The yogi yoga-yukta-ātmā sees the ātman sarva-bhūta-stham — present in all beings — and sarva-bhūtāni ātmani — all beings present in the Self. Shankara: one whose mind is Self-absorbed through Yoga; vision of sameness everywhere; knowledge of the identity of Self and Brahman in all conditioned states (heaven, hell, animal, human). Ramanuja: separated from Prakṛti, all selves are by Themselves only of the nature of knowledge; inequalities pertain only to Prakṛti / bodies. Per chapter-6 thesis: STRONG analog at engineering scope — the senior who sees themselves in every junior they once were. Reflexive engineering empathy across roles. The metaphysical claim that all selves share substantial identity exceeds operational reach. STRETCHED at full scope; STRONG at narrowed empathy scope.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.26",
+  "chapter": 6,
+  "verse": 26,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "From wherever (yataḥ yataḥ) the mind, fickle (cañcalam) and restless (asthiram), wanders out (niścalati) — from precisely there (tataḥ tataḥ), having restrained it (niyamya), one should bring (nayet) it under the Self's control (ātmani vaśam) alone. 6.26 names the corrective procedure when restraint fails: notice the drift, return to the object. The mind is by nature cañcalam and asthiram; the verse does not pretend otherwise. Shankara: from whatever object the mind has gone out due to its fickle nature — sound, touch, etc. — pulling it back from there, one should bring it under the Self's control by discriminating that all this is unreal. Ramanuja: the mind unsteady by very nature — wherever it strays — render it submissive only to the Self. The procedural form is identical across traditions. The engineering analog at narrow scope is STRONG: the senior's skill is the noticing-and-returning, not the absence of drift.",
+    "concrete_scenario": "A staff engineer is reviewing a complex pull request — five hundred lines across the database-migration framework. Twelve minutes in, her attention slips: the GitHub diff rendering has triggered a memory of yesterday's annoying Slack thread about test-coverage policy. She catches the lapse. She does not berate herself. She returns to line 47 and resumes. Eight minutes later concentration drifts again: a function name has summoned a thought about an unrelated refactor she has been wanting to attempt for weeks. She marks the wandering, brings focus back. Over the forty-minute review-window her mind oscillates outward eleven distinct times; each occurrence triggers detection and recovery. The annotations she leaves on the diff are thorough and precise. Compare the junior whose attention departs at minute twelve and is simply followed: he opens a new tab toward the imagined refactor, then opens Slack, then abandons the diff at minute twenty without reading the second half. The verse-named skill is not drift-absence — it is the catching-and-returning operation, performed eleven times within a single review. Yataḥ yataḥ — wherever — tataḥ tataḥ — from precisely there. The procedure is iterative.",
+    "falsifiability": "The analog fails if a reader reads the verse as 'force the mind to never wander.' The verse explicitly admits the mind is cañcalam and asthiram. The doctrine is the recovery procedure, not the absence of failure. An engineer who hears this verse as 'do not let your mind drift' has misread the explicit admission of drift the verse contains.",
+    "counter_example": "When the engineer's apparent return-after-drift is in fact context-loss masquerading as recovery — the GitHub diff is reopened but the prior twelve minutes of context have been forgotten and the review starts over from line 1 — the verse does not name this. The return is to the same object at the same level of engagement, not a fresh start each time. The skill is continuity-after-drift, not start-over-after-drift.",
+    "implication": "Stop trying to never drift. Train the noticing-and-returning operation itself. Count, this week, how many times you notice and return during a single review. The count is the metric, not the absence of slips.",
+    "quotable_line": "The skill is not the absence of drift; the skill is the noticing-and-returning, performed every time.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 6.26 (catch-and-return) — STRONG engineering analog per chapter-6 thesis. The verse explicitly admits the mind's fickleness. Engineering analog: the noticing-and-returning operation. Shankara/Ramanuja preserved. Counter-example distinguishes recovery from start-over. Tools: GitHub, Slack. Confidence HIGH.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

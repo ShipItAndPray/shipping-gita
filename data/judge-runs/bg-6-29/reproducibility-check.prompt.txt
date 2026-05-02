@@ -1,0 +1,209 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.29",
+  "sanskrit_devanagari": "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।ईक्षते योगयुक्तात्मा सर्वत्र समदर्शन: ॥ २९ ॥",
+  "sanskrit_iast": "sarva-bhūta-stham ātmānaṁsarva-bhūtāni cātmaniīkṣate yoga-yuktātmāsarvatra sama-darśanaḥ",
+  "anvaya": [
+    {
+      "sanskrit": "सर्व-भूत-स्थम्",
+      "iast": "sarva-bhūta-stham",
+      "meaning": "situated in all beings"
+    },
+    {
+      "sanskrit": "आत्मानम्",
+      "iast": "ātmānam",
+      "meaning": "the Self"
+    },
+    {
+      "sanskrit": "सर्व-भूतानि",
+      "iast": "sarva-bhūtāni",
+      "meaning": "all beings"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in the Self"
+    },
+    {
+      "sanskrit": "ईक्षते",
+      "iast": "īkṣate",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "योग-युक्त-आत्मा",
+      "iast": "yoga-yukta-ātmā",
+      "meaning": "the self yoked in yoga"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere"
+    },
+    {
+      "sanskrit": "सम-दर्शनः",
+      "iast": "sama-darśanaḥ",
+      "meaning": "of equal vision"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/29/",
+      "fetched_at": "2026-05-02T02:25:22.858Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A true yogī observes Me in all beings and also sees every being in Me. Indeed, the self-realized person sees Me, the same Supreme Lord, everywhere.",
+      "raw_capture_path": "data/sources/raw/bg-6-29-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-29/",
+      "fetched_at": "2026-05-02T02:26:05.568Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A true yogi observes Me in all beings and also sees every being in Me. Indeed, the self-realized person sees Me, the same Supreme Lord, everywhere."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/29/",
+      "fetched_at": "2026-05-02T02:25:22.858Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2030 chars)",
+      "verbatim_excerpt": "A Kṛṣṇa conscious yogī is the perfect seer because he sees Kṛṣṇa, the Supreme, situated in everyone’s heart as Supersoul (Paramātmā). Īśvaraḥ sarva-bhūtānāṁ hṛd-deśe ’rjuna tiṣṭhati. The Lord in His Paramātmā feature is situated within both the heart of the dog and that of a brāhmaṇa.",
+      "raw_full_path": "data/sources/raw/bg-6-29-vedabase.json (purport_full_length: 2030)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-29/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:05.568Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.29 Yoga-yukta-atma, one who has his mind Self-absorbed through Yoga, whose mind is merged in samadhi; and sarvatra-sama-darsanah, who has the vision of sameness everywhere-who has the vision (darsana) of sameness (sama-tva), the knowledge of identity of the Self and Brahman everywhere (s",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 639,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-29-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-29/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:05.568Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.29 (i) On account of the similarity between one self and other selves when They are separated from Prakrti (i.e., the body), all selves are by Themselves only of the nature of knowledge. Inequalities pertain only to Prakrti or the bodies they are embodied in. One whose mind is fixed in Y",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1089,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-29-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sama-darśanaḥ (equal vision)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "A true yogī observes Me in all beings and also sees every being in Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "vision of sameness everywhere — knowledge of the identity of the Self and Brahman everywhere, in all conditioned states"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "all selves separated from Prakṛti are by Themselves only of the nature of knowledge; inequalities pertain only to Prakṛti / bodies"
+        }
+      ],
+      "explanation": "Sama-darśanaḥ is read by Shankara as ontological identity (one Brahman in all); by Ramanuja as functional similarity (all selves identical-in-nature, inequalities residing in Prakṛti); by Prabhupada as theistic perception (Lord in all beings). The traditions agree the verse names equal vision; they differ on whether the ground is non-duality, qualified non-duality, or theistic immanence."
+    }
+  ],
+  "literal_meaning": "The yogi whose self is yoked sees the Self situated in all beings, and all beings in the Self; everywhere, of equal vision.",
+  "traditional_meaning": "6.29 names the doctrine of sama-darśana (equal vision) as the fruit of yoked-self perception. The yogi yoga-yukta-ātmā sees the ātman sarva-bhūta-stham — present in all beings — and sarva-bhūtāni ātmani — all beings present in the Self. Shankara: one whose mind is Self-absorbed through Yoga; vision of sameness everywhere; knowledge of the identity of Self and Brahman in all conditioned states (heaven, hell, animal, human). Ramanuja: separated from Prakṛti, all selves are by Themselves only of the nature of knowledge; inequalities pertain only to Prakṛti / bodies. Per chapter-6 thesis: STRONG analog at engineering scope — the senior who sees themselves in every junior they once were. Reflexive engineering empathy across roles. The metaphysical claim that all selves share substantial identity exceeds operational reach. STRETCHED at full scope; STRONG at narrowed empathy scope.",
+  "engineering": {
+    "translation": "The yogi whose self is yoked through yoga (yoga-yukta-ātmā) sees (īkṣate) the Self situated in all beings (sarva-bhūta-stham ātmānam), and all beings (sarva-bhūtāni) in the Self (ātmani); everywhere (sarvatra), of equal vision (sama-darśanaḥ). 6.29 names the doctrine of sama-darśana — equal vision — as the fruit of yoked-self perception. The bidirectional formula matters: ātman in all beings AND all beings in ātman. Shankara: vision of sameness everywhere; knowledge of the identity of Self and Brahman across all conditioned states (heaven, hell, animal, human). Ramanuja: separated from Prakṛti, all selves are by Themselves only of the nature of knowledge; inequalities pertain to the bodies. Per chapter-6 thesis: STRONG engineering analog at reflexive-empathy scope — the senior who sees themselves in every junior they once were. The metaphysical claim that all selves share substantial identity exceeds operational reach (STRETCHED at full scope); the narrowed engineering analog is genuinely strong.",
+    "concrete_scenario": "A staff engineer reviews the on-call rotation for next quarter. A junior — twenty-two months into the role — has just sent a panicked Slack message at 11 PM about a Datadog alert that turns out to be a noisy-neighbour false positive. The senior reads the panic underneath the technical request. She remembers, in operational detail, the night at month nineteen of her own career when a similar alert sent her into the same panic — she was sure she had taken down production; she was actually reading a metric that a load-balancer health-check endpoint produces every minute. She replies in Slack with two sentences explaining the false positive and one sentence acknowledging the panic. The next morning she opens a doc titled 'Common false-positive alerts and how to recognise them' and commits the case to the team's GitHub repo. She is not performing kindness; she is recognising a self in the junior that maps onto a self she once was. The recognition produces specific operational action — the doc, the calibrated reply, the avoidance of any 'you should have known' tone. Compare the senior who reads the same alert and writes a curt 'this is obviously a noisy alert; please escalate properly next time' — failing the verse's bidirectional reading because she treats the junior as not-her. The reflexive engineering empathy is operational; the metric of success is the merge of the doc, not the warmth of the reply. STRONG analog at narrow scope.",
+    "falsifiability": "The analog fails if a reader reads sama-darśana as 'all engineers are the same' or 'don't distinguish between performance levels.' The verse names equal-vision regarding the substrate (the Self / the operator), not equal performance. The engineering rung: see the substrate, not the surface; recognise the operator across the role-difference. An engineer who reads this as 'don't give performance feedback' has flattened the verse into a kindness-doctrine.",
+    "counter_example": "When the senior's apparent identification with the junior is in fact projection — assuming the junior's panic at 11 PM has the same cause as her own panic at month nineteen, when in fact this junior is panicking because of a different and worse problem — the verse does not endorse this. Sama-darśana sees the same substrate; it does not flatten the surface. The doc opens after the actual diagnosis, not in place of it.",
+    "implication": "When you respond to a junior, audit whether you are seeing yourself-as-then in the junior, or seeing the junior as not-you. The first produces specific operational action; the second produces curt dismissal. The reflexive identification is the practice the verse names.",
+    "quotable_line": "The senior sees herself in every junior she once was; the verse calls this equal-vision.",
+    "tags": [
+      "team-state",
+      "team-culture",
+      "operator-as-instrument",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

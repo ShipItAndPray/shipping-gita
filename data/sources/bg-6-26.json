@@ -39,7 +39,68 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.026). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "यतः यतः",
+      "iast": "yataḥ yataḥ",
+      "meaning": "from wherever, whenever"
+    },
+    {
+      "sanskrit": "निश्चलति",
+      "iast": "niścalati",
+      "meaning": "wanders away"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "चञ्चलम्",
+      "iast": "cañcalam",
+      "meaning": "unsteady, fickle"
+    },
+    {
+      "sanskrit": "अस्थिरम्",
+      "iast": "asthiram",
+      "meaning": "restless"
+    },
+    {
+      "sanskrit": "ततः ततः",
+      "iast": "tataḥ tataḥ",
+      "meaning": "from there, from there"
+    },
+    {
+      "sanskrit": "नियम्य",
+      "iast": "niyamya",
+      "meaning": "having restrained"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this (mind)"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in / under the Self"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "वशम्",
+      "iast": "vaśam",
+      "meaning": "control"
+    },
+    {
+      "sanskrit": "नयेत्",
+      "iast": "nayet",
+      "meaning": "should bring"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +164,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "niścalati / vaśaṁ nayet (procedure for the wandering mind)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "from whatever object the mind goes out — sound, touch, etc. — pulling it back, bring under Self's control by discriminating that all this is unreal"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the mind which by its very nature is unsteady — wherever it strays — render it submissive only to the Self"
+        }
+      ],
+      "explanation": "All traditions read 6.26 as the corrective procedure: when the mind wanders, the practice is to notice (where), restrain (niyamya), and return (ātmani vaśaṁ nayet). Shankara reads the return-instrument as discriminative knowledge (this is unreal); Ramanuja reads it as direct submission of mind to Self. The procedural form is identical across traditions."
+    }
+  ],
+  "literal_meaning": "From wherever the unsteady, restless mind wanders away — from there, from there, having restrained it, one should bring it under the control of the Self alone.",
+  "traditional_meaning_consensus": "6.26 names the corrective procedure when the gradual restraint of 6.25 fails — the catch-and-return method. The mind by its nature is cañcalam (fickle, oscillating) and asthiram (restless, unstable). Yataḥ yataḥ — wherever — niścalati (it wanders out, slips away), tataḥ tataḥ — from precisely there — niyamya (having restrained), one should bring it ātmani vaśaṁ nayet (back under the Self's control). Shankara: from whatever object the mind goes out due to its fickle nature — sound, touch, etc. — pulling it back from there, one should bring it under the control of the Self by discriminating that all this is unreal. Ramanuja: the mind which by its very nature is unsteady — wherever it strays from concentration — restraining it, render it submissive only to the Self. Engineering analog at strong narrow scope: notice-the-drift, return-to-the-object. The skill named is the noticing-and-returning, not the absence of drift.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

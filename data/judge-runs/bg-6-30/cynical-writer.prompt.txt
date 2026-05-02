@@ -1,0 +1,230 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.30",
+  "sanskrit_devanagari": "यो मां पश्यति सर्वत्र सर्वं च मयि पश्यति ।तस्याहं न प्रणश्यामि स च मे न प्रणश्यति ॥ ३० ॥",
+  "sanskrit_iast": "yo māṁ paśyati sarvatrasarvaṁ ca mayi paśyatitasyāhaṁ na praṇaśyāmisa ca me na praṇaśyati",
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "Me"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere"
+    },
+    {
+      "sanskrit": "सर्वम्",
+      "iast": "sarvam",
+      "meaning": "everything"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "मयि",
+      "iast": "mayi",
+      "meaning": "in Me"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "to him"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "प्रणश्यामि",
+      "iast": "praṇaśyāmi",
+      "meaning": "am lost"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "to Me"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "प्रणश्यति",
+      "iast": "praṇaśyati",
+      "meaning": "is lost"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/30/",
+      "fetched_at": "2026-05-02T02:25:24.362Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "For one who sees Me everywhere and sees everything in Me, I am never lost, nor is he ever lost to Me.",
+      "raw_capture_path": "data/sources/raw/bg-6-30-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-30/",
+      "fetched_at": "2026-05-02T02:26:07.942Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "For one who sees Me everywhere and sees everything in Me, I am never lost, nor is he ever lost to Me."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/30/",
+      "fetched_at": "2026-05-02T02:25:24.362Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1749 chars)",
+      "verbatim_excerpt": "A person in Kṛṣṇa consciousness certainly sees Lord Kṛṣṇa everywhere, and he sees everything in Kṛṣṇa. Such a person may appear to see all separate manifestations of the material nature, but in each and every instance he is conscious of Kṛṣṇa, knowing that everything is a manifestation of Kṛṣṇa’s energy.",
+      "raw_full_path": "data/sources/raw/bg-6-30-vedabase.json (purport_full_length: 1749)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-30/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:07.942Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.30 Yah, one who; pasyati, sees; mam, Me, Vasudeva, who am the Self of all; sarvatra, in all things; ca, and; sees sarvam, all things, all created things, beginning from Brahma; mayi, in Me who am the Self of all;-aham, I who am God; na pranasyami, do not go out; tasya,of his vision-of on",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 646,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-30-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-30/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:07.942Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.30 (ii) He who, having reached the highest stage of maturity, views similarity of nature with Me, i.e., sees similarity of all selves to Myself when They are freed from good and evil and when they remain in Their own essence, as declared in the Sruti, ‘Stainless he attains supreme degree",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 850,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-30-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "mām paśyati sarvatra (sees Me everywhere)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "For one who sees Me everywhere and sees everything in Me, I am never lost, nor is he ever lost to Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "one who sees Vasudeva (= Brahman) in all beings — to that one the Lord does not become invisible, nor does that one become invisible to the Lord"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "supreme seeing names the relationship of mutual non-abandonment between the bhakta and the Lord"
+        }
+      ],
+      "explanation": "Shankara reads mām non-dually (Vasudeva = Brahman); Ramanuja and Prabhupada read mām theistically (Krishna as the personal Lord whose mutual non-abandonment with the devotee is named). The verse's full force is theistic on either reading; Shankara's reading subordinates the theism to non-dual Brahman, while Vaishnava traditions preserve the personal mutuality. The mutual non-abandonment is preserved across traditions."
+    }
+  ],
+  "literal_meaning": "Whoever sees Me everywhere and sees everything in Me — to him I am not lost, and he is not lost to Me.",
+  "traditional_meaning": "6.30 marks the chapter's first explicitly theistic crystallisation. The previous verse named the ātman seen in all beings; here, mām (Me — Krishna) replaces ātman as the object of universal seeing. Yaḥ mām paśyati sarvatra (whoever sees Me everywhere), sarvam ca mayi paśyati (and sees everything in Me) — to that one, tasya aham na praṇaśyāmi (I am not lost), saḥ ca me na praṇaśyati (he is not lost to Me). Shankara: the bhakti-reading of equal vision — one who sees Vasudeva (= Brahman) everywhere is one whom the Lord does not abandon, and who does not abandon the Lord. Ramanuja: the supreme seeing names the relationship of mutual non-abandonment between the bhakta and the Lord. Per chapter-6 thesis: the verse is theistic — STRETCHED. Engineering analog operates at substrate-recognition scope: the senior sees the operating substrate (the actual system, the actual code) across every surface interaction. The verse's full devotional reach exceeds operational analog.",
+  "engineering": {
+    "translation": "Whoever sees Me (yo mām paśyati) everywhere (sarvatra), and sees everything (sarvam) in Me (mayi) — to that one (tasya) I (aham) am not lost (na praṇaśyāmi), and he (saḥ) is not lost (na praṇaśyati) to Me (me). 6.30 marks the chapter's first explicitly theistic crystallisation. Where 6.29 spoke of ātman seen in all beings, 6.30 speaks of mām — Me, Krishna — seen everywhere. The verse names mutual non-abandonment between the bhakta and the Lord. Shankara: bhakti-reading of equal vision — one who sees Vasudeva (= Brahman) everywhere is one whom the Lord does not become invisible to, and who does not become invisible to the Lord. Ramanuja: the supreme seeing names the relationship of mutual non-abandonment between the bhakta and the Lord. The verse is theistic — STRETCHED at engineering scope. The narrowed operational analog: the senior's substrate-recognition across all surface interactions; the engineer never loses sight of the actual system, and the system's signals never fail to reach her.",
+    "concrete_scenario": "A staff engineer with seventeen years of distributed-systems work never quite stops perceiving the substrate. In a product meeting about a new feature she is hearing the user-flow description, but underneath she is also tracing the Postgres queries it will trigger, the Redis cache-invalidation pattern those queries demand, the failure-mode of a network partition between the API gateway and Kubernetes pods downstream. In a one-on-one with her manager she absorbs the career-development conversation, and beneath it perceives the organisational pressures that produced the meeting. During an architecture-review of someone else's system she contemplates both the diagram-as-drawn and the system-as-actually-running. The substrate is never absent from her vision; her eye locates it inside every surface. Conversely, when the substrate emits a signal — a Datadog metric anomaly, a latency outlier in Sentry, a code smell inside a junior's GitHub PR — her attention finds it without delay. The verse's engineering analog targets this exact capacity: the senior who has trained seeing-through-surface-to-substrate so deeply that the substrate stays present. Contrast the engineer at year three who reads the user-flow description as merely the user-flow description and halts there; the substrate has not yet entered her field of view. The verse reaches further than this; its full force names theistic mutual non-abandonment between the bhakta and the personal Lord, which the engineering rung cannot reproduce. STRETCHED honestly.",
+    "falsifiability": "The analog fails if a reader takes the engineering rung as equivalent to the verse's theistic claim. The verse names mutual non-abandonment between the bhakta and Krishna; the engineering rung names sustained substrate-recognition. These are not the same kind of claim. An engineer who reads 6.30 as endorsing engineering-as-religion has misread the chapter and the verse.",
+    "counter_example": "When the engineer's apparent substrate-vision is in fact obsessive over-engineering — every product conversation derailed into infrastructure pedantry, every meeting consumed by failure-mode speculation — the verse does not endorse this. Sarvatra paśyati names integrated double-vision (surface and substrate held simultaneously), not substrate-only-vision that erases the surface.",
+    "implication": "Audit whether you are losing sight of the substrate during product-level conversations, or losing sight of the surface during infrastructure conversations. The verse, scoped engineering-narrow, names the simultaneous holding.",
+    "quotable_line": "The senior never quite stops seeing the substrate; the substrate's signals never quite fail to reach her.",
+    "tags": [
+      "operator-system-coupling",
+      "system-recognition",
+      "full-system-view"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

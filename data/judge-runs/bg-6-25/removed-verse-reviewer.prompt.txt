@@ -1,0 +1,210 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.25",
+  "sanskrit_devanagari": "शनै: शनैरुपरमेद्‍बुद्ध्या धृतिगृहीतया ।आत्मसंस्थं मन: कृत्वा न किञ्चिदपि चिन्तयेत् ॥ २५ ॥",
+  "sanskrit_iast": "śanaiḥ śanair uparamedbuddhyā dhṛti-gṛhītayāātma-saṁsthaṁ manaḥ kṛtvāna kiñcid api cintayet",
+  "anvaya": [
+    {
+      "sanskrit": "शनैः शनैः",
+      "iast": "śanaiḥ śanaiḥ",
+      "meaning": "gradually, by degrees"
+    },
+    {
+      "sanskrit": "उपरमेत्",
+      "iast": "uparamet",
+      "meaning": "should withdraw / arrest"
+    },
+    {
+      "sanskrit": "बुद्ध्या",
+      "iast": "buddhyā",
+      "meaning": "by the intellect"
+    },
+    {
+      "sanskrit": "धृति-गृहीतया",
+      "iast": "dhṛti-gṛhītayā",
+      "meaning": "held by firmness"
+    },
+    {
+      "sanskrit": "आत्म-संस्थम्",
+      "iast": "ātma-saṁstham",
+      "meaning": "fixed on the Self"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "कृत्वा",
+      "iast": "kṛtvā",
+      "meaning": "having made"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "किञ्चित् अपि",
+      "iast": "kiñcid api",
+      "meaning": "anything whatsoever"
+    },
+    {
+      "sanskrit": "चिन्तयेत्",
+      "iast": "cintayet",
+      "meaning": "should think"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/25/",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Gradually, step by step, one should become situated in trance by means of intelligence sustained by full conviction, and thus the mind should be fixed on the Self alone and should think of nothing else.",
+      "raw_capture_path": "data/sources/raw/bg-6-25-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Gradually, step by step, one should become situated in trance by means of intelligence sustained by full conviction, and thus the mind should be fixed on the self alone and should think of nothing else."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/25/",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 623 chars)",
+      "verbatim_excerpt": "By proper conviction and intelligence one should gradually cease sense activities. This is called pratyāhāra. The mind, being controlled by conviction, meditation and cessation from the senses, should be situated in trance, or samādhi.",
+      "raw_full_path": "data/sources/raw/bg-6-25-vedabase.json (purport_full_length: 623)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.25 Tyaktva, by eschewing; asesatah, totally, without a trace; sarvan, all; the kamam, desires; sankalpa-prabhavan, which arise from thoughts; and further, viniyamya, restraining; manasa eva, with the mind itself, with the mind endued with discrimination; indriya-gramam, all the organs; s",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 815,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-25-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.24 – 6.25 There are two kinds of desires: 1) those born of contact between the senses and objects like heat, cold etc.; 2) those generated by our mind (will) like that for sons, land etc. Of these, the latter type of desires are by their own nature relinquishable. Relinquishing all these",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 808,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-25-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "śanaiḥ śanaiḥ uparamet (gradual arrest)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Gradually, step by step, one should become situated in trance"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "by degrees, with intellect endowed with steady firmness, one should withdraw"
+        },
+        {
+          "source": "Ramanuja (paired 6.24-25, per summary)",
+          "rendering": "relinquish desires born of sense-contact and of mental willing; restrain senses by mind"
+        }
+      ],
+      "explanation": "All traditions read uparamet gradualistically (śanaiḥ śanaiḥ — by degrees, by degrees). Shankara emphasises buddhi held by dhṛti as the instrument; Ramanuja (treating 6.24-25 as a paired unit) emphasises which desires are relinquishable. The gradualism is uncontroversial across traditions."
+    }
+  ],
+  "literal_meaning": "Gradually, by degrees, one should arrest (the mind), with intellect held by firmness; making the mind fixed on the Self, one should not think of anything at all.",
+  "traditional_meaning": "6.25 names the gradual method of mental restraint. Śanaiḥ śanaiḥ — gradually, by degrees — uparamet, should withdraw the mind. The instrument is buddhi (intellect) held by dhṛti (firmness). The result-state is manaḥ ātma-saṁstham — the mind fixed on the Self — and na kiñcid api cintayet, do not think of anything else. Shankara: with intellect endowed with steady firmness one should withdraw the mind by degrees. Ramanuja (paired 6.24-25): two kinds of desires must be relinquished — those born of sense-contact and those generated by mental willing — and the senses restrained on every side by mind. The doctrine is gradualist; the chapter does not promise the result is achieved in a single sitting. STRETCHED at full metaphysical scope; partial engineering analog at gradual-discipline scope.",
+  "engineering": {
+    "translation": "Gradually, by degrees (śanaiḥ śanaiḥ), one should arrest (uparamet) — buddhyā (by intellect) dhṛti-gṛhītayā (held by firmness); making the mind ātma-saṁstham (fixed on the Self), one should not think (na cintayet) anything at all (na kiñcid api). 6.25 specifies the gradualist procedure for the prior verse's restraint. The instrument is buddhi held firm by dhṛti; the result-state is the mind fixed on the Self alone. Shankara: with buddhi endowed with steady firmness, withdraw the mind by degrees; fix it on the Self; do not let it think anything else. Ramanuja (paired 6.24-25): relinquishing both classes of desires, restraining senses by mind, gradually become situated. The engineering analog is gradual-discipline — years of compounding practice — and is honest about not promising quick results. STRETCHED at full metaphysical scope.",
+    "concrete_scenario": "A backend engineer two years into a deliberate practice of single-task focus opens her workday with one declared problem — today, the deadlock pattern in the order-fulfilment service. Her morning's procedure: open Sentry; pin the relevant traces; put the Slack laptop in another room; set Gmail to vacation-responder for the next three hours. When her mind drifts — a flash of curiosity about the Hacker News front page — she does not punish the drift; she returns. When the drift recurs at minute thirty-two — a flicker of anxiety about the upcoming review — she returns again. The procedure is not heroic. Across two years she has gradually (śanaiḥ śanaiḥ) increased the duration of single-task focus from forty minutes to two hours. Today she works for ninety minutes before the first significant drift. The buddhi held by dhṛti is the noticing-faculty trained over the months; the ātma-saṁstham state is the work as the mind's resting object. Compare the engineer who attempted to leap from forty-minute focus to four-hour focus in a week and abandoned the practice when it failed. The verse's gradualism is operational: the duration grows by degrees. Narrowed engineering rung; STRETCHED at full metaphysical reach.",
+    "falsifiability": "The analog fails if a reader takes śanaiḥ śanaiḥ as licence for indefinite slow progress without check. The verse names gradual practice; it does not name absent practice. An engineer who reads 'gradually' as 'someday' has missed the gradient.",
+    "counter_example": "When the engineer's apparent gradualism is in fact perpetual deferral — always promising the focus practice will start next month — the verse does not endorse this. Uparamet is an active verb. The gradient is real, but a gradient with zero slope is not the verse.",
+    "implication": "Pick an honest baseline of your current focus duration. The verse asks for gradual increase from that baseline, not a leap. The buddhi-held-by-dhṛti is the trained noticing-and-returning faculty itself.",
+    "quotable_line": "Gradual restraint, by degrees, with intellect held firm — the duration grows, the leap is not the practice.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

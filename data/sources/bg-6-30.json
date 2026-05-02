@@ -39,7 +39,93 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.030). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "Me"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "सर्वत्र",
+      "iast": "sarvatra",
+      "meaning": "everywhere"
+    },
+    {
+      "sanskrit": "सर्वम्",
+      "iast": "sarvam",
+      "meaning": "everything"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "मयि",
+      "iast": "mayi",
+      "meaning": "in Me"
+    },
+    {
+      "sanskrit": "पश्यति",
+      "iast": "paśyati",
+      "meaning": "sees"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "to him"
+    },
+    {
+      "sanskrit": "अहम्",
+      "iast": "aham",
+      "meaning": "I"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "प्रणश्यामि",
+      "iast": "praṇaśyāmi",
+      "meaning": "am lost"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "to Me"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "प्रणश्यति",
+      "iast": "praṇaśyati",
+      "meaning": "is lost"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +189,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "mām paśyati sarvatra (sees Me everywhere)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "For one who sees Me everywhere and sees everything in Me, I am never lost, nor is he ever lost to Me"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "one who sees Vasudeva (= Brahman) in all beings — to that one the Lord does not become invisible, nor does that one become invisible to the Lord"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "supreme seeing names the relationship of mutual non-abandonment between the bhakta and the Lord"
+        }
+      ],
+      "explanation": "Shankara reads mām non-dually (Vasudeva = Brahman); Ramanuja and Prabhupada read mām theistically (Krishna as the personal Lord whose mutual non-abandonment with the devotee is named). The verse's full force is theistic on either reading; Shankara's reading subordinates the theism to non-dual Brahman, while Vaishnava traditions preserve the personal mutuality. The mutual non-abandonment is preserved across traditions."
+    }
+  ],
+  "literal_meaning": "Whoever sees Me everywhere and sees everything in Me — to him I am not lost, and he is not lost to Me.",
+  "traditional_meaning_consensus": "6.30 marks the chapter's first explicitly theistic crystallisation. The previous verse named the ātman seen in all beings; here, mām (Me — Krishna) replaces ātman as the object of universal seeing. Yaḥ mām paśyati sarvatra (whoever sees Me everywhere), sarvam ca mayi paśyati (and sees everything in Me) — to that one, tasya aham na praṇaśyāmi (I am not lost), saḥ ca me na praṇaśyati (he is not lost to Me). Shankara: the bhakti-reading of equal vision — one who sees Vasudeva (= Brahman) everywhere is one whom the Lord does not abandon, and who does not abandon the Lord. Ramanuja: the supreme seeing names the relationship of mutual non-abandonment between the bhakta and the Lord. Per chapter-6 thesis: the verse is theistic — STRETCHED. Engineering analog operates at substrate-recognition scope: the senior sees the operating substrate (the actual system, the actual code) across every surface interaction. The verse's full devotional reach exceeds operational analog.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

@@ -1,0 +1,38 @@
+{
+  "id": "BG 6.23",
+  "chapter": 6,
+  "verse": 23,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "That severance (viyogam) of union (saṁyogam) with sorrow (duḥkha) — let one know (vidyāt) it is designated by the term yoga (yoga-saṁjñitam). That yoga should be practised (sa yoktavyaḥ) niścayena (with determination) and anirviṇṇa-cetasā (with unwearied mind). 6.23 closes the samādhi-block by giving yoga itself a definition: yoga is the disjunction (viyogam) from the conjunction-with-sorrow (duḥkha-saṁyogam). Shankara: yoga is here defined as the absence of contact with sorrow; the practice requires determination and a mind that does not despair. Ramanuja: the yoga which severs the bondage of sorrow caused by Prakṛti — practised with firm conviction and a mind unwearied by initial difficulties. The chapter's three threads converge here: the yogi's discipline, the meditation practice, and the call to sustained effort against weariness — anticipating Arjuna's restless-mind question at 6.33.",
+    "concrete_scenario": "A senior engineer at a B2B fintech is twenty months into a slow-burning migration of the legacy ledger system. The migration was supposed to take six months. The team has changed three times. The original architectural decisions she did not get to make are still hurting the design. She wakes up on a Monday morning unenthusiastic about returning to the codebase. The temptation: declare the migration unfixable, escalate to leadership, request a rewrite-from-scratch. Her actual response: she opens VS Code against the Postgres-backed monorepo, picks up the GitHub ticket she left half-finished on Friday — a refactor of the journal-entry validation path — and works on it for two hours with no expectation of breakthrough or recognition. Tuesday morning the same. Wednesday she finds an unexpected simplification that removes a class of edge cases. The week's progress is real but undramatic. She has practised yoga in this verse's operational sense: niścayena (with determination, not enthusiasm), anirviṇṇa-cetasā (with a mind that has not given up despite weariness). The viyogam from the duḥkha-saṁyogam is not the absence of the difficult migration; it is the disjunction between the difficulty and her commitment to the work despite it. Compare the engineer who needs daily wins to keep moving — when the migration's dramatic phase ended, his momentum collapsed.",
+    "falsifiability": "The analog fails if a reader takes the verse as licence to grind through any task without re-evaluation. The verse defines yoga as severance from sorrow-bondage, not stoicism for its own sake. An engineer who reads niścayena as 'never quit any project regardless of evidence' has missed the point — anirviṇṇa-cetasā names the unwearied mind, not the unthinking one.",
+    "counter_example": "When the engineer's persistence is in fact stubbornness in service of the wrong goal — continuing a migration that genuinely should be killed — the verse does not endorse this. The chapter elsewhere acknowledges right-renunciation. Niścayena names determination toward the appropriate practice, not refusal to update which practice is appropriate.",
+    "implication": "Audit your weariness. Where the mind is anirviṇṇa (unwearied) by the work itself, even when undramatic, the operational rung the verse names is being practised. Where you require dramatic wins to continue, weariness is winning.",
+    "quotable_line": "Yoga is severance from sorrow's grip, practised with determination and a mind that has not despaired.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "long-term-thinking",
+      "iteration-loop"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 6.23 closes samādhi-block; defines yoga as viyogam from duḥkha-saṁyogam. Engineering analog at narrow scope is real (the senior's sustained engagement against weariness). Shankara/Ramanuja preserved. Counter-example distinguishes niścayena from stubbornness. Tools: VS Code. Confidence HIGH at narrow scope.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

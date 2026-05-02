@@ -1,0 +1,216 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.28",
+  "sanskrit_devanagari": "युञ्जन्नेवं सदात्मानं योगी विगतकल्मष: ।सुखेन ब्रह्मसंस्पर्शमत्यन्तं सुखमश्न‍ुते ॥ २८ ॥",
+  "sanskrit_iast": "yuñjann evaṁ sadātmānaṁyogī vigata-kalmaṣaḥsukhena brahma-saṁsparśamatyantaṁ sukham aśnute",
+  "anvaya": [
+    {
+      "sanskrit": "युञ्जन्",
+      "iast": "yuñjan",
+      "meaning": "yoking, engaged in yoga"
+    },
+    {
+      "sanskrit": "एवम्",
+      "iast": "evam",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "सदा",
+      "iast": "sadā",
+      "meaning": "always"
+    },
+    {
+      "sanskrit": "आत्मानम्",
+      "iast": "ātmānam",
+      "meaning": "the self"
+    },
+    {
+      "sanskrit": "योगी",
+      "iast": "yogī",
+      "meaning": "the yogi"
+    },
+    {
+      "sanskrit": "विगत-कल्मषः",
+      "iast": "vigata-kalmaṣaḥ",
+      "meaning": "freed from stain / sin"
+    },
+    {
+      "sanskrit": "सुखेन",
+      "iast": "sukhena",
+      "meaning": "easily, with happiness"
+    },
+    {
+      "sanskrit": "ब्रह्म-संस्पर्शम्",
+      "iast": "brahma-saṁsparśam",
+      "meaning": "the touch of Brahman"
+    },
+    {
+      "sanskrit": "अत्यन्तम्",
+      "iast": "atyantam",
+      "meaning": "limitless, infinite"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "happiness"
+    },
+    {
+      "sanskrit": "अश्नुते",
+      "iast": "aśnute",
+      "meaning": "attains, enjoys"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/28/",
+      "fetched_at": "2026-05-02T02:25:21.330Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Thus the self-controlled yogī, constantly engaged in yoga practice, becomes free from all material contamination and achieves the highest stage of perfect happiness in transcendental loving service to the Lord.",
+      "raw_capture_path": "data/sources/raw/bg-6-28-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-28/",
+      "fetched_at": "2026-05-02T02:26:03.083Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Thus the self-controlled yogi, constantly engaged in yoga practice, becomes free from all material contamination and achieves the highest stage of perfect happiness in transcendental loving service to the Lord."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/28/",
+      "fetched_at": "2026-05-02T02:25:21.330Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 286 chars)",
+      "verbatim_excerpt": "Self-realization means knowing one’s constitutional position in relationship to the Supreme. The individual soul is part and parcel of the Supreme, and his position is to render transcendental service to the Lord. This transcendental contact with the Supreme is called brahma-saṁsparśa.",
+      "raw_full_path": "data/sources/raw/bg-6-28-vedabase.json (purport_full_length: 286)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-28/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:03.083Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.28 Sada yunjan, by constantly concentrating; atmanam, his mind; evam, thus, in the process stated; vigata-kalmasah, the taintles, sinless yogi, free from the obstacles to Yoga; sukhena, easily; asnute, attains; atayantam, absolute-that which exists by transcending limits-, supreme, unsur",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 765,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-28-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-28/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:03.083Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.28 Thus, in the above — said manner, devoting himself to the Yoga of the self and by that means expelling all old impurities, the Yogin attains ‘perfect’, i.e., boundless felicity at all times easily, without stress and strain. The felicity is born of the contact with the Brahman (Atman)",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 466,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-28-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahma-saṁsparśam (touch of Brahman)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "constantly engaged in the practice of yoga and freed from all material contamination, achieves the highest perfectional stage of happiness in transcendental loving service of the Lord"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the contact of Brahman, which is supreme happiness — easily attained by constant yoga-practice"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "contact with the Self in the form of Brahman, which is unsurpassable happiness"
+        }
+      ],
+      "explanation": "Brahma-saṁsparśam is read by Advaita as direct contact of consciousness with non-dual Brahman; by Vishishtadvaita as the Self's contact with Brahman as its inner controller; by Gaudiya Vaishnava as the brahma-bhūta stage that precedes loving service. The metaphysical reach exceeds operational engineering, requiring STRETCHED."
+    }
+  ],
+  "literal_meaning": "Thus engaging the self always, the yogi free from stain easily attains the touch of Brahman — limitless happiness.",
+  "traditional_meaning": "6.28 completes the result-state from 6.27. Yuñjan evam sadā ātmānam — yoking the self thus, always — the yogi vigata-kalmaṣaḥ (freed of stain) attains brahma-saṁsparśam (the touch / contact of Brahman) sukhena (easily, naturally). The happiness is atyantam — limitless, infinite. Shankara: by constant engagement with yoga, the yogi free of all stain easily achieves the contact of Brahman, which is supreme happiness. Ramanuja: by constantly fixing the mind on the Self, the yogi free of impurity easily attains contact with the Self in the form of Brahman, which is unsurpassable happiness. The metaphysical reach exceeds operational engineering analog. STRETCHED.",
+  "engineering": {
+    "translation": "Yoking the self (ātmānam) thus (evam) always (sadā), the yogi free of stain (vigata-kalmaṣaḥ) easily (sukhena) attains (aśnute) the touch of Brahman (brahma-saṁsparśam) — limitless (atyantam) happiness (sukham). 6.28 completes the result-state from 6.27. The yogi who has compounded the practice — yuñjann evam sadā — and is freed of all stain attains brahma-saṁsparśam (the touch of Brahman). Note the sukhena: the attainment is easy, naturally consequential, once the prior conditions hold. Shankara: by constant engagement with yoga, the yogi free of all stain easily attains the contact of Brahman, which is supreme happiness. Ramanuja: by constantly fixing the mind on the Self, the yogi free of impurity easily attains contact with the Self in the form of Brahman. The metaphysical scope exceeds operational engineering — STRETCHED. Narrowed engineering rung: the senior whose major work, after the discipline is in place, arrives easily.",
+    "concrete_scenario": "A principal engineer at year fifteen designs a distributed-tracing pipeline for a complex Kubernetes microservice topology, integrating Honeycomb against existing Prometheus metrics. The design absorbs three weeks of eighty-hour-equivalent thinking — distributed across normal eight-hour days, with no externally-visible heroism. The architectural choices feel obvious as she makes them. Other engineers reviewing her GitHub design doc find it remarkable that someone could see the system that clearly. She is not performing ease for an audience. At her tenure the work has become operationally easy. The underlying disciplines are in place: the graph-theory background, years of debugging Datadog and Sentry traces in similar topologies, calibration of which designs survive their first year of production. Sukhena — easily — she reaches the design that an engineer at year three would have produced only after weeks of urgency. The vigata-kalmaṣa state is the absence of the stain of distractions, premature optimisations, status-anxiety, and unfinished prior obligations. With those absent, the touch of the system's actual structure (operational analog of brahma-saṁsparśa) is direct. The verse reaches further than this; STRETCHED at full metaphysical scope.",
+    "falsifiability": "The analog fails if a reader reads sukhena as 'effortless' in the sense of requiring no preceding work. The ease named here is the ease that comes after years of compounded practice — yuñjann evam sadā. An engineer who claims to have attained 6.28 by avoiding effort has missed the entire prior chapter.",
+    "counter_example": "When the engineer's apparent ease at the major design is in fact superficial pattern-matching — the design looks easy because it is unconsciously copying a previous design without re-examining whether the new context demands a different design — the verse does not name this. Sukhena follows from vigata-kalmaṣaḥ, freedom from stain, which includes the stain of unexamined assumptions.",
+    "implication": "When your major work begins to arrive easily, audit whether the ease comes from compounded practice (the verse) or from unexamined pattern-matching (the failure mode). The first deepens the work; the second flattens it.",
+    "quotable_line": "Easy work, after years of compounded practice, is not effortless work; it is the harvest of the discipline.",
+    "tags": [
+      "long-term-thinking",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

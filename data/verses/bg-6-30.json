@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.30",
+  "chapter": 6,
+  "verse": 30,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Whoever sees Me (yo mām paśyati) everywhere (sarvatra), and sees everything (sarvam) in Me (mayi) — to that one (tasya) I (aham) am not lost (na praṇaśyāmi), and he (saḥ) is not lost (na praṇaśyati) to Me (me). 6.30 marks the chapter's first explicitly theistic crystallisation. Where 6.29 spoke of ātman seen in all beings, 6.30 speaks of mām — Me, Krishna — seen everywhere. The verse names mutual non-abandonment between the bhakta and the Lord. Shankara: bhakti-reading of equal vision — one who sees Vasudeva (= Brahman) everywhere is one whom the Lord does not become invisible to, and who does not become invisible to the Lord. Ramanuja: the supreme seeing names the relationship of mutual non-abandonment between the bhakta and the Lord. The verse is theistic — STRETCHED at engineering scope. The narrowed operational analog: the senior's substrate-recognition across all surface interactions; the engineer never loses sight of the actual system, and the system's signals never fail to reach her.",
+    "concrete_scenario": "A staff engineer with seventeen years of distributed-systems work never quite stops perceiving the substrate. In a product meeting about a new feature she is hearing the user-flow description, but underneath she is also tracing the Postgres queries it will trigger, the Redis cache-invalidation pattern those queries demand, the failure-mode of a network partition between the API gateway and Kubernetes pods downstream. In a one-on-one with her manager she absorbs the career-development conversation, and beneath it perceives the organisational pressures that produced the meeting. During an architecture-review of someone else's system she contemplates both the diagram-as-drawn and the system-as-actually-running. The substrate is never absent from her vision; her eye locates it inside every surface. Conversely, when the substrate emits a signal — a Datadog metric anomaly, a latency outlier in Sentry, a code smell inside a junior's GitHub PR — her attention finds it without delay. The verse's engineering analog targets this exact capacity: the senior who has trained seeing-through-surface-to-substrate so deeply that the substrate stays present. Contrast the engineer at year three who reads the user-flow description as merely the user-flow description and halts there; the substrate has not yet entered her field of view. The verse reaches further than this; its full force names theistic mutual non-abandonment between the bhakta and the personal Lord, which the engineering rung cannot reproduce. STRETCHED honestly.",
+    "falsifiability": "The analog fails if a reader takes the engineering rung as equivalent to the verse's theistic claim. The verse names mutual non-abandonment between the bhakta and Krishna; the engineering rung names sustained substrate-recognition. These are not the same kind of claim. An engineer who reads 6.30 as endorsing engineering-as-religion has misread the chapter and the verse.",
+    "counter_example": "When the engineer's apparent substrate-vision is in fact obsessive over-engineering — every product conversation derailed into infrastructure pedantry, every meeting consumed by failure-mode speculation — the verse does not endorse this. Sarvatra paśyati names integrated double-vision (surface and substrate held simultaneously), not substrate-only-vision that erases the surface.",
+    "implication": "Audit whether you are losing sight of the substrate during product-level conversations, or losing sight of the surface during infrastructure conversations. The verse, scoped engineering-narrow, names the simultaneous holding.",
+    "quotable_line": "The senior never quite stops seeing the substrate; the substrate's signals never quite fail to reach her.",
+    "tags": [
+      "operator-system-coupling",
+      "system-recognition",
+      "full-system-view"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 6.30 STRETCHED honestly per chapter-6 thesis — theistic verse. Engineering rung scoped to substrate-recognition across surface interactions. Shankara/Ramanuja preserved. Counter-example distinguishes integrated double-vision from substrate-only obsession. Confidence MEDIUM at narrow scope; STRETCHED at theistic scope acknowledged honestly.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

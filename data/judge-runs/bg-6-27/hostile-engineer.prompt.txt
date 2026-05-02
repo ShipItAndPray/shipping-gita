@@ -1,0 +1,199 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.27",
+  "sanskrit_devanagari": "प्रशान्तमनसं ह्येनं योगिनं सुखमुत्तमम् ।उपैति शान्तरजसं ब्रह्मभूतमकल्मषम् ॥ २७ ॥",
+  "sanskrit_iast": "praśānta-manasaṁ hy enaṁyoginaṁ sukham uttamamupaiti śānta-rajasaṁbrahma-bhūtam akalmaṣam",
+  "anvaya": [
+    {
+      "sanskrit": "प्रशान्त-मनसम्",
+      "iast": "praśānta-manasam",
+      "meaning": "of peaceful mind"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "योगिनम्",
+      "iast": "yoginam",
+      "meaning": "yogi"
+    },
+    {
+      "sanskrit": "सुखम् उत्तमम्",
+      "iast": "sukham uttamam",
+      "meaning": "supreme happiness"
+    },
+    {
+      "sanskrit": "उपैति",
+      "iast": "upaiti",
+      "meaning": "approaches / comes to"
+    },
+    {
+      "sanskrit": "शान्त-रजसम्",
+      "iast": "śānta-rajasam",
+      "meaning": "in whom rajas has been calmed"
+    },
+    {
+      "sanskrit": "ब्रह्म-भूतम्",
+      "iast": "brahma-bhūtam",
+      "meaning": "become Brahman"
+    },
+    {
+      "sanskrit": "अकल्मषम्",
+      "iast": "akalmaṣam",
+      "meaning": "free from stain / sin"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/27/",
+      "fetched_at": "2026-05-02T02:25:19.824Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The yogī whose mind is fixed on Me verily attains the highest perfection of transcendental happiness. He is beyond the mode of passion, he realizes his qualitative identity with the Supreme, and thus he is freed from all reactions to past deeds.",
+      "raw_capture_path": "data/sources/raw/bg-6-27-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-27/",
+      "fetched_at": "2026-05-02T02:26:00.687Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The yogi whose mind is fixed on Me verily attains the highest perfection of transcendental happiness. He is beyond the mode of passion, he realizes his qualitative identity with the Supreme, and thus he is freed from all reactions to past deeds.."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/27/",
+      "fetched_at": "2026-05-02T02:25:19.824Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 507 chars)",
+      "verbatim_excerpt": "Brahma-bhūta is the state of being free from material contamination and situated in the transcendental service of the Lord. Mad-bhaktiṁ labhate parām (Bg. 18.54). One cannot remain in the quality of Brahman, the Absolute, until one’s mind is fixed on the lotus feet of the Lord. Sa vai manaḥ kṛṣṇa-padāravindayoḥ.",
+      "raw_full_path": "data/sources/raw/bg-6-27-vedabase.json (purport_full_length: 507)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-27/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:00.687Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.27 Uttamam, supreme, unsurpassable; sukham, Blisss; upaiti, comes; hi enam yoginam, to this yogi alone; prasanta-manasam, whose mind has become perfectly tranquil; santa-rejasam, whose (quality of) rajas has been eliminated, i.e. whose rajas, viz defects such as delusion etc. [‘The five ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 615,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-27-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-27/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:00.687Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.27 Supreme happiness, which is of the nature of experience of the self in its essential nature comes to this Yogin whose ‘mind is at peace,’ i.e., whose mind does not swerve from the self, whose mind abides in the self; whose impurities are thereby completely burnt away; whose Rajas is t",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 601,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-27-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "śānta-rajasam (rajas calmed)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "yogī whose mind is fixed on Me ... whose passion is pacified, who is freed from all sin"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "rajas (cause of attachment and aversion) has been calmed; become Brahman, free of every form of stain"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the mind rendered free of rajas (the source of activity) and fixed entirely on the Self"
+        }
+      ],
+      "explanation": "All traditions agree that śānta-rajasam names the calming of the rajo-guna specifically. Shankara reads rajas as the cause of attachment-aversion; Ramanuja reads rajas as the source of mental activity. Both identify the calming as the precondition for the supreme happiness named. The doctrinal point is the same."
+    }
+  ],
+  "literal_meaning": "Indeed, supreme happiness comes to this yogi of peaceful mind, in whom rajas (restlessness) has been calmed, who has become Brahman, free from stain.",
+  "traditional_meaning": "6.27 names the result-state of the practice. The yogi praśānta-manas (peaceful-minded) and śānta-rajas (in whom the rajas-guna has been calmed) attains sukham uttamam (supreme happiness). The condition: brahma-bhūtam (one who has become Brahman) and akalmaṣam (free of stain). Shankara: rajas is the cause of attachment and aversion; when calmed, the yogi has become Brahman, free of every form of stain. Ramanuja: when the mind has been rendered free of rajas (the source of activity), and is fixed entirely on the Self, supreme happiness arises naturally. Per chapter-6 thesis, this is the rajas-calmed state — the engineer with restless effort settled is not slow but settled-in-action. STRETCHED at metaphysical scope; partial engineering analog at calmed-effort scope.",
+  "engineering": {
+    "translation": "Indeed (hi), supreme happiness (sukham uttamam) approaches (upaiti) this yogi of peaceful mind (praśānta-manasam), in whom rajas has been calmed (śānta-rajasam), who has become Brahman (brahma-bhūtam), free of stain (akalmaṣam). 6.27 names the result-state. The yogi praśānta-manas (peaceful-minded) and śānta-rajas (in whom the rajas-guna has been calmed) attains supreme happiness; the precondition is brahma-bhūtam and akalmaṣam. Shankara: rajas is the cause of attachment and aversion; when calmed, the yogi has become Brahman, free of every form of stain. Ramanuja: when rajas (the source of mental activity) has been rendered calm, supreme happiness arises naturally. Per chapter-6 thesis: the engineer with restless effort calmed isn't slow — they're settled-in-action. Engineering analog at narrowed operational scope.",
+    "concrete_scenario": "A staff engineer at year twelve, observing herself at year three. Year three: she shipped a redesigned authentication service backed by Postgres; the launch consumed a stressful sprint of seventeen-hour days; the rollout produced a memorable incident still cited in retros; the conversion metric, by any measurement, came out excellent. She had produced rajasic output — quality forged through restless effort. Year twelve: she is rolling a redesigned permission-check service via GitHub Actions, structurally more intricate than the year-three project. Her workdays span eight hours. The Datadog dashboards remain green at deploy. The launch numbers, again by any reckoning, look excellent. Externally the year-twelve cadence appears slower-paced. Internally it carries identical intensity at lower noise — the rajas has settled; the practice has compounded; the same problem-class yields clean artifacts without urgency-spikes. She is not less effective per workweek; she is more effective per hour spent, because the wind that drove seventeen-hour days has been removed at the source. Contrast the engineer at year twelve still grinding seventeen-hour days, still triggering rollout incidents, still confusing restlessness with rigor. Scoped operationally, the verse is precise: śānta-rajas does not mean slowness. It means settled-in-action. STRETCHED at metaphysical scope.",
+    "falsifiability": "The analog fails if a reader reads śānta-rajas as low-energy or disengagement. Rajas calmed is not rajas absent; the yogi is not lethargic. The engineering analog: the senior whose effort is calibrated rather than urgent. An engineer who reads this verse as a licence for low-output has misread.",
+    "counter_example": "When the engineer's apparent settledness is in fact tamasic inertia — the slowness comes from disengagement rather than calmed effort — the verse does not name this. Tamas resembles śānta-rajas externally and is its opposite operationally. The chapter elsewhere distinguishes the gunas; the engineering reader must too.",
+    "implication": "Audit whether your apparent intensity is producing better output, or merely louder process. Where the rajas has truly calmed, the output sustains at the same level with less noise. Where the noise has merely been suppressed, the output drops.",
+    "quotable_line": "Rajas calmed is not effort absent; the engineer is settled-in-action, not slowed.",
+    "tags": [
+      "rajas-restlessness",
+      "sattva-clarity",
+      "operator-as-instrument",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

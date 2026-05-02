@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.22",
+  "chapter": 6,
+  "verse": 22,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Which gained (yam labdhvā), one considers no other gain (aparam lābham) superior to it; established in which (yasmin sthitaḥ), one is not shaken (na vicālyate) even by heavy sorrow (guruṇā api duḥkhena). The verse continues the samādhi-block, naming two further qualities of the state: the gain-comparison clause (no greater gain conceivable), and the heavy-sorrow clause (the state holds even under massive disturbance). Shankara: having gained the realisation of the Self, no other gain — kingdom, son, wealth — is reckoned superior; the yogi is not shaken even by the heaviest sorrow such as separation from loved ones or loss of wealth. Ramanuja: the gain in question is the direct experience of the Self, of which there is no superior; established in which, even severe pain like the cutting of limbs cannot dislodge the yogi. STRETCHED — the verse names a metaphysical stability whose scope exceeds operational engineering. Narrowed operational rung: the internal-state floor that holds across major external swings.",
+    "concrete_scenario": "A staff engineer at a public-company SaaS outfit ships a redesigned billing service after eighteen months of work. The redesign reduces the failure-mode tail-latency from a 99.5 to 99.99 percentile. One quarter later, an acquisition closes; her organisation is rolled into the acquirer's systems; the billing redesign is marked for deprecation in favour of the acquirer's stack within twelve months. She receives the news on a Wednesday afternoon. Her response: she finishes the GitHub documentation PR she had been writing, hands off the Postgres operational runbook to a Kafka-experienced peer, attends the post-acquisition all-hands, and on Thursday begins the migration-out plan. She does not spiral; she does not write the indignant Slack post; she does not start interviewing externally as a panic response. The work the redesign represented — eighteen months of consensus-built engineering judgment — has not been deleted by the deprecation. The internal floor holds. Compare the engineer whose state is so coupled to the survival of his work-artifact that the deprecation triggers a six-week productivity collapse. The first engineer is operationally yasmin sthitaḥ — established in something the deprecation cannot reach. The verse's metaphysical reach is greater than this; the engineering rung is recognisable at narrow scope.",
+    "falsifiability": "The analog fails if a reader reads the verse as 'detach from your work so that nothing affects you.' The verse does not endorse insulation. Yasmin sthitaḥ is positive groundedness, not flatness or numbness. The engineer who genuinely cares about the deprecated artifact is not contradicted; the verse names what does not move when caring.",
+    "counter_example": "When the engineer's apparent equanimity in the face of deprecation is in fact dissociation from the work that was done, or denial that the deprecation matters at all — the verse does not endorse this. The yogi remains alive and engaged; the senior remains alive and engaged. Equanimity-as-numbness is the failure mode, not the verse.",
+    "implication": "When a major artifact you spent significant time on is deprecated, observe whether your internal state holds at the same level. Where the level holds, something operational has stabilised that the deprecation does not reach.",
+    "quotable_line": "What the senior built is not deleted by the deprecation; the level holds because its ground was elsewhere.",
+    "tags": [
+      "non-attachment-to-praise",
+      "operator-as-instrument",
+      "deprecation-management"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 6.22 STRETCHED honestly. Engineering rung scoped to internal-floor-holds-under-deprecation. Both clauses preserved (no greater gain, not shaken by heavy sorrow). Shankara/Ramanuja preserved. Counter-example explicitly distinguishes equanimity from dissociation. Tools: Slack. Confidence MEDIUM.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

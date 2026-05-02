@@ -1,0 +1,271 @@
+# Judge persona: voice-consistency reviewer
+
+You will receive a chapter's verses (in order) plus an asserted `chapter_thesis` describing the chapter's voice and primary teaching. The Bhagavad Gita's chapters have distinct voices — Ch. 2 is didactic and corrective; Ch. 11 is awe-struck and trembling; Ch. 12 is intimate and devotional; Ch. 18 is integrative and concluding.
+
+## Your task
+
+Decide whether the engineering layers across the chapter maintain a voice consistent with the asserted thesis, or whether one or more verses break tone.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "verses_off_tone": [
+    { "verse_id": "BG X.Y", "issue": "<one sentence — what tone the verse is in vs. what the chapter calls for>" }
+  ],
+  "chapter_voice_summary": "<one paragraph naming the voice you observed across the chapter>"
+}
+```
+
+## Calibration
+
+- More than 10% of the chapter's verses off-tone ⇒ FAIL.
+- Single verse off-tone is acceptable if the verse itself notes the divergence.
+- Tone is not the same as register. Voice = the *kind* of teacher being heard. A verse can be terse or expansive without breaking voice; a verse cannot be sarcastic when the chapter is grave.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.19",
+  "sanskrit_devanagari": "यथा दीपो निवातस्थो नेङ्गते सोपमा स्मृता ।\nयोगिनो यतचित्तस्य युञ्जतो योगमात्मनः ॥ १९ ॥",
+  "sanskrit_iast": "yathā dīpo nivāta-stho neṅgate sopamā smṛtā |\nyogino yata-cittasya yuñjato yogam ātmanaḥ || 19 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यथा",
+      "iast": "yathā",
+      "meaning": "as"
+    },
+    {
+      "sanskrit": "दीपः",
+      "iast": "dīpaḥ",
+      "meaning": "lamp"
+    },
+    {
+      "sanskrit": "निवातस्थः",
+      "iast": "nivāta-sthaḥ",
+      "meaning": "situated in a windless place"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "इङ्गते",
+      "iast": "iṅgate",
+      "meaning": "flickers / wavers"
+    },
+    {
+      "sanskrit": "सा",
+      "iast": "sā",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "उपमा",
+      "iast": "upamā",
+      "meaning": "simile"
+    },
+    {
+      "sanskrit": "स्मृता",
+      "iast": "smṛtā",
+      "meaning": "is recalled / traditionally given"
+    },
+    {
+      "sanskrit": "योगिनः",
+      "iast": "yoginaḥ",
+      "meaning": "of the yogi"
+    },
+    {
+      "sanskrit": "यत-चित्तस्य",
+      "iast": "yata-cittasya",
+      "meaning": "of controlled mind"
+    },
+    {
+      "sanskrit": "युञ्जतः",
+      "iast": "yuñjataḥ",
+      "meaning": "engaged in / yoking"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "आत्मनः",
+      "iast": "ātmanaḥ",
+      "meaning": "of the self / on the Self"
+    },
+    {
+      "sanskrit": "yathā",
+      "iast": "yathā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dīpo",
+      "iast": "dīpo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nivāta",
+      "iast": "nivāta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "stho",
+      "iast": "stho",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "neṅgate",
+      "iast": "neṅgate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sopamā",
+      "iast": "sopamā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "smṛtā",
+      "iast": "smṛtā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogino",
+      "iast": "yogino",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yata",
+      "iast": "yata",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cittasya",
+      "iast": "cittasya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yuñjato",
+      "iast": "yuñjato",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogam",
+      "iast": "yogam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ātmanaḥ",
+      "iast": "ātmanaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/19/",
+      "fetched_at": "2026-05-02T03:01:48.071Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As a lamp in a windless place does not waver, so the transcendentalist, whose mind is controlled, remains always steady in his meditation on the transcendent Self.",
+      "raw_capture_path": "data/sources/raw/bg-6-19-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-19/",
+      "fetched_at": "2026-05-02T03:02:11.512Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "As a lamp in a windless place does not waver, so the transcendentalist, whose mind is controlled, remains always steady in his meditation on the transcendent self."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/19/",
+      "fetched_at": "2026-05-02T03:01:48.071Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 169 chars)",
+      "verbatim_excerpt": "A truly Kṛṣṇa conscious person, always absorbed in transcendence, in constant undisturbed meditation on his worshipable Lord, is as steady as a lamp in a windless place.",
+      "raw_full_path": "data/sources/raw/bg-6-19-vedabase.json (purport_full_length: 169)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-19/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:11.512Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.19 Yatha, as; a dipah, lamp; nivata-sthah, kept in a windless place; na ingate, does not flicker; sa upama, such is the simile-that with which something is compared is an upama (smile)-; smrta, thought of, by the knowers of Yoga who understand the movements of the mind; yoginah, for the yogi;",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 573,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-19-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-19/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:11.512Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.19 As a lamp does not flicker in a windless place, i.e., does not move, but remains steady with its illumination — this is the simile used to illustrate the nature of the self of the Yogin who has subdued his mind, who has got rid of all other kinds of mental activity and who is practising Yoga",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 524,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-19-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "neṅgate (does not flicker)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "remains always steady in his meditation on the transcendent Self"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "thought of, by knowers of Yoga who understand the movements of the mind"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the self remains with its steadily illumining light of knowledge because all other activities of the mind have ceased"
+        }
+      ],
+      "explanation": "All traditions read the lamp-in-windless-place simile as the most precise image for the unwavering attention of the yogi. The simile is famous and traditional (sā upamā smṛtā — 'that simile is recalled')."
+    }
+  ],
+  "literal_meaning": "As a lamp situated in a windless place does not flicker — that simile is recalled for the yogi of controlled mind, engaged in the yoga of the Self.",
+  "traditional_meaning": "6.19 is the chapter's most-quoted simile. The lamp in a windless place — yathā dīpo nivātastho neṅgate — is the image traditionally given (sopamā smṛtā) for the yogi whose mind is restrained (yata-citta) and who is engaged in self-yoga. Shankara: 'thought of, by the knowers of Yoga who understand the movements of the mind.' Ramanuja: 'this is the simile used to illustrate the nature of the self of the Yogin who has subdued his mind, who has got rid of all other kinds of mental activity ... the self remains with its steadily illumining light of knowledge because all other activities of the mind have ceased, just as a lamp kept in a windless place has an unflickering flame.' Across traditions the verse names a state of attention that does not flicker. Engineering analog at decade-scope is strong: the senior whose attention does not flicker.",
+  "engineering": {
+    "translation": "As a lamp positioned within a windless enclosure does not flicker, that simile is traditionally recalled (sopamā smṛtā) for the yogi whose mind is yoked, engaged in self-yoga. The verse's force comes from precisely where it locates causation. The flame achieves stillness not because someone disciplined the lamp into immobility; rather, the disturbance — the breeze — has been structurally eliminated from its environment. Shankara: the comparison is invoked by practitioners who understand the movements of the mind. Ramanuja: the self remains illumined by steadily radiating knowledge because every other mental activity has ceased. The engineering rung scopes downward without distortion: the senior engineer whose attention does not waver achieved that condition through environmental architecture, not through willpower. Notifications, dashboards open in adjacent windows, the unread timeline, residual interpersonal grievances from yesterday's review — these are her wind. Once the disturbance generators are structurally absent, attention naturally settles. STRONG analog.",
+    "concrete_scenario": "A principal engineer at a quantitative trading firm holds a single problem in mind for two hours every morning prior to lunch. Today's investigation: the latency outlier degrading her order-routing service, where the p99 has gradually climbed from 3.2ms to 4.7ms across six weeks, and no individual change isolates the regression. Between 9:00 and 11:00 her concentration does not flicker. She is not white-knuckling focus. The screen displays exactly one window: a Jupyter notebook executing analytical queries against the Kafka offset history. Slack remains closed — not merely muted but quit. Her phone occupies a separate room. The email client is not running. Her browser has a single tab. She has told the team she is unreachable until eleven. At 9:47 she identifies the culprit — a JVM-flag adjustment from week four that altered GC behavior under specific load profiles. She files the GitHub issue at 10:12. With the remaining 48 minutes she sketches the rollback procedure. At 11:00 she rejoins the team. Compare the engineer who occupies the same 9-11 block but tab-switches between Jupyter, Slack, two GitHub PRs, an email regarding benefits enrollment, and Twitter. Identical hours, identical problem, identical intelligence. The flame oscillates; the JVM-flag regression remains undiscovered until 4 PM after a third pass. The verse, scoped operationally, is precise: stable attention emerges from the absence of perturbation, never the presence of effort.",
+    "falsifiability": "The analog fails if a reader treats this verse as the doctrine of focus-through-willpower. It is not. The lamp's stillness is not the lamp's effort; the wind has been removed. An engineer who reads this verse as 'discipline yourself to focus' has inverted it. The doctrine is structural: build the conditions; the steady attention follows. The verse does not endorse pure-willpower focus practices.",
+    "counter_example": "When the engineer's apparent steady attention is in fact dissociation — running on autopilot through a problem she has done a hundred times, eyes on the screen but no genuine engagement — the verse does not name this. The lamp's flame is alive and illuminating. The yogi's still attention is not absence of motion; it is undisturbed alive engagement. Steady-and-empty is not the simile.",
+    "implication": "When you find your attention flickering, do not first try to discipline the attention. First locate the wind. Remove the source; the flame settles on its own.",
+    "quotable_line": "The lamp is steady because the wind is absent — not because the lamp has been disciplined into stillness.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

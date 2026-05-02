@@ -1,0 +1,38 @@
+{
+  "id": "BG 6.29",
+  "chapter": 6,
+  "verse": 29,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The yogi whose self is yoked through yoga (yoga-yukta-ātmā) sees (īkṣate) the Self situated in all beings (sarva-bhūta-stham ātmānam), and all beings (sarva-bhūtāni) in the Self (ātmani); everywhere (sarvatra), of equal vision (sama-darśanaḥ). 6.29 names the doctrine of sama-darśana — equal vision — as the fruit of yoked-self perception. The bidirectional formula matters: ātman in all beings AND all beings in ātman. Shankara: vision of sameness everywhere; knowledge of the identity of Self and Brahman across all conditioned states (heaven, hell, animal, human). Ramanuja: separated from Prakṛti, all selves are by Themselves only of the nature of knowledge; inequalities pertain to the bodies. Per chapter-6 thesis: STRONG engineering analog at reflexive-empathy scope — the senior who sees themselves in every junior they once were. The metaphysical claim that all selves share substantial identity exceeds operational reach (STRETCHED at full scope); the narrowed engineering analog is genuinely strong.",
+    "concrete_scenario": "A staff engineer reviews the on-call rotation for next quarter. A junior — twenty-two months into the role — has just sent a panicked Slack message at 11 PM about a Datadog alert that turns out to be a noisy-neighbour false positive. The senior reads the panic underneath the technical request. She remembers, in operational detail, the night at month nineteen of her own career when a similar alert sent her into the same panic — she was sure she had taken down production; she was actually reading a metric that a load-balancer health-check endpoint produces every minute. She replies in Slack with two sentences explaining the false positive and one sentence acknowledging the panic. The next morning she opens a doc titled 'Common false-positive alerts and how to recognise them' and commits the case to the team's GitHub repo. She is not performing kindness; she is recognising a self in the junior that maps onto a self she once was. The recognition produces specific operational action — the doc, the calibrated reply, the avoidance of any 'you should have known' tone. Compare the senior who reads the same alert and writes a curt 'this is obviously a noisy alert; please escalate properly next time' — failing the verse's bidirectional reading because she treats the junior as not-her. The reflexive engineering empathy is operational; the metric of success is the merge of the doc, not the warmth of the reply. STRONG analog at narrow scope.",
+    "falsifiability": "The analog fails if a reader reads sama-darśana as 'all engineers are the same' or 'don't distinguish between performance levels.' The verse names equal-vision regarding the substrate (the Self / the operator), not equal performance. The engineering rung: see the substrate, not the surface; recognise the operator across the role-difference. An engineer who reads this as 'don't give performance feedback' has flattened the verse into a kindness-doctrine.",
+    "counter_example": "When the senior's apparent identification with the junior is in fact projection — assuming the junior's panic at 11 PM has the same cause as her own panic at month nineteen, when in fact this junior is panicking because of a different and worse problem — the verse does not endorse this. Sama-darśana sees the same substrate; it does not flatten the surface. The doc opens after the actual diagnosis, not in place of it.",
+    "implication": "When you respond to a junior, audit whether you are seeing yourself-as-then in the junior, or seeing the junior as not-you. The first produces specific operational action; the second produces curt dismissal. The reflexive identification is the practice the verse names.",
+    "quotable_line": "The senior sees herself in every junior she once was; the verse calls this equal-vision.",
+    "tags": [
+      "team-state",
+      "team-culture",
+      "operator-as-instrument",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 6.29 — STRONG analog per chapter-6 thesis. Reflexive engineering empathy across roles. Bidirectional formula preserved (ātman in all beings AND all beings in ātman). Shankara/Ramanuja preserved. Counter-example distinguishes sama-darśana from projection. Tools: Slack, Datadog. Confidence HIGH at narrow empathy scope; STRETCHED at full metaphysical scope acknowledged.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

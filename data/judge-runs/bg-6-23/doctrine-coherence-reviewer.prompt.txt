@@ -1,0 +1,300 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.23",
+  "sanskrit_devanagari": "तं विद्याद्दुःखसंयोगवियोगं योगसंज्ञितम् ।\nस निश्चयेन योक्तव्यो योगोऽनिर्विण्णचेतसा ॥ २३ ॥",
+  "sanskrit_iast": "taṁ vidyād duḥkha-saṁyoga-viyogaṁ yoga-saṁjñitam |\nsa niścayena yoktavyo yogo 'nirviṇṇa-cetasā || 23 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "दुःख-संयोग-वियोगम्",
+      "iast": "duḥkha-saṁyoga-viyogam",
+      "meaning": "severance of union with sorrow"
+    },
+    {
+      "sanskrit": "योगसंज्ञितम्",
+      "iast": "yoga-saṁjñitam",
+      "meaning": "known by the term yoga"
+    },
+    {
+      "sanskrit": "विद्यात्",
+      "iast": "vidyāt",
+      "meaning": "one should know"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "निश्चयेन",
+      "iast": "niścayena",
+      "meaning": "with determination"
+    },
+    {
+      "sanskrit": "अनिर्विण्ण-चेतसा",
+      "iast": "anirviṇṇa-cetasā",
+      "meaning": "with mind unwearied / undespondent"
+    },
+    {
+      "sanskrit": "योक्तव्यः",
+      "iast": "yoktavyaḥ",
+      "meaning": "should be practised"
+    },
+    {
+      "sanskrit": "taṁ",
+      "iast": "taṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vidyād",
+      "iast": "vidyād",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duḥkha",
+      "iast": "duḥkha",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁyoga",
+      "iast": "saṁyoga",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "viyogaṁ",
+      "iast": "viyogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga",
+      "iast": "yoga",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁjñitam",
+      "iast": "saṁjñitam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "niścayena",
+      "iast": "niścayena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoktavyo",
+      "iast": "yoktavyo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogo",
+      "iast": "yogo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'nirviṇṇa",
+      "iast": "'nirviṇṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cetasā",
+      "iast": "cetasā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
+      "merged_block_note": "Translation covers 20-23 jointly; the 6.23 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5406 chars)",
+      "verbatim_excerpt": "By practice of yoga one becomes gradually detached from material concepts. This is the primary characteristic of the yoga principle. And after this, one becomes situated in trance, or samādhi, which means that the yogī realizes the Supersoul through transcendental mind and intelligence, without any",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-vedabase.json (purport_full_length: 5406)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 Yatra, at the time when; cittam, the mind; niruddham, restrained, entirely prevented from wandering; uparamate, gets withdrawn; yoga-sevaya, through the practice of Yoga; ca, and; yatra eva, just when, at the very moment when; pasyan, by seeing, by experiencing; atmanam, the Self, which by",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1079,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 – 6.23 Where, through the practice of Yoga, the mind, which is subdued everywhere by such practice, ‘rejoices’, i.e., rejoices in surpassing felicity; and where, perceiving through Yoga ‘the self (Atman)’ by ‘the mind (Atman)’ one is delighted by the self and indifferent to all other objects;",
+      "verbatim_excerpt_length": 298,
+      "verbatim_full_length": 1141,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "duḥkha-saṁyoga-viyoga (severance from union with sorrow)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "actual freedom from all miseries arising from material contact"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "yoga is named the severance from union with sorrow; to be practised with determination, with mind unwearied"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "disunion from all union with pain, i.e., the opposite of union with pain, is called by the term Yoga; practised with zestful exaltation"
+        }
+      ],
+      "explanation": "The verse defines yoga negatively — as the severance from sorrow's union. Both classical readings preserve this and emphasize that the practice itself requires anirviṇṇa-cetas, mind unwearied. Engineering analog at narrow scope: the disposition that is not unmade by sorrow."
+    }
+  ],
+  "literal_meaning": "Let one know that severance of union with sorrow as designated by the term yoga; that yoga should be practised with determination, with a mind unwearied.",
+  "traditional_meaning": "6.23 closes the 6.20-23 block. The state described — duḥkha-saṁyoga-viyoga, the severance from union with sorrow — is what the term 'yoga' names. It is to be practised (yoktavyaḥ) with determination (niścayena) and with a mind unwearied (anirviṇṇa-cetasā). Ramanuja: 'this Yoga must be practised with the determination of its nature as such from the beginning with a mind free from despondency, i.e., with zestful exaltation.' The verse is the chapter's first explicit definition of yoga as severance from sorrow. Engineering analog is STRETCHED at metaphysical scope; the operational rung is the disposition that is not unmade by sorrow.",
+  "engineering": {
+    "translation": "That severance (viyogam) of union (saṁyogam) with sorrow (duḥkha) — let one know (vidyāt) it is designated by the term yoga (yoga-saṁjñitam). That yoga should be practised (sa yoktavyaḥ) niścayena (with determination) and anirviṇṇa-cetasā (with unwearied mind). 6.23 closes the samādhi-block by giving yoga itself a definition: yoga is the disjunction (viyogam) from the conjunction-with-sorrow (duḥkha-saṁyogam). Shankara: yoga is here defined as the absence of contact with sorrow; the practice requires determination and a mind that does not despair. Ramanuja: the yoga which severs the bondage of sorrow caused by Prakṛti — practised with firm conviction and a mind unwearied by initial difficulties. The chapter's three threads converge here: the yogi's discipline, the meditation practice, and the call to sustained effort against weariness — anticipating Arjuna's restless-mind question at 6.33.",
+    "concrete_scenario": "A senior engineer at a B2B fintech is twenty months into a slow-burning migration of the legacy ledger system. The migration was supposed to take six months. The team has changed three times. The original architectural decisions she did not get to make are still hurting the design. She wakes up on a Monday morning unenthusiastic about returning to the codebase. The temptation: declare the migration unfixable, escalate to leadership, request a rewrite-from-scratch. Her actual response: she opens VS Code against the Postgres-backed monorepo, picks up the GitHub ticket she left half-finished on Friday — a refactor of the journal-entry validation path — and works on it for two hours with no expectation of breakthrough or recognition. Tuesday morning the same. Wednesday she finds an unexpected simplification that removes a class of edge cases. The week's progress is real but undramatic. She has practised yoga in this verse's operational sense: niścayena (with determination, not enthusiasm), anirviṇṇa-cetasā (with a mind that has not given up despite weariness). The viyogam from the duḥkha-saṁyogam is not the absence of the difficult migration; it is the disjunction between the difficulty and her commitment to the work despite it. Compare the engineer who needs daily wins to keep moving — when the migration's dramatic phase ended, his momentum collapsed.",
+    "falsifiability": "The analog fails if a reader takes the verse as licence to grind through any task without re-evaluation. The verse defines yoga as severance from sorrow-bondage, not stoicism for its own sake. An engineer who reads niścayena as 'never quit any project regardless of evidence' has missed the point — anirviṇṇa-cetasā names the unwearied mind, not the unthinking one.",
+    "counter_example": "When the engineer's persistence is in fact stubbornness in service of the wrong goal — continuing a migration that genuinely should be killed — the verse does not endorse this. The chapter elsewhere acknowledges right-renunciation. Niścayena names determination toward the appropriate practice, not refusal to update which practice is appropriate.",
+    "implication": "Audit your weariness. Where the mind is anirviṇṇa (unwearied) by the work itself, even when undramatic, the operational rung the verse names is being practised. Where you require dramatic wins to continue, weariness is winning.",
+    "quotable_line": "Yoga is severance from sorrow's grip, practised with determination and a mind that has not despaired.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "long-term-thinking",
+      "iteration-loop"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

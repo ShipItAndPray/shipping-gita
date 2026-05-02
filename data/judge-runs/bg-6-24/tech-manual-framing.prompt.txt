@@ -1,0 +1,250 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.24",
+  "sanskrit_devanagari": "सङ्कल्पप्रभवान्कामांस्त्यक्त्वा सर्वानशेषतः ।\nमनसैवेन्द्रियग्रामं विनियम्य समन्ततः ॥ २४ ॥",
+  "sanskrit_iast": "saṅkalpa-prabhavān kāmāṁs tyaktvā sarvān aśeṣataḥ |\nmanasaivendriya-grāmaṁ viniyamya samantataḥ || 24 ||",
+  "anvaya": [
+    {
+      "sanskrit": "सङ्कल्प-प्रभवान्",
+      "iast": "saṅkalpa-prabhavān",
+      "meaning": "born of fancy / will-arising"
+    },
+    {
+      "sanskrit": "कामान्",
+      "iast": "kāmān",
+      "meaning": "desires"
+    },
+    {
+      "sanskrit": "सर्वान्",
+      "iast": "sarvān",
+      "meaning": "all"
+    },
+    {
+      "sanskrit": "अशेषतः",
+      "iast": "aśeṣataḥ",
+      "meaning": "without remainder"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "मनसा",
+      "iast": "manasā",
+      "meaning": "by the mind"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "इन्द्रिय-ग्रामम्",
+      "iast": "indriya-grāmam",
+      "meaning": "the entire group of senses"
+    },
+    {
+      "sanskrit": "समन्ततः",
+      "iast": "samantataḥ",
+      "meaning": "from every side"
+    },
+    {
+      "sanskrit": "विनियम्य",
+      "iast": "viniyamya",
+      "meaning": "restraining"
+    },
+    {
+      "sanskrit": "saṅkalpa",
+      "iast": "saṅkalpa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "prabhavān",
+      "iast": "prabhavān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kāmāṁs",
+      "iast": "kāmāṁs",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tyaktvā",
+      "iast": "tyaktvā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sarvān",
+      "iast": "sarvān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "aśeṣataḥ",
+      "iast": "aśeṣataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manasaivendriya",
+      "iast": "manasaivendriya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "grāmaṁ",
+      "iast": "grāmaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "viniyamya",
+      "iast": "viniyamya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "samantataḥ",
+      "iast": "samantataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/24/",
+      "fetched_at": "2026-05-02T03:01:51.800Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One should engage oneself in the practice of yoga with determination and faith and not be deviated from the path. One should abandon, without exception, all material desires born of mental speculation and thus control all the senses on all sides by the mind.",
+      "raw_capture_path": "data/sources/raw/bg-6-24-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-24/",
+      "fetched_at": "2026-05-02T03:02:16.288Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One should engage oneself in the practice of yoga with determination and faith and not be deviated from the path. One should abandon, without exception, all material desires born of mental speculation and thus control all the senses on all sides by the mind."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/24/",
+      "fetched_at": "2026-05-02T03:01:51.800Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1949 chars)",
+      "verbatim_excerpt": "The yoga practitioner should be determined and should patiently prosecute the practice without deviation. One should be sure of success at the end and pursue this course with great perseverance, not becoming discouraged if there is any delay in the attainment of success.",
+      "raw_full_path": "data/sources/raw/bg-6-24-vedabase.json (purport_full_length: 1949)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-24/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:16.288Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.24 See Comment under 6.25",
+      "verbatim_excerpt_length": 27,
+      "verbatim_full_length": 27,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-24-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-24/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:16.288Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.24 – 6.25 There are two kinds of desires: 1) those born of contact between the senses and objects like heat, cold etc.; 2) those generated by our mind (will) like that for sons, land etc. Of these, the latter type of desires are by their own nature relinquishable. Relinquishing all these by the",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 808,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-24-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "saṅkalpa-prabhavān kāmān (desires born of fancy)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "all material desires born of mental speculation"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "see comment under 6.25 — by eschewing totally, without a trace, all desires which arise from thoughts"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "two kinds of desires: those born of sense-object contact (heat, cold) and those generated by mind-will (sons, land); the latter are by their own nature relinquishable"
+        }
+      ],
+      "explanation": "Ramanuja's distinction between sense-contact desires and mental-will desires is the most precise reading. The verse names the second class — saṅkalpa-prabhavān — as the targets of restraint by the mind. Engineering analog: the desires born of speculation about future state (the new framework, the new role) are precisely the targets of the practice."
+    }
+  ],
+  "literal_meaning": "Abandoning entirely all desires born of fancy, restraining all the senses on every side by the mind alone.",
+  "traditional_meaning": "6.24 (paired with 6.25 in vedabase) names the practice of gradual restraint. All saṅkalpa-prabhavān kāmān (desires born of mental willing/fancy) are to be abandoned (tyaktvā) entirely (aśeṣataḥ). The whole group of senses (indriya-grāmam) is to be restrained (viniyamya) from every side (samantataḥ) by the mind alone (manasā eva). Ramanuja distinguishes two kinds of desires: (1) those born of sense-object contact (heat, cold), and (2) those generated by mental will (sons, land, etc.) — the latter are by their own nature relinquishable. The verse anchors the gradual character of the practice (made fully explicit in the next verse 6.25's śanaiḥ śanaiḥ). Engineering analog: the discipline of attention as a learned, gradual capacity, not achievable in one sitting.",
+  "engineering": {
+    "translation": "Abandoning (tyaktvā) entirely (aśeṣataḥ), without a trace, all desires (sarvān kāmān) born of fancy (saṅkalpa-prabhavān). Restraining (viniyamya), with the mind alone (manasā eva), the entire group of senses (indriya-grāmam) on every side (samantataḥ). 6.24 names the practice of gradual restraint. Two clauses run in parallel here. The first: tyāga of saṅkalpa-prabhavān desires — desires born of one's own mental willing. The second: the senses restrained by mind on every side. Shankara: these desires are those produced by mental volitions; the senses are restrained from running toward objects. Ramanuja treats 6.24-25 as a paired unit. Two kinds of desires must be relinquished — those born of sense-contact and those generated by mental willing. The years of compounded practice are operational. STRETCHED at full scope.",
+    "concrete_scenario": "An engineer ten years into the practice of writing systems-software has compounded a specific discipline: she does not chase architecture-review attention, conference-talk slots, the most-fashionable framework, the most-quoted-on-Twitter design pattern, the GitHub-star count of her side projects. These are saṅkalpa-prabhavān kāmāḥ — desires that arose from her own mental willing about how an engineering career should look. Each was abandoned, not in a single act, but in the slow accumulation of choosing the boring-correct decision over the visible one — the maintainable PostgreSQL schema instead of the speculative graph-database rewrite, the unglamorous monitoring instrumentation instead of the keynote-friendly machine-learning experiment. Ten years of the choices have produced a senior whose attention is no longer pulled by these desires. The mind has restrained the sense-organs (the part of her that responds to status-cues) on every side, samantataḥ. Compare the engineer at year ten who still chases the visible decision; the wind has not been removed at the source. The verse's gradualism is honest: this is not a six-week intensive. STRETCHED at full metaphysical scope; partial engineering analog at compounded-discipline scope.",
+    "falsifiability": "The analog fails if a reader reads the verse as 'don't want any career advancement.' The chapter assumes engaged action; the renouncer/yogi equation of 6.1 explicitly rejects withdrawal. Saṅkalpa-prabhavān kāmān names a specific class of desires (those generated by mental willing about what one's career should look like, untethered from the actual work), not the entire space of motivation.",
+    "counter_example": "When the engineer's apparent disinterest in promotion or recognition is in fact resentment — they wanted these things and did not get them, and now claim disinterest as defence — the verse does not endorse this. Tyāga is positive abandonment by direct seeing, not the sour-grapes posture of denied wanting.",
+    "implication": "Notice which engineering-career desires are saṅkalpa-prabhavān — generated by your own mental willing about how a career 'should look' — versus emergent from the actual work. The first class is what the verse asks you to abandon; the gradual abandonment is the practice.",
+    "quotable_line": "Abandon the desires you have generated about how your career should look; the actual work then occupies its own ground.",
+    "tags": [
+      "non-attachment-to-praise",
+      "long-term-thinking",
+      "renunciation-of-action",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

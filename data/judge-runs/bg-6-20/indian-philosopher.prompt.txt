@@ -1,0 +1,271 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.20",
+  "sanskrit_devanagari": "यत्रोपरमते चित्तं निरुद्धं योगसेवया ।\nयत्र चैवात्मनात्मानं पश्यन्नात्मनि तुष्यति ॥ २० ॥",
+  "sanskrit_iast": "yatroparamate cittaṁ niruddhaṁ yoga-sevayā |\nyatra caivātmanātmānaṁ paśyann ātmani tuṣyati || 20 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यत्र",
+      "iast": "yatra",
+      "meaning": "where / in which state"
+    },
+    {
+      "sanskrit": "उपरमते",
+      "iast": "uparamate",
+      "meaning": "comes to rest / ceases"
+    },
+    {
+      "sanskrit": "चित्तम्",
+      "iast": "cittam",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "निरुद्धम्",
+      "iast": "niruddham",
+      "meaning": "restrained"
+    },
+    {
+      "sanskrit": "योगसेवया",
+      "iast": "yoga-sevayā",
+      "meaning": "by the practice of yoga"
+    },
+    {
+      "sanskrit": "यत्र",
+      "iast": "yatra",
+      "meaning": "where"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "आत्मना",
+      "iast": "ātmanā",
+      "meaning": "by the self"
+    },
+    {
+      "sanskrit": "आत्मानम्",
+      "iast": "ātmānam",
+      "meaning": "the Self"
+    },
+    {
+      "sanskrit": "पश्यन्",
+      "iast": "paśyan",
+      "meaning": "seeing"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in the Self"
+    },
+    {
+      "sanskrit": "तुष्यति",
+      "iast": "tuṣyati",
+      "meaning": "is satisfied / rejoices"
+    },
+    {
+      "sanskrit": "yatroparamate",
+      "iast": "yatroparamate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cittaṁ",
+      "iast": "cittaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "niruddhaṁ",
+      "iast": "niruddhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga",
+      "iast": "yoga",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sevayā",
+      "iast": "sevayā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yatra",
+      "iast": "yatra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "caivātmanātmānaṁ",
+      "iast": "caivātmanātmānaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyann",
+      "iast": "paśyann",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ātmani",
+      "iast": "ātmani",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tuṣyati",
+      "iast": "tuṣyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
+      "merged_block_note": "Translation covers 20-23 jointly; the 6.20 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5406 chars)",
+      "verbatim_excerpt": "By practice of yoga one becomes gradually detached from material concepts. This is the primary characteristic of the yoga principle. And after this, one becomes situated in trance, or samādhi, which means that the yogī realizes the Supersoul through transcendental mind and intelligence, without any",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-vedabase.json (purport_full_length: 5406)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 Yatra, at the time when; cittam, the mind; niruddham, restrained, entirely prevented from wandering; uparamate, gets withdrawn; yoga-sevaya, through the practice of Yoga; ca, and; yatra eva, just when, at the very moment when; pasyan, by seeing, by experiencing; atmanam, the Self, which by",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1079,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 – 6.23 Where, through the practice of Yoga, the mind, which is subdued everywhere by such practice, ‘rejoices’, i.e., rejoices in surpassing felicity; and where, perceiving through Yoga ‘the self (Atman)’ by ‘the mind (Atman)’ one is delighted by the self and indifferent to all other objects;",
+      "verbatim_excerpt_length": 298,
+      "verbatim_full_length": 1141,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ātmanā ātmānaṁ paśyan (seeing the Self by the self)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "ability to see the Self by the pure mind"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the Self, which by nature is the supreme light of Consciousness; seen by the self, by the mind purified by concentration"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "perceiving through Yoga the self by the mind, one is delighted by the self and indifferent to all other objects"
+        }
+      ],
+      "explanation": "Shankara reads ātmanā as 'by the mind purified by concentration'; Ramanuja reads ātmanā as 'by the mind' — both treat the second instrumental as the purified instrument that sees the substrate Self. The verse opens the chapter's samādhi-block (6.20-23). STRETCHED."
+    }
+  ],
+  "literal_meaning": "Where the mind comes to rest, restrained by the practice of yoga; where, seeing the Self by the self, one is satisfied in the Self.",
+  "traditional_meaning": "6.20 opens the four-verse description of the samādhi-state (6.20-23, presented as a single block on vedabase and bhagavad-gita.us). The mind comes to rest (uparamate), is restrained (niruddham), through yoga-practice (yoga-sevayā); and seeing the Self by the self (ātmanātmānaṁ paśyan), one is satisfied in the Self (ātmani tuṣyati). Shankara identifies this with samādhi proper. The verse's metaphysical scope exceeds operational engineering. STRETCHED.",
+  "engineering": {
+    "translation": "Where the cittam (mind) comes structurally to rest — niruddham, restrained — through yoga-sevayā (the practice of yoga); where, perceiving the Self by the self (ātmanā ātmānaṁ paśyan), one is satisfied within the Self (ātmani tuṣyati). The verse opens the four-verse samādhi-block (6.20-23). Both clauses must hold simultaneously: the mind's restraint, and the satisfaction-in-Self that follows. Shankara identifies this state with samādhi proper — the mind, restrained from wandering, is withdrawn through yoga-practice; perceiving the Self by the mind purified through concentration. Ramanuja: the mind subdued everywhere by repeated practice rejoices, indifferent to all other objects. The verse describes a state of consciousness whose metaphysical reach exceeds operational engineering. STRETCHED honestly: the engineering analog scopes downward to the mind that has organised itself such that the work-state is supplied internally rather than externally.",
+    "concrete_scenario": "A staff engineer at a mid-stage observability startup sits at her desk on a Tuesday morning, working through a Datadog dashboard configuration for the Prometheus exporter migration. There is no upcoming review. There is no deadline. There is no manager waiting on output. The work itself supplies the state: the puzzle of figuring out how to deduplicate metric labels without breaking historical queries holds her attention because the puzzle is interesting, not because circumstances demand it. Three hours pass. She has not checked Slack; she has not refreshed the GitHub PR queue; she has not glanced at the metrics on her own service. The work is its own reward at this narrow operational scope. Compare the engineer who at the same desk requires constant external prods — the imminent demo, the PR review approaching, the manager's check-in, the metric watching her — to maintain engagement; without those wind-supplies, the focus collapses within twenty minutes. The first engineer's mind is operationally ātmani tuṣyati, satisfied within (the work) itself. The verse reaches further than engineering can travel — its full claim is samādhi, consciousness rejoicing in non-dual ātman, not engineer-rejoicing-in-puzzle. The scope-mismatch is honest and tagged.",
+    "falsifiability": "The analog fails if a reader reads the engineering rung as equivalent to samādhi. The verse names a metaphysical state whose reach exceeds any operational engineering analog — the mind perceiving the Self by the Self, satisfied within the Self. Engineer-absorbed-in-work is not that. An engineer who claims to have attained 6.20 by enjoying their work has flattened the verse into a productivity-coaching reading and missed the metaphysics entirely.",
+    "counter_example": "When the apparent absorption is in fact escape — the engineer who hides inside the comfortable refactor because the production incident is unbearable, or who buries themselves in the technical puzzle to avoid the difficult conversation with the team — the verse does not endorse this. Niruddham cittam is a positive restraint resulting from yoga-sevayā, not from avoidance. The mind has been stilled by practice, not by withdrawal-from-life.",
+    "implication": "Audit which inputs to your engineering state are currently external supplies (the deadline, the manager's interest, the upcoming review) versus internal supplies (the work itself, the puzzle's structure). Where the supply is external, the operational rung the verse names is not yet present.",
+    "quotable_line": "When the work itself supplies the state, the wind has been removed at the source.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

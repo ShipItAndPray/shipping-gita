@@ -1,0 +1,202 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.26",
+  "sanskrit_devanagari": "यतो यतो निश्चलति मनश्चञ्चलमस्थिरम् ।ततस्ततो नियम्यैतदात्मन्येव वशं नयेत् ॥ २६ ॥",
+  "sanskrit_iast": "yato yato niścalatimanaś cañcalam asthiramtatas tato niyamyaitadātmany eva vaśaṁ nayet",
+  "anvaya": [
+    {
+      "sanskrit": "यतः यतः",
+      "iast": "yataḥ yataḥ",
+      "meaning": "from wherever, whenever"
+    },
+    {
+      "sanskrit": "निश्चलति",
+      "iast": "niścalati",
+      "meaning": "wanders away"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "चञ्चलम्",
+      "iast": "cañcalam",
+      "meaning": "unsteady, fickle"
+    },
+    {
+      "sanskrit": "अस्थिरम्",
+      "iast": "asthiram",
+      "meaning": "restless"
+    },
+    {
+      "sanskrit": "ततः ततः",
+      "iast": "tataḥ tataḥ",
+      "meaning": "from there, from there"
+    },
+    {
+      "sanskrit": "नियम्य",
+      "iast": "niyamya",
+      "meaning": "having restrained"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this (mind)"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in / under the Self"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "वशम्",
+      "iast": "vaśam",
+      "meaning": "control"
+    },
+    {
+      "sanskrit": "नयेत्",
+      "iast": "nayet",
+      "meaning": "should bring"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self.",
+      "raw_capture_path": "data/sources/raw/bg-6-26-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the self."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 677 chars)",
+      "verbatim_excerpt": "The nature of the mind is flickering and unsteady. But a self-realized yogī has to control the mind; the mind should not control him. One who controls the mind (and therefore the senses as well) is called gosvāmī, or svāmī, and one who is controlled by the mind is called go-dāsa, or the servant of the senses.",
+      "raw_full_path": "data/sources/raw/bg-6-26-vedabase.json (purport_full_length: 677)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.26 In the beginning, the yogi who is thus engaged in making the mind established in the Self, etat vasamnayet, should bring this (mind) under the subjugation; atmani eva, of the Self Itself; niyamya, by restraining; etat. it; tatah tatah, from all those causes whatever, viz sound etc.; y",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 736,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-26-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.26 Wherever the mind, on account of its fickle and unsteady nature, wanders, because of its proclivity to sense-objects, he should, subduing the mind everywhere with effort, bring it under control in order to remain in the self alone by contemplating on the incomparable bliss therein.",
+      "verbatim_excerpt_length": 287,
+      "verbatim_full_length": 287,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-26-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "niścalati / vaśaṁ nayet (procedure for the wandering mind)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "from whatever object the mind goes out — sound, touch, etc. — pulling it back, bring under Self's control by discriminating that all this is unreal"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the mind which by its very nature is unsteady — wherever it strays — render it submissive only to the Self"
+        }
+      ],
+      "explanation": "All traditions read 6.26 as the corrective procedure: when the mind wanders, the practice is to notice (where), restrain (niyamya), and return (ātmani vaśaṁ nayet). Shankara reads the return-instrument as discriminative knowledge (this is unreal); Ramanuja reads it as direct submission of mind to Self. The procedural form is identical across traditions."
+    }
+  ],
+  "literal_meaning": "From wherever the unsteady, restless mind wanders away — from there, from there, having restrained it, one should bring it under the control of the Self alone.",
+  "traditional_meaning": "6.26 names the corrective procedure when the gradual restraint of 6.25 fails — the catch-and-return method. The mind by its nature is cañcalam (fickle, oscillating) and asthiram (restless, unstable). Yataḥ yataḥ — wherever — niścalati (it wanders out, slips away), tataḥ tataḥ — from precisely there — niyamya (having restrained), one should bring it ātmani vaśaṁ nayet (back under the Self's control). Shankara: from whatever object the mind goes out due to its fickle nature — sound, touch, etc. — pulling it back from there, one should bring it under the control of the Self by discriminating that all this is unreal. Ramanuja: the mind which by its very nature is unsteady — wherever it strays from concentration — restraining it, render it submissive only to the Self. Engineering analog at strong narrow scope: notice-the-drift, return-to-the-object. The skill named is the noticing-and-returning, not the absence of drift.",
+  "engineering": {
+    "translation": "From wherever (yataḥ yataḥ) the mind, fickle (cañcalam) and restless (asthiram), wanders out (niścalati) — from precisely there (tataḥ tataḥ), having restrained it (niyamya), one should bring (nayet) it under the Self's control (ātmani vaśam) alone. 6.26 names the corrective procedure when restraint fails: notice the drift, return to the object. The mind is by nature cañcalam and asthiram; the verse does not pretend otherwise. Shankara: from whatever object the mind has gone out due to its fickle nature — sound, touch, etc. — pulling it back from there, one should bring it under the Self's control by discriminating that all this is unreal. Ramanuja: the mind unsteady by very nature — wherever it strays — render it submissive only to the Self. The procedural form is identical across traditions. The engineering analog at narrow scope is STRONG: the senior's skill is the noticing-and-returning, not the absence of drift.",
+    "concrete_scenario": "A staff engineer is reviewing a complex pull request — five hundred lines across the database-migration framework. Twelve minutes in, her attention slips: the GitHub diff rendering has triggered a memory of yesterday's annoying Slack thread about test-coverage policy. She catches the lapse. She does not berate herself. She returns to line 47 and resumes. Eight minutes later concentration drifts again: a function name has summoned a thought about an unrelated refactor she has been wanting to attempt for weeks. She marks the wandering, brings focus back. Over the forty-minute review-window her mind oscillates outward eleven distinct times; each occurrence triggers detection and recovery. The annotations she leaves on the diff are thorough and precise. Compare the junior whose attention departs at minute twelve and is simply followed: he opens a new tab toward the imagined refactor, then opens Slack, then abandons the diff at minute twenty without reading the second half. The verse-named skill is not drift-absence — it is the catching-and-returning operation, performed eleven times within a single review. Yataḥ yataḥ — wherever — tataḥ tataḥ — from precisely there. The procedure is iterative.",
+    "falsifiability": "The analog fails if a reader reads the verse as 'force the mind to never wander.' The verse explicitly admits the mind is cañcalam and asthiram. The doctrine is the recovery procedure, not the absence of failure. An engineer who hears this verse as 'do not let your mind drift' has misread the explicit admission of drift the verse contains.",
+    "counter_example": "When the engineer's apparent return-after-drift is in fact context-loss masquerading as recovery — the GitHub diff is reopened but the prior twelve minutes of context have been forgotten and the review starts over from line 1 — the verse does not name this. The return is to the same object at the same level of engagement, not a fresh start each time. The skill is continuity-after-drift, not start-over-after-drift.",
+    "implication": "Stop trying to never drift. Train the noticing-and-returning operation itself. Count, this week, how many times you notice and return during a single review. The count is the metric, not the absence of slips.",
+    "quotable_line": "The skill is not the absence of drift; the skill is the noticing-and-returning, performed every time.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,239 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.26",
+  "sanskrit_devanagari": "यतो यतो निश्चलति मनश्चञ्चलमस्थिरम् ।ततस्ततो नियम्यैतदात्मन्येव वशं नयेत् ॥ २६ ॥",
+  "sanskrit_iast": "yato yato niścalatimanaś cañcalam asthiramtatas tato niyamyaitadātmany eva vaśaṁ nayet",
+  "anvaya": [
+    {
+      "sanskrit": "यतः यतः",
+      "iast": "yataḥ yataḥ",
+      "meaning": "from wherever, whenever"
+    },
+    {
+      "sanskrit": "निश्चलति",
+      "iast": "niścalati",
+      "meaning": "wanders away"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "the mind"
+    },
+    {
+      "sanskrit": "चञ्चलम्",
+      "iast": "cañcalam",
+      "meaning": "unsteady, fickle"
+    },
+    {
+      "sanskrit": "अस्थिरम्",
+      "iast": "asthiram",
+      "meaning": "restless"
+    },
+    {
+      "sanskrit": "ततः ततः",
+      "iast": "tataḥ tataḥ",
+      "meaning": "from there, from there"
+    },
+    {
+      "sanskrit": "नियम्य",
+      "iast": "niyamya",
+      "meaning": "having restrained"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this (mind)"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in / under the Self"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "alone"
+    },
+    {
+      "sanskrit": "वशम्",
+      "iast": "vaśam",
+      "meaning": "control"
+    },
+    {
+      "sanskrit": "नयेत्",
+      "iast": "nayet",
+      "meaning": "should bring"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self.",
+      "raw_capture_path": "data/sources/raw/bg-6-26-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the self."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 677 chars)",
+      "verbatim_excerpt": "The nature of the mind is flickering and unsteady. But a self-realized yogī has to control the mind; the mind should not control him. One who controls the mind (and therefore the senses as well) is called gosvāmī, or svāmī, and one who is controlled by the mind is called go-dāsa, or the servant of the senses.",
+      "raw_full_path": "data/sources/raw/bg-6-26-vedabase.json (purport_full_length: 677)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.26 In the beginning, the yogi who is thus engaged in making the mind established in the Self, etat vasamnayet, should bring this (mind) under the subjugation; atmani eva, of the Self Itself; niyamya, by restraining; etat. it; tatah tatah, from all those causes whatever, viz sound etc.; y",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 736,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-26-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.26 Wherever the mind, on account of its fickle and unsteady nature, wanders, because of its proclivity to sense-objects, he should, subduing the mind everywhere with effort, bring it under control in order to remain in the self alone by contemplating on the incomparable bliss therein.",
+      "verbatim_excerpt_length": 287,
+      "verbatim_full_length": 287,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-26-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "niścalati / vaśaṁ nayet (procedure for the wandering mind)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "from whatever object the mind goes out — sound, touch, etc. — pulling it back, bring under Self's control by discriminating that all this is unreal"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the mind which by its very nature is unsteady — wherever it strays — render it submissive only to the Self"
+        }
+      ],
+      "explanation": "All traditions read 6.26 as the corrective procedure: when the mind wanders, the practice is to notice (where), restrain (niyamya), and return (ātmani vaśaṁ nayet). Shankara reads the return-instrument as discriminative knowledge (this is unreal); Ramanuja reads it as direct submission of mind to Self. The procedural form is identical across traditions."
+    }
+  ],
+  "literal_meaning": "From wherever the unsteady, restless mind wanders away — from there, from there, having restrained it, one should bring it under the control of the Self alone.",
+  "traditional_meaning": "6.26 names the corrective procedure when the gradual restraint of 6.25 fails — the catch-and-return method. The mind by its nature is cañcalam (fickle, oscillating) and asthiram (restless, unstable). Yataḥ yataḥ — wherever — niścalati (it wanders out, slips away), tataḥ tataḥ — from precisely there — niyamya (having restrained), one should bring it ātmani vaśaṁ nayet (back under the Self's control). Shankara: from whatever object the mind goes out due to its fickle nature — sound, touch, etc. — pulling it back from there, one should bring it under the control of the Self by discriminating that all this is unreal. Ramanuja: the mind which by its very nature is unsteady — wherever it strays from concentration — restraining it, render it submissive only to the Self. Engineering analog at strong narrow scope: notice-the-drift, return-to-the-object. The skill named is the noticing-and-returning, not the absence of drift.",
+  "engineering": {
+    "translation": "From wherever (yataḥ yataḥ) the mind, fickle (cañcalam) and restless (asthiram), wanders out (niścalati) — from precisely there (tataḥ tataḥ), having restrained it (niyamya), one should bring (nayet) it under the Self's control (ātmani vaśam) alone. 6.26 names the corrective procedure when restraint fails: notice the drift, return to the object. The mind is by nature cañcalam and asthiram; the verse does not pretend otherwise. Shankara: from whatever object the mind has gone out due to its fickle nature — sound, touch, etc. — pulling it back from there, one should bring it under the Self's control by discriminating that all this is unreal. Ramanuja: the mind unsteady by very nature — wherever it strays — render it submissive only to the Self. The procedural form is identical across traditions. The engineering analog at narrow scope is STRONG: the senior's skill is the noticing-and-returning, not the absence of drift.",
+    "concrete_scenario": "A staff engineer is reviewing a complex pull request — five hundred lines across the database-migration framework. Twelve minutes in, her attention slips: the GitHub diff rendering has triggered a memory of yesterday's annoying Slack thread about test-coverage policy. She catches the lapse. She does not berate herself. She returns to line 47 and resumes. Eight minutes later concentration drifts again: a function name has summoned a thought about an unrelated refactor she has been wanting to attempt for weeks. She marks the wandering, brings focus back. Over the forty-minute review-window her mind oscillates outward eleven distinct times; each occurrence triggers detection and recovery. The annotations she leaves on the diff are thorough and precise. Compare the junior whose attention departs at minute twelve and is simply followed: he opens a new tab toward the imagined refactor, then opens Slack, then abandons the diff at minute twenty without reading the second half. The verse-named skill is not drift-absence — it is the catching-and-returning operation, performed eleven times within a single review. Yataḥ yataḥ — wherever — tataḥ tataḥ — from precisely there. The procedure is iterative.",
+    "falsifiability": "The analog fails if a reader reads the verse as 'force the mind to never wander.' The verse explicitly admits the mind is cañcalam and asthiram. The doctrine is the recovery procedure, not the absence of failure. An engineer who hears this verse as 'do not let your mind drift' has misread the explicit admission of drift the verse contains.",
+    "counter_example": "When the engineer's apparent return-after-drift is in fact context-loss masquerading as recovery — the GitHub diff is reopened but the prior twelve minutes of context have been forgotten and the review starts over from line 1 — the verse does not name this. The return is to the same object at the same level of engagement, not a fresh start each time. The skill is continuity-after-drift, not start-over-after-drift.",
+    "implication": "Stop trying to never drift. Train the noticing-and-returning operation itself. Count, this week, how many times you notice and return during a single review. The count is the metric, not the absence of slips.",
+    "quotable_line": "The skill is not the absence of drift; the skill is the noticing-and-returning, performed every time.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

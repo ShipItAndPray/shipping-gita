@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.28",
+  "chapter": 6,
+  "verse": 28,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Yoking the self (ātmānam) thus (evam) always (sadā), the yogi free of stain (vigata-kalmaṣaḥ) easily (sukhena) attains (aśnute) the touch of Brahman (brahma-saṁsparśam) — limitless (atyantam) happiness (sukham). 6.28 completes the result-state from 6.27. The yogi who has compounded the practice — yuñjann evam sadā — and is freed of all stain attains brahma-saṁsparśam (the touch of Brahman). Note the sukhena: the attainment is easy, naturally consequential, once the prior conditions hold. Shankara: by constant engagement with yoga, the yogi free of all stain easily attains the contact of Brahman, which is supreme happiness. Ramanuja: by constantly fixing the mind on the Self, the yogi free of impurity easily attains contact with the Self in the form of Brahman. The metaphysical scope exceeds operational engineering — STRETCHED. Narrowed engineering rung: the senior whose major work, after the discipline is in place, arrives easily.",
+    "concrete_scenario": "A principal engineer at year fifteen designs a distributed-tracing pipeline for a complex Kubernetes microservice topology, integrating Honeycomb against existing Prometheus metrics. The design absorbs three weeks of eighty-hour-equivalent thinking — distributed across normal eight-hour days, with no externally-visible heroism. The architectural choices feel obvious as she makes them. Other engineers reviewing her GitHub design doc find it remarkable that someone could see the system that clearly. She is not performing ease for an audience. At her tenure the work has become operationally easy. The underlying disciplines are in place: the graph-theory background, years of debugging Datadog and Sentry traces in similar topologies, calibration of which designs survive their first year of production. Sukhena — easily — she reaches the design that an engineer at year three would have produced only after weeks of urgency. The vigata-kalmaṣa state is the absence of the stain of distractions, premature optimisations, status-anxiety, and unfinished prior obligations. With those absent, the touch of the system's actual structure (operational analog of brahma-saṁsparśa) is direct. The verse reaches further than this; STRETCHED at full metaphysical scope.",
+    "falsifiability": "The analog fails if a reader reads sukhena as 'effortless' in the sense of requiring no preceding work. The ease named here is the ease that comes after years of compounded practice — yuñjann evam sadā. An engineer who claims to have attained 6.28 by avoiding effort has missed the entire prior chapter.",
+    "counter_example": "When the engineer's apparent ease at the major design is in fact superficial pattern-matching — the design looks easy because it is unconsciously copying a previous design without re-examining whether the new context demands a different design — the verse does not name this. Sukhena follows from vigata-kalmaṣaḥ, freedom from stain, which includes the stain of unexamined assumptions.",
+    "implication": "When your major work begins to arrive easily, audit whether the ease comes from compounded practice (the verse) or from unexamined pattern-matching (the failure mode). The first deepens the work; the second flattens it.",
+    "quotable_line": "Easy work, after years of compounded practice, is not effortless work; it is the harvest of the discipline.",
+    "tags": [
+      "long-term-thinking",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T20:30:00Z",
+      "mutation": "v0 generation: BG 6.28 names easy-attainment-after-discipline. Engineering analog at narrow scope: senior's major work arriving easily after years of practice. Shankara/Ramanuja preserved. Counter-example distinguishes ease-from-discipline from ease-from-pattern-matching. Confidence MEDIUM.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

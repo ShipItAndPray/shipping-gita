@@ -39,7 +39,53 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.027). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "प्रशान्त-मनसम्",
+      "iast": "praśānta-manasam",
+      "meaning": "of peaceful mind"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "एनम्",
+      "iast": "enam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "योगिनम्",
+      "iast": "yoginam",
+      "meaning": "yogi"
+    },
+    {
+      "sanskrit": "सुखम् उत्तमम्",
+      "iast": "sukham uttamam",
+      "meaning": "supreme happiness"
+    },
+    {
+      "sanskrit": "उपैति",
+      "iast": "upaiti",
+      "meaning": "approaches / comes to"
+    },
+    {
+      "sanskrit": "शान्त-रजसम्",
+      "iast": "śānta-rajasam",
+      "meaning": "in whom rajas has been calmed"
+    },
+    {
+      "sanskrit": "ब्रह्म-भूतम्",
+      "iast": "brahma-bhūtam",
+      "meaning": "become Brahman"
+    },
+    {
+      "sanskrit": "अकल्मषम्",
+      "iast": "akalmaṣam",
+      "meaning": "free from stain / sin"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +149,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "śānta-rajasam (rajas calmed)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "yogī whose mind is fixed on Me ... whose passion is pacified, who is freed from all sin"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "rajas (cause of attachment and aversion) has been calmed; become Brahman, free of every form of stain"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the mind rendered free of rajas (the source of activity) and fixed entirely on the Self"
+        }
+      ],
+      "explanation": "All traditions agree that śānta-rajasam names the calming of the rajo-guna specifically. Shankara reads rajas as the cause of attachment-aversion; Ramanuja reads rajas as the source of mental activity. Both identify the calming as the precondition for the supreme happiness named. The doctrinal point is the same."
+    }
+  ],
+  "literal_meaning": "Indeed, supreme happiness comes to this yogi of peaceful mind, in whom rajas (restlessness) has been calmed, who has become Brahman, free from stain.",
+  "traditional_meaning_consensus": "6.27 names the result-state of the practice. The yogi praśānta-manas (peaceful-minded) and śānta-rajas (in whom the rajas-guna has been calmed) attains sukham uttamam (supreme happiness). The condition: brahma-bhūtam (one who has become Brahman) and akalmaṣam (free of stain). Shankara: rajas is the cause of attachment and aversion; when calmed, the yogi has become Brahman, free of every form of stain. Ramanuja: when the mind has been rendered free of rajas (the source of activity), and is fixed entirely on the Self, supreme happiness arises naturally. Per chapter-6 thesis, this is the rajas-calmed state — the engineer with restless effort settled is not slow but settled-in-action. STRETCHED at metaphysical scope; partial engineering analog at calmed-effort scope.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

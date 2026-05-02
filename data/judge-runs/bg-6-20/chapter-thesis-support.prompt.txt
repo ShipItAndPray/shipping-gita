@@ -1,0 +1,295 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.20",
+  "sanskrit_devanagari": "यत्रोपरमते चित्तं निरुद्धं योगसेवया ।\nयत्र चैवात्मनात्मानं पश्यन्नात्मनि तुष्यति ॥ २० ॥",
+  "sanskrit_iast": "yatroparamate cittaṁ niruddhaṁ yoga-sevayā |\nyatra caivātmanātmānaṁ paśyann ātmani tuṣyati || 20 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यत्र",
+      "iast": "yatra",
+      "meaning": "where / in which state"
+    },
+    {
+      "sanskrit": "उपरमते",
+      "iast": "uparamate",
+      "meaning": "comes to rest / ceases"
+    },
+    {
+      "sanskrit": "चित्तम्",
+      "iast": "cittam",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "निरुद्धम्",
+      "iast": "niruddham",
+      "meaning": "restrained"
+    },
+    {
+      "sanskrit": "योगसेवया",
+      "iast": "yoga-sevayā",
+      "meaning": "by the practice of yoga"
+    },
+    {
+      "sanskrit": "यत्र",
+      "iast": "yatra",
+      "meaning": "where"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "आत्मना",
+      "iast": "ātmanā",
+      "meaning": "by the self"
+    },
+    {
+      "sanskrit": "आत्मानम्",
+      "iast": "ātmānam",
+      "meaning": "the Self"
+    },
+    {
+      "sanskrit": "पश्यन्",
+      "iast": "paśyan",
+      "meaning": "seeing"
+    },
+    {
+      "sanskrit": "आत्मनि",
+      "iast": "ātmani",
+      "meaning": "in the Self"
+    },
+    {
+      "sanskrit": "तुष्यति",
+      "iast": "tuṣyati",
+      "meaning": "is satisfied / rejoices"
+    },
+    {
+      "sanskrit": "yatroparamate",
+      "iast": "yatroparamate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cittaṁ",
+      "iast": "cittaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "niruddhaṁ",
+      "iast": "niruddhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga",
+      "iast": "yoga",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sevayā",
+      "iast": "sevayā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yatra",
+      "iast": "yatra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "caivātmanātmānaṁ",
+      "iast": "caivātmanātmānaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyann",
+      "iast": "paśyann",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ātmani",
+      "iast": "ātmani",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tuṣyati",
+      "iast": "tuṣyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
+      "merged_block_note": "Translation covers 20-23 jointly; the 6.20 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5406 chars)",
+      "verbatim_excerpt": "By practice of yoga one becomes gradually detached from material concepts. This is the primary characteristic of the yoga principle. And after this, one becomes situated in trance, or samādhi, which means that the yogī realizes the Supersoul through transcendental mind and intelligence, without any",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-vedabase.json (purport_full_length: 5406)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 Yatra, at the time when; cittam, the mind; niruddham, restrained, entirely prevented from wandering; uparamate, gets withdrawn; yoga-sevaya, through the practice of Yoga; ca, and; yatra eva, just when, at the very moment when; pasyan, by seeing, by experiencing; atmanam, the Self, which by",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1079,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 – 6.23 Where, through the practice of Yoga, the mind, which is subdued everywhere by such practice, ‘rejoices’, i.e., rejoices in surpassing felicity; and where, perceiving through Yoga ‘the self (Atman)’ by ‘the mind (Atman)’ one is delighted by the self and indifferent to all other objects;",
+      "verbatim_excerpt_length": 298,
+      "verbatim_full_length": 1141,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ātmanā ātmānaṁ paśyan (seeing the Self by the self)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "ability to see the Self by the pure mind"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the Self, which by nature is the supreme light of Consciousness; seen by the self, by the mind purified by concentration"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "perceiving through Yoga the self by the mind, one is delighted by the self and indifferent to all other objects"
+        }
+      ],
+      "explanation": "Shankara reads ātmanā as 'by the mind purified by concentration'; Ramanuja reads ātmanā as 'by the mind' — both treat the second instrumental as the purified instrument that sees the substrate Self. The verse opens the chapter's samādhi-block (6.20-23). STRETCHED."
+    }
+  ],
+  "literal_meaning": "Where the mind comes to rest, restrained by the practice of yoga; where, seeing the Self by the self, one is satisfied in the Self.",
+  "traditional_meaning": "6.20 opens the four-verse description of the samādhi-state (6.20-23, presented as a single block on vedabase and bhagavad-gita.us). The mind comes to rest (uparamate), is restrained (niruddham), through yoga-practice (yoga-sevayā); and seeing the Self by the self (ātmanātmānaṁ paśyan), one is satisfied in the Self (ātmani tuṣyati). Shankara identifies this with samādhi proper. The verse's metaphysical scope exceeds operational engineering. STRETCHED.",
+  "engineering": {
+    "translation": "Where the cittam (mind) comes structurally to rest — niruddham, restrained — through yoga-sevayā (the practice of yoga); where, perceiving the Self by the self (ātmanā ātmānaṁ paśyan), one is satisfied within the Self (ātmani tuṣyati). The verse opens the four-verse samādhi-block (6.20-23). Both clauses must hold simultaneously: the mind's restraint, and the satisfaction-in-Self that follows. Shankara identifies this state with samādhi proper — the mind, restrained from wandering, is withdrawn through yoga-practice; perceiving the Self by the mind purified through concentration. Ramanuja: the mind subdued everywhere by repeated practice rejoices, indifferent to all other objects. The verse describes a state of consciousness whose metaphysical reach exceeds operational engineering. STRETCHED honestly: the engineering analog scopes downward to the mind that has organised itself such that the work-state is supplied internally rather than externally.",
+    "concrete_scenario": "A staff engineer at a mid-stage observability startup sits at her desk on a Tuesday morning, working through a Datadog dashboard configuration for the Prometheus exporter migration. There is no upcoming review. There is no deadline. There is no manager waiting on output. The work itself supplies the state: the puzzle of figuring out how to deduplicate metric labels without breaking historical queries holds her attention because the puzzle is interesting, not because circumstances demand it. Three hours pass. She has not checked Slack; she has not refreshed the GitHub PR queue; she has not glanced at the metrics on her own service. The work is its own reward at this narrow operational scope. Compare the engineer who at the same desk requires constant external prods — the imminent demo, the PR review approaching, the manager's check-in, the metric watching her — to maintain engagement; without those wind-supplies, the focus collapses within twenty minutes. The first engineer's mind is operationally ātmani tuṣyati, satisfied within (the work) itself. The verse reaches further than engineering can travel — its full claim is samādhi, consciousness rejoicing in non-dual ātman, not engineer-rejoicing-in-puzzle. The scope-mismatch is honest and tagged.",
+    "falsifiability": "The analog fails if a reader reads the engineering rung as equivalent to samādhi. The verse names a metaphysical state whose reach exceeds any operational engineering analog — the mind perceiving the Self by the Self, satisfied within the Self. Engineer-absorbed-in-work is not that. An engineer who claims to have attained 6.20 by enjoying their work has flattened the verse into a productivity-coaching reading and missed the metaphysics entirely.",
+    "counter_example": "When the apparent absorption is in fact escape — the engineer who hides inside the comfortable refactor because the production incident is unbearable, or who buries themselves in the technical puzzle to avoid the difficult conversation with the team — the verse does not endorse this. Niruddham cittam is a positive restraint resulting from yoga-sevayā, not from avoidance. The mind has been stilled by practice, not by withdrawal-from-life.",
+    "implication": "Audit which inputs to your engineering state are currently external supplies (the deadline, the manager's interest, the upcoming review) versus internal supplies (the work itself, the puzzle's structure). Where the supply is external, the operational rung the verse names is not yet present.",
+    "quotable_line": "When the work itself supplies the state, the wind has been removed at the source.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.
