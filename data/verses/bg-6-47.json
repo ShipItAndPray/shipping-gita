@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.47",
+  "chapter": 6,
+  "verse": 47,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Yoginām api sarveṣāṁ mad-gatenāntar-ātmanā śraddhāvān bhajate yo māṁ sa me yukta-tamo mataḥ — of all yogis, the one who, with inner self gone into Me, full of faith, worships Me — he is held to be the most yoked, in My opinion. This is the chapter's closing verse and the bridge into the bhakti-yoga of Chapter 7. The native register is theistic: the destination is personal devotion to Krishna, a faith (śraddhā) and directionality (mad-gatena antar-ātmanā) that exceeds operational engineering. STRETCHED. The structural claim survives the scope-down: among practitioners of the discipline, the one whose interior has gone deepest into a chosen worthy object is most-yoked. Engineering analog: what can the senior operator be most-bound to? The customer the system actually serves, the system as a living artifact, the team across decades. The engineer most-bound to these — by faith, not performance — is most yoked. The verse's reach surpasses the analog; the chapter does not close where engineering closes.",
+    "concrete_scenario": "Two principal engineers at the same company, both eighteen years tenured. The first is technically excellent — her diagnoses are sharp on Sentry traces, her PostgreSQL queries are tight, her GitHub reviews are rigorous. But internally she is yoked to her own reputation: each launch is read against how her career advances. The second engineer is technically equal. The difference is interior. She is yoked to the customer who pays the company — she walks the support-tickets dashboard before standup, she knows the three largest accounts by name. She is yoked to the system itself — when Datadog goes red at 3 AM she does not feel inconvenienced; she feels addressed. She is yoked to the team — she has watched four juniors become seniors, and her satisfaction in that exceeds her satisfaction in her own promotion cycle. The śraddhā she has placed is not in herself; it is in what the work serves. When the inevitable career-levelling event lands — promotion denied, project reorganized, a manager who does not know her track record — the first engineer destabilizes. The second does not. Her interior was already gone into the served-thing. The verse's reach exceeds engineering; the operational rung is recognisable.",
+    "falsifiability": "The analog fails if a reader treats it as an operational doctrine that engineering devotion to a system is equivalent to bhakti to Krishna. It is not. The verse's full scope is theistic; the engineering analog operates on a strictly downscaled rung. An engineer who reads this verse as a defense of being-married-to-the-job has misread it. The yoking the verse names is faith-yoking to a chosen worthy object — not over-identification with one's own performance.",
+    "counter_example": "When the apparent yoking is workaholic over-identification — the engineer whose interior collapses when her project is killed because her sense-of-self was fused with the project — the verse does not endorse this. The yoking the verse describes survives the loss of the local instance. The engineer most yoked to the customer-served-by-the-system can lose any specific feature, sprint, or even job, and the yoking persists. Workaholic fusion is not śraddhā.",
+    "implication": "Notice what your interior is actually yoked to. If it is yoked to your own advancement, the chapter does not flatter you. If it is yoked — by faith, not performance — to the customer, the system, the team, the practice itself, the chapter recognises you. The engineering layer cannot reach the verse's full destination; it can describe the rung.",
+    "quotable_line": "The most-yoked operator is the one whose interior has gone into what the work serves — not into what the work returns.",
+    "tags": ["operator-system-coupling", "non-attachment-to-praise", "long-term-thinking"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T22:55:00Z",
+      "mutation": "v0 generation: BG 6.47 drafted from triangulated source pack with maximum scope-honesty. Per chapter-6 thesis flag (theistic close — engineering analog can preserve the structural faith-yoked-practice claim but the verse's full devotional register exceeds operational scope), confidence MEDIUM and STRETCHED. Translation explicitly names the scope-mismatch upfront; structural claim (most-bound to chosen object is most-yoked) is held down to operational rung (engineer most-bound to customer / system / team). Two-principal-engineers contrast preserves the inner-vs-outer yoking distinction. Falsifiability explicitly guards against the conflation of engineering devotion with bhakti to Krishna. Counter-example explicitly distinguishes workaholic over-identification from śraddhā-yoking. Anchored on chapter-thesis: this is the closing verse; the chapter is now complete. Coherent with anticipated Chapter 12 elaboration of bhakti as most accessible path.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

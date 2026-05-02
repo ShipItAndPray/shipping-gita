@@ -1,0 +1,285 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.43",
+  "sanskrit_devanagari": "तत्र तं बुद्धिसंयोगं लभते पौर्वदेहिकम् ।\nयतते च ततो भूयः संसिद्धौ कुरुनन्दन ॥ ४३ ॥",
+  "sanskrit_iast": "tatra taṁ buddhi-saṁyogaṁ labhate paurva-dehikam |\nyatate ca tato bhūyaḥ saṁsiddhau kuru-nandana || 43 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तत्र",
+      "iast": "tatra",
+      "meaning": "there (in such a birth)"
+    },
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "बुद्धिसंयोगम्",
+      "iast": "buddhi-saṁyogam",
+      "meaning": "union of intellect / revival of consciousness"
+    },
+    {
+      "sanskrit": "लभते",
+      "iast": "labhate",
+      "meaning": "obtains / regains"
+    },
+    {
+      "sanskrit": "पौर्वदेहिकम्",
+      "iast": "paurva-dehikam",
+      "meaning": "from the previous body"
+    },
+    {
+      "sanskrit": "यतते",
+      "iast": "yatate",
+      "meaning": "strives"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "ततः",
+      "iast": "tataḥ",
+      "meaning": "thereafter / from that"
+    },
+    {
+      "sanskrit": "भूयः",
+      "iast": "bhūyaḥ",
+      "meaning": "again / further"
+    },
+    {
+      "sanskrit": "संसिद्धौ",
+      "iast": "saṁsiddhau",
+      "meaning": "for perfection"
+    },
+    {
+      "sanskrit": "कुरुनन्दन",
+      "iast": "kuru-nandana",
+      "meaning": "O son of Kuru (Arjuna)"
+    },
+    {
+      "sanskrit": "tatra",
+      "iast": "tatra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "taṁ",
+      "iast": "taṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "buddhi",
+      "iast": "buddhi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁyogaṁ",
+      "iast": "saṁyogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "labhate",
+      "iast": "labhate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paurva",
+      "iast": "paurva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dehikam",
+      "iast": "dehikam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yatate",
+      "iast": "yatate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tato",
+      "iast": "tato",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhūyaḥ",
+      "iast": "bhūyaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁsiddhau",
+      "iast": "saṁsiddhau",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kuru",
+      "iast": "kuru",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nandana",
+      "iast": "nandana",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/43/",
+      "fetched_at": "2026-05-02T02:25:44.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "On taking such a birth, he revives the divine consciousness of his previous life, and he again tries to make further progress in order to achieve complete success, O son of Kuru.",
+      "raw_capture_path": "data/sources/raw/bg-6-43-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-43/",
+      "fetched_at": "2026-05-02T02:26:38.714Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "On taking such a birth, he revives the divine consciousness of his previous life, and he again tries to make further progress in order to achieve complete success, O son of Kuru."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/43/",
+      "fetched_at": "2026-05-02T02:25:44.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 887 chars)",
+      "verbatim_excerpt": "King Bharata, who took his third birth in the family of a good brāhmaṇa, is an example of good birth for the revival of previous transcendental consciousness. King Bharata was the emperor of the world, and since his time this planet has been known among the demigods as Bhārata-varṣa.",
+      "raw_full_path": "data/sources/raw/bg-6-43-vedabase.json (purport_full_length: 887)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-43/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:38.714Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.43 Tatra, there, in the family of yogis; labhate, tam buddhisamyogam, he becomes endowed with that wisdom; paurva-dehikam, acquired in the previous body. And yatate, he strives; bhuyah, more intensely; tatah, than before, more intensely than that tendency acquired in the previous birth; ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 475,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-43-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads buddhi-saṁyogam as 'becomes endowed with that wisdom' — the wisdom-disposition acquired in the prior birth re-attaches to the practitioner in the new family of yogis. The yogi then strives more intensely than the prior tendency, with the prior practice as ground."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-43/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:38.714Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.43 – 6.44 There, in that existence, he regains the mental disposition for Yoga that he had in the previous birth. Like one awakened from sleep, he strives again from where he had left before attaining complete success. He strives so as not to be defeated by impediments. This person who h",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1143,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-43-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja covers 6.43-44 together: the practitioner regains the mental disposition for Yoga from the previous birth — like one awakened from sleep — and resumes from where he left off, striving so as not to be defeated by impediments. The accumulated substrate carries forward across the gap."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "buddhi-saṁyogam",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "revives the divine consciousness of his previous life"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "becomes endowed with that wisdom acquired in the previous body"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "regains the mental disposition for Yoga that he had in the previous birth"
+        }
+      ],
+      "explanation": "All three render the compound buddhi-saṁyogam as a re-attachment of the prior practitioner's intellect/disposition to the new birth. Prabhupada flattens to 'divine consciousness'; Shankara holds 'wisdom' (the discriminating buddhi); Ramanuja reads 'mental disposition for Yoga' specifically. The traditional consensus: the prior practice is not lost; the substrate re-attaches and the striving resumes from where it left off."
+    }
+  ],
+  "literal_meaning": "There (in such a birth) he obtains that union of intellect from the prior body, and from there he strives further for perfection, O son of Kuru.",
+  "traditional_meaning": "6.43 names the first half of the consolation Krishna offers Arjuna across 6.40-45: the yogi who fell from the practice and was reborn in a favourable family does not start from zero. The buddhi-saṁyoga — the union of intellect — from the prior body re-attaches. Shankara: 'he becomes endowed with that wisdom acquired in the previous body.' Ramanuja: 'he regains the mental disposition for Yoga that he had in the previous birth.' Prabhupada: 'he revives the divine consciousness of his previous life.' From that ground, he strives further (yatate ca tato bhūyaḥ) toward complete perfection (saṁsiddhau). The metaphysics is multi-life; the structural claim is that prior practice persists as accumulated substrate across the gap. The verse is commonly cited as the chapter's core consolation alongside 6.40 and 6.44.",
+  "engineering": {
+    "translation": "Tatra taṁ buddhi-saṁyogaṁ labhate paurva-dehikam — there, in the new birth, the practitioner regains the union-of-intellect from the prior body, and from there strives further toward perfection. The verse is multi-life in its native register. Shankara: he becomes endowed with the wisdom acquired in the previous body. Ramanuja: he regains the mental disposition for Yoga, like one awakened from sleep, and resumes from where he had left off. The metaphysics exceeds engineering reach; the structural claim does not. The structural claim is that prior practice is not lost across a discontinuity. The substrate persists. The engineering analog operates at single-life scope. The engineer who shifted into management for three years and returned, the engineer who took the parental-leave gap, the engineer whose two startups failed and who came back at thirty-seven — none start from zero. The buddhi-saṁyoga from the prior body, scoped operationally, is the accumulated taste for the right abstraction, the calibrated instinct for which migration is risky. STRETCHED.",
+    "concrete_scenario": "An engineer left full-time coding three years ago for a director-of-engineering role. She managed twenty people, sat in roadmap meetings, reviewed PRs without writing them, and watched her own commit history go quiet on GitHub. Six months ago she returned to an IC role at a different company, joining as principal on a Postgres-to-CockroachDB migration. The first week she felt slow — her fingers reached for IDE shortcuts that no longer worked, her mental cache of pg internals was stale, her terraform muscle had atrophied. By week three, the substrate began re-attaching. She found the connection-pool exhaustion bug the team had chased for two months in forty-five minutes — not because she remembered the specific fix, but because the *shape* of how a senior engineer reads a Datadog flamegraph had not been lost. The instinct for which abstraction would survive the migration and which one was implementation-leakage was still there. By month four she was operating at her prior level, with three years of management-context layered on top. The prior practice carried her, in Shankara's phrase, like a powerful habit. The metaphysics of multi-life rebirth exceeds this analog; the structural rung — substrate persists across discontinuity — is what the verse, scoped operationally, can describe.",
+    "falsifiability": "The analog fails if a reader treats it as a guarantee that any career-gap returns automatically to prior level. The verse does not promise that. It claims the substrate persists; it does not claim the gap is costless. An engineer who reads this verse as 'time off doesn't matter' has misread it. The substrate is a ground-state advantage; the climb back to operating-level still demands the striving (yatate ca tato bhūyaḥ) the verse names alongside the substrate-claim.",
+    "counter_example": "When the gap was genuine drift — three years not of management or family but of attention-fragmentation, social-media compulsion, no deep practice anywhere — the substrate has degraded. The verse names continued tendency from genuine prior practice; it does not endorse the recovery of substrate that was never deeply built or that was actively eroded. An engineer who hopped between four shallow codebases over five years and now expects buddhi-saṁyoga to carry her has not earned the verse's claim.",
+    "implication": "If you have left the practice for a season and returned, the prior years are still operating in you. Allow the substrate to surface. Do not mistake the first-week slowness for first-week-zero.",
+    "quotable_line": "The substrate from the prior body persists across the discontinuity; the climb back is from accumulated ground, not from zero.",
+    "tags": [
+      "operator-system-coupling",
+      "deep-work",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

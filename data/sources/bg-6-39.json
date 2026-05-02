@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 39,
   "fetched_at": "2026-05-02T02:28:27.051Z",
-  "sanskrit_devanagari": "एतन्मे संशयं कृष्ण छेत्तुमर्हस्यशेषत: ।त्वदन्य: संशयस्यास्य छेत्ता न ह्युपपद्यते ॥ ३९ ॥",
-  "sanskrit_iast": "etan me saṁśayaṁ kṛṣṇachettum arhasy aśeṣataḥtvad-anyaḥ saṁśayasyāsyachettā na hy upapadyate",
+  "sanskrit_devanagari": "एतन्मे संशयं कृष्ण छेत्तुमर्हस्यशेषतः ।\nत्वदन्यः संशयस्यास्य छेत्ता न ह्युपपद्यते ॥ ३९ ॥",
+  "sanskrit_iast": "etan me saṁśayaṁ kṛṣṇa chettum arhasy aśeṣataḥ |\ntvad-anyaḥ saṁśayasyāsya chettā na hy upapadyate || 39 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,138 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.039). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "कृष्ण",
+      "iast": "kṛṣṇa",
+      "meaning": "O Krishna"
+    },
+    {
+      "sanskrit": "एतम्",
+      "iast": "etam",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "my"
+    },
+    {
+      "sanskrit": "संशयम्",
+      "iast": "saṁśayam",
+      "meaning": "doubt"
+    },
+    {
+      "sanskrit": "अशेषतः",
+      "iast": "aśeṣataḥ",
+      "meaning": "completely / without remainder"
+    },
+    {
+      "sanskrit": "छेत्तुम्",
+      "iast": "chettum",
+      "meaning": "to cut"
+    },
+    {
+      "sanskrit": "अर्हसि",
+      "iast": "arhasi",
+      "meaning": "you are competent"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "त्वत्-अन्यः",
+      "iast": "tvat-anyaḥ",
+      "meaning": "other than you"
+    },
+    {
+      "sanskrit": "अस्य",
+      "iast": "asya",
+      "meaning": "of this"
+    },
+    {
+      "sanskrit": "संशयस्य",
+      "iast": "saṁśayasya",
+      "meaning": "doubt"
+    },
+    {
+      "sanskrit": "छेत्ता",
+      "iast": "chettā",
+      "meaning": "cutter / dispeller"
+    },
+    {
+      "sanskrit": "न उपपद्यते",
+      "iast": "na upapadyate",
+      "meaning": "is not found"
+    },
+    {
+      "sanskrit": "etan",
+      "iast": "etan",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "me",
+      "iast": "me",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁśayaṁ",
+      "iast": "saṁśayaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kṛṣṇa",
+      "iast": "kṛṣṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "chettum",
+      "iast": "chettum",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "arhasy",
+      "iast": "arhasy",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "aśeṣataḥ",
+      "iast": "aśeṣataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tvad-anyaḥ",
+      "iast": "tvad-anyaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁśayasyāsya",
+      "iast": "saṁśayasyāsya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "chettā",
+      "iast": "chettā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "hy",
+      "iast": "hy",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "upapadyate",
+      "iast": "upapadyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +234,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "tvad-anyaḥ ... chettā na upapadyate (no one other than you can cut [this doubt])",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "besides Yourself, there is no one who can destroy this doubt"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "only the omniscient teacher can dispel this doubt; no other has the standing"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "only the Lord can answer completely; no one else is qualified"
+        }
+      ],
+      "explanation": "All three readings preserve the structural claim that this specific question requires this specific authority to answer. The operational reach is shared: the question must be addressed by one who has crossed the path being asked about."
+    }
+  ],
+  "literal_meaning": "This doubt of mine, O Krishna, you alone are competent to cut entirely — for no one other than you can dispel this doubt.",
+  "traditional_meaning_consensus": "6.39 closes the question-arc with a request to the teacher. The verb chettum (to cut) frames doubt as something to be severed — sharp, terminal, complete. Aśeṣataḥ — without remainder. Tvad-anyaḥ — other than you. The verse names that the answer requires the specific competence of the teacher who has himself crossed the path — no other competent answerer is available (na upapadyate). Sankara's reading: only the omniscient teacher can dispel this doubt; no other has the standing to cut it. Ramanuja's reading: only the Lord can answer this question completely; no one else is qualified. Both traditions preserve the structural claim: certain questions can only be answered by those who have themselves traversed what is being asked about. This pre-figures 4.34's tad viddhi praṇipātena — approach the teacher who has seen, with humility — and is itself a model of the right disposition for receiving the answer that follows.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

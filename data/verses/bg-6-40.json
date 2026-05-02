@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.40",
+  "chapter": 6,
+  "verse": 40,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The consolation — one of the most-quoted verses in the Gita and the most-loved in this chapter. The structure is fundamentally sharp: naiva iha na amutra vināśaḥ tasya vidyate, meaning that neither in this world nor in the next does destruction exist for him. The doubled negation comprehensively forecloses both prior worries about destruction across this life and the next. Then the universal claim: na hi kalyāṇa-kṛt kaścid durgatim gacchati — no doer-of-good, anyone, ever, goes to a bad destination. The vocative tāta — dear one, often translated 'my son' or 'dear child' — is among the most affectionate addresses anywhere in the entire Gita. Per Sankara's reading: the yoga-aspirant has been engaged in the highest possible good, and therefore his sincere attempt cannot lead to perdition. Per Ramanuja's reading: the yoga-attempt itself constitutes kalyāṇa, an act of supreme good. The chapter's undeniable emotional center.",
+    "concrete_scenario": "Return to the engineer of 6.37 who fell from her four-month deep-work practice on the Postgres replication topology. Eighteen months after the lapse a new role places her against a similar problem-class — distributed-systems performance, this time on a Kafka cluster with cross-region consumer-lag asymmetry. She sits down to it expecting to start from zero. The first two-hour block is harder than she remembered; the muscle for sustained attention has atrophied. By week two something different happens: the second hour begins to settle faster than it did sixteen months ago at the start of the prior practice. Patterns surface from the prior work — the Datadog dashboards she built, the GitHub branch she abandoned, the proof-of-concept that never landed — that her prior self had to discover but her current self recognises. Returning to the deep-work block in week three feels less like beginning and more like resuming. Four months of practice eighteen months ago did not vanish; they left an imprint on how she engages the problem now. The consolation of 6.40 names this exactly: the work was not destroyed. Kalyāṇa-kṛt — doer-of-good — applies to her four-month attempt, and the durgati she feared has not occurred.",
+    "falsifiability": "The analog fails if a reader uses 6.40 to claim that any engineering effort is preserved regardless of quality — that even cargo-culted, never-genuinely-attempted practice compounds. It does not. The kalyāṇa in the verse refers to the genuine attempt at yoga; the engineering analog is the genuine attempt at substantive practice. Coffee-shop pomodoros without real engagement are not what the verse consoles. The consolation is structural — work that was real leaves imprints — not magical.",
+    "counter_example": "When an engineer takes 6.40 as a license to remain dropped from the practice — 'the prior work compounds, so I do not need to resume' — the verse does not endorse this. The consolation answers the fear of destruction; it does not endorse staying fallen. Per the chapter's whole arc (6.41-6.42 will say the practice resumes), the imprints exist precisely so the next attempt can pick up. License-to-remain-fallen is an inversion.",
+    "implication": "If you have drifted from a real practice and a structurally similar problem subsequently appears, sit down with it expecting partial compounding, not zero. The four months that felt wasted reappear during week two of the resumption as recognition. The chapter's consolation is structural, not motivational.",
+    "quotable_line": "No one who does good ever comes to a bad end. The four months you thought were wasted left an imprint on the next attempt.",
+    "tags": [
+      "long-term-thinking",
+      "iteration-loop",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:03.211Z",
+      "mutation": "v0 generation: BG 6.40 engineering layer drafted from triangulated source pack per chapter-6 thesis. Anchored on the chapter thread the verse anchors in (struggle-and-consolation arc 6.33-6.47). Per IP rules: ≤300 char fair-use. Per BG 4.34: humility. Per anti-hallucination: no fabricated traditions; Sankara/Ramanuja paraphrased per source pack. Tools: named real engineering artifacts (Postgres, Kafka, Datadog, GitHub, Honeycomb, Kubernetes etc.). Falsifiability and counter-example explicitly distinguish the verse-claim from common misreads.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

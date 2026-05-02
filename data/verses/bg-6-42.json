@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.42",
+  "chapter": 6,
+  "verse": 42,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The second possibility — and the rarer one. The fallen yogi may instead be born in the kula (family) of yogis themselves, dhīmatām (possessed of wisdom). Etat hi durlabha-taram — this birth, of this kind, is durlabha-tara (more difficult, rarer than the first). Per Sankara: this latter birth is more rare than the prior — being born among yogis is harder to attain than being born among the merely meritorious-and-prosperous, because here the sustained practice can begin with full conditions immediately. Per Ramanuja: the alternative birth in a yogin family is rarer; the practitioner is born into conditions where the prior practice is preserved by the family-context itself. STRETCHED honestly. Engineering analog stays at single-life scope: the engineer who fell from a prior practice may resume in conditions structurally favourable — a team that practices what she had practiced, an organisation with the disciplines she had been building. The metaphysical reach of trans-life rebirth among yogins exceeds this engineering analog and is preserved at source-pack level.",
+    "concrete_scenario": "Trace the same engineer of 6.41 toward the rarer outcome the verse names. Imagine she does not land at the staff role among mature peers doing the work in adjacent ways; imagine instead she joins a small infrastructure squad whose founding engineers have been building exactly the multi-region consumer-lag observability she had been moving toward. The kind of Postgres replication migration and Kafka schema work she had wanted to take on is the squad's entire mandate. Honeycomb is not a tool she must learn — it is a daily instrument the squad helped design and ship through their own deploy pipeline. Their on-call rotation hands incidents around like teaching cases. The squad produces the durlabha-taram condition: every Tuesday-morning deep-work block does not need to be defended against organisational drift, because deep-work IS the organisational mandate. Her four-month earlier discipline plus her two-year return produced the substrate; this new context preserves the substrate effortlessly because the context already practices it. This is the rarer arrival the verse names. The engineering analog scopes the verse downward — single-life, single-career — and is honest about scoping. The trans-life metaphysical reach of being born among yogins exceeds this engineering reading and stays preserved at source-pack level.",
+    "falsifiability": "The analog fails if a reader claims that the rare engineering team that practices what the engineer was building IS the yogin-kula the verse names. It is not. The verse's metaphysical scope — being born into a family of yogins themselves, possessed of wisdom — exceeds the engineering analog. The reduction is honest. An engineer who flattens the durlabha-tara to 'finding a great team' has lost the verse's reach.",
+    "counter_example": "When an engineer manufactures a story about her current team being the yogin-kula to justify staying — when the team is in fact ordinary and the practice is in fact dropped — the verse does not endorse that self-flattery. The verse describes the rarer favourable outcome that occasionally arises, not a claim every team should be read as. An engineer who reads herself into 6.42 too readily has missed durlabha-tara: the verse explicitly says this birth is rarer.",
+    "implication": "If you find yourself on a team that genuinely practices what you had been building, recognise that this is the rarer of the two outcomes the chapter describes. Hold it carefully. Do not assume it is the default; it is not.",
+    "quotable_line": "The team that already practices what you had been building is the rarer outcome — durlabha-tara. The chapter says so explicitly.",
+    "tags": [
+      "team-culture",
+      "operator-system-coupling",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:03.211Z",
+      "mutation": "v0 generation: BG 6.42 engineering layer drafted from triangulated source pack per chapter-6 thesis. Anchored on the chapter thread the verse anchors in (struggle-and-consolation arc 6.33-6.47). Per IP rules: ≤300 char fair-use. Per BG 4.34: humility. Per anti-hallucination: no fabricated traditions; Sankara/Ramanuja paraphrased per source pack. Tools: named real engineering artifacts (Postgres, Kafka, Datadog, GitHub, Honeycomb, Kubernetes etc.). Falsifiability and counter-example explicitly distinguish the verse-claim from common misreads.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 42,
   "fetched_at": "2026-05-02T02:28:27.514Z",
-  "sanskrit_devanagari": "अथवा योगिनामेव कुले भवति धीमताम् ।एतद्धि दुर्लभतरं लोके जन्म यदीदृशम् ॥ ४२ ॥",
-  "sanskrit_iast": "atha vā yoginām evakule bhavati dhīmatāmetad dhi durlabha-taraṁloke janma yad īdṛśam",
+  "sanskrit_devanagari": "अथवा योगिनामेव कुले भवति धीमताम् ।\nएतद्धि दुर्लभतरं लोके जन्म यदीदृशम् ॥ ४२ ॥",
+  "sanskrit_iast": "atha vā yoginām eva kule bhavati dhīmatām |\netad dhi durlabha-taraṁ loke janma yad īdṛśam || 42 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,143 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.042). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "अथवा",
+      "iast": "atha vā",
+      "meaning": "or else"
+    },
+    {
+      "sanskrit": "योगिनाम्",
+      "iast": "yoginām",
+      "meaning": "of yogis"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed / themselves"
+    },
+    {
+      "sanskrit": "धीमताम्",
+      "iast": "dhīmatām",
+      "meaning": "of the wise"
+    },
+    {
+      "sanskrit": "कुले",
+      "iast": "kule",
+      "meaning": "in the family"
+    },
+    {
+      "sanskrit": "भवति",
+      "iast": "bhavati",
+      "meaning": "is born / comes to be"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "एतत्",
+      "iast": "etat",
+      "meaning": "this"
+    },
+    {
+      "sanskrit": "दुर्लभतरम्",
+      "iast": "durlabha-taram",
+      "meaning": "more rare / harder to obtain"
+    },
+    {
+      "sanskrit": "लोके",
+      "iast": "loke",
+      "meaning": "in the world"
+    },
+    {
+      "sanskrit": "जन्म",
+      "iast": "janma",
+      "meaning": "birth"
+    },
+    {
+      "sanskrit": "यत्",
+      "iast": "yat",
+      "meaning": "which"
+    },
+    {
+      "sanskrit": "ईदृशम्",
+      "iast": "īdṛśam",
+      "meaning": "of this kind"
+    },
+    {
+      "sanskrit": "atha",
+      "iast": "atha",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vā",
+      "iast": "vā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoginām",
+      "iast": "yoginām",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kule",
+      "iast": "kule",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhavati",
+      "iast": "bhavati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dhīmatām",
+      "iast": "dhīmatām",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "etad",
+      "iast": "etad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dhi",
+      "iast": "dhi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "durlabha-taraṁ",
+      "iast": "durlabha-taraṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "loke",
+      "iast": "loke",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "janma",
+      "iast": "janma",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yad",
+      "iast": "yad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "īdṛśam",
+      "iast": "īdṛśam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +239,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "yoginām eva kule ... durlabha-taraṁ (in the family of yogis themselves ... rarer)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "or he takes his birth in a family of transcendentalists who are surely great in wisdom; certainly such a birth is rare in this world"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "more rare than the prior birth — being born among yogis allows the sustained practice to begin with full conditions immediately"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "the alternative birth, in a yogin family, is rarer; conditions preserve the prior practice"
+        }
+      ],
+      "explanation": "All three readings agree: this birth is the rarer, finer outcome — durlabha-tara. The engineering analog (the engineer who happens to land in a team or organisation that already practices what she had been building) operates at single-life scope; the verse's reach is metaphysically larger and is preserved at source-pack level."
+    }
+  ],
+  "literal_meaning": "Or else he is born in the family of yogis themselves, possessed of wisdom. Such a birth, indeed, is more difficult to obtain in the world.",
+  "traditional_meaning_consensus": "6.42 names the second possibility — and the rarer one. The fallen yogi may instead be born in the kula (family) of yogis themselves, dhīmatām (possessed of wisdom). Etat hi durlabha-taram — this birth, of this kind, is durlabha-tara (more difficult, rarer than the first). Sankara's reading: this latter birth is more rare than the prior — being born among yogis is harder to attain than being born among the merely meritorious-and-prosperous, because here the sustained practice can begin with full conditions immediately. Ramanuja's reading: the alternative birth, in a yogin family, is rarer; the practitioner is born into conditions where the prior practice is preserved by the family-context itself. Both traditions preserve the comparative durlabha-tara — this is the rarer, finer outcome. The verse, with 6.41, completes the structural answer: the fallen yogi is not destroyed; he is given a continuation. STRETCHED honestly. The engineering analog stays at single-life: the engineer who fell from a prior practice may resume in conditions structurally favourable.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

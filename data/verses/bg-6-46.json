@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.46",
+  "chapter": 6,
+  "verse": 46,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Tapasvibhyo 'dhiko yogī jñānibhyo 'pi mato 'dhikaḥ, karmibhyaś cādhiko yogī, tasmād yogī bhavārjuna — the yogi is greater than the ascetics, greater even than the men of knowledge, greater than the ritualists; therefore, Arjuna, be a yogi. The verse compresses the chapter into a hierarchy and a directive. Shankara narrows jñānī here to the *possessor of scriptural learning* — emphatically not the realised non-dualist. The yogi is ranked above all three partial categories. Ramanuja sharpens by ends-attained. What is reached through mere austerity, mere knowledge of subjects-other-than-self, or mere ritual is structurally less than what is reached through Yoga. The engineering hierarchy reads cleanly. Above the engineer who only performs austerity (long hours, performative grind), above the engineer who only accumulates knowledge (papers read but not applied), above the engineer who only performs ritual (standups attended without engagement) — sits the integrated yogi-engineer. She has yoked attention, action, and renouncement-of-fruit into one steady practice. STRONG analog. Coherent with 2.50.",
+    "concrete_scenario": "Three engineers at the same Series-D startup. The ascetic: works ninety-hour weeks, sleeps under the desk, refuses vacation, posts about grind on Twitter. He is exhausted, brittle, and his p99 latencies on the auth service have crept up for two quarters because he cannot sustain the focus to find the cause. The knower: reads every paper, watches every conference talk, has opinions on Rust and Zig and Deno, can name twelve service-mesh implementations, but his last shipped change was a config tweak six weeks ago. The ritualist: attends every standup, files tickets diligently, runs the on-call rotation, reviews PRs by ticking the Looks Good To Me box, but does not propose architecture, does not own incidents end-to-end, does not write the post-mortem with the structural claim. None of these three is the verse's destination. The yogi-engineer is the fourth: she works the disciplined hours that fit her sustainable rhythm (6.16's middle path), she reads with intent and applies what she reads to the actual codebase, she shows up to the rituals because the team needs them, and she ships the migration with the rollback runbook and stays at level when the dashboard is red. The integration is the verse. Shankara: the yogi-of-disciplined-action is greater than each partial path. Krishna's directive is unambiguous: tasmād yogī bhava — therefore be a yogi.",
+    "falsifiability": "The analog fails if a reader uses it to denigrate genuine austerity, genuine scholarship, or genuine ritual. The verse names *partial* paths — austerity-only, scripture-only, ritual-only — and ranks the *integrated* yogi above each. An engineer who reads this verse as 'don't read papers' or 'don't attend standups' has misread it. The yogi integrates; she does not abandon. The hierarchy is between integration and partiality, not between yoga and the three constituents.",
+    "counter_example": "When the apparent yogi-engineer is in fact a generalist who has not gone deep on any of the three constituents — superficial austerity (some long days), superficial knowledge (skim of the docs), superficial ritual (showing up to standups) — the verse does not endorse this state. The yogi-engineer is integrated *out of* depth in each constituent, not out of avoidance of all three. Generalist-without-depth is not yukta.",
+    "implication": "Audit yourself across the three. Where is the discipline of austerity (sustainable hours, refusal of distraction)? Where is the knowledge (papers read, applied, integrated)? Where is the ritual (standups, reviews, on-call held)? If any of the three is hollow, the integration is incomplete. The chapter has been pointing here for forty-five verses.",
+    "quotable_line": "Be a yogi: the operator who has yoked attention, action, and renouncement-of-fruit into one steady practice — not the ascetic, the knower, or the ritualist alone.",
+    "tags": ["operator-system-coupling", "deliberate-action", "deep-work"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T22:50:00Z",
+      "mutation": "v0 generation: BG 6.46 drafted from triangulated source pack. Per chapter-6 thesis flag (hierarchy claim — yogi-engineer is the disciplined-action operator, coherent with 2.50, 5.4-5.5), confidence HIGH and not STRETCHED. The three named-categories preserved sharply via three distinct engineer-types (ascetic, knower, ritualist) at the same startup with the integrated yogi-engineer as the fourth term. Shankara's narrowing of jñānī (scripture-possessor, not realised non-dualist) explicitly preserved. Ramanuja's ends-attained reading folded in. Falsifiability explicitly guards against the misread that the verse denigrates the three constituents themselves; counter-example explicitly distinguishes integration-out-of-depth from generalism-without-depth. Tools: auth service, p99 latency, service-mesh, post-mortem, runbook.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

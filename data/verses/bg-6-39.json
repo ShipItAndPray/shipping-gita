@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.39",
+  "chapter": 6,
+  "verse": 39,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The question closes with a request to the teacher. The verb chettum — to cut — frames doubt as something to be severed: sharp, terminal, complete. Aśeṣataḥ — without remainder. Tvad-anyaḥ — other than you. Per Sankara: only the omniscient teacher has the standing to dispel this doubt. Per Ramanuja: only the Lord can answer this question completely; no one else is qualified. The structural claim is preserved across both: certain questions can only be answered by those who have themselves traversed what is being asked about. This pre-figures BG 4.34's tad viddhi praṇipātena — approach the teacher who has seen, with humility — and is itself a model of the right disposition for receiving the answer that follows. Engineering analog: certain questions about long-arc career-practice cannot be answered by short-tenure peers, by managers without the practice, or by the engineer's own anxious self-talk; they require someone who has crossed the gap and seen what survived.",
+    "concrete_scenario": "An engineer worried about whether her four-months-then-stalled deep-work practice on the Postgres replication migration has been preserved or lost asks three different audiences. She asks her manager during their 1:1, who reassures her vaguely about her trajectory and suggests some OKR-tracked stretch goals around incident response. She asks her peer group on a Slack channel, who exchange anxious commiseration about deploy schedules and on-call rotation. She asks an internal AI tool wired to GitHub and Datadog, which renders confident generic advice about discipline. None of the three answers cuts the doubt. Then she has lunch with a principal engineer twenty years in who has himself drifted from focused practice on a similar Kafka migration and returned, twice. He listens, asks what the prior practice produced before it stalled, asks how the substrate of the production system has shifted since the proof-of-concept pull request was abandoned, and gives a specific answer about what compounds across the gap and what does not. The doubt is cut — aśeṣataḥ, completely — not because the principal is more reassuring but because he has crossed exactly the gap she fears. The structural condition the verse names: only the teacher who has himself walked the specific arc can dispel a doubt about that arc. Manager-reassurance, peer-commiseration, and AI-tool output do not satisfy the question.",
+    "falsifiability": "The analog fails if a reader reads 6.39 as universal hierarchy-deference — 'always defer to the most senior person.' It is not. The verse names a specific kind of question (about whether the practice survived the gap) and a specific kind of teacher (one who has crossed the gap and seen). It does not endorse generic seniority-deference. An engineer who reads 6.39 as 'always ask the staff engineer' has flattened the verse.",
+    "counter_example": "When the senior asked has not actually walked the path the question concerns — has stayed continuously employed at one company, never drifted, never doubted — they may be wrong-credentialled to answer despite their tenure. The verse names tvad-anyaḥ, other-than-you-who-has-seen, as the disqualified speaker. Tenure without the specific traversal is not the credential the verse points at.",
+    "implication": "When a doubt about a specific arc of practice arises, name the qualification of the answerer. Has this person crossed the specific gap you are asking about? If not, their answer will not cut the doubt — not because they are wrong, but because the question is not addressable by them.",
+    "quotable_line": "The doubt about whether the practice survived the gap can only be cut by someone who has crossed the gap and seen what survived.",
+    "tags": [
+      "judgment-under-uncertainty",
+      "team-state",
+      "calibration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:03.211Z",
+      "mutation": "v0 generation: BG 6.39 engineering layer drafted from triangulated source pack per chapter-6 thesis. Anchored on the chapter thread the verse anchors in (struggle-and-consolation arc 6.33-6.47). Per IP rules: ≤300 char fair-use. Per BG 4.34: humility. Per anti-hallucination: no fabricated traditions; Sankara/Ramanuja paraphrased per source pack. Tools: named real engineering artifacts (Postgres, Kafka, Datadog, GitHub, Honeycomb, Kubernetes etc.). Falsifiability and counter-example explicitly distinguish the verse-claim from common misreads.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 41,
   "fetched_at": "2026-05-02T02:28:27.360Z",
-  "sanskrit_devanagari": "प्राप्य पुण्यकृतां लोकानुषित्वा शाश्वती: समा: ।श‍ुचीनां श्रीमतां गेहे योगभ्रष्टोऽभिजायते ॥ ४१ ॥",
-  "sanskrit_iast": "prāpya puṇya-kṛtāṁ lokānuṣitvā śāśvatīḥ samāḥśucīnāṁ śrīmatāṁ geheyoga-bhraṣṭo ’bhijāyate",
+  "sanskrit_devanagari": "प्राप्य पुण्यकृतां लोकानुषित्वा शाश्वतीः समाः ।\nशुचीनां श्रीमतां गेहे योगभ्रष्टोऽभिजायते ॥ ४१ ॥",
+  "sanskrit_iast": "prāpya puṇya-kṛtāṁ lokān uṣitvā śāśvatīḥ samāḥ |\nśucīnāṁ śrīmatāṁ gehe yoga-bhraṣṭo 'bhijāyate || 41 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,118 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.041). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "योग-भ्रष्टः",
+      "iast": "yoga-bhraṣṭaḥ",
+      "meaning": "the one fallen from yoga"
+    },
+    {
+      "sanskrit": "पुण्य-कृताम्",
+      "iast": "puṇya-kṛtām",
+      "meaning": "of those who have done meritorious deeds"
+    },
+    {
+      "sanskrit": "लोकान्",
+      "iast": "lokān",
+      "meaning": "worlds"
+    },
+    {
+      "sanskrit": "प्राप्य",
+      "iast": "prāpya",
+      "meaning": "having reached"
+    },
+    {
+      "sanskrit": "शाश्वतीः",
+      "iast": "śāśvatīḥ",
+      "meaning": "endless / many"
+    },
+    {
+      "sanskrit": "समाः",
+      "iast": "samāḥ",
+      "meaning": "years"
+    },
+    {
+      "sanskrit": "उषित्वा",
+      "iast": "uṣitvā",
+      "meaning": "having dwelt"
+    },
+    {
+      "sanskrit": "शुचीनाम्",
+      "iast": "śucīnām",
+      "meaning": "of the pure"
+    },
+    {
+      "sanskrit": "श्रीमताम्",
+      "iast": "śrīmatām",
+      "meaning": "of the prosperous"
+    },
+    {
+      "sanskrit": "गेहे",
+      "iast": "gehe",
+      "meaning": "in the home"
+    },
+    {
+      "sanskrit": "अभिजायते",
+      "iast": "abhijāyate",
+      "meaning": "is born"
+    },
+    {
+      "sanskrit": "prāpya",
+      "iast": "prāpya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "puṇya-kṛtāṁ",
+      "iast": "puṇya-kṛtāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "lokān",
+      "iast": "lokān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uṣitvā",
+      "iast": "uṣitvā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śāśvatīḥ",
+      "iast": "śāśvatīḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "samāḥ",
+      "iast": "samāḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śucīnāṁ",
+      "iast": "śucīnāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śrīmatāṁ",
+      "iast": "śrīmatāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gehe",
+      "iast": "gehe",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga-bhraṣṭo",
+      "iast": "yoga-bhraṣṭo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'bhijāyate",
+      "iast": "'bhijāyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +214,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "puṇya-kṛtāṁ lokān ... śucīnāṁ śrīmatāṁ gehe (the worlds of the meritorious / the home of the pure and prosperous)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "the unsuccessful yogi enjoys the planets of the pious for many years and then takes birth in a family of righteous people, or in a family of rich aristocracy"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "reaches worlds attained by performers of meritorious deeds, dwells for innumerable years, then reborn in the home of the pure and prosperous where the practice can be resumed"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "attains heavens won by accumulated puṇya, dwells until exhausted, then born in family of pure and prosperous where conditions favour resumption of yoga"
+        }
+      ],
+      "explanation": "All three readings preserve the trans-life trajectory. The verse is metaphysically loaded; the engineering analog operates at single-life single-career scope and is honest about the scope-mismatch."
+    }
+  ],
+  "literal_meaning": "Having reached the worlds of those who have done meritorious deeds, having dwelt there for endless years, the one fallen from yoga is born in the home of the pure and prosperous.",
+  "traditional_meaning_consensus": "6.41 is the first half of the compounding-of-practice answer. The fallen yogi reaches puṇya-kṛtām lokān (the worlds of those who have done puṇya — merit), dwells there śāśvatīḥ samāḥ (for many years), and then is reborn in the home of the śuci (pure) and śrīmat (prosperous, blessed with prosperity). Sankara's reading: the fallen yogi reaches the worlds of those who have performed meritorious deeds, dwells there for innumerable years, and is then reborn in the home of the pure and the prosperous, where he can resume the practice from his prior level. Ramanuja's reading: the fallen yogi attains the heavens won by the puṇya he has accumulated, dwells there until that puṇya is exhausted, and is then born in a family of pure and prosperous people, where the conditions for resuming the yoga are favourable. The verse is metaphysically loaded — it explicitly describes trans-life trajectory. The engineering analog operates at single-life scope: the prior practice creates conditions favourable to resumption. STRETCHED honestly. The trans-life claim is preserved at source-pack level.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

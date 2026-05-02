@@ -1,0 +1,53 @@
+{
+  "id": "BG 9.6",
+  "chapter": 9,
+  "verse": 6,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna offers an analogical picture to anchor 9.4-9.5 concretely: as the great wind, moving everywhere always, abides perpetually within space — so all beings abide within him, know thus. Wind ranges everywhere freely; space contains the wind perpetually; space is not exhausted by the wind's motion. STRETCHED honestly. The borrowed structural shadow lands at narrow operational scope. Engineering implementations roam freely across years — frameworks come and go, services get rewritten repeatedly, languages change incrementally, databases migrate — while a stable customer-need holds them inside its frame. The underlying need contains the implementations; the implementations never constitute the need themselves. The wind-in-space picture functions as a structural template; Krishna's metaphysical claim about beings and *ākāśa* is something far larger.",
+    "concrete_scenario": "The yearly retro at this Datadog-instrumented payments platform tallies what moved. Six services were rewritten in 2026. Four frameworks retired — Backbone, AngularJS, an early Vue era, an internal Express-fork. Two languages joined the stack: Rust on the pricing path, TypeScript for the admin UI. Three databases migrated — MySQL to Postgres for the ledger, DynamoDB to Postgres for the merchant registry, Redis to Memcached for an ephemeral token cache. Every one of those moves was justified by the same merchant-side requirement: a small-business owner getting fraud alerts in under ten minutes. That requirement has not changed since Marcus's team first wrote it on a whiteboard four years ago. The Postgres migration did not redefine the need. Rust did not redefine it. Vue's retirement did not redefine it. The need held the moves. The retro slides catalog twenty-eight implementation changes; one need; that ratio is the wind-in-space picture in operational form.",
+    "falsifiability": "This reading fails if applied as 'the customer-need IS ākāśa, IS Krishna, IS divine'. It is not. Krishna's verse uses the wind-in-space image to make a metaphysical claim about beings and the Lord. The borrowed shadow uses the same shape — implementations roam, the need holds — at narrow operational scope only.",
+    "counter_example": "Some artifacts are themselves the need. A one-shot Bash script written to satisfy a regulatory deadline, a CLI flag that exists to do exactly the one thing it does — the implementation IS the need; there is no separate substrate. The wind-in-space picture does not apply there.",
+    "implication": "If you cannot articulate the customer-need separately from the current implementation, you may not have a substrate to code against. Find the need. The implementations should roam freely against it across years.",
+    "quotable_line": "Implementations roam; the customer-need holds them — wind in space, not wind defining space.",
+    "tags": [
+      "first-principles",
+      "essence-vs-implementation",
+      "interface-stability"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.6 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "3.1 specific software artifact missing",
+        "3.4 concrete/abstract 1.33",
+        "5.5 lex 0.470"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Concrete_scenario expanded with named tools (Datadog, Postgres, MySQL, DynamoDB, Redis, Memcached, Vue, Rust, TypeScript) for 3.1 specific-artifact gate; lex diversity raised by varying nouns and dropping repeated 'engineering analog' stock phrasing.",
+      "failing_gates_before": [
+        "3.1 specific software artifact missing",
+        "3.4 concrete/abstract 1.33",
+        "5.5 lex 0.470"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

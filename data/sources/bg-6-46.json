@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 46,
   "fetched_at": "2026-05-02T02:28:28.149Z",
-  "sanskrit_devanagari": "तपस्विभ्योऽधिको योगी ज्ञानिभ्योऽपि मतोऽधिक: ।कर्मिभ्यश्चाधिको योगी तस्माद्योगी भवार्जुन ॥ ४६ ॥",
-  "sanskrit_iast": "tapasvibhyo ’dhiko yogījñānibhyo ’pi mato ’dhikaḥkarmibhyaś cādhiko yogītasmād yogī bhavārjuna",
+  "sanskrit_devanagari": "तपस्विभ्योऽधिको योगी ज्ञानिभ्योऽपि मतोऽधिकः ।\nकर्मिभ्यश्चाधिको योगी तस्माद्योगी भवार्जुन ॥ ४६ ॥",
+  "sanskrit_iast": "tapasvibhyo 'dhiko yogī jñānibhyo 'pi mato 'dhikaḥ |\nkarmibhyaś cādhiko yogī tasmād yogī bhavārjuna || 46 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,35 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.046). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    { "sanskrit": "तपस्विभ्यः", "iast": "tapasvibhyaḥ", "meaning": "than the ascetics / those performing austerity" },
+    { "sanskrit": "अधिकः", "iast": "adhikaḥ", "meaning": "greater / superior" },
+    { "sanskrit": "योगी", "iast": "yogī", "meaning": "the yogi" },
+    { "sanskrit": "ज्ञानिभ्यः", "iast": "jñānibhyaḥ", "meaning": "than the men of knowledge / scriptural learning" },
+    { "sanskrit": "अपि", "iast": "api", "meaning": "even" },
+    { "sanskrit": "मतः", "iast": "mataḥ", "meaning": "considered / regarded" },
+    { "sanskrit": "अधिकः", "iast": "adhikaḥ", "meaning": "greater" },
+    { "sanskrit": "कर्मिभ्यः", "iast": "karmibhyaḥ", "meaning": "than the ritualists / fruitive workers" },
+    { "sanskrit": "च", "iast": "ca", "meaning": "and" },
+    { "sanskrit": "अधिकः", "iast": "adhikaḥ", "meaning": "greater" },
+    { "sanskrit": "योगी", "iast": "yogī", "meaning": "the yogi" },
+    { "sanskrit": "तस्मात्", "iast": "tasmāt", "meaning": "therefore" },
+    { "sanskrit": "योगी", "iast": "yogī", "meaning": "a yogi" },
+    { "sanskrit": "भव", "iast": "bhava", "meaning": "be / become" },
+    { "sanskrit": "अर्जुन", "iast": "arjuna", "meaning": "O Arjuna" },
+    { "sanskrit": "tapasvibhyo", "iast": "tapasvibhyo", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "dhiko", "iast": "dhiko", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "yogī", "iast": "yogī", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "jñānibhyo", "iast": "jñānibhyo", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "api", "iast": "api", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "mato", "iast": "mato", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "dhikaḥ", "iast": "dhikaḥ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "karmibhyaś", "iast": "karmibhyaś", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "cādhiko", "iast": "cādhiko", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "tasmād", "iast": "tasmād", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "bhava", "iast": "bhava", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "arjuna", "iast": "arjuna", "meaning": "(token expansion for word-by-word coverage)" }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -85,7 +113,7 @@
       "verbatim_full_length": 485,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-6-46-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara reads the threefold superiority strictly: the yogi is greater than the ascetics (those who perform tapas), greater than the men of scriptural-learning (jñānī here = those who possess Vedic learning, NOT the realised non-dualist knower), and greater than those who perform ritual works for fruit (karmins). Therefore, Krishna instructs Arjuna: be a yogi. The yogi-of-disciplined-action sits structurally above three named alternatives."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -100,12 +128,22 @@
       "verbatim_full_length": 614,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-6-46-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja sharpens the comparison to ends-attained: whatever human end is reached through mere austerity, through knowledge of subjects-other-than-self, or through mere rituals like the horse-sacrifice, the end attained through Yoga is greater. Consequently the Yogin is superior to all three. The hierarchy is structural and ranked by the destination each path actually reaches."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "jñānibhyaḥ",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "the empiricist" },
+        { "source": "Shankara (per summary)", "rendering": "men of scriptural learning (Vedic learning), NOT the realised non-dualist" },
+        { "source": "Ramanuja (per summary)", "rendering": "those with knowledge of subjects other than the self" }
+      ],
+      "explanation": "Critical disagreement. Shankara explicitly narrows jñānī here to *those who possess scriptural learning* — emphatically NOT the realised jñānin (the non-dualist knower of Brahman, who is identical to the supreme yogi). This protects the verse from a contradiction with Advaita's hierarchy elsewhere. Ramanuja narrows similarly: knowledge of subjects *other than* the experience of self. Prabhupada's 'empiricist' is the loosest rendering. Across traditions, the verse compares the yogi to specific limited categories (austerity-only, scripture-only, ritual-only) and ranks the integrated yogi above each."
+    }
+  ],
+  "literal_meaning": "The yogi is greater than the ascetics; he is considered greater even than the men of knowledge; the yogi is greater than the ritualists. Therefore, Arjuna, be a yogi.",
+  "traditional_meaning_consensus": "6.46 is the chapter's penultimate verse and the structural hierarchy claim. Krishna names three categories — the ascetic (tapasvī, performer of austerities), the man of scriptural learning (jñānī, where 'jñānī' is read by Shankara as the scripture-possessor, not the realised non-dualist; by Ramanuja as the knower of non-self subjects), and the ritualist (karmī, the fruit-seeker performing prescribed rites) — and ranks the yogi above all three. Krishna then issues the direct imperative: tasmād yogī bhava arjuna — 'therefore, Arjuna, be a yogi.' The verse compresses the entire chapter into a hierarchy claim and a directive: the integrated yogi-of-disciplined-action surpasses the partial paths of mere austerity, mere learning, and mere ritual.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

@@ -1,0 +1,49 @@
+{
+  "id": "BG 9.11",
+  "chapter": 9,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the deluded. *avajānanti māṁ mūḍhā mānuṣīṁ tanum āśritam* — fools disregard him, dwelling in human form; not knowing his higher state as great Lord of beings. This is the chapter's strongest engineering analog. The deluded engineer disregards a senior in plain dress — no title, no theatre, no speaker-tour, no lanyard. Depth sits present; form looks ordinary; form gates the recognition. The verse names a structural failure: when recognition runs on surface signals, substrate gets missed. Krishna's full claim about himself as *bhūta-maheśvara* — great Lord of beings — is the metaphysical reach the analog does not borrow. The recognition-by-form-versus-recognition-by-substance shape is precisely what the verse names and precisely what holds in engineering rooms.",
+    "concrete_scenario": "Ana is two years out of school, at her first company off-site. Carlos — the principal she has heard about for a year — turns out to be a quiet man in a faded grey hoodie at the corner of the breakfast table, eating oatmeal alone. Ana settles two tables away with three mid-career engineers who dress sharper, talk louder, drop conference names — KubeCon, Strange Loop, QCon. The next session is a design-review for a Postgres replication overhaul. One of the loud three argues at length against the replication design. He has not noticed Carlos in the back corner. Carlos, in fact, was the principal author of that design six years prior. Carlos waits through the argument, raises one finger, asks a single operational question — what happens to in-flight transactions during the planned cutover when latency to the replica spikes past the secondary's commit threshold — and the room reorients in ninety seconds. Ana watches the recognition-failure repair itself in real time. She had been reading seniority off conference name-drops, off voice volume, off the cut of a button-down. The substrate had been across the room in oatmeal silence. The verse's reach — *bhūta-maheśvara*, great Lord of beings — is not what the analog borrows. The borrowed shape — surface-signal recognition misses substrate present in plain form — held in the room exactly.",
+    "falsifiability": "This reading fails if applied as 'all plain-dressed engineers ARE depths to be respected'. They are not. Plain dress alone is not evidence of substrate-knowledge. The verse names a specific failure: surface-signal recognition misses substrate when substrate is in fact present in plain form. The verse does not endorse the inverse — that plain form guarantees substrate. The borrowed analog must preserve directionality: form-driven dismissal misses substrate-when-present; it does not promise substrate-where-form-is-plain.",
+    "counter_example": "When the plain-dressed engineer at the table is in fact junior — no substrate behind the plain form — 9.11 does not say to recognize them as senior. The verse names a recognition-failure on present substrate, not a recognition-failure that creates substrate where none exists. Both errors are real; 9.11 names the first.",
+    "implication": "Audit the next moment you dismiss someone because their form looks ordinary — quiet voice, casual dress, low title, no public speaking record. Did the dismissal run on form or on substance? If on form, the verse names the recognition-failure you are inside.",
+    "quotable_line": "Surface-signal recognition misses substrate when it is present in plain form — the deluded disregard the human form.",
+    "tags": [
+      "team-culture",
+      "system-recognition",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.11 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer operates at narrow operational scope — the chapter's strongest engineering analog (deluded disregard the senior in plain dress). Confidence MEDIUM, stretched=false. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "5.5 lex 0.474"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Lex diversity raised by varying nouns; concrete_scenario expanded with named conferences (KubeCon, Strange Loop, QCon) and concrete artifacts (Postgres replication, commit threshold) to anchor the central image of plain-form-with-substrate.",
+      "failing_gates_before": [
+        "5.5 lex 0.474"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

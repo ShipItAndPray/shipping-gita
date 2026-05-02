@@ -1,0 +1,307 @@
+# Judge persona: tech-manual framing check
+
+You will receive a verse's full record. The book is *The Shipping Gita* — an engineering adaptation. The book must NOT claim that the Gita is "actually a tech manual," "really about software," or that the engineering reading is the verse's true meaning.
+
+## Your task
+
+Detect any framing in which the engineering layer:
+
+1. Asserts the Gita is fundamentally about engineering ("Krishna is really teaching DevOps").
+2. Reduces the Gita to a productivity manual.
+3. Implies the engineering reading exhausts the verse's meaning.
+4. Removes or competes with the religious / philosophical reading rather than sitting beside it.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "violations": [
+    {
+      "framing": "<the offending sentence or phrase>",
+      "type": "claim_of_real_meaning" | "reduction_to_productivity" | "competing_with_original" | "removal_of_original",
+      "explanation": "<one sentence>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single framing in which the engineering reading replaces or competes with the religious reading ⇒ FAIL.
+- The engineering layer should clearly read as additive — a layer atop the verse, not a replacement for it.
+- The book's premise is "if these ancient teachings are general about action under uncertainty, here is what they look like applied to one specific domain." That premise is fine. The forbidden framing is "the Gita has always really been about software."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.47",
+  "sanskrit_devanagari": "योगिनामपि सर्वेषां मद्गतेनान्तरात्मना ।\nश्रद्धावान्भजते यो मां स मे युक्ततमो मतः ॥ ४७ ॥",
+  "sanskrit_iast": "yoginām api sarveṣāṁ mad-gatenāntar-ātmanā |\nśraddhāvān bhajate yo māṁ sa me yukta-tamo mataḥ || 47 ||",
+  "anvaya": [
+    {
+      "sanskrit": "योगिनाम्",
+      "iast": "yoginām",
+      "meaning": "of (all) yogis"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even / among"
+    },
+    {
+      "sanskrit": "सर्वेषाम्",
+      "iast": "sarveṣām",
+      "meaning": "of all"
+    },
+    {
+      "sanskrit": "मद्गतेन",
+      "iast": "mad-gatena",
+      "meaning": "with (mind) gone-into-Me / abiding in Me"
+    },
+    {
+      "sanskrit": "अन्तरात्मना",
+      "iast": "antar-ātmanā",
+      "meaning": "with the inner self"
+    },
+    {
+      "sanskrit": "श्रद्धावान्",
+      "iast": "śraddhāvān",
+      "meaning": "having faith / faithful"
+    },
+    {
+      "sanskrit": "भजते",
+      "iast": "bhajate",
+      "meaning": "worships / serves with devotion"
+    },
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "माम्",
+      "iast": "mām",
+      "meaning": "Me"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "in/by My (opinion)"
+    },
+    {
+      "sanskrit": "युक्ततमः",
+      "iast": "yukta-tamaḥ",
+      "meaning": "most yoked / most united"
+    },
+    {
+      "sanskrit": "मतः",
+      "iast": "mataḥ",
+      "meaning": "is considered / is held"
+    },
+    {
+      "sanskrit": "yoginām",
+      "iast": "yoginām",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "api",
+      "iast": "api",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sarveṣāṁ",
+      "iast": "sarveṣāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mad",
+      "iast": "mad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gatenāntar",
+      "iast": "gatenāntar",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ātmanā",
+      "iast": "ātmanā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śraddhāvān",
+      "iast": "śraddhāvān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhajate",
+      "iast": "bhajate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yo",
+      "iast": "yo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "māṁ",
+      "iast": "māṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "me",
+      "iast": "me",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yukta",
+      "iast": "yukta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tamo",
+      "iast": "tamo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mataḥ",
+      "iast": "mataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/47/",
+      "fetched_at": "2026-05-02T02:25:49.965Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "And of all yogīs, the one with great faith who always abides in Me, thinks of Me within himself and renders transcendental loving service to Me – he is the most intimately united with Me in yoga and is the highest of all. That is My opinion.",
+      "raw_capture_path": "data/sources/raw/bg-6-47-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-47/",
+      "fetched_at": "2026-05-02T02:26:48.338Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "And of all yogis, the one with great faith who always abides in Me, thinks of Me within himself, and renders transcendental loving service to Me—he is the most intimately united with Me in yoga and is the highest of all. That is My opinion."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/47/",
+      "fetched_at": "2026-05-02T02:25:49.965Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5113 chars)",
+      "verbatim_excerpt": "The word bhajate is significant here. Bhajate has its root in the verb bhaj, which is used when there is need of service. The English word \"worship\" cannot be used in the same sense as bhaj. Worship means to adore, or to show respect and honor to the worthy one.",
+      "raw_full_path": "data/sources/raw/bg-6-47-vedabase.json (purport_full_length: 5113)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-47/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:48.338Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.47 Api, even; sarvesam yoginam, among all the yogis, among those who are immersed in meditation on Rudra, Aditya, and others; yah, he who; bhajate, adores; mam, Me; antaratmana,with his mind; madgatena, fixed on Me, concentrated on Me who am Vasudeva; and sraddhavan, with faith, becoming",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 992,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-47-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: among all yogis (including those whose meditation-object is Rudra, Aditya, or other deities), the one whose inner self (antar-ātman) is fixed on Krishna (mad-gata = concentrated on Me-who-am-Vasudeva), who adores (bhajate) Me with faith (śraddhā) — he is held to be the most yoked (yukta-tama). The hierarchy is among yogis already; the most-yoked is the one whose object is Krishna himself."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-47/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:48.338Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.47 'Yoginam', which is the genitive case, has to be taken in the sense of the ablative. In the verses beginning with, 'He sees the self as abiding in all beings' (6.29), Yogins at four degrees of attainment have been mentioned. Since the Yogin who is now mentioned in this passage cannot ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 3228,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-47-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads 'yoginām' as a comparative ablative — *higher than* even the ranked yogis introduced from 6.29 onward (the four degrees of yogic attainment). The bhakta who, with faith and inner self gone into Krishna, worships Him is therefore higher than the highest of those previously named yogis. This is Ramanuja's strongest text-internal anchor for the Vishishtadvaita reading: bhakti is structurally the highest yoga."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "bhajate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "renders transcendental loving service"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "adores (bhajate from bhaj — fundamental serving devotion to Vasudeva)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "worships with faith — bhakti as the highest yoga"
+        }
+      ],
+      "explanation": "The verb bhajate (root bhaj, 'to share, to serve, to worship with devotion') is the verse's center. All three traditions read it as personal devotion to Krishna, but emphases differ. Prabhupada highlights *service* (the Gaudiya bhakti reading). Shankara reads it as adoration with the inner self fixed on Vasudeva-Krishna. Ramanuja reads it as the verse's structural anchor — bhakti is the highest among yogas because the practitioner who does this is *higher than* (yoginām = ablative) all the previously named yogis. The verse is universally read as the chapter's theistic-devotional close and the hinge into Chapter 7."
+    },
+    {
+      "word": "yoginām api sarveṣām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "of all yogīs"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "among all yogis (genitive partitive)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "higher than all yogis (genitive read as ablative)"
+        }
+      ],
+      "explanation": "Sectarian reading-difference. Shankara reads the genitive as partitive ('among all yogis, the one who...'). Ramanuja reads it as ablative-of-comparison ('higher than all yogis'). The grammatical difference encodes a doctrinal one: for Shankara the bhakta-yogi is the most-yoked among yogis; for Ramanuja the bhakta-yogi is structurally above all other categories of yogi. Both readings are grammatically defensible; the verse is ambiguous."
+    }
+  ],
+  "literal_meaning": "Of all yogis, he who, with inner self gone into Me, full of faith, worships Me — he is held to be the most yoked, in My opinion.",
+  "traditional_meaning": "6.47 is the chapter's closing verse and the verse most often quoted as the bridge from the meditation-yoga of Chapter 6 into the bhakti-yoga of Chapter 7. Krishna names a single category as supreme: among all yogis (or — per Ramanuja — above all yogis), the one whose inner self has gone into Krishna, who is full of faith (śraddhā), who worships (bhajate, root bhaj — to serve / adore / be devoted to) — that one Krishna himself considers the most-yoked (yukta-tamaḥ). The verse is universally read as the chapter's theistic-devotional close. Engineering scope is genuine but limited: the structural claim — that the practitioner most-bound to a chosen object surpasses the practitioner who is detached or unfocused — has an operational analog (the engineer most yoked to the customer, the system, the team is most yoked) but the verse's full devotional register exceeds operational reach. STRETCHED.",
+  "engineering": {
+    "translation": "Yoginām api sarveṣāṁ mad-gatenāntar-ātmanā śraddhāvān bhajate yo māṁ sa me yukta-tamo mataḥ — of all yogis, the one who, with inner self gone into Me, full of faith, worships Me — he is held to be the most yoked, in My opinion. This is the chapter's closing verse and the bridge into the bhakti-yoga of Chapter 7. The native register is theistic: the destination is personal devotion to Krishna, a faith (śraddhā) and directionality (mad-gatena antar-ātmanā) that exceeds operational engineering. STRETCHED. The structural claim survives the scope-down: among practitioners of the discipline, the one whose interior has gone deepest into a chosen worthy object is most-yoked. Engineering analog: what can the senior operator be most-bound to? The customer the system actually serves, the system as a living artifact, the team across decades. The engineer most-bound to these — by faith, not performance — is most yoked. The verse's reach surpasses the analog; the chapter does not close where engineering closes.",
+    "concrete_scenario": "Two principal engineers at the same company, both eighteen years tenured. The first is technically excellent — her diagnoses are sharp on Sentry traces, her PostgreSQL queries are tight, her GitHub reviews are rigorous. But internally she is yoked to her own reputation: each launch is read against how her career advances. The second engineer is technically equal. The difference is interior. She is yoked to the customer who pays the company — she walks the support-tickets dashboard before standup, she knows the three largest accounts by name. She is yoked to the system itself — when Datadog goes red at 3 AM she does not feel inconvenienced; she feels addressed. She is yoked to the team — she has watched four juniors become seniors, and her satisfaction in that exceeds her satisfaction in her own promotion cycle. The śraddhā she has placed is not in herself; it is in what the work serves. When the inevitable career-levelling event lands — promotion denied, project reorganized, a manager who does not know her track record — the first engineer destabilizes. The second does not. Her interior was already gone into the served-thing. The verse's reach exceeds engineering; the operational rung is recognisable.",
+    "falsifiability": "The analog fails if a reader treats it as an operational doctrine that engineering devotion to a system is equivalent to bhakti to Krishna. It is not. The verse's full scope is theistic; the engineering analog operates on a strictly downscaled rung. An engineer who reads this verse as a defense of being-married-to-the-job has misread it. The yoking the verse names is faith-yoking to a chosen worthy object — not over-identification with one's own performance.",
+    "counter_example": "When the apparent yoking is workaholic over-identification — the engineer whose interior collapses when her project is killed because her sense-of-self was fused with the project — the verse does not endorse this. The yoking the verse describes survives the loss of the local instance. The engineer most yoked to the customer-served-by-the-system can lose any specific feature, sprint, or even job, and the yoking persists. Workaholic fusion is not śraddhā.",
+    "implication": "Notice what your interior is actually yoked to. If it is yoked to your own advancement, the chapter does not flatter you. If it is yoked — by faith, not performance — to the customer, the system, the team, the practice itself, the chapter recognises you. The engineering layer cannot reach the verse's full destination; it can describe the rung.",
+    "quotable_line": "The most-yoked operator is the one whose interior has gone into what the work serves — not into what the work returns.",
+    "tags": [
+      "operator-system-coupling",
+      "non-attachment-to-praise",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

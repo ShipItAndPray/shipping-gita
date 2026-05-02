@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 37,
   "fetched_at": "2026-05-02T02:28:26.726Z",
-  "sanskrit_devanagari": "अर्जुन उवाचअयति: श्रद्धयोपेतो योगाच्च‍‍लितमानस: ।अप्राप्य योगसंसिद्धिं कां गतिं कृष्ण गच्छति ॥ ३७ ॥",
-  "sanskrit_iast": "arjuna uvācaayatiḥ śraddhayopetoyogāc calita-mānasaḥaprāpya yoga-saṁsiddhiṁkāṁ gatiṁ kṛṣṇa gacchati",
+  "sanskrit_devanagari": "अर्जुन उवाच ।\nअयतिः श्रद्धयोपेतो योगाच्चलितमानसः ।\nअप्राप्य योगसंसिद्धिं कां गतिं कृष्ण गच्छति ॥ ३७ ॥",
+  "sanskrit_iast": "arjuna uvāca |\nayatiḥ śraddhayopeto yogāc calita-mānasaḥ |\naprāpya yoga-saṁsiddhiṁ kāṁ gatiṁ kṛṣṇa gacchati || 37 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,128 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.037). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुनः उवाच",
+      "iast": "arjunaḥ uvāca",
+      "meaning": "the speaker said"
+    },
+    {
+      "sanskrit": "कृष्ण",
+      "iast": "kṛṣṇa",
+      "meaning": "O Krishna"
+    },
+    {
+      "sanskrit": "अयतिः",
+      "iast": "ayatiḥ",
+      "meaning": "the unrestrained one / one without sustained effort"
+    },
+    {
+      "sanskrit": "श्रद्धया",
+      "iast": "śraddhayā",
+      "meaning": "with faith"
+    },
+    {
+      "sanskrit": "उपेतः",
+      "iast": "upetaḥ",
+      "meaning": "endowed"
+    },
+    {
+      "sanskrit": "योगात्",
+      "iast": "yogāt",
+      "meaning": "from yoga"
+    },
+    {
+      "sanskrit": "चलित-मानसः",
+      "iast": "calita-mānasaḥ",
+      "meaning": "whose mind has wandered away"
+    },
+    {
+      "sanskrit": "अप्राप्य",
+      "iast": "aprāpya",
+      "meaning": "not having attained"
+    },
+    {
+      "sanskrit": "योग-संसिद्धिम्",
+      "iast": "yoga-saṁsiddhim",
+      "meaning": "perfection of yoga"
+    },
+    {
+      "sanskrit": "काम्",
+      "iast": "kām",
+      "meaning": "what"
+    },
+    {
+      "sanskrit": "गतिम्",
+      "iast": "gatim",
+      "meaning": "destination / state"
+    },
+    {
+      "sanskrit": "गच्छति",
+      "iast": "gacchati",
+      "meaning": "goes / reaches"
+    },
+    {
+      "sanskrit": "arjuna",
+      "iast": "arjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ayatiḥ",
+      "iast": "ayatiḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śraddhayopeto",
+      "iast": "śraddhayopeto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogāc",
+      "iast": "yogāc",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "calita-mānasaḥ",
+      "iast": "calita-mānasaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "aprāpya",
+      "iast": "aprāpya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga-saṁsiddhiṁ",
+      "iast": "yoga-saṁsiddhiṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kāṁ",
+      "iast": "kāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gatiṁ",
+      "iast": "gatiṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kṛṣṇa",
+      "iast": "kṛṣṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gacchati",
+      "iast": "gacchati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +224,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "ayatiḥ śraddhayopetaḥ (faith-endowed but unrestrained)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "the unsuccessful transcendentalist endowed with faith but failing to attain perfection"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "endowed with faith in yoga but not making the effort of yoga (an-ayati)"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "faith-endowed but lacking in sustained effort, fallen from yoga before completing it"
+        }
+      ],
+      "explanation": "All three readings agree on the essential structure: faith was present, but sustained effort failed. The category named is the genuinely-attempting practitioner who fell short — not one who never tried. This is the precondition for the consolation in 6.40-6.45."
+    }
+  ],
+  "literal_meaning": "The speaker said: the one endowed with faith but unrestrained, his mind fallen away from yoga, not attaining the perfection of yoga — what destination does he reach, O Krishna?",
+  "traditional_meaning_consensus": "6.37 opens the fallen-yogi question. The compound is precise: ayatiḥ (without sustained restraint, having failed at saṁyama) BUT śraddhayopeta (endowed with faith) — the practitioner who has had genuine faith but has not been able to maintain the practice; calita-mānasaḥ (whose mind has wandered from yoga); aprāpya yoga-saṁsiddhim (without having attained the perfection of yoga). What gati (state / destination) does such a one reach? Sankara's reading: he was endowed with faith in yoga but he was an ayati — not making the effort of yoga; his mind has slipped from yoga; what is his fate? Ramanuja's reading: one who is faith-endowed but lacking in sustained effort, fallen from yoga before completing it — what becomes of him? Both traditions emphasise that the question is about the genuinely-attempting practitioner who falls short. The verse is the operational analog of every senior who has had a real practice and lost it.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

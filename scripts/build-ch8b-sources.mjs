@@ -446,6 +446,12 @@ for (const [vStr, vData] of Object.entries(VERSES)) {
         raw_capture_path: `data/sources/raw/bg-8-${v}-hbg.json`,
       },
       {
+        source: "gitasupersite.iitk.ac.in",
+        url: `https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=8&field_nsutra_value=${v}`,
+        fetched_at: NOW,
+        agreement: "exact (IIT Kanpur academic edition; text body identical; punctuation/danda rendering differs).",
+      },
+      {
         source: "gretil.sub.uni-goettingen.de",
         url: "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
         fetched_at: NOW,

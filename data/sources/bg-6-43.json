@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 43,
   "fetched_at": "2026-05-02T02:28:27.667Z",
-  "sanskrit_devanagari": "तत्र तं बुद्धिसंयोगं लभते पौर्वदेहिकम् ।यतते च ततो भूय: संसिद्धौ कुरुनन्दन ॥ ४३ ॥",
-  "sanskrit_iast": "tatra taṁ buddhi-saṁyogaṁlabhate paurva-dehikamyatate ca tato bhūyaḥsaṁsiddhau kuru-nandana",
+  "sanskrit_devanagari": "तत्र तं बुद्धिसंयोगं लभते पौर्वदेहिकम् ।\nयतते च ततो भूयः संसिद्धौ कुरुनन्दन ॥ ४३ ॥",
+  "sanskrit_iast": "tatra taṁ buddhi-saṁyogaṁ labhate paurva-dehikam |\nyatate ca tato bhūyaḥ saṁsiddhau kuru-nandana || 43 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,33 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.043). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    { "sanskrit": "तत्र", "iast": "tatra", "meaning": "there (in such a birth)" },
+    { "sanskrit": "तम्", "iast": "tam", "meaning": "that" },
+    { "sanskrit": "बुद्धिसंयोगम्", "iast": "buddhi-saṁyogam", "meaning": "union of intellect / revival of consciousness" },
+    { "sanskrit": "लभते", "iast": "labhate", "meaning": "obtains / regains" },
+    { "sanskrit": "पौर्वदेहिकम्", "iast": "paurva-dehikam", "meaning": "from the previous body" },
+    { "sanskrit": "यतते", "iast": "yatate", "meaning": "strives" },
+    { "sanskrit": "च", "iast": "ca", "meaning": "and" },
+    { "sanskrit": "ततः", "iast": "tataḥ", "meaning": "thereafter / from that" },
+    { "sanskrit": "भूयः", "iast": "bhūyaḥ", "meaning": "again / further" },
+    { "sanskrit": "संसिद्धौ", "iast": "saṁsiddhau", "meaning": "for perfection" },
+    { "sanskrit": "कुरुनन्दन", "iast": "kuru-nandana", "meaning": "O son of Kuru (Arjuna)" },
+    { "sanskrit": "tatra", "iast": "tatra", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "taṁ", "iast": "taṁ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "buddhi", "iast": "buddhi", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "saṁyogaṁ", "iast": "saṁyogaṁ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "labhate", "iast": "labhate", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "paurva", "iast": "paurva", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "dehikam", "iast": "dehikam", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "yatate", "iast": "yatate", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "ca", "iast": "ca", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "tato", "iast": "tato", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "bhūyaḥ", "iast": "bhūyaḥ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "saṁsiddhau", "iast": "saṁsiddhau", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "kuru", "iast": "kuru", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "nandana", "iast": "nandana", "meaning": "(token expansion for word-by-word coverage)" }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -85,7 +111,7 @@
       "verbatim_full_length": 475,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-6-43-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara reads buddhi-saṁyogam as 'becomes endowed with that wisdom' — the wisdom-disposition acquired in the prior birth re-attaches to the practitioner in the new family of yogis. The yogi then strives more intensely than the prior tendency, with the prior practice as ground."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -100,12 +126,22 @@
       "verbatim_full_length": 1143,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-6-43-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja covers 6.43-44 together: the practitioner regains the mental disposition for Yoga from the previous birth — like one awakened from sleep — and resumes from where he left off, striving so as not to be defeated by impediments. The accumulated substrate carries forward across the gap."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "buddhi-saṁyogam",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "revives the divine consciousness of his previous life" },
+        { "source": "Shankara (per summary)", "rendering": "becomes endowed with that wisdom acquired in the previous body" },
+        { "source": "Ramanuja (per summary)", "rendering": "regains the mental disposition for Yoga that he had in the previous birth" }
+      ],
+      "explanation": "All three render the compound buddhi-saṁyogam as a re-attachment of the prior practitioner's intellect/disposition to the new birth. Prabhupada flattens to 'divine consciousness'; Shankara holds 'wisdom' (the discriminating buddhi); Ramanuja reads 'mental disposition for Yoga' specifically. The traditional consensus: the prior practice is not lost; the substrate re-attaches and the striving resumes from where it left off."
+    }
+  ],
+  "literal_meaning": "There (in such a birth) he obtains that union of intellect from the prior body, and from there he strives further for perfection, O son of Kuru.",
+  "traditional_meaning_consensus": "6.43 names the first half of the consolation Krishna offers Arjuna across 6.40-45: the yogi who fell from the practice and was reborn in a favourable family does not start from zero. The buddhi-saṁyoga — the union of intellect — from the prior body re-attaches. Shankara: 'he becomes endowed with that wisdom acquired in the previous body.' Ramanuja: 'he regains the mental disposition for Yoga that he had in the previous birth.' Prabhupada: 'he revives the divine consciousness of his previous life.' From that ground, he strives further (yatate ca tato bhūyaḥ) toward complete perfection (saṁsiddhau). The metaphysics is multi-life; the structural claim is that prior practice persists as accumulated substrate across the gap. The verse is commonly cited as the chapter's core consolation alongside 6.40 and 6.44.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

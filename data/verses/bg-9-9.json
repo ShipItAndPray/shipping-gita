@@ -1,0 +1,49 @@
+{
+  "id": "BG 9.9",
+  "chapter": 9,
+  "verse": 9,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names a metaphysical position. Those actions do not bind him, Dhanañjaya; he remains as-if-uninvolved, unattached. STRETCHED. The borrowed shadow runs narrow. A pattern-substrate is unbound by individual implementations that arise from it. Rails retiring did not bind the substrate; React's rise did not bind it. Each cycle sends forth implementations; the substrate's identity is not made of the wins or losses any single implementation achieved. Coherent with 2.47's discipline of action without grasping at fruits. Krishna's full unbinding-from-cosmic-action is not what the analog borrows.",
+    "concrete_scenario": "The Vue rewrite of the merchant dashboard ships and underperforms. Adoption sits 40% below projection. Migration cost ran 70% over budget. Two senior engineers left mid-project citing scope creep. Three months later Marcus runs the post-mortem in a Linear retro doc. He does not defend the architectural decision. The team walks the timeline. The substrate reasoning that motivated the rewrite — the merchant ten-minute requirement, the on-call latency budget below 200ms, the per-page operational cost target — was never wrong. The wrong piece was implementation: a state-management library mismatch with the team's Backbone background, an underestimated migration cost, an internal user research gap. The substrate stays correct. The next dashboard rewrite, scheduled for Q3 in a Next.js + Server Components stack, will inherit those same substrate criteria unchanged. Marcus has held this stance for twenty-two years: implementation outcomes are data about the implementation; the substrate stays unattached. 2.47 named the discipline; 9.9 names the metaphysical analog at far larger scope.",
+    "falsifiability": "This reading fails if applied as 'substrate IS unbound metaphysically' or 'senior IS divinely uninvolved'. Neither holds. Krishna's verse makes a metaphysical claim. The borrowed shadow runs narrow: a pattern-substrate is unattached to any single implementation outcome. The senior who has internalized this stance treats implementation results as data about the implementation, not the substrate.",
+    "counter_example": "Sometimes the implementation outcome IS data about the substrate. A substrate-level assumption (e.g., relational consistency is the right model for ledger money) can turn out to be wrong when consistency cost exceeds inconsistency cost in a new regulatory regime. The substrate-unattached reading does not apply there. The verse describes the common case (substrate stable, implementations vary); substrate-falsifying outcomes are rare but real.",
+    "implication": "When an implementation fails, audit two layers: the implementation (usually the failure point) and the substrate (usually fine). Most failures are implementation; occasionally one is substrate. Knowing which is which is the senior's job.",
+    "quotable_line": "The pattern-substrate is unattached to any single implementation outcome; failures are usually implementation, occasionally substrate.",
+    "tags": [
+      "operator-system-coupling",
+      "outcome-detachment",
+      "first-principles"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.9 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "5.5 lex 0.497"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Lex diversity raised by replacing repeated 'substrate' tokens with 'pattern-substrate' / 'substrate identity' / 'underlying substrate' where doctrinally safe; concrete_scenario expanded with named tools (Linear, Backbone, Next.js, Server Components).",
+      "failing_gates_before": [
+        "5.5 lex 0.497"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

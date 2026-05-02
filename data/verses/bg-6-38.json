@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.38",
+  "chapter": 6,
+  "verse": 38,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The fear sharpened. The fallen yogi is ubhaya-vibhraṣṭa — fallen from both: from the worldly attainment renounced for the practice, AND from the yogic attainment the practice failed to reach. The simile chinnābhram iva — like a torn cloud — is precise. A cloud severed from the larger cloud-mass has lost its source and has not yet reached its destination (becoming rain); it simply dissipates. Apratiṣṭha — without support, without firm ground. Vimūḍha — deluded — on the path of brahman. Per Sankara: fallen from karma-mārga (because abandoned for yoga) AND from yoga-mārga (because yoga not completed). Per Ramanuja: doubly fallen, from the practice attempted AND from the worldly conduct given up. The simile is famous and is itself the answer the next teaching (6.40) will refute. Engineering analog: the engineer who renounced the safe career-path for the deeper engineering practice and then fell from that practice — fearing she has neither.",
+    "concrete_scenario": "An engineer turned down a comfortable senior-role offer at a stable company in year five — three-day-a-week remote, generous total comp, predictable scope — to join a small infrastructure team where the practice was deeper and the survival risk higher. For two years she built distributed-systems experience around Kubernetes, etcd internals, and Postgres replication patterns the comfortable role would never have surfaced. Then the small company began drifting; the infrastructure mandate narrowed; her unique expertise calcified into maintenance work — operating an incident queue, patching the deploy pipeline, watching the Datadog dashboard for the same alert. She is now considering a return to a senior role — and the senior roles, she discovers, no longer want her infrastructure-focused profile. They want generalists who have stayed close to product. She has lost the comfortable role (because she renounced it) AND she has not reached the depth-of-practice the harder team was supposed to confer (because the conditions changed). Apratiṣṭha — no firm standing on either side. The fear is the cloud-simile: dissipation, not arrival. This is the verse's distress, scoped to engineering. The next verses concern whether dissipation actually occurs.",
+    "falsifiability": "The analog fails if a reader uses 6.38 to justify never renouncing — 'do not give up the comfortable path because you might fall from both.' That inverts the verse. The verse describes the fear, not the recommendation. The teacher's response in 6.40-6.42 specifically refutes the dissipation. An engineer who reads 6.38 as 'play it safe' has read it backwards.",
+    "counter_example": "When the engineer's apparent ubhaya-vibhraṣṭa is in fact ego-mourning — grief about prestige rather than about practice-loss — the verse does not name that. The torn-cloud simile names dissipation, not status anxiety. If the deeper practice did happen and did leave imprints (and 6.40 will say it did), the cloud was not actually torn; it was rain that has not yet fallen.",
+    "implication": "Notice when your fear is the cloud-simile and notice that the chapter does not endorse the simile. The next verse will refute it. The doubled-loss may be the way it feels; it is not the way the chapter says it is.",
+    "quotable_line": "The torn cloud is the fear, not the verdict. The next verse will refute the simile.",
+    "tags": [
+      "wrong-renunciation",
+      "deliberate-action",
+      "long-term-thinking"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:03.211Z",
+      "mutation": "v0 generation: BG 6.38 engineering layer drafted from triangulated source pack per chapter-6 thesis. Anchored on the chapter thread the verse anchors in (struggle-and-consolation arc 6.33-6.47). Per IP rules: ≤300 char fair-use. Per BG 4.34: humility. Per anti-hallucination: no fabricated traditions; Sankara/Ramanuja paraphrased per source pack. Tools: named real engineering artifacts (Postgres, Kafka, Datadog, GitHub, Honeycomb, Kubernetes etc.). Falsifiability and counter-example explicitly distinguish the verse-claim from common misreads.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

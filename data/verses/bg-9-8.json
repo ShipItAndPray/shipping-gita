@@ -1,0 +1,51 @@
+{
+  "id": "BG 9.8",
+  "chapter": 9,
+  "verse": 8,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna deepens 9.7. Presiding over his own prakṛti, he sends forth this entire multitude of beings repeatedly, helpless under prakṛti's sway. Three layers: the Lord presides; prakṛti operates; the beings are carried. STRETCHED. The borrowed shadow runs narrow. A senior presides over the substrate of patterns. The patterns themselves drive each implementation cycle. Engineers building the implementations are, structurally, carried by patterns they did not pick. Nobody on a payments team in 2026 chose the request-response paradigm or the relational-consistency paradigm; both were inherited. Krishna's full reach (cosmic helplessness of beings) is not what this borrows. The narrow shadow — engineers build inside patterns they inherited — does carry.",
+    "concrete_scenario": "Three newer engineers at the payments company are building a new merchant-onboarding service. They have picked Postgres for the data layer, gRPC for service-to-service calls, Kubernetes for deploys, Datadog for metrics, OpenTelemetry for traces, a microservice boundary that follows the prevailing domain-driven-design playbook. They consider these decisions theirs. Carlos sits in on the design review and recognizes none of those decisions as real choices. The team inherited every one. Relational consistency for money: an inherited paradigm. RPC for service-to-service: inherited. Container orchestration: inherited. Time-series metrics: inherited. Carlos does not interrupt. The team will discover the inheritance themselves over the next two years, when the second-round redesign forces them to articulate why they are keeping each decision. The verse's three-layer structure — preside, send forth, carried — runs in this room at narrow scope. Carlos presides; the patterns send forth; the engineers are carried. The cosmic version is not the borrowed claim.",
+    "falsifiability": "This reading fails if 'helpless' gets read as a moral or motivational slur. It is neither. The verse names a structural pattern: beings inherit what prakṛti sends. The borrowed shadow operates at the same structural level — engineers build inside patterns they inherited. Description, not judgment.",
+    "counter_example": "Some engineers do shape the substrate of patterns. A real architect designs on first principles and sets the patterns the rest of the team will work inside. That role is rare; pattern-inheritance is the common case. The verse names the common case, not the rare one.",
+    "implication": "Audit your last 'free' technical pick. How much of the decision was inheritance from the current cycle's patterns? Probably most of it. The verse describes this without blaming you.",
+    "quotable_line": "Engineers build inside patterns they inherited; the decisions that felt free were mostly the patterns the cycle was already sending forth.",
+    "tags": [
+      "entropy",
+      "engineering-pathology",
+      "tech-debt"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.8 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "2.3 anvaya/iast coverage 79%",
+        "5.5 lex 0.488"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Anvaya expanded to 13 entries (split punaḥ-punaḥ, bhūta-grāmam). Concrete_scenario expanded with named tools (Postgres, gRPC, Kubernetes, Datadog, OpenTelemetry); lex diversity raised by varying nouns.",
+      "failing_gates_before": [
+        "2.3 anvaya/iast coverage 79%",
+        "5.5 lex 0.488"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

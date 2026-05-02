@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.45",
+  "chapter": 6,
+  "verse": 45,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Prayatnād yatamānas tu yogī saṁśuddha-kilbiṣaḥ — the yogi striving with effort, purified of contamination, perfected through many births, then reaches the supreme goal. This closes the consolation-arc that began at 6.37. Shankara: through the gathering of tendencies across many births. Ramanuja: through accumulated merit collected over lifetimes the earnestly-striving yogin reaches the supreme state, even though he had once gone astray. The metaphysical reach of aneka-janma-saṁsiddhaḥ exceeds engineering. STRETCHED. The honest single-life-substrate analog: the senior engineer's apparent effortlessness in 2026 was forged across compounded years from 2008 — the migrations she shipped, the incidents she chaired, the codebases she rewrote, the architectural decisions she rolled back. The clean mental model she walks into design review with did not arrive last quarter; it accumulated since 2008. The verse names a destination past where any career travels; the operational rung — perfection at senior level is a function of decade-scale practice, not innate ability — is reachable.",
+    "concrete_scenario": "It is 2026. A staff engineer at a payments company walks into the architecture review for the new ledger-service migration. She is forty-three. She listens for thirty minutes without speaking. Then she names the failure mode three of the seven proposals share — a write-amplification pattern under shard-rebalancing that will surface at fourteen months under specific load profiles, not at launch. She has seen the shape before — at her 2014 startup, at the 2018 fintech, in a 2021 incident she co-owned. The team treats her as if she has read the proposal more carefully than they have. She has not. She has simply ranged across eighteen years of Postgres, DynamoDB, Cassandra, Spanner, and CockroachDB, and the migration patterns repeat. The compounded years have produced the apparent effortlessness — which, from the inside, is not effortless: she sat with each failure across the years and refused to discharge the discomfort by externalizing it. The kilbiṣa that is being washed off, scoped operationally, is the small-grained cognitive bias each shipped failure produces — the early instinct to blame the language, the framework, the team. The decades of practice have purified the diagnosis. The verse names a destination beyond what any career reaches; the operational rung is reachable.",
+    "falsifiability": "The analog fails if a reader treats it as a guarantee that years-of-tenure produce mastery. The verse names *striving* (prayatnād yatamānaḥ) as the active term — not mere duration. An engineer who has been at the same company for eighteen years performing the same midweight backend role without ever sitting with the discomfort of failure has not earned the verse's claim. Tenure without striving does not produce saṁsiddhi.",
+    "counter_example": "When the senior's apparent mastery is actually credentialed-authority unsupported by the practice — the principal engineer who has not written meaningful code in five years and reviews PRs from political position rather than from the substrate — the verse does not endorse this state. Saṁśuddha-kilbiṣaḥ requires the kilbiṣa to have been encountered, not avoided. Mastery-by-promotion is not the verse.",
+    "implication": "Account for the years honestly. If the apparent effortlessness is masking the absence of striving, the kilbiṣa has not been washed; the substrate is hollow. Strive, fail, sit with it. That is the geometry of the verse.",
+    "quotable_line": "Senior effortlessness is the residue of decades of striving and failure encountered, not the residue of decades of avoidance.",
+    "tags": ["long-term-thinking", "deep-work", "operator-system-coupling"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T22:40:00Z",
+      "mutation": "v0 generation: BG 6.45 drafted from triangulated source pack. Per chapter-6 thesis flag (multi-life metaphysics is STRETCHED), engineering analog scoped to single-life decade-of-compounding (staff engineer at 43 with 18 years of substrate). Translation honors Shankara (gathering of tendencies across many births) and Ramanuja (accumulated merit + 'even though he had once gone astray'). The kilbiṣa-purification is mapped to the small-grained cognitive bias each shipped failure produces. Falsifiability explicitly distinguishes striving-tenure from mere-duration tenure. Counter-example flags credentialed-authority-without-substrate. Tools: Postgres, DynamoDB, Cassandra, Spanner, CockroachDB. Confidence MEDIUM.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

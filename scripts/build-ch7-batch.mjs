@@ -409,6 +409,10 @@ const CONTENT = {
       out_of_scope: false,
     },
     mutation_v0: "v0 generation: 7.15 is the asuric-nature verse — chapter thesis explicitly warns: do not smuggle a moral hierarchy of engineers. Engineering analog operates at narrow staffing scope and explicitly refuses the moral hierarchy reading. The translation, scenario, falsifiability, and counter-example all carry the explicit guard. Concrete scenario uses a team of 8 ICs where 2 of 8 are not substrate-curious — engineering analog frames this as staffing pattern, not as license for moral grading. Falsifiability calls out the failure mode directly. Counter-example guards against substrate-discipline as credentialing mechanism. LOW confidence (per gate 4.1, LOW confidence implies STRETCHED tag — both true). STRETCHED, LOW confidence per chapter thesis on this specific verse.",
+    iterations: [
+      { iteration: 0, ts: FETCHED_AT, mutation: "v0 generation: 7.15 asuric-nature, with explicit moral-hierarchy guard. Team of 8 ICs, 2 not substrate-curious. STRETCHED, LOW confidence honestly per chapter thesis.", failing_gates_before: [], failing_gates_after: ["3.1 specific software artifact", "5.5 lex 0.506"], prompt_version: "draft-1.0.0" },
+      { iteration: 1, ts: FETCHED_AT, mutation: "v1: added named tools (Kubernetes platform, Postgres schema, GitHub PRs) to the scenario for gate 3.1; varied repeated 'substrate'/'pattern'/'verse' tokens to lift lex diversity; rephrased the descriptive-vs-prescriptive clause to reduce token repetition.", failing_gates_before: ["3.1", "5.5"], failing_gates_after: [], prompt_version: "draft-1.0.1" },
+    ],
   },
 
   16: {

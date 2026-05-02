@@ -1,0 +1,367 @@
+{
+  "verse_id": "BG 6.46",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-05-02T23:05:00Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [],
+          "notes": "All four named categories preserved verbatim: tapasvī (ascetic), jñānī (man of knowledge — narrowed by Shankara explicitly to 'possessor of scriptural learning, NOT the realised non-dualist'), karmī (ritualist/fruitive worker), yogī (the yogi-of-disciplined-action). The doctrinal stake on jñānī is the one place this verse is most-often misread; the engineering layer correctly cites Shankara's narrowing and explicitly preserves it. Ramanuja's ends-attained reading is correctly attributed and not conflated with Shankara's structural reading. The closing imperative tasmād yogī bhava arjuna is preserved verbatim. The verse is HIGH confidence and not STRETCHED, which is correct — this is a structural hierarchy claim with a clean engineering analog (the integrated yogi-engineer above the partial paths). PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "The engineer who only does austerity (grind), the engineer who only does knowledge (paper-collecting), the engineer who only does ritual (standups, tickets, no architecture) — each is partial. The integrated yogi-engineer who has gone deep on each constituent and yokes them is the destination. Hierarchy claim: integration-out-of-depth is structurally above partial mastery of one constituent.",
+          "wisdom_theater_score": 0,
+          "objection": "I went looking for 'don't read papers, just ship.' The verse explicitly disqualifies that read in the falsifiability: 'the verse names *partial* paths and ranks the *integrated* yogi above each. An engineer who reads this verse as don't-read-papers has misread it. The yogi integrates; she does not abandon.' The counter-example explicitly distinguishes integration-out-of-depth from generalism-without-depth. The hierarchy is real and engineering-relevant: it predicts which senior-engineer profile actually compounds. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "Calibrate engineering performance reviews along the three axes — austerity (sustainable hours + focus discipline), knowledge (papers/decisions read AND applied), ritual (standups/reviews/on-call). Flag engineers strong on only one axis as partial. Reward engineers who integrate all three.",
+          "example_decision": "Promotion calibration meeting. Engineer A: ninety-hour weeks, p99 creeping, no architecture proposals (austerity-only). Engineer B: every conference attended, no shipped features (knowledge-only). Engineer C: every standup and PR review, no architecture, no incident ownership (ritual-only). Engineer D: sustainable hours, applied reading, owns incidents end-to-end. Promote D. The verse is unambiguous: tasmād yogī bhava.",
+          "objection": "Roadmap-actionable. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "Three-axis performance audit (austerity / knowledge / ritual) with depth-and-integration scoring. Falsifiable observation: a senior engineer should score above-baseline on all three, not 90th-percentile on one.",
+          "example_decision": "Same as 7.3.",
+          "objection": "PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "Critical: jñānī here is correctly narrowed to scripture-possessor (Shankara's reading) — NOT conflated with the realised non-dualist (the jñānī of Advaita's hierarchy elsewhere). This is the verse's sectarian flashpoint. The engineering layer cites Shankara explicitly: 'jñānī here = those who possess Vedic learning, NOT the realised non-dualist knower.' Ramanuja's ends-attained reading is correctly distinguished. The tasmād yogī bhava imperative is preserved without dilution. Coherent with 2.50 (yoga-as-skill-in-action) cross-reference. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "tapasvī, jñānī (with Shankara-narrowing), karmī, yogī all preserved with their Sanskrit form. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Local Engineer Reads Three Books, Posts About Burnout, Attends Every Standup, Declares Self the Integrated Yogi-Engineer of the Bhagavad Gita. New tech blog 'Tasmād Yogī Bhava' launches with weekly 'Be a Yogi' newsletter, sponsored by a productivity SaaS.",
+          "satire_lands": false,
+          "verdict_reason": "The satire only lands by inverting the verse's counter-example, which explicitly disqualifies the generalist-without-depth read: 'integrated *out of* depth in each constituent, not out of avoidance of all three.' The blog satire is exactly the failure mode flagged. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "the explicit three-named-categories structure (tapasvī/jñānī/karmī) preserved as three engineer-types",
+            "the imperative tasmād yogī bhava preserved as the closing instruction",
+            "Shankara's narrowing of jñānī to scripture-possessor (the verse's distinctive doctrinal flashpoint)"
+          ],
+          "verdict_reason": "Tested against 2.50 (yogaḥ karmasu kauśalam — yoga as skill-in-action; coherent but not the same hierarchy claim), 5.4-5.5 (sannyāsa and yoga lead to the same; equation but not hierarchy). The three-named-categories + imperative is 6.46-specific. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": ["three-named-categories; tasmād yogī bhava imperative"],
+          "verdict_reason": "Same as 7.6. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            { "verse_id": "BG 6.46", "confidence": 0.82, "reasoning": "Three named engineer-types (ascetic / knower / ritualist) with the integrated yogi-engineer as the fourth, closing with 'be a yogi.' The structural hierarchy and the closing imperative are 6.46-specific. Shankara's narrowing of jñānī cited verbatim." },
+            { "verse_id": "BG 2.50", "confidence": 0.06, "reasoning": "Possible because 2.50 is the yoga-as-skill-in-action verse — but the three-categories structure is unique to 6.46." },
+            { "verse_id": "BG 5.4", "confidence": 0.04, "reasoning": "Possible because 5.4 names sannyāsa and yoga as equivalent — but the hierarchy-among-three-categories structure is 6.46." }
+          ]
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            { "verse_id": "BG 6.46", "confidence": 0.82, "reasoning": "Same as 7.8." },
+            { "verse_id": "BG 2.50", "confidence": 0.06, "reasoning": "Adjacent yoga-as-skill verse." },
+            { "verse_id": "BG 5.4", "confidence": 0.04, "reasoning": "Adjacent equation verse." }
+          ]
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/distortion-test.prompt.txt",
+        "verdict_payload": { "verdict": "PASS", "issues": [] }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/distortion-test.prompt.txt",
+        "verdict_payload": { "verdict": "PASS", "issues": [] }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 6.46 holds the chapter's senior-teacher imperative register. The hierarchy claim is delivered with the structural rigor the chapter has earned across 47 verses; the imperative tasmād yogī bhava lands with weight, not exhortation. The three engineer-types are described concretely without caricature. The closing 'the chapter has been pointing here for forty-five verses' is exactly the chapter-arc reflexivity the closing register supports. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 0,
+          "specific_concerns": [],
+          "verdict_reason": "HIGH confidence, not STRETCHED. The hierarchy claim is treated with full structural weight; the three named categories are preserved doctrinally; Shankara's critical narrowing of jñānī is preserved. The 'be a yogi' imperative is held to its specific scope (integration of austerity/knowledge/ritual at depth, not generalist-without-depth). Zero trivialization. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The original meaning (yogi above ascetic/knower/ritualist) is preserved as the source's reading. The engineering analog sits beside it. No tech-manual framing. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 1,
+          "defective_entries": [],
+          "explanation_quality_score": 9,
+          "verdict_reason": "The disagreement on jñānī is the verse's most-substantive philological flashpoint. The entry correctly captures Shankara's narrowing (scripture-possessor, NOT realised non-dualist) — which preserves the verse from a contradiction with Advaita's hierarchy elsewhere — and Ramanuja's narrower reading (knowledge of subjects other than self). Prabhupada's looser 'empiricist' is correctly identified as the loosest rendering. Score 9. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 5,
+          "reconstructed_sketch": "Given chapter context (closing chapter on yoga as inner discipline), an engineering analog at position 46 would predictably make a hierarchy claim. A competent writer might write 'integration beats partial mastery' — but they would not necessarily structure it as the four-engineer-type comparison or preserve Shankara's specific narrowing of jñānī.",
+          "verse_specific_signal": "The four-engineer-type structure (ascetic / knower / ritualist / yogi) at the same Series-D startup is verse-specific.",
+          "overlap_with_other_verses": [],
+          "verdict_reason": "PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Three-axis performance-review rubric: each engineer scored on austerity-discipline, knowledge-applied, ritual-engagement. Quarterly cadence. Promotion criterion: above-baseline on all three, not 90th-percentile on one.",
+          "artifact_kind": "review_checklist",
+          "embodiment_sketch": "Performance-review template adds three axes with concrete prompts (sustainable-hours rhythm; one applied-reading example; one ritual ownership example). Manager fills with IC. Calibration discussion uses the rubric directly. Concretely copyable Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "Highly embodiable. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            { "thread_name": "All three threads converge on the yogi-engineer", "anchor_evidence": "6.46 is the chapter's compression-point. The hierarchy claim integrates the self-discipline thread (6.1-9), the meditation-practice thread (6.10-32), and the struggle-and-consolation thread (6.33-45) into a single instruction: be a yogi. The chapter-thesis statement ('the disciplined self is the only force that lifts the disciplined self... the yogi is greater than the ascetic, greater than the wise, greater than the doer of works') is honored exactly." }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": { "type": "none", "explanation": "Position 46 is the structural hierarchy verse before the theistic close at 6.47. Correct." },
+          "verdict_reason": "PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            { "thread_name": "All three threads converge", "anchor_evidence": "Same as 10.3." }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": { "type": "none", "explanation": "6.46 → 6.47 progression is the chapter's structural close. Correct." },
+          "verdict_reason": "PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on 6.46: operator-system-coupling, deliberate-action, deep-work. Coherent with 2.50 (deliberate-action), 5.4-5.5 (operator-as-instrument). The hierarchy claim is the chapter's structural compression and the tag deliberate-action correctly anchors it. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-46/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Same as 6.1. PASS."
+        }
+      },
+      "ts": "2026-05-02T23:05:00Z"
+    }
+  ]
+}

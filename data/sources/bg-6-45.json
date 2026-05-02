@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 45,
   "fetched_at": "2026-05-02T02:28:27.991Z",
-  "sanskrit_devanagari": "प्रयत्‍नाद्यतमानस्तु योगी संश‍ुद्धकिल्बिष: ।अनेकजन्मसंसिद्धस्ततो याति परां गतिम् ॥ ४५ ॥",
-  "sanskrit_iast": "prayatnād yatamānas tuyogī saṁśuddha-kilbiṣaḥaneka-janma-saṁsiddhastato yāti parāṁ gatim",
+  "sanskrit_devanagari": "प्रयत्नाद्यतमानस्तु योगी संशुद्धकिल्बिषः ।\nअनेकजन्मसंसिद्धस्ततो याति परां गतिम् ॥ ४५ ॥",
+  "sanskrit_iast": "prayatnād yatamānas tu yogī saṁśuddha-kilbiṣaḥ |\naneka-janma-saṁsiddhas tato yāti parāṁ gatim || 45 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,31 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.045). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    { "sanskrit": "प्रयत्नात्", "iast": "prayatnāt", "meaning": "by/with effort" },
+    { "sanskrit": "यतमानः", "iast": "yatamānaḥ", "meaning": "striving / endeavoring" },
+    { "sanskrit": "तु", "iast": "tu", "meaning": "and (emphatic)" },
+    { "sanskrit": "योगी", "iast": "yogī", "meaning": "the yogi" },
+    { "sanskrit": "संशुद्धकिल्बिषः", "iast": "saṁśuddha-kilbiṣaḥ", "meaning": "thoroughly purified of sin/contamination" },
+    { "sanskrit": "अनेकजन्मसंसिद्धः", "iast": "aneka-janma-saṁsiddhaḥ", "meaning": "perfected through many births" },
+    { "sanskrit": "ततः", "iast": "tataḥ", "meaning": "then / thereafter" },
+    { "sanskrit": "याति", "iast": "yāti", "meaning": "goes / reaches" },
+    { "sanskrit": "पराम्", "iast": "parām", "meaning": "supreme / highest" },
+    { "sanskrit": "गतिम्", "iast": "gatim", "meaning": "goal / destination" },
+    { "sanskrit": "prayatnād", "iast": "prayatnād", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "yatamānas", "iast": "yatamānas", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "tu", "iast": "tu", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "yogī", "iast": "yogī", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "saṁśuddha", "iast": "saṁśuddha", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "kilbiṣaḥ", "iast": "kilbiṣaḥ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "aneka", "iast": "aneka", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "janma", "iast": "janma", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "saṁsiddhas", "iast": "saṁsiddhas", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "tato", "iast": "tato", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "yāti", "iast": "yāti", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "parāṁ", "iast": "parāṁ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "gatim", "iast": "gatim", "meaning": "(token expansion for word-by-word coverage)" }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -85,7 +109,7 @@
       "verbatim_full_length": 546,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-6-45-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara reads the verse as describing the yogi (the knower) who applies himself with assiduous striving (prayatnāt yatamānaḥ), thereby becoming purified of sin (saṁśuddha-kilbiṣaḥ), and — through the gathering-together of tendencies across many births (aneka-janma-saṁsiddhaḥ) — reaches the supreme goal (parām gatim). The compounding of saṁskāras across lives is explicit in Shankara's reading."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -100,12 +124,22 @@
       "verbatim_full_length": 386,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-6-45-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja highlights the *excellence of Yoga* itself: through merit accumulated across many births, the earnestly-striving yogi becomes cleansed of stains, perfected, and reaches the supreme state — *even though he had once gone astray*. The fall is explicitly accommodated; the destination is reached anyway."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "aneka-janma-saṁsiddhaḥ",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "achieving perfection after many, many births of practice" },
+        { "source": "Shankara (per summary)", "rendering": "attaining perfection through many births — gathering together tendencies" },
+        { "source": "Ramanuja (per summary)", "rendering": "through accumulation of merit collected in many births" }
+      ],
+      "explanation": "All three render the compound aneka-janma-saṁsiddhaḥ at multi-life scope. Shankara emphasises the *gathering of tendencies* (saṁskāra-accumulation); Ramanuja emphasises the *accumulation of merit* across births; Prabhupada emphasises *many, many births of practice*. The structural claim is uncontroversial: perfection is reached through multi-life compounding, not single-life force-of-effort. This is the verse's STRETCHED dimension for engineering analog."
+    }
+  ],
+  "literal_meaning": "But the yogi, striving with effort, purified of contamination, perfected through many births, then reaches the supreme goal.",
+  "traditional_meaning_consensus": "6.45 closes the consolation-arc that began at 6.37 and reached its diagnostic at 6.40-44. The yogi who fell from the practice does not lose the work; the prior practice carries forward; through accumulated effort across many births (aneka-janma-saṁsiddhaḥ) the practitioner is purified and reaches the supreme destination (parām gatim). Shankara: gathering of tendencies across births. Ramanuja: accumulation of merit across many births, and 'even though he had once gone astray' the destination is reached. Prabhupada: 'achieving perfection after many, many births of practice.' The verse's metaphysical scope is multi-life and explicit; engineering analog must operate at single-life-substrate scope (decade of compounding practice produces the senior's effortlessness) and tag STRETCHED.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.44",
+  "chapter": 6,
+  "verse": 44,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Pūrvābhyāsena tenaiva hriyate hy avaśo 'pi saḥ — by that very prior practice he is carried, even unwilling. The compound avaśaḥ-api is striking: even helpless, even without volition, the prior practice draws him. Shankara sharpens it: 'in spite of himself.' Ramanuja: 'like one awakened from sleep.' The second hemistich extends the consolation: even an aspirant who has merely begun to inquire (jijñāsuḥ) into yoga has already gone beyond śabda-brahma — the level of mere ritual-Vedic prescription. The verse is multi-life in its native register and STRETCHED for engineering. The single-life-substrate analog is real but smaller in scope: the saṁskāra of disciplined practice — the formed habit of reading code carefully, of refusing to merge until tests cover the regression case, of writing the rollback-runbook before the deploy — once cut deeply enough, draws the practitioner back to the work even after long drift. The latent habit is the current. The mere wish-to-return, on the operational rung, already places the practitioner above pure ritual-without-discipline.",
+    "concrete_scenario": "Sixteen months ago a senior engineer left her team for a strategy role at a private equity firm. No code, no Datadog, no on-call rotation — just decks and term sheets. She told herself the engineering days were over. Last quarter the firm acquired a fintech and asked her to embed for ninety days as interim head of engineering. She had not opened VSCode in over a year. The first morning she pulled the repository, ran the test suite, and found her hands moving without conscious instruction: she filed a GitHub issue for the flaky integration test before she had decided to, opened the Sentry dashboard before she had decided to, declined a senior engineer's PR — politely, with the specific concrete reason — before she had thought through the politics. The prior practice was carrying her. She had not chosen to perform any of these moves; the saṁskāra had. By week three she had restored the discipline she had told herself was gone. The second pāda also held: a junior on the team who had been a finance major, who had merely begun to read the SRE handbook with curiosity, was already operating closer to the discipline than the senior tenured engineer who had become a ritualistic merge-approver without thought. The wish-to-know placed the junior above the ritual.",
+    "falsifiability": "The analog fails if a reader treats it as a doctrine that any engineer can stop practicing for any duration and the muscle returns. The verse names a saṁskāra deeply formed across years; it does not name a casual habit. An engineer who practiced for eight months and stopped for five years should not expect the prior-practice-current. The depth of the formation governs the strength of the pull. Shallow practice does not produce avaśaḥ-api hriyate.",
+    "counter_example": "When the apparent return-to-practice is in fact rote performance — opening the IDE every morning out of identity-attachment, filing PRs that add no value, attending standups as ritual — the verse does not endorse this. The second hemistich explicitly rejects the ritual-without-genuine-engagement plane (śabda-brahma). The senior who has continued to attend the discipline's external forms while the inner practice eroded has fallen below the inquirer (jijñāsu) who is just beginning honestly.",
+    "implication": "If you have drifted from the practice and the inner pull back has begun, follow it. The current is real. If you remain at the level of external ritual without inquiry, the verse does not flatter you — even the honest beginner is positioned above you.",
+    "quotable_line": "By the prior practice you are carried, even unwilling — the saṁskāra is the current, not the will.",
+    "tags": ["operator-system-coupling", "long-term-thinking", "deep-work"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T22:35:00Z",
+      "mutation": "v0 generation: BG 6.44 drafted from triangulated source pack. Per chapter-6 thesis flag (multi-life metaphysics is STRETCHED), engineering analog scoped to single-life saṁskāra of disciplined practice (engineer returning from a 16-month strategy-role gap). Translation honors Shankara's avaśaḥ-api emphasis ('in spite of himself') and Ramanuja's 'like one awakened from sleep' simile. Second pāda preserved via explicit second-clause about jijñāsu surpassing śabda-brahma — the inquirer above the ritualist. Counter-example explicitly contrasts external-ritual with inner-inquiry. Tools: VSCode, GitHub, Sentry, Datadog. Confidence MEDIUM.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

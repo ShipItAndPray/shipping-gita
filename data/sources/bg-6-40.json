@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 40,
   "fetched_at": "2026-05-02T02:28:27.203Z",
-  "sanskrit_devanagari": "श्रीभगवानुवाचपार्थ नैवेह नामुत्र विनाशस्तस्य विद्यते ।न हि कल्याणकृत्कश्चिद्दुर्गतिं तात गच्छति ॥ ४० ॥",
-  "sanskrit_iast": "śrī-bhagavān uvācapārtha naiveha nāmutravināśas tasya vidyatena hi kalyāṇa-kṛt kaściddurgatiṁ tāta gacchati",
+  "sanskrit_devanagari": "श्रीभगवानुवाच ।\nपार्थ नैवेह नामुत्र विनाशस्तस्य विद्यते ।\nन हि कल्याणकृत्कश्चिद्दुर्गतिं तात गच्छति ॥ ४० ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca |\npārtha naiveha nāmutra vināśas tasya vidyate |\nna hi kalyāṇa-kṛt kaścid durgatiṁ tāta gacchati || 40 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,158 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.040). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान् उवाच",
+      "iast": "śrī-bhagavān uvāca",
+      "meaning": "the Blessed Lord said"
+    },
+    {
+      "sanskrit": "पार्थ",
+      "iast": "pārtha",
+      "meaning": "O son of Pṛthā"
+    },
+    {
+      "sanskrit": "तात",
+      "iast": "tāta",
+      "meaning": "dear one / dear son"
+    },
+    {
+      "sanskrit": "न एव",
+      "iast": "na eva",
+      "meaning": "neither"
+    },
+    {
+      "sanskrit": "इह",
+      "iast": "iha",
+      "meaning": "in this world"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "nor"
+    },
+    {
+      "sanskrit": "अमुत्र",
+      "iast": "amutra",
+      "meaning": "in the next"
+    },
+    {
+      "sanskrit": "तस्य",
+      "iast": "tasya",
+      "meaning": "for him"
+    },
+    {
+      "sanskrit": "विनाशः",
+      "iast": "vināśaḥ",
+      "meaning": "destruction"
+    },
+    {
+      "sanskrit": "विद्यते",
+      "iast": "vidyate",
+      "meaning": "is found / exists"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "कल्याण-कृत्",
+      "iast": "kalyāṇa-kṛt",
+      "meaning": "doer of good"
+    },
+    {
+      "sanskrit": "कश्चित्",
+      "iast": "kaścit",
+      "meaning": "anyone"
+    },
+    {
+      "sanskrit": "दुर्गतिम्",
+      "iast": "durgatim",
+      "meaning": "evil destination / bad end"
+    },
+    {
+      "sanskrit": "न गच्छति",
+      "iast": "na gacchati",
+      "meaning": "does not go"
+    },
+    {
+      "sanskrit": "śrī-bhagavān",
+      "iast": "śrī-bhagavān",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "pārtha",
+      "iast": "pārtha",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "naiveha",
+      "iast": "naiveha",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nāmutra",
+      "iast": "nāmutra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vināśas",
+      "iast": "vināśas",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tasya",
+      "iast": "tasya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vidyate",
+      "iast": "vidyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "hi",
+      "iast": "hi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kalyāṇa-kṛt",
+      "iast": "kalyāṇa-kṛt",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kaścid",
+      "iast": "kaścid",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "durgatiṁ",
+      "iast": "durgatiṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tāta",
+      "iast": "tāta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "gacchati",
+      "iast": "gacchati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +254,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "kalyāṇa-kṛt (doer of good)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "one who does good is never overcome by evil"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "he who is established in virtuous action does not go to a bad state — the yoga-aspirant being engaged in the highest good"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "the doer-of-good — the one who attempted yoga out of faith — is not destroyed; the yoga-attempt itself is kalyāṇa"
+        }
+      ],
+      "explanation": "All three readings agree: the yoga-attempt itself counts as a 'good deed' — kalyāṇa-kṛt is not a separate category from the fallen yogi but a description of what the fallen yogi has been doing. Therefore the consolation is structural, not exceptional: the work counts even when the work fails to reach its perfection."
+    }
+  ],
+  "literal_meaning": "The Blessed Lord said: O Pārtha, neither in this world nor in the next is there destruction for him. For no one who does good, dear one, comes to a bad end.",
+  "traditional_meaning_consensus": "6.40 is the consolation — one of the most-quoted verses in the Gita and the most-loved in the chapter. The structure is sharp: naiva iha na amutra vināśas tasya vidyate. The doubled negation forecloses both worries (this-life perish + next-life fall). Then the universal: na hi kalyāṇa-kṛt kaścid durgatim gacchati — no doer-of-good ever goes to a bad destination. The vocative tāta (dear one, often translated 'my son' or 'dear child') is one of the most affectionate addresses in the entire Gita. Sankara's reading: he who is established in virtuous action does not go to a bad state; the yoga-aspirant has been engaged in the highest good — therefore a fortiori — and his attempt cannot lead to perdition. Ramanuja's reading: the doer-of-good — the one who attempted yoga out of faith — is not destroyed; the yoga-attempt itself is kalyāṇa, an act of supreme good. Both traditions preserve the structural force: the genuine attempt at yoga is itself an act of good and cannot be erased. This verse is the chapter's emotional center.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

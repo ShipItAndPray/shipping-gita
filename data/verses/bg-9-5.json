@@ -1,0 +1,51 @@
+{
+  "id": "BG 9.5",
+  "chapter": 9,
+  "verse": 5,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna sharpens 9.4 immediately, naming an apparent contradiction: and yet the beings do not actually reside in him — behold his divine yoga, his inscrutable power. His self functions as the source-of-beings, supporting beings, while never residing inside them. A metaphysical paradox at cosmic scale: source-and-supporter that is not contained-by-the-supported. STRETCHED honestly. The borrowed structural shadow holds operationally at narrow scope. A senior's substrate-knowledge actively powers each framework epoch without being constituted by any single one of those epochs. Implementations change repeatedly; substrate identity does not. Krishna's *yogam aiśvaram* — divine inscrutable power — is not what this engineering reading borrows responsibly. What it actually borrows is the structural test: source identity is never composed of the implementations downstream of it.",
+    "concrete_scenario": "Carlos has been at the payments company through five framework eras. The codebase migrated from Ruby on Rails to Scala-on-the-JVM, then to Go-with-gRPC; a Rust experiment now sits behind the latency-critical pricing path. Through every era Carlos was asked the same handful of substrate questions. What invariants does the ledger uphold that no framework should break? What constraint survives migration? Around what merchant requirement is this service actually shaped? His answers across the eras have not shifted. Each Rails service depended on those answers. Each Scala one did. Each Go service does. The Rust prototype rests on the same answers. The substrate fed every era; no era constituted the substrate. When a new senior asks Carlos how to evaluate the Rust experiment, his criteria match the criteria he gave the Rails team eleven years ago. That stability is the operational shadow at narrow scope. Krishna's divine yoga, the source-of-beings, is not the borrowed claim.",
+    "falsifiability": "This reading fails if used to deify the senior — to read 'substrate-knowledge IS divine yoga'. It is not. Krishna's verse makes a metaphysical claim about source and supported in cosmic terms. The borrowed shadow is narrower: a substrate's identity is not constituted by what depends on it. Reading the senior as divine over-reaches by a wide margin.",
+    "counter_example": "When a so-called senior's substrate-answers actually shift with the framework — when the Rails answers, Scala answers, and Go answers diverge — the verse's structural shape does not bless that senior. Implementation-pattern-matching is not substrate-knowledge. The shadow requires actual substrate identity that survives migration.",
+    "implication": "Audit your own substrate answers. Did they change when the team migrated from Rails to Scala? If yes, you may have been holding Rails-knowledge dressed up as substrate. The structural test in 9.5 catches this honestly.",
+    "quotable_line": "Substrate identity is not constituted by what depends on it — that is the test of substrate.",
+    "tags": [
+      "first-principles",
+      "essence-vs-implementation",
+      "architectural-invariant"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.5 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "2.3 anvaya/iast coverage 79%",
+        "5.5 lex 0.483"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Anvaya expanded to 19 entries (split bhūta-bhṛt, bhūta-stho, bhūta-bhāvanaḥ). Translation rewritten with longer subordinate clauses; concrete_scenario expanded with named tools (Ruby on Rails, Scala, gRPC, Rust) and varied verbs.",
+      "failing_gates_before": [
+        "2.3 anvaya/iast coverage 79%",
+        "5.5 lex 0.483"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

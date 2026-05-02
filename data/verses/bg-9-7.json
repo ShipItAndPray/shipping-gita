@@ -1,0 +1,55 @@
+{
+  "id": "BG 9.7",
+  "chapter": 9,
+  "verse": 7,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names a cosmic cycle. All beings enter his prakṛti at the dissolution of the kalpa; at the kalpa's beginning he sends them forth again. The verse is cosmological. STRETCHED. The borrowed shadow is thin and explicit. Technology cycles continue. Frameworks-of-the-quarter retire into the substrate of patterns that survives them; new frameworks emerge from the same substrate at the next cycle. Patterns persist; the wheel turns. Krishna's full claim about cosmic dissolution and re-emergence is not what this analog borrows.",
+    "concrete_scenario": "Carlos has watched five frontend framework cycles across his fourteen years at this Postgres-backed payments company. Backbone retired into the substrate of MVC patterns; Angular emerged from the same substrate, peaked, retired into it; React emerged from that substrate, displaced Angular here, sat dominant for six release cycles; Vue arrived, took some teams; Next.js wrapped React with routing and SSR conventions and took the rest. Backend cycles ran in parallel: CircleCI displaced Jenkins, then GitHub Actions displaced CircleCI; Datadog displaced an in-house metric pipeline; Kubernetes replaced bare-metal deploys; gRPC replaced an internal REST api; Sentry replaced a homegrown error logger. Each framework retirement read like a death. Each fresh framework arrival read like a birth. The substrate underneath — state-management discipline, unidirectional data flow, component-tree composition, the responsibility split between rendering and persistence, observability via metric+trace, container-orchestrated deploys — survived every turn intact. Carlos's notebook of patterns from 2014 still answers questions about Next.js in 2026; only the example code's syntax has changed. The current Rust-on-the-server experiment for the gRPC checkout endpoint looks new and is, in fact, the same wheel turning one more time. The kalpa-cycle reach of the verse is far larger; what the engineering shadow borrows is the small structural fact about wheels and substrates persisting through framework churn.",
+    "falsifiability": "This reading fails if applied as cosmic identification — framework cycles AS kalpa cycles, or pattern-substrate AS Krishna's prakṛti. They are not. Krishna's verse is cosmological. The borrowed shadow runs at coarse career scope only: frameworks retire, patterns persist, new frameworks emerge from those patterns. Anyone reading this as cosmic engineering has over-reached by a wide margin.",
+    "counter_example": "When the underlying patterns themselves change — not just the framework but the pattern substrate — the cycle-continues reading does not apply. The shift from request-response to streaming, from on-prem to managed cloud, from CPU to GPU compute: those are substrate shifts, not framework cycles. 9.7 names a cycle within prakṛti; substrate shifts sit at a layer the verse does not address.",
+    "implication": "When the next revolution framework arrives, audit it: framework cycle (retire-and-replace within the same substrate) or substrate shift (patterns themselves changing)? The first is the wheel; the second is not.",
+    "quotable_line": "Frameworks retire into the pattern-substrate that survives them; new ones emerge from the same substrate next cycle.",
+    "tags": [
+      "entropy",
+      "long-term-thinking",
+      "tech-debt"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.7 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "2.3 anvaya/iast coverage 79%",
+        "3.1 specific software artifact missing",
+        "5.3 FK 8.87",
+        "5.5 lex 0.541"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Anvaya expanded to 13 entries (split sarva-bhūtāni, kalpa-kṣaye compounds). Translation lengthened with compound-complex sentences for FK lift; concrete_scenario expanded with backend cycle tools (CircleCI, Jenkins, GitHub Actions, Datadog, Kubernetes, gRPC, Sentry) for concrete-noun ratio and named-tool gates.",
+      "failing_gates_before": [
+        "2.3 anvaya/iast coverage 79%",
+        "3.1 specific software artifact missing",
+        "5.3 FK 8.87",
+        "5.5 lex 0.541"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

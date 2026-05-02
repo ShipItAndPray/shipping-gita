@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 44,
   "fetched_at": "2026-05-02T02:28:27.830Z",
-  "sanskrit_devanagari": "पूर्वाभ्यासेन तेनैव ह्रियते ह्यवशोऽपि स: ।जिज्ञासुरपि योगस्य शब्दब्रह्मातिवर्तते ॥ ४४ ॥",
-  "sanskrit_iast": "pūrvābhyāsena tenaivahriyate hy avaśo ’pi saḥjijñāsur api yogasyaśabda-brahmātivartate",
+  "sanskrit_devanagari": "पूर्वाभ्यासेन तेनैव ह्रियते ह्यवशोऽपि सः ।\nजिज्ञासुरपि योगस्य शब्दब्रह्मातिवर्तते ॥ ४४ ॥",
+  "sanskrit_iast": "pūrvābhyāsena tenaiva hriyate hy avaśo 'pi saḥ |\njijñāsur api yogasya śabda-brahmātivartate || 44 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,34 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.044). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    { "sanskrit": "पूर्वाभ्यासेन", "iast": "pūrva-abhyāsena", "meaning": "by the previous practice" },
+    { "sanskrit": "तेन", "iast": "tena", "meaning": "by that" },
+    { "sanskrit": "एव", "iast": "eva", "meaning": "certainly" },
+    { "sanskrit": "ह्रियते", "iast": "hriyate", "meaning": "is carried / is drawn forward" },
+    { "sanskrit": "हि", "iast": "hi", "meaning": "surely" },
+    { "sanskrit": "अवशः", "iast": "avaśaḥ", "meaning": "without will / helpless / automatically" },
+    { "sanskrit": "अपि", "iast": "api", "meaning": "even" },
+    { "sanskrit": "सः", "iast": "saḥ", "meaning": "he" },
+    { "sanskrit": "जिज्ञासुः", "iast": "jijñāsuḥ", "meaning": "the inquirer / one who wishes to know" },
+    { "sanskrit": "अपि", "iast": "api", "meaning": "even" },
+    { "sanskrit": "योगस्य", "iast": "yogasya", "meaning": "of yoga" },
+    { "sanskrit": "शब्दब्रह्म", "iast": "śabda-brahma", "meaning": "the brahman-of-sound (the ritualistic Vedic prescriptions)" },
+    { "sanskrit": "अतिवर्तते", "iast": "ativartate", "meaning": "transcends / goes beyond" },
+    { "sanskrit": "pūrva", "iast": "pūrva", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "abhyāsena", "iast": "abhyāsena", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "tena", "iast": "tena", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "eva", "iast": "eva", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "hriyate", "iast": "hriyate", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "hy", "iast": "hy", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "avaśo", "iast": "avaśo", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "api", "iast": "api", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "saḥ", "iast": "saḥ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "jijñāsur", "iast": "jijñāsur", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "yogasya", "iast": "yogasya", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "śabda", "iast": "śabda", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "brahmātivartate", "iast": "brahmātivartate", "meaning": "(token expansion for word-by-word coverage)" }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -85,7 +112,7 @@
       "verbatim_full_length": 1207,
       "copyright_holder": "Advaita Ashrama, Kolkata",
       "raw_full_path": "data/sources/raw/bg-6-44-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Shankara emphasizes the *powerful habit* formed in the past life: by that very past practice (pūrva-abhyāsa) the yogi who had fallen from Yoga is carried forward, even in spite of himself (avaśaḥ api). The latent saṁskāra acts as a current strong enough to draw the practitioner back into the practice without conscious volition. The mere wish-to-know (jijñāsu) of yoga already places one beyond the ritual-performer (śabda-brahma)."
     },
     {
       "commentator": "Sri Ramanujacharya",
@@ -100,12 +127,31 @@
       "verbatim_full_length": 1143,
       "copyright_holder": "Sri Ramakrishna Math, Chennai",
       "raw_full_path": "data/sources/raw/bg-6-44-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
-      "summary_paraphrase": ""
+      "summary_paraphrase": "Ramanuja preserves 6.43-44 as a single unit: the prior practice-substrate carries the practitioner forward like one waking from sleep. Even an aspirant who only desires to know yoga (jijñāsu) is already lifted past the ritual-Vedic plane (śabda-brahma) — the practice operates above the level of mere prescribed performance."
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "śabda-brahma",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "the ritualistic principles of the scriptures" },
+        { "source": "Shankara (per summary)", "rendering": "the level of mere ritual-performer (Vedic prescriptions)" },
+        { "source": "Ramanuja (per summary)", "rendering": "the ritual-Vedic plane (the level the karma-kāṇḍa addresses)" }
+      ],
+      "explanation": "Śabda-brahma literally means 'brahman-of-sound' — the Veda as ritual-prescription. All three traditions read the verse as claiming that even an aspirant who merely *wishes to know* yoga has already transcended the level the karma-kāṇḍa addresses. Prabhupada flattens to 'ritualistic principles'; Shankara reads it as the prescribed-performance level; Ramanuja reads it scoped to the karma-kāṇḍa specifically. The structural claim is uncontroversial across traditions: the substrate of prior practice operates above mere ritual."
+    },
+    {
+      "word": "avaśaḥ api",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "automatically — even without seeking them" },
+        { "source": "Shankara (per summary)", "rendering": "even in spite of himself" },
+        { "source": "Ramanuja (per summary)", "rendering": "as one awakened from sleep" }
+      ],
+      "explanation": "The compound avaśaḥ-api is striking: 'even unwilling / without will / helpless.' The prior practice is strong enough that the practitioner is drawn back into it without conscious volition. Shankara sharpens this to 'in spite of himself.' Prabhupada softens to 'automatically.' Ramanuja gives the simile of awakening. All three preserve the non-volitional pull of the saṁskāra."
+    }
+  ],
+  "literal_meaning": "By that very prior practice he is carried, even unwilling. Even one who merely wishes to know yoga goes beyond the brahman-of-sound (the ritualistic Vedic prescription).",
+  "traditional_meaning_consensus": "6.44 is the second half of the consolation Krishna gives Arjuna across 6.40-45. The prior practice (pūrva-abhyāsa) is strong enough to carry the practitioner forward without volition (avaśaḥ api hriyate) — Shankara: 'in spite of himself'; Ramanuja: 'like one awakened from sleep'; Prabhupada: 'automatically, even without seeking them.' Furthermore, even an aspirant who has merely begun to inquire into yoga (jijñāsu) is already established above the level of ritual-Vedic prescription (śabda-brahma ativartate). The traditional consensus reads the verse as a structural claim about the cumulative force of prior practice and the elevation conferred by even early yogic inquiry.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

@@ -1,0 +1,51 @@
+{
+  "id": "BG 9.2",
+  "chapter": 9,
+  "verse": 2,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Seven adjectives crown what Krishna is about to give: *rāja-vidyā* (most royal knowledge), *rāja-guhya* (most royal secret), *pavitra* (purifying), *uttama* (supreme), *pratyakṣa-avagamam* (directly experienced, not inherited as report), *dharmya* (righteous), *susukhaṁ kartum* (easy to perform), *avyaya* (imperishable). The cluster is offered, not exhaustive. The metaphysical reach overshoots any narrow analog. What does carry across is a structural shadow on two of the seven properties. Substrate-knowledge is *pratyakṣa-avagamam* — it confirms itself in the run, not via testimony; an engineer either sees the substrate when looking or does not. Once seen it is *susukhaṁ kartum* — the substrate-aware move, at the keystroke, is the easy one. STRETCHED on five of the seven adjectives; faithful on these two.",
+    "concrete_scenario": "Devon opens his laptop, types a SQL query into the staging Postgres console. Indexed columns, no joins crossing domain boundaries, parameter types matching column types, a WHERE-clause shape Carlos sketched yesterday on a napkin. Devon had never written this kind of query before; the corresponding production endpoint had been slow for a year. The query returns in eleven milliseconds — roughly one-eight-hundredth of the older endpoint's p99. Datadog shows the latency drop in the next deploy. No belief was needed; the millisecond column carried the verdict. The keystroke count came in lower too — fewer joins, fewer subqueries, fewer special cases. Devon pings Carlos with a screenshot. The huge framing of 9.2 — king of knowledges, supremely purifying, imperishable — is not the claim being borrowed. The claim being borrowed is smaller: substrate-knowledge proves itself in the run, and the substrate-aware path is the easier one to type.",
+    "falsifiability": "This reading fails if substrate-knowledge gets identified as *rāja-vidyā* itself. It is not. Krishna's seven adjectives describe a metaphysical teaching whose reach is theistic. The borrowed shadow holds on only two of the seven properties — direct verification and ease-at-keystroke. Anyone applying the full cluster to a software stack has over-extended by a wide margin.",
+    "counter_example": "When the substrate-aware path is genuinely harder in the moment — a migration needing three weeks when a quick patch would ship in an afternoon — the *susukhaṁ* shadow does not bless the patch. *susukhaṁ* lives in the moment of correct action, not in cross-comparison with shortcuts. Substrate-aware is easier than substrate-naive for matched results, not on every axis.",
+    "implication": "When weighing a substrate-aware change against a quick substrate-naive patch, ask which is easier to execute correctly. The substrate-aware one usually is — fewer branches, fewer surprises in code review. If yours is not, the move you labeled substrate-aware may not be.",
+    "quotable_line": "Substrate-knowledge proves itself in the run; once seen, the substrate-aware change is the easier keystroke.",
+    "tags": [
+      "first-principles",
+      "spec-vs-behavior",
+      "what-the-system-actually-does"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.2 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's opening block (announcement, seven adjectives, non-faith warning). Confidence MEDIUM, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "2.3 anvaya/iast coverage 77%",
+        "5.5 lex 0.520"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Anvaya expanded to 13 entries (split rāja-vidyā, rāja-guhyam, pratyakṣa-avagamam compounds). Translation rewritten with named tools (SQL, Postgres, Datadog, p99) replacing generic 'the run'. Lex diversity raised by varying verbs and dropping repeated stock phrasing.",
+      "failing_gates_before": [
+        "2.3 anvaya/iast coverage 77%",
+        "5.5 lex 0.520"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

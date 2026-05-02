@@ -1,0 +1,51 @@
+{
+  "id": "BG 9.10",
+  "chapter": 9,
+  "verse": 10,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the active cosmic structure. With him as overseer, prakṛti puts forth movables and immovables; for this reason the world revolves. The verse identifies Krishna as overseeing-cause rather than busy operator; prakṛti is the operating layer; the world's revolution rides on this two-layer arrangement. STRETCHED. The borrowed shadow at narrow scope is a three-layer arrangement. A senior holding the pattern-substrate is the overseer. The patterns themselves are the operating layer that produces implementations. The engineering culture's churn — new services, retiring services, migrations, rewrites — rides on that arrangement. Krishna's full claim is far larger and is not the borrowed claim.",
+    "concrete_scenario": "Carlos has not committed production code through GitHub in three years. He chairs design reviews on Monday mornings, mentors three principal-track engineers on Wednesday afternoons, holds the architectural substrate of the payments platform in his head, and is consulted before every cross-team migration kicks off. The implementation work — Postgres migrations, gRPC service splits, on-call rotations on PagerDuty, framework picks like the recent Rust experiment for the pricing path — runs through 150 engineers reporting into seven directors. Carlos directs none of them. He oversees. The pattern-substrate is what Carlos holds; the patterns themselves are what the platform extrudes into design choices; the engineers ship the implementations. The world revolves: rewrites land, services retire, new services emerge, the rotation continues. Carlos sits a layer above the operating layer. 9.10 names this three-layer arrangement at far larger metaphysical scope; the engineering shadow of it is what this scenario borrows.",
+    "falsifiability": "This reading fails if it identifies Carlos AS Krishna or pattern-substrate AS prakṛti. Neither holds. The verse makes metaphysical claims about a two-layer cosmic arrangement. The borrowed shadow names a three-layer engineering arrangement in which the senior with substrate-knowledge is the overseer, the patterns are the operating layer, and the engineers build implementations. Reading the senior as divine over-reaches by a wide margin.",
+    "counter_example": "When the senior is also the busy operator — still writing production code, leading every migration, holding every on-call shift — the overseer reading does not apply. The verse describes a structure in which the overseer is not the operator. Many engineering organizations have a different shape; their senior is also the operator. The verse does not describe those.",
+    "implication": "If you are aiming for principal or staff work, audit which layer you currently occupy. The senior who is also the busy operator has not yet stepped into the overseer role. The transition is real and rare.",
+    "quotable_line": "The senior who holds the substrate is the overseer; the patterns are the operating layer; the engineers ship implementations.",
+    "tags": [
+      "first-principles",
+      "operator-system-coupling",
+      "team-state"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.10 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "3.9 named tool/framework missing",
+        "5.5 lex 0.437"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Concrete_scenario expanded with named tools (GitHub, PagerDuty, Postgres, gRPC, Rust) for 3.9 named-tool gate; lex diversity raised by varying nouns and dropping repeated stock phrasing.",
+      "failing_gates_before": [
+        "3.9 named tool/framework missing",
+        "5.5 lex 0.437"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

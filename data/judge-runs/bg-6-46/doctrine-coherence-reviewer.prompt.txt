@@ -1,0 +1,323 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.46",
+  "sanskrit_devanagari": "तपस्विभ्योऽधिको योगी ज्ञानिभ्योऽपि मतोऽधिकः ।\nकर्मिभ्यश्चाधिको योगी तस्माद्योगी भवार्जुन ॥ ४६ ॥",
+  "sanskrit_iast": "tapasvibhyo 'dhiko yogī jñānibhyo 'pi mato 'dhikaḥ |\nkarmibhyaś cādhiko yogī tasmād yogī bhavārjuna || 46 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तपस्विभ्यः",
+      "iast": "tapasvibhyaḥ",
+      "meaning": "than the ascetics / those performing austerity"
+    },
+    {
+      "sanskrit": "अधिकः",
+      "iast": "adhikaḥ",
+      "meaning": "greater / superior"
+    },
+    {
+      "sanskrit": "योगी",
+      "iast": "yogī",
+      "meaning": "the yogi"
+    },
+    {
+      "sanskrit": "ज्ञानिभ्यः",
+      "iast": "jñānibhyaḥ",
+      "meaning": "than the men of knowledge / scriptural learning"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "मतः",
+      "iast": "mataḥ",
+      "meaning": "considered / regarded"
+    },
+    {
+      "sanskrit": "अधिकः",
+      "iast": "adhikaḥ",
+      "meaning": "greater"
+    },
+    {
+      "sanskrit": "कर्मिभ्यः",
+      "iast": "karmibhyaḥ",
+      "meaning": "than the ritualists / fruitive workers"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अधिकः",
+      "iast": "adhikaḥ",
+      "meaning": "greater"
+    },
+    {
+      "sanskrit": "योगी",
+      "iast": "yogī",
+      "meaning": "the yogi"
+    },
+    {
+      "sanskrit": "तस्मात्",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "योगी",
+      "iast": "yogī",
+      "meaning": "a yogi"
+    },
+    {
+      "sanskrit": "भव",
+      "iast": "bhava",
+      "meaning": "be / become"
+    },
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    },
+    {
+      "sanskrit": "tapasvibhyo",
+      "iast": "tapasvibhyo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dhiko",
+      "iast": "dhiko",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogī",
+      "iast": "yogī",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "jñānibhyo",
+      "iast": "jñānibhyo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "api",
+      "iast": "api",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mato",
+      "iast": "mato",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dhikaḥ",
+      "iast": "dhikaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karmibhyaś",
+      "iast": "karmibhyaś",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cādhiko",
+      "iast": "cādhiko",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tasmād",
+      "iast": "tasmād",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhava",
+      "iast": "bhava",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "arjuna",
+      "iast": "arjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/46/",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A yogī is greater than the ascetic, greater than the empiricist and greater than the fruitive worker. Therefore, O Arjuna, in all circumstances, be a yogī.",
+      "raw_capture_path": "data/sources/raw/bg-6-46-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A yogi is greater than the ascetic, greater than the empiricist and greater than the fruitive worker. Therefore, O Arjuna, in all circumstances, be a yogi."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/46/",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1103 chars)",
+      "verbatim_excerpt": "When we speak of yoga we refer to linking our consciousness with the Supreme Absolute Truth. Such a process is named differently by various practitioners in terms of the particular method adopted.",
+      "raw_full_path": "data/sources/raw/bg-6-46-vedabase.json (purport_full_length: 1103)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.46 A yogi is adhikah, higher; tapasvibhyah, than men of austerity; he is matah, considered; adhikah, higher than, superior to; api, even; jnanibhyah, men of knowledge. Jnana here means scriptural learning. (A yogi is superior) to even those who possess that (learning). The yogi is adhika",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 485,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-46-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads the threefold superiority strictly: the yogi is greater than the ascetics (those who perform tapas), greater than the men of scriptural-learning (jñānī here = those who possess Vedic learning, NOT the realised non-dualist knower), and greater than those who perform ritual works for fruit (karmins). Therefore, Krishna instructs Arjuna: be a yogi. The yogi-of-disciplined-action sits structurally above three named alternatives."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.46 Whatever end of human endeavour is attained by mere austerity, by knowledge of different subjects (i.e., different from experience of the self) and by mere rituals like the horse-sacrifice etc., —- greater than all these is the end achieved through Yoga. Consequently the Yogin is supe",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 614,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-46-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja sharpens the comparison to ends-attained: whatever human end is reached through mere austerity, through knowledge of subjects-other-than-self, or through mere rituals like the horse-sacrifice, the end attained through Yoga is greater. Consequently the Yogin is superior to all three. The hierarchy is structural and ranked by the destination each path actually reaches."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "jñānibhyaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the empiricist"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "men of scriptural learning (Vedic learning), NOT the realised non-dualist"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "those with knowledge of subjects other than the self"
+        }
+      ],
+      "explanation": "Critical disagreement. Shankara explicitly narrows jñānī here to *those who possess scriptural learning* — emphatically NOT the realised jñānin (the non-dualist knower of Brahman, who is identical to the supreme yogi). This protects the verse from a contradiction with Advaita's hierarchy elsewhere. Ramanuja narrows similarly: knowledge of subjects *other than* the experience of self. Prabhupada's 'empiricist' is the loosest rendering. Across traditions, the verse compares the yogi to specific limited categories (austerity-only, scripture-only, ritual-only) and ranks the integrated yogi above each."
+    }
+  ],
+  "literal_meaning": "The yogi is greater than the ascetics; he is considered greater even than the men of knowledge; the yogi is greater than the ritualists. Therefore, Arjuna, be a yogi.",
+  "traditional_meaning": "6.46 is the chapter's penultimate verse and the structural hierarchy claim. Krishna names three categories — the ascetic (tapasvī, performer of austerities), the man of scriptural learning (jñānī, where 'jñānī' is read by Shankara as the scripture-possessor, not the realised non-dualist; by Ramanuja as the knower of non-self subjects), and the ritualist (karmī, the fruit-seeker performing prescribed rites) — and ranks the yogi above all three. Krishna then issues the direct imperative: tasmād yogī bhava arjuna — 'therefore, Arjuna, be a yogi.' The verse compresses the entire chapter into a hierarchy claim and a directive: the integrated yogi-of-disciplined-action surpasses the partial paths of mere austerity, mere learning, and mere ritual.",
+  "engineering": {
+    "translation": "Tapasvibhyo 'dhiko yogī jñānibhyo 'pi mato 'dhikaḥ, karmibhyaś cādhiko yogī, tasmād yogī bhavārjuna — the yogi is greater than the ascetics, greater even than the men of knowledge, greater than the ritualists; therefore, Arjuna, be a yogi. The verse compresses the chapter into a hierarchy and a directive. Shankara narrows jñānī here to the *possessor of scriptural learning* — emphatically not the realised non-dualist. The yogi is ranked above all three partial categories. Ramanuja sharpens by ends-attained. What is reached through mere austerity, mere knowledge of subjects-other-than-self, or mere ritual is structurally less than what is reached through Yoga. The engineering hierarchy reads cleanly. Above the engineer who only performs austerity (long hours, performative grind), above the engineer who only accumulates knowledge (papers read but not applied), above the engineer who only performs ritual (standups attended without engagement) — sits the integrated yogi-engineer. She has yoked attention, action, and renouncement-of-fruit into one steady practice. STRONG analog. Coherent with 2.50.",
+    "concrete_scenario": "Three engineers at the same Series-D startup. The ascetic: works ninety-hour weeks, sleeps under the desk, refuses vacation, posts about grind on Twitter. He is exhausted, brittle, and his p99 latencies on the auth service have crept up for two quarters because he cannot sustain the focus to find the cause. The knower: reads every paper, watches every conference talk, has opinions on Rust and Zig and Deno, can name twelve service-mesh implementations, but his last shipped change was a config tweak six weeks ago. The ritualist: attends every standup, files tickets diligently, runs the on-call rotation, reviews PRs by ticking the Looks Good To Me box, but does not propose architecture, does not own incidents end-to-end, does not write the post-mortem with the structural claim. None of these three is the verse's destination. The yogi-engineer is the fourth: she works the disciplined hours that fit her sustainable rhythm (6.16's middle path), she reads with intent and applies what she reads to the actual codebase, she shows up to the rituals because the team needs them, and she ships the migration with the rollback runbook and stays at level when the dashboard is red. The integration is the verse. Shankara: the yogi-of-disciplined-action is greater than each partial path. Krishna's directive is unambiguous: tasmād yogī bhava — therefore be a yogi.",
+    "falsifiability": "The analog fails if a reader uses it to denigrate genuine austerity, genuine scholarship, or genuine ritual. The verse names *partial* paths — austerity-only, scripture-only, ritual-only — and ranks the *integrated* yogi above each. An engineer who reads this verse as 'don't read papers' or 'don't attend standups' has misread it. The yogi integrates; she does not abandon. The hierarchy is between integration and partiality, not between yoga and the three constituents.",
+    "counter_example": "When the apparent yogi-engineer is in fact a generalist who has not gone deep on any of the three constituents — superficial austerity (some long days), superficial knowledge (skim of the docs), superficial ritual (showing up to standups) — the verse does not endorse this state. The yogi-engineer is integrated *out of* depth in each constituent, not out of avoidance of all three. Generalist-without-depth is not yukta.",
+    "implication": "Audit yourself across the three. Where is the discipline of austerity (sustainable hours, refusal of distraction)? Where is the knowledge (papers read, applied, integrated)? Where is the ritual (standups, reviews, on-call held)? If any of the three is hollow, the integration is incomplete. The chapter has been pointing here for forty-five verses.",
+    "quotable_line": "Be a yogi: the operator who has yoked attention, action, and renouncement-of-fruit into one steady practice — not the ascetic, the knower, or the ritualist alone.",
+    "tags": [
+      "operator-system-coupling",
+      "deliberate-action",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

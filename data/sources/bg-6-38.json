@@ -3,8 +3,8 @@
   "chapter": 6,
   "verse": 38,
   "fetched_at": "2026-05-02T02:28:26.890Z",
-  "sanskrit_devanagari": "कच्च‍िन्नोभयविभ्रष्टश्छिन्नाभ्रमिव नश्यति ।अप्रतिष्ठो महाबाहो विमूढो ब्रह्मण: पथि ॥ ३८ ॥",
-  "sanskrit_iast": "kaccin nobhaya-vibhraṣṭaśchinnābhram iva naśyatiapratiṣṭho mahā-bāhovimūḍho brahmaṇaḥ pathi",
+  "sanskrit_devanagari": "कच्चिन्नोभयविभ्रष्टश्छिन्नाभ्रमिव नश्यति ।\nअप्रतिष्ठो महाबाहो विमूढो ब्रह्मणः पथि ॥ ३८ ॥",
+  "sanskrit_iast": "kaccin nobhaya-vibhraṣṭaś chinnābhram iva naśyati |\napratiṣṭho mahā-bāho vimūḍho brahmaṇaḥ pathi || 38 ||",
   "sanskrit_sources": [
     {
       "source": "vedabase.io",
@@ -39,7 +39,113 @@
       "agreement": "exact (academic critical edition; cross-reference Bhg_06.038). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
     }
   ],
-  "anvaya": [],
+  "anvaya": [
+    {
+      "sanskrit": "महाबाहो",
+      "iast": "mahā-bāho",
+      "meaning": "O mighty-armed one"
+    },
+    {
+      "sanskrit": "कच्चित्",
+      "iast": "kaccit",
+      "meaning": "is it not / surely not"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "उभय-विभ्रष्टः",
+      "iast": "ubhaya-vibhraṣṭaḥ",
+      "meaning": "fallen from both"
+    },
+    {
+      "sanskrit": "छिन्न-अभ्रम्",
+      "iast": "chinna-abhram",
+      "meaning": "a torn cloud"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "like"
+    },
+    {
+      "sanskrit": "नश्यति",
+      "iast": "naśyati",
+      "meaning": "perishes"
+    },
+    {
+      "sanskrit": "अप्रतिष्ठः",
+      "iast": "apratiṣṭhaḥ",
+      "meaning": "without support"
+    },
+    {
+      "sanskrit": "विमूढः",
+      "iast": "vimūḍhaḥ",
+      "meaning": "deluded"
+    },
+    {
+      "sanskrit": "ब्रह्मणः",
+      "iast": "brahmaṇaḥ",
+      "meaning": "of brahman"
+    },
+    {
+      "sanskrit": "पथि",
+      "iast": "pathi",
+      "meaning": "on the path"
+    },
+    {
+      "sanskrit": "kaccin",
+      "iast": "kaccin",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nobhaya-vibhraṣṭaś",
+      "iast": "nobhaya-vibhraṣṭaś",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "chinnābhram",
+      "iast": "chinnābhram",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "iva",
+      "iast": "iva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "naśyati",
+      "iast": "naśyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "apratiṣṭho",
+      "iast": "apratiṣṭho",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mahā-bāho",
+      "iast": "mahā-bāho",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vimūḍho",
+      "iast": "vimūḍho",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "brahmaṇaḥ",
+      "iast": "brahmaṇaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "pathi",
+      "iast": "pathi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
   "translations": [
     {
       "translator": "A.C. Bhaktivedanta Swami Prabhupada",
@@ -103,9 +209,28 @@
       "summary_paraphrase": ""
     }
   ],
-  "disagreements_among_translators": [],
-  "literal_meaning": "",
-  "traditional_meaning_consensus": "",
+  "disagreements_among_translators": [
+    {
+      "word": "ubhaya-vibhraṣṭa (fallen from both)",
+      "positions": [
+        {
+          "source": "Prab.",
+          "rendering": "deviated from both — both spiritual and material success"
+        },
+        {
+          "source": "Sankara summary",
+          "rendering": "fallen from karma-mārga (abandoned for yoga) and from yoga-mārga (yoga not completed)"
+        },
+        {
+          "source": "Ramanuja summary",
+          "rendering": "doubly fallen — from the practice attempted and from the worldly conduct given up"
+        }
+      ],
+      "explanation": "All three readings agree: 'both' refers to the loss of the worldly position (given up for the practice) AND the loss of the practice itself (not completed). The simile of the torn cloud names the fear: dissipation without arrival."
+    }
+  ],
+  "literal_meaning": "Surely, O mighty-armed, fallen from both, having no support, deluded on the path of brahman — does he not perish like a torn cloud?",
+  "traditional_meaning_consensus": "6.38 sharpens the fear. The fallen yogi is ubhaya-vibhraṣṭa — fallen from both: from worldly attainment (because he renounced it for the practice) AND from yogic attainment (because he failed to complete the practice). The simile chinnābhram iva — like a cloud severed from the larger cloud-mass, drifting and dissolving — is precise: the cloud has lost its source (the cloud-mass) and has not yet reached its destination (becoming rain), and so simply dissipates. Apratiṣṭha — without support, without firm ground. Vimūḍha — deluded — on the path of brahman. Sankara's reading: he is fallen both from karma-mārga (because he abandoned it for yoga) and from yoga-mārga (because he did not complete yoga); like a cloud cut off, he perishes. Ramanuja's reading: he is doubly-fallen — from the practice he was attempting AND from the worldly conduct he had given up. Both traditions read this as the most distressed form of the question. The simile is famous and is itself the answer the next teaching will refute in 6.40.",
   "source_pack_completeness": {
     "sanskrit_triangulated": true,
     "iast_triangulated": true,

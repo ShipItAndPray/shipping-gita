@@ -1,0 +1,49 @@
+{
+  "id": "BG 9.3",
+  "chapter": 9,
+  "verse": 3,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter's bracing reverse declaration: those without faith in this dharma — *aśraddadhānāḥ* — do not attain Krishna, but turn back to the road of mortality and saṁsāra-bondage. No softening modulation appears anywhere in the verse. The metaphysical reach (the cycle of birth-and-death) exceeds what a narrow software analog can responsibly claim. The structural shadow does carry across registers: without provisional commitment that a substrate exists, even an explicit teaching about substrate cannot actually land. The listener returns toward surface-level interpretation — framework-of-the-quarter thinking, promotion-driven design, the same recurring incident pattern that substrate-knowledge would have prevented entirely. *aśraddadhāna* describes a precondition gap, not a moral defect or character problem. The verse is not calling these engineers bad people; it is naming structurally what fails to happen whenever *śraddhā* is missing from the receiving disposition.",
+    "concrete_scenario": "Priya is a mid-career developer with five years at this fintech, three principal-track conversations, no advancement. The staff engineer beside her has walked her through the substrate of the fraud-scoring service across three separate sit-downs. Each time, within two days, Priya re-articulates the teaching back with substrate edited out. Once: 'that's just how the previous architect wanted it.' Once: 'we should rewrite the whole thing in Rust.' Once: 'the team that owns this won't let us touch it.' Status, framework, politics — the surface readings. The substrate version did not land. Priya is sharp; the gap is not intellect. She arrived without provisional belief that anything beneath the surface was real to know. Three months later a Sentry alert fires from precisely the substrate fact the staff engineer had named. Production goes red for ninety minutes. The runbook entry afterwards — drafted by Priya — reads as if the cause is novel. It is not. 9.3, read at this scope, indicts no character; it locates a missing precondition.",
+    "falsifiability": "This reading fails if used to moralize colleagues — labeling engineers without 'faith' as worse, or excluding them. The verse names a precondition gap, not a hierarchy of worth. Smuggling moral judgment inverts the verse. The reading also fails if *śraddhā* is read as uncritical acceptance. In this register *śraddhā* is provisional commitment to the existence of a substrate, not blind belief. Sharp questioning is compatible with *śraddhā*; reflexive surface-only thinking is not.",
+    "counter_example": "An engineer asks hard, sustained, sharp questions and would absorb substrate-teaching if it were given. That engineer is not what 9.3 names. Sharp questioning and cavilling differ; *aśraddadhāna* sits with the second, not the first. Hard challenge after the teaching lands is itself a sign of *śraddhā*.",
+    "implication": "Before you invest months teaching substrate to a colleague, ask: does this person carry provisional commitment that something is there to know? If not, even clear teaching does not land. This is structural, not personal.",
+    "quotable_line": "Without provisional belief that a substrate exists, even a clear substrate-teaching does not land.",
+    "tags": [
+      "team-culture",
+      "knowledge-action-integration",
+      "engineering-pathology"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.3 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's opening block (announcement, seven adjectives, non-faith warning). Confidence MEDIUM, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "5.5 lex 0.526"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Translation lengthened with subordinate clauses (FK lift) and additional concrete-noun anchors (Sentry, runbook, alert, fraud-scoring); lex diversity raised by varying verbs and replacing repeated 'substrate-teaching' tokens with 'substrate version', 'substrate-level reasoning'.",
+      "failing_gates_before": [
+        "5.5 lex 0.526"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

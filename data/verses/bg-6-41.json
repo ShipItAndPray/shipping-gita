@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.41",
+  "chapter": 6,
+  "verse": 41,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The first half of the compounding answer. The fallen yogi reaches puṇya-kṛtām lokān — the worlds of those who have accumulated merit — dwells there śāśvatīḥ samāḥ (for innumerable years), and is then reborn in the home of the śuci (pure) and śrīmat (prosperous). Per Sankara: such a one attains realms won by performers of meritorious deeds, lingers there indefinitely, and resumes the work from his earlier level. Per Ramanuja: he ascends to heavens earned by accumulated puṇya, abides until exhausted, then incarnates among pure and prosperous people, where circumstances favour returning to yoga. The verse explicitly describes a trans-life trajectory. STRETCHED honestly. The engineering analog operates at single-life scope: earlier substrate-engagement produces favourable circumstances for resumption. The verse's metaphysical reach exceeds engineering and is preserved at source-pack level.",
+    "concrete_scenario": "Continue the engineer-of-6.40 forward. Two years after she resumed sustained focus on a related problem-domain, a recruiter reaches out about a staff-distributed-systems role at a different company. The job description names exactly the kind of work she had been doing — the Kafka asymmetry, the Postgres replication patterns, the multi-region consumer-lag observability she has now seen twice. The team that hires her contains three engineers who have been doing this work for six to ten years each; the codebase is mature; the runbook is dense; the on-call rotation uses Honeycomb traces she must learn to read. Her four-month earlier discipline plus her two-year return have produced the substrate that made the role legible during the recruiter conversation, and her new colleagues create circumstances under which the discipline can deepen further. At the operational rung the verse names, she has been born into the home of those who do this kind of work. The metaphysical claim of 6.41 — trans-life trajectory across heavens — exceeds this analog by a distance no engineering reading can travel. What the analog can recognise: earlier focus produces situations in which the next phase resumes among fellow practitioners. STRETCHED, but real.",
+    "falsifiability": "The analog fails if a reader treats career-trajectory in engineering as the verse's puṇya-kṛtām lokān trans-life arc. It is not. The metaphysical scope of the verse — heavens won by accumulated puṇya, many-year dwelling, rebirth in the pure-and-prosperous home — exceeds the operational analog by a distance that cannot be honored at engineering scale. An engineer reading this as 'good practice means a good next job' has scoped the verse honestly downward and lost most of its force. The reduction is the analog; the analog is not the verse.",
+    "counter_example": "When career-favourable-conditions arise without prior practice — luck, market tailwind, well-positioned colleague — the verse does not describe that. The structural claim is that PRIOR PRACTICE produces favourable conditions for the resumed practice. Random favorable circumstance is not what 6.41 names. An engineer who read 6.41 as endorsement of 'the universe will provide' has missed the structural sequence: practice first, conditions second.",
+    "implication": "Notice that the conditions in which you find yourself resuming a practice — the team, the codebase, the runbook, the colleagues — were partly produced by your prior practice making them legible to you. The new context did not appear randomly; the prior work made it findable.",
+    "quotable_line": "The next team and the next codebase did not appear randomly. The prior four months made them legible.",
+    "tags": [
+      "long-term-thinking",
+      "operator-system-coupling",
+      "iteration-loop"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:03.211Z",
+      "mutation": "v0 generation: BG 6.41 engineering layer drafted from triangulated source pack per chapter-6 thesis. Anchored on the chapter thread the verse anchors in (struggle-and-consolation arc 6.33-6.47). Per IP rules: ≤300 char fair-use. Per BG 4.34: humility. Per anti-hallucination: no fabricated traditions; Sankara/Ramanuja paraphrased per source pack. Tools: named real engineering artifacts (Postgres, Kafka, Datadog, GitHub, Honeycomb, Kubernetes etc.). Falsifiability and counter-example explicitly distinguish the verse-claim from common misreads.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

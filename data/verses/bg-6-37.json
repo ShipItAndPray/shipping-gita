@@ -1,0 +1,37 @@
+{
+  "id": "BG 6.37",
+  "chapter": 6,
+  "verse": 37,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The fallen-yogi question opens here, and the compound is precise: ayatiḥ — without sustained restraint, having failed at saṁyama — BUT śraddhayopeta — endowed with faith. Per Sankara's reading: he had genuine faith in yoga but did not maintain the effort that yoga demands. The mind has slipped (calita-mānasaḥ); perfection (yoga-saṁsiddhi) has not been reached; aprāpya — without attaining. What gati — what eventual state — does such a practitioner reach? The verse names a category every experienced engineer recognises immediately: the practitioner who had a genuine deep-work practice, took it seriously for a substantial stretch, then drifted from it. Not the engineer who never attempted; not the engineer who cynically dabbled. The faith-endowed practitioner whose sustained effort failed somewhere mid-arc. The question is loaded because it is genuine: the speaker is naming his own fear about the path he is being asked to walk further along.",
+    "concrete_scenario": "An engineer eight years into her career committed seriously to a daily two-hour deep-work block targeting a long-running performance question inside their Postgres replication topology — she configured the necessary instrumentation, blocked the calendar carefully, and explicitly informed her teammates. For approximately four months the practice held remarkably well. She identified three structural improvements, opened a proof-of-concept pull request on GitHub, and watched the p95 latency metric on Datadog descend visibly across consecutive deployments. Then a major product launch hit her schedule, an on-call rotation came around, a hiring loop consumed multiple weeks, and finally a personal family crisis intervened decisively. She kept reassuring herself she would resume next Monday morning. Months afterwards the deep-work block has been absent for over a calendar year, the original proof-of-concept branch on GitHub has gone stale, and the Datadog dashboard she carefully constructed sits entirely unviewed. She knows what the practice was, she knows she once genuinely had it, and she knows it has slipped away. She has become the ayatiḥ śraddhayopetaḥ — faith-endowed but unsustained. The question arising in her chest is exactly the verse's question: what becomes of that prior work? Did those four months actually count for anything? Will the next attempt start from zero, or somewhere closer to where the prior practice had settled? She is not asking cynically; she is asking out of genuine fear. The verse names exactly this fear.",
+    "falsifiability": "The analog fails if a reader reads 6.37 as endorsing the failure pattern — 'it is fine to be ayati if you have śraddhā.' It is not. The verse is the question, not the answer. The teacher's response (6.40-6.42) refuses the implied destruction, but the question itself is honest about a real failure mode that the practitioner has lived. An engineer who reads 6.37 as 'faith without effort is enough' has misread it.",
+    "counter_example": "When the engineer's lapse is in fact never-attempted-with-faith — months of vague intention without any sustained effort, no real practice having been built — the verse does not name this. The category named is the genuinely-tried-and-fallen, not the never-tried. The fear of 'have I lost the work' presupposes the work was real. The verse's consolation in 6.40 will only land for those for whom the practice was actually present.",
+    "implication": "If you have drifted from a practice that was once real, name it as the verse names it: faith-endowed but unsustained. The naming itself is honest. The destruction-fear is the next move; it is the move the verse will refute.",
+    "quotable_line": "Faith-endowed but unsustained — the engineer who had a real practice and lost it. Not nobody. Not impostor. A category the verse names exactly.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "feedback-loops"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:38:03.211Z",
+      "mutation": "v0 generation: BG 6.37 engineering layer drafted from triangulated source pack per chapter-6 thesis. Anchored on the chapter thread the verse anchors in (struggle-and-consolation arc 6.33-6.47). Per IP rules: ≤300 char fair-use. Per BG 4.34: humility. Per anti-hallucination: no fabricated traditions; Sankara/Ramanuja paraphrased per source pack. Tools: named real engineering artifacts (Postgres, Kafka, Datadog, GitHub, Honeycomb, Kubernetes etc.). Falsifiability and counter-example explicitly distinguish the verse-claim from common misreads.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

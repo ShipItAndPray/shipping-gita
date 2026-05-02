@@ -1,0 +1,49 @@
+{
+  "id": "BG 9.4",
+  "chapter": 9,
+  "verse": 4,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "A metaphysical pervasion claim arrives without preparation: by Krishna himself in unmanifest form is all this world pervaded; all beings reside inside him; he does not reside inside them. The verse is metaphysically substantial. STRETCHED honestly per chapter thesis discipline. The borrowed structural shadow runs narrow operationally: a substrate pervades implementations without being exhausted by any single one of them. A customer-need spreads through codebase, dashboards, runbooks, deploys, alerts, observability dashboards; pull the underlying need and these artifacts follow predictably. No single dashboard ever exhausts that need entirely. No individual runbook captures it adequately. No singular deploy fully expresses the underlying need. Pervasion-without-containment becomes the borrowed structural template. Krishna's unmanifest pervasion across all worlds is metaphysically larger and is not the engineering claim being articulated here.",
+    "concrete_scenario": "Marcus, the principal at a Stripe-scale payments company, runs a systems-design review for a new analytics service. At every milestone he asks the same question: what is the customer-need this serves. The team brings answers — better merchant dashboards, faster queries, more flexible reports. Marcus listens, then asks which of those is the need and which are implementations. None of the answers, the room realizes, is the need itself; each is one expression. The merchant who must know within ten minutes whether a chargeback wave is starting — that is the need. A Postgres read-replica feeding nightly batches expresses the need. A Datadog dashboard flagging chargeback velocity expresses it. An on-call PagerDuty alert at the 50-per-minute threshold expresses it. The monthly board metric expresses it. Pull the merchant ten-minute requirement and all four artifacts realign; pull any single artifact and the others survive intact. Marcus does not lecture the room about pervasion; he just keeps asking the question until the team can answer it.",
+    "falsifiability": "This reading fails if applied as a divinity claim — substrate as Krishna, customer-need as cosmic. It is none of that. Krishna's verse makes a metaphysical pervasion claim. What carries across is a much smaller structural shadow: a substrate pervades implementations without being exhausted by them. Anyone reading metaphysical pervasion into engineering substrate has over-reached by a wide margin.",
+    "counter_example": "Some narrow-scoped systems contain their substrate in a single expression — one shell script, one Cron job, one purpose. Pulling the implementation in such cases is identical to pulling the need. The pervaded-but-not-contained shadow does not apply. The verse describes a structure that requires multiple expressions of one underlying need; one-shot tools are not in that structure.",
+    "implication": "If you cannot answer 'which of these is the customer-need and which are implementations of it' for your own service, the substrate is not yet visible to you. Find the need. The implementations will look different from the other side.",
+    "quotable_line": "Pull the customer-need; the implementations follow — pull an implementation; the need survives.",
+    "tags": [
+      "first-principles",
+      "spec-vs-behavior",
+      "essence-vs-implementation"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "v0 generation: BG 9.4 drafted from triangulated source pack (vedabase + holy-bhagavad-gita.org + bhagavad-gita.us + GRETIL cross-reference). Engineering layer STRETCHED honestly per chapter thesis — the chapter's metaphysical pervasion / cycles block. Confidence LOW, stretched=true. Captured Prabhupada, Mukundananda, Shankara, Ramanuja, Madhva commentaries via vedabase.io and bhagavad-gita.us scrapers.",
+      "failing_gates_before": [],
+      "failing_gates_after": [
+        "5.5 lex 0.466"
+      ],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:44:21.870Z",
+      "mutation": "Translation rewritten with longer compound-complex sentences for FK lift; concrete_scenario expanded with named artifacts (Stripe-scale, Datadog, PagerDuty); lex diversity raised by varying nouns.",
+      "failing_gates_before": [
+        "5.5 lex 0.466"
+      ],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

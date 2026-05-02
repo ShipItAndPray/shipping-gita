@@ -1,0 +1,372 @@
+{
+  "verse_id": "BG 6.43",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-05-02T22:55:00Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [],
+          "notes": "The doctrinally significant compound buddhi-saṁyogam paurva-dehikam is preserved precisely. Both Shankara ('endowed with that wisdom acquired in the previous body') and Ramanuja ('regains the mental disposition for Yoga that he had in the previous birth, like one awakened from sleep') are correctly cited and not conflated. The engineering layer explicitly tags STRETCHED at the multi-life metaphysics and scopes operationally to single-life-substrate without claiming equivalence — the layer says 'the verse's reach exceeds the analog's reach' rather than collapsing the two scopes. The yatate ca tato bhūyaḥ ('strives further') half is preserved as the active term — the substrate-claim does not displace the striving-claim. No tradition is conflated; no Sanskrit claim is inverted; no doctrinally load-bearing word is dropped. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "Substrate from prior deep practice persists across discontinuity. The week-three return-to-level for an engineer who left for management is not luck; it is the saṁskāra of disciplined reading-the-flamegraph still intact under three years of disuse. Implication: when hiring an engineer who has been out of IC for years, weight the depth of prior practice over the recency.",
+          "wisdom_theater_score": 1,
+          "objection": "I went looking for 'time off doesn't matter, you've still got it' — and the verse's falsifiability explicitly disqualifies that read: 'the verse does not promise that time off is costless.' The substrate is a ground-state advantage; the climb back to operating-level still demands the striving (yatate ca tato bhūyaḥ). The counter-example flags the case where the gap was attention-fragmentation rather than another deep practice — the substrate degrades there, and the verse does not endorse recovery. Wisdom_theater_score=1 (not 0) because the senior-effortlessness narrative around hiring older engineers is adjacent to wisdom-theater elsewhere; here the verse is honest about scope and tagged STRETCHED. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "When a senior engineer returns to IC from a multi-year management or strategy gap, schedule a four-week ramp where you stop expecting prior-level output but trust the substrate to re-attach. Do not assume zero, do not assume month-one parity. Trust the trajectory.",
+          "example_decision": "A returning principal engineer joins the migration project. The PM's first instinct is to assign her senior-level scope week one — fail, demoralize. The PM's second instinct is to assign her junior scope to ease in — fail, waste her substrate. The verse's predicate: assign her one substantive substrate-leverage problem (a debugging task that exercises the deepest part of her prior practice) and watch the saṁskāra surface. By week three the team will know.",
+          "objection": "Genuinely roadmap-actionable. The four-week ramp is a real PM artefact: returning-IC ramp document, week-by-week milestones calibrated against substrate-resurfacing rather than against fresh-hire baselines. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "Returning-IC engineers (out for ≥2 years) get a four-week ramp calibrated to substrate-resurfacing rather than fresh-hire onboarding milestones. By week 3-4, the engineer should be diagnosing problems the team has been chasing for weeks. If not, the substrate did not survive the gap.",
+          "example_decision": "Same as 7.3. The predicate is observable and falsifiable.",
+          "objection": "PASS. The predicate has a clear observation window and clear pass/fail criterion."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "The engineering layer correctly preserves Shankara's reading (wisdom-from-prior-body, the discriminating buddhi as the substrate that re-attaches) without conflating with Ramanuja's specifically-Vaishnava reading (regains the mental disposition for Yoga, with the awakening-from-sleep simile). Both are cited with attribution. The Sanskrit term buddhi-saṁyoga is preserved verbatim and explained. The yatate ('strives') half of the verse is preserved as the active term. The chapter's specific consolation arc (6.40-45) is honored. The metaphysics of multi-life rebirth is explicitly named as exceeding engineering reach — the layer does not flatten it into single-life psychology. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "buddhi-saṁyoga, paurva-dehika, saṁsiddhi, yatate are all preserved with their Sanskrit form alongside engineering gloss. No erasure of technical terms. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Local Director Returns to IC, Discovers She Was a Yogi All Along: 'The Substrate Just Needed Three Years of Meetings to Wash Off,' Says Engineer Whose New CockroachDB Migration Is Going Suspiciously Well. In a related development, executive coaches now offer a 'paurva-dehika package' for newly-demoted VPs ($14,500/month).",
+          "satire_lands": false,
+          "verdict_reason": "The satire only lands if you ignore the falsifiability and counter-example. The verse explicitly disqualifies the wishful 'time off is costless' read: 'the substrate is a ground-state advantage; the climb back still demands striving.' The counter-example explicitly flags the case where the gap was drift rather than another disciplined practice. The wisdom-theater 'every demoted exec is a hidden yogi' read is exactly what the counter-example refuses. PASS — the verse has built its own immune response to the satire."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "buddhi-saṁyoga from the prior body — the specific compound is the verse's anchor; the engineering analog is shaped to it (substrate re-attachment after discontinuity)",
+            "the explicit discontinuity-and-resumption geometry: 'gap', 'returns', 'the prior practice carrying her' — directly maps to the verse's gap-and-rebirth structure",
+            "'from there strives further toward perfection' (yatate ca tato bhūyaḥ) — the analog preserves the post-resumption striving as a distinct claim"
+          ],
+          "verdict_reason": "I tested against three candidate verses: 6.5 (uddhared ātmanātmānam — but that is self-raising, not gap-resumption), 6.45 (aneka-janma-saṁsiddhi — but that is purification across many births, not the buddhi-saṁyoga reattachment), 4.5 (Krishna remembering past births — but that is divine memory, not yogic substrate). The analog is 6.43-specific. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "buddhi-saṁyoga as substrate-reattachment, not generic compounding",
+            "the gap-and-return geometry — central to 6.43, peripheral or absent in adjacent verses"
+          ],
+          "verdict_reason": "Same anchors as 7.6. The analog is verse-specific. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            { "verse_id": "BG 6.43", "confidence": 0.74, "reasoning": "The analog explicitly names a return-after-gap, the prior practice carrying the practitioner, and the further-striving from re-attached ground. 'Substrate from the prior body persists across the discontinuity' is the verse's structural claim translated into engineering. The buddhi-saṁyoga compound and paurva-dehika are both preserved verbatim." },
+            { "verse_id": "BG 6.44", "confidence": 0.12, "reasoning": "Possible because 6.44 also preserves prior practice — but 6.44's specific claim is avaśaḥ-api hriyate (carried-even-unwilling), which the analog does not center on." },
+            { "verse_id": "BG 6.45", "confidence": 0.06, "reasoning": "Possible because 6.45 names compounding across births — but 6.45's specific claim is purification-and-supreme-goal, which the analog does not center on." }
+          ]
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            { "verse_id": "BG 6.43", "confidence": 0.74, "reasoning": "Same as 7.8. Top candidate is the source." },
+            { "verse_id": "BG 6.44", "confidence": 0.12, "reasoning": "Adjacent consolation verse." },
+            { "verse_id": "BG 6.45", "confidence": 0.06, "reasoning": "Adjacent consolation verse." }
+          ]
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/distortion-test.prompt.txt",
+        "verdict_payload": { "verdict": "PASS", "issues": [] }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/distortion-test.prompt.txt",
+        "verdict_payload": { "verdict": "PASS", "issues": [] }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 6.43 is in the consolatory register established by 6.37-6.42. The engineering layer holds the warm-but-rigorous tone: the consolation is offered (substrate persists) but the rigour is held (the climb-back demands striving; shallow practice does not earn the verse's claim). The voice does not slip into self-help warmth. The senior-engineer-returning-from-management scenario is in-register with the chapter's practitioner-fearing-having-failed addressee. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 0,
+          "specific_concerns": [],
+          "verdict_reason": "The verse is honestly tagged MEDIUM + STRETCHED. The multi-life rebirth metaphysics is explicitly named as exceeding the operational analog rather than being collapsed into pop-psychology 'you're still you' messaging. The substrate-reattachment claim is held to the depth of prior practice; shallow drift does not earn the verse's claim. Zero trivialization. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "The engineering layer explicitly states 'the verse's reach exceeds the analog's reach' and 'the metaphysics exceeds engineering reach.' The original meaning (multi-life return of buddhi-saṁyoga) is preserved as the source's reading; the engineering analog sits beside it at strictly downscaled scope. No tech-manual framing. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 1,
+          "defective_entries": [],
+          "explanation_quality_score": 8,
+          "verdict_reason": "The single disagreement entry on buddhi-saṁyogam captures the substantive scope-difference across translators: Prabhupada's 'divine consciousness' is the loosest rendering, Shankara holds the discriminating buddhi as the substrate, Ramanuja narrows to 'mental disposition for Yoga.' The structural consensus (prior practice persists as accumulated substrate) is correctly extracted. Score 8 — slightly less rich than gold-standard but doctrinally accurate. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 4,
+          "reconstructed_sketch": "Given chapter context (6.40-42 set up the fallen-yogi consolation, 6.45 closes with parām gatim), an engineering analog at position 43 would predictably address the resumption of practice after a gap. A competent writer might write 'returning to a codebase after years away' — but they would not necessarily land on the specific buddhi-saṁyoga substrate-reattachment vs striving-still-required dichotomy.",
+          "verse_specific_signal": "The 'paurva-dehika' compound preservation and the explicit naming of the discontinuity-and-resumption structure as the verse's geometry. The four-week-ramp predicate is verse-specific.",
+          "overlap_with_other_verses": [
+            { "verse_id": "BG 6.44", "overlap_type": "complementary", "explanation": "6.43 names the substrate; 6.44 names the carrying. Pair-overlap is the chapter's sanctioned form for the fallen-yogi consolation arc." }
+          ],
+          "verdict_reason": "Reconstructibility moderate (4). The chapter context licenses a return-after-gap verse but does not predict the specific substrate-vs-striving dichotomy or the four-week-ramp predicate. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Engineering hiring rubric: Returning-IC Onboarding Plan. A four-week ramp document for engineers returning to IC from ≥2 years away. Week 1: shadow + light pairing, no scope ownership. Week 2: one substrate-leverage debugging task chosen to exercise their deepest prior practice. Week 3: assess substrate resurfacing — diagnose problems the team has been chasing? Week 4: scope assignment calibrated to substrate-confirmed level.",
+          "artifact_kind": "process_document",
+          "embodiment_sketch": "L&D and Eng-management team adds 'Returning-IC Onboarding' as a Notion template. Manager fills in the substrate-leverage task in week 2. Pairing with a senior peer for substrate-confirmation conversation in week 3. Decision in week 4 on scope assignment. Concretely copyable Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "Real reproducible HR/eng-management artifact. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            { "thread_name": "The struggle and consolation of practice (6.33-6.47)", "anchor_evidence": "6.43 is the third verse in the consolation arc that began with 6.37 (Arjuna asks: what about the one who falls?). The engineering layer explicitly names this consolation: 'the engineer who has drifted from the practice has not lost the practice; the years that look from the inside like wasted years compound from the outside into the senior's apparent effortlessness.' The chapter-thesis statement is honored exactly." }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": { "type": "none", "explanation": "Position 43 is correctly within the consolation arc; the verse does not preempt 6.46's hierarchy claim or 6.47's theistic close." },
+          "verdict_reason": "The verse is correctly positioned in the consolation thread, honestly tagged STRETCHED at the multi-life metaphysics, and operationally scoped at the substrate-persists-across-discontinuity claim. PASS at the chapter's correct standard."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            { "thread_name": "The struggle and consolation of practice (6.33-6.47)", "anchor_evidence": "Same as 10.3." }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": { "type": "none", "explanation": "Verse ordering preserved; consolation arc continues from 6.42 into 6.43-44." },
+          "verdict_reason": "Verse-ordering check: 6.43 correctly follows 6.42 in the consolation arc and feeds 6.44's pūrvābhyāsa-carrying claim. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on 6.43: operator-system-coupling, deep-work, long-term-thinking. Coherent with 6.19 (deep-work, focus-practice, operator-as-instrument) — both verses anchor on the senior operator's substrate accumulated through long-time-horizon practice. Coherent with 5.21-5.23 (long-term-thinking, contained-in-self-happiness). No tag drift. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-43/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Same as 6.1. The verse coheres with the chapter's compounding-practice thread and with 6.19's lamp-simile in scope. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:55:00Z"
+    }
+  ]
+}

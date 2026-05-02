@@ -1,0 +1,303 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 6.44",
+  "sanskrit_devanagari": "पूर्वाभ्यासेन तेनैव ह्रियते ह्यवशोऽपि सः ।\nजिज्ञासुरपि योगस्य शब्दब्रह्मातिवर्तते ॥ ४४ ॥",
+  "sanskrit_iast": "pūrvābhyāsena tenaiva hriyate hy avaśo 'pi saḥ |\njijñāsur api yogasya śabda-brahmātivartate || 44 ||",
+  "anvaya": [
+    {
+      "sanskrit": "पूर्वाभ्यासेन",
+      "iast": "pūrva-abhyāsena",
+      "meaning": "by the previous practice"
+    },
+    {
+      "sanskrit": "तेन",
+      "iast": "tena",
+      "meaning": "by that"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "ह्रियते",
+      "iast": "hriyate",
+      "meaning": "is carried / is drawn forward"
+    },
+    {
+      "sanskrit": "हि",
+      "iast": "hi",
+      "meaning": "surely"
+    },
+    {
+      "sanskrit": "अवशः",
+      "iast": "avaśaḥ",
+      "meaning": "without will / helpless / automatically"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "जिज्ञासुः",
+      "iast": "jijñāsuḥ",
+      "meaning": "the inquirer / one who wishes to know"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "योगस्य",
+      "iast": "yogasya",
+      "meaning": "of yoga"
+    },
+    {
+      "sanskrit": "शब्दब्रह्म",
+      "iast": "śabda-brahma",
+      "meaning": "the brahman-of-sound (the ritualistic Vedic prescriptions)"
+    },
+    {
+      "sanskrit": "अतिवर्तते",
+      "iast": "ativartate",
+      "meaning": "transcends / goes beyond"
+    },
+    {
+      "sanskrit": "pūrva",
+      "iast": "pūrva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "abhyāsena",
+      "iast": "abhyāsena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tena",
+      "iast": "tena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "hriyate",
+      "iast": "hriyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "hy",
+      "iast": "hy",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "avaśo",
+      "iast": "avaśo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "api",
+      "iast": "api",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "jijñāsur",
+      "iast": "jijñāsur",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogasya",
+      "iast": "yogasya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śabda",
+      "iast": "śabda",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "brahmātivartate",
+      "iast": "brahmātivartate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/44/",
+      "fetched_at": "2026-05-02T02:25:45.574Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "By virtue of the divine consciousness of his previous life, he automatically becomes attracted to the yogic principles – even without seeking them. Such an inquisitive transcendentalist stands always above the ritualistic principles of the scriptures.",
+      "raw_capture_path": "data/sources/raw/bg-6-44-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-44/",
+      "fetched_at": "2026-05-02T02:26:41.114Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "By virtue of the divine consciousness of his previous life, he automatically becomes attracted to the yogic principles—even without seeking them. Such an inquisitive transcendentalist stands always above the ritualistic principles of the scriptures."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/44/",
+      "fetched_at": "2026-05-02T02:25:45.574Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1581 chars)",
+      "verbatim_excerpt": "Advanced yogīs are not very much attracted to the rituals of the scriptures, but they automatically become attracted to the yoga principles, which can elevate them to complete Kṛṣṇa consciousness, the highest yoga perfection.",
+      "raw_full_path": "data/sources/raw/bg-6-44-vedabase.json (purport_full_length: 1581)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-44/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:41.114Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.44 Hi, for; tena eva, by that very; purva-abhyasena, past practice-the powerful habit formed in the past life; hiryate, he, the yogi who had fallen from Yoga, is carried forward; avasah api, even inspite of himself. If he had not committed any act which could be characterized as unrigthe",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1207,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-44-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara emphasizes the *powerful habit* formed in the past life: by that very past practice (pūrva-abhyāsa) the yogi who had fallen from Yoga is carried forward, even in spite of himself (avaśaḥ api). The latent saṁskāra acts as a current strong enough to draw the practitioner back into the practice without conscious volition. The mere wish-to-know (jijñāsu) of yoga already places one beyond the ritual-performer (śabda-brahma)."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-44/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:41.114Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.43 – 6.44 There, in that existence, he regains the mental disposition for Yoga that he had in the previous birth. Like one awakened from sleep, he strives again from where he had left before attaining complete success. He strives so as not to be defeated by impediments. This person who h",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1143,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-44-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja preserves 6.43-44 as a single unit: the prior practice-substrate carries the practitioner forward like one waking from sleep. Even an aspirant who only desires to know yoga (jijñāsu) is already lifted past the ritual-Vedic plane (śabda-brahma) — the practice operates above the level of mere prescribed performance."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "śabda-brahma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the ritualistic principles of the scriptures"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the level of mere ritual-performer (Vedic prescriptions)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the ritual-Vedic plane (the level the karma-kāṇḍa addresses)"
+        }
+      ],
+      "explanation": "Śabda-brahma literally means 'brahman-of-sound' — the Veda as ritual-prescription. All three traditions read the verse as claiming that even an aspirant who merely *wishes to know* yoga has already transcended the level the karma-kāṇḍa addresses. Prabhupada flattens to 'ritualistic principles'; Shankara reads it as the prescribed-performance level; Ramanuja reads it scoped to the karma-kāṇḍa specifically. The structural claim is uncontroversial across traditions: the substrate of prior practice operates above mere ritual."
+    },
+    {
+      "word": "avaśaḥ api",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "automatically — even without seeking them"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "even in spite of himself"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "as one awakened from sleep"
+        }
+      ],
+      "explanation": "The compound avaśaḥ-api is striking: 'even unwilling / without will / helpless.' The prior practice is strong enough that the practitioner is drawn back into it without conscious volition. Shankara sharpens this to 'in spite of himself.' Prabhupada softens to 'automatically.' Ramanuja gives the simile of awakening. All three preserve the non-volitional pull of the saṁskāra."
+    }
+  ],
+  "literal_meaning": "By that very prior practice he is carried, even unwilling. Even one who merely wishes to know yoga goes beyond the brahman-of-sound (the ritualistic Vedic prescription).",
+  "traditional_meaning": "6.44 is the second half of the consolation Krishna gives Arjuna across 6.40-45. The prior practice (pūrva-abhyāsa) is strong enough to carry the practitioner forward without volition (avaśaḥ api hriyate) — Shankara: 'in spite of himself'; Ramanuja: 'like one awakened from sleep'; Prabhupada: 'automatically, even without seeking them.' Furthermore, even an aspirant who has merely begun to inquire into yoga (jijñāsu) is already established above the level of ritual-Vedic prescription (śabda-brahma ativartate). The traditional consensus reads the verse as a structural claim about the cumulative force of prior practice and the elevation conferred by even early yogic inquiry.",
+  "engineering": {
+    "translation": "Pūrvābhyāsena tenaiva hriyate hy avaśo 'pi saḥ — by that very prior practice he is carried, even unwilling. The compound avaśaḥ-api is striking: even helpless, even without volition, the prior practice draws him. Shankara sharpens it: 'in spite of himself.' Ramanuja: 'like one awakened from sleep.' The second hemistich extends the consolation: even an aspirant who has merely begun to inquire (jijñāsuḥ) into yoga has already gone beyond śabda-brahma — the level of mere ritual-Vedic prescription. The verse is multi-life in its native register and STRETCHED for engineering. The single-life-substrate analog is real but smaller in scope: the saṁskāra of disciplined practice — the formed habit of reading code carefully, of refusing to merge until tests cover the regression case, of writing the rollback-runbook before the deploy — once cut deeply enough, draws the practitioner back to the work even after long drift. The latent habit is the current. The mere wish-to-return, on the operational rung, already places the practitioner above pure ritual-without-discipline.",
+    "concrete_scenario": "Sixteen months ago a senior engineer left her team for a strategy role at a private equity firm. No code, no Datadog, no on-call rotation — just decks and term sheets. She told herself the engineering days were over. Last quarter the firm acquired a fintech and asked her to embed for ninety days as interim head of engineering. She had not opened VSCode in over a year. The first morning she pulled the repository, ran the test suite, and found her hands moving without conscious instruction: she filed a GitHub issue for the flaky integration test before she had decided to, opened the Sentry dashboard before she had decided to, declined a senior engineer's PR — politely, with the specific concrete reason — before she had thought through the politics. The prior practice was carrying her. She had not chosen to perform any of these moves; the saṁskāra had. By week three she had restored the discipline she had told herself was gone. The second pāda also held: a junior on the team who had been a finance major, who had merely begun to read the SRE handbook with curiosity, was already operating closer to the discipline than the senior tenured engineer who had become a ritualistic merge-approver without thought. The wish-to-know placed the junior above the ritual.",
+    "falsifiability": "The analog fails if a reader treats it as a doctrine that any engineer can stop practicing for any duration and the muscle returns. The verse names a saṁskāra deeply formed across years; it does not name a casual habit. An engineer who practiced for eight months and stopped for five years should not expect the prior-practice-current. The depth of the formation governs the strength of the pull. Shallow practice does not produce avaśaḥ-api hriyate.",
+    "counter_example": "When the apparent return-to-practice is in fact rote performance — opening the IDE every morning out of identity-attachment, filing PRs that add no value, attending standups as ritual — the verse does not endorse this. The second hemistich explicitly rejects the ritual-without-genuine-engagement plane (śabda-brahma). The senior who has continued to attend the discipline's external forms while the inner practice eroded has fallen below the inquirer (jijñāsu) who is just beginning honestly.",
+    "implication": "If you have drifted from the practice and the inner pull back has begun, follow it. The current is real. If you remain at the level of external ritual without inquiry, the verse does not flatter you — even the honest beginner is positioned above you.",
+    "quotable_line": "By the prior practice you are carried, even unwilling — the saṁskāra is the current, not the will.",
+    "tags": [
+      "operator-system-coupling",
+      "long-term-thinking",
+      "deep-work"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

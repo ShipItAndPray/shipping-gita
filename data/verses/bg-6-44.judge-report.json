@@ -1,0 +1,369 @@
+{
+  "verse_id": "BG 6.44",
+  "mode": "manual-llm-judge",
+  "generated_at": "2026-05-02T22:58:00Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "failed": 0,
+  "errored": 0,
+  "results": [
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/sanskrit-scholar.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "issues": [],
+          "notes": "The two doctrinally-load-bearing terms — pūrvābhyāsa (the saṁskāra of prior practice) and avaśaḥ-api ('even unwilling, even helpless') — are preserved verbatim and correctly explicated. Shankara's sharpening ('in spite of himself') and Ramanuja's simile ('like one awakened from sleep') are correctly attributed. The second pāda (jijñāsuḥ api yogasya śabda-brahmātivartate) is preserved as a distinct claim — the engineering layer explicitly names the inquirer-above-the-ritualist structure rather than collapsing it into the first hemistich. śabda-brahma is correctly explained as the brahman-of-sound, the level of mere ritual-Vedic prescription. No tradition is conflated. No Sanskrit claim is inverted. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/hostile-engineer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "real_insight": "Deeply-formed engineering saṁskāra is a current, not a will. The senior who returns from a 16-month strategy gap and finds her hands moving on Sentry/GitHub before her conscious mind has decided is not exhibiting willpower — she is being carried. Implication: the practice you build now compounds into a current that will pull you back even when you have stopped trying. The depth of formation governs the strength of the current.",
+          "wisdom_theater_score": 0,
+          "objection": "I went looking for 'just trust your instincts after a break.' The verse explicitly disqualifies the shallow read: the saṁskāra-current is proportional to the depth of the original formation. Casual habits do not produce avaśaḥ-api hriyate. The counter-example explicitly rejects the senior who has continued the external forms while the inner practice eroded. The second pāda's elevation of the inquirer (jijñāsu) over the ritualist is a sharp engineering claim: a curious junior outranks a senior performing without engagement. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "Audit team members along two axes: (1) depth-of-prior-practice (where was the formation?); (2) currency-of-engagement (is the inner inquiry alive?). A senior with deep prior practice and currently-alive inquiry is at maximum yoke. A senior with deep prior practice but eroded inquiry is below the curious junior on the second axis.",
+          "example_decision": "Quarterly engineering performance review: do not collapse to commit count or PR throughput. Add an inquiry-currency dimension: in the last quarter, did this engineer raise a question that genuinely puzzled them? Did they read a paper and tie it back to the codebase? The senior who attends standups, reviews PRs ritualistically, and merges without curiosity should be flagged — even if their commit count is high.",
+          "objection": "Roadmap-actionable. The two-axis frame is a real PM/eng-manager artefact for performance review. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/skeptical-pm.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "actionable_predicate": "Inquiry-currency rubric in performance review: 'In the last quarter, did this engineer raise a genuine question?' Falsifiable observation. Single-quarter window.",
+          "example_decision": "Same as 7.3.",
+          "objection": "PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "śabda-brahma is rendered with full doctrinal weight (the brahman-of-sound, the level of mere ritual-Vedic prescription) — neither flattened to 'scriptures' nor expanded to non-textual scope. saṁskāra is preserved as the technical term for the formed habit. Both Shankara's reading (powerful habit drawing the practitioner against will) and Ramanuja's reading (awakening from sleep) are cited without conflation. The second pāda's structural claim — that even an inquirer (jijñāsu) is above the ritualist — is correctly preserved as Krishna's own claim. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/indian-philosopher.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "conflations_found": [],
+          "technical_terms_dropped": [],
+          "verdict_reason": "pūrvābhyāsa, avaśaḥ, jijñāsu, śabda-brahma, ativartate all preserved. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/cynical-writer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "satire_attempt": "Boutique consultancy launches 'Saṁskāra Reactivation Boot Camp' for ex-engineers now in private equity, promising the prior practice will return automatically over two weekend retreats ($24,000). Junior on team, who has been reading the SRE handbook with curiosity, is told he 'lacks years of saṁskāra' and is denied promotion.",
+          "satire_lands": false,
+          "verdict_reason": "The satire only lands by inverting the verse's own structural claim — that the inquirer (jijñāsu) is above the ritualist. The verse explicitly elevates the curious junior over the ritualistic senior. The boot-camp satire requires reading the verse as 'tenure trumps inquiry,' which is the opposite of the second pāda. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": [
+            "avaśaḥ-api hriyate — the carried-even-unwilling structure is the verse's distinct anchor, distinct from 6.43's substrate-reattachment",
+            "the jijñāsu-above-the-śabda-brahma claim — the second pāda's elevation of the inquirer is unique to 6.44",
+            "the simile of awakening-from-sleep (Ramanuja) — verse-specific"
+          ],
+          "verdict_reason": "Tested against 6.43 (substrate reattachment, but not the involuntary current), 6.40 (consolation but not the saṁskāra-current claim), 6.45 (purification across many births, not the wish-to-know elevation). PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/force-fit-detector.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "could_apply_equally_to": [],
+          "verse_specific_anchors": ["avaśaḥ-api hriyate; jijñāsu-above-śabda-brahma"],
+          "verdict_reason": "Same as 7.6. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            { "verse_id": "BG 6.44", "confidence": 0.78, "reasoning": "The 'carried even unwilling' phrasing, the 16-month-gap return scenario where the saṁskāra fires before conscious decision, and the explicit second-pāda about the inquirer-above-the-ritualist all point to 6.44. The pūrvābhyāsa-as-current and śabda-brahma both preserved verbatim." },
+            { "verse_id": "BG 6.43", "confidence": 0.10, "reasoning": "Adjacent — 6.43 is also about prior practice, but does not center on involuntary carrying or jijñāsu-elevation." },
+            { "verse_id": "BG 6.45", "confidence": 0.04, "reasoning": "Adjacent compounding-practice verse." }
+          ]
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/inversion-test.prompt.txt",
+        "verdict_payload": {
+          "top_candidates": [
+            { "verse_id": "BG 6.44", "confidence": 0.78, "reasoning": "Same as 7.8." },
+            { "verse_id": "BG 6.43", "confidence": 0.10, "reasoning": "Adjacent." },
+            { "verse_id": "BG 6.45", "confidence": 0.04, "reasoning": "Adjacent." }
+          ]
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/distortion-test.prompt.txt",
+        "verdict_payload": { "verdict": "PASS", "issues": [] }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/distortion-test.prompt.txt",
+        "verdict_payload": { "verdict": "PASS", "issues": [] }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/voice-consistency.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "verses_off_tone": [],
+          "chapter_voice_summary": "BG 6.44 holds the consolatory-but-rigorous register of the chapter's closing arc. The voice is warm (the saṁskāra carries you back) but firm (only the deeply-formed saṁskāra; not the casual habit). The second-pāda elevation of the inquirer is delivered in the chapter's didactic register, not as cheerful encouragement. The senior-returning-from-strategy-role and the curious-junior-above-the-ritualistic-senior are both in-tone. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/trivialization-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "trivialization_severity": 0,
+          "specific_concerns": [],
+          "verdict_reason": "The verse is honestly tagged MEDIUM + STRETCHED. The avaśaḥ-api-hriyate claim is preserved as a structural saṁskāra-current, not flattened to 'muscle memory.' The śabda-brahma is preserved with its specific Vedic-ritual sense. The counter-example explicitly refuses the soft read (external-ritual-as-substitute). Zero trivialization. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/tech-manual-framing.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "violations": [],
+          "verdict_reason_external": "Engineering layer explicitly names the multi-life metaphysics as native register and operationally scopes downward. No tech-manual framing. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "total_disagreements": 2,
+          "defective_entries": [],
+          "explanation_quality_score": 9,
+          "verdict_reason": "Two substantive disagreement entries: (1) on śabda-brahma — three traditions read it as scoped to ritual-Vedic prescription with consensus that the verse claims the substrate operates above mere ritual; (2) on avaśaḥ api — the striking 'even unwilling/in spite of himself' compound, with Shankara sharpening to 'in spite of himself' and Ramanuja softening to 'as one awakened from sleep.' Both entries identify the philological feature, the translator pattern, and the doctrinal stake. Score 9. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/removed-verse-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reconstructibility_score": 4,
+          "reconstructed_sketch": "Given chapter context, an engineering analog at position 44 would predictably extend the consolation-arc — but the specific 'inquirer-above-ritualist' second-pāda elevation is verse-specific and not predicted by chapter context alone.",
+          "verse_specific_signal": "The avaśaḥ-api-hriyate-as-current phrasing and the jijñāsu-above-śabda-brahma elevation are 6.44-specific.",
+          "overlap_with_other_verses": [
+            { "verse_id": "BG 6.43", "overlap_type": "complementary", "explanation": "6.43 names the substrate; 6.44 names the carrying. Pair-overlap is sanctioned." }
+          ],
+          "verdict_reason": "Reconstructibility moderate (4). PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/reproducibility-check.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "reproducible_artifact": "Performance-review template extension: 'Inquiry currency' dimension. Manager records one specific question the engineer raised in the quarter that genuinely puzzled them; one paper/article they tied back to the codebase; one assumption they retired. Quarterly cadence.",
+          "artifact_kind": "review_checklist",
+          "embodiment_sketch": "Lattice / Workday / Notion review template adds the inquiry-currency section. Three concrete prompts. Manager + IC fill in jointly. Concretely copyable Monday.",
+          "metaphor_only": false,
+          "verdict_reason": "Real reproducible HR artifact. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            { "thread_name": "The struggle and consolation of practice (6.33-6.47)", "anchor_evidence": "6.44 extends 6.43's substrate claim with the involuntary-carrying mechanism (saṁskāra as current) and the second-pāda elevation of the inquirer above the ritualist. The chapter-thesis 'the years that look from the inside like wasted years compound into the senior's apparent effortlessness' is honored." }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": { "type": "none", "explanation": "Position 44 correctly extends 6.43 and feeds 6.45's many-births claim." },
+          "verdict_reason": "PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/chapter-thesis-support.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "anchored_threads": [
+            { "thread_name": "The struggle and consolation of practice (6.33-6.47)", "anchor_evidence": "Same as 10.3." }
+          ],
+          "hard_edges_violated": [],
+          "counter_anti_thesis_violations": [],
+          "progression_issue": { "type": "none", "explanation": "Verse-ordering preserved." },
+          "verdict_reason": "PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Tags on 6.44: operator-system-coupling, long-term-thinking, deep-work. Coherent with 6.43's tags. The shared tag operator-system-coupling reads consistently across the pair: substrate-as-coupling-to-the-system in 6.43, saṁskāra-as-current-binding-to-the-system in 6.44. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "./data/judge-runs/bg-6-44/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_payload": {
+          "verdict": "PASS",
+          "same_tag_issues": [],
+          "cross_reference_issues": [],
+          "tag_coherence_score": 7,
+          "cross_reference_integrity_score": null,
+          "verdict_reason": "Same as 6.1. PASS."
+        }
+      },
+      "ts": "2026-05-02T22:58:00Z"
+    }
+  ]
+}
