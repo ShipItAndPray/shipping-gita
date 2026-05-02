@@ -1,0 +1,33 @@
+{
+  "id": "BG 8.11",
+  "chapter": 8,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names a goal vastly outside the engineering layer's scope: the imperishable that the Veda-knowers declare, that ascetics free from passion enter, that brahmacarya-practitioners desire. The verse opens a teaching about contemplative practice at the moment of departure, not about software work. The honest engineering shadow is much smaller. At operational scope, the verse marks a posture: the senior teacher introduces a subject by naming the goal first and promising a summary, then walks the practitioner through the steps. The framing — name the destination before the method — is the only structural feature engineering can recognise. The verse's content (the akṣara, ascetic discipline, brahmacarya) is contemplative and the engineering layer cannot substitute for any of it. STRETCHED tag is honest; the verse names something the operational layer does not reach.",
+    "concrete_scenario": "A staff engineer opens a three-day distributed-systems workshop at a fintech company. Before walking anyone through Kafka topology or Postgres replication slots, she names the destination: 'By the end of this, you should be able to read an outage on the order-processing pipeline and correctly localize the failure within fifteen minutes.' She does not start with mechanism. She names the target — the akṣara of this teaching, in the verse's structural shape — and then promises a summary of the path. Engineers who later take that workshop report the destination-first framing as the move that made the rest land. The structural force the verse names (introduce the goal first, then the summary, then the method) maps to the senior teacher's discipline. What it does NOT map to is the verse's actual content: the contemplative practice the imperishable is reached by. That sits past where this analog travels.",
+    "falsifiability": "The analog fails if a reader concludes that destination-first teaching is what 8.11 is teaching about. The verse names a contemplative-ascetic discipline (brahmacarya, vīta-rāgāḥ, the akṣara held in the heart at departure). The engineering layer is the thinnest structural shadow and explicitly does not reach the verse's content. Anyone reading this analog as substitute-for-meditation has misread it.",
+    "counter_example": "When a destination is held back deliberately — a teacher who withholds the goal so the student discovers it for themselves through the work — the engineering analog of 'name the destination first' does not apply. Krishna's saṃgraheṇa pravakṣye is a specific pedagogical move at this point in the chapter, not a universal rule.",
+    "implication": "When you open a teaching, name the destination before the mechanism — and keep your scope honest about what your teaching covers. The structural move (destination-first) is the engineering's only legitimate borrow from this verse.",
+    "quotable_line": "Name the destination first; the engineering layer borrows the structure, not the content.",
+    "tags": ["scope-discipline", "first-principles", "naming"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-04-29T22:10:00Z",
+      "mutation": "v0 generation: BG 8.11 opens the meditation-at-the-end teaching. Per ch-8 thesis, this verse is metaphysically loaded (akṣara as goal, brahmacarya as practice). Engineering layer scopes to the structural move (destination-first teaching) and explicitly disavows substituting for the contemplative content. STRETCHED honest, MEDIUM confidence. Concrete scenario uses a fintech workshop with named tools (Kafka, Postgres). Falsifiability and counter-example both guard against misread.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

@@ -1,13 +1,13 @@
 {
-  "verse_id": "BG 5.25",
+  "verse_id": "BG 7.7",
   "schema_version": "1.0.0",
   "eval_suite_version": "1.0.0",
-  "passed": 60,
-  "failed": 0,
+  "passed": 58,
+  "failed": 2,
   "pending": 24,
   "total": 84,
-  "hard_score": 60,
-  "passable_pending_judge": 84,
+  "hard_score": 58,
+  "passable_pending_judge": 82,
   "results": [
     {
       "gate_id": "1.1",
@@ -52,7 +52,7 @@
       "tier": 1,
       "passed": true,
       "pending": false,
-      "detail": "anvaya items: 16"
+      "detail": "anvaya items: 13"
     },
     {
       "gate_id": "1.7",
@@ -60,7 +60,7 @@
       "tier": 1,
       "passed": true,
       "pending": false,
-      "detail": "chapter=5 verse=25"
+      "detail": "chapter=7 verse=7"
     },
     {
       "gate_id": "1.8",
@@ -108,7 +108,7 @@
       "tier": 2,
       "passed": true,
       "pending": false,
-      "detail": "anvaya/iast token coverage ≈ 114%"
+      "detail": "anvaya/iast token coverage ≈ 87%"
     },
     {
       "gate_id": "2.4",
@@ -163,7 +163,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "falsifiability len = 276"
+      "detail": "falsifiability len = 476"
     },
     {
       "gate_id": "3.3",
@@ -178,7 +178,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete=7 abstract=0 ratio=∞"
+      "detail": "concrete=26 abstract=2 ratio=13.00"
     },
     {
       "gate_id": "3.5",
@@ -210,7 +210,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 126"
+      "detail": "concrete_scenario words = 178"
     },
     {
       "gate_id": "3.9",
@@ -225,7 +225,7 @@
       "tier": 3,
       "passed": true,
       "pending": false,
-      "detail": "counter_example len = 309"
+      "detail": "counter_example len = 408"
     },
     {
       "gate_id": "3.11",
@@ -289,7 +289,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "translation words = 112 (target 40-180)"
+      "detail": "translation words = 175 (target 40-180)"
     },
     {
       "gate_id": "5.2",
@@ -297,15 +297,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "concrete_scenario words = 126 (target 80-280)"
+      "detail": "concrete_scenario words = 178 (target 80-280)"
     },
     {
       "gate_id": "5.3",
       "gate_name": "Flesch-Kincaid grade 9-13",
       "tier": 5,
-      "passed": true,
+      "passed": false,
       "pending": false,
-      "detail": "Flesch-Kincaid grade = 11.49 (target 9-13)"
+      "detail": "Flesch-Kincaid grade = 7.70 (target 9-13)"
     },
     {
       "gate_id": "5.4",
@@ -313,15 +313,15 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "sentence-length variance = 95.53 (target >= 6)"
+      "detail": "sentence-length variance = 57.37 (target >= 6)"
     },
     {
       "gate_id": "5.5",
       "gate_name": "Lexical diversity > 0.55",
       "tier": 5,
-      "passed": true,
+      "passed": false,
       "pending": false,
-      "detail": "lexical diversity = 0.614 (target >= 0.55)"
+      "detail": "lexical diversity = 0.527 (target >= 0.55)"
     },
     {
       "gate_id": "5.6",
@@ -345,7 +345,7 @@
       "tier": 5,
       "passed": true,
       "pending": false,
-      "detail": "tags: team-culture, team-state, long-term-thinking"
+      "detail": "tags: product-truth, user-obsession, essence-vs-implementation"
     },
     {
       "gate_id": "6.1",
@@ -537,7 +537,7 @@
       "tier": 9,
       "passed": true,
       "pending": false,
-      "detail": "iterations recorded: 5"
+      "detail": "iterations recorded: 1"
     },
     {
       "gate_id": "9.2",
@@ -585,7 +585,7 @@
       "tier": 10,
       "passed": true,
       "pending": false,
-      "detail": "implication words = 19"
+      "detail": "implication words = 70"
     },
     {
       "gate_id": "10.2",
@@ -625,7 +625,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "total verse words = 357 (cap 600)"
+      "detail": "total verse words = 544 (cap 600)"
     },
     {
       "gate_id": "11.2",
@@ -633,7 +633,7 @@
       "tier": 11,
       "passed": true,
       "pending": false,
-      "detail": "quotable line words = 13"
+      "detail": "quotable line words = 16"
     },
     {
       "gate_id": "11.3",

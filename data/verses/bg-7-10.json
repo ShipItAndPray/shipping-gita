@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.10",
+  "chapter": 7,
+  "verse": 10,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names himself as the eternal seed (bījaṁ sanātanam) of all beings, the intelligence (buddhi) of the intelligent, the splendor (tejas) of the splendid. The seed-claim is structural: the principle from which a being grows. The intelligence-and-splendor claims continue the I-am-the-X pattern, identifying Krishna with the durable property in each manifestation. The verse is theistic; the engineering layer offers operational reflection at narrower scope, tagged STRETCHED. The seed-of-all-beings analog: every running system has a seed-condition — the original use-case, the founding hypothesis, the customer-pain that organised the first commit. From that seed, the system grows. The intelligence-of-the-intelligent analog: in any team that ships consistently, there is a discriminating faculty — the question someone asks in design review that catches the broken assumption — and that faculty is what makes intelligent engineers intelligent for this domain. The splendor-of-the-splendid: the visible competence that distinguishes the engineer who handles the hard incident is the operational property in their practice, not a generic trait.",
+    "concrete_scenario": "Devon, four years into the company, is reviewing the founder-era commits. The first month of the GitHub history has 47 commits, and one of them — a 12-line function that calculates whether a charge is duplicate against the last 90 seconds of the merchant's transaction stream — is the seed. Every system that exists today, every Postgres index choice, every Kafka topic layout, every Datadog SLO — descends from that 12-line decision about how to detect duplicate charges. The seed survived three rewrites and six framework migrations. The intelligence-of-the-intelligent shows in design review the next morning, when Maya catches that a proposed schema change would invalidate the duplicate-detection invariant — her question 'does this preserve the founder-era duplicate-detection guarantee' is the discriminating faculty that makes her intelligent for this codebase, not a generic design taste. The verse's metaphysical reach (Krishna as eternal seed of all beings) exceeds this analog; the operational pattern (every system has a seed; intelligence-in-domain is property-preservation) is real.",
+    "falsifiability": "The analog fails if a reader concludes that the founder-era commit is divine or that the staff engineer's discriminating faculty is metaphysical. Both readings collapse the operational analog into tech-religion. The seed-commit is real and load-bearing; the discriminating faculty is real and load-bearing; neither is Krishna. The verse's theistic claim is preserved at source-pack level; the engineering layer is operational reflection.",
+    "counter_example": "When the founder-era commit has been entirely refactored out and the system has reorganised around a different invariant (a real second-order shift, not a rewrite), the seed-claim breaks. The system has a new seed; the old one has been retired. The verse's eternal-seed framing holds at metaphysical scope; the engineering analog is honest that organisational seeds get replaced.",
+    "implication": "Locate the seed of each system you operate — the original commit or hypothesis from which the architecture grew. Audit which present-day decisions descend from that seed and which have been smuggled in. The clean systems preserve the seed-property; the muddy ones have lost the seed and accumulated unrelated decisions.",
+    "quotable_line": "Every system has a seed-commit; intelligence in the domain is the faculty that preserves what the seed organised.",
+    "tags": ["first-principles", "architectural-invariant", "essence-vs-implementation"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:35:00Z",
+      "mutation": "v0 generation: per chapter thesis, continues 7.8-7.9 framing — theistic verse, operational analog only at narrower scope. Engineering layer maps bījaṁ sanātanam to seed-commit/founding-hypothesis, buddhiḥ buddhimatām to discriminating-faculty-in-domain, tejas tejasvinām to visible competence as property-preservation. Concrete scenario uses founder-era commit (duplicate-detection invariant), four-year arc, named characters Devon and Maya. Tagged STRETCHED honestly. Confidence MEDIUM. Falsifiability guards against tech-religion. Counter-example: when seed has been refactored out.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}
