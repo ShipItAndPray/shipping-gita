@@ -1,0 +1,219 @@
+{
+  "id": "BG 5.12",
+  "chapter": 5,
+  "verse": 12,
+  "fetched_at": "2026-05-02T02:30:00Z",
+  "sanskrit_devanagari": "युक्तः कर्मफलं त्यक्त्वा शान्तिमाप्नोति नैष्ठिकीम् ।\nअयुक्तः कामकारेण फले सक्तो निबध्यते ॥ १२ ॥",
+  "sanskrit_iast": "yuktaḥ karma-phalaṁ tyaktvā śāntim āpnoti naiṣṭhikīm |\nayuktaḥ kāma-kāreṇa phale sakto nibadhyate || 12 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-5-12-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/12",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=12",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-5-12-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.012 = MBh_06,027.012). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "the disciplined / joined (to yoga)"
+    },
+    {
+      "sanskrit": "कर्मफलम्",
+      "iast": "karma-phalam",
+      "meaning": "the fruit of action"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "नैष्ठिकीम्",
+      "iast": "naiṣṭhikīm",
+      "meaning": "lasting / firm"
+    },
+    {
+      "sanskrit": "शान्तिम्",
+      "iast": "śāntim",
+      "meaning": "peace"
+    },
+    {
+      "sanskrit": "आप्नोति",
+      "iast": "āpnoti",
+      "meaning": "obtains"
+    },
+    {
+      "sanskrit": "अयुक्तः",
+      "iast": "ayuktaḥ",
+      "meaning": "the undisciplined"
+    },
+    {
+      "sanskrit": "कामकारेण",
+      "iast": "kāma-kāreṇa",
+      "meaning": "by impulse of desire"
+    },
+    {
+      "sanskrit": "फले",
+      "iast": "phale",
+      "meaning": "to the fruit"
+    },
+    {
+      "sanskrit": "सक्तः",
+      "iast": "saktaḥ",
+      "meaning": "attached"
+    },
+    {
+      "sanskrit": "निबध्यते",
+      "iast": "nibadhyate",
+      "meaning": "is bound"
+    },
+    {
+      "sanskrit": "karma",
+      "iast": "karma",
+      "meaning": "(compound element of karma-phalaṁ)"
+    },
+    {
+      "sanskrit": "phalaṁ",
+      "iast": "phalaṁ",
+      "meaning": "(compound element of karma-phalaṁ)"
+    },
+    {
+      "sanskrit": "sakto",
+      "iast": "sakto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "12",
+      "iast": "12",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The steadily devoted soul attains unadulterated peace because he offers the result of all activities to Me; whereas a person who is not in union with the Divine, who is greedy for the fruits of his labor, becomes entangled.",
+      "raw_capture_path": "data/sources/raw/bg-5-12-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The steadily devoted soul attains unadulterated peace because he offers the result of all activities to Me; whereas a person who is not in union with the Divine, who is greedy for the fruits of his labor, becomes entangled."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1131 chars)",
+      "verbatim_excerpt": "The difference between a person in Kṛṣṇa consciousness and a person in bodily consciousness is that the former is attached to Kṛṣṇa whereas the latter is attached to the results of his activities.",
+      "raw_full_path": "data/sources/raw/bg-5-12-vedabase.json (purport_full_length: 1131)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.12 Tyaktva, giving up; karma-phalam, the result of work; yuktah, by becoming resolute in faith, by having this conviction thus-‘Actions are for God, not for my gain’; apnoti, attains; santim, Peace, called Liberation; naisthikim arising from steadfastness.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 909,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-12-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the yukta (the karma-yogin) abandons the fruit of action and obtains naiṣṭhikī (final, lasting) peace. The ayukta (the non-karma-yogin) is impelled by desire, attached to the fruit, and is bound. The verse anchors the chapter to 2.47-2.48: detachment from fruit produces peace; attachment to fruit produces bondage."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.12 A Yogin is one who has no hankering for fruits other than the self, and who is exclusively devoted to the self. If a man renounces the fruits of actions and performs actions merely for the purification of himself, he attains lasting peace, i.e., he attains bliss which is of the form of lasting…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 957,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-12-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the disciplined one, having abandoned attachment to the fruit of action, obtains the firm peace consisting of self-experience. The undisciplined one, driven by desire, attached to the fruit, is bound by karma. Ramanuja's reading anchors śānti to the experience of the self (ātma-anubhava)."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "naiṣṭhikīm śāntim",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unadulterated peace (because results offered to Me)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "final, lasting peace (mokṣa-ānanda-anchored)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "firm peace consisting of self-experience"
+        }
+      ],
+      "explanation": "All converge on lasting/firm peace. The disagreement is the metaphysical anchor: Shankara reads it as the peace of mokṣa; Ramanuja anchors it to ātma-anubhava; Prabhupada to the devotional surrender of fruit."
+    }
+  ],
+  "literal_meaning": "The disciplined one, having abandoned the fruit of action, obtains lasting peace; the undisciplined one, driven by desire, attached to the fruit, is bound.",
+  "traditional_meaning_consensus": "Krishna sets up a clean structural contrast. The yukta abandons phala (fruit) and gains naiṣṭhikī śānti (lasting peace). The ayukta, impelled by kāma (desire), attached to phala, is bound (nibadhyate). The verse builds directly on 2.47-2.48 and gives the chapter's clearest operational test: did detachment-from-fruit produce peace?",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

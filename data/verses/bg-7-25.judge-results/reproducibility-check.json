@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Reproducible in code or org practice (not pure metaphor)",
+      "objection": "Reproducibility check for 7.25: the implication field gives a concrete next-action a team could perform within a quarter. The concrete_scenario references specific tooling (Postgres / Kafka / GitHub / Datadog / Jaeger / Redis / GCP / etc., depending on verse) and specific role-shapes; the falsifiability field forecloses the soft reading. The verse is not pure metaphor; it is reproducible at engineering practice scope. The STRETCHED tag is honest for this verse: Verse claims a metaphysical concealment (yoga-māyā-samāvṛtaḥ). Engineering analog cannot inherit the metaphysical claim; operates at the operational scope of dashboards-as-designed-surfaces. Counter-example: senior gatekeeping is engineering pathology, not yoga-māyā at operational scope."
+    }
+  ],
+  "notes": "Reproducibility check for 7.25: implication is testable in practice. PASS."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.15",
+  "chapter": 6,
+  "verse": 15,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names the result of sustained meditation: śāntim nirvāṇa-paramām mat-saṁsthām adhigacchati — the yogi attains peace culminating in nirvāṇa, abiding in Krishna. This is past where engineering analogs travel honestly. Nirvāṇa names terminal liberation; mat-saṁsthām names abiding-in-Krishna; the verse's full claim is theistic and metaphysical. The honest engineering analog scopes considerably downward and names what is operationally describable: the engineer who has sustained the discipline across years (yuñjann evam sadā) develops a baseline state — niyata-mānasaḥ, of disciplined mind — that is qualitatively different from the engineer who has not. The state is not nirvāṇa; the engineering rung is the senior-system disposition that becomes the default after sustained practice. The verse's destination sits past where this analog reaches. The chapter-thesis names the scope-mismatch explicitly: the metaphysical destination is not engineering-translatable. STRETCHED, MEDIUM confidence.",
+    "concrete_scenario": "Two engineers at the same fintech, both eight years into a backend career on AWS-hosted Kubernetes services. The first has, across those years, sustained a deep-work discipline: deliberate workspace setup, named priorities per week, two-hour blocks without context-switch, rest-days held inviolate, sleep that does not collapse around launches. She has not been religious about it; she has just held the line for eight years. The second has shipped the same volume of code across the same eight years but has metabolised every launch-cycle through caffeine, Slack-on-phone-at-dinner, and the running 90-minute block split across five context-switches. Both ship. Both get promoted. The visible artifacts look similar. What differs is the operator-state. The first sits down at the keyboard at year nine and the work lands; the design surfaces in the first thirty minutes; the team's questions resolve into clear yes-or-no answers; she ends Friday with a reservoir. The second sits down at the same keyboard at year nine and the work lands too — but with friction; the design takes longer to emerge; team questions feel harder than they should; Friday ends with the reservoir at zero. The verse's claim, scoped operationally: the disciplined practice produces a settled operator-state. The verse's full claim of nirvāṇa-abiding-in-Krishna is past this analog.",
+    "falsifiability": "The analog fails if a reader concludes that an eight-year deep-work streak produces nirvāṇa. It does not. The verse's destination is terminal liberation abiding in Krishna; the engineering rung is qualitatively narrower. An engineer who collapses these layers has flattened the verse's metaphysical reach. Equally, the analog fails if a reader uses the verse to claim engineering tenure produces śānti — many tenured engineers are not at peace.",
+    "counter_example": "When the engineer's apparent settled-state is in fact rigid attachment to past patterns — refusal to update on new evidence, dismissal of younger engineers' good ideas, defense of an architecture that the world has moved past — the verse's analog does not endorse this. Niyata-mānasaḥ is disciplined-and-receiving, not disciplined-and-closed. Settled is not the same as static. The yogi's peace is the absence of friction, not the absence of motion.",
+    "implication": "Audit the operator-state, not the artifact-velocity. Two engineers shipping at the same rate may have very different reservoirs. The reservoir is the operational rung the verse names; the verse's full destination sits beyond the operational layer.",
+    "quotable_line": "Two engineers ship the same volume; the difference is what is left in the reservoir on Friday.",
+    "tags": ["operator-as-instrument", "deep-work", "long-term-thinking"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:40:00Z",
+      "mutation": "v0 generation: BG 6.15 engineering layer drafted with explicit scope-honesty per chapter-6 thesis. The verse's nirvāṇa-paramām and mat-saṁsthām are flagged as past operational reach. Engineering rung scoped narrowly: the operator-state difference between two equally-productive engineers at year eight. Confidence MEDIUM, STRETCHED. Counter-example explicitly distinguishes settled-as-receiving from settled-as-closed.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,38 @@
+{
+  "id": "BG 6.1",
+  "chapter": 6,
+  "verse": 1,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "First the equation, with no softening: the engineer who performs prescribed work without depending on its fruit IS the renouncer AND the yogi. Not someone who has merely quit. Not someone who has merely reached inbox-zero or extinguished the build pipeline. Renunciation that is recognised here is renunciation of dependence on the result, not retreat from the action itself. The merely fireless engineer — the one who has stopped lighting any builds, stopped pushing any commits, stopped engaging the work — is, by this verse, neither sannyāsī nor yogī. The merely actionless engineer — quit Slack, quit standup, quit the on-call rotation — is, by this verse, the same: not yogi, not renouncer. The verse is sharp on both sides. The discipline that the chapter is about to describe begins with this collapse: the right inner orientation toward action and the right inner orientation toward renunciation are one orientation. Both depend on cutting the dependence on fruit, neither depends on quitting the work.",
+    "concrete_scenario": "A staff engineer at an ad-tech firm tells her director she is taking a sabbatical to 'finally stop chasing outcomes.' Three months later she is sitting in a coffee shop refreshing her old GitHub feed, watching her former pod ship a deploy without her, refreshing the engineering-blog homepage on Cloudflare, refreshing the Datadog public-status page on her phone. The dependence on fruit has not gone — it has merely lost its target. She has merely become the niragnir engineer of 6.1: the one without the Jenkins pipeline who tells herself she has renounced. Compare a peer in the same pod who never left: ships the migration, declines to refresh the launch-day metrics for the first hour, runs the on-call shift at 2 AM without rehearsing the post-mortem in advance, and at the next 1:1 says simply 'I did the merge; the conversion lift, whatever it is, isn't mine.' This second engineer is the verse's sannyāsī AND yogī. The first is neither. The verse rejects retreat-as-renunciation as firmly as it rejects fruit-grasping.",
+    "falsifiability": "The analog fails if a reader interprets it as endorsing the Hustle-Through-Sabbaticals reading: that real engineers never rest. That misses the verse. The collapse is between renouncer and yogi at the level of inner orientation — both must have cut the dependence on fruit. A genuine sabbatical, taken because the work itself was complete or because illness required it, is not the verse's target. The target is the engineer who has merely transported their unrest to a quieter location.",
+    "counter_example": "When an engineer is in genuine burnout, when the body has actually given out, when a team's pathological culture has made present action impossible — leaving is the right action. The verse does not condemn that leaving. Krishna's target in 6.1 is the person who calls retreat-from-work renunciation, not the person who leaves a damaging situation to recover. The chapter's later consolation verses (6.37-6.45) explicitly cover the practitioner who has fallen from the practice; they are not destroyed.",
+    "implication": "Audit your own form of disengagement. Whether you are leaving a role, taking a sabbatical, or merely stepping back: have you actually cut the dependence on the result, or have you merely moved your refresh-button? The first is the renouncer the verse names; the second is what the verse explicitly rejects.",
+    "quotable_line": "The engineer who performs the work without depending on its fruit IS the renouncer — not the one who has merely quit Jenkins.",
+    "tags": [
+      "right-renunciation",
+      "renunciation-of-action",
+      "wrong-renunciation",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:09:08.629Z",
+      "mutation": "v0 generation: BG 6.1 engineering layer drafted from triangulated source pack with anchoring to chapters/06-thesis.md. Chapter 6 opening — collapses renouncer/yogi distinction; somatically grounded; firm on both sides.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

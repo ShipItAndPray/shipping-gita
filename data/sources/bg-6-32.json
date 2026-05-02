@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.32",
+  "chapter": 6,
+  "verse": 32,
+  "fetched_at": "2026-05-02T02:28:25.950Z",
+  "sanskrit_devanagari": "आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन ।सुखं वा यदि वा दु:खं स योगी परमो मत: ॥ ३२ ॥",
+  "sanskrit_iast": "ātmaupamyena sarvatrasamaṁ paśyati yo ’rjunasukhaṁ vā yadi vā duḥkhaṁsa yogī paramo mataḥ",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/32/",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-32-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/32",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=32",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/",
+      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-32-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.032). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/32/",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "He is a perfect yogī who, by comparison to his own self, sees the true equality of all beings, in both their happiness and their distress, O Arjuna!",
+      "raw_capture_path": "data/sources/raw/bg-6-32-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/",
+      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "He is a perfect yogi who, by comparison to his own self, sees the true equality of all beings, in both their happiness and their distress, O Arjuna!"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/32/",
+      "fetched_at": "2026-05-02T02:25:27.271Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1567 chars)",
+      "verbatim_excerpt": "One who is Kṛṣṇa conscious is a perfect yogī; he is aware of everyone’s happiness and distress by dint of his own personal experience. The cause of the distress of a living entity is forgetfulness of his relationship with God.",
+      "raw_full_path": "data/sources/raw/bg-6-32-vedabase.json (purport_full_length: 1567)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.32 Atma-aupamyena: Atma means the self, i.e. oneself. That by which a comparison is made is an upama. The abstract from of that is aupamya. Atma-aupamya means a standard as would be applicable to oneself. O Arjuna, yah, he who; pasyati, judges; sarvatra, in all beings; samam, by the same",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1210,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-32-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-32/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:12.703Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.32 (iv) He who — because of the similarity between his own self and other selves, as they are all constituted similarly of uncontracted knowledge in their essential being — views the pleasures in the form of the birth of a son and the sorrows in the form of the death of a son of his own ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 912,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-32-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

@@ -1,0 +1,262 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.19",
+  "sanskrit_devanagari": "इहैव तैर्जित: सर्गो येषां साम्ये स्थितं मन: ।\nनिर्दोषं हि समं ब्रह्म तस्माद्‍ब्रह्मणि ते स्थिता: ॥ १९ ॥",
+  "sanskrit_iast": "ihaiva tair jitaḥ sargo yeṣāṁ sāmye sthitaṁ manaḥ |\nnirdoṣaṁ hi samaṁ brahma tasmād brahmaṇi te sthitāḥ || 19 ||",
+  "anvaya": [
+    {
+      "sanskrit": "iha",
+      "iast": "iha",
+      "meaning": "in this life"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "taiḥ",
+      "iast": "taiḥ",
+      "meaning": "by them"
+    },
+    {
+      "sanskrit": "jitaḥ",
+      "iast": "jitaḥ",
+      "meaning": "conquered"
+    },
+    {
+      "sanskrit": "sargaḥ",
+      "iast": "sargaḥ",
+      "meaning": "birth and death"
+    },
+    {
+      "sanskrit": "yeṣām",
+      "iast": "yeṣām",
+      "meaning": "whose"
+    },
+    {
+      "sanskrit": "sāmye",
+      "iast": "sāmye",
+      "meaning": "in equanimity"
+    },
+    {
+      "sanskrit": "sthitam",
+      "iast": "sthitam",
+      "meaning": "situated"
+    },
+    {
+      "sanskrit": "manaḥ",
+      "iast": "manaḥ",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "nirdoṣam",
+      "iast": "nirdoṣam",
+      "meaning": "flawless"
+    },
+    {
+      "sanskrit": "hi",
+      "iast": "hi",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "samam",
+      "iast": "samam",
+      "meaning": "in equanimity"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "like the Supreme"
+    },
+    {
+      "sanskrit": "tasmāt",
+      "iast": "tasmāt",
+      "meaning": "therefore"
+    },
+    {
+      "sanskrit": "brahmaṇi",
+      "iast": "brahmaṇi",
+      "meaning": "in the Supreme"
+    },
+    {
+      "sanskrit": "te",
+      "iast": "te",
+      "meaning": "they"
+    },
+    {
+      "sanskrit": "sthitāḥ",
+      "iast": "sthitāḥ",
+      "meaning": "are situated"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/19/",
+      "fetched_at": "2026-05-02T02:23:11.512Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those whose minds are established in sameness and equanimity have already conquered the conditions of birth and death. They are flawless like Brahman, and thus they are already situated in Brahman.",
+      "raw_capture_path": "data/sources/raw/bg-5-19-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-19/",
+      "fetched_at": "2026-05-02T02:24:00.065Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those whose minds are established in sameness and equanimity have already conquered the conditions of birth and death. They are flawless like Brahman, and thus they are already situated in Brahman."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/19/",
+      "fetched_at": "2026-05-02T02:23:11.512Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 839 chars)",
+      "verbatim_excerpt": "Equanimity of mind, as mentioned above, is the sign of self-realization. Those who have actually attained to such a stage should be considered to have conquered material conditions, specifically birth and death.",
+      "raw_full_path": "data/sources/raw/bg-5-19-vedabase.json (purport_full_length: 839)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-19/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:00.065Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.19 Iha eva, here itself, even while they are living; is sargah, rebirth; jitah, conquered, overcome; taih, by them, by the learned ones who see with equanimity; yesam, whose; manah, minds, the internal organs; are sthitam, established, made steadfast; samye, on sameness, in Brahman that exists as...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 3026,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-19-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-19/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:00.065Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.19 By those whose minds rest in equalness with regard to all selves in the aforesaid manner, even here, i.e., even at the stage of executing the means, Samsara is overcome. For the Brahman is of the same nature everywhere when uncontaminated. The meaning is that the substance of self, when free fr...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 831,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-19-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "jitaḥ sargaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "they have conquered birth and death; the conditions of birth and death are surpassed"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the cycle of saṁsāra is conquered here in this life"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the seer-of-equality has conquered creation; samsāra no longer binds"
+        }
+      ],
+      "explanation": "All readings converge on 'cycle-of-rebirth conquered'; the metaphysics of what 'conquering' entails differs (Advaita: realisation of identity with Brahman; Vishishtadvaita: realisation of dependence on the Lord; Gaudiya: devotional realisation of Krishna-relationship). Iha eva (here-and-now) is preserved across all readings."
+    }
+  ],
+  "literal_meaning": "Those whose mind is established in equality have, here in this very life, conquered the cycle of birth-and-death (sarga). Brahman is faultless and equal; therefore they are established in Brahman.",
+  "traditional_meaning": "Equality of mind (sāmye sthitam manaḥ) is itself the conquest of saṁsāra in this life — iha eva, here-and-now. The verse names the conquest as having already happened (jitaḥ sargaḥ) for those whose minds are established in equality. Shankara reads brahman here as nirguṇa Brahman; Ramanuja reads it as the Lord; both agree the seer-of-equality is brahma-stha (established in Brahman) here in this life. The here-and-now claim (iha eva) is doctrinally significant — liberation is not deferred.",
+  "engineering": {
+    "translation": "Those whose mind is established in equality (sāmye sthitam manaḥ) have, here in this very life (iha eva), conquered the cycle (jitaḥ sargaḥ). Brahman is faultless and equal; therefore they are established in Brahman. Krishna names a state achievable iha eva — here, in this life, in this career. Brahma-stha is not a posthumous claim. The engineering analog: the senior whose mind is established in equality (the sama-darśana of 5.18, applied to the affective swings of 5.20-5.22) has, by mid-career, conquered the cycle of grasping and aversion that drives most engg pathology. The conquest is not deferred to retirement; it is observable in the principal's day-to-day disposition. STRETCHED honestly because brahma-stha exceeds the operational layer; the iha eva claim is preserved at operational scope.",
+    "concrete_scenario": "A staff engineer at fifteen years' tenure on the Postgres-payments stack has stopped responding to the cycle. The hostile code review does not produce the rage on the GitHub PR thread her younger self produced. The lavish promotion-recognition does not produce the elation-then-anxiety Slack-spiral her younger ātman yielded. The market-comp swing of competitor offers does not produce the should-I-leave Datadog-comp swing her younger self produced. The cycle has been conquered iha eva — at fifteen years, in this career, before retirement. Her teammates have noticed: incidents land on her without producing fight-or-flight; promotions land on her sans producing hubris-then-collapse; criticism lands on her without producing defensive flare-up. The verse's jitaḥ sargaḥ is operationally observable. STRETCHED honestly; the brahma-stha claim reaches further than the operational stability the engineering analog can name. The cross-reference inventory: Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins.",
+    "falsifiability": "The analog fails if a reader hears 'conquered the cycle' as 'no longer feels emotion.' The senior in the example feels everything; what is absent is the *capture* of identity by the affective swing. Feeling proceeds; capture does not.",
+    "counter_example": "When a senior engineer's stability is genuinely flatness — when affect has been suppressed rather than non-captured — the verse does not endorse this. The brahma-stha is not flatness; it is established equality. The flat-affect senior has not conquered the cycle; they have left the field.",
+    "implication": "Track your affective swings across a quarter. Is the cycle conquered iha eva, or is it being deferred to a future state? The verse names the conquest as available now.",
+    "quotable_line": "The senior's mind is established in equality here in this career, not deferred to retirement. Iha eva.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-state",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

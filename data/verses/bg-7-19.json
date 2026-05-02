@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.19",
+  "chapter": 7,
+  "verse": 19,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "At the end of many births, the wise takes refuge in Krishna, knowing Vāsudeva is all; that great soul is very rare. The verse's metaphysical claim — cross-life accumulation, recognition that all-is-Vāsudeva — exceeds anything the engineering analog can travel. STRETCHED honestly. The engineering shadow operates at single-career scope: an engineer who, after thirty or forty years of GitHub commits, COBOL ledgers, Kubernetes operators, and Postgres rewrites, has internalised substrate so deeply she recognises every system as a variation on one underlying need. The recognition is rare because it requires cumulative time (cannot be shortcut) and cumulative practice (cannot be theorised into existence). Bahūnāṁ janmanām reaches far beyond a career; the analog is honest only at the narrower scope. What survives the operational reading: the rarity claim. The senior who, at career-end, can articulate the substrate-question for any system she encounters is structurally rare. The metaphysical reach exceeds this; the shadow remains reachable.",
+    "concrete_scenario": "An engineer who has worked forty-two years across mainframes, client-server, early web, web 2.0, mobile, cloud, and AI-augmented systems gives a retirement talk. Asked what she actually learned, she does not list languages and does not list frameworks. She says: every system she ever built was strung on a customer-need; that need was the thread, the implementations were beads. She names three needs that ran through her whole career: record-and-retrieve a transaction with auditable history; coordinate work across multiple agents without losing consistency; render information with low enough latency that human operators keep context. Every system she ever shipped — from a 1985 COBOL ledger using indexed sequential files, through a 2003 J2EE financial reporting suite, into a 2022 pgvector-backed retrieval pipeline — was a variation on those three. Recognising substrate as the same across forty-two years of surface-changes is the engineering analog 7.19 names. Krishna's reach outruns this — vāsudevaḥ sarvam is cross-life — but the shadow at single-career scope is structurally rare and reachable.",
+    "falsifiability": "The analog fails if a reader uses single-career scope to claim cross-life recognition. The verse explicitly names bahūnāṁ janmanām (many births); the engineering shadow operates at one career, not many. Anyone reading 7.19 as 'after thirty years of GitHub commits you have what the verse names' has flattened the metaphysical reach. The senior who, at career-end, recognises all systems as variations on one need has real substrate-knowledge — but it is not what bahūnāṁ janmanām actually points to.",
+    "counter_example": "When a mid-career engineer claims 'vāsudevaḥ sarvam' style recognition — 'all systems are the same to me' — without the cumulative time and practice the verse names as constitutive, they have substituted a pose for the recognition. The rarity is structural; no clever reading can shortcut it. A senior claiming substrate-omniscience after a five-year career has missed both the verse and the analog.",
+    "implication": "Recognise the rarity claim as structural, not motivational. A senior who, at career-end, can articulate the substrate-question across forty years of surface-churn is rare because the recognition requires cumulative time and cumulative practice. The verse's full reach (cross-life recognition) exceeds any engineering analog; the shadow at single-career scope is what the layer can honestly describe.",
+    "quotable_line": "At career-end the senior who recognises every system as a variation of one underlying need is rare. The verse's reach is much larger; the engineering shadow is reachable.",
+    "tags": [
+      "essence-vs-implementation",
+      "long-term-thinking",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.19 is the rare-soul verse — chapter thesis explicitly tags STRETCHED on the many-births claim. Engineering analog operates at single-career scope only; the falsifiability explicitly carries the scope-honesty. Concrete scenario uses a 42-year career engineer giving a retirement talk who names three customer-needs that ran through her entire career (transaction-with-audit, multi-agent-coordination-with-consistency, low-latency-rendering) — grounding the recognition at single-career scope. Counter-example guards against substrate-omniscience-as-pose without cumulative practice. STRETCHED, MEDIUM confidence per chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

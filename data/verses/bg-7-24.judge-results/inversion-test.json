@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog→verse inversion top-3 includes source",
+      "objection": "Inversion test for 7.24: given the engineering analog (\"The architecture diagram is real but partial; the failure-mode tree the senior carries in her head i…\"), a reverse-mapper trying to identify the source verse from the project's verse-pool would surface 7.24 in the top-3 candidates. The structural claim and the named tools (specific to this verse's scenario) jointly fingerprint the source. The STRETCHED tag is honest for this verse: Verse claims metaphysical concealment (avyaktaṁ vyaktim āpannaṁ mistaken). Engineering analog scoped narrowly: architecture diagrams are partial; the substrate carried by the senior is not directly diagrammable. Counter-example: stale tacit assumption is not the verse's paraṁ bhāvam."
+    }
+  ],
+  "notes": "Inversion test for 7.24: structural claim + scenario fingerprint reproduces the source verse in top-3. PASS."
+}

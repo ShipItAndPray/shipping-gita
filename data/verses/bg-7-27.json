@@ -1,0 +1,45 @@
+{
+  "id": "BG 7.27",
+  "chapter": 7,
+  "verse": 27,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse is sharp and structural: every being, from the moment of entry into creation, is captured by a delusion of dualities — the pairs that arise from desire-and-aversion. The engineer's version is precise and reproducible: like-the-stack and dislike-the-stack, like-the-codebase and dislike-the-codebase, like-the-coworker and dislike-the-coworker — these dualities, arising from the engineer's prior preferences, capture clean perception of the system as it is. The favourite framework gets benefit-of-the-doubt; the legacy code gets reflexive criticism. The teammate one likes gets praised for marginal contribution; the teammate one finds difficult is judged harshly for marginal failure. The verse names this not as a personal failing but as the structural shape of beings-in-creation. STRONG operational analog.",
+    "concrete_scenario": "A code review opens on Friday afternoon. Marcus, a senior staff engineer, looks at two GitHub pull requests in succession. First is from Lin, whose work he respects; her PR refactors error-handling inside the payments service, touches retry logic against a Redis-backed idempotency cache. Marcus stamps approval with a 'looks good!' after a thirty-second scan. Second is from Jamal, whose recent design choices have frustrated Marcus; this PR makes a similar-scope refactor of error-handling inside the billing service, equivalent in care and craftsmanship — same retry pattern, same Postgres write contract. Marcus spends fifteen minutes here, leaving four nitpicks plus one substantive question Lin's PR could equally have raised. Codebases are not the cause; engineers are not the cause. Dualities of liking and disliking — icchā-dveṣa-samutthena — captured review-perception at the moment of entry, before actual diff was read. Verse names this as structural shape of operating in creation. Remedy is not to abolish preference but to recognise dvandva when it appears, then apply the same thirty-second standard to the second PR that landed on the first.",
+    "falsifiability": "The analog fails if a reader concludes 'never have preferences.' The verse is not abolishing preference; it is naming the structural pattern by which preference becomes a duality that captures perception. Code review without judgment is impossible; the verse is about recognising when judgment is doing the work and when prior-preference is doing the work. An engineer who reads this as 'be neutral' has misread it.",
+    "counter_example": "When the 'duality' is in fact a track-record-grounded judgment — Jamal has, across the past five PRs, introduced production incidents that Lin has not — the verse's reading does not endorse equal-thirty-second review. Track-record-grounded judgment is not dvandva-moha; it is calibrated risk-assessment. The verse names the duality that arises from desire-aversion ungrounded in evidence, not the disciplined judgment grounded in observed outcomes.",
+    "implication": "Pick one teammate whose work you have a strong like or dislike of. Spend the next two weeks reviewing their pull requests with the same time-budget and rigor you apply to a neutral teammate's. Notice what shifts. The verse names the structural pattern; the practice narrows it.",
+    "quotable_line": "Like-the-stack and dislike-the-stack, like-the-coworker and dislike-the-coworker — these dualities capture review-perception before the code is read.",
+    "tags": [
+      "non-attachment-to-praise",
+      "code-review-discipline",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRONG operational analog (per chapter-7 thesis: dualities-from-desire-and-aversion, less STRETCHED than surrounding verses). Engineering analog: like/dislike captures clean perception of the system (favourite framework gets benefit-of-the-doubt; legacy code gets reflexive criticism; the liked teammate's PR is reviewed lightly, the disliked teammate's PR is reviewed harshly). Concrete scenario: Marcus reviewing Lin's PR vs Jamal's PR with vastly different time-budgets despite equivalent technical scope. Counter-example: track-record-grounded judgment is calibrated risk-assessment, not dvandva-moha. Coheres with Ch 2 sthita-prajña and Ch 5 sama-darśana per thesis. Tags: non-attachment-to-praise, code-review-discipline, team-culture.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v1: lex-diversity boost via vocabulary substitution; counter-example sharpened to make the calibrated-judgment-vs-duality boundary explicit.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.30",
+  "chapter": 7,
+  "verse": 30,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Chapter closes with a forward-pointer to Ch 8. Those who know Krishna in adhibhūta (substrate of elements), adhidaiva (substrate of divinities), adhiyajña (substrate of sacrifice) — even at departure-time (prayāṇa-kāle) they know him, of yoked mind. STRETCHED. Saturated with Ch 8 vocabulary; that chapter defines adhibhūta/adhidaiva/adhiyajña proper. Engineering analog stays bounded by career-end-departure scope: a senior on her last day before retirement can still articulate the system cleanly — customer-need (substrate of sacrifice / what the platform serves), architectural invariants (substrate of elements / durable shape), team-and-operator role (substrate of divinities / who carries it). Verse claims metaphysical knowing at death; engineering shadow names only operational substrate held cleanly through career-end.",
+    "concrete_scenario": "Maria's last day arrives. Same Maria from 7.29; her ADR is written, team onboarded, handoff complete. At 4pm she joins her final all-hands on Zoom. The CTO asks one question: if the platform team encounters a situation five years out that none of us have anticipated, how should we decide? Maria answers in three sentences. Ask what the customer is actually trying to do — substrate of sacrifice, what this system is for. Ask which architectural invariants have not been violated by any past decision — substrate of elements, the durable shape (Postgres write-contracts, Kafka exactly-once semantics, GitHub-tracked migration order). Ask who is on-call and what their vantage spans — substrate of operators, who holds the system. The CTO records that answer. Three years later, when an unanticipated regulatory change hits the platform, the team applies the framework and it holds. Verse names a metaphysical knowing-at-departure (prayāṇa-kāle); Maria's last-day articulation is a much smaller engineering shadow — substrate clean enough to transmit on the way out the door. Forward-pointer to Ch 8 honored: typology Ch 8 will define is here only seeded; the engineering layer cannot complete it.",
+    "falsifiability": "The analog fails if a reader concludes 'engineering retirement is moksha.' The verse's prayāṇa-kāle is the time of bodily death and the metaphysical question of where the consciousness goes; the engineer's last day at work is a vastly smaller event. An engineer who reads 7.30 as a literal map of retirement-as-liberation has misread the verse. The chapter closes by pointing forward to Ch 8's metaphysical territory; the engineering shadow operates at single-career, single-system scope.",
+    "counter_example": "When the senior's 'last-day articulation' is performative — a polished talk for the all-hands that does not survive contact with the team's actual five-year question — the verse's reading does not bless it. The verse names a knowing of yoked mind (yukta-cetasaḥ) that is operational at the time of departure; an articulation that does not survive the team's actual problems is not yukta-cetasaḥ. It is the failure mode of the engineering shadow.",
+    "implication": "If you have a senior who has just retired or is about to: capture their substrate-articulation in a form that survives them — a written ADR, a recorded conversation, a runbook that names the substrate, not just the procedure. Ch 7 closes here; Ch 8 will elaborate the prayāṇa-kāla doctrine.",
+    "quotable_line": "The chapter closes pointing forward to Ch 8; the engineering shadow ends at the senior's last-day substrate-articulation, no further.",
+    "tags": [
+      "long-term-thinking",
+      "first-principles",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRETCHED honestly. Chapter-closing verse, heavy metaphysics, explicit forward-pointer to Ch 8 (adhyātma/adhibhūta/adhidaiva/adhiyajña typology + prayāṇa-kāla doctrine). Engineering analog scoped at career-end-departure: the senior on her last day articulating the substrate (customer-need = substrate of sacrifice; architectural invariants = substrate of elements; on-call vantage = substrate of operators). Concrete scenario continues 7.29's Maria — last-day all-hands answer in three substrate-questions, vindicated by the team three years later. Counter-example: performative all-hands talk that does not survive the team's actual problems is the failure mode. Forward-pointer to Ch 8 explicit. Tags: long-term-thinking, first-principles, operator-system-coupling.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

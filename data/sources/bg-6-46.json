@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.46",
+  "chapter": 6,
+  "verse": 46,
+  "fetched_at": "2026-05-02T02:28:28.149Z",
+  "sanskrit_devanagari": "तपस्विभ्योऽधिको योगी ज्ञानिभ्योऽपि मतोऽधिक: ।कर्मिभ्यश्चाधिको योगी तस्माद्योगी भवार्जुन ॥ ४६ ॥",
+  "sanskrit_iast": "tapasvibhyo ’dhiko yogījñānibhyo ’pi mato ’dhikaḥkarmibhyaś cādhiko yogītasmād yogī bhavārjuna",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/46/",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-46-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/46",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=46",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-46-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.046). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/46/",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A yogī is greater than the ascetic, greater than the empiricist and greater than the fruitive worker. Therefore, O Arjuna, in all circumstances, be a yogī.",
+      "raw_capture_path": "data/sources/raw/bg-6-46-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A yogi is greater than the ascetic, greater than the empiricist and greater than the fruitive worker. Therefore, O Arjuna, in all circumstances, be a yogi."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/46/",
+      "fetched_at": "2026-05-02T02:25:48.479Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1103 chars)",
+      "verbatim_excerpt": "When we speak of yoga we refer to linking our consciousness with the Supreme Absolute Truth. Such a process is named differently by various practitioners in terms of the particular method adopted.",
+      "raw_full_path": "data/sources/raw/bg-6-46-vedabase.json (purport_full_length: 1103)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.46 A yogi is adhikah, higher; tapasvibhyah, than men of austerity; he is matah, considered; adhikah, higher than, superior to; api, even; jnanibhyah, men of knowledge. Jnana here means scriptural learning. (A yogi is superior) to even those who possess that (learning). The yogi is adhika",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 485,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-46-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-46/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:45.903Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.46 Whatever end of human endeavour is attained by mere austerity, by knowledge of different subjects (i.e., different from experience of the self) and by mere rituals like the horse-sacrifice etc., —- greater than all these is the end achieved through Yoga. Consequently the Yogin is supe",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 614,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-46-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

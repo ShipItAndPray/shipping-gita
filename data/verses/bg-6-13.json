@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.13",
+  "chapter": 6,
+  "verse": 13,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna prescribes literal posture: trunk, head, and neck maintained aligned, motionless, steady — not merely upright but unwavering throughout the entire meditation interval. The visual field is narrowed deliberately to a single point. This instruction sits considerably past where engineering analogs ordinarily travel. The honest analog scopes downward: the engineer's deep-work setup is the workspace-scale rung this meditation-scale instruction names. The desk is arranged such that the body need not perpetually negotiate with itself across the deep-work block. The screen sits at deliberate eye-line so the cervical spine need not crane. The chair structurally supports the lumbar without sustained strain. The handheld phone rests deliberately in another room. These are preconditions architecturally, not the practice itself. Shankara reads sharply here: the gaze-at-nose carries an elided 'as if' qualifier — what the verse genuinely enjoins is the withdrawal of attention from competing peripheral stimuli, not literal nasal fixation. The engineering claim follows directly: the value of a deliberately-arranged workspace consists in what it subtracts from contention for attention, not in what it ostensibly contributes.",
+    "concrete_scenario": "A staff engineer at a logistics company sits down at 9:00 AM to design the Postgres-to-Kafka backfill for a partner-data migration. Before opening the design document she has, across the previous month, settled five things — none of them about the backfill. The chair is fitted to her spine; her lumbar does not bargain with her across a two-hour block. The 32-inch monitor sits at eye-line; she does not crane toward Datadog. Her phone rests in a kitchen drawer. Slack is closed; the only visible window is the design doc. The desk faces east and morning light does not glare on the panel. She has revised this arrangement twice across three quarters. None of these is the engineering. The engineering is what becomes possible because none of these is contending for her attention. Compare the engineer who tries to start the same backfill design at a desk with the phone face-up by the keyboard, the chair her partner uses for video calls, and four browser tabs open from yesterday's incident. The body is bargaining; the eyes are scanning; the design cannot land. The verse, scoped to engineering, names the substrate beneath the substrate.",
+    "falsifiability": "The analog fails if a reader concludes that workspace setup is the engineering practice the verse names. It is not. It is the precondition that allows the practice. An engineer who buys an ergonomic chair and a standing desk and concludes she has now done the practice has misread both the verse and the analog. The verse is literal at meditation-scope; the engineering analog operates at workspace-scope and is honestly STRETCHED.",
+    "counter_example": "When the engineer's actual deficit is not the workspace but the unwillingness to spend a sustained block on a hard problem — when the chair is fine and the screen is fine and the phone is in the drawer but the engineer still opens Slack within ten minutes — the verse's analog does not address that deficit. 6.13 names posture; 6.14 names the inner conditions; 6.18 names the disciplined mind. The engineer who has solved 6.13 still has 6.14 onward to do.",
+    "implication": "Audit the workspace as a precondition, not as the practice. What in the room is currently competing with the work for attention? Remove those, and then notice that the work has not yet started.",
+    "quotable_line": "The workspace setup is not the practice; it is the substrate that lets the practice begin.",
+    "tags": ["deep-work", "focus-practice", "operator-as-instrument"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 6.13 engineering layer drafted from triangulated source pack (vedabase + bgus + Shankara + Ramanuja, all from merged 6.13-14 page). Per chapter-6 thesis: 6.13 is literal meditation posture and is honestly STRETCHED — engineering analog at workspace-setup scope is approximate. Anchored on Shankara's elided-iva reading of nose-gaze (the substance is attention-withdrawal, not posture-as-end). Counter-example explicitly distinguishes 6.13 from 6.14 / 6.18. Confidence MEDIUM, stretched true.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

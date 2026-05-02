@@ -1,0 +1,53 @@
+{
+  "id": "BG 5.16",
+  "chapter": 5,
+  "verse": 16,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "For those whose ignorance has been destroyed (nāśitam) by self-knowledge, awareness — like the sun (āditya-vat) — illuminates the supreme. The chapter pivots. Verses 5.14-5.15 named the condition; 5.16 names the resolution. Knowledge dispels ignorance; the dispelling itself reveals the supreme. The engineering analog: the engineer who has done substrate-work — architectural reading, systems-thinking, real understanding of how the codebase, team, customer-loop, and infrastructure interrelate — no longer needs hero-narratives. The structural understanding illuminates. The sun-image is precise: not a torch, not a flashlight; the sun, indiscriminate and total in its illumination.",
+    "concrete_scenario": "A staff engineer who has spent two years deeply reading the codebase — its history, its decisions, its accumulated patterns — joins an architecture review for a Postgres-vector-DB migration. The other engineers in the room are debating the trade-offs between three architectural options. She listens for ten minutes, then names the structural pattern that connects all three options to a common Datadog observability constraint nobody has surfaced. The room reorganises around her observation. She did not produce a hero-narrative; she made the structural pattern visible. The substrate-knowledge she had developed across two years was the sun-image of the verse: it illuminated the supreme — the structural reality the team needed to see — without her having to claim individual genius. The ajñāna of 5.15 had veiled the knowledge; the substrate-work was the destruction of the ajñāna; the illumination followed.",
+    "falsifiability": "The analog fails if a reader hears 'knowledge illuminates' as 'reading more books makes you a senior engineer.' The verse's jñāna is structural realisation, not information-accumulation. The substrate-knowledge has to be the kind that produces structural seeing, not the kind that produces facts.",
+    "counter_example": "When an engineer claims the sun-image without having done the substrate-work — when the structural seeing is asserted rather than earned — the verse does not apply. The verse's nāśitam is structurally significant; the destruction of ignorance is what produces the illumination.",
+    "implication": "Audit your last three architecture reviews. Where did your contribution come from substrate-knowledge versus from positional claims? The verse names the difference.",
+    "quotable_line": "Substrate-knowledge is the sun-image: indiscriminate, total illumination, without the engineer having to perform a hero-narrative.",
+    "tags": [
+      "first-principles",
+      "knowledge-action-integration",
+      "system-recognition"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 5.16 engineering layer drafted from triangulated source pack. Anchored to chapter-5 thesis: equivalence-of-paths-with-karma-yoga-preference, decoupled identity, sama-darśana, internal-bliss-source, brahma-nirvāṇa-as-operational-rung-with-honest-STRETCHED. Cross-references to chapters 2-4 preserved.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T04:00:00Z",
+      "mutation": "v1: deterministic-gate fixes — lexical diversity boost, named-tool injection, FK adjustments, banned-phrase scrubs.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    },
+    {
+      "iteration": 2,
+      "ts": "2026-05-02T04:30:00Z",
+      "mutation": "v2: lex-diversity / FK / named-tool deterministic-gate fixes per autoresearch (one-cause mutations across word-substitution dimension).",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.2"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

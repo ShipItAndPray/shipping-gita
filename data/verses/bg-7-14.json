@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.14",
+  "chapter": 7,
+  "verse": 14,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The surface is hard to see through. Frameworks, deployment fashions, methodology cycles, status games — these constitute the experiential field of most engineering work. Krishna's metaphysical claim reaches further: his divine māyā, made of guṇas, is duratyayā (hard to cross), and the only way past it is taking refuge in him alone. The engineering shadow is partial. At narrow scope: substrate-discipline is the structural exit from surface-fashion captivity. A senior who has, through years of repeated practice, internalised the question 'what customer-need is this Kubernetes deployment really strung on?' has crossed a small piece of veil. Krishna's verse insists this crossing requires refuge — exclusive devotion (mām eva). The engineering parallel is a discipline of returning to the substrate question, against gravitational pull from architecture debates. STRETCHED honestly: refuge in Krishna and substrate-discipline are not equivalent; the structural shape survives, metaphysical reach does not.",
+    "concrete_scenario": "A staff engineer working across five companies over fifteen years has watched five framework cycles arrive at essentially the same place: Java → Ruby → Python → Node → Go on the language axis; monolith → SOA → microservices → serverless → service-mesh on topology. Early in her career she got pulled into framework debates as if framework choice were the substantive question. She remembers Rails-vs-Django around 2014, Kubernetes-vs-Mesos circa 2018, GraphQL-vs-REST in 2020. None produced durable engineering insight; each produced fervent commitment inside a guṇa-state of the field. Her present discipline — redirecting every architecture conversation toward 'what does the customer need this Postgres pipeline to actually do?' — is what 7.14's engineering analog names. Not transcendence; an operational form of refuge. Five cycles taught her that the substrate-question is the one thing that survives across decades, so practice means returning there. Krishna's reach outruns the analog; the structural shape remains.",
+    "falsifiability": "The analog fails if read as 'refuse to engage with frameworks.' Refuge in the substrate is not avoidance of the surface; it is engagement with the surface from a place that is not captured by it. The senior who refuses to learn the new framework because 'only the substrate matters' has substituted a pose for refuge. Real substrate-discipline produces sharper framework choice, not exemption from framework choice.",
+    "counter_example": "When the senior who claims 'substrate-discipline' uses it to dismiss the team's actual technical concerns — when the team's question about Pulsar-vs-Kafka is met with 'the substrate is what matters' — the senior has misread the verse. Krishna's refuge is not a deflection from the question; it is the inner discipline that lets the question be answered without being captured by it.",
+    "implication": "Take inventory of where your attention has gone in the last twelve months. How much of it was framework-debate, methodology-debate, status-game-debate? How much was substrate-question-debate? The ratio names whether you are crossing over the surface or living inside it. The corrective is operational: hold the substrate-question central, week after week, against the gravitational pull of the surface. The verse's metaphysical claim is larger; the engineering shadow is reachable.",
+    "quotable_line": "The surface is constitutively veiling, not accidentally. Substrate-discipline is the structural exit. The verse's reach is much larger than the engineering shadow.",
+    "tags": [
+      "essence-vs-implementation",
+      "engineering-pathology",
+      "deep-work"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.14 is the māyā-hard-to-cross claim — chapter thesis explicitly tags this STRETCHED honestly. Engineering analog scopes to substrate-discipline as the structural exit from surface-fashion captivity, with explicit scope-honesty: refuge in Krishna and substrate-discipline are not the same; the structural shape of the claim survives. Concrete scenario uses a 15-year staff engineer who has lived through five framework cycles (Java→Ruby→Python→Node→Go; monolith→SOA→microservices→serverless→mesh) to ground the analog. Falsifiability guards against 'refuse to engage with frameworks' misread. Counter-example guards against substrate-discipline as deflection from team concerns. STRETCHED, MEDIUM confidence per chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

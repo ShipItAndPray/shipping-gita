@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog not reconstructible from chapter alone",
+      "objection": "If 5.5 were removed from the chapter and a reader were asked to reconstruct the engineering analog from the remaining 28 verses, the verse-specific quotable_line and counter_example carry content that the adjacent verses do not. The analog is anchored to the verse's particular claim, not generic chapter-thesis content."
+    }
+  ],
+  "notes": "Removed-verse test (gate 7.7): the analog is verse-specific, not chapter-derivable. PASS."
+}

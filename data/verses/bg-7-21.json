@@ -1,0 +1,45 @@
+{
+  "id": "BG 7.21",
+  "chapter": 7,
+  "verse": 21,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "An engineer commits to a particular technique — message-queue-driven CQRS, hexagonal architecture, Postgres-only with no caching layer — and discovers, after months of disciplined practice, that the technique starts working for them. Krishna's first-person claim in this verse is metaphysical: whatever form the devotee approaches with faith, I — the inner witness — make that very faith firm. The verse claims agency at the level of the divine. STRETCHED. The engineering analog is narrower and operational: structures reward sustained commitment. Whichever stack the engineer commits to with disciplined attention, the discipline itself produces deepening returns; the substrate of any technique rewards faith-yoked practice. The verse names a personal divine actor; the engineering layer names a structural pattern. The shadow holds; the agency-claim does not transfer.",
+    "concrete_scenario": "Priya picks event-sourcing as her commitment technique. Six months in she's still hand-rolling projection rebuilds, fighting Kafka topic compaction, debugging snapshot intervals at 2am with Datadog and a coffee. Devon, on the same team, picks orthodox CRUD on Postgres with row-level locks. Same six months pass. Both techniques begin yielding to their respective practitioners — Priya can now reason about temporal queries that Devon's stack cannot express; Devon can ship a new aggregate in a single afternoon's work that Priya's pipeline would require a week of replay. Neither technique is intrinsically superior; the substrate of each rewards sustained, faith-yoked practice. What looks like 'the framework working for me' is the practitioner's commitment becoming firm enough that the framework's affordances are reachable. The verse claims a divine agency behind the firmness; the engineer can name only the structural pattern that disciplined commitment compounds.",
+    "falsifiability": "The analog fails if a reader hears 'commit to anything and it will work.' The verse is not endorsing any-faith-whatever; it presupposes a worshipper who turns toward a form and engages with disciplined practice. An engineer who picks a stack flippantly and abandons it after two weeks has not exercised the faith-yoked practice the verse describes. The substrate compounds returns on commitment, not on flailing.",
+    "counter_example": "When the chosen technique is structurally unsuited to the customer-need (a graph database for a flat ledger, a real-time stream for a batch report) the verse does not bless the misfit. The faith-firmness Krishna grants is to a worshipper turned toward a tanum that is itself a form of him; structurally inappropriate technique-choice is not what the verse honours. Engineering judgment about technique-fit precedes the commitment the verse describes.",
+    "implication": "Audit one technique you have been hedging on. Either commit to it for a defined window long enough that the substrate begins to reward the commitment, or let it go cleanly. Half-faith does not get the firmness Krishna names.",
+    "quotable_line": "Whatever stack the engineer commits to with disciplined attention, the substrate of that stack rewards the commitment.",
+    "tags": [
+      "operator-system-coupling",
+      "deliberate-action",
+      "iteration-loop"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: source pack triangulated. Verse claims a personal divine agency (vidadhāmy aham — I make firm). STRETCHED honestly. Engineering analog scoped at structural-pattern level: disciplined commitment to a technique compounds, the substrate of the technique rewards faith-yoked practice. Concrete scenario: Priya/Devon parallel — event-sourcing vs CRUD-on-Postgres, both rewarding their committed practitioner; with named tools (Kafka, Datadog, Postgres). Counter-example carves out structurally-inappropriate technique-fit. Tags: operator-system-coupling, deliberate-action, iteration-loop.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v1: lexical-diversity tuning, FK-grade adjustment, named-tool addition (Datadog), counter-example sharpening so the misfit-vs-fit boundary is explicit.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

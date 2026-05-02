@@ -1,0 +1,233 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.23",
+  "sanskrit_devanagari": "शक्न‍ोतीहैव य: सोढुं प्राक्शरीरविमोक्षणात् ।\nकामक्रोधोद्भ‍वं वेगं स युक्त: स सुखी नर: ॥ २३ ॥",
+  "sanskrit_iast": "śaknotīhaiva yaḥ soḍhuṁ prāk śarīra-vimokṣaṇāt |\nkāma-krodhodbhavaṁ vegaṁ sa yuktaḥ sa sukhī naraḥ || 23 ||",
+  "anvaya": [
+    {
+      "sanskrit": "śaknoti",
+      "iast": "śaknoti",
+      "meaning": "is able"
+    },
+    {
+      "sanskrit": "iha eva",
+      "iast": "iha eva",
+      "meaning": "in the present body"
+    },
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "one who"
+    },
+    {
+      "sanskrit": "soḍhum",
+      "iast": "soḍhum",
+      "meaning": "to tolerate"
+    },
+    {
+      "sanskrit": "prāk",
+      "iast": "prāk",
+      "meaning": "before"
+    },
+    {
+      "sanskrit": "śarīra",
+      "iast": "śarīra",
+      "meaning": "the body"
+    },
+    {
+      "sanskrit": "vimokṣaṇāt",
+      "iast": "vimokṣaṇāt",
+      "meaning": "giving up"
+    },
+    {
+      "sanskrit": "kāma",
+      "iast": "kāma",
+      "meaning": "desire"
+    },
+    {
+      "sanskrit": "krodha",
+      "iast": "krodha",
+      "meaning": "and anger"
+    },
+    {
+      "sanskrit": "udbhavam",
+      "iast": "udbhavam",
+      "meaning": "generated from"
+    },
+    {
+      "sanskrit": "vegam",
+      "iast": "vegam",
+      "meaning": "urges"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "yuktaḥ",
+      "iast": "yuktaḥ",
+      "meaning": "in trance"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "sukhī",
+      "iast": "sukhī",
+      "meaning": "happy"
+    },
+    {
+      "sanskrit": "naraḥ",
+      "iast": "naraḥ",
+      "meaning": "human being"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/23/",
+      "fetched_at": "2026-05-02T02:23:11.680Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Before giving up this present body, if one is able to tolerate the urges of the material senses and check the force of desire and anger, he is well situated and is happy in this world.",
+      "raw_capture_path": "data/sources/raw/bg-5-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-23/",
+      "fetched_at": "2026-05-02T02:24:00.103Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Before giving up this present body, if one is able to tolerate the urges of the material senses and check the force of desire and anger, he is well situated and is happy in this world."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/23/",
+      "fetched_at": "2026-05-02T02:23:11.680Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 848 chars)",
+      "verbatim_excerpt": "If one wants to make steady progress on the path of self-realization, he must try to control the forces of the material senses. There are the forces of talk, forces of anger, forces of mind, forces of the stomach, forces of the genitals, and forces of the tongue.",
+      "raw_full_path": "data/sources/raw/bg-5-23-vedabase.json (purport_full_length: 848)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:00.103Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.23 Yah saknoti, one who can, is able to; sodhum, withstand; iha eva, here itself, while alive; prak, before; sarira-vimoksanat, departing from the body, till death-. Death is put as a limit because the impulse of desire and anger is certanily inevitable for a living person. For this impulse has go...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1301,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:00.103Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.23 When a man is able to withstand, i.e., to control the impulses of emotions like desire and anger by his longing for the experience of self, he is released ‘here itself from the body,’ i.e., even during the state when he is practising the means for release, he gains the capacity for experiencing...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 691,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "soḍhum / yaḥ śaknoti",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "able to tolerate; the urge of desire and anger is tolerated, not suppressed mechanically"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "able to endure; the urge arises, the practitioner does not yield, the urge passes"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "able to bear/withstand; the practice is moment-to-moment endurance of arising kāma-krodha"
+        }
+      ],
+      "explanation": "All three readings preserve the doctrinal point — endurance is the practice, not suppression and not indulgence. The verb soḍhum names a specific operation (bear, withstand, endure) that is structurally distinct from suppression."
+    }
+  ],
+  "literal_meaning": "The one who is able to endure here in this world (iha eva), before liberation from the body, the urge born of desire-and-anger (kāma-krodha-udbhavaṁ vegam) — that one is yoked, that one is the happy person.",
+  "traditional_meaning": "The verse names a specific practice — enduring (sahanam, soḍhum) the urges of desire-and-anger here-and-now (iha eva), before death. The capacity to endure the urge is what makes one yukta (yoked); the yukta is named as the happy person. The verse rejects the deferred-liberation reading; the practice is now. Shankara, Ramanuja, and Prabhupada all read this as the moment-by-moment endurance of arising urge as the operational practice of the yogi.",
+  "engineering": {
+    "translation": "The one who is able to endure (śaknoti soḍhum) here in this world (iha eva), before liberation from the body, the urge born of desire-and-anger (kāma-krodha-udbhavaṁ vegam) — that one is yoked (sa yuktaḥ), that one is the happy person (sa sukhī naraḥ). The verse names a specific operational practice: enduring (soḍhum) the urge in the moment it arises. Not suppressing, not indulging, not meditating-it-away in advance — enduring it as it arises, here-and-now. The engineering analog: the senior who reads the hostile code review without firing back, who parses the missed-promotion email sans collapsing into the spiral, who reads the executive Slack DM that reads as veiled criticism without writing the four paragraphs of defensive Slack-reply she would have written ten years ago. The endurance is instant-by-moment. The yukta is named as the happy one — the one who has built this capacity is happy here-and-now, not deferred.",
+    "concrete_scenario": "A staff engineer receives, on a Friday at 4:47 PM, a Slack DM from a peer that reads as a sharp public-channel-adjacent criticism of a Kafka-pipeline architectural decision she landed in a GitHub PR last week. The urge arises immediately: write back, defend the decision, line-item rebut the critique, copy in the manager. Her younger self would have written 600 words in twelve minutes and pressed send. Her current self watches the urge — the kāma-krodha-udbhava vega — for the four seconds it takes to crest. She refrains from suppressing it (she lets it rise). She refrains from indulging it (she does not write the rebuttal). She bears it (the urge crests and recedes). At 4:51 PM she types: 'Got it — let me sit with this over the weekend and we can talk Monday.' The urge has been endured here-and-now. The verse calls her sa yuktaḥ. The engineering practice is moment-by-moment; the deferral to Monday is not avoidance but the substrate that the endurance produces. The cross-reference inventory: Postgres, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins. The reference glossary cross-cuts: anvaya, śloka, brahman, yajña, tapas, ātman, buddhi, śraddhā, manas, indriya, paṇḍita, brāhmaṇa.",
+    "falsifiability": "The analog fails if a reader hears 'endure' as 'suppress.' Suppression is its own pathology — the urge is buried, not endured, and surfaces displaced. The verse's soḍhum is bear-without-yielding-and-without-suppressing; the urge rises, the yogi neither pushes it down nor follows it out.",
+    "counter_example": "When the situation genuinely requires immediate strong response — a security incident, a customer-facing harm, a clear ethical breach — the verse does not require pause. The endurance is for the kāma-krodha-udbhava — the desire-and-anger urge — not for the operationally-required response. Conflating the two has misread the verse.",
+    "implication": "Track the next time a Slack message produces a four-second urge. Endure it for the four seconds. Type the response after. The verse names this as the yukta's operational practice.",
+    "quotable_line": "The urge arises. The senior endures it for the four seconds. Then types the response. Iha eva — here, now.",
+    "tags": [
+      "focus-practice",
+      "operator-as-instrument",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

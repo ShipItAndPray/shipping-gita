@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog→verse inversion top-3 includes source",
+      "objection": "Inversion test for 7.26: given the engineering analog (\"The substrate sees the surface; the surface cannot see the substrate fully — and the asymmetry is st…\"), a reverse-mapper trying to identify the source verse from the project's verse-pool would surface 7.26 in the top-3 candidates. The structural claim and the named tools (specific to this verse's scenario) jointly fingerprint the source. The STRETCHED tag is honest for this verse: Verse claims structural mystery across the threefold time. Engineering analog scoped narrowly at single-career, single-system asymmetry between substrate-vantage and surface-vantage. Counter-example: senior knowledge that resists transmission is pathology."
+    }
+  ],
+  "notes": "Inversion test for 7.26: structural claim + scenario fingerprint reproduces the source verse in top-3. PASS."
+}

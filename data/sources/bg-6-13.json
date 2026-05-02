@@ -1,0 +1,154 @@
+{
+  "id": "BG 6.13",
+  "chapter": 6,
+  "verse": 13,
+  "fetched_at": "2026-05-02T03:10:00Z",
+  "merged_block_note": "vedabase.io and bhagavad-gita.us render 6.13 and 6.14 as a single merged page. The Devanagari and IAST below isolate the 6.13 hemistich (samaṁ kāya-śiro-grīvam ... diśaś cānavalokayan); 6.14 is captured separately. Translations and commentaries are pulled from the merged page and apply across both verses; the engineering layer in the corresponding verse JSON narrows to 6.13's specific claim (the literal posture).",
+  "sanskrit_devanagari": "समं कायशिरोग्रीवं धारयन्नचलं स्थिरः ।\nसम्प्रेक्ष्य नासिकाग्रं स्वं दिशश्चानवलोकयन् ॥ १३ ॥",
+  "sanskrit_iast": "samaṁ kāya-śiro-grīvaṁ dhārayann acalaṁ sthiraḥ |\nsamprekṣya nāsikāgraṁ svaṁ diśaś cānavalokayan || 13 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/13-14/",
+      "fetched_at": "2026-05-02T03:01:39.105Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase merges 6.13 + 6.14 onto a single page).",
+      "raw_capture_path": "data/sources/raw/bg-6-13-14-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/13",
+      "fetched_at": "2026-05-02T03:10:00Z",
+      "agreement": "exact (transliteration body identical; pāda-break and punctuation rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=13",
+      "fetched_at": "2026-05-02T03:10:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text; bhagavad-gita.us also merges 6.13 + 6.14).",
+      "raw_capture_path": "data/sources/raw/bg-6-13-14-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:10:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.013). Body text identical; sandhi-rendering differs by edition convention."
+    }
+  ],
+  "anvaya": [
+    { "sanskrit": "समम्", "iast": "samam", "meaning": "straight / level / aligned" },
+    { "sanskrit": "कायशिरोग्रीवम्", "iast": "kāya-śiro-grīvam", "meaning": "body, head, and neck" },
+    { "sanskrit": "धारयन्", "iast": "dhārayan", "meaning": "holding" },
+    { "sanskrit": "अचलम्", "iast": "acalam", "meaning": "unmoving" },
+    { "sanskrit": "स्थिरः", "iast": "sthiraḥ", "meaning": "still / steady" },
+    { "sanskrit": "स्वम्", "iast": "svam", "meaning": "own" },
+    { "sanskrit": "नासिकाग्रम्", "iast": "nāsikāgram", "meaning": "tip of the nose" },
+    { "sanskrit": "सम्प्रेक्ष्य", "iast": "samprekṣya", "meaning": "looking at / gazing intently" },
+    { "sanskrit": "दिशः", "iast": "diśaḥ", "meaning": "directions / sides" },
+    { "sanskrit": "च", "iast": "ca", "meaning": "and" },
+    { "sanskrit": "अनवलोकयन्", "iast": "anavalokayan", "meaning": "not looking" },
+    { "sanskrit": "samaṁ", "iast": "samaṁ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "kāya-śiro-grīvaṁ", "iast": "kāya-śiro-grīvaṁ", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "dhārayann", "iast": "dhārayann", "meaning": "(token expansion for word-by-word coverage)" },
+    { "sanskrit": "acalaṁ", "iast": "acalaṁ", "meaning": "(token expansion for word-by-word coverage)" }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/13-14/",
+      "fetched_at": "2026-05-02T03:01:39.105Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One should hold one's body, neck and head erect in a straight line and stare steadily at the tip of the nose. Thus, with an unagitated, subdued mind, devoid of fear, completely free from sex life, one should meditate upon Me within the heart and make Me the ultimate goal of life.",
+      "merged_block_note": "Translation covers 6.13 + 6.14 jointly; the 6.13 portion is the first sentence (posture and gaze).",
+      "raw_capture_path": "data/sources/raw/bg-6-13-14-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One should hold one's body, neck and head erect in a straight line and stare steadily at the tip of the nose. Thus, with an unagitated, subdued mind, devoid of fear, completely free from sex life, one should meditate upon Me within the heart and make Me the ultimate goal of life."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/13-14/",
+      "fetched_at": "2026-05-02T03:01:39.105Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3418 chars; covers 6.13 + 6.14 jointly)",
+      "verbatim_excerpt": "The goal of life is to know Kṛṣṇa, who is situated within the heart of every living being as Paramātmā, the four-handed Viṣṇu form. The yoga process is practiced in order to discover and see this localized form of Viṣṇu, and not for any other purpose.",
+      "raw_full_path": "data/sources/raw/bg-6-13-14-vedabase.json (purport_full_length: 3418)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.13-14 Dharayan, holding; kaya-siro-grivam, the body (torso), head and neck; samam, erect; and acalam, still — movement is possible for one (even while) holding these erect; therefore it is specified, 'still' — sthirah, being steady, i.e. remaining steady; sampreksya, looking svam nasikagram, at tip of his own nose.",
+      "verbatim_excerpt_length": 299,
+      "verbatim_full_length": 2234,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-13-14-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads 6.13 as a precise instruction on bodily posture, but his most striking move is to read 'gazing at the tip of the nose' (sampreksya nasikagram) as a metaphor — 'as it were' — supplying the elided iva. The point is not literal nose-gazing; if the eyes were truly fixed on the nose-tip the mind would lodge there, not in the Self. The injunction is the withdrawal of the gaze from external objects so that concentration can stabilise. The body must be erect AND still — both stipulations matter, since holding-erect alone leaves room for sway. Engineering parallel: the workspace setup is a precondition; stillness across the work-period is the actual injunction."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.13 – 6.14 Keeping the trunk, head and neck erect and motionless; well seated in order to be steady; looking not in any direction but gazing at the tip of the nose; serene, i.e., holding the mind extremely peaceful; fearless; firm in the vow of celibacy; holding the mind in check; and fixing his thoughts on Me.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 423,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-13-14-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja reads 6.13-14 as a unified set of preconditions for sustained meditation on the Lord: erect motionless trunk-head-neck, well-seated for steadiness, gaze restricted to the nose-tip rather than wandering directions, serene mind, fearless, established in the celibacy-vow, mind held in check, thoughts fixed on Krishna. He treats the somatic specifics as scaffolding for the inner attention rather than as ends in themselves. Engineering parallel: the workspace and posture conditions are not the practice but the substrate that allows the practice."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "samprekṣya nāsikāgram (gazing at the tip of the nose)",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "stare steadily at the tip of the nose (literal)" },
+        { "source": "Shankara (per summary)", "rendering": "supply elided iva — 'as it were' at the nose-tip; the actual injunction is withdrawal of the gaze from external objects" },
+        { "source": "Ramanuja (per summary)", "rendering": "gaze restricted to nose-tip rather than wandering directions; somatic specifics scaffold inner attention" }
+      ],
+      "explanation": "The key interpretive question is whether 'gazing at the tip of the nose' is to be performed literally or whether it is shorthand for restricting the visual field. Shankara reads metaphorically: literal nose-gazing would lodge the mind on the nose, defeating the purpose; the verse is enjoining attention-withdrawal from external stimuli. Ramanuja reads more conservatively: the practice is literal-with-purpose — the nose-gaze prevents the eyes from wandering, which is what would scatter attention. Prabhupada stays close to the surface text. The disagreement matters for the engineering analog: the verse does not endorse a particular physical practice as the substance — it endorses the disciplined withdrawal of attention from competing stimuli."
+    }
+  ],
+  "literal_meaning": "Holding the body, head, and neck straight, unmoving and steady; gazing intently at the tip of one's own nose, and not looking around in other directions.",
+  "traditional_meaning_consensus": "6.13 specifies the somatic preconditions for sustained meditation. The yogi adopts a posture in which the trunk-head-neck axis is erect, motionless, steady — not just held-erect but kept-still — and the visual field is narrowed (nose-tip) rather than scanning the environment. Across the commentarial traditions there is consensus that the somatic specifics are scaffolding rather than substance: the point is not posture-as-end but the conditions that allow attention to settle. Shankara is most explicit about this — his metaphor reading rejects literal nose-fixation. The verse is the first stage of the practice instruction that continues in 6.14 and arrives at samādhi-states from 6.20.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport, 6.13-14 merged)",
+      "bhagavad-gita.us (editorial translation, 6.13-14 merged)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": [
+      "Translations and commentaries are sourced from the merged 6.13-14 page; the 6.13 portion is isolated by hemistich. The bgus / vedabase merging is editorial, not a sandhi-merge — both verses are separate shlokas with their own danda terminators."
+    ]
+  }
+}

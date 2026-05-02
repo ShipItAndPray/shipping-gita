@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.16",
+  "chapter": 6,
+  "verse": 16,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna's structural claim is sharper than the surface text. Yoga is not for the one who eats too much, nor for the abstainer; not for the over-sleeper, nor for the over-waker. The negative form is doing real work: discipline of the body is a precondition for discipline of the mind, and the precondition fails at either extreme. Shankara cites the Vedic precedent — capacity-appropriate food sustains, more harms, less starves. Ramanuja generalises: the same logic covers overwork and idleness. The engineering analog is genuine and operational. The senior who treats sleep as load-bearing infrastructure — not a residual variable to be sacrificed when launches arrive — sustains attention across decades. The senior who has never taken a real sabbatical and the senior who has burned out twice are mirrored failures: one over-works, the other has compensated by over-resting. Neither is yukta. The middle path is not a productivity tip; it is Krishna's structural claim that the body and the mind are coupled and that yoga is unavailable when the coupling is broken at either end.",
+    "concrete_scenario": "A staff engineer at a series-C SaaS company runs the on-call rotation for their Kubernetes ingress and Postgres-replication infra. Across two years she has held a discipline that her peers do not. She sleeps a full seven hours; she has refused the engineering culture's quiet expectation that on-call weeks justify five-hour nights. She eats lunch away from the keyboard four days out of five. She walks for thirty minutes after work, no headphones, no podcasts. She has declined two promotion-tracks that required twelve-hour days. Her PagerDuty incidents resolve faster than her peers'; her code reviews on GitHub land cleaner; her design docs read like they were written by someone whose mind was not exhausted at the time of writing. Compare the engineer who has done the same role through caffeine-and-late-nights, and after eighteen months has hit the wall — taken a six-week medical leave for what HR called burnout. Both behaviors are this verse. The first is yukta in the food/sleep/work register. The second is the over-eater of work — and the eventual six-week leave is the mirror failure (the abstainer-from-work). Neither is the middle path; only the first sustains. Krishna's claim is structural: yoga is not available at either end.",
+    "falsifiability": "The analog fails if a reader treats this verse as content for a productivity newsletter. It is not. The verse names the coupling between body and mind as operationally load-bearing — yoga becomes impossible at the extremes, not merely harder. An engineer who reads this as 'work-life balance is good' has trivialised it. The claim is sharper: the practice itself fails when the body's discipline fails.",
+    "counter_example": "When the engineer is in a genuine emergency — an active production incident, a critical launch window, a once-in-a-decade architecture migration — temporary extremes are not the verse's failure mode. The yogi who skips one meal during an active outage is not violating the verse; the yogi who has organised her career so that every quarter contains an outage-equivalent has. The verse's claim is about the sustained pattern, not about the single emergency.",
+    "implication": "Audit the body's discipline as load-bearing engineering infrastructure. Sleep, food, recreation, and work-effort are not residual variables. The senior whose attention does not flicker (6.19) is the senior whose body has been disciplined into a state where flickering is structurally less likely.",
+    "quotable_line": "The senior whose attention does not flicker has built the body into infrastructure for that fact.",
+    "tags": ["operator-as-instrument", "deep-work", "long-term-thinking"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:45:00Z",
+      "mutation": "v0 generation: BG 6.16 engineering layer drafted with maximum rigor per chapter-6 thesis flag — middle-path doctrine is genuine engineering content, NOT productivity-coaching. Anchored on Krishna's structural claim: yoga is unavailable at extremes, not merely harder. Shankara's Vedic-precedent gloss preserved. Ramanuja's generalisation to overwork/idleness used to anchor engineering analog. Counter-example distinguishes single-emergency from sustained pattern. Confidence HIGH, not stretched. Tools: Kubernetes, Postgres, PagerDuty, GitHub.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,233 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.28",
+  "sanskrit_devanagari": "यतेन्द्रियमनोबुद्धिर्मुनिर्मोक्षपरायण: ।\nविगतेच्छाभयक्रोधो य: सदा मुक्त एव स: ॥ २८ ॥",
+  "sanskrit_iast": "yatendriya-mano-buddhir munir mokṣa-parāyaṇaḥ |\nvigatecchā-bhaya-krodho yaḥ sadā mukta eva saḥ || 28 ||",
+  "anvaya": [
+    {
+      "sanskrit": "yata",
+      "iast": "yata",
+      "meaning": "controlled"
+    },
+    {
+      "sanskrit": "indriya",
+      "iast": "indriya",
+      "meaning": "senses"
+    },
+    {
+      "sanskrit": "manaḥ",
+      "iast": "manaḥ",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "buddhiḥ",
+      "iast": "buddhiḥ",
+      "meaning": "intelligence"
+    },
+    {
+      "sanskrit": "muniḥ",
+      "iast": "muniḥ",
+      "meaning": "the transcendentalist"
+    },
+    {
+      "sanskrit": "mokṣa",
+      "iast": "mokṣa",
+      "meaning": "for liberation"
+    },
+    {
+      "sanskrit": "parāyaṇaḥ",
+      "iast": "parāyaṇaḥ",
+      "meaning": "being so destined"
+    },
+    {
+      "sanskrit": "vigata",
+      "iast": "vigata",
+      "meaning": "having discarded"
+    },
+    {
+      "sanskrit": "icchā",
+      "iast": "icchā",
+      "meaning": "wishes"
+    },
+    {
+      "sanskrit": "bhaya",
+      "iast": "bhaya",
+      "meaning": "fear"
+    },
+    {
+      "sanskrit": "krodhaḥ",
+      "iast": "krodhaḥ",
+      "meaning": "anger"
+    },
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "one who"
+    },
+    {
+      "sanskrit": "sadā",
+      "iast": "sadā",
+      "meaning": "always"
+    },
+    {
+      "sanskrit": "muktaḥ",
+      "iast": "muktaḥ",
+      "meaning": "liberated"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "he is"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/27-28/",
+      "fetched_at": "2026-05-02T02:23:45.770Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Shutting out all external sense objects, keeping the eyes and vision concentrated between the two eyebrows, suspending the inward and outward breaths within the nostrils, and thus controlling the mind, senses and intelligence, the transcendentalist aiming at liberation becomes free from desire, fear and anger. One who is always in this state is certainly liberated.",
+      "raw_capture_path": "data/sources/raw/bg-5-27-28-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-28/",
+      "fetched_at": "2026-05-02T02:24:30.972Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Shutting out all external sense objects, keeping the eyes and vision concentrated between the two eyebrows, suspending the inward and outward breaths within the nostrils, and thus controlling the mind, senses and intelligence, the transcendentalist aiming at liberation becomes free from desire, fear and anger. One who is always in this state is certainly liberated."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/27-28/",
+      "fetched_at": "2026-05-02T02:23:45.770Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 0 chars; purport spans both 5.27 and 5.28)",
+      "verbatim_excerpt": "",
+      "raw_full_path": "data/sources/raw/bg-5-27-28-vedabase.json (purport_full_length: 0)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-28/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:30.972Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use; commentary applies to both 5.27 and 5.28 jointly)",
+      "verbatim_excerpt": "5.27 Krtva, keeping; bahyan, the external; sparsan, objects-sound etc.; bahih, outside: To one who does not pay attention to the external objects like sound etc., brought to the intellect through the ear etc., the objects become verily kept outside. Having kept them out in this way, and (keeping) th...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1253,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-27-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-28/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:30.972Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use; commentary applies to both 5.27 and 5.28 jointly)",
+      "verbatim_excerpt": "5.27 – 5.28 ‘Shutting off all contact with outside objects,’ i.e., stopping the outward functioning of the senses; seated with his trunk straightened in a posture fit for meditation (Yoga); ‘fixing the gaze between the eye-brows,’ i.e., at the root of the nose where the eye-brows meet; ‘equalising i...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 999,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-27-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sadā muktaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "always in the liberated state; the perpetual liberation of the Krishna-conscious yogi"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "always liberated; in this very life (jīvan-mukta), liberation is constant once attained"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "always free; the constancy of the liberated state for the disciplined sage"
+        }
+      ],
+      "explanation": "All three traditions read sadā muktaḥ as marking the perpetual character of the state — not a flickering condition but a stable acquisition. The metaphysical specification of 'liberated' diverges (Advaita: identity with Brahman; Vishishtadvaita: dependence on the Lord realised; Gaudiya: continuous Krishna-consciousness). The constancy claim is preserved."
+    }
+  ],
+  "literal_meaning": "[Continuing from 5.27] The muni who has yoked the senses, mind, and intellect (yata-indriya-mano-buddhiḥ), who is intent on liberation (mokṣa-parāyaṇaḥ), and who has cast off desire, fear, and anger (vigata-icchā-bhaya-krodhaḥ) — that one is always liberated.",
+  "traditional_meaning": "Verse 5.28 names the result of the somatic-meditative discipline begun in 5.27. The muni — meditative sage — with senses, mind, and intellect yoked, intent on liberation, freed of desire-fear-anger, is sadā mukta — always liberated. The 'always' (sadā) is structurally significant. The verse is the immediate setup for chapter 6's full treatment of dhyāna-yoga. Shankara, Ramanuja, and Prabhupada agree on the structural threefold (senses-mind-intellect yoked) and on the threefold-affect-cleansed (desire-fear-anger gone).",
+  "engineering": {
+    "translation": "[Continuing from 5.27] The muni who has yoked the senses, mind. Intellect (yata-indriya-mano-buddhiḥ), who is intent on liberation (mokṣa-parāyaṇaḥ), and who has cast off desire, fear, and anger (vigata-icchā-bhaya-krodhaḥ). That one is always liberated (sadā mukta eva). Krishna names the somatic-discipline result begun in 5.27: senses-mind-intellect yoked, liberation-directed, freed of desire-fear-anger, sadā mukta — perpetually liberated. The 'always' (sadā) is structurally significant. STRETCHED honestly because the verse's metaphysical scope (mokṣa, perpetual liberation) exceeds the operational layer. The engineering analog at operational scope: the senior whose three-fold instrument-set (senses, mind, intellect) is linked across the workday, whose direction is consistent with the destination (per 5.17's fourfold pointing). Who has freed herself from desire-fear-anger drives is in the operating settled state. Perpetually, not episodically.",
+    "concrete_scenario": "A staff engineer's workday. Senses yoked: she reads Datadog and Grafana dashboards purposefully, listens in standups for signal not noise, reviews PRs with calibrated attention. Mind yoked: her mental rehearsal is directed (Postgres-failure modes for the upcoming migration). Not random (the imagined Slack-thread argument with the peer from last month). Intellect linked: her analysis is decision-directed, not display-directed. Liberation-directed: her four pointers (per 5.17) point at the customer's payment-correctness. Desire-fear-anger drives are not driving: she has internalised 5.23's endurance practice. The result, observable in her workday across two years: the settled state holds continuously, not episodically. The morning incident does not unsettle it; the afternoon promotion-discussion does not unsettle it. Sadā mukta at operational scope. STRETCHED honestly; the metaphysical mokṣa exceeds.",
+    "falsifiability": "The analog fails if a reader hears 'perpetually liberated' as a metaphysical claim about engineering tenure. The verse names a metaphysical state; the engineering analog scopes to operational continuity of the settled disposition. The metaphysical reach exceeds.",
+    "counter_example": "When the perpetual-liberation claim is asserted across a single good week — when the operational continuity has not actually held across years — the verse does not apply. Sadā is structurally significant; the continuity is the diagnostic.",
+    "implication": "Track the operational continuity of your settled state across a year. Does it hold across the morning incident, the afternoon promotion-discussion, the Friday near-failure? Sadā is the diagnostic.",
+    "quotable_line": "Senses, mind, intellect yoked. The settled state holds continuously, not episodically. Sadā at operational scope.",
+    "tags": [
+      "focus-practice",
+      "operator-as-instrument",
+      "team-state"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

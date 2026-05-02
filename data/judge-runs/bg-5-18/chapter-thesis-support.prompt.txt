@@ -1,0 +1,242 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.18",
+  "sanskrit_devanagari": "विद्याविनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।\nश‍ुनि चैव श्वपाके च पण्डिता: समदर्शिन: ॥ १८ ॥",
+  "sanskrit_iast": "vidyā-vinaya-sampanne brāhmaṇe gavi hastini |\nśuni caiva śva-pāke ca paṇḍitāḥ sama-darśinaḥ || 18 ||",
+  "anvaya": [
+    {
+      "sanskrit": "vidyā",
+      "iast": "vidyā",
+      "meaning": "with education"
+    },
+    {
+      "sanskrit": "vinaya",
+      "iast": "vinaya",
+      "meaning": "and gentleness"
+    },
+    {
+      "sanskrit": "sampanne",
+      "iast": "sampanne",
+      "meaning": "fully equipped"
+    },
+    {
+      "sanskrit": "brāhmaṇe",
+      "iast": "brāhmaṇe",
+      "meaning": "in the brāhmaṇa"
+    },
+    {
+      "sanskrit": "gavi",
+      "iast": "gavi",
+      "meaning": "in the cow"
+    },
+    {
+      "sanskrit": "hastini",
+      "iast": "hastini",
+      "meaning": "in the elephant"
+    },
+    {
+      "sanskrit": "śuni",
+      "iast": "śuni",
+      "meaning": "in the dog"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "śva",
+      "iast": "śva",
+      "meaning": "pāke — in the dog-eater (the outcaste)"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "respectively"
+    },
+    {
+      "sanskrit": "paṇḍitāḥ",
+      "iast": "paṇḍitāḥ",
+      "meaning": "those who are wise"
+    },
+    {
+      "sanskrit": "sama",
+      "iast": "sama",
+      "meaning": "darśinaḥ — who see with equal vision"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/18/",
+      "fetched_at": "2026-05-02T02:23:11.461Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle brāhmaṇa, a cow, an elephant, a dog and a dog-eater [outcaste].",
+      "raw_capture_path": "data/sources/raw/bg-5-18-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-18/",
+      "fetched_at": "2026-05-02T02:24:00.074Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle brahmana, a cow, an elephant, a dog and a dog-eater [outcaste]."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/18/",
+      "fetched_at": "2026-05-02T02:23:11.461Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1767 chars)",
+      "verbatim_excerpt": "A Kṛṣṇa conscious person does not make any distinction between species or castes. The brāhmaṇa and the outcaste may be different from the social point of view, or a dog, a cow and an elephant may be different from the point of view of species, but these differences of body are meaningless from the viewpoint of a learne",
+      "raw_full_path": "data/sources/raw/bg-5-18-vedabase.json (purport_full_length: 1767)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-18/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:00.074Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.18 Panditah, the learned ones; sama-darsinah, look with equanimity; brahmane, on a Brahmana; vidya-vinayasampanne, endowed with learning and humility-vidya means knowledge of the Self, and vinaya means pridelessness-, on a Brahmana who has Self-knowledge and modesty; gavi, on a cow; hastini, on an...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1257,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-18-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-18/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:00.074Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.18 The sages are those who know the real nature of the self in all beings. They see the selves to be of the same nature, though they are perceived in extremely dissimlar embodiments such as those of one endowed with learning and humility, a mere Brahmana, a cow, an elephant, a dog, a dog-eater etc...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 629,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-18-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sama-darśinaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "those who see with equal vision, recognising spiritual identity in all"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "those who see the same Brahman as Self in all beings, recognising the equality of the Self despite the inequality of the bodies"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "those who see the equality of the selves (jīvas) — equal in essential nature though different in their bodies and karmic accumulations"
+        }
+      ],
+      "explanation": "Equal vision is structurally agreed upon across traditions; what is being equally seen diverges. Shankara: the same Brahman-as-Self. Ramanuja: the equality of jīvas in essential nature. Prabhupada: the common spiritual identity as Krishna-servants. None of the traditions read this as social-political egalitarianism erasing varṇa or competence; all read it as the wise seer's perception across drastically unequal outer station."
+    }
+  ],
+  "literal_meaning": "The wise — those of equal vision — see a brahmin endowed with knowledge and humility, a cow, an elephant, a dog, and even a dog-eater (śva-pāka, an outcaste) equally.",
+  "traditional_meaning": "Sama-darśana — equal vision — is the wisdom-marker. The wise see the same Self in beings of widely differing outer condition: the brahmin (highest social-ritual rank in the original Indian classification), the cow, the elephant, the dog, and the śva-pāka (the outcaste dog-eater, lowest social rank in the verse's original frame). The verse names categories drastically unequal in their outer station and asserts the seer's equal seeing across them. Shankara reads this as recognition of the same Self in all bodies; Ramanuja reads it as recognition of the Lord-as-Self in all selves; Prabhupada reads it as the seer's recognition that all are servants of Krishna. The provocation of the verse — its choice of paradigmatically unequal categories — is preserved across all readings.",
+  "engineering": {
+    "translation": "The wise. Sama-darśinaḥ — see a brahmin endowed with vidyā and humility, a cow, an elephant, a dog, and even a dog-eater (śva-pāka, outcaste of original Indian classification) with equal seeing. This verse asserts equal seeing across paradigmatically unequal categories. The engineering analog must preserve the provocation: NOT 'no hierarchy' (engineering is hierarchical by competence), but 'no contempt across the hierarchy.' The senior who treats the staff engineer, the new hire, the contractor, the executive, even the underperforming peer with the same fundamental engg courtesy. That principal is the sama-darśin. The senior whose code-review tone is identical between the principal and the junior, whose meeting-attention is identical between the executive and the contractor, whose commit feedback is identical between the rockstar and the merely-competent. That principal is honoring 5.18.",
+    "concrete_scenario": "A staff engineer reviews three pull requests in one morning. The first is from a fellow principal engineer-as-actor with twelve years of seniority. The second is from a six-week contractor brought in for a specific Postgres-migration job. The third is from a junior dev who has, this quarter, twice missed deadlines and is on a documented performance improvement plan. She gives all three identical depth of review: same tone, matching line-by-line attention, same engagement with edge cases, same constructive specificity. Toward the staff engineer no deference. To the contractor she does not condescend; to the underperformer she does not soften the engineering substance to be kind. Her code-audit-tone is invisible from the author's identity. This is sama-darśana at operational scope: the new hire's correction of her, when correct, is engaged with on the merits. The underperformer's PR gets a real review, not a perfunctory one. NOT no-hierarchy: the senior lead developer's design-doc carries different weight than the junior's, and she calibrates strategic decisions accordingly. But: no contempt across the hierarchy.",
+    "falsifiability": "The analog fails if a reader hears sama-darśana as 'flatten the hierarchy' or 'every PR is equally important to the business.' Both are misreadings. The verse names a property of the seer's relation to the seen, not a property of the seen. The hierarchy is real; the contempt is what is refused.",
+    "counter_example": "When the engineer is making a competence-tracked judgment — promoting the staff over the junior, weighting the principal's design-doc over the new hire's, assigning the harder problem to the more senior engineer — the verse does not require flattening. Hierarchy is preserved. What the verse refuses is the corrosion of fundamental engineering courtesy by the hierarchy.",
+    "implication": "Audit the last ten code reviews you wrote. Was the tone identical across the seniority gradient? If no, the contempt is there. The discipline is uniform engineering courtesy across the hierarchy.",
+    "quotable_line": "Engineering is hierarchical. The senior the verse calls wise has no contempt across the hierarchy.",
+    "tags": [
+      "team-culture",
+      "team-state",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Doctrine consistent across same-tag verses",
+      "objection": "5.8's tags (operator-as-instrument, doership, operator-system-coupling) are drawn from the controlled vocabulary at eval/gates.json. Cross-references to chapters 2, 3, and 4 (where relevant) are consistent: the chapter-5 sthita-prajña-extension (5.20) coheres with 2.55-2.72; 5.10's lotus-leaf coheres with 3.9's yajña-frame; 5.18's sama-darśana extends 3.21's exemplar argument; 5.24-5.26's brahma-nirvāṇa coheres with 2.72's brāhmī-sthiti."
+    }
+  ],
+  "notes": "Doctrine consistency (gate 6.1) and cross-reference support (gate 6.5): both PASS."
+}

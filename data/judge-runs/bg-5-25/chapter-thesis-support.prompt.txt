@@ -1,0 +1,257 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.25",
+  "sanskrit_devanagari": "लभन्ते ब्रह्मनिर्वाणमृषय: क्षीणकल्मषा: ।\nछिन्नद्वैधा यतात्मान: सर्वभूतहिते रता: ॥ २५ ॥",
+  "sanskrit_iast": "labhante brahma-nirvāṇam ṛṣayaḥ kṣīṇa-kalmaṣāḥ |\nchinna-dvaidhā yatātmānaḥ sarva-bhūta-hite ratāḥ || 25 ||",
+  "anvaya": [
+    {
+      "sanskrit": "labhante",
+      "iast": "labhante",
+      "meaning": "achieve"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "nirvāṇam — liberation in the Supreme"
+    },
+    {
+      "sanskrit": "ṛṣayaḥ",
+      "iast": "ṛṣayaḥ",
+      "meaning": "those who are active within"
+    },
+    {
+      "sanskrit": "kṣīṇa",
+      "iast": "kṣīṇa",
+      "meaning": "kalmaṣāḥ — who are devoid of all sins"
+    },
+    {
+      "sanskrit": "chinna",
+      "iast": "chinna",
+      "meaning": "having torn off"
+    },
+    {
+      "sanskrit": "dvaidhāḥ",
+      "iast": "dvaidhāḥ",
+      "meaning": "duality"
+    },
+    {
+      "sanskrit": "yata",
+      "iast": "yata",
+      "meaning": "ātmānaḥ — engaged in self-realization"
+    },
+    {
+      "sanskrit": "sarva",
+      "iast": "sarva",
+      "meaning": "bhūta — for all living entities"
+    },
+    {
+      "sanskrit": "hite",
+      "iast": "hite",
+      "meaning": "in welfare work"
+    },
+    {
+      "sanskrit": "ratāḥ",
+      "iast": "ratāḥ",
+      "meaning": "engaged"
+    },
+    {
+      "sanskrit": "nirvāṇam",
+      "iast": "nirvāṇam",
+      "meaning": "(compound element of brahma-nirvāṇam)"
+    },
+    {
+      "sanskrit": "kalmaṣāḥ",
+      "iast": "kalmaṣāḥ",
+      "meaning": "(compound element of kṣīṇa-kalmaṣāḥ)"
+    },
+    {
+      "sanskrit": "dvaidhā",
+      "iast": "dvaidhā",
+      "meaning": "(compound element of chinna-dvaidhā)"
+    },
+    {
+      "sanskrit": "yatātmānaḥ",
+      "iast": "yatātmānaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhūta",
+      "iast": "bhūta",
+      "meaning": "(compound element of sarva-bhūta-hite)"
+    },
+    {
+      "sanskrit": "25",
+      "iast": "25",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/25/",
+      "fetched_at": "2026-05-02T02:23:11.230Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are beyond the dualities that arise from doubts, whose minds are engaged within, who are always busy working for the welfare of all living beings and who are free from all sins achieve liberation in the Supreme.",
+      "raw_capture_path": "data/sources/raw/bg-5-25-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-25/",
+      "fetched_at": "2026-05-02T02:23:58.638Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are beyond the dualities that arise from doubts, whose minds are engaged within, who are always busy working for the welfare of all living beings, and who are free from all sins achieve liberation in the Supreme."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/25/",
+      "fetched_at": "2026-05-02T02:23:11.230Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1226 chars)",
+      "verbatim_excerpt": "Only a person who is fully in Kṛṣṇa consciousness can be said to be engaged in welfare work for all living entities. When a person is actually in the knowledge that Kṛṣṇa is the fountainhead of everything, then when he acts in that spirit he acts for everyone.",
+      "raw_full_path": "data/sources/raw/bg-5-25-vedabase.json (purport_full_length: 1226)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-25/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:58.638Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.25 Rsayah, the seers, those who have full realization, the monks; ksina-kalmasah, whose sins, defects like sin etc., have been attenuated; chinna-dvaidhah, who are freed from doubt; yata-atmanah, whose organs are under control; ratah, who are engaged; sarvabhutahite, in doing good to all beings-fa...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 424,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-25-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-25/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:58.638Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.25 The sages are seers who are devoted to the vision of the self. For them the pairs of opposites are annulled; i.e., they are freed from pairs of opposites like cold and heat, etc. ‘They have their minds well subdued,’ i.e., their minds are directed to the self. ‘They are devoted to the welfare o...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 678,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-25-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sarva-bhūta-hite ratāḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "engaged in the welfare of all beings; devotionally serves all beings as servants of Krishna"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "delighting in the welfare of all beings; sees the same Self in all and acts for their welfare"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "ever-engaged in the good of all beings; the realised sage's outward motion is welfare-directed"
+        }
+      ],
+      "explanation": "All three traditions agree the realised sage is welfare-directed, not solitarily withdrawn. The motivation diverges (Krishna-service in Gaudiya, Self-recognition in Advaita, Lord-service in Vishishtadvaita); the operational claim (delight in others' welfare) is preserved."
+    }
+  ],
+  "literal_meaning": "Those sages whose sins (kalmaṣa) are destroyed, whose dualities (dvandva) are cut, whose self is disciplined (yatātmānaḥ), and who delight in the welfare of all beings (sarva-bhūta-hite ratāḥ) — they obtain brahma-nirvāṇa.",
+  "traditional_meaning": "Brahma-nirvāṇa is named as the terminus for sages with four marks: sins destroyed, dualities cut, self disciplined, delight in the welfare of all beings. The fourth mark — sarva-bhūta-hite ratāḥ — is structurally significant: terminal liberation is not solitary withdrawal but is consistent with active concern for the welfare of all beings. Shankara, Ramanuja, and Prabhupada all read this fourfold characterisation as the description of the realised sage.",
+  "engineering": {
+    "translation": "Sages whose sins are destroyed, dualities cut (chinna-dvaidhāḥ), self disciplined (yatātmānaḥ), and who delight in the welfare of all beings (sarva-bhūta-hite ratāḥ). They obtain brahma-nirvāṇa. Krishna names four marks: sins destroyed, dualities cut, self disciplined, delight in others' welfare. The fourth mark is structurally significant: terminal liberation is not solitary withdrawal; it accompanies active welfare-direction. The engineering analog: the senior who has cut the dualities (no swing on praise/blame, no swing on launch/incident), disciplined the self (per 2.55-2.72), and whose delight-source is inside-the-work AND directed at the welfare of others. The team, the customer, the system — is the operational fourfold-marked sage. STRETCHED honestly. Brahma-nirvāṇa exceeds. The four marks remain operationally describable.",
+    "concrete_scenario": "A staff engineer whose last quarter's work has been: leading a team-wide migration to Postgres-15, mentoring two junior engineers through their first PagerDuty rotations, redesigning the on-call runbook documentation in the team's GitHub wiki. Quietly fixing three Datadog alert mis-calibrations that other teams' systems had been firing for months. Her motion is recognisably welfare-directed. Her dualities are cut — the migration's success and the migration's near-failures both arrived without producing swings. Her self is disciplined — the deep-work blocks are scheduled; the no-Slack-after-7pm holds. The sins-destroyed claim is metaphysical; the engineering analog scopes to 'the prior years' patterns of grasping/aversion are no longer driving.' The fourth mark. Sarva-bhūta-hite ratāḥ — is the most observable: her work delights in others' welfare. STRETCHED honestly; the transcendent destination exceeds.",
+    "falsifiability": "The analog fails if a reader hears 'welfare of all beings' as performative service-orientation. The verse names a structural delight-source — the senior whose joy actually comes from others' welfare, not the senior who claims it for the LinkedIn post. The audit is structural.",
+    "counter_example": "When the welfare-direction is martyrdom — when the senior's care for others is sourced in the absence of internal-source for self — the verse does not endorse this. The fourfold marks include yatātmānaḥ (self disciplined) and antar-sukha (per 5.24); welfare-direction without self-discipline is not the verse.",
+    "implication": "Audit your last month's work. What proportion was structurally welfare-directed? The verse names the fourfold convergence, not the partial.",
+    "quotable_line": "Sins destroyed, dualities cut, self disciplined, welfare-directed. The fourfold sage; brahma-nirvāṇa, STRETCHED honestly.",
+    "tags": [
+      "team-culture",
+      "team-state",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

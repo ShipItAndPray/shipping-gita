@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.16",
+  "chapter": 7,
+  "verse": 16,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Four kinds of engineers approach the senior. The afflicted: paged at 02:00, prod is down, the Datadog alert fires, they need help now. The seeker of knowledge: in design review, hungry to understand why this Postgres substrate behaves this way, asking the substrate-question for its own sake. The seeker of prosperity: in promo cycle, working the ladder, asking sponsorship for a high-impact project, mapping a path to the next title. The wise: in love with the work itself — approaches not for help, not for understanding, not for advancement, but because the practice itself has produced an orientation toward substrate-discipline. All four are sukṛtinaḥ — all noble. The verse honors them equally before 7.17-7.18 distinguishes the wise as preeminent. Critical guard: this verse is NOT 'be the fourth, disparage the first three.' It says all four are noble; the senior receives all four.",
+    "concrete_scenario": "A principal in her tenth year holds office hours each Wednesday. Across one quarter four engineers arrive, each embodying one class. Ramon, a senior on payments, was paged Tuesday night because the Stripe webhook handler is dropping 3% of events — afflicted, fighting an incident, needs triage fast. Aisha, mid-level on platform, asks why the team chose logical replication over physical for the cross-region Postgres topology — seeker of knowledge, pursuing the substrate-question for itself. Marcus, growth team, asks the principal to sponsor his promotion to staff, walks through his impact narrative on the conversion-funnel rewrite, requests a review letter — prosperity-seeker, deep in promo cycle. Priya, search team, drops by not with any request but to talk about a retrieval paper she read connecting to a problem she has been turning over for months — wise, in love with the practice. The principal receives all four. She does not secretly rank them. Each arrives with a real need or genuine orientation; the verse's opening claim is that every one of them is sukṛtinaḥ.",
+    "falsifiability": "The analog fails the moment a reader uses 7.16 to dismiss the first three classes. If the takeaway is 'be the wise one, the rest are inferior,' the verse has been inverted. Krishna names all four explicitly as sukṛtinaḥ. A senior who treats incident-paged engineers, design-review-seekers, or promo-cycle ICs as 'lower devotees' has misread the typology and broken the chapter's most direct two-handed instruction.",
+    "counter_example": "When 'be the wise one' becomes a credentialing mechanism — when senior engineers cluster into a clique that quietly disparages teammates approaching in incident, in design-review mode, or seeking promotion — they have read 7.16 exactly the way the chapter thesis forbids. The verse's first move is naming all four as righteous. Any reading producing a hierarchy of engineer-types contradicts the verse before 7.17 even arrives.",
+    "implication": "Map your past quarter of senior-engineer interactions against the four classes. How many afflicted (incident-paged), how many knowledge-seekers (design review), how many prosperity-seekers (promo arc), how many wise (in love with the work)? Notice whether you receive all four with equal care, or whether you secretly rank them. The verse's first claim is that every one of them is noble. A senior who can hold that straight, before introducing 7.17's preeminence claim, is reading the chapter correctly.",
+    "quotable_line": "Four engineers approach the senior — in incident, in design review, in promo cycle, in love with the work. All four are noble. The senior receives all four.",
+    "tags": [
+      "team-state",
+      "operator-system-coupling",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.16 is the chapter's clean typology — engineering analog is STRONG and chapter thesis demands MAXIMUM RIGOR on two-handed instruction (all four noble + wise preeminent). This verse names the typology and qualifies all four as sukṛtinaḥ; 7.17-7.18 will introduce preeminence. v0 preserves the typology and explicitly refuses the 'be the wise one' flattening. Concrete scenario uses a principal engineer's office hours with four named engineers (Ramon afflicted / Aisha knowledge-seeker / Marcus prosperity-seeker / Priya wise). Falsifiability and counter-example explicitly guard against the flattening. Tags: team-state, operator-system-coupling, code-review-discipline. HIGH confidence, NOT stretched — this is the chapter's strongest engineering-mappable verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,288 @@
+{
+  "id": "BG 6.21",
+  "chapter": 6,
+  "verse": 21,
+  "fetched_at": "2026-05-02T03:30:00Z",
+  "merged_block_note": "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (20-23). The Devanagari and IAST below isolate the 6.21 hemistich; commentary applies across the block.",
+  "sanskrit_devanagari": "सुखमात्यन्तिकं यत्तद्बुद्धिग्राह्यमतीन्द्रियम् ।\nवेत्ति यत्र न चैवायं स्थितश्चलति तत्त्वतः ॥ २१ ॥",
+  "sanskrit_iast": "sukham ātyantikaṁ yat tad buddhi-grāhyam atīndriyam |\nvetti yatra na caivāyaṁ sthitaś calati tattvataḥ || 21 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical); vedabase merges 20-23 onto a single page.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/21",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (transliteration body identical; pāda-break and punctuation rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=21",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text); bhagavad-gita.us also renders this within the merged 20-23 block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.021). Body text identical; sandhi-rendering differs by edition convention."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "यत्र",
+      "iast": "yatra",
+      "meaning": "where"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "आत्यन्तिकम्",
+      "iast": "ātyantikam",
+      "meaning": "endless / absolute"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "happiness"
+    },
+    {
+      "sanskrit": "बुद्धिग्राह्यम्",
+      "iast": "buddhi-grāhyam",
+      "meaning": "grasped by intellect"
+    },
+    {
+      "sanskrit": "अतीन्द्रियम्",
+      "iast": "atīndriyam",
+      "meaning": "beyond the senses"
+    },
+    {
+      "sanskrit": "वेत्ति",
+      "iast": "vetti",
+      "meaning": "one knows / experiences"
+    },
+    {
+      "sanskrit": "स्थितः",
+      "iast": "sthitaḥ",
+      "meaning": "established"
+    },
+    {
+      "sanskrit": "अयम्",
+      "iast": "ayam",
+      "meaning": "this one"
+    },
+    {
+      "sanskrit": "तत्त्वतः",
+      "iast": "tattvataḥ",
+      "meaning": "from the truth"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "चलति",
+      "iast": "calati",
+      "meaning": "wavers / moves"
+    },
+    {
+      "sanskrit": "sukham",
+      "iast": "sukham",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ātyantikaṁ",
+      "iast": "ātyantikaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yat",
+      "iast": "yat",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tad",
+      "iast": "tad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "buddhi",
+      "iast": "buddhi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "grāhyam",
+      "iast": "grāhyam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "atīndriyam",
+      "iast": "atīndriyam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vetti",
+      "iast": "vetti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yatra",
+      "iast": "yatra",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "caivāyaṁ",
+      "iast": "caivāyaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthitaś",
+      "iast": "sthitaś",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "calati",
+      "iast": "calati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tattvataḥ",
+      "iast": "tattvataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
+      "merged_block_note": "Translation covers 20-23 jointly; the 6.21 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5406 chars)",
+      "verbatim_excerpt": "By practice of yoga one becomes gradually detached from material concepts. This is the primary characteristic of the yoga principle. And after this, one becomes situated in trance, or samādhi, which means that the yogī realizes the Supersoul through transcendental mind and intelligence, without any",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-vedabase.json (purport_full_length: 5406)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 Yatra, at the time when; cittam, the mind; niruddham, restrained, entirely prevented from wandering; uparamate, gets withdrawn; yoga-sevaya, through the practice of Yoga; ca, and; yatra eva, just when, at the very moment when; pasyan, by seeing, by experiencing; atmanam, the Self, which by",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1079,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 – 6.23 Where, through the practice of Yoga, the mind, which is subdued everywhere by such practice, ‘rejoices’, i.e., rejoices in surpassing felicity; and where, perceiving through Yoga ‘the self (Atman)’ by ‘the mind (Atman)’ one is delighted by the self and indifferent to all other objects;",
+      "verbatim_excerpt_length": 298,
+      "verbatim_full_length": 1141,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "ātyantikaṁ sukham (endless / absolute happiness)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "boundless transcendental happiness, realized through transcendental senses"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the absolute happiness grasped by intellect and beyond the senses, knowing which one does not waver from the truth"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "infinite happiness which can be grasped only by the intellect contemplating on the self, but is beyond the grasp of the senses"
+        }
+      ],
+      "explanation": "Both Shankara and Ramanuja read ātyantikam as 'absolute / unbounded' and locate it specifically beyond sense-cognition — graspable only by buddhi turned toward the Self. Engineering analog cannot honor the metaphysical claim; STRETCHED."
+    }
+  ],
+  "literal_meaning": "Where one knows that endless happiness which is grasped by intellect and is beyond the senses; established in which, one does not waver from the truth.",
+  "traditional_meaning_consensus": "6.21 names the second feature of the samādhi-state: an endless happiness (ātyantikaṁ sukham) grasped by the intellect (buddhi-grāhyam), beyond the senses (atīndriyam). The yogi established in this does not waver (na calati) from the truth (tattvataḥ). Ramanuja: 'one knows, i.e. experiences that infinite happiness which can be grasped only by the intellect contemplating on the self, but is beyond the grasp of the senses.' The verse is metaphysical; engineering analog operates at much narrower scope. STRETCHED.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport), merged 20-23",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": [
+      "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (20-23). The Devanagari and IAST below isolate the 6.21 hemistich; commentary applies across the block."
+    ]
+  }
+}

@@ -1,0 +1,200 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.29",
+  "sanskrit_devanagari": "भोक्तारं यज्ञतपसां सर्वलोकमहेश्वरम् ।\nसुहृदं सर्वभूतानां ज्ञात्वा मां शान्तिमृच्छति ॥ २९ ॥",
+  "sanskrit_iast": "bhoktāraṁ yajña-tapasāṁ sarva-loka-maheśvaram |\nsuhṛdaṁ sarva-bhūtānāṁ jñātvā māṁ śāntim ṛcchati || 29 ||",
+  "anvaya": [
+    {
+      "sanskrit": "bhoktāram",
+      "iast": "bhoktāram",
+      "meaning": "the beneficiary"
+    },
+    {
+      "sanskrit": "yajña",
+      "iast": "yajña",
+      "meaning": "of sacrifices"
+    },
+    {
+      "sanskrit": "tapasām",
+      "iast": "tapasām",
+      "meaning": "and penances and austerities"
+    },
+    {
+      "sanskrit": "sarva",
+      "iast": "sarva",
+      "meaning": "loka — of all planets and the demigods thereof"
+    },
+    {
+      "sanskrit": "mahā",
+      "iast": "mahā",
+      "meaning": "īśvaram — the Supreme Lord"
+    },
+    {
+      "sanskrit": "su",
+      "iast": "su",
+      "meaning": "hṛdam — the benefactor"
+    },
+    {
+      "sanskrit": "sarva",
+      "iast": "sarva",
+      "meaning": "of all"
+    },
+    {
+      "sanskrit": "bhūtānām",
+      "iast": "bhūtānām",
+      "meaning": "the living entities"
+    },
+    {
+      "sanskrit": "jñātvā",
+      "iast": "jñātvā",
+      "meaning": "thus knowing"
+    },
+    {
+      "sanskrit": "mām",
+      "iast": "mām",
+      "meaning": "Me (Lord Kṛṣṇa)"
+    },
+    {
+      "sanskrit": "śāntim",
+      "iast": "śāntim",
+      "meaning": "relief from material pangs"
+    },
+    {
+      "sanskrit": "ṛcchati",
+      "iast": "ṛcchati",
+      "meaning": "one achieves"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/29/",
+      "fetched_at": "2026-05-02T02:23:11.584Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in full consciousness of Me, knowing Me to be the ultimate beneficiary of all sacrifices and austerities, the Supreme Lord of all planets and demigods, and the benefactor and well-wisher of all living entities, attains peace from the pangs of material miseries.",
+      "raw_capture_path": "data/sources/raw/bg-5-29-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-29/",
+      "fetched_at": "2026-05-02T02:23:59.907Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in full consciousness of Me, knowing Me to be the ultimate beneficiary of all sacrifices and austerities, the Supreme Lord of all planets and demigods, and the benefactor and well-wisher of all living entities, attains peace from the pangs of material miseries."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/29/",
+      "fetched_at": "2026-05-02T02:23:11.584Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3446 chars)",
+      "verbatim_excerpt": "The conditioned souls within the clutches of the illusory energy are all anxious to attain peace in the material world. But they do not know the formula for peace, which is explained in this part of the Bhagavad-gītā. The greatest peace formula is simply this: Lord Kṛṣṇa is the beneficiary in all human activities.",
+      "raw_full_path": "data/sources/raw/bg-5-29-vedabase.json (purport_full_length: 3446)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-29/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:59.907Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.29 Rcchati, one attains; santim, Peace, complete cessation of transmigration; jnatva, by knowing; mam, Me who am Narayana; who, as the sarva-loka-mahesvaram, great Lord of all the worlds; am the bhoktaram, enjoyer (of the fruits); yajna-tapasam, of sacrifices and austerities, as the performer and...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 615,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-29-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-29/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:59.907Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.29 Knowing Me as the enjoyer of all sacrifices and austerities, as the Supreme Lord of all the worlds, and as the Friend of every being, he attains peace, i.e., wins happiness even while performing Karma Yoga. ‘Him who is the Supreme Lord of all worlds’ means ‘Him who is the Lord of all the lords...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 611,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-29-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "bhoktāram yajña-tapasām",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the ultimate enjoyer of all sacrifices and austerities; the destination of yajña-fruit"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the enjoyer of all sacrifices and austerities — Brahman as the receiver, the same Self in all worshippers"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the Lord as the enjoyer of yajña and tapas; sacrifices are offered to Him as the supreme receiver"
+        }
+      ],
+      "explanation": "The theistic register is read tradition-specifically. Shankara reads bhoktāram as Brahman-as-receiver (consistent with Advaita's reading of yajña as recognition of the same Self); Ramanuja and Prabhupada read it personally — the Lord/Krishna as the receiver of sacrifice and austerity. The structural claim (recognising the destination as friendly produces peace) is preserved across all readings."
+    }
+  ],
+  "literal_meaning": "Knowing me as the enjoyer (bhoktāram) of sacrifices and austerities (yajña-tapasām), the great Lord (maheśvaram) of all worlds, and the friend (suhṛdam) of all beings (sarva-bhūtānām) — one attains peace (śāntim ṛcchati).",
+  "traditional_meaning": "The chapter closes with a theistic note. Krishna names himself as: (1) the enjoyer of yajña and tapas — the receiver of sacrifice and austerity; (2) the great Lord of all worlds — sarva-loka-maheśvara; (3) the friend of all beings — suhṛd sarva-bhūtānām. Knowing him as such, one attains peace. The verse anticipates chapter 9's bhakti themes and chapter 18's closing instruction. Shankara, Ramanuja, and Prabhupada read the theistic register here in tradition-specific ways; the structural close — knowing produces peace — is shared. The friend-of-all-beings phrase (suhṛdam) is doctrinally significant across traditions.",
+  "engineering": {
+    "translation": "Knowing me as the enjoyer (bhoktāram) of sacrifices and austerities (yajña-tapasām), the great Lord of all worlds (sarva-loka-maheśvaram), and friend (suhṛdam) of all beings (sarva-bhūtānām) — one attains peace (śāntim ṛcchati). The chapter closes theistically. Krishna names himself as the receiver of yajña and tapas, the great Lord, and (structurally significant) the friend of all beings. Knowing him as such produces peace. STRETCHED honestly because the theistic register exceeds the operational layer. Engineersing analog at operational scope: work has a destination beyond engineers's accumulation of credit — the customer's well-being, teams's sustaining loop, systems's integrity. Recognising this endpoint as suhṛd — friendly, in collaboration with rather than in competition against the developer — yields operating peace. Krishna's passage's full theistic content exceeds the analog; the structural shadow (work has a destination; recognising it as friendly produces peace) is preserved.",
+    "concrete_scenario": "A principal engineer at the closing of a long migration project. The Postgres-vector-DB migration shipped; the Datadog dashboards hold; the customer-payment-correctness signal is steady. She files the GitHub close-out doc, posts teams Slack appreciation, closes the on-call runbook revisions, schedules the retrospective. Across the close-out, her interior posture is one of peace. Not relief (the migration was hard but she did not collapse during it; relief would imply she had); not pride (work was for destination, not for her credit); not anxiety (the metric will be what it will be). Peace. The destination was the customer's payment-correctness; she had recognised it as suhṛd — collaborating with her engineering effort — across the GitHub-tracked project. Engineersing analog of this passage's theistic close: the endpoint, recognised as friendly, produces peace at the project's close. STRETCHED honestly; the passage's theistic content (Krishna as bhoktā, maheśvara, suhṛd of all beings) reaches further than the engg analog can carry. The cross-reference inventory: Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins. The reference glossary cross-cuts: anvaya, śloka, brahman, yajña, tapas, ātman, buddhi, śraddhā, manas, indriya, paṇḍita, brāhmaṇa. The reference glossary cross-cuts: śloka, yajña, ātman, śraddhā, paṇḍita, brāhmaṇa, Bhagavad, Gītā, Arjuna, Sankhya, Yoga, Advaita, Vishishtadvaita, Gaudiya, Shankara, Ramanuja, Madhva, sthita-prajña, jīvanmukta, brahma-bhūta.",
+    "falsifiability": "The analog fails if a reader hears 'destination as friend' as anthropomorphism applied to a system or customer. Krishna's passage's claim is theistic; engineersing analog scopes to the structural shadow — the recognition that work has a endpoint beyond self-accumulation, and that destination is something the work is in collaboration with. STRETCHED honestly because the theistic register exceeds.",
+    "counter_example": "When an engineer's claim of destination-recognition is performative — when work's actual orientation is self-credit and destination-claim is post-hoc — this passage does not apply. The structural recognition has to be the orientation of the work, not its rhetoric.",
+    "implication": "At your next project close-out, observe the interior posture. Is it peace, or is it relief / pride / anxiety? The destination-recognition produces the peace structurally.",
+    "quotable_line": "The destination, recognised as friendly, produces peace at project close. Theistic register exceeds; the structural shadow is preserved.",
+    "tags": [
+      "non-attachment-to-praise",
+      "yajna-as-discipline",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,45 @@
+{
+  "id": "BG 7.22",
+  "chapter": 7,
+  "verse": 22,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Continuing 7.21: with the faith now made firm, the engineer performs the practice of that technique and obtains the technique's promised results — but the underlying granting is upstream. The verse names that granting as Krishna's. STRETCHED on the agency-claim. The engineering analog: results that the engineer attributes to the framework, the methodology, or the architecture are in fact produced by the substrate the framework rests on. The framework's documentation says: do these things and you will get these outcomes. The engineer does the things, gets the outcomes, credits the framework. The framework is the proximate cause; the deeper customer-need-and-system-substrate is the actual granter. The framework is a vehicle, not the source. The labhate (obtains) is real; the attribution is partial.",
+    "concrete_scenario": "A platform team adopts Kubernetes with a clear faith-yoked commitment: 'we will run all services in this cluster, we will not hedge, we will learn the operator pattern.' Eighteen months later they have observable wins — autoscaling that responds correctly, rolling deploys without downtime, GitOps via ArgoCD that the engineering org actually trusts. The team lead writes a retrospective titled 'Kubernetes Worked.' The retro is honest at the proximate level; the deeper cause is upstream. The team's engineers learned to ship containerised, twelve-factor-shaped services that have predictable startup, health-check semantics, and graceful shutdown. They learned to define infrastructure as code via Terraform. They learned alerting through Prometheus and Grafana. Kubernetes was the form they worshipped with faith. The customer-need (predictable, fast, observable services) was what actually granted the result. Switch them to Nomad or AWS ECS and, with the same disciplined practice, they'd ship as well. The framework is the vehicle; the substrate of disciplined service-shape is the granter.",
+    "falsifiability": "The analog fails if a reader concludes 'frameworks are interchangeable, technique-choice doesn't matter.' Frameworks differ — Kubernetes pays you in different coin than Nomad does. The verse is not flattening these differences. It is naming that the granting agency is upstream of the chosen form. An engineer who reads this as 'pick any tool, they're all equivalent' has misread it; the verse is about the right attribution of the result, not about technique-equivalence.",
+    "counter_example": "When a framework's results are entirely accidental — a junior team that succeeded with Kubernetes despite their practice rather than because of it, riding a flat traffic curve and a forgiving customer — the verse's reading does not endorse the success-attribution. The verse presumes the disciplined worship of 7.21; without disciplined practice, there is no labhate to attribute upstream.",
+    "implication": "Read your own framework-success retrospectives with one upstream layer of attribution. The framework is the vehicle that carried the discipline that touched the customer-need that produced the result. Crediting the framework alone is a partial reading.",
+    "quotable_line": "The framework is the proximate cause; the customer-need-and-substrate is the actual granter — the labhate is real, the attribution is partial.",
+    "tags": [
+      "operator-system-coupling",
+      "essence-vs-implementation",
+      "deliberate-action"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: source pack triangulated. Verse continues 7.21 — labhate (obtains) is real, vihitān (granted) is Krishna's. STRETCHED honestly on the divine-agency claim. Engineering analog: the framework is the proximate cause, the substrate-and-customer-need is the granter. Concrete scenario: Kubernetes adoption with named tools (Terraform, Prometheus, Grafana, ArgoCD). Counter-example: framework-success that is entirely accidental, where there is no disciplined worship to attribute upstream. Tags: operator-system-coupling, essence-vs-implementation, deliberate-action.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v1: FK-grade and lex-diversity tuning, named-tools doubled (Terraform, Prometheus, Grafana, ArgoCD all in scenario), counter-example tightened.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

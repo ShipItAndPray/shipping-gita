@@ -1,0 +1,284 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.2",
+  "sanskrit_devanagari": "श्रीभगवानुवाच\nसन्न्यासः कर्मयोगश्च निःश्रेयसकरावुभौ ।\nतयोस्तु कर्मसन्न्यासात्कर्मयोगो विशिष्यते ॥ २ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca\nsannyāsaḥ karma-yogaś ca niḥśreyasa-karāv ubhau |\ntayos tu karma-sannyāsāt karma-yogo viśiṣyate || 2 ||",
+  "anvaya": [
+    {
+      "sanskrit": "श्रीभगवान् उवाच",
+      "iast": "śrī-bhagavān uvāca",
+      "meaning": "the Supreme Lord said"
+    },
+    {
+      "sanskrit": "सन्न्यासः",
+      "iast": "sannyāsaḥ",
+      "meaning": "renunciation of action"
+    },
+    {
+      "sanskrit": "कर्मयोगः",
+      "iast": "karma-yogaḥ",
+      "meaning": "karma-yoga"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "उभौ",
+      "iast": "ubhau",
+      "meaning": "both"
+    },
+    {
+      "sanskrit": "निःश्रेयसकरौ",
+      "iast": "niḥśreyasa-karau",
+      "meaning": "lead to the supreme good / liberation"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "तयोः",
+      "iast": "tayoḥ",
+      "meaning": "of these two"
+    },
+    {
+      "sanskrit": "कर्मसन्न्यासात्",
+      "iast": "karma-sannyāsāt",
+      "meaning": "than the renunciation of action"
+    },
+    {
+      "sanskrit": "कर्मयोगः",
+      "iast": "karma-yogaḥ",
+      "meaning": "karma-yoga"
+    },
+    {
+      "sanskrit": "विशिष्यते",
+      "iast": "viśiṣyate",
+      "meaning": "is superior / is distinguished as better"
+    },
+    {
+      "sanskrit": "śrī",
+      "iast": "śrī",
+      "meaning": "(compound element of śrī-bhagavān)"
+    },
+    {
+      "sanskrit": "bhagavān",
+      "iast": "bhagavān",
+      "meaning": "(compound element of śrī-bhagavān)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karma",
+      "iast": "karma",
+      "meaning": "(compound element of karma-yogaś)"
+    },
+    {
+      "sanskrit": "yogaś",
+      "iast": "yogaś",
+      "meaning": "(compound element of karma-yogaś)"
+    },
+    {
+      "sanskrit": "niḥśreyasa",
+      "iast": "niḥśreyasa",
+      "meaning": "(compound element of niḥśreyasa-karāv)"
+    },
+    {
+      "sanskrit": "karāv",
+      "iast": "karāv",
+      "meaning": "(compound element of niḥśreyasa-karāv)"
+    },
+    {
+      "sanskrit": "tayos",
+      "iast": "tayos",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogo",
+      "iast": "yogo",
+      "meaning": "(compound element of karma-yogo)"
+    },
+    {
+      "sanskrit": "2",
+      "iast": "2",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/2/",
+      "fetched_at": "2026-05-02T02:22:22.645Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Personality of Godhead replied: The renunciation of work and work in devotion are both good for liberation. But, of the two, work in devotional service is better than renunciation of work.",
+      "raw_capture_path": "data/sources/raw/bg-5-2-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-2/",
+      "fetched_at": "2026-05-02T02:23:20.597Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Personality of Godhead replied: The renunciation of work and work in devotion are both good for liberation. But, of the two, work in devotional service is better than renunciation of work."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/2/",
+      "fetched_at": "2026-05-02T02:22:22.645Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3405 chars)",
+      "verbatim_excerpt": "Fruitive activities (seeking sense gratification) are cause for material bondage. As long as one is engaged in activities aimed at improving the standard of bodily comfort, one is sure to transmigrate to different types of bodies, thereby continuing material bondage perpetually.",
+      "raw_full_path": "data/sources/raw/bg-5-2-vedabase.json (purport_full_length: 3405)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-2/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:20.597Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.2 Ubhau, both, to be sure; sannyasah, renunciation of actions; ca, and; karma-yogah, Karma-yoga-their performance-; nihsreyasa-karau, lead to Liberation. Though both lead to Liberation by virtue of being the cause of the rise of Knowledge, even then, tayoh, between the two which are the causes of…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 548,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-2-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara stresses the two-half structure: both sannyāsa and karma-yoga lead to liberation (because both can give rise to Knowledge); however, of these two, karma-yoga is to be regarded as superior to the renunciation of action. He glosses 'tu' and 'viśiṣyate' carefully — the preference is structural, not absolute. Karma-yoga is praised here in the context of the unenlightened person who has not yet realized non-doership; for such a person, karma-yoga is the appropriate practice, while pure sannyāsa belongs to the one already established in jñāna-niṣṭhā."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-2/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:20.597Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.2 The Lord said — Even while granting that some persons are competent for the practice of Jnana Yoga exclusively, it has to be conceded that renunciation, i.e., Jnana Yoga, and Karma Yoga can be practised as independent of each other in the pursuit of the highest excellence.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 403,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-2-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: even granting that some are competent for the practice of jñāna-yoga (which he equates with sannyāsa here) exclusively, both sannyāsa and karma-yoga are independent means leading to the supreme good. Of these two, karma-yoga is the superior. This is a distinct claim from Shankara's: for Ramanuja the two are independent, not stages of a single ladder, and the preference of karma-yoga is direct."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "viśiṣyate",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "is better (in practice)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "is superior, but staged: karma-yoga for the unenlightened, sannyāsa for the established jñānin"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "is the superior independent means"
+        }
+      ],
+      "explanation": "Shankara reads the preference as staged (karma-yoga is superior *for the still-becoming aspirant*); Ramanuja reads the preference as direct (karma-yoga is superior simpliciter, given that both are valid independent means). Prabhupada flattens this into 'better' without distinguishing the staged-vs-direct disagreement."
+    }
+  ],
+  "literal_meaning": "The Supreme Lord said: Both renunciation of action and karma-yoga lead to the supreme good. Of these two, however, karma-yoga is superior to the renunciation of action.",
+  "traditional_meaning": "Krishna gives the chapter's thesis-verdict in two halves. First: both paths produce niḥśreyas (the supreme good, liberation). Second: of the two, karma-yoga is to be regarded as superior. The two halves are load-bearing and must be preserved together. This is not a flat 'either is fine' equivalence; nor is it 'sannyāsa is wrong'. It is: equivalence-of-destination plus structural-preference-in-practice.",
+  "engineering": {
+    "translation": "Both paths reach the supreme destination. Sannyāsa-of-action and karma-yoga both arrive at identical liberation. But of these two, the yoga of action is more excellent (viśiṣyate) than the renunciation of action. Krishna's answer carries two structurally distinguishable halves that must not be flattened. At the level of destination, the two paths are equivalent — the engineer who has resigned versus the engineer who has continued can each be free of grasping and aversion; both reach the place. At the level of practice, the asymmetry is sharp — disciplined engagement is structurally easier than pure renunciation, because most apparent renunciation merely transports unrest in disguise. The reader who walks away with only 'both are equal' has lost half the verse; the reader who walks away with only 'shipping is better' has lost the other half. Both halves are load-bearing.",
+    "concrete_scenario": "The senior engineer answers the IC's question. She does not give a single-pole answer. First half of the verdict: 'You may resign, sabbatical for twelve months, return as Postgres-migration contractor. You can stay, do the migration, wait for the architecture review. At the level of inner state — whether you are free of grasping at the next outcome — both paths can reach the same place.' Then, separately, the structural recommendation: 'But in practice, stay engaged. Most of the engineers I have watched quit-to-think have not stopped grasping; they have moved their grasping to a new setting. The discipline you are after is cultivated in the work, not by stepping out of it. Take the GitHub migration ticket this sprint. Read for the architecture review during your deep-work blocks. The Postgres-vector-DB decision is not improved by withdrawing from the merge queue.' Both halves are delivered. The IC is held to neither pole.",
+    "falsifiability": "The analog fails if a reader hears only one half. 'Both paths are equal' alone produces relativism — the senior who shrugs at the IC's pressing question. 'Shipping is preferable' alone produces flat dogma — the senior who refuses to grant the validity of the renunciate path elsewhere. Krishna gives both halves because both are doctrinally load-bearing.",
+    "counter_example": "When the engineer is in a literal physical or psychological crisis — burnout severe enough that continued shipping produces harm — the verse's preference for karma-yoga does not negate the need for actual rest. Krishna's preference is structural, not reckless. The senior teacher reading chapter 5 to an engineer in crisis must not apply the practical-asymmetry half without also applying the destination-equivalence half.",
+    "implication": "When asked the engagement-vs-renunciation question, deliver both halves. Refuse to collapse the answer into a single pole. Most readers want one pole; the verse insists on two.",
+    "quotable_line": "Both paths reach the same place; in practice, stay engaged. Two halves of the answer, not one.",
+    "tags": [
+      "right-renunciation",
+      "wrong-renunciation",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

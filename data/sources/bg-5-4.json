@@ -1,0 +1,204 @@
+{
+  "id": "BG 5.4",
+  "chapter": 5,
+  "verse": 4,
+  "fetched_at": "2026-05-02T02:30:00Z",
+  "sanskrit_devanagari": "साङ्ख्ययोगौ पृथग्बालाः प्रवदन्ति न पण्डिताः ।\nएकमप्यास्थितः सम्यगुभयोर्विन्दते फलम् ॥ ४ ॥",
+  "sanskrit_iast": "sāṅkhya-yogau pṛthag bālāḥ pravadanti na paṇḍitāḥ |\nekam apy āsthitaḥ samyag ubhayor vindate phalam || 4 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/4/",
+      "fetched_at": "2026-05-02T02:22:25.991Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-5-4-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/4",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=4",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-5-4-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.004 = MBh_06,027.004). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "साङ्ख्ययोगौ",
+      "iast": "sāṅkhya-yogau",
+      "meaning": "sāṅkhya and yoga (jñāna-yoga and karma-yoga)"
+    },
+    {
+      "sanskrit": "पृथक्",
+      "iast": "pṛthak",
+      "meaning": "different / separate"
+    },
+    {
+      "sanskrit": "बालाः",
+      "iast": "bālāḥ",
+      "meaning": "the immature / unwise"
+    },
+    {
+      "sanskrit": "प्रवदन्ति",
+      "iast": "pravadanti",
+      "meaning": "speak / declare"
+    },
+    {
+      "sanskrit": "न पण्डिताः",
+      "iast": "na paṇḍitāḥ",
+      "meaning": "not the wise"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "one"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "सम्यक्",
+      "iast": "samyak",
+      "meaning": "rightly / properly"
+    },
+    {
+      "sanskrit": "आस्थितः",
+      "iast": "āsthitaḥ",
+      "meaning": "established / practising"
+    },
+    {
+      "sanskrit": "उभयोः",
+      "iast": "ubhayoḥ",
+      "meaning": "of both"
+    },
+    {
+      "sanskrit": "फलम्",
+      "iast": "phalam",
+      "meaning": "the fruit / result"
+    },
+    {
+      "sanskrit": "विन्दते",
+      "iast": "vindate",
+      "meaning": "obtains"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/4/",
+      "fetched_at": "2026-05-02T02:22:25.991Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Only the ignorant speak of devotional service [karma-yoga] as being different from the analytical study of the material world [Sāṅkhya]. Those who are actually learned say that he who applies himself well to one of these paths achieves the results of both.",
+      "raw_capture_path": "data/sources/raw/bg-5-4-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Only the ignorant speak of devotional service [karma-yoga] as being different from the analytical study of the material world [Sankhya]. Those who are actually learned say that he who applies himself well to one of these paths achieves the results of both."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/4/",
+      "fetched_at": "2026-05-02T02:22:25.991Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 729 chars)",
+      "verbatim_excerpt": "The aim of the analytical study of the material world is to find the soul of existence. The soul of the material world is Viṣṇu, or the Supersoul. Devotional service to the Lord entails service to the Supersoul. One process is to find the root of the tree, and the other is to water the root.",
+      "raw_full_path": "data/sources/raw/bg-5-4-vedabase.json (purport_full_length: 729)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.4 Balah, the fools; na panditah, not the learned ones; pravadanti, speak of; sankhya-yogau, Sankhya [Sankhya, i.e. monasticism, is that which is suited for sankhya, Self-inquiry.] (the Path of Knowledge) and (Karma-)yoga; as prthak, different, having opposite and different results.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1552,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-4-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: only the immature (bāla) speak of sāṅkhya (the path of jñāna-yoga) and yoga (karma-yoga) as different. The wise (paṇḍita) know they are not different in essence — both lead to the same fruit. The one who has rightly established themselves in even one of the two obtains the fruit of both. Shankara emphasises that the convergence is at the level of fruit, not in the immediate practice."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.4 Those who say that Karma Yoga and Jnana Yoga are distinct because of the difference in results, are children, i.e., are persons with incomplete knowledge; they do not know the entire truth.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 629,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-4-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: only the unlearned speak of these as different; the learned do not. The one rightly established in even one of these obtains the fruit of both. For Ramanuja the unity is more direct because karma-yoga properly performed *includes* the elements of jñāna; the two paths are not radically different but two articulations of the same soteriological project."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "sāṅkhya-yogau",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "devotional service [karma-yoga] and analytical study [Sāṅkhya]"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "jñāna-yoga and karma-yoga, two paths converging in their fruit"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "two articulations of the same soteriological project, jñāna-yoga and karma-yoga"
+        }
+      ],
+      "explanation": "All readings converge on identifying sāṅkhya here with the path of knowledge and yoga with the path of action. The disagreement is in how unified the two are: Shankara sees them as distinct paths converging in fruit; Ramanuja sees them as more deeply unified (karma-yoga properly understood includes jñāna)."
+    }
+  ],
+  "literal_meaning": "Only the unwise speak of sāṅkhya and yoga as different, not the wise. The one rightly established in even one of these obtains the fruit of both.",
+  "traditional_meaning_consensus": "Krishna refuses the binary at the level of the wise. Sāṅkhya (the path of analytical knowledge) and yoga (the path of disciplined action) are not different in their fruit. The one rightly established in either path obtains what the other path offers. This is the equivalence claim the chapter has been building since 5.2.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

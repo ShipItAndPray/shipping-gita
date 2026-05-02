@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.3",
+  "chapter": 7,
+  "verse": 3,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter's structural-rarity verse. Krishna names two filters in sequence: of thousands, only a rare one strives for siddhi at all; among those who attain siddhi, only a rare one knows him in truth. The rarity is not modesty, not a humblebrag, not motivational scaffolding — it is structural. Operationally: most engineers ship in a stack without understanding the substrate. Among those who try, fewer reach mastery of the technique. Among those who reach mastery, fewer still hold the substrate-truth cleanly. Three layers of filtering, each sharp. The engineering layer must not soften this. Both halves of the verse are filters, and both filters cut. The rarity is the substance of what the chapter is about to disclose. A teaching that promised universal substrate-knowledge would not be this teaching.",
+    "concrete_scenario": "Walk a 200-engineer org. Roughly 180 of them ship code in the stack daily, fluent in the tools — they pull from GitHub, ship through CI, read Datadog dashboards, file Sentry triage tickets. They are productive. Of those 180, perhaps 20 have moved past surface-fluency: they understand the Postgres MVCC behaviour their queries depend on, the Kafka delivery semantics their event flows assume, the Kubernetes scheduler quirks that cause the recurring p99 latency spike at 3am. They are the strivers, the yatamānāḥ. Of those 20, perhaps 2 hold the substrate-truth cleanly enough that, asked on any random afternoon why the system works the way it does, they can answer from first principles — naming the customer-invariant the system serves, the constraints chosen to preserve it, the trade-offs accepted in the architecture. Both filters are real. Both numbers are honest. The verse is not insulting the 180 or the 18; it is naming a structural fact about how rare substrate-knowing is, even among the diligent.",
+    "falsifiability": "The analog fails if a reader uses it as license for elitism — to dismiss the 180 as not-yet-engineers, or to use the rarity claim as a status game inside the org. The verse describes structural rarity, not a hierarchy of human worth. The 180 ship the company; without them, no system. The verse honors the gradient as fact, not as ranking.",
+    "counter_example": "When the senior in fact is the one without substrate-knowing — title without the depth — the rarity claim does not flip backward. Title-seniority and substrate-knowing are not the same axis. There are five-year engineers who hold the substrate cleanly and twenty-year directors who do not. The verse is about substrate-knowing, not tenure or rank.",
+    "implication": "Locate yourself honestly on the gradient. Are you a fluent shipper of the stack? A striver toward mastery? Holding the substrate cleanly enough to answer from first principles on any random afternoon? Each location is fine. The verse asks for honest self-placement, not aspirational labelling.",
+    "quotable_line": "Of thousands of engineers, only one strives for substrate-mastery; of those, only one holds it cleanly.",
+    "tags": ["first-principles", "operator-system-coupling", "deep-work"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:00:00Z",
+      "mutation": "v0 generation: chapter's most structural-rarity verse — MAXIMUM RIGOR per chapter thesis. Drafted from triangulated source pack (Shankara's two-layers-of-rarity, Ramanuja's pre-filtered population). Engineering analog at three filter levels: shippers (180), strivers/yatamānāḥ (20), substrate-knowers (2). Named tools: GitHub, CI, Datadog, Sentry, Postgres MVCC, Kafka delivery semantics, Kubernetes scheduler. Counter-example carved out: title-seniority ≠ substrate-knowing. Falsifiability: not license for elitism. Implication: honest self-placement on the gradient. Confidence HIGH; not stretched — verse maps cleanly to engineering rarity at operational scope.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

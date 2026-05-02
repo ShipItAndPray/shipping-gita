@@ -1,0 +1,33 @@
+{
+  "id": "BG 8.2",
+  "chapter": 8,
+  "verse": 2,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna closes his seven-question opening with the two questions that pivot the chapter doctrinally. First: who is the adhiyajña — the Lord-of-the-offering — and how does that principle reside within this very body? Second: how are you to be known at the moment of departure (prayāṇa-kāle) by those whose minds have been restrained through long discipline (niyatātmabhiḥ)? The engineering layer here remains explicitly STRETCHED. The terms adhiyajña and prayāṇa-kāle are doctrinally specific Sanskrit categories. They designate an interior contemplative principle and a time-of-death practice that resist any clean operational substitution. What survives at the engineering layer is purely structural: a seven-question handover requires a pivot question — who actually carries the daily offering inside this codebase, and through what disciplined channel does the senior remain knowable after departure arrives — together with the prerequisite niyatātma, the prepared receiver. The Sanskrit terms stay at source-pack level. They are not engineered substitutions.",
+    "concrete_scenario": "Devon — three days into Anjali's twenty-eight-year-handover at the payments company — circles to the two questions he has held for last. Question six is asked carefully. Inside this code-body, who carries the daily offering? Not the GitHub CODEOWNERS file. Not the PagerDuty rotation. The single engineer whose hand each release truly passes through, whose eye scans each Datadog dashboard at 6 a.m., whose gut catches the malformed Stripe webhook before the Sentry alert fires. Anjali names a person — Marco, the staff engineer two years her junior — and explains why. Question seven follows. After Friday, when a regional Postgres outage strikes at 2 a.m. and the runbook fails, by what discipline will the team reach Anjali's judgment with Anjali no longer present? She does not promise a retainer. She names what the receiver must already have: a restrained mind. Whoever inherits her judgment must already practice — must already have the niyatātma — to recognise her counsel when it is no longer wearing her voice. Devon writes both answers into Notion. He does not pretend his English glosses substitute for what the verse names; he marks where the analog stops.",
+    "falsifiability": "The analog fails if a reader concludes that adhiyajña is the on-call engineer, or that prayāṇa-kāle is retirement Friday. The Sanskrit terms name doctrinal substrates: the inner principle of the offering, and the moment of death itself, with the chapter's claim that disciplined consciousness at that moment yields the supreme state. The engineering scenario borrows the question-structure and the prerequisite of disciplined receivership. It does not translate the terms. Anyone using this verse as a productivity template for retirement handovers has trivialized the doctrinal Sanskrit.",
+    "counter_example": "When the receiver is not actually niyatātma — when the team inheriting the senior's judgment has not done the practice that prepares them to recognise it — the verse's frame is being misapplied. The verse names a prerequisite. It does not promise that the practice can be installed at the time of need. If the daily discipline is missing, the seventh question has no working answer. The chapter's claim is conditional on the discipline.",
+    "implication": "Identify the actual carrier of the daily offering inside your codebase before the senior leaves. Then audit whether the receiver has built the daily practice that lets them inherit judgment without the senior present. The two-question pivot is the test of whether the rest of the handover will hold.",
+    "quotable_line": "Name the person whose hand each release passes through; verify the receiver has the daily practice to inherit the judgment.",
+    "tags": ["operator-system-coupling", "knowledge-action-integration", "team-state"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:35:00Z",
+      "mutation": "v0 generation: 8.2 closes the seven-question opening with adhiyajña + prayāṇa-kāle. STRETCHED honestly per chapter thesis. Engineering analog scopes to the two-question pivot in a senior handover: who carries the daily offering, and what discipline the receiver needs. Sanskrit terms preserved verbatim. Confidence MEDIUM. Triangulated source pack with Shankara + Ramanuja bhasyas.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

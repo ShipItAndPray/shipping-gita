@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.2",
+  "chapter": 7,
+  "verse": 2,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names what he is about to give: jñāna with vijñāna — knowledge fused with realization. The pair is structural. Operationally: the senior is not just transmitting facts (jñāna) but the way the facts hang together when seen from inside (vijñāna). The promise is strong: knowing this, no further inquiry remains. In engineering this maps to the rare moment when a mid-career engineer, after years of separate facts about a system — Postgres replication, Kafka partition assignment, Datadog alerting policy — suddenly sees the substrate-truth that organises the facts. After that moment, new facts about the system slot into a frame; they no longer require fresh learning effort. The verse is honest that this state is given, not constructed by accumulation. The chapter is now committed to delivering it.",
+    "concrete_scenario": "Devon has been at the company four years. He knows the Kafka topic layout, the GitHub-Actions deploy gates, the Sentry alert routing, the Postgres connection-pool sizing, the on-call rotation. Each piece is solid. He still sees a list. In his fifth year, after pairing with Maya through three back-to-back incidents, the substrate clicks: every one of those facts is downstream of the company's settlement-invariant — exactly-once-credit-to-the-merchant-account. The Kafka layout is the way they preserve the invariant under partition-loss. The deploy gates are the way they preserve it across rollouts. The Sentry alerting is the way they detect when the invariant is at risk. After that morning, when a new engineer asks Devon why the system is the way it is, he no longer recites the facts. He names the invariant; the facts fall out. This is the jñāna-vijñāna shift the verse names: from list to substrate, from accumulation to organising principle. New Kafka tools, new monitoring stacks — they slot into the frame. Nothing further is required.",
+    "falsifiability": "The analog fails if a reader uses it to claim that one big-insight moment exempts them from continued learning. The verse names the by-knowing-which-all-is-known shift, but the chapter explicitly continues for 28 more verses; Krishna's revelation is large and the seeing is recursive, not terminal. An engineer who claims they have 'seen the substrate' and stops attending to new facts has misread the verse as a license for closure.",
+    "counter_example": "When the engineer is in fact still in the accumulation phase — three years in, still pulling new facts about the system every week — the jñāna-vijñāna framing is premature. The verse names a shift that comes after the facts, not in place of them. Telling a junior engineer 'just see the substrate' before they have the facts is malpractice; the substrate-shift requires the substrate to have been touched in many places first.",
+    "implication": "Audit your model of the system. Is it still a list of facts, or has the organising invariant become explicit? If still a list, keep accumulating. If you can name the invariant and the facts fall out, you are at the jñāna-vijñāna shift; the chapter that follows assumes you are.",
+    "quotable_line": "Knowledge is the list of facts; realization is the invariant from which the list falls out.",
+    "tags": ["first-principles", "system-recognition", "deep-work"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:55:00Z",
+      "mutation": "v0 generation: drafted from triangulated source pack. Anchored on Shankara's reading (jñāna combined with vijñāna = book-knowledge + personal realization). Engineering analog scoped to the rare shift from list-of-facts to organising invariant. Concrete scenario uses payments substrate (Devon, Maya, Kafka, Postgres, GitHub Actions, Sentry, Datadog). Confidence HIGH; not stretched — the verse's by-knowing-which-all-is-known claim maps cleanly to the engineering substrate-recognition shift at operational scope.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,45 @@
+{
+  "id": "BG 7.24",
+  "chapter": 7,
+  "verse": 24,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Heavily metaphysical: ignorant souls see manifest appearance and mistake it for whole reality; higher imperishable state stays unknown. STRETCHED. Engineering layer offers narrow operational reflection: what is visible inside a running system is the artifact — dashboards, deploys, architecture diagrams; what stays invisible is the substrate sustaining it — engineering judgments, on-call attention, hard-won architectural invariants. New operators see surface and assume that is the whole. A senior who has held substrate knows what shows up is partial manifestation. The verse claims metaphysical concealment beyond any operational analog. The structural insight — visible is partial, substrate stays hidden — holds at narrow scope.",
+    "concrete_scenario": "A new VP of Engineering arrives and reads architecture diagrams sitting in Confluence. Diagrams show three services, two queues, a Postgres replica set, and a CDN. The VP forms a model of overall behaviour from those drawings. Two months later, an incident hits: a Kafka rebalance triggers thundering-herd reconnect, exhausts the Postgres connection pool, cascades into the queue-consumer service which falls behind, causes the CDN-origin to serve stale content, triggers customer-success escalation. The cascade is visible only to the senior engineer who has carried this codebase for six years. Diagram-derived models could not predict the failure because drawings showed manifest components, not the substrate of failure-mode coupling carried inside her head. The drawings did not lie; they were partial. Yoga-māyā in the verse names a much larger concealment; engineering analog operates only at the narrower scope of system-substrate that no diagram can capture.",
+    "falsifiability": "The analog fails if a reader concludes 'documentation is useless, only senior intuition matters.' The Confluence diagrams in the scenario are real, useful, and necessary; the VP needed them to start. The structural claim is about partiality, not about uselessness. An engineer who reads this as a license to not document has inverted it. The verse names that the manifest is not the whole; it does not deprecate the manifest.",
+    "counter_example": "When the senior's 'substrate knowledge' is in fact just stale, undocumented assumptions that a clear architecture review would expose, the verse's reading does not bless it. The senior's tacit knowledge can itself be a veil; the verse does not endorse veiling-as-seniority. Substrate-knowledge that resists articulation when articulation would help is not paraṁ bhāvam; it is private gnosis the team cannot operate against.",
+    "implication": "Read your architecture diagrams as partial. Identify one failure-mode that is visible only to a senior engineer's tacit substrate-knowledge. Either name it explicitly (a runbook entry, an architectural-decision record) or ask the senior to walk a junior through the cascade-tree. The verse names a structural concealment; engineering practice can narrow it.",
+    "quotable_line": "The architecture diagram is real but partial; the failure-mode tree the senior carries in her head is the substrate the diagram cannot draw.",
+    "tags": [
+      "full-system-view",
+      "operator-system-coupling",
+      "system-recognition"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRETCHED honestly. Verse claims metaphysical concealment (avyaktaṁ vyaktim āpannam mistaken). Engineering analog scoped narrowly: architecture diagrams are partial; the substrate the senior carries in her head is not directly visible. Concrete scenario: a new VP whose Confluence-derived model cannot predict a Kafka rebalance / Postgres pool / CDN cascade. Named: Confluence, Kafka, Postgres, CDN. Counter-example: senior tacit knowledge that is mere stale assumption rather than true substrate-knowledge. Tags: full-system-view, operator-system-coupling, system-recognition.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    },
+    {
+      "iteration": 1,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v1: lex-diversity tuning, sentence-variance lift, one named tool repositioned.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.1"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

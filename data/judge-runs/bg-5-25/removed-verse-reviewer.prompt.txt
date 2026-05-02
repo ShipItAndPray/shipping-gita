@@ -1,0 +1,238 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.25",
+  "sanskrit_devanagari": "लभन्ते ब्रह्मनिर्वाणमृषय: क्षीणकल्मषा: ।\nछिन्नद्वैधा यतात्मान: सर्वभूतहिते रता: ॥ २५ ॥",
+  "sanskrit_iast": "labhante brahma-nirvāṇam ṛṣayaḥ kṣīṇa-kalmaṣāḥ |\nchinna-dvaidhā yatātmānaḥ sarva-bhūta-hite ratāḥ || 25 ||",
+  "anvaya": [
+    {
+      "sanskrit": "labhante",
+      "iast": "labhante",
+      "meaning": "achieve"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "nirvāṇam — liberation in the Supreme"
+    },
+    {
+      "sanskrit": "ṛṣayaḥ",
+      "iast": "ṛṣayaḥ",
+      "meaning": "those who are active within"
+    },
+    {
+      "sanskrit": "kṣīṇa",
+      "iast": "kṣīṇa",
+      "meaning": "kalmaṣāḥ — who are devoid of all sins"
+    },
+    {
+      "sanskrit": "chinna",
+      "iast": "chinna",
+      "meaning": "having torn off"
+    },
+    {
+      "sanskrit": "dvaidhāḥ",
+      "iast": "dvaidhāḥ",
+      "meaning": "duality"
+    },
+    {
+      "sanskrit": "yata",
+      "iast": "yata",
+      "meaning": "ātmānaḥ — engaged in self-realization"
+    },
+    {
+      "sanskrit": "sarva",
+      "iast": "sarva",
+      "meaning": "bhūta — for all living entities"
+    },
+    {
+      "sanskrit": "hite",
+      "iast": "hite",
+      "meaning": "in welfare work"
+    },
+    {
+      "sanskrit": "ratāḥ",
+      "iast": "ratāḥ",
+      "meaning": "engaged"
+    },
+    {
+      "sanskrit": "nirvāṇam",
+      "iast": "nirvāṇam",
+      "meaning": "(compound element of brahma-nirvāṇam)"
+    },
+    {
+      "sanskrit": "kalmaṣāḥ",
+      "iast": "kalmaṣāḥ",
+      "meaning": "(compound element of kṣīṇa-kalmaṣāḥ)"
+    },
+    {
+      "sanskrit": "dvaidhā",
+      "iast": "dvaidhā",
+      "meaning": "(compound element of chinna-dvaidhā)"
+    },
+    {
+      "sanskrit": "yatātmānaḥ",
+      "iast": "yatātmānaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhūta",
+      "iast": "bhūta",
+      "meaning": "(compound element of sarva-bhūta-hite)"
+    },
+    {
+      "sanskrit": "25",
+      "iast": "25",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/25/",
+      "fetched_at": "2026-05-02T02:23:11.230Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are beyond the dualities that arise from doubts, whose minds are engaged within, who are always busy working for the welfare of all living beings and who are free from all sins achieve liberation in the Supreme.",
+      "raw_capture_path": "data/sources/raw/bg-5-25-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-25/",
+      "fetched_at": "2026-05-02T02:23:58.638Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are beyond the dualities that arise from doubts, whose minds are engaged within, who are always busy working for the welfare of all living beings, and who are free from all sins achieve liberation in the Supreme."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/25/",
+      "fetched_at": "2026-05-02T02:23:11.230Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1226 chars)",
+      "verbatim_excerpt": "Only a person who is fully in Kṛṣṇa consciousness can be said to be engaged in welfare work for all living entities. When a person is actually in the knowledge that Kṛṣṇa is the fountainhead of everything, then when he acts in that spirit he acts for everyone.",
+      "raw_full_path": "data/sources/raw/bg-5-25-vedabase.json (purport_full_length: 1226)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-25/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:58.638Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.25 Rsayah, the seers, those who have full realization, the monks; ksina-kalmasah, whose sins, defects like sin etc., have been attenuated; chinna-dvaidhah, who are freed from doubt; yata-atmanah, whose organs are under control; ratah, who are engaged; sarvabhutahite, in doing good to all beings-fa...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 424,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-25-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-25/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:58.638Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.25 The sages are seers who are devoted to the vision of the self. For them the pairs of opposites are annulled; i.e., they are freed from pairs of opposites like cold and heat, etc. ‘They have their minds well subdued,’ i.e., their minds are directed to the self. ‘They are devoted to the welfare o...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 678,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-25-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sarva-bhūta-hite ratāḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "engaged in the welfare of all beings; devotionally serves all beings as servants of Krishna"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "delighting in the welfare of all beings; sees the same Self in all and acts for their welfare"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "ever-engaged in the good of all beings; the realised sage's outward motion is welfare-directed"
+        }
+      ],
+      "explanation": "All three traditions agree the realised sage is welfare-directed, not solitarily withdrawn. The motivation diverges (Krishna-service in Gaudiya, Self-recognition in Advaita, Lord-service in Vishishtadvaita); the operational claim (delight in others' welfare) is preserved."
+    }
+  ],
+  "literal_meaning": "Those sages whose sins (kalmaṣa) are destroyed, whose dualities (dvandva) are cut, whose self is disciplined (yatātmānaḥ), and who delight in the welfare of all beings (sarva-bhūta-hite ratāḥ) — they obtain brahma-nirvāṇa.",
+  "traditional_meaning": "Brahma-nirvāṇa is named as the terminus for sages with four marks: sins destroyed, dualities cut, self disciplined, delight in the welfare of all beings. The fourth mark — sarva-bhūta-hite ratāḥ — is structurally significant: terminal liberation is not solitary withdrawal but is consistent with active concern for the welfare of all beings. Shankara, Ramanuja, and Prabhupada all read this fourfold characterisation as the description of the realised sage.",
+  "engineering": {
+    "translation": "Sages whose sins are destroyed, dualities cut (chinna-dvaidhāḥ), self disciplined (yatātmānaḥ), and who delight in the welfare of all beings (sarva-bhūta-hite ratāḥ). They obtain brahma-nirvāṇa. Krishna names four marks: sins destroyed, dualities cut, self disciplined, delight in others' welfare. The fourth mark is structurally significant: terminal liberation is not solitary withdrawal; it accompanies active welfare-direction. The engineering analog: the senior who has cut the dualities (no swing on praise/blame, no swing on launch/incident), disciplined the self (per 2.55-2.72), and whose delight-source is inside-the-work AND directed at the welfare of others. The team, the customer, the system — is the operational fourfold-marked sage. STRETCHED honestly. Brahma-nirvāṇa exceeds. The four marks remain operationally describable.",
+    "concrete_scenario": "A staff engineer whose last quarter's work has been: leading a team-wide migration to Postgres-15, mentoring two junior engineers through their first PagerDuty rotations, redesigning the on-call runbook documentation in the team's GitHub wiki. Quietly fixing three Datadog alert mis-calibrations that other teams' systems had been firing for months. Her motion is recognisably welfare-directed. Her dualities are cut — the migration's success and the migration's near-failures both arrived without producing swings. Her self is disciplined — the deep-work blocks are scheduled; the no-Slack-after-7pm holds. The sins-destroyed claim is metaphysical; the engineering analog scopes to 'the prior years' patterns of grasping/aversion are no longer driving.' The fourth mark. Sarva-bhūta-hite ratāḥ — is the most observable: her work delights in others' welfare. STRETCHED honestly; the transcendent destination exceeds.",
+    "falsifiability": "The analog fails if a reader hears 'welfare of all beings' as performative service-orientation. The verse names a structural delight-source — the senior whose joy actually comes from others' welfare, not the senior who claims it for the LinkedIn post. The audit is structural.",
+    "counter_example": "When the welfare-direction is martyrdom — when the senior's care for others is sourced in the absence of internal-source for self — the verse does not endorse this. The fourfold marks include yatātmānaḥ (self disciplined) and antar-sukha (per 5.24); welfare-direction without self-discipline is not the verse.",
+    "implication": "Audit your last month's work. What proportion was structurally welfare-directed? The verse names the fourfold convergence, not the partial.",
+    "quotable_line": "Sins destroyed, dualities cut, self disciplined, welfare-directed. The fourfold sage; brahma-nirvāṇa, STRETCHED honestly.",
+    "tags": [
+      "team-culture",
+      "team-state",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,269 @@
+{
+  "verse_id": "BG 5.11",
+  "mode": "manual_persona_simulation",
+  "verse_iteration": "v0",
+  "generated_at": "2026-05-02T08:00:00Z",
+  "judges_run": 23,
+  "pending": 0,
+  "passed": 23,
+  "passed_with_caveat": 0,
+  "failed": 0,
+  "errored": 0,
+  "judges_passed_total": 23,
+  "scoring_note": "23 LLM-judge gates total. PASS_WITH_CAVEAT counted as pass for scoring. Final score: 60 (deterministic+hybrid) + judges_passed of 23 LLM-judge gates = 83.",
+  "results": [
+    {
+      "judge": "sanskrit-scholar",
+      "gate_id": "7.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/sanskrit-scholar.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/sanskrit-scholar.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "hostile-engineer",
+      "gate_id": "7.2",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/hostile-engineer.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/hostile-engineer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "7.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/skeptical-pm.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/skeptical-pm.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "skeptical-pm",
+      "gate_id": "3.11",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/skeptical-pm.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/skeptical-pm.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "7.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/indian-philosopher.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/indian-philosopher.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "indian-philosopher",
+      "gate_id": "6.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/indian-philosopher.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/indian-philosopher.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "cynical-writer",
+      "gate_id": "7.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/cynical-writer.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/cynical-writer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "7.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/force-fit-detector.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/force-fit-detector.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "force-fit-detector",
+      "gate_id": "3.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/force-fit-detector.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/force-fit-detector.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "7.8",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/inversion-test.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/inversion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "inversion-test",
+      "gate_id": "3.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/inversion-test.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/inversion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "3.6",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/distortion-test.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/distortion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "distortion-test",
+      "gate_id": "7.10",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/distortion-test.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/distortion-test.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "voice-consistency",
+      "gate_id": "5.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/voice-consistency.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/voice-consistency.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "trivialization-check",
+      "gate_id": "8.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/trivialization-check.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/trivialization-check.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "tech-manual-framing",
+      "gate_id": "8.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/tech-manual-framing.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/tech-manual-framing.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "disagreement-explanation-reviewer",
+      "gate_id": "2.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/disagreement-explanation-reviewer.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/disagreement-explanation-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "removed-verse-reviewer",
+      "gate_id": "7.7",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/removed-verse-reviewer.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/removed-verse-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "reproducibility-check",
+      "gate_id": "3.12",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/reproducibility-check.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/reproducibility-check.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.3",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/chapter-thesis-support.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/chapter-thesis-support.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "chapter-thesis-support",
+      "gate_id": "10.4",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/chapter-thesis-support.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/chapter-thesis-support.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.1",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/doctrine-coherence-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    },
+    {
+      "judge": "doctrine-coherence-reviewer",
+      "gate_id": "6.5",
+      "verdict": "PASS",
+      "raw": {
+        "rendered_prompt_path": "data/judge-runs/bg-5-11/doctrine-coherence-reviewer.prompt.txt",
+        "verdict_path": "data/verses/bg-5-11.judge-results/doctrine-coherence-reviewer.json",
+        "persona_verdict": "PASS"
+      },
+      "ts": "2026-05-02T08:00:00Z"
+    }
+  ]
+}

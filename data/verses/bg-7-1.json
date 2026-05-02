@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.1",
+  "chapter": 7,
+  "verse": 1,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna opens the chapter by naming preconditions before the disclosure. Three postures, in this order: mind attached to me (āsakta-manāḥ), the practice of yoga (yogam yuñjan), and refuge taken in me (mad-āśrayaḥ). Operationally, this is a senior engineer telling the team: before I tell you what I have actually understood about this system, here is what your posture has to be — your attention has to be on the substrate (not on the framework, not on the LinkedIn-quarter), you have to keep doing the work (not just attend the talk), and you have to actually depend on the substrate-truth (not your own taste). Without these three, the disclosure cannot land. The verse promises samagram (in entirety) and asaṁśayam (without doubt), but only on the precondition. Krishna is not flattering Arjuna; he is naming what reception requires.",
+    "concrete_scenario": "Maya has been a tech lead at a payments company for nine years. The new staff engineer, on day forty, asks her: how does our settlement pipeline actually work? She does not answer the question directly. She says: come watch me work for two weeks. Pair on the Postgres schema migrations as I review them, sit next to me in the Datadog incident channel when the next page fires, attend the Friday architecture-review where I push back on the latest microservices-fashion proposal. Read the runbook, not the wiki. After two weeks, ask the question again. The new engineer is initially impatient — they want the architecture diagram and the explanation. Maya knows the diagram does not transmit. What transmits is the posture the disclosure requires: attention fixed on the substrate (the actual settlement invariants), continued practice (sitting in the work, not just listening to the lecture), and dependence on the substrate-truth (trusting that the substrate matters more than the surface). Without these three, no diagram will help. With them, the disclosure on day fifteen lands in entirety.",
+    "falsifiability": "The analog fails if a reader uses it to justify gatekeeping or hazing. The verse names preconditions for reception, not credentials for entry. A senior who refuses to teach because the junior 'has not earned it' has misread the verse as licensing exclusion. Krishna teaches Arjuna at length; the preconditions are about the receiver's posture, not the teacher's permission.",
+    "counter_example": "When the disclosure is not deep substrate-knowledge but a piece of operational fact that any new hire needs on day one — the on-call rotation, the deploy command, where the runbook lives — the three-precondition framing is wrong scope. Those are surface-level facts that transmit fine without the posture. The verse is about the substrate-knowing that ends further inquiry, not the operational facts that get the new hire productive.",
+    "implication": "Before asking a senior for the deep substrate-explanation, audit your own posture. Are you attending to the substrate or the surface? Are you continuing the work or only attending the talk? Are you depending on the substrate-truth or on your own taste?",
+    "quotable_line": "The senior cannot transmit substrate-knowledge to a posture that is not yet receiving it.",
+    "tags": ["operator-system-coupling", "first-principles", "deep-work"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:50:00Z",
+      "mutation": "v0 generation: chapter-opening verse drafted from triangulated source pack. Anchored on the three preconditions (āsakta-manāḥ, yogam yuñjan, mad-āśrayaḥ) per Shankara's reading. Engineering analog scoped to the senior-disclosure pattern: substrate-knowledge requires receiver-posture before transmission. Concrete scenario uses payments company, named tools (Postgres, Datadog), named characters (Maya, new staff engineer). Confidence HIGH (this is a strong operational analog). Stretched FALSE — the verse's claim about precondition-for-knowing maps cleanly to engineering precondition-for-transmission.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

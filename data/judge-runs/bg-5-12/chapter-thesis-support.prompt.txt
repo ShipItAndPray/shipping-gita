@@ -1,0 +1,254 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.12",
+  "sanskrit_devanagari": "युक्तः कर्मफलं त्यक्त्वा शान्तिमाप्नोति नैष्ठिकीम् ।\nअयुक्तः कामकारेण फले सक्तो निबध्यते ॥ १२ ॥",
+  "sanskrit_iast": "yuktaḥ karma-phalaṁ tyaktvā śāntim āpnoti naiṣṭhikīm |\nayuktaḥ kāma-kāreṇa phale sakto nibadhyate || 12 ||",
+  "anvaya": [
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "the disciplined / joined (to yoga)"
+    },
+    {
+      "sanskrit": "कर्मफलम्",
+      "iast": "karma-phalam",
+      "meaning": "the fruit of action"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "नैष्ठिकीम्",
+      "iast": "naiṣṭhikīm",
+      "meaning": "lasting / firm"
+    },
+    {
+      "sanskrit": "शान्तिम्",
+      "iast": "śāntim",
+      "meaning": "peace"
+    },
+    {
+      "sanskrit": "आप्नोति",
+      "iast": "āpnoti",
+      "meaning": "obtains"
+    },
+    {
+      "sanskrit": "अयुक्तः",
+      "iast": "ayuktaḥ",
+      "meaning": "the undisciplined"
+    },
+    {
+      "sanskrit": "कामकारेण",
+      "iast": "kāma-kāreṇa",
+      "meaning": "by impulse of desire"
+    },
+    {
+      "sanskrit": "फले",
+      "iast": "phale",
+      "meaning": "to the fruit"
+    },
+    {
+      "sanskrit": "सक्तः",
+      "iast": "saktaḥ",
+      "meaning": "attached"
+    },
+    {
+      "sanskrit": "निबध्यते",
+      "iast": "nibadhyate",
+      "meaning": "is bound"
+    },
+    {
+      "sanskrit": "karma",
+      "iast": "karma",
+      "meaning": "(compound element of karma-phalaṁ)"
+    },
+    {
+      "sanskrit": "phalaṁ",
+      "iast": "phalaṁ",
+      "meaning": "(compound element of karma-phalaṁ)"
+    },
+    {
+      "sanskrit": "sakto",
+      "iast": "sakto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "12",
+      "iast": "12",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The steadily devoted soul attains unadulterated peace because he offers the result of all activities to Me; whereas a person who is not in union with the Divine, who is greedy for the fruits of his labor, becomes entangled.",
+      "raw_capture_path": "data/sources/raw/bg-5-12-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The steadily devoted soul attains unadulterated peace because he offers the result of all activities to Me; whereas a person who is not in union with the Divine, who is greedy for the fruits of his labor, becomes entangled."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1131 chars)",
+      "verbatim_excerpt": "The difference between a person in Kṛṣṇa consciousness and a person in bodily consciousness is that the former is attached to Kṛṣṇa whereas the latter is attached to the results of his activities.",
+      "raw_full_path": "data/sources/raw/bg-5-12-vedabase.json (purport_full_length: 1131)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.12 Tyaktva, giving up; karma-phalam, the result of work; yuktah, by becoming resolute in faith, by having this conviction thus-‘Actions are for God, not for my gain’; apnoti, attains; santim, Peace, called Liberation; naisthikim arising from steadfastness.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 909,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-12-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the yukta (the karma-yogin) abandons the fruit of action and obtains naiṣṭhikī (final, lasting) peace. The ayukta (the non-karma-yogin) is impelled by desire, attached to the fruit, and is bound. The verse anchors the chapter to 2.47-2.48: detachment from fruit produces peace; attachment to fruit produces bondage."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.12 A Yogin is one who has no hankering for fruits other than the self, and who is exclusively devoted to the self. If a man renounces the fruits of actions and performs actions merely for the purification of himself, he attains lasting peace, i.e., he attains bliss which is of the form of lasting…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 957,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-12-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the disciplined one, having abandoned attachment to the fruit of action, obtains the firm peace consisting of self-experience. The undisciplined one, driven by desire, attached to the fruit, is bound by karma. Ramanuja's reading anchors śānti to the experience of the self (ātma-anubhava)."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naiṣṭhikīm śāntim",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unadulterated peace (because results offered to Me)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "final, lasting peace (mokṣa-ānanda-anchored)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "firm peace consisting of self-experience"
+        }
+      ],
+      "explanation": "All converge on lasting/firm peace. The disagreement is the metaphysical anchor: Shankara reads it as the peace of mokṣa; Ramanuja anchors it to ātma-anubhava; Prabhupada to the devotional surrender of fruit."
+    }
+  ],
+  "literal_meaning": "The disciplined one, having abandoned the fruit of action, obtains lasting peace; the undisciplined one, driven by desire, attached to the fruit, is bound.",
+  "traditional_meaning": "Krishna sets up a clean structural contrast. The yukta abandons phala (fruit) and gains naiṣṭhikī śānti (lasting peace). The ayukta, impelled by kāma (desire), attached to phala, is bound (nibadhyate). The verse builds directly on 2.47-2.48 and gives the chapter's clearest operational test: did detachment-from-fruit produce peace?",
+  "engineering": {
+    "translation": "The disciplined one (yuktaḥ), having abandoned the fruit of action (karma-phalam tyaktvā), attains the peace founded on naiṣṭhikīm (the established/abiding state). The undisciplined (ayuktaḥ), driven by desire (kāma-kāreṇa), attached to the fruit, is bound. Krishna draws the contrast sharply: the same action, performed with or without attachment to fruit, produces opposite results. The disciplined attain peace; the undisciplined are bound. The verse coheres directly with 2.47-2.48 and is its operational restatement at chapter 5's juncture. The engineering analog: the engineer who ships the migration without grasping at the launch-metric attains operational peace; the engineer who ships the same migration while obsessing over the launch-metric is bound by the attachment. Same merge, same code; different inner state, different outcome at the level the verse cares about.",
+    "concrete_scenario": "Two senior engineers ship the same kind of migration on the same Friday. Engineer A has prepared the runbook on GitHub, run the staging Datadog tests, scheduled the Slack announcement, and sized the rollback window. She ships, watches the dashboards, files the post-deploy notes, closes the PagerDuty pre-emptive alert, and at 6 PM she is at peace — the work was offered to the team's sustaining loop, the metric will be what it will be. Engineer B has shipped a structurally identical migration with the same level of preparation. But across Saturday morning he refreshes Datadog every twenty minutes, reads Slack obsessively for executive reactions, drafts and redrafts a launch tweet, calculates the visible impact on his promotion case. The same code is in production; engineer A is at peace, engineer B is bound. The action was identical; the discipline was different; the verse names the difference structurally.",
+    "falsifiability": "The analog fails if a reader concludes engineer A doesn't read dashboards. She reads them — but she reads them as feedback, not as the source of her state. Detachment from outcome-as-identity is not detachment from outcome-as-data.",
+    "counter_example": "When the migration genuinely has gone wrong and requires sustained attention — when Datadog refreshes are operationally needed because the cascade is unfolding — engineer B's behaviour is correct. The verse names the structural condition (attachment-to-fruit produces bondage), not a flat prescription about attention to dashboards.",
+    "implication": "On your next Friday-shipped migration, observe Saturday morning. The peace is the readable signature.",
+    "quotable_line": "Same merge, same code, same Friday. The disciplined are at peace by Saturday; the undisciplined are bound.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

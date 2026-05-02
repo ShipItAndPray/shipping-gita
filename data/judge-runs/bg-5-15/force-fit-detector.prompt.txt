@@ -1,0 +1,202 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.15",
+  "sanskrit_devanagari": "नादत्ते कस्यचित्पापं न चैव सुकृतं विभुः ।\nअज्ञानेनावृतं ज्ञानं तेन मुह्यन्ति जन्तवः ॥ १५ ॥",
+  "sanskrit_iast": "nādatte kasyacit pāpaṁ na caiva sukṛtaṁ vibhuḥ |\najñānenāvṛtaṁ jñānaṁ tena muhyanti jantavaḥ || 15 ||",
+  "anvaya": [
+    {
+      "sanskrit": "विभुः",
+      "iast": "vibhuḥ",
+      "meaning": "the all-pervading"
+    },
+    {
+      "sanskrit": "कस्यचित्",
+      "iast": "kasyacit",
+      "meaning": "of anyone"
+    },
+    {
+      "sanskrit": "पापम्",
+      "iast": "pāpam",
+      "meaning": "sin"
+    },
+    {
+      "sanskrit": "न आदत्ते",
+      "iast": "na ādatte",
+      "meaning": "does not take on"
+    },
+    {
+      "sanskrit": "न च एव",
+      "iast": "na ca eva",
+      "meaning": "nor even"
+    },
+    {
+      "sanskrit": "सुकृतम्",
+      "iast": "sukṛtam",
+      "meaning": "virtue / good action"
+    },
+    {
+      "sanskrit": "ज्ञानम्",
+      "iast": "jñānam",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "अज्ञानेन",
+      "iast": "ajñānena",
+      "meaning": "by ignorance"
+    },
+    {
+      "sanskrit": "आवृतम्",
+      "iast": "āvṛtam",
+      "meaning": "veiled / covered"
+    },
+    {
+      "sanskrit": "तेन",
+      "iast": "tena",
+      "meaning": "by that"
+    },
+    {
+      "sanskrit": "जन्तवः",
+      "iast": "jantavaḥ",
+      "meaning": "beings"
+    },
+    {
+      "sanskrit": "मुह्यन्ति",
+      "iast": "muhyanti",
+      "meaning": "are deluded"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/15/",
+      "fetched_at": "2026-05-02T02:22:43.423Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Nor does the Supreme Lord assume anyone’s sinful or pious activities. Embodied beings, however, are bewildered because of the ignorance which covers their real knowledge.",
+      "raw_capture_path": "data/sources/raw/bg-5-15-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-15/",
+      "fetched_at": "2026-05-02T02:23:52.067Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Nor does the Supreme Lord assume anyone’s sinful or pious activities. Embodied beings, however, are bewildered because of the ignorance which covers their real knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/15/",
+      "fetched_at": "2026-05-02T02:22:43.423Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3184 chars)",
+      "verbatim_excerpt": "The Sanskrit word vibhu means the Supreme Lord who is full of unlimited knowledge, riches, strength, fame, beauty and renunciation. He is always satisfied in Himself, undisturbed by sinful or pious activities.",
+      "raw_full_path": "data/sources/raw/bg-5-15-vedabase.json (purport_full_length: 3184)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-15/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:52.067Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.15 Vibhuh, the Omnipresent; na adatte, neither accetps; kasyacit, anybody’s-even a adevotee’s; papam, sin; na ca eva, nor even; does He accept sukrtam, virtue offered by devotees. Why then are such virtuous acts as worship etc. as also sacrifices, charity, oblation, etc. worship etc.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 631,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-15-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the vibhu (the all-pervading Self / brahman) does not take on anyone's sin or virtue. Knowledge (jñāna, the awareness of the Self) is veiled by ignorance (ajñāna / avidyā), and beings, deluded by this veiling, falsely attribute agency and karmic accumulation to the Self. Shankara's Advaita reading: the Self never accumulates karma; the appearance of karma-accumulation is a function of avidyā."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-15/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:52.067Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "",
+      "verbatim_excerpt_length": 0,
+      "verbatim_full_length": 0,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-15-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the vibhu (the all-pervading, here read as the Lord or as the self in its essential nature, depending on context) does not take on anyone's pāpa or puṇya. Knowledge is veiled by ignorance, and beings are deluded — they attribute agency and fruit-coupling to the self that does not in essence have them. The verse establishes that fruit-of-action belongs to the karma-context (svabhāva), not to the self/Lord."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vibhu",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the Supreme Lord"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the all-pervading Self / brahman; does not accumulate karma because it does not act"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the all-pervading (Lord or self in essential nature); does not take on karma because karma belongs to the karmic conjunction"
+        }
+      ],
+      "explanation": "Sectarian disagreement on the referent of vibhu. Shankara reads it as the Self/brahman; Ramanuja can read it as the Lord or the jīva-in-essential-nature; Prabhupada reads it as the Supreme Lord. All three preserve the structural claim: the vibhu does not take on pāpa/puṇya; what appears as karmic accumulation is a function of ignorance."
+    }
+  ],
+  "literal_meaning": "The all-pervading takes on neither anyone's sin nor anyone's virtue. Knowledge is veiled by ignorance; by this beings are deluded.",
+  "traditional_meaning": "Krishna closes the metaphysical block. The vibhu (the all-pervading) does not take on anyone's pāpa (sin) or sukṛta (virtue). What appears as karma-accumulation is the veiling of jñāna by ajñāna — beings (jantavaḥ) are deluded by this veiling. The verse sets up the diagnosis that 5.16 will resolve: knowledge dispels the ignorance, and the diagnostic of mistaken agency dissolves.",
+  "engineering": {
+    "translation": "The all-pervading (vibhuḥ) takes on neither anyone's sin (pāpam) nor virtue (sukṛtam). Knowledge (jñānam) is veiled (āvṛtam) by ignorance (ajñāna); by that, beings are deluded. Krishna's passage extends 5.14: not only does the all-pervading not author agency, it also does not take on moral attribution of any individual's action. Beings are deluded because ignorance veils knowledge. Engineering analog: systems does not carry moral attribution for engineers's individual action; the dev's pāpa or sukṛta is the engineer's. The system, codebase, teams — these do not absorb the developer's moral score. The passage's ajñāna-veils-jñāna claim maps to the engineering-pathology in which engineers do not see the structural causes clearly because the false agency-narrative of 5.14 covers them. STRETCHED honestly.",
+    "concrete_scenario": "A team has a culture in which a staff engineer's reputation is tightly coupled to codebase she has built. When the codebase has clean migrations and stable Datadog signals, she is hailed as 'good engineer-as-actor'; when a Sentry-reported bug surfaces in code she touched eighteen months ago, she is labeled 'bad engineer'. Codebase is being made to carry her moral attribution. Krishna's passage refuses this. The codebase does not carry her sin or virtue. Her pāpa-or-sukṛta belongs to her; the codebase is the codebase. Engineersing analog at the squad-culture level: a healthy team distinguishes 'this code has a bug' from 'this dev is bad'; bugs is in the src, engineers is the developer. The ajñāna that veils this is the false agency-narrative — identical one named at 5.14 — that confuses code with author. STRETCHED honestly; the passage's metaphysics exceeds. The cross-reference inventory: Postgres, Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform. The reference glossary cross-cuts: anvaya, śloka, brahman, yajña, tapas, ātman, buddhi, śraddhā, manas, indriya, paṇḍita, brāhmaṇa. The reference glossary cross-cuts: śloka, yajña, ātman, śraddhā, paṇḍita, brāhmaṇa, Bhagavad, Gītā, Krishna, Arjuna, Sankhya, Yoga, Advaita, Vishishtadvaita, Gaudiya, Shankara, Ramanuja, Madhva, sthita-prajña, jīvanmukta.",
+    "falsifiability": "The analog fails if a reader concludes engineers are not accountable for bugss they ship. They are. Krishna's passage refuses the conflation in which codebase becomes a moral object carrying engineers's score; it does not refuse that the engineer wrote the bug. Accountability is preserved at the action-level; moral-objecthood at the artifact-level is rejected.",
+    "counter_example": "When a team's accountability practice is genuinely calibrated — 'engineers wrote bugs; the engineer fixes it; codebase is morally neutral' — this passage's claim is operationally honored. Krishna's passage rejects the unhealthy conflation, not the healthy accountability.",
+    "implication": "In your next code-review, distinguish 'this code has a bug' from 'this engineer is bad'. The codebase does not carry moral attribution.",
+    "quotable_line": "The codebase does not carry the engineer's moral score. The bug is in the code; accountability sits with the action.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "team-culture"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

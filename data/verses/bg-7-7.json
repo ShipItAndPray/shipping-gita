@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.7",
+  "chapter": 7,
+  "verse": 7,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The chapter's strongest engineering image. Krishna names himself as the unique highest reality (parataraṁ nānyat) and gives the simile that survives every commentary tradition: all this is strung on me as beads on a thread. The structural claim is sharp and operational. Every running system is strung on the customer-need it serves as beads on a thread. Pull the thread (the need) and the beads (implementations, frameworks, services, dashboards) follow. Without the thread, the beads scatter — a heap of code, not a string. Without beads, the thread is not yet a system; the need exists but has not been served. Both halves matter. Shankara reads the thread as causal substrate; Ramanuja as inner controller. Both readings survive at engineering scope: the thread of customer-need is what makes the beads a string, and the thread is prior to the beads in causal order. Engineering layers that read this verse as 'frameworks don't matter' have lost the simile. Frameworks are the beads; they are real. They are strung on the customer-need; they are not the customer-need.",
+    "concrete_scenario": "A banking platform team has shipped fraud-detection over twelve years. The first version was Python rules in a cron job hitting a Postgres view. The second was a Spark batch pipeline producing scores once an hour. The third was a Kafka-streamed feature store with a real-time gRPC scoring service. The fourth, now on the roadmap, is an LLM-based risk classifier with a vector store. Junior engineers, looking at the migration history, see four different systems. Maya, the staff engineer, sees one string: every bead is strung on the same thread — does this transaction match the merchant's customer's behavior pattern, or is it being attempted by someone who acquired the card. Each implementation is a different bead the team chose to thread; each is real and load-bearing in its era. Pulling the thread (the underlying customer-need: prevent fraud) the beads follow in order — they are not arbitrary. Pulling at any one bead, you cannot reconstruct the string. The framework choices, the language choices, the topology choices — all real, all replaceable, all strung on the unchanging thread.",
+    "falsifiability": "The analog fails if a reader concludes that frameworks, languages, and architectures are therefore worthless or interchangeable in any moment. The simile says the thread is prior to the beads, not that the beads are unreal. The 2022 Spark pipeline and the 2024 Kafka feature store had different operational properties; the choice between them at any moment was load-bearing. The simile says the choice is downstream of the customer-need; it does not say the choice is trivial.",
+    "counter_example": "When a system has been built without a clear customer-need — vanity projects, internal tools that nobody uses, frameworks-of-the-quarter migrations done because the team wanted the experience — the beads-on-thread image fails because there is no thread. The string is a heap. Krishna's simile assumes the thread is real; engineering systems without a real customer-need are not the case the simile addresses.",
+    "implication": "For each system in your portfolio, name the thread. If you cannot, the system is a heap of beads, not a string. If you can, the framework debates and rewrite arguments are downstream of that thread; pulling the thread is what gives them their order. The senior who can name the thread can answer any framework question; the engineer who cannot will lose every framework debate to whoever shouts loudest.",
+    "quotable_line": "Every system is strung on the customer-need it serves; pull the thread and the beads follow.",
+    "tags": ["product-truth", "user-obsession", "essence-vs-implementation"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:20:00Z",
+      "mutation": "v0 generation: chapter's strongest engineering image — MAXIMUM RIGOR. Anchored on both halves of the simile per chapter thesis: thread is prior to beads (customer-need is prior to implementation), AND beads are real (frameworks/languages/architectures are real and load-bearing). Both Shankara (causal substrate) and Ramanuja (antaryāmin) readings survive at operational scope. Concrete scenario uses 12-year fraud-detection arc with four bead-implementations (Python+Postgres → Spark batch → Kafka+gRPC → LLM+vector store) all strung on the same thread (transaction-pattern matching). Counter-example: vanity systems without a real thread. Falsifiability guards against 'frameworks are worthless' misread. Confidence HIGH; not stretched.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

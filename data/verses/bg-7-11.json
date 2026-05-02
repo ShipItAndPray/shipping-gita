@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.11",
+  "chapter": 7,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names two further identifications, both qualifier-bound. First: strength — but only the kind that runs free of grasping (kāma) and unfettered by clinging to past achievement (rāga). The senior whose engineering capability is uncoupled from promo-anxiety, ungraspingly distant from the architecture she shipped three years ago, is what 7.11 identifies. Second: desire in beings — but only the desire not contrary to dharma. The pull toward the work itself, the curiosity investigating why a Postgres replica lagged this particular way, the craving to produce something genuinely durable — these run through Krishna. The grasp for status, the entitlement toward outcomes, the wish to vanquish a political adversary do not. Both halves hinge on a qualifier: the durable property is identified only when uncoupled from grasping or congruent with team dharma. The engineering analog occupies narrow operational scope; the metaphysical reach is preserved at source-pack level.",
+    "concrete_scenario": "A principal at a fintech gets paged at 03:00 on Saturday because Postgres logical replication has lagged into a write-side outage on the ledger service. She joins the Slack bridge, opens Datadog, names the cascade, starts triage. No promo cycle this quarter; bonuses are locked. Her capability at 03:00 is not driven by what the page might earn her — that is the strength-of-the-strong free of kāma-rāga. Three days later, in the post-mortem, she recommends rolling back a cross-shard write she introduced eighteen months ago. No defense of prior authorship; no clinging to past decisions. That is the verse's second clause: the pull toward the correct fix, aligned with dharma. Contrast a colleague in the same role whose 03:00 mind immediately drafts how this incident will read in his next packet, who fights every effort to unwind his old architectural choice because letting it go feels like personal loss. Same title. Different relation to kāma-rāga. Krishna identifies with the first.",
+    "falsifiability": "The analog fails if read as 'engineering capability is divine.' The verse identifies only the qualifier-bound strength (vivarjitam) and qualifier-bound desire (aviruddhaḥ). A senior whose capability is grasping, or whose appetite cuts against team dharma, retains the noun but loses the qualifier. Reading 7.11 as 'I am strong therefore Krishna' drops the qualifier and inverts the claim.",
+    "counter_example": "When freedom-from-grasping starts looking like apathy — refusing to defend a sound decision, mistaking detachment for not-caring — the verse does not endorse this. Shankara's reading is bodily-maintenance scope, not universal dispassion. The senior who lets go of personal credit still cares fiercely about customer impact.",
+    "implication": "Audit your week against the qualifier. The capability you brought to that Sentry incident — was it free of kāma-rāga, or hooked on what the page might earn? The appetites that pulled you into this codebase — aligned with team dharma, or against? The verse does not ask you to be appetite-less; it asks you to notice which appetites you can honor without betraying the substrate.",
+    "quotable_line": "Strength without grasping; desire within dharma. The verse names which kind of senior the work is held together by.",
+    "tags": [
+      "operator-system-coupling",
+      "non-attachment-to-praise",
+      "duty"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.11 continues the 'I am the X in Y' sequence (per chapter-7 thesis: STRETCHED on metaphysical reach, operational reflection only). Engineering analog scopes to the senior whose strength runs free of grasping (kāma-rāga-vivarjitam) and whose desire is dharma-aligned. Concrete scenario uses a 03:00 Postgres replication incident with two contrasting senior engineers — one whose strength is qualifier-bound (free of grasping), one whose strength is grasping. The qualifier-bound character of the identification is preserved in the falsifiability clause. Tagged STRETCHED, MEDIUM confidence, per chapter thesis on 7.8-7.11 verses.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

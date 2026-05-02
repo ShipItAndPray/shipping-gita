@@ -1,0 +1,199 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.9",
+  "sanskrit_devanagari": "प्रलपन्विसृजन्गृह्णन्नुन्मिषन्निमिषन्नपि ।\nइन्द्रियाणीन्द्रियार्थेषु वर्तन्त इति धारयन् ॥ ९ ॥",
+  "sanskrit_iast": "pralapan visṛjan gṛhṇann unmiṣan nimiṣann api |\nindriyāṇīndriyārtheṣu vartanta iti dhārayan || 9 ||",
+  "anvaya": [
+    {
+      "sanskrit": "प्रलपन्",
+      "iast": "pralapan",
+      "meaning": "talking"
+    },
+    {
+      "sanskrit": "विसृजन्",
+      "iast": "visṛjan",
+      "meaning": "releasing / evacuating"
+    },
+    {
+      "sanskrit": "गृह्णन्",
+      "iast": "gṛhṇan",
+      "meaning": "grasping / receiving"
+    },
+    {
+      "sanskrit": "उन्मिषन्",
+      "iast": "unmiṣan",
+      "meaning": "opening (the eyes)"
+    },
+    {
+      "sanskrit": "निमिषन्",
+      "iast": "nimiṣan",
+      "meaning": "closing (the eyes)"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "इन्द्रियाणि",
+      "iast": "indriyāṇi",
+      "meaning": "the senses"
+    },
+    {
+      "sanskrit": "इन्द्रियार्थेषु",
+      "iast": "indriyārtheṣu",
+      "meaning": "among sense-objects"
+    },
+    {
+      "sanskrit": "वर्तन्ते",
+      "iast": "vartante",
+      "meaning": "operate / are engaged"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "धारयन्",
+      "iast": "dhārayan",
+      "meaning": "holding / maintaining (in mind)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them.",
+      "raw_capture_path": "data/sources/raw/bg-5-8-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1093 chars)",
+      "verbatim_excerpt": "A person in Kṛṣṇa consciousness is pure in his existence, and consequently he has nothing to do with any work which depends upon five immediate and remote causes: the doer, the work, the situation, the endeavor and fortune. This is because he is engaged in the loving transcendental service of Kṛṣṇa.",
+      "raw_full_path": "data/sources/raw/bg-5-8-9-vedabase.json (purport_full_length: 1093)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 Yuktah, remaining absorbed in the Self; tattva-vit, the knower of Reality-knower of the real nature of Truth, of the Self, i.e., the seer of the supreme Reality; manyeta, should think; ‘na karomi eva, I certainly do not do; kincit, anything.’ Having realized the Truth, when or how should he thin…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1102,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: continuing 5.8, while talking, releasing, grasping, opening and closing the eyes — the realised yogi maintains the recognition that the senses are operating among sense-objects, not the Self. The repetition of bodily/sensory verbs across 5.8-5.9 is exhaustive: the verse covers perception, action, locomotion, alimentation, respiration, speech, elimination, reception, and the finest motor activity (opening/closing eyes), to make clear the recognition is comprehensive."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 – 5.9 Thus he who knows the truth concerning the self should reflect in mind that the ear and the other organs of sensation (Jnanendriyas) as also organs of action (Karmendriyas) and the vital currents (the Pranas) are occupied with their own respective objects.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 548,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja groups 5.8-5.9 together: while talking, releasing, grasping, opening and closing the eyes, the knower-of-truth holds in mind that the senses operate among sense-objects. The self does not. The dualistic reading: the senses (jñānendriyas + karmendriyas) and prāṇas operate; the self witnesses."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "indriyāṇi indriyārtheṣu vartante iti dhārayan",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "always knows that only the material senses are engaged with their objects and that he is aloof from them"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the realised jñānin holds the structural recognition that senses act, Self does not (Advaita non-doership)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the knower of truth holds in mind that the senses operate among objects (dualistic, self distinct from senses)"
+        }
+      ],
+      "explanation": "All converge on the structural claim. The disagreement is metaphysical: Shankara's Advaita reads the Self as wholly non-acting; Ramanuja's Vishishtadvaita reads the self as the experiencer-witness distinct from the body-sense-prāṇa complex. Prabhupada emphasises the devotional aloofness."
+    }
+  ],
+  "literal_meaning": "While talking, releasing, grasping, opening and closing the eyes also — knowing that 'the senses operate among sense-objects'.",
+  "traditional_meaning": "5.8-5.9 form a single doctrinal unit. The seer-of-truth, across all the activities of embodied existence, holds in mind that 'the senses operate among sense-objects' — the work proceeds via the body-sense-mind apparatus; the Self does not act. This is the Gita's most concentrated statement of the non-doership doctrine.",
+  "engineering": {
+    "translation": "Continuing the enumeration: while speaking, releasing, grasping, opening and closing the eyes — the yoked one knows: 'the senses (indriyāṇi) are operating among sense-objects (indriyārtheṣu).' The verse extends 5.8 with a second list of bodily operations and the same structural observation. The engineering analog: the senior who watches her own decision-making process — the closing of one tab, the opening of another, the typing of a comment, the release of a stuck idea — and observes the operations as movements, not as identity-events. Speaking in the standup is not 'I speak'; it is the speaking-organ producing speech among speech-objects. Grasping the keyboard is not 'I grasp'; it is the grasping-organ engaging the keyboard-object. The seer's posture is one in which the doer-position is empty across every micro-operation. STRETCHED honestly; the metaphysics exceeds the operational layer at the same point as 5.8.",
+    "concrete_scenario": "A senior engineer types a code-review comment on a contractor's PR. The comment is technically rigorous, names a missing edge-case in the Postgres transaction-isolation logic, and proposes the specific fix. She observes her hand close the GitHub-PR tab, observes her hand open the Datadog-monitoring tab, observes her hand reach for the coffee cup. Across forty seconds of typing-then-cup-grasping the operations have happened; the doer-position has been empty. She has not been the comment-typer, the tab-opener, the cup-grasper. The seer's posture has not slipped. This is not depersonalisation — the work is done with full skill — it is the structural observation 5.8-5.9 describe. The metaphysics reaches further than the engineering analog can carry; the engg layer scopes operationally to the decoupled-identity-during-action observation. The cross-reference inventory: Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins.",
+    "falsifiability": "The analog fails if a reader hears the verse as endorsing a kind of distance from the work or a stoic flatness in the workplace. The passage names the seer's interior observation, not a behavioural surface. The behaviour can be lively, engaged, even passionate; the interior is decoupled. Anyone reading this as 'be a robot' has misread the verse.",
+    "counter_example": "When an engineer claims the seer-of-truth's posture without having cultivated it — when the 'doer-position is empty' is rhetorical rather than experiential — the verse does not apply. The verse names a state of the tattva-vit (knower of truth); the claim cannot be made without the prior cultivation that produces the seeing.",
+    "implication": "During your next forty-second micro-operation — typing a comment, closing a tab, drinking coffee — notice whether the doer-position is empty. The verse's claim is testable in micro-windows.",
+    "quotable_line": "Speaking, releasing, grasping, opening the eyes — the senses operate; the seer is not the operating senses.",
+    "tags": [
+      "operator-as-instrument",
+      "doership",
+      "focus-practice"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

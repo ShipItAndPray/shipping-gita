@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.17",
+  "chapter": 6,
+  "verse": 17,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "6.17 is the positive complement to 6.16. Where 6.16 stated the negative — yoga is unavailable at extremes — 6.17 names the payoff. For one disciplined in food and recreation (yuktāhāra-vihārasya), in actions (yukta-ceṣṭasya), in sleep and wakefulness (yukta-svapnāvabodhasya) — yoga becomes duḥkha-hā, the destroyer of sorrow. The claim is functional: the disciplined-body practice produces a disciplined-mind capacity that dissolves a class of suffering. Shankara expands the term āhāra to include 'mental food' — a precise gloss that lands directly: the engineer's information-diet is part of the discipline. Ramanuja's reading of duḥkha-hā as 'untying bondages' adds the doctrinal weight: the suffering being dissolved is not just present-tense distress but the structural patterns that produce future distress. The engineering analog operates at strong-narrow scope: the senior whose food, sleep, work-effort, recreation, and information-intake are all yukta finds that whole categories of suffering — the recurrent panic before launch, the chronic resentment of the on-call rotation, the dread before performance review — simply do not generate.",
+    "concrete_scenario": "Two principal engineers at adjacent companies, both running data-platform teams on Snowflake and Kafka. The first has, over five years, treated her information-diet with the same care she treats her food. Her phone does not contain Twitter or LinkedIn. She reads two technical newsletters per week, on a tablet, away from the desk. She has unsubscribed from every Slack channel that does not directly intersect her team's work. She does not consume engineering Twitter discourse. The second has not made these choices. He reads HackerNews on the toilet, scrolls Twitter at lunch, has 47 active Slack channels including 12 that have not been relevant in two years. Both ship at the same rate. Across five years their team-state diverges: the first runs a calm, focused team where conversations are about the problem; the second runs a team that absorbs his anxiety about whether their stack is still 'best-of-breed', whether their architectural choices are 'still considered correct' by the wider industry. The verse, scoped operationally: the disciplined information-diet is duḥkha-hā for a class of organisational suffering. Specific suffering does not generate when the input pattern that produces it is not present.",
+    "falsifiability": "The analog fails if a reader concludes that information-diet alone is the practice. It is not. The verse names a multi-channel discipline (food, recreation, action, sleep, wakefulness) and Shankara extends it to mental input. Reducing the verse to 'unsubscribe from things' has missed that the discipline is integrated. An engineer who has cleaned the Slack channels but still over-eats and under-sleeps has not yet entered yukta-āhāra-vihāra.",
+    "counter_example": "When an engineer's discipline becomes ritual-without-content — religiously logging meals and sleep in a tracker, rigidly enforcing a recreation schedule, but with no actual reflection on whether the discipline is producing the duḥkha-hā the verse promises — the verse's analog does not endorse this. The discipline is functional: it produces the state. Discipline that does not produce the state is discipline that has lost contact with its purpose.",
+    "implication": "Audit the input-channels of the discipline (food, sleep, recreation, action, information). Notice which categories of organisational suffering simply do not arise on the team where these are integrated, and on which adjacent team they arise daily.",
+    "quotable_line": "The disciplined information-diet is duḥkha-hā for a class of suffering: the suffering that an undisciplined input pattern produces.",
+    "tags": ["operator-as-instrument", "team-state", "deep-work"],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:48:00Z",
+      "mutation": "v0 generation: BG 6.17 engineering layer drafted with maximum rigor per chapter-6 thesis flag — middle-path-positive. Shankara's mental-food gloss anchored as the engineering analog hinge. Ramanuja's 'untying bondages' reading used to motivate the structural-suffering reading. Engineering analog locked to the integrated-discipline claim (multi-channel) rather than productivity-tip reductions. Tools: Snowflake, Kafka, Slack, Twitter, HackerNews, LinkedIn. Counter-example explicitly distinguishes ritual-discipline from functional-discipline. Confidence HIGH.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

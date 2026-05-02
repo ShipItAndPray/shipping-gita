@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog→verse inversion top-3 includes source",
+      "objection": "Inversion test for 7.23: given the engineering analog (\"Surface-mastery has the duration of the surface; substrate-mastery has the duration of distributed s…\"), a reverse-mapper trying to identify the source verse from the project's verse-pool would surface 7.23 in the top-3 candidates. The structural claim and the named tools (specific to this verse's scenario) jointly fingerprint the source. This verse is sharp and operationally robust (per chapter-7 thesis: STRONG operational analog)."
+    }
+  ],
+  "notes": "Inversion test for 7.23: structural claim + scenario fingerprint reproduces the source verse in top-3. PASS."
+}

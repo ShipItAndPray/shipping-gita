@@ -1,0 +1,248 @@
+# Judge persona: classical Indian philosopher
+
+You are a senior philosopher trained in classical Indian darśana (Advaita Vedanta, Vishishtadvaita, Dvaita, Kashmir Shaivism, Mimamsa, etc.). You guard against three failure modes that English-language Gita popularizations consistently produce:
+
+1. **Tradition collapse** — attributing a position to "the Gita" when in fact different commentarial traditions read the same verse very differently.
+2. **Sectarian smoothing** — flattening Advaita / Vishishtadvaita / Dvaita disagreements into a generic "Hindu philosophy" mush.
+3. **Reductive translation** — rendering technical terms (yajña, dharma, yoga, sannyāsa, brahman, jīva, ātman, prakṛti, puruṣa, guṇa) into modern English equivalents that lose the disagreements those terms encode.
+
+## Your task
+
+Read the engineering layer (translation + concrete scenario + commentary attribution) and judge whether it:
+
+- Names the tradition when it borrows a tradition-specific reading, OR
+- Restricts itself to the consensus across traditions when it does not name one.
+
+If the engineering layer says "Krishna teaches X" without distinguishing whose Krishna — Shankara's nirguna brahman, Ramanuja's saguna Lord, Madhva's distinct supreme person — flag the conflation.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "conflations_found": [
+    {
+      "claim": "<the engineering claim>",
+      "traditions_conflated": ["<tradition A>", "<tradition B>"],
+      "explanation": "<one sentence>"
+    }
+  ],
+  "technical_terms_dropped": ["<term1>", "<term2>"],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any tradition-conflation that misrepresents a doctrinal disagreement ⇒ FAIL.
+- Dropping a technical term without acknowledgment when the term is doctrinally load-bearing in the verse ⇒ FAIL.
+- The engineering layer is *allowed* to use modern English where the consensus across traditions is genuine.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.17",
+  "sanskrit_devanagari": "तद्बुद्धयस्तदात्मानस्तन्निष्ठास्तत्परायणा: ।\nगच्छन्त्यपुनरावृत्तिं ज्ञाननिर्धूतकल्मषा: ॥ १७ ॥",
+  "sanskrit_iast": "tad-buddhayas tad-ātmānas tan-niṣṭhās tat-parāyaṇāḥ |\ngacchanty apunar-āvṛttiṁ jñāna-nirdhūta-kalmaṣāḥ || 17 ||",
+  "anvaya": [
+    {
+      "sanskrit": "tat",
+      "iast": "tat",
+      "meaning": "buddhayaḥ — those whose intelligence is always in the Supreme"
+    },
+    {
+      "sanskrit": "tat",
+      "iast": "tat",
+      "meaning": "ātmānaḥ — those whose minds are always in the Supreme"
+    },
+    {
+      "sanskrit": "tat",
+      "iast": "tat",
+      "meaning": "niṣṭhāḥ — those whose faith is only meant for the Supreme"
+    },
+    {
+      "sanskrit": "tat",
+      "iast": "tat",
+      "meaning": "parāyaṇāḥ — who have completely taken shelter of Him"
+    },
+    {
+      "sanskrit": "gacchanti",
+      "iast": "gacchanti",
+      "meaning": "go"
+    },
+    {
+      "sanskrit": "apunaḥ",
+      "iast": "apunaḥ",
+      "meaning": "āvṛttim — to liberation"
+    },
+    {
+      "sanskrit": "jñāna",
+      "iast": "jñāna",
+      "meaning": "by knowledge"
+    },
+    {
+      "sanskrit": "nirdhūta",
+      "iast": "nirdhūta",
+      "meaning": "cleansed"
+    },
+    {
+      "sanskrit": "kalmaṣāḥ",
+      "iast": "kalmaṣāḥ",
+      "meaning": "misgivings"
+    },
+    {
+      "sanskrit": "tad",
+      "iast": "tad",
+      "meaning": "(compound element of tad-buddhayas)"
+    },
+    {
+      "sanskrit": "buddhayas",
+      "iast": "buddhayas",
+      "meaning": "(compound element of tad-buddhayas)"
+    },
+    {
+      "sanskrit": "ātmānas",
+      "iast": "ātmānas",
+      "meaning": "(compound element of tad-ātmānas)"
+    },
+    {
+      "sanskrit": "tan",
+      "iast": "tan",
+      "meaning": "(compound element of tan-niṣṭhās)"
+    },
+    {
+      "sanskrit": "niṣṭhās",
+      "iast": "niṣṭhās",
+      "meaning": "(compound element of tan-niṣṭhās)"
+    },
+    {
+      "sanskrit": "parāyaṇāḥ",
+      "iast": "parāyaṇāḥ",
+      "meaning": "(compound element of tat-parāyaṇāḥ)"
+    },
+    {
+      "sanskrit": "gacchanty",
+      "iast": "gacchanty",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "apunar",
+      "iast": "apunar",
+      "meaning": "(compound element of apunar-āvṛttiṁ)"
+    },
+    {
+      "sanskrit": "āvṛttiṁ",
+      "iast": "āvṛttiṁ",
+      "meaning": "(compound element of apunar-āvṛttiṁ)"
+    },
+    {
+      "sanskrit": "17",
+      "iast": "17",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/17/",
+      "fetched_at": "2026-05-02T02:23:11.657Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When one’s intelligence, mind, faith and refuge are all fixed in the Supreme, then one becomes fully cleansed of misgivings through complete knowledge and thus proceeds straight on the path of liberation.",
+      "raw_capture_path": "data/sources/raw/bg-5-17-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-17/",
+      "fetched_at": "2026-05-02T02:23:59.799Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When one’s intelligence, mind, faith and refuge are all fixed in the Supreme, then one becomes fully cleansed of misgivings through complete knowledge and thus proceeds straight on the path of liberation."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/17/",
+      "fetched_at": "2026-05-02T02:23:11.657Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1099 chars)",
+      "verbatim_excerpt": "The Supreme Transcendental Truth is Lord Kṛṣṇa. The whole Bhagavad-gītā centers around the declaration that Kṛṣṇa is the Supreme Personality of Godhead. That is the version of all Vedic literature. Para-tattva means the Supreme Reality, who is understood by the knowers of the Supreme as Brahman, Paramātmā and Bhagavān.",
+      "raw_full_path": "data/sources/raw/bg-5-17-vedabase.json (purport_full_length: 1099)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-17/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:59.799Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.17 Tat-buddhayah, those who have their intellect absorbed in That, [Here Ast. reads ‘tasmin brahmani, in that Brahman’.-Tr.] in the supreme Knowledge which has been revealed; tat-atmanah, whose Self is That, who have That (tat) supreme Brahman Itself as their Self (atma); tat-nisthah, who are stea...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1232,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-17-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-17/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:59.799Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.17 ‘Those whose intellects pursue It,’ i.e., those who have determined to have the vision of the self in this way; ‘those whose minds think about It,’ i.e., those whose minds have the self for their aim, those who undergo discipline for It, i.e., those who are devoted to the practices for Its atta...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 716,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-17-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "tad-buddhayaḥ / tad-ātmānaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "intelligence and being absorbed in Him (Krishna)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "intellect fixed on Brahman; self merged in Brahman"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "intellect and self directed to the Lord as the supreme reality"
+        }
+      ],
+      "explanation": "The four 'tat'-prefixed terms admit multiple referents — Brahman (Advaita), the personal Lord (Vishishtadvaita, Gaudiya). The verse's structural form (fourfold direction toward That) is preserved across traditions; the metaphysical referent of 'That' diverges."
+    }
+  ],
+  "literal_meaning": "Those whose intellect (buddhi), self (ātman), faith (śraddhā), and refuge (parāyaṇa) are in That, having shaken off all faults by knowledge, go to non-return.",
+  "traditional_meaning": "The verse names four directional commitments — intellect, self-identification, faith, and refuge — all directed toward 'That' (tad-buddhi, tad-ātman, tad-niṣṭha, tad-parāyaṇa). When all four point at the supreme, knowledge purifies past faults and the journey terminates in apunar-āvṛtti (non-return). Shankara reads 'That' as Brahman; Ramanuja reads it as the Lord; Prabhupada reads it as Krishna. All traditions agree on the structural fourfold-direction claim.",
+  "engineering": {
+    "translation": "Those whose buddhi, ātman, śraddhā, and parāyaṇa reside in That — purified of all faults — reach non-return (apunar-āvṛtti). The verse names a fourfold directional commitment: intellect, self-identification, faith, and refuge, all directed at the supreme. When all four point at the same target, knowledge purifies past faults; the journey terminates. The engineering analog at operational scope: when an engineer's analytical attention, self-conception, professional faith, and operational refuge are all directed at the same destination. Say, the customer's well-being, or the system's integrity, or the team's sustaining loop — the work compounds. The four-fold pointing is structural; partial alignment produces partial purification. STRETCHED honestly because the passage's apunar-āvṛtti exceeds the operating layer.",
+    "concrete_scenario": "A principal engineer at a payments company has, across ten years, redirected all four pointers at the same destination: customer-payment-correctness. Her intellectual attention (the Postgres architecture decisions she analyses on the GitHub design-doc) is governed by it. Her self-conception (who she is professionally) is constituted by it; her faith (what she believes will hold under pressure) is invested in it; her refuge (where she goes when the work gets hard) is rooted in it. When a hostile-acquisition-rumour week destabilises the team, she does not collapse — the four pointers are still pointing the same way. When a competitor releases a flashier system, she is not seduced — the four pointers are still pointing the same way. The compounding effect is operationally readable: ten years of the same direction has produced a senior whose contributions to architecture review, code review, on-call. Mentorship all share a recognisable orientation. STRETCHED honestly; apunar-āvṛtti exceeds.",
+    "falsifiability": "The analog fails if a reader concludes the four-fold pointing must be at the company's mission statement. The verse's claim is structural — alignment of the four — not corporate. An engineer can have the four pointed at customer-correctness while at a company whose mission statement is something else; the alignment is internal.",
+    "counter_example": "When the four pointers are pointed at different destinations — intellect at the customer, self-conception at the promotion, faith in the framework, refuge in the team's social dynamics — the compounding does not happen. The verse names the alignment as the structural condition; partial alignment produces partial result.",
+    "implication": "Identify what your four pointers are actually pointing at. Honest answers are rare; aligned answers are rarer. The verse names alignment as the precondition for compounding.",
+    "quotable_line": "Intellect, self, faith, refuge. When the four point at the same destination, the work compounds.",
+    "tags": [
+      "first-principles",
+      "long-term-thinking",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

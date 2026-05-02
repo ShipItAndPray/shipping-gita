@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.28",
+  "chapter": 7,
+  "verse": 28,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Those whose meritorious deeds have ended their sin are freed from the delusion of dualities and worship Krishna with firm vows. The verse continues the diagnostic from 7.27 and names the dissolution. The engineering analog is sharp and operational: the senior whose track record of right-action — many quarters of disciplined shipping, careful incident-response, honest code review, fair promotion-cycle behavior — has dissolved the cycle of self-praise and self-recrimination. Such a senior reviews a peer's work without inflation and without harshness. She receives a promotion without elation, a missed promotion without devastation. She walks into incident-review without performing innocence and without performing guilt. The dvandva-moha of 7.27 has weakened, not by abolition of judgment, but by the accumulated weight of right-action. STRONG analog.",
+    "concrete_scenario": "Helena has been a principal engineer at a fintech for eleven years. Across that span she has shipped three platform migrations (Heroku → AWS → multi-region GCP), led the post-mortem of two SEV-1 incidents that took down customer-facing checkout for hours, and been passed over for promotion to distinguished engineer twice before getting it on the third cycle. By year eleven, the structure of her own working day has settled. A junior on her team ships a PR with a creative idempotency-key scheme; Helena reviews it the same way she reviews the PR from the senior next to her — disciplined, specific, neither inflated nor dismissive. The next month a Datadog alert wakes her at 3am for the third time that quarter; she diagnoses calmly, writes the runbook update, and goes back to sleep. Two weeks later her manager tells her the next promotion cycle has been delayed by a budget freeze; Helena nods and goes back to the architecture-decision record she was writing. The dualities of self-praise/self-recrimination, of promo-elation/promo-grief, of liking/disliking the junior's work — these have not abolished themselves through technique. They have weakened through eleven years of accumulated right-action. The verse names this as dvandva-moha-nirmuktā and dṛḍha-vratāḥ.",
+    "falsifiability": "The analog fails if a reader concludes 'tenure produces equanimity.' Many engineers reach eleven years still trapped in the duality cycle — the bitter senior, the chronically inflamed reviewer, the engineer whose every PR review is a performance of authority. Time alone is not the verse's mechanism; the verse names puṇya-karmaṇām (of meritorious deeds), not vṛddha-janānām (of old persons). Right-action across time is the mechanism, not time itself.",
+    "counter_example": "When the 'equanimity' is in fact disengagement — the senior who no longer cares enough to review carefully, who shrugs at incidents, who walks into post-mortems without affect — the verse's reading does not bless it. Dvandva-moha-nirmuktā is freedom-from-delusion-of-dualities; it is not freedom-from-engagement. The verse describes a senior who is firm-vowed (dṛḍha-vratāḥ) and engaged, not the senior who has checked out.",
+    "implication": "Audit one senior in your organization whose composure you respect. What right-actions, accumulated across what time-window, produced the composure? Then audit your own composure-practice. The verse names a structural arc: right-action across time → end of dvandva-moha → firm-vowed engagement.",
+    "quotable_line": "The senior's composure is not produced by tenure; it is produced by right-action accumulated across tenure.",
+    "tags": [
+      "non-attachment-to-praise",
+      "team-state",
+      "deliberate-action"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRONG operational analog (per chapter-7 thesis: meritorious-cross-delusion is sharper and less STRETCHED than surrounding verses). Engineering analog: senior whose track record of right-action has dissolved self-recrimination/self-praise cycle (continuation of 7.27). Concrete scenario: Helena, eleven-year fintech principal, three platform migrations, two SEV-1 incidents, a delayed promotion — composed in PR review, in 3am alert, in promo-cycle disappointment. Named: Heroku, AWS, GCP, Datadog. Counter-example: equanimity-as-disengagement is not the verse. Coheres with 7.27 and Ch 2 sthita-prajña per thesis. Tags: non-attachment-to-praise, team-state, deliberate-action.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

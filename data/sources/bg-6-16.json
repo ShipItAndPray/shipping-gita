@@ -1,0 +1,279 @@
+{
+  "id": "BG 6.16",
+  "chapter": 6,
+  "verse": 16,
+  "fetched_at": "2026-05-02T03:30:00Z",
+  "sanskrit_devanagari": "नात्यश्नतस्तु योगोऽस्ति न चैकान्तमनश्नतः ।\nन चातिस्वप्नशीलस्य जाग्रतो नैव चार्जुन ॥ १६ ॥",
+  "sanskrit_iast": "nāty-aśnatas tu yogo 'sti na caikāntam anaśnataḥ |\nna cāti-svapna-śīlasya jāgrato naiva cārjuna || 16 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/16/",
+      "fetched_at": "2026-05-02T03:01:42.972Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical).",
+      "raw_capture_path": "data/sources/raw/bg-6-16-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/16",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (transliteration body identical; pāda-break and punctuation rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=16",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-16/",
+      "fetched_at": "2026-05-02T03:02:04.754Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-16-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.016). Body text identical; sandhi-rendering differs by edition convention."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुन",
+      "iast": "arjuna",
+      "meaning": "O Arjuna"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "अति-अश्नतः",
+      "iast": "ati-aśnataḥ",
+      "meaning": "for one who eats too much"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but / indeed"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "अस्ति",
+      "iast": "asti",
+      "meaning": "is / exists"
+    },
+    {
+      "sanskrit": "एकान्तम्",
+      "iast": "ekāntam",
+      "meaning": "completely / at all"
+    },
+    {
+      "sanskrit": "अनश्नतः",
+      "iast": "anaśnataḥ",
+      "meaning": "for one who does not eat"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अति-स्वप्न-शीलस्य",
+      "iast": "ati-svapna-śīlasya",
+      "meaning": "for one given to over-sleeping"
+    },
+    {
+      "sanskrit": "जाग्रतः",
+      "iast": "jāgrataḥ",
+      "meaning": "for one who stays awake (excessively)"
+    },
+    {
+      "sanskrit": "एव",
+      "iast": "eva",
+      "meaning": "indeed"
+    },
+    {
+      "sanskrit": "nāty",
+      "iast": "nāty",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "aśnatas",
+      "iast": "aśnatas",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tu",
+      "iast": "tu",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogo",
+      "iast": "yogo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'sti",
+      "iast": "'sti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "caikāntam",
+      "iast": "caikāntam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "anaśnataḥ",
+      "iast": "anaśnataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cāti",
+      "iast": "cāti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "svapna",
+      "iast": "svapna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "śīlasya",
+      "iast": "śīlasya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "jāgrato",
+      "iast": "jāgrato",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "naiva",
+      "iast": "naiva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cārjuna",
+      "iast": "cārjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/16/",
+      "fetched_at": "2026-05-02T03:01:42.972Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "There is no possibility of one’s becoming a yogī, O Arjuna, if one eats too much or eats too little, sleeps too much or does not sleep enough.",
+      "raw_capture_path": "data/sources/raw/bg-6-16-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-16/",
+      "fetched_at": "2026-05-02T03:02:04.754Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "There is no possibility of one’s becoming a yogi, O Arjuna, if one eats too much or eats too little, sleeps too much or does not sleep enough."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/16/",
+      "fetched_at": "2026-05-02T03:01:42.972Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1770 chars)",
+      "verbatim_excerpt": "Regulation of diet and sleep is recommended herein for the yogīs. Too much eating means eating more than is required to keep the body and soul together. There is no need for men to eat animals, because there is an ample supply of grains, vegetables, fruits and milk.",
+      "raw_full_path": "data/sources/raw/bg-6-16-vedabase.json (purport_full_length: 1770)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-16/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:04.754Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.16 (Tu, but) O Arjuna, Yoga na asti, is not; atiasnatah, for one who eats too much, for one who eats food more than his capacity; na ca, nor is Yoga; anasnatah, for one who does not eat; ekantam, at all. This accords with the Vedic text, ‘As is well known, if one eats that much food which is",
+      "verbatim_excerpt_length": 294,
+      "verbatim_full_length": 1121,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-16-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-16/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:04.754Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.16 Over-eating and excessive fasting are opposed to Yoga. So also are excessive recreation and non-recreation, too much of sleep and too much of vigil. So too, are overwork and idleness.",
+      "verbatim_excerpt_length": 188,
+      "verbatim_full_length": 188,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-16-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "yoga (in the context of food/sleep extremes)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "no possibility of one's becoming a yogī"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Yoga is not for one who eats too much or who does not eat at all; cites Vedic precedent on capacity-appropriate food"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "over-eating, fasting, recreation, non-recreation, sleep, vigil, overwork, idleness — all opposed to Yoga"
+        }
+      ],
+      "explanation": "All traditions read the verse as Krishna's structural claim that the body's discipline is a precondition for the mind's discipline. Ramanuja generalises beyond the literal four extremes to cover overwork/idleness as well. Engineering analog is genuine and operational at decade-scope."
+    }
+  ],
+  "literal_meaning": "Yoga is not for one who eats too much, nor for one who eats not at all; nor for one given to too much sleep, nor for one excessively awake, O Arjuna.",
+  "traditional_meaning_consensus": "6.16 establishes the middle-path doctrine. Yoga is impossible at extremes: over-eating, under-eating, over-sleeping, over-waking. Shankara cites the Vedic text from Sa. Br. — 'food eaten within capacity sustains; more than that harms; less does not sustain.' Ramanuja generalises: 'over-eating and excessive fasting are opposed to Yoga; so also are excessive recreation and non-recreation, too much of sleep and too much of vigil; so too are overwork and idleness.' Across traditions the verse is Krishna's structural claim that the body's discipline is the precondition for the mind's discipline. The engineering analog is genuine and operational at decade-scope: the senior who eats well, sleeps well, exercises, sustains the discipline.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

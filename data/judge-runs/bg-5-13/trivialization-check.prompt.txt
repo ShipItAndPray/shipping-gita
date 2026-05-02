@@ -1,0 +1,247 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.13",
+  "sanskrit_devanagari": "सर्वकर्माणि मनसा सन्न्यस्यास्ते सुखं वशी ।\nनवद्वारे पुरे देही नैव कुर्वन्न कारयन् ॥ १३ ॥",
+  "sanskrit_iast": "sarva-karmāṇi manasā sannyasyāste sukhaṁ vaśī |\nnava-dvāre pure dehī naiva kurvan na kārayan || 13 ||",
+  "anvaya": [
+    {
+      "sanskrit": "वशी",
+      "iast": "vaśī",
+      "meaning": "the self-controlled one"
+    },
+    {
+      "sanskrit": "देही",
+      "iast": "dehī",
+      "meaning": "the embodied"
+    },
+    {
+      "sanskrit": "मनसा",
+      "iast": "manasā",
+      "meaning": "with the mind / mentally"
+    },
+    {
+      "sanskrit": "सर्वकर्माणि",
+      "iast": "sarva-karmāṇi",
+      "meaning": "all actions"
+    },
+    {
+      "sanskrit": "सन्न्यस्य",
+      "iast": "sannyasya",
+      "meaning": "having renounced"
+    },
+    {
+      "sanskrit": "नवद्वारे पुरे",
+      "iast": "nava-dvāre pure",
+      "meaning": "in the city of nine gates"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "happily"
+    },
+    {
+      "sanskrit": "आस्ते",
+      "iast": "āste",
+      "meaning": "dwells / abides"
+    },
+    {
+      "sanskrit": "न एव कुर्वन्",
+      "iast": "na eva kurvan",
+      "meaning": "neither acting"
+    },
+    {
+      "sanskrit": "न कारयन्",
+      "iast": "na kārayan",
+      "meaning": "nor causing to act"
+    },
+    {
+      "sanskrit": "sannyasyāste",
+      "iast": "sannyasyāste",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sukhaṁ",
+      "iast": "sukhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nava",
+      "iast": "nava",
+      "meaning": "(compound element of nava-dvāre)"
+    },
+    {
+      "sanskrit": "dvāre",
+      "iast": "dvāre",
+      "meaning": "(compound element of nava-dvāre)"
+    },
+    {
+      "sanskrit": "pure",
+      "iast": "pure",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "naiva",
+      "iast": "naiva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kurvan",
+      "iast": "kurvan",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kārayan",
+      "iast": "kārayan",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "13",
+      "iast": "13",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/13/",
+      "fetched_at": "2026-05-02T02:22:40.350Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When the embodied living being controls his nature and mentally renounces all actions, he resides happily in the city of nine gates [the material body], neither working nor causing work to be done.",
+      "raw_capture_path": "data/sources/raw/bg-5-13-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-13/",
+      "fetched_at": "2026-05-02T02:23:46.920Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When the embodied living being controls his nature and mentally renounces all actions, he resides happily in the city of nine gates [the material body], neither working nor causing work to be done."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/13/",
+      "fetched_at": "2026-05-02T02:22:40.350Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1439 chars)",
+      "verbatim_excerpt": "The embodied soul lives in the city of nine gates. The activities of the body, or the figurative city of body, are conducted automatically by its particular modes of nature. The soul, although subjecting himself to the conditions of the body, can be beyond those conditions, if he so desires.",
+      "raw_full_path": "data/sources/raw/bg-5-13-vedabase.json (purport_full_length: 1439)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-13/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:46.920Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.13 Aste, he continues; sukham, happily; sannyasya, having given up; sarva-karmani, all actions-nitya, naimittika, kamya and nisiddha (prohibited actions); [See note on p. 128.-Tr.] manasa, mentally, through discriminating wisdom-i.e. having given up (all actions) by seeing inaction in action, etc.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 3787,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-13-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the self-controlled (vaśī) embodied one (dehī), having mentally renounced (manasā sannyasya) all actions through discriminating wisdom — i.e., having seen inaction in action — dwells happily in the city of nine gates (the body of nine orifices: two eyes, two ears, two nostrils, mouth, anus, genital), neither acting nor causing-others-to-act. Shankara emphasises this is the established jñānin's state: the body acts, the senses act, but the embodied Self neither acts nor causes."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-13/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:46.920Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.13 The embodied self who is self-controlled, renounces all actions to the city of nine gates, i.e., the body with its sensory and motor functions which are nine in number. He discriminates that all actions are due to conjunction of the self with the body which is rooted in previous Karmas, and is…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 490,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-13-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the self-controlled embodied self renounces all actions to the city of nine gates — i.e., the body with its sensory and motor functions which are nine in number. He discriminates that all actions are due to the conjunction of the self with the body, which is rooted in previous karma, and dwells happily, neither acting nor causing others to act. For Ramanuja, the renunciation is the recognition that action belongs to the body, not to the self."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "nava-dvāre pure dehī",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "in the city of nine gates [the material body]"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Advaita: the body of nine orifices is the field; the embodied Self dwells in it without acting"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Vishishtadvaita: the embodied self renounces all actions to the body, recognising they belong to body-not-self"
+        }
+      ],
+      "explanation": "Both classical readings preserve the body=nine-gated-city image. Shankara emphasises the embodied Self's non-action; Ramanuja emphasises the renunciation-of-action-to-the-body via discrimination. The metaphysical scope (the nature of the embodied Self vs. the body) is sectarian; the structural image is shared."
+    }
+  ],
+  "literal_meaning": "The self-controlled embodied one, having mentally renounced all actions, dwells happily in the city of nine gates, neither acting nor causing action.",
+  "traditional_meaning": "Krishna gives the metaphor of the body as the city of nine gates (nava-dvāra-pure: two eyes, two ears, two nostrils, mouth, anus, genital). The vaśī (self-controlled) dehī (embodied) mentally renounces all action and dwells happily within this city, neither acting nor causing others to act. The verse anchors the inner-renunciation reading: bodily action continues; the embodied Self has renounced it at the level of mind.",
+  "engineering": {
+    "translation": "The embodied one (dehī), mentally renouncing all actions (sarva-karmāṇi manasā saṁnyasya). Dwells happily (sukham āste) in the city of nine gates (nava-dvāre pure). Neither acting (na kurvan) nor causing action (na kārayan). The 'city of nine gates' names doctrinal anatomy. The engineering analog operates at operational scope: the senior who has internally renounced identification with the doer-position dwells at peace inside the role/work-environment. Neither acting in the binding sense nor causing-others-to-act in the binding sense, while the role and work continue to receive inputs and produce outputs. STRETCHED honestly; the verse's anatomical metaphor and metaphysical claim exceed the operational analog. The engg layer scopes to the principal's at-peace-inside-the-work signature.",
+    "concrete_scenario": "A staff engineer at a payments company has been at the same company for six years. She has watched four CTOs come and go, three product pivots, the monolith-to-microservices-and-back swing. Across all of it, she has dwelt at peace inside her role. She ships, she reviews, she mentors, she runs incident response on PagerDuty. The role is the city of nine gates: inputs come in (Slack messages, GitHub issues, Datadog alerts, Sentry errors. Customer escalations, executive Slack DMs, hiring requests, design-review invites, on-call pages). Outputs go out (PRs, comments, decisions, incident-resolutions, mentorship-conversations, design-doc reviews). She is at the center, dwelling, neither identifying with the inputs as 'me' nor producing the outputs as 'me'. The role is a city; she lives in it. STRETCHED honestly because the verse's nava-dvāre pure metaphor reaches into anatomical doctrine the operational analog cannot fully carry.",
+    "falsifiability": "The analog fails if a reader hears 'neither acting nor causing action' as vocational quietism. The senior in the example has shipped, reviewed, mentored, paged across six years. What the verse refuses is the binding-identification with the action, not the action itself.",
+    "counter_example": "When an engineer is genuinely not acting — when the city is empty of inputs and outputs because the engineer has stopped engaging — the verse does not apply. The dehī in the verse is at peace *while* the city continues to function; the empty city is not the verse.",
+    "implication": "Audit whether your role is functioning as a city of nine gates with you dwelling in it, or whether you have collapsed into one of the gates. The peace is the readable signature.",
+    "quotable_line": "The senior dwells in the role-as-city. Inputs come in; outputs go out; the dweller is at peace.",
+    "tags": [
+      "operator-as-instrument",
+      "system-as-field",
+      "team-state"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

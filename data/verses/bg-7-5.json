@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.5",
+  "chapter": 7,
+  "verse": 5,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna completes the structural distinction. Verse 7.4 named the lower prakṛti (the visible artifact). Here he names the higher (parā) — the jīva-bhūta, the life-element, the principle by which the world is sustained (dhāryate). Operationally: every running system has a visible-artifact prakṛti — the codebase, the dashboards, the deploys, the framework choices. And every running system has an operating-intelligence prakṛti — the engineers whose attention sustains it, the users whose need pulls it forward, the on-call humans who hold it through incidents. Without the operating intelligence, the visible artifact does not run; it is dead infrastructure, not a system. The verse's claim, scoped operationally, is that the higher prakṛti is what makes the lower a system rather than an artifact. The chapter thesis preserves this as a structural distinction without claiming the operating intelligence IS Krishna; that would be tech-religion. The structural distinction holds at engineering scope.",
+    "concrete_scenario": "On a Sunday afternoon, the staging Kubernetes cluster runs all the services Priya's pod owns. Pods are healthy, Datadog dashboards are green, the GitHub-Actions release pipeline sits idle. Nobody is on call this hour; Priya is at her son's soccer game; the new engineer who would page is in flight to a conference. From the outside, the system is up. But no one is reading the dashboards, no one is looking at Sentry, no one would hear if a customer's webhook started 5xx-ing. By Monday morning, the on-call rotation rolls back over, the dashboards get eyes, the operating intelligence is restored. The system was 'running' through Sunday; what was missing was the parā prakṛti — the attention and intelligence that turns infrastructure into a system. The visible artifact (Kubernetes, the dashboards, the pipeline — all 7.4 elements) was there; the higher prakṛti (engineers attending, users needing) was thinned. By 9am Monday, both prakṛtis are back; the system in the full sense is running again.",
+    "falsifiability": "The analog fails if a reader concludes that the visible artifact is therefore worthless, or that the operating intelligence is mystified into 'the divine spark of the engineer'. Both readings collapse the structural distinction. The artifact is real; the operating intelligence is operational (humans paying attention, users needing the output); neither is the metaphysical parā prakṛti the verse names. The engineering layer is an additive operational reflection, not a replacement.",
+    "counter_example": "When the system is genuinely autonomous — the rare case where the operating intelligence is so codified into the artifact that human attention is not the live sustaining force (some embedded systems, some self-healing platforms) — the two-prakṛti distinction at operational scope is weaker. Most engineering systems do not have this property; the customer-need still pulls and the human-attention still sustains.",
+    "implication": "When auditing a system, name both prakṛtis. The visible-artifact prakṛti (storage, compute, deploy, orchestration). The operating-intelligence prakṛti (which engineers attend to it, which users pull at it, which on-call humans hold it through incidents). A system audit that names only the visible has missed half the chapter.",
+    "quotable_line": "The visible artifact is the lower prakṛti; the operating intelligence sustaining it is the higher.",
+    "tags": ["operator-system-coupling", "team-state", "full-system-view"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:10:00Z",
+      "mutation": "v0 generation: per chapter thesis, the two-prakṛti distinction is preserved structurally without claiming the operating intelligence IS Krishna. Engineering layer maps parā prakṛti to operating intelligence (engineers, users, on-call humans). Concrete scenario uses Sunday-afternoon staging cluster, named Kubernetes/Datadog/Sentry/GitHub Actions, named characters Priya. Tagged STRETCHED honestly: the verse's metaphysical content (parā as kṣetrajña, antaryāmin) exceeds operational scope. Confidence MEDIUM. Falsifiability explicitly guards against tech-religion misread.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

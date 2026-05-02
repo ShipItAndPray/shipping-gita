@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.29",
+  "chapter": 7,
+  "verse": 29,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Metaphysical and forward-pointing. Those who strive (taking refuge in Krishna) for release from old age and death know brahman entirely, the adhyātma, and all karma. Brahman, adhyātma, karma are Ch 8 vocabulary; this verse seeds them. STRETCHED. Engineering analog stays at narrower scope: career-end substrate-knowledge. A senior who strives across decades to grasp her system at its substrate — durable customer-need, architectural invariants, the way each Postgres or Kafka implementation maps to underlying requirement — ends up able to articulate three things. The system's substrate (brahman-shadow). The operator's role inside it (adhyātma-shadow). How every action ramifies (karma-shadow). Verse names this knowing as liberatory in a metaphysical sense; engineering shadow stays bounded by career-scale articulability.",
+    "concrete_scenario": "Maria's last quarter approaches. She has been a distinguished engineer at the same logistics company for twenty-three years. The CEO asks her to write a final architecture-decision record for the platform she shaped — a 6,000-word document meant to guide the team for the next decade. Maria writes it across three weeks. Her ADR does three things. First, it names the substrate: customer-need is predictable delivery time-windows under variable warehouse-floor latency. Second, it names the operator's role: the on-call engineer's vantage, the incident-response patterns that have held, the architectural invariants no one should break. Third, it traces how past architectural decisions ramified — the 2018 Postgres-and-Kubernetes migration that worked, the 2021 distributed-saga adoption that misfired, the 2024 return to a hybrid Kafka pipeline. Verse names brahman, adhyātma, karma as metaphysical knowing tied to liberation from old age and death; Maria's ADR is a much smaller shadow — career-end substrate held cleanly enough to transmit. Forward-pointer: Ch 8 elaborates these terms.",
+    "falsifiability": "The analog fails if a reader concludes 'engineering substrate-knowledge is brahman.' The verse's claim is theistic and metaphysical; the engineering shadow is operational. An engineer who reads this as 'mastering my system makes me liberated' has badly misread it. The verse is naming a metaphysical destination Ch 8 will define; the engineering layer offers only the much narrower career-end-articulability shadow.",
+    "counter_example": "When the 'career-end substrate-knowledge' is in fact tacit, untransmitted, and lost when the engineer retires, the verse's reading does not bless it. The verse names a knowing that is articulable (the seeker viduḥ — knows — kṛtsnam, entirely); private gnosis that dies with the senior is not the analog. Career-end substrate-knowledge that is not written down is the failure mode of the analog, not its instantiation.",
+    "implication": "If you are within five years of retirement: name three substrate-claims about your system that are not yet written down. Schedule the writing. The verse seeds Ch 8's adhyātma/adhibhūta/adhidaiva/adhiyajña typology; the engineering practice is to write the architecture-decision record while the operator is still around to write it.",
+    "quotable_line": "Career-end substrate-knowledge written down is the engineering shadow; the verse's brahman-adhyātma-karma is the metaphysical destination Ch 8 names.",
+    "tags": [
+      "long-term-thinking",
+      "first-principles",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRETCHED honestly. Verse is heavily metaphysical and forward-points to Ch 8 (per chapter-7 thesis). Engineering analog scoped at career-end substrate-knowledge (the senior who can articulate the system's substrate clearly even at career-end). Concrete scenario: Maria, 23-year distinguished engineer at a logistics company, last-quarter architecture-decision record naming substrate / operator-role / past-decision ramification. Forward-pointer to Ch 8 explicit. Counter-example: tacit untransmitted gnosis is the failure mode, not the analog. Tags: long-term-thinking, first-principles, operator-system-coupling.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

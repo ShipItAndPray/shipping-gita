@@ -1,0 +1,33 @@
+{
+  "id": "BG 6.14",
+  "chapter": 6,
+  "verse": 14,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "6.13 named the body's preconditions; 6.14 names the inner ones. Praśāntātmā — calm self. Vigata-bhīḥ — fearless. Brahmacāri-vrate sthitaḥ — established in the celibacy-vow. Manaḥ saṁyamya — restraining the mind. Mac-cittaḥ, mat-paraḥ — with thought on Krishna, intent on Krishna as supreme goal. The verse is somatic-and-theistic in a way that exceeds engineering reach, and an honest analog scopes downward. The operational rung the verse names: the engineer enters the deep-work block already settled in mood, not carrying anxiety from the standup that ran long, not still arguing internally with a code review from yesterday. The block has a stipulated object — the migration design, not 'engineering generally' — and the engineer's attention is yoked to that specific object, not wandering across a queue of concerns. Shankara is precise: mat-paraḥ distinguishes ordinary attention from terminal goal-orientation. The engineering parallel is the difference between attention-directed-at-X and attention-with-X-as-the-day's-purpose. Confidence MEDIUM, STRETCHED — the explicit theism is past the operational layer.",
+    "concrete_scenario": "A senior backend engineer at a healthcare-data company opens her work session at 9:30 AM on a Postgres-backed FHIR-resource-versioning design. Across the prior twenty minutes she has done four small acts of preparation. She has finished the morning standup, named her one block-priority aloud, declined the invite to a 10:30 architecture-sync that would shred the block. She has cleared the Sentry-routed incident-channel notification she was anxious about (handed off to the on-call rotation). She has quieted the internal argument with yesterday's GitHub code review by writing two concise replies and posting them. She has set Slack to do-not-disturb until 11:30. The settling is not the work; the settling makes the work possible. When she opens the design doc her mind is mat-paraḥ in a strictly operational sense: this two-hour block has a single declared object. Compare the engineer who opens the design doc with three Slack threads still active in her head, an unread Datadog incident page in another tab, an unresolved conflict from standup looping, and the block bleeding into the next meeting because no end-time was named. The body is at the desk; the mind is yoked to nothing in particular. The verse, scoped to engineering, is about the inner conditions that distinguish the first engineer's block from the second's.",
+    "falsifiability": "The analog fails if a reader takes 'with thought on Krishna' as straightforward engineering content. It is not. The verse names a specifically theistic terminal-orientation that the operational analog does not reach. An engineer who reads this verse as 'have a clear goal' has flattened the explicit theism into a productivity tip. The engineering claim is narrower: the inner conditions of the block (settled mood, fearlessness, declared single object) are operational; the goal-orientation toward Krishna is past operational scope.",
+    "counter_example": "When the engineer enters the block carrying genuine emergency — an active production incident, a critical failed deploy, a team-member crisis — the verse does not require manufacturing serenity. Praśāntātmā is the result of having handled what genuinely needs handling, not the suppression of what needs handling. The yogi who pretends serenity over an unattended fire is not yukta; she is dissociated. The verse's calm is post-handling, not in-place-of-handling.",
+    "implication": "Audit the inner conditions in which deep-work blocks begin. Anxiety from earlier in the day, unresolved arguments, undeclared block-objects — these contend silently with the work and show up as inability to land.",
+    "quotable_line": "The settling is not the work; the settling makes the work possible.",
+    "tags": ["deep-work", "focus-practice", "operator-as-instrument"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:35:00Z",
+      "mutation": "v0 generation: BG 6.14 engineering layer drafted from triangulated source pack (vedabase + bgus + Shankara + Ramanuja, merged 6.13-14 page). STRETCHED honestly per chapter-6 thesis: 6.14's explicit theism (mat-cittaḥ, mat-paraḥ) and somatic specificity (brahmacāri-vrate) exceed operational reach. Engineering analog narrowed to inner conditions of the deep-work block: settled mood (praśāntātmā), fearlessness (vigata-bhīḥ → emergency-handled), restrained mind (manaḥ saṁyamya), declared single object (mat-paraḥ → operational rung). Counter-example explicitly distinguishes serenity-after-handling from serenity-as-suppression. Confidence MEDIUM.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

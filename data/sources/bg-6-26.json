@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.26",
+  "chapter": 6,
+  "verse": 26,
+  "fetched_at": "2026-05-02T02:28:24.992Z",
+  "sanskrit_devanagari": "यतो यतो निश्चलति मनश्चञ्चलमस्थिरम् ।ततस्ततो नियम्यैतदात्मन्येव वशं नयेत् ॥ २६ ॥",
+  "sanskrit_iast": "yato yato niścalatimanaś cañcalam asthiramtatas tato niyamyaitadātmany eva vaśaṁ nayet",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-26-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/26",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=26",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-26-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.026). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self.",
+      "raw_capture_path": "data/sources/raw/bg-6-26-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the self."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/26/",
+      "fetched_at": "2026-05-02T02:25:18.255Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 677 chars)",
+      "verbatim_excerpt": "The nature of the mind is flickering and unsteady. But a self-realized yogī has to control the mind; the mind should not control him. One who controls the mind (and therefore the senses as well) is called gosvāmī, or svāmī, and one who is controlled by the mind is called go-dāsa, or the servant of the senses.",
+      "raw_full_path": "data/sources/raw/bg-6-26-vedabase.json (purport_full_length: 677)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.26 In the beginning, the yogi who is thus engaged in making the mind established in the Self, etat vasamnayet, should bring this (mind) under the subjugation; atmani eva, of the Self Itself; niyamya, by restraining; etat. it; tatah tatah, from all those causes whatever, viz sound etc.; y",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 736,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-26-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-26/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:25:58.258Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.26 Wherever the mind, on account of its fickle and unsteady nature, wanders, because of its proclivity to sense-objects, he should, subduing the mind everywhere with effort, bring it under control in order to remain in the self alone by contemplating on the incomparable bliss therein.",
+      "verbatim_excerpt_length": 287,
+      "verbatim_full_length": 287,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-26-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

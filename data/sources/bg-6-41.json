@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.41",
+  "chapter": 6,
+  "verse": 41,
+  "fetched_at": "2026-05-02T02:28:27.360Z",
+  "sanskrit_devanagari": "प्राप्य पुण्यकृतां लोकानुषित्वा शाश्वती: समा: ।श‍ुचीनां श्रीमतां गेहे योगभ्रष्टोऽभिजायते ॥ ४१ ॥",
+  "sanskrit_iast": "prāpya puṇya-kṛtāṁ lokānuṣitvā śāśvatīḥ samāḥśucīnāṁ śrīmatāṁ geheyoga-bhraṣṭo ’bhijāyate",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/41/",
+      "fetched_at": "2026-05-02T02:25:40.990Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-41-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/41",
+      "fetched_at": "2026-05-02T02:25:40.990Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=41",
+      "fetched_at": "2026-05-02T02:25:40.990Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-41/",
+      "fetched_at": "2026-05-02T02:26:33.964Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-41-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:40.990Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.041). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/41/",
+      "fetched_at": "2026-05-02T02:25:40.990Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The unsuccessful yogī, after many, many years of enjoyment on the planets of the pious living entities, is born into a family of righteous people, or into a family of rich aristocracy.",
+      "raw_capture_path": "data/sources/raw/bg-6-41-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-41/",
+      "fetched_at": "2026-05-02T02:26:33.964Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The unsuccessful yogi, after many, many years of enjoyment on the planets of the pious living entities, is born into a family of righteous people, or into a family of rich aristocracy."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/41/",
+      "fetched_at": "2026-05-02T02:25:40.990Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1002 chars)",
+      "verbatim_excerpt": "The unsuccessful yogīs are divided into two classes: one is fallen after very little progress, and one is fallen after long practice of yoga. The yogī who falls after a short period of practice goes to the higher planets, where pious living entities are allowed to enter.",
+      "raw_full_path": "data/sources/raw/bg-6-41-vedabase.json (purport_full_length: 1002)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-41/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:33.964Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.41 Prapya, attaining, reaching, lokan, the worlds; punya-krtam, of the righteous, of the performers of the Horse-sacrifice, etc.; and usitva, residing there, enjoying the stay; for sasvatih, eternal; samah, years; (then,) when the period of enjoyment is over, the yoga-bhrastah, man falle",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1133,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-41-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-41/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:33.964Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.41 This person, who had wandered away from Yoga because of desire for whatever kind of enjoyments, he will gain those very enjoyments through the excellence of Yoga alone. Having attained to the worlds of those who do meritorious acts, he will dwell there for a long time, i.e., till his ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 548,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-41-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

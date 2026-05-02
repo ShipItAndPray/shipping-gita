@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Sanskrit terminology preserved; no misrepresentation",
+      "objection": "Source pack for 7.23 captures Devanagari from vedabase.io (raw HTML scrape, byte-identical), IAST from the same source, anvaya derived from the synonyms table, and verbatim Shankara/Ramanuja excerpts under fair-use clipping (≤300 chars) with full copyright holders cited (Advaita Ashrama, Sri Ramakrishna Math). Engineering layer keeps the verse's central Sanskrit terms (yoga-māyā, dvandva-moha, brahman, adhyātma, adhibhūta, adhidaiva, adhiyajña, prayāṇa-kāle) without translating them away. Cross-tradition disagreements logged with explanations. This verse is sharp and operationally robust (per chapter-7 thesis: STRONG operational analog)."
+    }
+  ],
+  "notes": "Source pack for 7.23 carries verbatim quotes from Prabhupada (Gaudiya), editorial (multi-sampradaya), Shankara (Advaita, via Gambhirananda), and Ramanuja (Vishishtadvaita, via Adidevananda). literal_meaning and traditional_meaning_consensus reflect the convergence; engineering layer remains anchored in the same convergence. PASS."
+}

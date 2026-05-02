@@ -1,0 +1,308 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.5",
+  "sanskrit_devanagari": "यत्साङ्ख्यैः प्राप्यते स्थानं तद्योगैरपि गम्यते ।\nएकं साङ्ख्यं च योगं च यः पश्यति स पश्यति ॥ ५ ॥",
+  "sanskrit_iast": "yat sāṅkhyaiḥ prāpyate sthānaṁ tad yogair api gamyate |\nekaṁ sāṅkhyaṁ ca yogaṁ ca yaḥ paśyati sa paśyati || 5 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यत् स्थानम्",
+      "iast": "yat sthānam",
+      "meaning": "which place / state"
+    },
+    {
+      "sanskrit": "साङ्ख्यैः",
+      "iast": "sāṅkhyaiḥ",
+      "meaning": "by the sāṅkhyas (followers of jñāna-yoga)"
+    },
+    {
+      "sanskrit": "प्राप्यते",
+      "iast": "prāpyate",
+      "meaning": "is reached"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "योगैः",
+      "iast": "yogaiḥ",
+      "meaning": "by the yogis (followers of karma-yoga)"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "गम्यते",
+      "iast": "gamyate",
+      "meaning": "is reached"
+    },
+    {
+      "sanskrit": "साङ्ख्यम्",
+      "iast": "sāṅkhyam",
+      "meaning": "sāṅkhya"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "as one"
+    },
+    {
+      "sanskrit": "यः पश्यति",
+      "iast": "yaḥ paśyati",
+      "meaning": "who sees"
+    },
+    {
+      "sanskrit": "सः पश्यति",
+      "iast": "saḥ paśyati",
+      "meaning": "he (truly) sees"
+    },
+    {
+      "sanskrit": "yat",
+      "iast": "yat",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthānaṁ",
+      "iast": "sthānaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tad",
+      "iast": "tad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogair",
+      "iast": "yogair",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ekaṁ",
+      "iast": "ekaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sāṅkhyaṁ",
+      "iast": "sāṅkhyaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogaṁ",
+      "iast": "yogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyati",
+      "iast": "paśyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "5",
+      "iast": "5",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows that the position reached by means of analytical study can also be attained by devotional service, and who therefore sees analytical study and devotional service to be on the same level, sees things as they are.",
+      "raw_capture_path": "data/sources/raw/bg-5-5-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows that the position reached by means of analytical study can also be attained by devotional service, and who therefore sees analytical study and devotional service to be on the same level, sees things as they are."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1026 chars)",
+      "verbatim_excerpt": "The real purpose of philosophical research is to find the ultimate goal of life. Since the ultimate goal of life is self-realization, there is no difference between the conclusions reached by the two processes.",
+      "raw_full_path": "data/sources/raw/bg-5-5-vedabase.json (purport_full_length: 1026)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.5 Sthanam, the State called Liberation; yat prapyate, that is reached; sankhyaih, by the Sankhyas, by the monks steadfast in Knowledge; tat prapyate, that is reached; yogaih, by the yogis; api, as well.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1364,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-5-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the place (sthāna, i.e., liberation) reached by the sāṅkhyas is the same place reached by the yogis. The one who sees sāṅkhya and yoga as one (in their fruit) sees rightly. Shankara's reading preserves the convergence at the destination while distinguishing the practices."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.5 The fruit in the form of the vision of the self which is attained by the Sankhyans (i.e.) Jnana Yogins, the same is attained alone by those who are Karma Yogins. He alone is wise who sees that Sankhya and the Yoga are one and the same because of their having the same result.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 373,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-5-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the state attained by the followers of jñāna-yoga is also reached by the followers of karma-yoga. The one who sees both paths as one sees correctly. For Ramanuja the unity is in the soteriological function — both are means to the self's release."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ekaṁ sāṅkhyaṁ ca yogaṁ ca yaḥ paśyati",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sees analytical study and devotional service to be on the same level"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "sees the two paths as converging in their fruit (oneness of destination)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "sees the two paths as one in soteriological function"
+        }
+      ],
+      "explanation": "All converge on 'oneness'. Shankara confines the oneness to fruit; Ramanuja extends it to function; Prabhupada renders idiomatically as 'same level'. None of the three flatten the two paths into mere identity at the level of practice — the practices remain distinct."
+    }
+  ],
+  "literal_meaning": "That state which is reached by the sāṅkhyas is reached also by the yogis. The one who sees sāṅkhya and yoga as one — he sees.",
+  "traditional_meaning": "Krishna repeats and strengthens 5.4. The sthāna (state, place) reached by jñāna-yogis is the same sthāna reached by karma-yogis. To see them as one is to see correctly. The verse closes the equivalence argument that began at 5.2.",
+  "engineering": {
+    "translation": "The place reached by the sāṅkhyas (the renunciates of action) is reached also by the yogis (the practitioners of disciplined action). The one who sees sāṅkhya and yoga as one (ekam) sees clearly. The verse extends 5.4: the destination-claim is symmetric. The engineer who has cultivated mastery through years of architectural reading-and-strategy reaches the same end as the engineer who has cultivated mastery through years of shipping-and-iteration. Both arrive at the operational disposition of the senior — the one whose response is uniform across the visibility gradient, whose review-depth is invariant under business-importance, whose interior posture is decoupled from the artifact. The verse refuses to rank the paths at the level of destination. The clarity (paśyati) the verse names is in seeing the destination as one — not in seeing the paths as identical.",
+    "concrete_scenario": "Two senior engineers compare careers at an industry conference. One spent fifteen years deeply on architectural strategy: design docs, RFCs, RFC reviews, architecture-review committees, very few merges per year. The other spent fifteen years deeply on shipping: migrations, hotfixes, on-call rotations, hundreds of PRs per quarter. They sit in the conference hallway and discover, mid-conversation, that their systems-thinking converges. The architect reads a Datadog dashboard the way the shipper does; the shipper reads a system-design diagram the way the architect does. Each has reached the same operational disposition — the senior's interior posture — through opposite surface-paths. Neither path was wrong. Each ranks the other path's external work as different from their own; both recognise the destination as the same.",
+    "falsifiability": "The analog fails if a reader concludes that any path can replace any other. The verse's claim is destination-equivalence at a particular level (the realised seer's disposition); it is not a claim that an engineer can substitute one career-shape for another and arrive somewhere. The destination is reached only by deep cultivation in *some* path.",
+    "counter_example": "When neither path has been cultivated deeply — when the engineer dabbles in both surface forms without ever building real mastery in either — the verse's destination-equivalence does not apply. The destination is reached *through* the path, not by avoiding both. The shallow-on-both engineer has not arrived anywhere.",
+    "implication": "When evaluating two senior engineers from very different career paths, look at the destination they have reached, not the surface of the path. The seer's disposition is the readable signature.",
+    "quotable_line": "Both paths reach the same destination; the path's surface differs, the senior's interior posture does not.",
+    "tags": [
+      "right-renunciation",
+      "knowledge-action-integration",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

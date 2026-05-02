@@ -1,0 +1,237 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.21",
+  "sanskrit_devanagari": "बाह्यस्पर्शेष्वसक्तात्मा विन्दत्यात्मनि यत्सुखम् ।\nस ब्रह्मयोगयुक्तात्मा सुखमक्षयमश्न‍ुते ॥ २१ ॥",
+  "sanskrit_iast": "bāhya-sparśeṣv asaktātmā vindaty ātmani yat sukham |\nsa brahma-yoga-yuktātmā sukham akṣayam aśnute || 21 ||",
+  "anvaya": [
+    {
+      "sanskrit": "bāhya",
+      "iast": "bāhya",
+      "meaning": "sparśeṣu — in external sense pleasure"
+    },
+    {
+      "sanskrit": "asakta",
+      "iast": "asakta",
+      "meaning": "ātmā — one who is not attached"
+    },
+    {
+      "sanskrit": "vindati",
+      "iast": "vindati",
+      "meaning": "enjoys"
+    },
+    {
+      "sanskrit": "ātmani",
+      "iast": "ātmani",
+      "meaning": "in the self"
+    },
+    {
+      "sanskrit": "yat",
+      "iast": "yat",
+      "meaning": "that which"
+    },
+    {
+      "sanskrit": "sukham",
+      "iast": "sukham",
+      "meaning": "happiness"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "yoga — by concentration in Brahman"
+    },
+    {
+      "sanskrit": "yukta",
+      "iast": "yukta",
+      "meaning": "ātmā — self-connected"
+    },
+    {
+      "sanskrit": "sukham",
+      "iast": "sukham",
+      "meaning": "happiness"
+    },
+    {
+      "sanskrit": "akṣayam",
+      "iast": "akṣayam",
+      "meaning": "unlimited"
+    },
+    {
+      "sanskrit": "aśnute",
+      "iast": "aśnute",
+      "meaning": "enjoys"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/21/",
+      "fetched_at": "2026-05-02T02:23:11.672Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a liberated person is not attracted to material sense pleasure but is always in trance, enjoying the pleasure within. In this way the self-realized person enjoys unlimited happiness, for he concentrates on the Supreme.",
+      "raw_capture_path": "data/sources/raw/bg-5-21-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-21/",
+      "fetched_at": "2026-05-02T02:24:00.110Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a liberated person is not attracted to material sense pleasure but is always in trance, enjoying the pleasure within. In this way the self-realized person enjoys unlimited happiness, for he concentrates on the Supreme."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/21/",
+      "fetched_at": "2026-05-02T02:23:11.672Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1065 chars)",
+      "verbatim_excerpt": "Śrī Yāmunācārya, a great devotee in Kṛṣṇa consciousness, said:yad-avadhi mama cetaḥ kṛṣṇa-pādāravindenava-nava-rasa-dhāmany udyataṁ rantum āsīttad-avadhi bata nārī-saṅgame smaryamānebhavati mukha-vikāraḥ suṣṭhu niṣṭhīvanaṁ ca“Since I have been engaged in the transcendental loving service of Kṛṣṇa, realizing ever-new pl",
+      "raw_full_path": "data/sources/raw/bg-5-21-vedabase.json (purport_full_length: 1065)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-21/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:00.110Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.21 Asakta-atma, with his heart, internal organ, unattached, bahya-sparsesu, to external objects-sparsah means objects that are contacted, viz sound etc.; bahya-sparsah means those things which are external (bahya) and are objects of contact; that person who thus has his heart unattached, who deriv...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 893,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-21-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-21/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:00.110Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.21 He who finds happiness in the self within himself, his mind detached from external contact in the manner already mentioned, i.e., from experience of objects other than the self — such a person abandoning the contemplation on Prakrti or bodily experiences, has his mind engaged in the contemplati...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 486,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-21-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahma-yoga-yukta-ātmā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "self yoked to the Supreme through bhakti-yoga; devotional union"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "self abiding in the non-dual Brahman through samādhi"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "self meditating on the Lord through brahma-yoga; the meditator-Lord relation produces the imperishable bliss"
+        }
+      ],
+      "explanation": "What 'brahma-yoga' refers to differs sharply: Advaita reads it as identity-meditation on impersonal Brahman; Vishishtadvaita and Gaudiya read it as relation-meditation on the personal Lord. The verse's structural claim (yoking produces imperishable bliss in contrast to bounded contact-enjoyments) is preserved."
+    }
+  ],
+  "literal_meaning": "With self unattached to external contacts, one finds happiness within the self (ātmani). Then, with the self yoked to brahman through brahma-yoga, one obtains imperishable bliss (akṣayam sukham).",
+  "traditional_meaning": "The verse establishes that bliss has an inner source — happiness in the self (ātmani sukham) — accessed by detachment from external contacts (bāhya-sparśa). Once the self is yoked to brahman through brahma-yoga, the resulting bliss is imperishable (akṣaya), in contrast to the bounded enjoyments named in 5.22. Shankara reads this as the self abiding in non-dual Brahman; Ramanuja reads it as the self meditating on the Lord and obtaining Lord-related bliss; Prabhupada reads it as devotional bliss in Krishna-consciousness. All converge on the bounded-vs-imperishable contrast.",
+  "engineering": {
+    "translation": "With self unattached to external contacts (bāhya-sparśeṣu asaktātmā), one finds happiness within the self (ātmani sukham). With the self yoked to brahman through brahma-yoga, one obtains imperishable bliss (akṣayam sukham). The verse establishes that the bliss-source is internal — happiness in the self — accessed by detachment from external contacts. Once yoked to brahman through brahma-yoga, the bliss is imperishable. The engineering analog: the senior whose satisfaction comes from the work itself — the quiet of a clean migration, the readability of a well-designed system, the engagement of a difficult problem rightly approached — has access to a non-bounded source. The praise from a manager, the launch's reception, the conference invitation are bounded contacts. STRETCHED honestly because brahma-yoga and akṣaya-sukha exceed; the operational shadow is preserved.",
+    "concrete_scenario": "A principal engineer has, across a decade, audited where her satisfaction actually comes from. She tracks: the quiet of the Tuesday-afternoon design session in which a hard architectural decision yielded; the readability of the Postgres-schema document she wrote that her successor still uses two years later; the moment in the standup when the new hire's correction landed and shifted her own thinking; the fifteen minutes after the migration shipped clean when she sat watching the Datadog latency curve hold. None of these were the conference talk, the launch tweet, the executive recognition. The internal-bliss source is operational: it sits inside the work itself, not in the work's reception. When the conference invitation arrives, she accepts or declines on the merits; the internal-bliss source is not affected. STRETCHED honestly; the brahma-yoga akṣaya-sukha reach further than the operational satisfaction-from-the-work.",
+    "falsifiability": "The analog fails if a reader hears 'happiness within' as 'be intrinsically motivated' coaching content. The verse names a structural fact about where the bliss-source sits — inside, not in external contact. This is not a motivational hack; it is an audit-result.",
+    "counter_example": "When an engineer claims internal-bliss while the satisfaction is in fact externally sourced — when the audit would reveal that praise, recognition, and external reception drive the affect — the verse does not apply. The internal source is testable by the audit; claiming it without doing the audit is performative.",
+    "implication": "Audit, across the last quarter, where your satisfaction actually came from. Internal sources versus external contacts. The verse names the imperishable as internally sourced.",
+    "quotable_line": "Satisfaction sources audited honestly. The internal sits inside the work; the external is bounded by contact.",
+    "tags": [
+      "non-attachment-to-praise",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

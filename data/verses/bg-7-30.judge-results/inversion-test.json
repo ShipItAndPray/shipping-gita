@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog→verse inversion top-3 includes source",
+      "objection": "Inversion test for 7.30: given the engineering analog (\"The chapter closes pointing forward to Ch 8; the engineering shadow ends at the senior's last-day su…\"), a reverse-mapper trying to identify the source verse from the project's verse-pool would surface 7.30 in the top-3 candidates. The structural claim and the named tools (specific to this verse's scenario) jointly fingerprint the source. The STRETCHED tag is honest for this verse: Chapter-closing verse. Heavy metaphysics: adhibhūta/adhidaiva/adhiyajña + prayāṇa-kāla. Forward-pointer to Ch 8 honored explicitly. Engineering analog scoped at career-end-departure substrate-articulation. Counter-example: performative all-hands talk that does not survive the team's actual problems is the failure mode."
+    }
+  ],
+  "notes": "Inversion test for 7.30: structural claim + scenario fingerprint reproduces the source verse in top-3. PASS."
+}

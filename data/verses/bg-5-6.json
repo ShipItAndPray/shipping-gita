@@ -1,0 +1,37 @@
+{
+  "id": "BG 5.6",
+  "chapter": 5,
+  "verse": 6,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Renunciation (sannyāsa) is hard to attain (duḥkham āptum) without yoga; the sage yoked to yoga (yoga-yuktaḥ muniḥ) reaches Brahman in no long time (na cireṇa adhigacchati). Krishna names the structural asymmetry. Pure renunciation — disengagement-as-discipline — is harder than disciplined engagement, because the discipline must be cultivated somewhere, and the renunciate has fewer surfaces against which to cultivate it. The engineer who quits without first building equanimity in engagement merely transports the unrest. The yoga-yoked sage, by contrast, reaches the destination swiftly — the surfaces of the work themselves provide the cultivation-substrate. The work is the gym. Pulling out of the gym while still needing to develop the muscles produces neither rest nor cultivation.",
+    "concrete_scenario": "An engineer at a series-B startup quits to take a year off, telling herself the constant Slack pressure and PagerDuty rotations are corroding her. She moves to a quiet town, rents a cabin, sets up a writing desk. Three months later she discovers that the same patterns she ran in Slack are running in her head: the rehearsal of imagined Kafka outages, the silent litigation of a code review from six months ago, the inflation of imagined approval from former teammates. She has transported the unrest. The engineer at the same company who stayed and built a deliberate practice of attention-discipline — daily deep-work blocks, an explicit no-Slack-after-7pm rule, regular incident retrospectives that genuinely close — has cultivated the equanimity inside the work. Six months later, the stayer is at peace; the quitter is still inside the same agitation, just relocated. The work was the gym. Leaving the gym did not produce rest.",
+    "falsifiability": "The analog fails if a reader concludes that no engineer should ever quit. The verse does not say that. It says pure renunciation without prior yoga-cultivation is harder, not impossible. An engineer who has done the cultivation in engagement and then renounces is not the engineer the verse warns against; that engineer has built the substrate.",
+    "counter_example": "When the work-environment is so toxic that cultivation inside it is structurally impossible — when the team's pathology actively prevents the development of equanimity — the verse's recommendation does not require staying. The yoga-cultivation has to happen somewhere; if the current setting genuinely prevents it, leaving may be the correct move. Krishna's preference for karma-yoga is structural, not absolute.",
+    "implication": "Before considering quitting for equanimity, audit whether you have actually cultivated equanimity in engagement. If you have not, leaving will not produce it. The work is the substrate.",
+    "quotable_line": "Pure renunciation without prior yoga is harder than disciplined engagement. The work is the gym.",
+    "tags": [
+      "right-renunciation",
+      "wrong-renunciation",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 5.6 engineering layer drafted from triangulated source pack. Anchored to chapter-5 thesis: equivalence-of-paths-with-karma-yoga-preference, decoupled identity, sama-darśana, internal-bliss-source, brahma-nirvāṇa-as-operational-rung-with-honest-STRETCHED. Cross-references to chapters 2-4 preserved.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

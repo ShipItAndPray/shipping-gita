@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.39",
+  "chapter": 6,
+  "verse": 39,
+  "fetched_at": "2026-05-02T02:28:27.051Z",
+  "sanskrit_devanagari": "एतन्मे संशयं कृष्ण छेत्तुमर्हस्यशेषत: ।त्वदन्य: संशयस्यास्य छेत्ता न ह्युपपद्यते ॥ ३९ ॥",
+  "sanskrit_iast": "etan me saṁśayaṁ kṛṣṇachettum arhasy aśeṣataḥtvad-anyaḥ saṁśayasyāsyachettā na hy upapadyate",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/39/",
+      "fetched_at": "2026-05-02T02:25:38.001Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-39-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/39",
+      "fetched_at": "2026-05-02T02:25:38.001Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=39",
+      "fetched_at": "2026-05-02T02:25:38.001Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-39/",
+      "fetched_at": "2026-05-02T02:26:29.383Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-39-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:38.001Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.039). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/39/",
+      "fetched_at": "2026-05-02T02:25:38.001Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This is my doubt, O Kṛṣṇa, and I ask You to dispel it completely. But for You, no one is to be found who can destroy this doubt.",
+      "raw_capture_path": "data/sources/raw/bg-6-39-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-39/",
+      "fetched_at": "2026-05-02T02:26:29.383Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "This is my doubt, O Krishna, and I ask You to dispel it completely. But for You, no one is to be found who can destroy this doubt."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/39/",
+      "fetched_at": "2026-05-02T02:25:38.001Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 853 chars)",
+      "verbatim_excerpt": "Kṛṣṇa is the perfect knower of past, present and future. In the beginning of the Bhagavad-gītā, the Lord said that all living entities existed individually in the past, they exist now in the present, and they continue to retain individual identity in the future, even after liberation from the material entanglement.",
+      "raw_full_path": "data/sources/raw/bg-6-39-vedabase.json (purport_full_length: 853)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-39/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:29.383Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.39 O krsna, arhasi, You should; asesatah, totally; chettum, eradicate, remove; etat, this; samsayam, doubt; me, of mine. Hi, for; na tvad anyah, none other than You, be he a sage or a god; upapadyate, can be; chetta, the despeller, the destroyer; asya, of this; samsayasya, doubt. Therefo",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 353,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-39-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-39/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:29.383Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.37 – 6.39 Arjuna said — What way does he go, who has embarked on Yoga endowed with faith, but who by inadequacy of exertion in practice, does not gain success in Yoga and has his mind wandering from Yoga? Does he not perish like a small piece of cloud torn from a large mass of cloud — pe",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 1127,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-39-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

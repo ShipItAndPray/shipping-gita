@@ -1,0 +1,299 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.5",
+  "sanskrit_devanagari": "यत्साङ्ख्यैः प्राप्यते स्थानं तद्योगैरपि गम्यते ।\nएकं साङ्ख्यं च योगं च यः पश्यति स पश्यति ॥ ५ ॥",
+  "sanskrit_iast": "yat sāṅkhyaiḥ prāpyate sthānaṁ tad yogair api gamyate |\nekaṁ sāṅkhyaṁ ca yogaṁ ca yaḥ paśyati sa paśyati || 5 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यत् स्थानम्",
+      "iast": "yat sthānam",
+      "meaning": "which place / state"
+    },
+    {
+      "sanskrit": "साङ्ख्यैः",
+      "iast": "sāṅkhyaiḥ",
+      "meaning": "by the sāṅkhyas (followers of jñāna-yoga)"
+    },
+    {
+      "sanskrit": "प्राप्यते",
+      "iast": "prāpyate",
+      "meaning": "is reached"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "योगैः",
+      "iast": "yogaiḥ",
+      "meaning": "by the yogis (followers of karma-yoga)"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "गम्यते",
+      "iast": "gamyate",
+      "meaning": "is reached"
+    },
+    {
+      "sanskrit": "साङ्ख्यम्",
+      "iast": "sāṅkhyam",
+      "meaning": "sāṅkhya"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "as one"
+    },
+    {
+      "sanskrit": "यः पश्यति",
+      "iast": "yaḥ paśyati",
+      "meaning": "who sees"
+    },
+    {
+      "sanskrit": "सः पश्यति",
+      "iast": "saḥ paśyati",
+      "meaning": "he (truly) sees"
+    },
+    {
+      "sanskrit": "yat",
+      "iast": "yat",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthānaṁ",
+      "iast": "sthānaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tad",
+      "iast": "tad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogair",
+      "iast": "yogair",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ekaṁ",
+      "iast": "ekaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sāṅkhyaṁ",
+      "iast": "sāṅkhyaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogaṁ",
+      "iast": "yogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyati",
+      "iast": "paśyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "5",
+      "iast": "5",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows that the position reached by means of analytical study can also be attained by devotional service, and who therefore sees analytical study and devotional service to be on the same level, sees things as they are.",
+      "raw_capture_path": "data/sources/raw/bg-5-5-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows that the position reached by means of analytical study can also be attained by devotional service, and who therefore sees analytical study and devotional service to be on the same level, sees things as they are."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1026 chars)",
+      "verbatim_excerpt": "The real purpose of philosophical research is to find the ultimate goal of life. Since the ultimate goal of life is self-realization, there is no difference between the conclusions reached by the two processes.",
+      "raw_full_path": "data/sources/raw/bg-5-5-vedabase.json (purport_full_length: 1026)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.5 Sthanam, the State called Liberation; yat prapyate, that is reached; sankhyaih, by the Sankhyas, by the monks steadfast in Knowledge; tat prapyate, that is reached; yogaih, by the yogis; api, as well.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1364,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-5-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the place (sthāna, i.e., liberation) reached by the sāṅkhyas is the same place reached by the yogis. The one who sees sāṅkhya and yoga as one (in their fruit) sees rightly. Shankara's reading preserves the convergence at the destination while distinguishing the practices."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.5 The fruit in the form of the vision of the self which is attained by the Sankhyans (i.e.) Jnana Yogins, the same is attained alone by those who are Karma Yogins. He alone is wise who sees that Sankhya and the Yoga are one and the same because of their having the same result.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 373,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-5-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the state attained by the followers of jñāna-yoga is also reached by the followers of karma-yoga. The one who sees both paths as one sees correctly. For Ramanuja the unity is in the soteriological function — both are means to the self's release."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "ekaṁ sāṅkhyaṁ ca yogaṁ ca yaḥ paśyati",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sees analytical study and devotional service to be on the same level"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "sees the two paths as converging in their fruit (oneness of destination)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "sees the two paths as one in soteriological function"
+        }
+      ],
+      "explanation": "All converge on 'oneness'. Shankara confines the oneness to fruit; Ramanuja extends it to function; Prabhupada renders idiomatically as 'same level'. None of the three flatten the two paths into mere identity at the level of practice — the practices remain distinct."
+    }
+  ],
+  "literal_meaning": "That state which is reached by the sāṅkhyas is reached also by the yogis. The one who sees sāṅkhya and yoga as one — he sees.",
+  "traditional_meaning": "Krishna repeats and strengthens 5.4. The sthāna (state, place) reached by jñāna-yogis is the same sthāna reached by karma-yogis. To see them as one is to see correctly. The verse closes the equivalence argument that began at 5.2.",
+  "engineering": {
+    "translation": "The place reached by the sāṅkhyas (the renunciates of action) is reached also by the yogis (the practitioners of disciplined action). The one who sees sāṅkhya and yoga as one (ekam) sees clearly. The verse extends 5.4: the destination-claim is symmetric. The engineer who has cultivated mastery through years of architectural reading-and-strategy reaches the same end as the engineer who has cultivated mastery through years of shipping-and-iteration. Both arrive at the operational disposition of the senior — the one whose response is uniform across the visibility gradient, whose review-depth is invariant under business-importance, whose interior posture is decoupled from the artifact. The verse refuses to rank the paths at the level of destination. The clarity (paśyati) the verse names is in seeing the destination as one — not in seeing the paths as identical.",
+    "concrete_scenario": "Two senior engineers compare careers at an industry conference. One spent fifteen years deeply on architectural strategy: design docs, RFCs, RFC reviews, architecture-review committees, very few merges per year. The other spent fifteen years deeply on shipping: migrations, hotfixes, on-call rotations, hundreds of PRs per quarter. They sit in the conference hallway and discover, mid-conversation, that their systems-thinking converges. The architect reads a Datadog dashboard the way the shipper does; the shipper reads a system-design diagram the way the architect does. Each has reached the same operational disposition — the senior's interior posture — through opposite surface-paths. Neither path was wrong. Each ranks the other path's external work as different from their own; both recognise the destination as the same.",
+    "falsifiability": "The analog fails if a reader concludes that any path can replace any other. The verse's claim is destination-equivalence at a particular level (the realised seer's disposition); it is not a claim that an engineer can substitute one career-shape for another and arrive somewhere. The destination is reached only by deep cultivation in *some* path.",
+    "counter_example": "When neither path has been cultivated deeply — when the engineer dabbles in both surface forms without ever building real mastery in either — the verse's destination-equivalence does not apply. The destination is reached *through* the path, not by avoiding both. The shallow-on-both engineer has not arrived anywhere.",
+    "implication": "When evaluating two senior engineers from very different career paths, look at the destination they have reached, not the surface of the path. The seer's disposition is the readable signature.",
+    "quotable_line": "Both paths reach the same destination; the path's surface differs, the senior's interior posture does not.",
+    "tags": [
+      "right-renunciation",
+      "knowledge-action-integration",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

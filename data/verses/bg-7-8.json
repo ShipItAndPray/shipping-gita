@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.8",
+  "chapter": 7,
+  "verse": 8,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The opening of the great I-am-the-X-in-Y sequence. Krishna names himself as the durable property in each surface manifestation: the taste in water, the radiance in moon and sun, the syllable Oṁ in the Vedas, the sound in space, the ability in men. These are theistic identifications. The engineering layer offers operational reflection only and tags STRETCHED on the metaphysical reach. The structural insight Shankara names — Krishna is the essence (sāra), the property without which the thing is not what it is — has an operational shadow at much narrower scope: in every implementation that is actually useful, there is a property that runs through it making it serve. The taste-in-water analog: in a Postgres setup, the durable property is the consistency-and-durability guarantee; in a Datadog dashboard, the durable property is the signal-fidelity-under-incident. These are NOT Krishna; they are the analog at engineering scope of what the verse is gesturing at. The verse is theistic; the engineering layer is operational; the gap is honest.",
+    "concrete_scenario": "Maya is reviewing two new tool proposals. Pod A wants to migrate from Datadog to a self-hosted Prometheus + Grafana stack to save costs. Pod B wants to replace Postgres with a columnar store for one heavy analytics workload. Maya does not start with the framework debate. For each tool, she asks: what is the property in this tool that is actually serving the customer? For Datadog: it is signal-fidelity-during-incidents — does it surface the right alert at minute one of an outage. The Prometheus stack will need to demonstrate that property too; the cost-saving is irrelevant if the property is lost. For Postgres: it is the consistency-and-durability of the row-level updates the payment ledger needs. The columnar store does not have that property; whatever speed-up it offers does not include that property. The verse 7.8 frame, scoped operationally, is exactly this question: name the property the tool actually carries, and ask whether the replacement carries it. The metaphysical claim (Krishna as the property in each thing) exceeds this; the operational analog (name the property; do not lose it in migration) holds.",
+    "falsifiability": "The analog fails if a reader claims that engineering substrate IS Krishna or that the durable-property in a tool is divine. The verse's theistic register is preserved at source-pack level; the engineering layer is an additive operational reflection at narrower scope. An engineer who reads 7.8 as 'Postgres consistency is divine' has flattened the metaphysical claim into tech-religion.",
+    "counter_example": "When the migration is in fact between tools where the relevant property is identical — both Datadog and Prometheus surface the same alert at minute one for the same configured rule, both Postgres and MySQL provide ACID consistency for the workload — the property-naming exercise concludes that the choice is genuinely a cost or operational preference. The verse does not require that every choice has a load-bearing property to fight over; it requires that the property be named so the choice can be evaluated.",
+    "implication": "Before any tool migration, name the property the current tool carries that the customer's value depends on. The migration argument is then about whether the replacement carries the property; the cost or fashion arguments are downstream.",
+    "quotable_line": "Name the property the tool carries that the customer's value depends on; the rest is downstream.",
+    "tags": ["essence-vs-implementation", "product-truth", "migration"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:25:00Z",
+      "mutation": "v0 generation: per chapter thesis, MAXIMUM CARE — verse is theistic ('I am the X in Y'). Engineering layer offers operational reflection ONLY: the durable-property in each implementation that makes it serve. Tagged STRETCHED honestly. Confidence MEDIUM. Concrete scenario uses tool-migration evaluation (Datadog↔Prometheus, Postgres↔columnar store) with Maya as senior engineer. Falsifiability guards against 'engineering substrate IS Krishna' tech-religion misread. Translation explicitly notes the gap. Per Shankara: the property without which the thing is not what it is. Translation length kept under 180 words.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

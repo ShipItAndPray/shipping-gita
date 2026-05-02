@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.9",
+  "chapter": 7,
+  "verse": 9,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna continues the I-am-the-X-in-Y sequence: pure fragrance in earth, brilliance in fire, life in all beings, austerity in ascetics. The verse moves from physical elements (water, sun, moon — 7.8) into more pervasive properties (life-in-beings, austerity-in-ascetics) — the chapter's reach is widening. The engineering layer continues to offer operational reflection only at narrower scope, tagged STRETCHED. The structural pattern from 7.8 holds: name the property without which the thing is not what it is. Operationally, the move into life-in-beings and austerity-in-ascetics maps to the move from named-tool properties (signal-fidelity in Datadog, durability in Postgres) into more pervasive engineering properties: the rigour-in-review that makes a code-review system actually catch bugs, the discipline-in-on-call that makes an alerting policy actually serve. These are not tools; they are dispositions threading through the practice. The verse is theistic; the engineering analog is the operational pattern that the durable property in a discipline is what makes the discipline worth keeping.",
+    "concrete_scenario": "A staff engineer is reviewing two on-call rotation proposals. Pod A wants to flatten the rotation (rotate weekly across 8 engineers); Pod B wants depth-first coverage (rotate fortnightly across 4 engineers, with the other 4 in deep-design mode). The framework debate could go either way. Maya, scoping the verse 7.9 operationally, asks: what property in our current rotation is what makes incidents actually get resolved cleanly? Two candidates emerge: (1) the on-call has handed-off context — they know what shipped this week, where the new code is, what the recent Sentry trends look like; (2) the on-call has the discipline of writing a clean post-mortem the next morning that the rest of the team can learn from. These are the austerity-in-ascetics analog at engineering scope: the disposition that makes the practice worth keeping. The fortnightly proposal preserves both properties; the weekly proposal risks the first. The framework choice is downstream of the property-preservation question. The verse's metaphysical reach (Krishna as life-in-beings) exceeds this analog; the operational pattern holds.",
+    "falsifiability": "The analog fails if a reader claims the on-call's discipline IS Krishna, or that engineering disciplines are divine in any literal sense. The verse is theistic; the engineering layer offers an operational pattern at narrower scope. The discipline is real and operational; it is not a metaphysical entity.",
+    "counter_example": "When a discipline-claim is being smuggled in to defend a status-quo nobody can articulate (the team 'has always done it this way'), the property-naming exercise should fail honestly — the team cannot name the property because there isn't one. The verse does not bless every persistent practice as carrying a property; some practices are inertia. The property must be nameable for the verse-frame to apply.",
+    "implication": "When evaluating a process change (on-call rotation, code-review policy, deploy gates), name the discipline-property that the current process actually carries. Defend the property in the new process or change it deliberately. Do not let process arguments float free of the property they are supposed to preserve.",
+    "quotable_line": "Name the discipline-property the current process carries; the framework debate is downstream.",
+    "tags": ["code-review-discipline", "on-call-doctrine", "team-culture"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:30:00Z",
+      "mutation": "v0 generation: per chapter thesis, continues 7.8 framing — theistic verse, operational analog only. Engineering layer extends from named-tool properties (7.8) into pervasive disciplines (the austerity-in-ascetics analog: handed-off-context and clean-post-mortem disciplines). Concrete scenario uses on-call rotation evaluation with named characters Maya. Tagged STRETCHED. Confidence MEDIUM. Falsifiability guards against tech-religion. Counter-example: inertia-as-discipline. Sentry tools mentioned to provide concrete anchor.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

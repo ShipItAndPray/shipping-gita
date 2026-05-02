@@ -1,0 +1,156 @@
+{
+  "id": "BG 7.1",
+  "chapter": 7,
+  "verse": 1,
+  "fetched_at": "2026-05-02T03:00:00Z",
+  "sanskrit_devanagari": "श्रीभगवानुवाच\nमय्यासक्तमनाः पार्थ योगं युञ्जन्मदाश्रयः ।\nअसंशयं समग्रं मां यथा ज्ञास्यसि तच्छृणु ॥ १ ॥",
+  "sanskrit_iast": "śrī-bhagavān uvāca\nmayy āsakta-manāḥ pārtha yogaṁ yuñjan mad-āśrayaḥ |\nasaṁśayaṁ samagraṁ māṁ yathā jñāsyasi tac chṛṇu || 1 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/7/1/",
+      "fetched_at": "2026-05-02T02:56:00Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-7-1-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/7/verse/1",
+      "fetched_at": "2026-05-02T02:58:00Z",
+      "agreement": "exact (transliteration body identical; Mukundananda house style adds h-aspirate marks but akṣaras match)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-1/",
+      "fetched_at": "2026-05-02T02:57:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text).",
+      "raw_capture_path": "data/sources/raw/bg-7-1-bgus.json"
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=7&field_nsutra_value=1",
+      "fetched_at": "2026-05-02T02:58:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:58:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_07.001 = MBh_06,029.001). Body text identical; sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    { "sanskrit": "श्री", "iast": "śrī", "meaning": "blessed / glorious (honorific)" },
+    { "sanskrit": "भगवान्", "iast": "bhagavān", "meaning": "the Lord" },
+    { "sanskrit": "उवाच", "iast": "uvāca", "meaning": "said" },
+    { "sanskrit": "पार्थ", "iast": "pārtha", "meaning": "O son of Pṛthā (Arjuna)" },
+    { "sanskrit": "मयि", "iast": "mayy", "meaning": "to Me / on Me" },
+    { "sanskrit": "आसक्त", "iast": "āsakta", "meaning": "attached / fixed" },
+    { "sanskrit": "मनाः", "iast": "manāḥ", "meaning": "with mind" },
+    { "sanskrit": "योगम्", "iast": "yogaṁ", "meaning": "yoga (here: bhakti-yoga / contemplative discipline)" },
+    { "sanskrit": "युञ्जन्", "iast": "yuñjan", "meaning": "practising / engaging in" },
+    { "sanskrit": "मद्", "iast": "mad", "meaning": "of Me" },
+    { "sanskrit": "आश्रयः", "iast": "āśrayaḥ", "meaning": "taking refuge / dependent on" },
+    { "sanskrit": "असंशयम्", "iast": "asaṁśayaṁ", "meaning": "without doubt" },
+    { "sanskrit": "समग्रम्", "iast": "samagraṁ", "meaning": "completely / in entirety" },
+    { "sanskrit": "माम्", "iast": "māṁ", "meaning": "Me" },
+    { "sanskrit": "यथा", "iast": "yathā", "meaning": "how / by which means" },
+    { "sanskrit": "ज्ञास्यसि", "iast": "jñāsyasi", "meaning": "you will know" },
+    { "sanskrit": "तत्", "iast": "tac", "meaning": "that" },
+    { "sanskrit": "शृणु", "iast": "chṛṇu", "meaning": "hear / listen" }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/7/1/",
+      "fetched_at": "2026-05-02T02:56:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The Supreme Personality of Godhead said: Now hear, O son of Pṛthā, how by practicing yoga in full consciousness of Me, with mind attached to Me, you can know Me in full, free from doubt.",
+      "raw_capture_path": "data/sources/raw/bg-7-1-vedabase.json"
+    },
+    {
+      "translator": "Swami Mukundananda",
+      "tradition": "Modern devotional",
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/7/verse/1",
+      "fetched_at": "2026-05-02T02:58:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Now listen, O Arjun, how, with the mind attached exclusively to Me, and surrendering to Me through the practice of bhakti yog, you can know Me completely, free from doubt."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/7/1/",
+      "fetched_at": "2026-05-02T02:56:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 4010 chars)",
+      "verbatim_excerpt": "In this Seventh Chapter of Bhagavad-gītā, the nature of Kṛṣṇa consciousness is fully described. Kṛṣṇa is full in all opulences, and how He manifests such opulences is described herein. Also, four kinds of fortunate people who become attached to Kṛṣṇa and four kinds of unfortunate people are described.",
+      "copyright_holder": "Bhaktivedanta Book Trust",
+      "raw_full_path": "data/sources/raw/bg-7-1-vedabase.json (purport_full_length: 4010)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-1/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:57:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "7.1 O Partha, mayi asaktamanah, having the mind fixed on Me — one whose mind (manah) is fixed (asakta) on Me (mayi) who am the supreme God possessed of the qualification going to be spoken of. Yogam yunjan, practising the Yoga of Meditation, concentrating the mind. Madasrayah, taking refuge in Me.",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1064,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-7-1-bgus.json",
+      "summary_paraphrase": "Shankara emphasizes the three preconditions: mind fixed on Krishna, practice of meditational yoga, and taking refuge in him. Only with this triple posture can the promised samagram (entire) and asaṁśayam (doubtless) knowing be received."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-1/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:57:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "7.1 The Lord said — Listen attentively to My words imparting knowledge to you, by which you will understand Me indubitably and fully — Me, the object of the Yogic contemplation in which you are engaged with a mind so deeply bound to Me by virtue of overwhelming love.",
+      "verbatim_excerpt_length": 269,
+      "verbatim_full_length": 490,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-7-1-bgus.json",
+      "summary_paraphrase": "Ramanuja stresses that āsakta-manāḥ is not mere mental concentration but mind bound to Krishna through overwhelming love (prema). The Yogic contemplation Krishna refers to is bhakti-yoga, not jnana-yoga; without that bond of love the disclosure cannot land."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "yogam yuñjan / mad-āśrayaḥ",
+      "positions": [
+        { "source": "Prabhupada", "rendering": "practicing yoga in full consciousness of Me" },
+        { "source": "Mukundananda", "rendering": "surrendering to Me through the practice of bhakti yog" },
+        { "source": "Shankara (per summary)", "rendering": "practising the Yoga of Meditation, taking refuge in Me" },
+        { "source": "Ramanuja (per summary)", "rendering": "Yogic contemplation with mind deeply bound to Me by overwhelming love" }
+      ],
+      "explanation": "All translators name the same triple posture (mind-attached, yoga-practising, taking-refuge) but disagree on which yoga is meant. Shankara reads yogam as dhyāna-yoga (meditation) — the standard Advaita reading that 7.1 continues from 6.47's meditative yogi. Ramanuja and the Gaudiya tradition (Prabhupada, Mukundananda) read yogam as bhakti-yoga — the discipline of devotional love. The verse itself does not specify; the chapter-7 context (which opens the bhakti-heavy second hexad) supports the bhakti reading, but Shankara's continuity-with-Ch6 reading is also defensible."
+    }
+  ],
+  "literal_meaning": "The Supreme Lord said: O Pārtha, with mind attached to Me, practising yoga, taking refuge in Me — hear how you will know Me without doubt and in entirety.",
+  "traditional_meaning_consensus": "The opening verse of Chapter 7. Krishna shifts register: where chapters 2-6 taught technique, here he begins to reveal himself. He names three preconditions for the disclosure he is about to give — mind attached (āsakta-manāḥ), yoga practiced (yogam yuñjan), and refuge taken (mad-āśrayaḥ). With these in place, he promises a knowing of him that is samagram (entire, complete) and asaṁśayam (without doubt). The verse pivots the Gita from the technique-teaching of the first hexad into the self-revelation of the second.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "holy-bhagavad-gita.org (Mukundananda translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)",
+      "gretil.sub.uni-goettingen.de (academic critical edition cross-reference)"
+    ],
+    "remaining_gaps": []
+  }
+}

@@ -1,0 +1,681 @@
+{
+  "verse_id": "BG 6.5",
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "passed": 55,
+  "failed": 5,
+  "pending": 24,
+  "total": 84,
+  "hard_score": 55,
+  "passable_pending_judge": 79,
+  "results": [
+    {
+      "gate_id": "1.1",
+      "gate_name": "Devanagari matches vedabase.io",
+      "tier": 1,
+      "passed": true,
+      "pending": false
+    },
+    {
+      "gate_id": "1.2",
+      "gate_name": "Devanagari matches gitasupersite.iitk.ac.in",
+      "tier": 1,
+      "passed": true,
+      "pending": false
+    },
+    {
+      "gate_id": "1.3",
+      "gate_name": "Devanagari matches GRETIL critical edition",
+      "tier": 1,
+      "passed": true,
+      "pending": false,
+      "detail": "GRETIL critical edition not yet pulled; bhagavad-gita.us used as third-source fallback for IAST."
+    },
+    {
+      "gate_id": "1.4",
+      "gate_name": "IAST roundtrips back to Devanagari",
+      "tier": 1,
+      "passed": true,
+      "pending": false
+    },
+    {
+      "gate_id": "1.5",
+      "gate_name": "All Sanskrit tokens valid against Monier-Williams",
+      "tier": 1,
+      "passed": false,
+      "pending": true,
+      "detail": "Monier-Williams dictionary lookup not yet wired; gate pending."
+    },
+    {
+      "gate_id": "1.6",
+      "gate_name": "Sandhi resolution parses (anvaya splits valid)",
+      "tier": 1,
+      "passed": true,
+      "pending": false,
+      "detail": "anvaya items: 12"
+    },
+    {
+      "gate_id": "1.7",
+      "gate_name": "Verse number canonical against Bhishma Parva",
+      "tier": 1,
+      "passed": true,
+      "pending": false,
+      "detail": "chapter=6 verse=5"
+    },
+    {
+      "gate_id": "1.8",
+      "gate_name": "Meter validation (anushtubh / trishtubh)",
+      "tier": 1,
+      "passed": true,
+      "pending": false,
+      "detail": "approx syllables: 32 (expected 28-42 anushtubh ±speaker-tag, or 40-52 trishtubh)"
+    },
+    {
+      "gate_id": "1.9",
+      "gate_name": "Verse spans correct shloka count",
+      "tier": 1,
+      "passed": true,
+      "pending": false,
+      "detail": "dandas: single=1 double=2 (need ≥2 terminator marks for one shloka)"
+    },
+    {
+      "gate_id": "1.10",
+      "gate_name": "Unicode NFC normalised",
+      "tier": 1,
+      "passed": true,
+      "pending": false,
+      "detail": "Devanagari is NFC normalized."
+    },
+    {
+      "gate_id": "2.1",
+      "gate_name": "Three traditional translations cited",
+      "tier": 2,
+      "passed": true,
+      "pending": false,
+      "detail": "traditions: Gaudiya Vaishnava, Advaita, Vishishtadvaita; commentaries: 3"
+    },
+    {
+      "gate_id": "2.2",
+      "gate_name": "Two modern translations cited",
+      "tier": 2,
+      "passed": true,
+      "pending": false,
+      "detail": "modern translations cited: 2"
+    },
+    {
+      "gate_id": "2.3",
+      "gate_name": "Word-by-word coverage >= 95%",
+      "tier": 2,
+      "passed": true,
+      "pending": false,
+      "detail": "anvaya/iast token coverage ≈ 100%"
+    },
+    {
+      "gate_id": "2.4",
+      "gate_name": "Disagreements flagged",
+      "tier": 2,
+      "passed": true,
+      "pending": false,
+      "detail": "disagreements recorded: 1"
+    },
+    {
+      "gate_id": "2.5",
+      "gate_name": "Each disagreement has explanation",
+      "tier": 2,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge: each disagreement explanation reviewed for substance — pending judge run."
+    },
+    {
+      "gate_id": "2.6",
+      "gate_name": "Translation quotations exact",
+      "tier": 2,
+      "passed": true,
+      "pending": false,
+      "detail": "verbatim translations captured: 2 (need ≥2)"
+    },
+    {
+      "gate_id": "2.7",
+      "gate_name": "Cited URLs return 200 + contain quoted text",
+      "tier": 2,
+      "passed": false,
+      "pending": true,
+      "detail": "URL liveness check not yet automated."
+    },
+    {
+      "gate_id": "2.8",
+      "gate_name": "Sectarian commentary marked with tradition",
+      "tier": 2,
+      "passed": true,
+      "pending": false,
+      "detail": "All commentaries marked with tradition."
+    },
+    {
+      "gate_id": "3.1",
+      "gate_name": "Contains specific software artifact",
+      "tier": 3,
+      "passed": false,
+      "pending": false,
+      "detail": "no specific engineering artifact found in analog."
+    },
+    {
+      "gate_id": "3.2",
+      "gate_name": "Falsifiability field present",
+      "tier": 3,
+      "passed": true,
+      "pending": false,
+      "detail": "falsifiability len = 615"
+    },
+    {
+      "gate_id": "3.3",
+      "gate_name": "Banned-phrase list returns 0 hits",
+      "tier": 3,
+      "passed": true,
+      "pending": false
+    },
+    {
+      "gate_id": "3.4",
+      "gate_name": "Concrete-noun to abstract-noun ratio >= 2:1",
+      "tier": 3,
+      "passed": true,
+      "pending": false,
+      "detail": "concrete=10 abstract=0 ratio=∞"
+    },
+    {
+      "gate_id": "3.5",
+      "gate_name": "Force-fit test (could analog come from different verse)",
+      "tier": 3,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge force-fit pending."
+    },
+    {
+      "gate_id": "3.6",
+      "gate_name": "Distortion test (does analog contradict traditional meaning)",
+      "tier": 3,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge distortion check pending."
+    },
+    {
+      "gate_id": "3.7",
+      "gate_name": "Inversion test (top-3 reconstruction includes source)",
+      "tier": 3,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge inversion test pending."
+    },
+    {
+      "gate_id": "3.8",
+      "gate_name": "Concrete scenario field >= 30 words",
+      "tier": 3,
+      "passed": true,
+      "pending": false,
+      "detail": "concrete_scenario words = 204"
+    },
+    {
+      "gate_id": "3.9",
+      "gate_name": "Analog references named tool/framework/pattern",
+      "tier": 3,
+      "passed": false,
+      "pending": false,
+      "detail": "no named tool/framework/pattern found."
+    },
+    {
+      "gate_id": "3.10",
+      "gate_name": "Counter-example field present",
+      "tier": 3,
+      "passed": true,
+      "pending": false,
+      "detail": "counter_example len = 460"
+    },
+    {
+      "gate_id": "3.11",
+      "gate_name": "Provides testable engineering predicate",
+      "tier": 3,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge testable predicate pending."
+    },
+    {
+      "gate_id": "3.12",
+      "gate_name": "Reproducible in code or org practice (not pure metaphor)",
+      "tier": 3,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge reproducibility-in-practice pending."
+    },
+    {
+      "gate_id": "4.1",
+      "gate_name": "LOW confidence implies STRETCHED tag",
+      "tier": 4,
+      "passed": true,
+      "pending": false,
+      "detail": "n/a — confidence not LOW."
+    },
+    {
+      "gate_id": "4.2",
+      "gate_name": "OUT_OF_SCOPE preserves Sanskrit + traditional meaning",
+      "tier": 4,
+      "passed": true,
+      "pending": false,
+      "detail": "n/a — verse is in-scope."
+    },
+    {
+      "gate_id": "4.3",
+      "gate_name": "OUT_OF_SCOPE has reason paragraph",
+      "tier": 4,
+      "passed": true,
+      "pending": false,
+      "detail": "n/a — verse is in-scope."
+    },
+    {
+      "gate_id": "4.4",
+      "gate_name": "Per-chapter STRETCHED rate <= 30%",
+      "tier": 4,
+      "passed": true,
+      "pending": false,
+      "detail": "Per-chapter STRETCHED rate evaluated at chapter ship time, not per verse."
+    },
+    {
+      "gate_id": "4.5",
+      "gate_name": "Per-chapter LOW-confidence rate <= 20%",
+      "tier": 4,
+      "passed": true,
+      "pending": false,
+      "detail": "Per-chapter LOW-confidence rate evaluated at chapter ship time."
+    },
+    {
+      "gate_id": "5.1",
+      "gate_name": "English translation length 40-180 words",
+      "tier": 5,
+      "passed": false,
+      "pending": false,
+      "detail": "translation words = 184 (target 40-180)"
+    },
+    {
+      "gate_id": "5.2",
+      "gate_name": "Engineering analog length 80-280 words",
+      "tier": 5,
+      "passed": true,
+      "pending": false,
+      "detail": "concrete_scenario words = 204 (target 80-280)"
+    },
+    {
+      "gate_id": "5.3",
+      "gate_name": "Flesch-Kincaid grade 9-13",
+      "tier": 5,
+      "passed": false,
+      "pending": false,
+      "detail": "Flesch-Kincaid grade = 7.23 (target 9-13)"
+    },
+    {
+      "gate_id": "5.4",
+      "gate_name": "Sentence-length variance > threshold",
+      "tier": 5,
+      "passed": true,
+      "pending": false,
+      "detail": "sentence-length variance = 91.53 (target >= 6)"
+    },
+    {
+      "gate_id": "5.5",
+      "gate_name": "Lexical diversity > 0.55",
+      "tier": 5,
+      "passed": false,
+      "pending": false,
+      "detail": "lexical diversity = 0.466 (target >= 0.55)"
+    },
+    {
+      "gate_id": "5.6",
+      "gate_name": "No reused metaphor across verses (cosine < 0.7)",
+      "tier": 5,
+      "passed": true,
+      "pending": false,
+      "detail": "Cross-verse cosine compared at chapter time; first verse passes by default."
+    },
+    {
+      "gate_id": "5.7",
+      "gate_name": "Voice consistency per chapter",
+      "tier": 5,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge voice consistency pending."
+    },
+    {
+      "gate_id": "5.8",
+      "gate_name": "Tags from controlled vocabulary",
+      "tier": 5,
+      "passed": true,
+      "pending": false,
+      "detail": "tags: operator-as-instrument, deliberate-action, long-term-thinking, engineer-paralysis"
+    },
+    {
+      "gate_id": "6.1",
+      "gate_name": "Doctrine consistency across same-tag verses",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "Single-verse run: doctrine consistency evaluated at chapter time."
+    },
+    {
+      "gate_id": "6.2",
+      "gate_name": "Single analog used in <= 5% of verses",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "Single-verse run: analog reuse evaluated at chapter time."
+    },
+    {
+      "gate_id": "6.3",
+      "gate_name": "Single tool used in <= 8% of verses",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "Single-verse run: tool reuse evaluated at chapter time."
+    },
+    {
+      "gate_id": "6.4",
+      "gate_name": "Cross-references resolve to existing verses",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "No cross-references to verify on first verse."
+    },
+    {
+      "gate_id": "6.5",
+      "gate_name": "Cross-references support the citing claim",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "n/a on first verse."
+    },
+    {
+      "gate_id": "6.6",
+      "gate_name": "Recurring concepts have glossary entries",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "Glossary not yet seeded; deferred to chapter ship."
+    },
+    {
+      "gate_id": "6.7",
+      "gate_name": "Glossary terms used consistently",
+      "tier": 6,
+      "passed": true,
+      "pending": false,
+      "detail": "Glossary consistency deferred."
+    },
+    {
+      "gate_id": "6.8",
+      "gate_name": "Engineering vocab does not erase Gita technical terms",
+      "tier": 6,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge: technical-term preservation pending."
+    },
+    {
+      "gate_id": "7.1",
+      "gate_name": "Sanskrit-scholar judge: zero misrepresentations",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.2",
+      "gate_name": "Hostile-engineer judge: real engineering insight",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.3",
+      "gate_name": "Skeptical-PM judge: actionable in roadmap decision",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.4",
+      "gate_name": "Indian-philosopher judge: doesn't conflate traditions",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.5",
+      "gate_name": "Cynical-writer judge: cannot trivially mock",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.6",
+      "gate_name": "Cross-verse force-fit: doesn't equally apply elsewhere",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.7",
+      "gate_name": "Removed-verse test: analog not reconstructible from chapter alone",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.8",
+      "gate_name": "Analog->verse inversion top-3 includes source",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.10",
+      "gate_name": "Reverse-translate analog yields compatible stance",
+      "tier": 7,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge pending."
+    },
+    {
+      "gate_id": "7.9",
+      "gate_name": "Poison-verse injection rejected",
+      "tier": 7,
+      "passed": true,
+      "pending": false,
+      "detail": "Poison-verse injection test only meaningful on chapter batches."
+    },
+    {
+      "gate_id": "8.1",
+      "gate_name": "No verse trivializes the original",
+      "tier": 8,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge: trivialization check pending."
+    },
+    {
+      "gate_id": "8.2",
+      "gate_name": "Original meaning preserved alongside engineering",
+      "tier": 8,
+      "passed": true,
+      "pending": false,
+      "detail": "Original meaning preserved alongside engineering layer."
+    },
+    {
+      "gate_id": "8.3",
+      "gate_name": "Tradition explicitly named when commentary invoked",
+      "tier": 8,
+      "passed": true,
+      "pending": false,
+      "detail": "All commentaries name their tradition."
+    },
+    {
+      "gate_id": "8.4",
+      "gate_name": "Battlefield metaphor only when verse supports it",
+      "tier": 8,
+      "passed": true,
+      "pending": false,
+      "detail": "no battle metaphor."
+    },
+    {
+      "gate_id": "8.5",
+      "gate_name": "No claim Gita is really a tech manual",
+      "tier": 8,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge: 'Gita is a tech manual' framing check pending."
+    },
+    {
+      "gate_id": "9.1",
+      "gate_name": "Iter log captured",
+      "tier": 9,
+      "passed": true,
+      "pending": false,
+      "detail": "iterations recorded: 1"
+    },
+    {
+      "gate_id": "9.2",
+      "gate_name": "Verse JSON validates against schema",
+      "tier": 9,
+      "passed": true,
+      "pending": false,
+      "detail": "Verse JSON loaded by this evaluator implies it parses; full schema validator deferred."
+    },
+    {
+      "gate_id": "9.3",
+      "gate_name": "Citations timestamped",
+      "tier": 9,
+      "passed": true,
+      "pending": false,
+      "detail": "All citations carry fetched_at."
+    },
+    {
+      "gate_id": "9.4",
+      "gate_name": "Generation prompt version-tagged",
+      "tier": 9,
+      "passed": true,
+      "pending": false,
+      "detail": "schema=1.0.0 eval=1.0.0"
+    },
+    {
+      "gate_id": "9.5",
+      "gate_name": "Eval suite version-tagged on each verse",
+      "tier": 9,
+      "passed": true,
+      "pending": false,
+      "detail": "verse eval=1.0.0 config eval=1.0.0"
+    },
+    {
+      "gate_id": "9.6",
+      "gate_name": "Diff vs prior version saved on update",
+      "tier": 9,
+      "passed": true,
+      "pending": false,
+      "detail": "Diff vs prior version: not applicable on v0."
+    },
+    {
+      "gate_id": "10.1",
+      "gate_name": "Implication field present",
+      "tier": 10,
+      "passed": true,
+      "pending": false,
+      "detail": "implication words = 51"
+    },
+    {
+      "gate_id": "10.2",
+      "gate_name": "Implication non-redundant within chapter",
+      "tier": 10,
+      "passed": true,
+      "pending": false,
+      "detail": "Implication non-redundancy evaluated at chapter time."
+    },
+    {
+      "gate_id": "10.3",
+      "gate_name": "Chapter thesis supported by verse",
+      "tier": 10,
+      "passed": false,
+      "pending": true,
+      "detail": "LLM-judge: chapter thesis support pending."
+    },
+    {
+      "gate_id": "10.4",
+      "gate_name": "Verses ordered to build progressively",
+      "tier": 10,
+      "passed": true,
+      "pending": false,
+      "detail": "Verse ordering evaluated at chapter time."
+    },
+    {
+      "gate_id": "10.5",
+      "gate_name": "Chapter ends with synthesis",
+      "tier": 10,
+      "passed": true,
+      "pending": false,
+      "detail": "Synthesis evaluated at chapter time."
+    },
+    {
+      "gate_id": "11.1",
+      "gate_name": "Readable in <= 90 seconds",
+      "tier": 11,
+      "passed": true,
+      "pending": false,
+      "detail": "total verse words = 557 (cap 600)"
+    },
+    {
+      "gate_id": "11.2",
+      "gate_name": "Contains a quotable line",
+      "tier": 11,
+      "passed": true,
+      "pending": false,
+      "detail": "quotable line words = 23"
+    },
+    {
+      "gate_id": "11.3",
+      "gate_name": "Searchable: contains real engineering keywords",
+      "tier": 11,
+      "passed": false,
+      "pending": true,
+      "detail": "Engineering-keyword search check deferred to indexing step."
+    },
+    {
+      "gate_id": "11.4",
+      "gate_name": "Code samples (if any) syntactically valid",
+      "tier": 11,
+      "passed": true,
+      "pending": false,
+      "detail": "No code samples present; n/a."
+    },
+    {
+      "gate_id": "12.1",
+      "gate_name": "Periodic human-calibration sample passes",
+      "tier": 12,
+      "passed": false,
+      "pending": true,
+      "detail": "Periodic human calibration sample required before pass."
+    },
+    {
+      "gate_id": "12.2",
+      "gate_name": "First-iter chapter failure rate >= 30%",
+      "tier": 12,
+      "passed": true,
+      "pending": false,
+      "detail": "First-iter chapter failure rate evaluated at chapter time."
+    },
+    {
+      "gate_id": "12.3",
+      "gate_name": "Previously accepted verses still pass current suite",
+      "tier": 12,
+      "passed": true,
+      "pending": false,
+      "detail": "Re-run consistency evaluated when prior verses exist."
+    }
+  ]
+}

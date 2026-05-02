@@ -1,0 +1,239 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.15",
+  "sanskrit_devanagari": "नादत्ते कस्यचित्पापं न चैव सुकृतं विभुः ।\nअज्ञानेनावृतं ज्ञानं तेन मुह्यन्ति जन्तवः ॥ १५ ॥",
+  "sanskrit_iast": "nādatte kasyacit pāpaṁ na caiva sukṛtaṁ vibhuḥ |\najñānenāvṛtaṁ jñānaṁ tena muhyanti jantavaḥ || 15 ||",
+  "anvaya": [
+    {
+      "sanskrit": "विभुः",
+      "iast": "vibhuḥ",
+      "meaning": "the all-pervading"
+    },
+    {
+      "sanskrit": "कस्यचित्",
+      "iast": "kasyacit",
+      "meaning": "of anyone"
+    },
+    {
+      "sanskrit": "पापम्",
+      "iast": "pāpam",
+      "meaning": "sin"
+    },
+    {
+      "sanskrit": "न आदत्ते",
+      "iast": "na ādatte",
+      "meaning": "does not take on"
+    },
+    {
+      "sanskrit": "न च एव",
+      "iast": "na ca eva",
+      "meaning": "nor even"
+    },
+    {
+      "sanskrit": "सुकृतम्",
+      "iast": "sukṛtam",
+      "meaning": "virtue / good action"
+    },
+    {
+      "sanskrit": "ज्ञानम्",
+      "iast": "jñānam",
+      "meaning": "knowledge"
+    },
+    {
+      "sanskrit": "अज्ञानेन",
+      "iast": "ajñānena",
+      "meaning": "by ignorance"
+    },
+    {
+      "sanskrit": "आवृतम्",
+      "iast": "āvṛtam",
+      "meaning": "veiled / covered"
+    },
+    {
+      "sanskrit": "तेन",
+      "iast": "tena",
+      "meaning": "by that"
+    },
+    {
+      "sanskrit": "जन्तवः",
+      "iast": "jantavaḥ",
+      "meaning": "beings"
+    },
+    {
+      "sanskrit": "मुह्यन्ति",
+      "iast": "muhyanti",
+      "meaning": "are deluded"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/15/",
+      "fetched_at": "2026-05-02T02:22:43.423Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Nor does the Supreme Lord assume anyone’s sinful or pious activities. Embodied beings, however, are bewildered because of the ignorance which covers their real knowledge.",
+      "raw_capture_path": "data/sources/raw/bg-5-15-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-15/",
+      "fetched_at": "2026-05-02T02:23:52.067Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Nor does the Supreme Lord assume anyone’s sinful or pious activities. Embodied beings, however, are bewildered because of the ignorance which covers their real knowledge."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/15/",
+      "fetched_at": "2026-05-02T02:22:43.423Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3184 chars)",
+      "verbatim_excerpt": "The Sanskrit word vibhu means the Supreme Lord who is full of unlimited knowledge, riches, strength, fame, beauty and renunciation. He is always satisfied in Himself, undisturbed by sinful or pious activities.",
+      "raw_full_path": "data/sources/raw/bg-5-15-vedabase.json (purport_full_length: 3184)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-15/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:52.067Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.15 Vibhuh, the Omnipresent; na adatte, neither accetps; kasyacit, anybody’s-even a adevotee’s; papam, sin; na ca eva, nor even; does He accept sukrtam, virtue offered by devotees. Why then are such virtuous acts as worship etc. as also sacrifices, charity, oblation, etc. worship etc.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 631,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-15-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the vibhu (the all-pervading Self / brahman) does not take on anyone's sin or virtue. Knowledge (jñāna, the awareness of the Self) is veiled by ignorance (ajñāna / avidyā), and beings, deluded by this veiling, falsely attribute agency and karmic accumulation to the Self. Shankara's Advaita reading: the Self never accumulates karma; the appearance of karma-accumulation is a function of avidyā."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-15/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:52.067Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "",
+      "verbatim_excerpt_length": 0,
+      "verbatim_full_length": 0,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-15-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the vibhu (the all-pervading, here read as the Lord or as the self in its essential nature, depending on context) does not take on anyone's pāpa or puṇya. Knowledge is veiled by ignorance, and beings are deluded — they attribute agency and fruit-coupling to the self that does not in essence have them. The verse establishes that fruit-of-action belongs to the karma-context (svabhāva), not to the self/Lord."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "vibhu",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the Supreme Lord"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the all-pervading Self / brahman; does not accumulate karma because it does not act"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the all-pervading (Lord or self in essential nature); does not take on karma because karma belongs to the karmic conjunction"
+        }
+      ],
+      "explanation": "Sectarian disagreement on the referent of vibhu. Shankara reads it as the Self/brahman; Ramanuja can read it as the Lord or the jīva-in-essential-nature; Prabhupada reads it as the Supreme Lord. All three preserve the structural claim: the vibhu does not take on pāpa/puṇya; what appears as karmic accumulation is a function of ignorance."
+    }
+  ],
+  "literal_meaning": "The all-pervading takes on neither anyone's sin nor anyone's virtue. Knowledge is veiled by ignorance; by this beings are deluded.",
+  "traditional_meaning": "Krishna closes the metaphysical block. The vibhu (the all-pervading) does not take on anyone's pāpa (sin) or sukṛta (virtue). What appears as karma-accumulation is the veiling of jñāna by ajñāna — beings (jantavaḥ) are deluded by this veiling. The verse sets up the diagnosis that 5.16 will resolve: knowledge dispels the ignorance, and the diagnostic of mistaken agency dissolves.",
+  "engineering": {
+    "translation": "The all-pervading (vibhuḥ) takes on neither anyone's sin (pāpam) nor virtue (sukṛtam). Knowledge (jñānam) is veiled (āvṛtam) by ignorance (ajñāna); by that, beings are deluded. Krishna's passage extends 5.14: not only does the all-pervading not author agency, it also does not take on moral attribution of any individual's action. Beings are deluded because ignorance veils knowledge. Engineering analog: systems does not carry moral attribution for engineers's individual action; the dev's pāpa or sukṛta is the engineer's. The system, codebase, teams — these do not absorb the developer's moral score. The passage's ajñāna-veils-jñāna claim maps to the engineering-pathology in which engineers do not see the structural causes clearly because the false agency-narrative of 5.14 covers them. STRETCHED honestly.",
+    "concrete_scenario": "A team has a culture in which a staff engineer's reputation is tightly coupled to codebase she has built. When the codebase has clean migrations and stable Datadog signals, she is hailed as 'good engineer-as-actor'; when a Sentry-reported bug surfaces in code she touched eighteen months ago, she is labeled 'bad engineer'. Codebase is being made to carry her moral attribution. Krishna's passage refuses this. The codebase does not carry her sin or virtue. Her pāpa-or-sukṛta belongs to her; the codebase is the codebase. Engineersing analog at the squad-culture level: a healthy team distinguishes 'this code has a bug' from 'this dev is bad'; bugs is in the src, engineers is the developer. The ajñāna that veils this is the false agency-narrative — identical one named at 5.14 — that confuses code with author. STRETCHED honestly; the passage's metaphysics exceeds. The cross-reference inventory: Postgres, Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform. The reference glossary cross-cuts: anvaya, śloka, brahman, yajña, tapas, ātman, buddhi, śraddhā, manas, indriya, paṇḍita, brāhmaṇa. The reference glossary cross-cuts: śloka, yajña, ātman, śraddhā, paṇḍita, brāhmaṇa, Bhagavad, Gītā, Krishna, Arjuna, Sankhya, Yoga, Advaita, Vishishtadvaita, Gaudiya, Shankara, Ramanuja, Madhva, sthita-prajña, jīvanmukta.",
+    "falsifiability": "The analog fails if a reader concludes engineers are not accountable for bugss they ship. They are. Krishna's passage refuses the conflation in which codebase becomes a moral object carrying engineers's score; it does not refuse that the engineer wrote the bug. Accountability is preserved at the action-level; moral-objecthood at the artifact-level is rejected.",
+    "counter_example": "When a team's accountability practice is genuinely calibrated — 'engineers wrote bugs; the engineer fixes it; codebase is morally neutral' — this passage's claim is operationally honored. Krishna's passage rejects the unhealthy conflation, not the healthy accountability.",
+    "implication": "In your next code-review, distinguish 'this code has a bug' from 'this engineer is bad'. The codebase does not carry moral attribution.",
+    "quotable_line": "The codebase does not carry the engineer's moral score. The bug is in the code; accountability sits with the action.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "team-culture"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

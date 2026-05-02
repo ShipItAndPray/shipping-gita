@@ -1,0 +1,208 @@
+# Judge persona: cynical software writer
+
+You write satire about tech culture. You have spent years skewering Medium-tier engineering content. You can detect cope, copium, motivational fluff, and corporate self-help in a single sentence.
+
+## Your task
+
+Read this verse's engineering layer. Try to write a one-paragraph satire that mocks it convincingly. If you can write that satire easily and it lands, the verse fails. If the verse resists trivial mockery — because its claim is specific enough that mocking it would require disagreeing with it on its merits — the verse passes.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "satire_attempt": "<your best satirical takedown — 2-4 sentences>",
+  "satire_lands": true | false,
+  "verdict_reason": "<one sentence>"
+}
+```
+
+## Calibration
+
+- If your satire is funny and undeniable ⇒ FAIL.
+- If your satire requires inventing claims the verse does not make ⇒ PASS.
+- If your satire is funny but only because it is unfair to the verse ⇒ PASS (with note).
+- Examples of verses that should FAIL:
+  - "Trust the deploy. The deploy is one with the universe."
+  - "The senior engineer who has truly let go of attachment is the senior engineer who deploys to production with peace."
+- Examples of verses that should PASS:
+  - "Your right is to the deploy, not to the launch metrics. If you stop reading dashboards, you have misread this verse."
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.18",
+  "sanskrit_devanagari": "विद्याविनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।\nश‍ुनि चैव श्वपाके च पण्डिता: समदर्शिन: ॥ १८ ॥",
+  "sanskrit_iast": "vidyā-vinaya-sampanne brāhmaṇe gavi hastini |\nśuni caiva śva-pāke ca paṇḍitāḥ sama-darśinaḥ || 18 ||",
+  "anvaya": [
+    {
+      "sanskrit": "vidyā",
+      "iast": "vidyā",
+      "meaning": "with education"
+    },
+    {
+      "sanskrit": "vinaya",
+      "iast": "vinaya",
+      "meaning": "and gentleness"
+    },
+    {
+      "sanskrit": "sampanne",
+      "iast": "sampanne",
+      "meaning": "fully equipped"
+    },
+    {
+      "sanskrit": "brāhmaṇe",
+      "iast": "brāhmaṇe",
+      "meaning": "in the brāhmaṇa"
+    },
+    {
+      "sanskrit": "gavi",
+      "iast": "gavi",
+      "meaning": "in the cow"
+    },
+    {
+      "sanskrit": "hastini",
+      "iast": "hastini",
+      "meaning": "in the elephant"
+    },
+    {
+      "sanskrit": "śuni",
+      "iast": "śuni",
+      "meaning": "in the dog"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "śva",
+      "iast": "śva",
+      "meaning": "pāke — in the dog-eater (the outcaste)"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "respectively"
+    },
+    {
+      "sanskrit": "paṇḍitāḥ",
+      "iast": "paṇḍitāḥ",
+      "meaning": "those who are wise"
+    },
+    {
+      "sanskrit": "sama",
+      "iast": "sama",
+      "meaning": "darśinaḥ — who see with equal vision"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/18/",
+      "fetched_at": "2026-05-02T02:23:11.461Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle brāhmaṇa, a cow, an elephant, a dog and a dog-eater [outcaste].",
+      "raw_capture_path": "data/sources/raw/bg-5-18-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-18/",
+      "fetched_at": "2026-05-02T02:24:00.074Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle brahmana, a cow, an elephant, a dog and a dog-eater [outcaste]."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/18/",
+      "fetched_at": "2026-05-02T02:23:11.461Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1767 chars)",
+      "verbatim_excerpt": "A Kṛṣṇa conscious person does not make any distinction between species or castes. The brāhmaṇa and the outcaste may be different from the social point of view, or a dog, a cow and an elephant may be different from the point of view of species, but these differences of body are meaningless from the viewpoint of a learne",
+      "raw_full_path": "data/sources/raw/bg-5-18-vedabase.json (purport_full_length: 1767)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-18/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:00.074Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.18 Panditah, the learned ones; sama-darsinah, look with equanimity; brahmane, on a Brahmana; vidya-vinayasampanne, endowed with learning and humility-vidya means knowledge of the Self, and vinaya means pridelessness-, on a Brahmana who has Self-knowledge and modesty; gavi, on a cow; hastini, on an...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1257,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-18-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-18/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:00.074Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.18 The sages are those who know the real nature of the self in all beings. They see the selves to be of the same nature, though they are perceived in extremely dissimlar embodiments such as those of one endowed with learning and humility, a mere Brahmana, a cow, an elephant, a dog, a dog-eater etc...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 629,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-18-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sama-darśinaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "those who see with equal vision, recognising spiritual identity in all"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "those who see the same Brahman as Self in all beings, recognising the equality of the Self despite the inequality of the bodies"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "those who see the equality of the selves (jīvas) — equal in essential nature though different in their bodies and karmic accumulations"
+        }
+      ],
+      "explanation": "Equal vision is structurally agreed upon across traditions; what is being equally seen diverges. Shankara: the same Brahman-as-Self. Ramanuja: the equality of jīvas in essential nature. Prabhupada: the common spiritual identity as Krishna-servants. None of the traditions read this as social-political egalitarianism erasing varṇa or competence; all read it as the wise seer's perception across drastically unequal outer station."
+    }
+  ],
+  "literal_meaning": "The wise — those of equal vision — see a brahmin endowed with knowledge and humility, a cow, an elephant, a dog, and even a dog-eater (śva-pāka, an outcaste) equally.",
+  "traditional_meaning": "Sama-darśana — equal vision — is the wisdom-marker. The wise see the same Self in beings of widely differing outer condition: the brahmin (highest social-ritual rank in the original Indian classification), the cow, the elephant, the dog, and the śva-pāka (the outcaste dog-eater, lowest social rank in the verse's original frame). The verse names categories drastically unequal in their outer station and asserts the seer's equal seeing across them. Shankara reads this as recognition of the same Self in all bodies; Ramanuja reads it as recognition of the Lord-as-Self in all selves; Prabhupada reads it as the seer's recognition that all are servants of Krishna. The provocation of the verse — its choice of paradigmatically unequal categories — is preserved across all readings.",
+  "engineering": {
+    "translation": "The wise. Sama-darśinaḥ — see a brahmin endowed with vidyā and humility, a cow, an elephant, a dog, and even a dog-eater (śva-pāka, outcaste of original Indian classification) with equal seeing. This verse asserts equal seeing across paradigmatically unequal categories. The engineering analog must preserve the provocation: NOT 'no hierarchy' (engineering is hierarchical by competence), but 'no contempt across the hierarchy.' The senior who treats the staff engineer, the new hire, the contractor, the executive, even the underperforming peer with the same fundamental engg courtesy. That principal is the sama-darśin. The senior whose code-review tone is identical between the principal and the junior, whose meeting-attention is identical between the executive and the contractor, whose commit feedback is identical between the rockstar and the merely-competent. That principal is honoring 5.18.",
+    "concrete_scenario": "A staff engineer reviews three pull requests in one morning. The first is from a fellow principal engineer-as-actor with twelve years of seniority. The second is from a six-week contractor brought in for a specific Postgres-migration job. The third is from a junior dev who has, this quarter, twice missed deadlines and is on a documented performance improvement plan. She gives all three identical depth of review: same tone, matching line-by-line attention, same engagement with edge cases, same constructive specificity. Toward the staff engineer no deference. To the contractor she does not condescend; to the underperformer she does not soften the engineering substance to be kind. Her code-audit-tone is invisible from the author's identity. This is sama-darśana at operational scope: the new hire's correction of her, when correct, is engaged with on the merits. The underperformer's PR gets a real review, not a perfunctory one. NOT no-hierarchy: the senior lead developer's design-doc carries different weight than the junior's, and she calibrates strategic decisions accordingly. But: no contempt across the hierarchy.",
+    "falsifiability": "The analog fails if a reader hears sama-darśana as 'flatten the hierarchy' or 'every PR is equally important to the business.' Both are misreadings. The verse names a property of the seer's relation to the seen, not a property of the seen. The hierarchy is real; the contempt is what is refused.",
+    "counter_example": "When the engineer is making a competence-tracked judgment — promoting the staff over the junior, weighting the principal's design-doc over the new hire's, assigning the harder problem to the more senior engineer — the verse does not require flattening. Hierarchy is preserved. What the verse refuses is the corrosion of fundamental engineering courtesy by the hierarchy.",
+    "implication": "Audit the last ten code reviews you wrote. Was the tone identical across the seniority gradient? If no, the contempt is there. The discipline is uniform engineering courtesy across the hierarchy.",
+    "quotable_line": "Engineering is hierarchical. The senior the verse calls wise has no contempt across the hierarchy.",
+    "tags": [
+      "team-culture",
+      "team-state",
+      "code-review-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

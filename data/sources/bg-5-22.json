@@ -1,0 +1,222 @@
+{
+  "id": "BG 5.22",
+  "chapter": 5,
+  "verse": 22,
+  "fetched_at": "2026-05-02T03:00:00Z",
+  "sanskrit_devanagari": "ये हि संस्पर्शजा भोगा दु:खयोनय एव ते ।\nआद्यन्तवन्त: कौन्तेय न तेषु रमते बुध: ॥ २२ ॥",
+  "sanskrit_iast": "ye hi saṁsparśa-jā bhogā duḥkha-yonaya eva te |\nādy-antavantaḥ kaunteya na teṣu ramate budhaḥ || 22 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/22/",
+      "fetched_at": "2026-05-02T02:23:11.626Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-5-22-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/22",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=22",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical).",
+      "raw_capture_path": "data/sources/raw/bg-5-22-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.022 = MBh_06,027.022). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "ye",
+      "iast": "ye",
+      "meaning": "those"
+    },
+    {
+      "sanskrit": "hi",
+      "iast": "hi",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "saṁsparśa",
+      "iast": "saṁsparśa",
+      "meaning": "jāḥ — by contact with the material senses"
+    },
+    {
+      "sanskrit": "bhogāḥ",
+      "iast": "bhogāḥ",
+      "meaning": "enjoyments"
+    },
+    {
+      "sanskrit": "duḥkha",
+      "iast": "duḥkha",
+      "meaning": "distress"
+    },
+    {
+      "sanskrit": "yonayaḥ",
+      "iast": "yonayaḥ",
+      "meaning": "sources of"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "te",
+      "iast": "te",
+      "meaning": "they are"
+    },
+    {
+      "sanskrit": "ādi",
+      "iast": "ādi",
+      "meaning": "beginning"
+    },
+    {
+      "sanskrit": "anta",
+      "iast": "anta",
+      "meaning": "end"
+    },
+    {
+      "sanskrit": "vantaḥ",
+      "iast": "vantaḥ",
+      "meaning": "subject to"
+    },
+    {
+      "sanskrit": "kaunteya",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "never"
+    },
+    {
+      "sanskrit": "teṣu",
+      "iast": "teṣu",
+      "meaning": "in those"
+    },
+    {
+      "sanskrit": "ramate",
+      "iast": "ramate",
+      "meaning": "takes delight"
+    },
+    {
+      "sanskrit": "budhaḥ",
+      "iast": "budhaḥ",
+      "meaning": "the intelligent person"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/22/",
+      "fetched_at": "2026-05-02T02:23:11.626Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "An intelligent person does not take part in the sources of misery, which are due to contact with the material senses. O son of Kuntī, such pleasures have a beginning and an end, and so the wise man does not delight in them.",
+      "raw_capture_path": "data/sources/raw/bg-5-22-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "An intelligent person does not take part in the sources of misery, which are due to contact with the material senses. O son of Kunti, such pleasures have a beginning and an end, and so the wise man does not delight in them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/22/",
+      "fetched_at": "2026-05-02T02:23:11.626Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1361 chars)",
+      "verbatim_excerpt": "Material sense pleasures are due to the contact of the material senses, which are all temporary because the body itself is temporary. A liberated soul is not interested in anything which is temporary.",
+      "raw_full_path": "data/sources/raw/bg-5-22-vedabase.json (purport_full_length: 1361)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.22 Hi, since; bhogah, enjoyments; ye samsparsajah, that result from contact with objects, that arise from contact between the objects and the organs; are eva, verily; duhkha-yonayah, sources of sorrow, because they are creations of ignorance. It is certainly a matter of experience that physical an...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1478,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-22-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.22 Those pleasures which result from the contact of sense objects with the senses, are the wombs of pain, i.e., have pain as their ultimate fruit ‘They have a beginning and an end,’ i.e., they are seen to remain only for a brief period and the reaction that follows their cessation is painful. He w...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 398,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-22-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "duḥkha-yonayaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sources of distress; wombs of misery"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "sources/origins of misery; the contact-enjoyment is itself the seed of the suffering it eventually produces"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "wombs of misery; the bounded enjoyment is structurally the source of the dissatisfaction that follows it"
+        }
+      ],
+      "explanation": "All three readings preserve the verse's sharpness — bounded enjoyment is a source of misery, not a soft 'sometimes-painful pleasure'. The structural claim (boundedness produces misery) is identical across traditions."
+    }
+  ],
+  "literal_meaning": "Enjoyments born of contact (saṁsparśa-jā bhogāḥ) are sources of misery (duḥkha-yonayaḥ); they have a beginning and an end (ādy-anta-vantaḥ); the wise (budhaḥ) do not delight in them.",
+  "traditional_meaning_consensus": "Bounded enjoyments — the kind produced by sense-contact with sense-objects — are explicitly named as sources of misery (duḥkha-yonayaḥ). Their boundedness (ādy-anta-vantaḥ — having beginning and end) is the structural reason. The wise person, recognising this, does not delight in them. The verse is sharp; it does not hedge. Shankara, Ramanuja, and Prabhupada agree on the operational claim; the metaphysics of the alternative (the imperishable bliss of 5.21) diverges along sectarian lines.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

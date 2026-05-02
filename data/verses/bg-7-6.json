@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.6",
+  "chapter": 7,
+  "verse": 6,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna draws the implication: since all beings arise from the joining of his two prakṛtis, he himself is the origin (prabhavaḥ) and dissolution (pralayaḥ) of the entire universe. The verse's metaphysical reach is large. The honest engineering analog operates at narrow scope. The two-prakṛti structure introduced in 7.4-7.5 — visible artifact and operating intelligence — produces every running system as their joining. Operationally: a system arises when the visible artifact (code, deploy, orchestration) meets the operating intelligence (engineers attending, users needing). When either side withdraws, the system dissolves. The customer-need or system-truth that the chapter thesis names — the underlying requirement the system serves — is what beings arise from and dissolve back into at engineering scope. The verse's full claim (Krishna as origin and dissolution of the universe) is metaphysical; the engineering analog is the operational pattern at one tier down. STRETCHED honestly.",
+    "concrete_scenario": "A startup ships a fraud-scoring API in 2022. It arises: the customer-need (banks losing money to ACH-debit fraud) pulls into existence the visible artifact (a Node service with a Postgres feature store, hosted on AWS Lambda, instrumented with Datadog). Three years later the bank-side regulation changes — the fraud pattern shifts, the original signal becomes worthless, the customers stop pulling, the engineers stop attending. The Node service is still in AWS; the Postgres tables still exist; the Datadog dashboards still render. But the system has dissolved as a system. What had pulled it into being was the customer-need; what dissolves it is the same need ceasing. The verse, scoped operationally, names this pattern: arising from the joining of artifact and operating-intelligence, dissolving when the joining lapses. The metaphysical reach (Krishna as universal origin and dissolution) exceeds this analog; the operational pattern is real.",
+    "falsifiability": "The analog fails if a reader uses it to claim that engineering systems are 'sustained by the divine'. The verse's metaphysical claim is theistic; the engineering analog is the operational observation that systems arise from a joining and dissolve when the joining lapses. The customer-need is not Krishna; the operational analog operates at a narrow tier and does not extend to metaphysics.",
+    "counter_example": "When a system that has lost its customer-need still ships value through inertia or compliance — a regulatory filing system, an internal compatibility shim — the simple arising-and-dissolving frame does not apply directly. Such systems persist on a different sustaining force (compliance requirement, downstream coupling) which is itself a kind of need, just not a customer-need. The verse holds at the fully-general scope; the operational analog scopes downward.",
+    "implication": "For each system you operate, name the joining: which customer-need pulls it, which artifact serves it, which operating intelligence sustains it. When you are debating whether to deprecate, ask whether the joining has already lapsed; if so, the system has already dissolved and you are merely formalising the recognition.",
+    "quotable_line": "Systems arise when customer-need joins artifact and intelligence; they dissolve when the joining lapses.",
+    "tags": ["operator-system-coupling", "deprecation-management", "product-truth"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:15:00Z",
+      "mutation": "v0 generation: per chapter thesis, STRETCHED honestly — verse's metaphysical claim (Krishna as origin/dissolution of universe) exceeds operational scope. Engineering analog scoped to systems arising from joining of artifact + operating intelligence + customer-need, dissolving when joining lapses. Concrete scenario uses a fraud-scoring API arc (Node, Postgres, AWS Lambda, Datadog) with realistic three-year arising-and-dissolution. Confidence MEDIUM. Falsifiability guards against 'systems sustained by the divine' misread.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.15",
+  "chapter": 7,
+  "verse": 15,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Four parallel clauses name a class that structurally does not take refuge in Krishna — evildoers, deluded, lowest of men, knowledge stolen by māyā, of asuric disposition. This is the chapter's most pointed verse, and the easiest to mishandle. The engineering analog must explicitly refuse to smuggle in a moral hierarchy of engineers. Some engineers, by structural pattern (not by moral defect), do not internalise substrate-discipline. They may be skilled at the surface; they may ship plenty of GitHub PRs; they may move through promo cycles successfully. What the verse describes structurally: knowledge captured by the surface-frame, attention pulled into status games, no movement toward the substrate question. Descriptive, not prescriptive. Read narrowly: the verse names a structural class, not a license for any senior to dismiss colleagues. STRETCHED honestly — the metaphysical hierarchy the verse names does NOT travel into the operational engineering frame.",
+    "concrete_scenario": "A staff engineer at a large consumer-internet company has spent two years on a Kubernetes platform team of eight ICs. Six are deeply curious about substrate — they raise invariant questions during architecture review, push back on Postgres schema choices on first principles, redirect framework debates toward customer-need debates. Two are not. Those two are not bad engineers; they ship reliably, pass code review, hit their performance targets quarter after quarter. Yet across twenty-four months she has watched their questions stay above the surface-frame; substrate-discipline simply does not interest them; when she opens a substrate question they nod politely, then redirect. The verse names this structural pattern descriptively. The trap is reading it as license to grade those two as 'asuric' colleagues to be excluded. The chapter thesis explicitly forbids that move. They are not below; they sit inside a different relation to the work, and her team must source substrate-discipline elsewhere rather than punish them for it. The verse describes; the moral hierarchy is the analog's failure mode.",
+    "falsifiability": "The analog fails most dangerously the moment a reader uses it to grade colleagues morally. The verse's metaphysical force does NOT license an engineering reading where 'these teammates are asuric.' If your reading is producing a list of who-on-the-team-is-substrate-aware versus who-is-not, you have crossed into the hierarchy the chapter thesis explicitly forbids. Corrective: 7.15 describes a structural class; the analog's only legitimate operational use is recognising that substrate-discipline is unevenly distributed, then staffing accordingly — never grading.",
+    "counter_example": "When 'substrate-discipline' becomes a credentialing mechanism — when a senior says 'X is not at the level' or 'Y doesn't get it' — they have inverted the verse. 7.15 names structural rarity (some do not approach), not a rung on the engineering ladder. Using it to justify clique-formation, exclusion of teammates, or moral grading is the precise failure mode the chapter thesis warns against most directly.",
+    "implication": "When you notice the pattern — teammates whose attention does not move below the surface frame, who do not engage the substrate question — note it for staffing, not for grading. They contribute valuably at the layer they operate at; substrate-discipline must be sourced from those whose attention naturally moves there. The verse's metaphysical scope is larger; the engineering analog operates at narrow staffing scope and explicitly refuses the moral-hierarchy reading.",
+    "quotable_line": "The verse names a structural pattern. The engineering analog refuses the moral hierarchy reading explicitly — that is the failure mode the chapter thesis names.",
+    "tags": [
+      "engineering-pathology",
+      "team-state",
+      "team-pathology"
+    ],
+    "confidence": "LOW",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.15 is the asuric-nature verse — chapter thesis explicitly warns: do not smuggle a moral hierarchy of engineers. Engineering analog operates at narrow staffing scope and explicitly refuses the moral hierarchy reading. The translation, scenario, falsifiability, and counter-example all carry the explicit guard. Concrete scenario uses a team of 8 ICs where 2 of 8 are not substrate-curious — engineering analog frames this as staffing pattern, not as license for moral grading. Falsifiability calls out the failure mode directly. Counter-example guards against substrate-discipline as credentialing mechanism. LOW confidence (per gate 4.1, LOW confidence implies STRETCHED tag — both true). STRETCHED, LOW confidence per chapter thesis on this specific verse.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

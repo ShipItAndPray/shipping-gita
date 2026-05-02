@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.13",
+  "chapter": 7,
+  "verse": 13,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The whole engineering culture deluded by surface-states fails to recognize the substrate beneath them. Frameworks change quarterly; deployment fashions cycle through monolith-microservice-serverless and back; status games — promo-cycle work, conference-talk work, the methodology of the LinkedIn-quarter — occupy nearly all of the field's attention. The substrate (the durable customer-need the system serves) is structurally invisible inside the surface frame. This is not the verse's full claim — 7.13 names a metaphysical failure of the world to recognize Krishna who is beyond the guṇas, supreme, imperishable; that reach exceeds anything the engineering layer can travel. The engineering shadow is partial: most engineers, working competently inside whatever the current surface-state is, do not see the substrate. They are not failing morally; they are inside a frame that structurally obscures it. STRETCHED honestly: the verse's claim is much larger than the engineering analog can describe.",
+    "concrete_scenario": "A senior engineer joins a 200-person scaleup mid-cycle. In her first quarter, the architecture review meetings are dominated by debate over which event-streaming framework to adopt — Kafka, Pulsar, NATS. In her second quarter, the meetings have pivoted: the new question is whether to migrate the GraphQL gateway to Federation v2 or to drop GraphQL entirely for tRPC. By her fourth quarter, the same engineers are debating whether to consolidate the deployment topology around Kubernetes or to decompose into Lambda + Step Functions. Each of these debates is a real engineering question. None of them is the substrate question: what is the customer-facing requirement that the system must preserve through every implementation? In four quarters that question has been asked maybe twice, by maybe one person. The 200-person org is not failing morally — it is inside a framework-and-fashion frame that structurally absorbs the attention budget. The verse names this larger failure (the world's failure to recognize Krishna beyond the guṇas); the engineering shadow at narrow scope is the org's failure to see the substrate beneath the framework debates.",
+    "falsifiability": "The analog fails if used to dismiss frameworks as worthless. The framework debates are real; teams must pick a framework. Krishna is not anti-prakṛti — the guṇa-states are his (per 7.12). The verse names the failure of recognition, not the failure of the surface forms. An engineer who reads 7.13 as 'frameworks are illusion' has flattened both the verse and the engineering analog. The substrate is recognized THROUGH attention to the surface, not by ignoring the surface.",
+    "counter_example": "When the senior who claims 'substrate-knowledge' uses it to disengage from framework choices — refusing to do the work of evaluating Kafka vs Pulsar because 'the substrate is what matters' — they have substituted a pose for substrate-knowledge. Real substrate-knowledge sharpens framework choice (you know what invariants must survive the migration), it does not exempt you from making the choice.",
+    "implication": "Audit your team's last twelve months of architecture meetings. How many were about framework, methodology, deployment shape, status-game positioning? How many were about the customer-need the system is strung on? If the ratio is heavily on the surface side, the verse names the failure mode you are inside. The corrective is not to abandon the framework debates; it is to ensure the substrate question is asked at least as often.",
+    "quotable_line": "The whole engineering culture deluded by surface-states does not see the substrate beneath. The verse names this at metaphysical scale; the engineering shadow is partial.",
+    "tags": [
+      "three-gunas",
+      "essence-vs-implementation",
+      "engineering-pathology"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.13 is the māyā-veiling claim that opens the chapter's pivot to the doctrine of how the substrate is veiled. Per chapter thesis: STRETCHED honestly. Engineering analog scopes to the engineering culture deluded by surface-fashions (framework-of-the-quarter, methodology cycles, status games). Concrete scenario uses a 200-person scaleup's architecture review meetings (Kafka/Pulsar/NATS → GraphQL Federation v2/tRPC → Kubernetes/Lambda) where four quarters of debate have not surfaced the substrate question. Falsifiability guards against 'frameworks are illusion' misread. Counter-example guards against substrate-knowledge as exemption from framework choice. STRETCHED, MEDIUM confidence per chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

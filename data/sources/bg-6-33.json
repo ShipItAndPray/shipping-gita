@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.33",
+  "chapter": 6,
+  "verse": 33,
+  "fetched_at": "2026-05-02T02:28:26.104Z",
+  "sanskrit_devanagari": "अर्जुन उवाचयोऽयं योगस्त्वया प्रोक्त: साम्येन मधुसूदन ।एतस्याहं न पश्यामि चञ्चलत्वात्स्थितिं स्थिराम् ॥ ३३ ॥",
+  "sanskrit_iast": "arjuna uvācayo ’yaṁ yogas tvayā proktaḥsāmyena madhusūdanaetasyāhaṁ na paśyāmicañcalatvāt sthitiṁ sthirām",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/33/",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-33-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/33",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=33",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/",
+      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-33-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.033). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/33/",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Madhusūdana, the system of yoga which You have summarized appears impractical and unendurable to me, for the mind is restless and unsteady.",
+      "raw_capture_path": "data/sources/raw/bg-6-33-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/",
+      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Madhusudana, the system of yoga which You have summarized appears impractical and unendurable to me, for the mind is restless and unsteady."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/33/",
+      "fetched_at": "2026-05-02T02:25:28.722Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1716 chars)",
+      "verbatim_excerpt": "The system of mysticism described by Lord Kṛṣṇa to Arjuna beginning with the words śucau deśe and ending with yogī paramaḥ is here being rejected by Arjuna out of a feeling of inability. It is not possible for an ordinary man to leave home and go to a secluded place in the mountains or jungles to practice yoga in this",
+      "raw_full_path": "data/sources/raw/bg-6-33-vedabase.json (purport_full_length: 1716)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.33 O Madhusudana, ayam, this; yogah, Yoga; yah proktah, that has been spoken of; tvaya, by You; samyena, as sameness; na pasyami, I do not see, I cannot conceive;-what?-etasya, its; sthiram, steady, undisturbed; sthitim, continuance; cancalatvat, owing to the unsteadiness of the mind, wh",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 308,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-33-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-33/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:14.982Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.33 Arjuna said — This Yoga as explained by you consists in maintaining equality of vision everywhere, viz., i) among themselves which have been so far known to be of different kinds such as gods and men, and ii) between the individual selves and the Supreme, in so far as (a) all the selv",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 527,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-33-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

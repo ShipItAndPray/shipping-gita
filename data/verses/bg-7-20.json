@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.20",
+  "chapter": 7,
+  "verse": 20,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Engineers desiring particular outcomes commit to particular techniques as their refuge. One who wants distributed-systems prestige commits to Kafka and lectures the team on Kafka. One who wants frontend elegance commits to React Server Components and pushes RSCs into every meeting. One who wants observability mastery commits to OpenTelemetry and rewrites instrumentation across services. Each commitment is real, productive, generative inside its scope. The verse's descriptive claim is that the desire (the outcome wanted) drives the choice of technique-as-refuge, governed by an engineer's own innate disposition (prakṛti). This is NOT a moral indictment. The verse is descriptive — the structural pattern by which appetite plus disposition produce devotion to one tool. The chapter's response arrives in 7.21-23 (Krishna, like a wise senior, makes firm whichever practice the devotee approaches with — does not argue them out of it, but reinforces). The narrow-scope analog: respect that engineers gravitate toward specific techniques because those techniques match disposition and satisfy appetite; this is structural, not pathological.",
+    "concrete_scenario": "A staff engineer at a 600-person org notices the pattern across her platform team. Five seniors, each deeply committed to one technique-as-refuge. The first lives inside Kafka — every system question becomes a Kafka question; he has shipped three event-streaming services, his Confluence is dense with broker tuning notes. The second specialises in PostgreSQL (logical replication, partitioning, FDW, advisory locks); every data-layer question becomes a Postgres question. The third devotes himself to Kubernetes operators; every deployment question becomes an operator question. The fourth reaches for Rust; every performance question becomes a Rust rewrite. The fifth lives in formal methods (TLA+); every consistency question becomes a TLA+ specification. She recognises this not as five engineering pathologies but as five instances of 7.20: each engineer has, by innate disposition and by particular desire, taken refuge in a particular practice with its particular rules (niyamam āsthāya). The verse names this descriptively. The chapter's response: support each in their refuge, route the work that fits each technique to the matching person, keep the substrate-question alive separately.",
+    "falsifiability": "The analog fails if read as critique of technical commitment. 7.20 is descriptive. Engineers committing deeply to specific techniques is normal, productive, constitutes much of how high-quality engineering work gets done. A reader taking 7.20 as 'don't commit to a tool; commit to substrate' has misread. The verse describes the pattern; 7.21-23 will name Krishna's supportive response, not a corrective.",
+    "counter_example": "When commitment becomes territorial defense — when the Kafka engineer fights every architecture meeting to insert Kafka even where the use case does not fit — the analog tips from descriptive into pathological. The verse names refuge-in-particular-technique; the failure mode appears when refuge hardens into fortress that distorts the substrate-question. The chapter does not endorse the territoriality; it describes the structural pattern that can produce it.",
+    "implication": "When you notice an engineer's deep commitment to one technique, recognise the structural pattern — desire plus innate disposition produce the particular refuge. Do not pathologise it; do not flatten everyone into substrate-discipline. A senior, like Krishna, supports the colleague in their chosen practice (7.21-23) while keeping the substrate-question alive across the team's broader frame.",
+    "quotable_line": "Engineers commit to particular techniques as their refuge — driven by desires, governed by disposition. The verse names this descriptively, not as critique.",
+    "tags": [
+      "team-state",
+      "engineering-pathology",
+      "knowledge-action-integration"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.20 names the structural pattern of desire-driven refuge in particular techniques. Per chapter thesis: this is NOT a moral indictment; the verse is descriptive, and 7.21-23 will name Krishna's supportive response (making firm whichever faith they bring). v0 carries the descriptive register explicitly: five named platform engineers each committed to a particular technique (Kafka / Postgres / Kubernetes operators / Rust / TLA+) — recognised as 7.20's structural pattern, not as engineering pathology. Falsifiability and counter-example both guard against the critique-of-commitment misread. STRETCHED (the metaphysics of demigod-worship and prescribed rules far exceeds the engineering analog), MEDIUM confidence.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

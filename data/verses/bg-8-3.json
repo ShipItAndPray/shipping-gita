@@ -1,0 +1,33 @@
+{
+  "id": "BG 8.3",
+  "chapter": 8,
+  "verse": 3,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna answers the first three of Arjuna's seven questions in one tightly packed verse. brahma is the imperishable supreme (akṣaraṁ paramam). adhyātma is one's own nature (svabhāva). karma is the offering whose discharge originates beings (visargaḥ). The engineering layer here is unavoidably STRETCHED. Each of these three terms carries doctrinal weight — Advaita and Vishishtadvaita disagree maximally on what akṣara brahma even refers to (nondual Brahman versus jīvātman). The visarga karma definition explicitly connects backward to the yajña-cycle reading of chapter 3 (3.10-3.16). What is recognisable to engineering is the structural pattern: three crisp definitions delivered without preamble. The Sanskrit terms remain at source-pack level. The engineering analog does not substitute the operational concept for the doctrinal substrate; it borrows the discipline of crisp definition under questioning.",
+    "concrete_scenario": "Anjali, four days into her handover, opens the second meeting by answering Devon's first three questions in a single voice-memo recorded into Notion. Each answer takes one breath. The system's imperishable invariant — the akṣara of this codebase, the thing that has survived every framework migration since 1998 — is the strict ledger contract: every authorized charge produces exactly one row in the canonical Postgres ledger, idempotently keyed, append-only, monotonic. That invariant has outlived the original Java monolith, the Scala middle period, and the current Rust + Kafka topology. The svabhāva of the system — its adhyātma, what it falls into when undisturbed — is conservative: when unobserved, it prefers to defer rather than fail open. The karma of the system — the daily offering that originates each new beings-of-state, each new transaction record — is the merge-and-deploy cycle that operates on a six-hour heartbeat through GitHub Actions. Three definitions, three breaths. Devon plays the recording back twice and writes them into the runbook. The Sanskrit terms remain on the page beside the engineering glosses; the glosses do not replace them.",
+    "falsifiability": "The analog fails if a reader concludes that akṣara brahma is the ledger invariant, that adhyātma is the system's drift-shape, and that karma is the deploy cycle. The Sanskrit terms name doctrinal substrates over which Vedānta traditions disagree maximally; engineering glosses do not arbitrate that disagreement and do not substitute for the metaphysical content. The structure of crisp-definition-under-questioning survives at the engineering layer; the doctrinal content does not. Anyone reading this verse as a glossary of tech-substrate terminology has trivialized the chapter's metaphysics.",
+    "counter_example": "When the senior cannot in fact name the three substrates — when there is no clear ledger invariant, no recognisable system-svabhāva, and no daily karma-cycle — the verse's structural form does not bless improvisation. The verse names a teacher who has answers. If the answers do not exist, the seven-question handover exposes architectural debt rather than concealing it. The chapter's structure is conditional on the substrates actually being there.",
+    "implication": "When you take the senior handover, demand crisp three-breath definitions of the system's invariant, its drift-shape, and its operational cycle. If the senior cannot deliver them, you have learned something more important than the answers — you have learned that the substrates were never named.",
+    "quotable_line": "Three breaths, three definitions: the invariant, the drift-shape, the daily cycle — name them or learn they were never named.",
+    "tags": ["architectural-invariant", "essence-vs-implementation", "knowledge-action-integration"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:40:00Z",
+      "mutation": "v0 generation: 8.3 is Krishna's crisp three-definition answer (brahma / adhyātma / karma). STRETCHED honestly because Sanskrit technical terms (especially akṣara brahma) carry doctrinal weight where Advaita and Vishishtadvaita disagree maximally. Engineering analog scopes to the structural discipline: crisp definitions of invariant / drift-shape / operational cycle delivered under handover questioning. Sanskrit terms preserved verbatim at source-pack level; not substituted. Confidence MEDIUM. Cross-references chapter 3's yajña-cycle reading via the visarga = karma identification.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

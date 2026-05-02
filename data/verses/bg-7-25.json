@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.25",
+  "chapter": 7,
+  "verse": 25,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Heavily metaphysical: Krishna stays concealed behind yoga-māyā — divine veiling power composed of three guṇas — while a deluded world misses recognition of him as unborn, imperishable. STRETCHED. Engineering analog cannot inherit such a claim. What can be described at narrow operational scope: any running system's surface is configured to obscure substrate. Framework documentation gets written so users can adopt easily, not so internals are exposed. A dashboard shows whichever metric triggered alarm last quarter, not whichever metric will trigger alarm next quarter. Interfaces aim at end-users; substrate aims at operators. Concealment here is not malicious — it follows directly from a structural fact: surfaces serve use, not inspection.",
+    "concrete_scenario": "Aiko joins a payments team and inherits a service whose Datadog screen shows green across every metric. Throughput sits at 50k requests per second, served via a Go gRPC frontend, Redis cache, sharded Postgres backend. Three weeks pass; alarms stay quiet; she assumes everything is healthy. Week four, pairing with the on-call lead during a routine deploy, the lead opens a tab Aiko has never seen — internal Jaeger trace view filtered by p99 across consumer-side fanout. Traces reveal 0.4% of requests taking 3.2 seconds, caused by a connection-pool stall inside the third Postgres shard during reindex windows. Datadog does not surface that; the green screen was built around whichever metric triggered alarm last quarter. Actual fanout-cascade behavior — the substrate — was hidden not because anybody was hiding, but because dashboards exist for routine operation, not deep inspection. Yoga-māyā names a metaphysical concealment whose reach engineering cannot match; operational analog stays bounded at dashboard-as-surface.",
+    "falsifiability": "The analog fails if a reader concludes 'all dashboards are deceptive, only deep instrumentation reveals truth.' Dashboards are not lies; they are designed surfaces. The structural claim is about the gap between use-surface and inspection-surface, not about the dishonesty of any one tool. An engineer who concludes 'distrust all metrics' has misread the verse — the verse is about partiality, not about deception.",
+    "counter_example": "When the substrate is in fact accessible — when a one-hour pairing session, an open runbook, or a clearly documented architecture-decision record would expose the cascade — the verse's reading does not bless 'the substrate is concealed.' The veiling the verse names is structural; senior gatekeeping that artificially conceals what could be documented is not yoga-māyā at engineering scope. It is engineering pathology.",
+    "implication": "Read your most-trusted dashboard with one open question: what would not show up here? Make a list. Schedule a session with the on-call lead to inspect one of the items. The verse names a structural concealment that engineering practice can narrow but not eliminate.",
+    "quotable_line": "The dashboard is designed for use, not for inspection; the substrate is not concealed by malice but by the structural shape of surfaces.",
+    "tags": [
+      "observability",
+      "operator-system-coupling",
+      "instrumentation"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRETCHED honestly. Verse claims metaphysical concealment by yoga-māyā. Engineering analog scoped narrowly at dashboards-as-designed-surfaces; substrate is concealed by the structural shape of surfaces, not by malice. Concrete scenario: a new engineer whose Datadog-derived model misses a connection-pool stall visible only in jaeger traces. Named: Datadog, Go, gRPC, Redis, Postgres, jaeger. Counter-example: senior gatekeeping (not the verse's veiling). Tags: observability, operator-system-coupling, instrumentation.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

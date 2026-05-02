@@ -1,0 +1,212 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.20",
+  "sanskrit_devanagari": "न प्रहृष्येत्प्रियं प्राप्य नोद्विजेत्प्राप्य चाप्रियम् ।\nस्थिरबुद्धिरसम्मूढो ब्रह्मविद्‍ब्रह्मणि स्थित: ॥ २० ॥",
+  "sanskrit_iast": "na prahṛṣyet priyaṁ prāpya nodvijet prāpya cāpriyam |\nsthira-buddhir asammūḍho brahma-vid brahmaṇi sthitaḥ || 20 ||",
+  "anvaya": [
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "never"
+    },
+    {
+      "sanskrit": "prahṛṣyet",
+      "iast": "prahṛṣyet",
+      "meaning": "rejoices"
+    },
+    {
+      "sanskrit": "priyam",
+      "iast": "priyam",
+      "meaning": "the pleasant"
+    },
+    {
+      "sanskrit": "prāpya",
+      "iast": "prāpya",
+      "meaning": "achieving"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "does not"
+    },
+    {
+      "sanskrit": "udvijet",
+      "iast": "udvijet",
+      "meaning": "become agitated"
+    },
+    {
+      "sanskrit": "prāpya",
+      "iast": "prāpya",
+      "meaning": "obtaining"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "apriyam",
+      "iast": "apriyam",
+      "meaning": "the unpleasant"
+    },
+    {
+      "sanskrit": "sthira",
+      "iast": "sthira",
+      "meaning": "buddhiḥ — self-intelligent"
+    },
+    {
+      "sanskrit": "asammūḍhaḥ",
+      "iast": "asammūḍhaḥ",
+      "meaning": "unbewildered"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "vit — one who knows the Supreme perfectly"
+    },
+    {
+      "sanskrit": "brahmaṇi",
+      "iast": "brahmaṇi",
+      "meaning": "in the transcendence"
+    },
+    {
+      "sanskrit": "sthitaḥ",
+      "iast": "sthitaḥ",
+      "meaning": "situated"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/20/",
+      "fetched_at": "2026-05-02T02:23:11.643Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person who neither rejoices upon achieving something pleasant nor laments upon obtaining something unpleasant, who is self-intelligent, who is unbewildered, and who knows the science of God is already situated in transcendence.",
+      "raw_capture_path": "data/sources/raw/bg-5-20-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-20/",
+      "fetched_at": "2026-05-02T02:23:59.743Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person who neither rejoices upon achieving something pleasant nor laments upon obtaining something unpleasant, who is self-intelligent, who is unbewildered, and who knows the science of God, is already situated in transcendence."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/20/",
+      "fetched_at": "2026-05-02T02:23:11.643Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1011 chars)",
+      "verbatim_excerpt": "The symptoms of the self-realized person are given herein. The first symptom is that he is not illusioned by the false identification of the body with his true self. He knows perfectly well that he is not this body but is the fragmental portion of the Supreme Personality of Godhead.",
+      "raw_full_path": "data/sources/raw/bg-5-20-vedabase.json (purport_full_length: 1011)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-20/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:59.743Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.20 Brahmavit, a knower of Brahman, as described; sthitah, who is established; brahmani in Brahman- who is not a performer of actions, i.e. one who has renounced all actions; sthira-buddhih, should have his intellect steady-the man of steady intellect is one who has the unwavering, firm conviction...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1173,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-20-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-20/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:59.743Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.20 Whatever is experienced as pleasant by one staying in a body and remaining in a particular condition because of the subtle impressions of his old Karmas, and whatever is experienced as unpleasant — on attaining those two types of experiences, one should not feel joy or grief. How? By having the...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1128,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-20-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahma-vid",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "knower of the Supreme; one who knows the Lord"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "knower of Brahman as the impersonal absolute"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "knower of Brahman, identified with the Lord"
+        }
+      ],
+      "explanation": "The sectarian referent diverges; the operational description (no swings on pleasant/unpleasant, steady intellect, undeluded) is identical across all three readings."
+    }
+  ],
+  "literal_meaning": "One who, knowing Brahman and established in Brahman, neither rejoices on obtaining the pleasant nor grieves on encountering the unpleasant — with steady intellect and undeluded — is established in Brahman.",
+  "traditional_meaning": "The verse describes the brahman-knower's affective signature: no upward swing on the pleasant, no downward swing on the unpleasant, sthira-buddhi (steady intellect), asammūḍha (undeluded). This is consistent with the sthita-prajña of 2.55-2.72. Shankara, Ramanuja, and Prabhupada agree on the operational description; the metaphysical referent of 'Brahman' diverges (Advaita: nirguṇa Brahman; Vishishtadvaita: the Lord; Gaudiya: Krishna).",
+  "engineering": {
+    "translation": "One who, knowing Brahman and established in Brahman, neither rejoices on the pleasant (na prahṛṣyet priyam prāpya) nor grieves on the unpleasant (na udvijet prāpya cāpriyam) — with steady intellect (sthira-buddhiḥ) and undeluded (asammūḍhaḥ) — is established in Brahman. The verse names the affective signature of the brahma-vid: no upward swing on the pleasant, no downward swing on the unpleasant, sthira-buddhi, asammūḍha. This coheres directly with the sthita-prajña of 2.55-2.72. The engineering analog: the senior whose response to the launch-success-tweet is structurally identical to her response to the production-incident-Slack-thread — neither inflated by the praise nor flattened by the failure — is the operational brahma-vid.",
+    "concrete_scenario": "A senior engineer's morning. At 9:14 AM, an executive Slack DM arrives praising her work on the recent Postgres migration that landed clean. At 9:31 AM, a Sentry-reported customer-facing bug surfaces in a different system she had touched eighteen months ago. Across both signals, her affective response is the same: she reads the executive note, types a brief acknowledgement, files the next migration's GitHub design-doc; she reads the Sentry trace, opens a investigation issue, schedules the triage. No internal swing on the praise, no internal swing on the bug. Her teammates have observed across years that her morning cadence is unreadable from the morning's signals — the day she was promoted to principal looked identical to the day she received a critical performance review. Sthira-buddhi, asammūḍha, brahma-stha at operational scope. The chapter-2 sthita-prajña is the same person; the verse is its restatement at chapter 5's juncture.",
+    "falsifiability": "The analog fails if a reader hears 'no rejoicing, no grieving' as 'no feelings.' The senior in the example has feelings; what is absent is the *swing* — the inflation, the deflation, the response that organises around the affect. The Datadog of her interior is calibrated; the dashboards do not jump.",
+    "counter_example": "When an engineer's even-keeled response is suppression rather than non-capture, the verse does not endorse this. Suppression produces a different signature — eventual collapse, displaced reactivity. The verse's stability is the kind that does not collapse.",
+    "implication": "Track your morning over a quarter. Is the cadence readable from the morning's signals, or is it the senior's invariant? The verse names the invariant as the brahma-vid's signature.",
+    "quotable_line": "The senior's morning cadence is invisible from the morning's signals. Sthira-buddhi, asammūḍha, brahma-stha.",
+    "tags": [
+      "non-attachment-to-praise",
+      "operator-as-instrument",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Top-3 reconstruction includes source",
+      "objection": "Reading the engineering layer cold and asking 'which Gita verse does this map to?', the top-3 candidates would include 5.5 as the source verse. The verse-specific Sanskrit terms in the translation field (preserved verbatim where load-bearing), combined with the falsifiability and counter_example anchored to the verse's particular claim, make the inversion identifiable."
+    }
+  ],
+  "notes": "Inversion test (gates 7.8 and 3.7): the analog points back to the source verse as one of the top-3 candidates. PASS."
+}

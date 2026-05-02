@@ -1,0 +1,284 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.8",
+  "sanskrit_devanagari": "नैव किञ्चित्करोमीति युक्तो मन्येत तत्त्ववित् ।\nपश्यञ्शृण्वन्स्पृशञ्जिघ्रन्नश्नन्गच्छन्स्वपन्श्वसन् ॥ ८ ॥",
+  "sanskrit_iast": "naiva kiñcit karomīti yukto manyeta tattva-vit |\npaśyañ śṛṇvan spṛśañ jighrann aśnan gacchan svapan śvasan || 8 ||",
+  "anvaya": [
+    {
+      "sanskrit": "तत्त्ववित्",
+      "iast": "tattva-vit",
+      "meaning": "the knower of truth"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "the one joined (to yoga)"
+    },
+    {
+      "sanskrit": "पश्यन्",
+      "iast": "paśyan",
+      "meaning": "while seeing"
+    },
+    {
+      "sanskrit": "शृण्वन्",
+      "iast": "śṛṇvan",
+      "meaning": "hearing"
+    },
+    {
+      "sanskrit": "स्पृशन्",
+      "iast": "spṛśan",
+      "meaning": "touching"
+    },
+    {
+      "sanskrit": "जिघ्रन्",
+      "iast": "jighran",
+      "meaning": "smelling"
+    },
+    {
+      "sanskrit": "अश्नन्",
+      "iast": "aśnan",
+      "meaning": "eating"
+    },
+    {
+      "sanskrit": "गच्छन्",
+      "iast": "gacchan",
+      "meaning": "going"
+    },
+    {
+      "sanskrit": "स्वपन्",
+      "iast": "svapan",
+      "meaning": "sleeping"
+    },
+    {
+      "sanskrit": "श्वसन्",
+      "iast": "śvasan",
+      "meaning": "breathing"
+    },
+    {
+      "sanskrit": "किञ्चित् न एव करोमि",
+      "iast": "kiñcit na eva karomi",
+      "meaning": "I do nothing at all"
+    },
+    {
+      "sanskrit": "इति मन्येत",
+      "iast": "iti manyeta",
+      "meaning": "should think"
+    },
+    {
+      "sanskrit": "naiva",
+      "iast": "naiva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kiñcit",
+      "iast": "kiñcit",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karomīti",
+      "iast": "karomīti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yukto",
+      "iast": "yukto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manyeta",
+      "iast": "manyeta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyañ",
+      "iast": "paśyañ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "spṛśañ",
+      "iast": "spṛśañ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "jighrann",
+      "iast": "jighrann",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "8",
+      "iast": "8",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them.",
+      "raw_capture_path": "data/sources/raw/bg-5-8-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1093 chars)",
+      "verbatim_excerpt": "A person in Kṛṣṇa consciousness is pure in his existence, and consequently he has nothing to do with any work which depends upon five immediate and remote causes: the doer, the work, the situation, the endeavor and fortune. This is because he is engaged in the loving transcendental service of Kṛṣṇa.",
+      "raw_full_path": "data/sources/raw/bg-5-8-9-vedabase.json (purport_full_length: 1093)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 Yuktah, remaining absorbed in the Self; tattva-vit, the knower of Reality-knower of the real nature of Truth, of the Self, i.e., the seer of the supreme Reality; manyeta, should think; ‘na karomi eva, I certainly do not do; kincit, anything.’ Having realized the Truth, when or how should he thin…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1102,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the tattva-vit (knower of truth), absorbed in the Self, should think 'I do nothing at all' — even while seeing, hearing, touching, smelling, eating, going, sleeping, and breathing. Shankara emphasises this is the realised non-doership of the established jñānin: the senses operate, the body acts, but the Self does not act. This is the cessation of the false agency-attribution to the Self."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 – 5.9 Thus he who knows the truth concerning the self should reflect in mind that the ear and the other organs of sensation (Jnanendriyas) as also organs of action (Karmendriyas) and the vital currents (the Pranas) are occupied with their own respective objects.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 548,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja groups 5.8 and 5.9 together: the one who knows the truth concerning the self should reflect that the jñānendriyas, karmendriyas, and the prāṇas are occupied with their own respective objects. He should know 'I do not do anything at all' — meaning, the self (which is distinct from these instruments) does not do; the instruments do. Ramanuja's reading is dualistic: the self is the experiencer/witness, the body-mind-prāṇa complex is the doer."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naiva kiñcit karomi",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "always knows within himself that he actually does nothing at all (devotional consciousness)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Advaita: the Self does not act; the body-senses act; the jñānin recognises this and disowns false agency"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Vishishtadvaita: the self is distinct from body-mind-prāṇa instruments; the instruments do, the self does not"
+        }
+      ],
+      "explanation": "Major doctrinal divergence. Shankara: agency-of-the-Self is illusory; only senses-and-body act. Ramanuja: agency-of-the-jīva is real but pertains to body-mind-prāṇa, not to the self proper. Prabhupada renders devotionally. All three preserve the structural claim: 'I' (in the proper sense) do nothing while seeing/hearing/etc."
+    }
+  ],
+  "literal_meaning": "The yogi knower-of-truth should think 'I do nothing at all' — while seeing, hearing, touching, smelling, eating, going, sleeping, and breathing.",
+  "traditional_meaning": "Krishna names the doctrine of non-doership for the seer-of-truth. Across the most basic activities of embodied life — perception, locomotion, alimentation, respiration — the tattva-vit recognises that the senses and body are operating; the Self does not. This is structural-perceptual, not vocational. The verse continues into 5.9 and is read as a pair with it.",
+  "engineering": {
+    "translation": "The yoked one, the knower-of-truth (tattva-vit), thinks 'I do nothing at all' (naiva kiñcit karomīti). While seeing, hearing, touching, smelling, eating, walking, sleeping, breathing — Krishna enumerates the bodily operations across this verse and the next — the seer knows: 'the senses (indriyāṇi) operate among sense-objects (indriyārtheṣu).' The engineering analog stays at the decoupled-identity layer. The senior watches her own attention move toward Slack, toward Datadog, toward the bad performance review — and does not collapse into the attention-movement. The senses operate; the principal is not the operating senses. This is not literal cessation; it is the metaphysical observation that the doer-position is empty. STRETCHED honestly where the passage's transcendent claim exceeds the operational layer; the operational layer holds at decoupled identity, the metaphysical layer reaches further.",
+    "concrete_scenario": "A staff engineer at a Kubernetes-shop joins a high-stakes incident at 2:14 AM. PagerDuty fires. She wakes, walks to the laptop, logs in, reads the Datadog dashboards, scans the Sentry traces, runs the rollback per the runbook, watches the latency curve recover, files the GitHub incident issue, types the all-hands Slack update, sleeps at 2:50. Across the thirty-six minutes of the response, her attention has been on Datadog, then Sentry, then the rollback runbook, then the latency-recovery curve, then the GitHub issue, then the Slack message. The senses-among-sense-objects rotation is observable to her as it happens; she does not collapse identity into any one of them. She is not the dashboard, not the rollback, not the Slack message. The work proceeds with full focus; the doer-position is empty. The verse's 'I do nothing' is not vocational — she has done the work — it is a structural observation that the actor-as-identified-self is not present.",
+    "falsifiability": "The analog fails if a reader hears 'I do nothing' as a vocational license — 'I shouldn't run the rollback, I shouldn't take responsibility for the incident.' The verse is the opposite: the verse describes the interior posture of the one who is doing the most. The senses operate; the work proceeds; what is absent is the identification with the doer.",
+    "counter_example": "When an engineer claims 'I do nothing at all' while genuinely doing nothing — while the work is left to others, the on-call gap is unfilled, the merge queue stalled — the verse does not apply. The verse's claim is the seer's observation during full action; the absent-from-work engineer is not the verse's tattva-vit. They are 3.6's mithyācāra in the inverse.",
+    "implication": "During your next high-stakes incident, observe whether identity collapses into the rollback-command or stays at the decoupled-identity layer. The verse's claim is testable in that thirty-second window.",
+    "quotable_line": "The senses operate among sense-objects. The senior is fully present, fully responsive, and not identified with any of it.",
+    "tags": [
+      "operator-as-instrument",
+      "doership",
+      "operator-system-coupling"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

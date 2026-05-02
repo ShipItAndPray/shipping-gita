@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.26",
+  "chapter": 7,
+  "verse": 26,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse names a structural asymmetry: Krishna knows past, present, and future beings; no one knows him. The metaphysical claim is large — knowing across the threefold time, the impossibility of return-vision. STRETCHED. The engineering analog is thin: a substrate that sustains many surfaces sees how those surfaces behave; the surfaces, individually, cannot see the substrate fully. The senior engineer who has held a system for fifteen years has watched many junior engineers cycle through; she sees the patterns — which junior gets stuck where, which architectural decision will surface as pain in two quarters, which class of bug recurs. The juniors, from inside their immediate work, cannot see her vantage. The verse's reach (cross-time, cross-being knowledge) is much larger; the engineering shadow operates at a single career and a single system.",
+    "concrete_scenario": "Asha has been principal engineer of a billing platform built on Postgres and Kafka for fourteen years. Across any given week she watches three junior engineers each enter the codebase with the same misunderstandings she has seen forty times: they assume the idempotency-key cache (Redis-backed) is authoritative when in fact it is advisory; they treat the saga-orchestrator's compensation pattern as optional; they reach for distributed transactions where eventual consistency was always the design. Asha can predict, watching a GitHub pull request for ten seconds, where the PR will fail in code review next Tuesday and which Sentry incident will surface in production three weeks out. She is right roughly 80% of the time. Juniors cannot reciprocate; from inside their immediate ticket-work, they cannot see what Asha sees. Asymmetry here is not malicious — Asha is happy to explain — it is structural. Substrate-vantage and surface-vantage are not symmetric. Verse names a metaphysical version that engineering cannot match; analog stays bounded by single-career, single-system scope.",
+    "falsifiability": "The analog fails if a reader concludes 'the senior is unknowable, no one can challenge her.' The verse's claim is metaphysical; the engineering shadow does not make the senior unaccountable. Junior engineers can and should challenge the senior's predictions, especially when the senior is wrong. The asymmetry is in vantage, not in authority. An engineer who reads this as 'defer to seniority always' has inverted the verse.",
+    "counter_example": "When the 'asymmetry' is in fact the senior's refusal to articulate her vantage, the verse's reading does not bless it. Senior knowledge that resists transmission is not the structural asymmetry the verse names; it is engineering pathology. The verse describes a vantage that is structurally hard to fully transmit, not a vantage that the senior actively withholds.",
+    "implication": "Identify one prediction your senior makes that you do not yet see the basis for. Schedule a 30-minute walkthrough where she explains the substrate-features that produce the prediction. The asymmetry will not vanish; it can be narrowed.",
+    "quotable_line": "The substrate sees the surface; the surface cannot see the substrate fully — and the asymmetry is structural, not malicious.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "system-recognition"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRETCHED honestly. Verse claims structural mystery (Krishna knows all; no one knows Krishna). Engineering analog scoped at the much narrower asymmetry between substrate-vantage (senior at single-system, single-career scope) and surface-vantage (junior). Concrete scenario: Asha, fourteen-year billing-platform principal, predicting pull-request failure-modes 80% of the time; idempotency-cache, saga-orchestrator, compensation-pattern, eventual consistency named. Counter-example: senior knowledge that resists transmission is pathology, not the verse. Tags: operator-system-coupling, team-state, system-recognition.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.18",
+  "chapter": 7,
+  "verse": 18,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "All four kinds of engineers who approach the senior are noble — udārāḥ sarva evaite. The afflicted in incident, the knowledge-seeker in design review, the prosperity-seeker in promo cycle, the wise in love with the work — every one is noble. Krishna names this first, explicitly. Then the second clause: but the wise — Krishna says — is my very Self. The engineer who has internalised substrate-discipline so deeply that the discipline is no longer separate from her has, at narrow scope, become substrate's representative inside the team. Krishna's metaphysical reach is much wider (the wise IS Krishna's own self, in non-dual or near-non-dual identification); the engineering shadow operates at structural-identification level: through Postgres rewrites, Datadog audits, GitHub PR reviews, the wise engineer is what discipline looks like when fully embodied. Two-handed instruction is critical and inviolable: all four are noble (first clause) AND the wise is preeminent to the point of identification (second). This verse, more than any other, defends against flattening to 'be the wise one, disparage the rest.'",
+    "concrete_scenario": "Returning to Wednesday office hours one final time. End of quarter, the principal sits down to draft a review for her own manager. The manager asks: 'Who on the team is doing standout work?' She could write: 'Priya — her practice IS substrate-discipline.' True, but incomplete in a way 7.18 makes explicit. She writes instead: 'All four — Ramon's incident response on the Stripe webhook drop, Aisha's design questions on cross-region Postgres replication, Marcus's promo arc on growth, Priya's substrate-orientation on search retrieval — every one is doing real work, every one well. Priya's relationship to the practice runs deepest; her substrate-knowledge is internalised to the point where she effectively IS what we want our team's discipline to look like. But the team needs all four shapes. Staffing only for Priyas would render us unable to handle incidents, unable to onboard mid-levels, unable to develop a career pipeline through GitHub PRs into staff-level work. The four-fold typology is what produces a healthy senior function.' Two-handed instruction — preserved.",
+    "falsifiability": "The analog fails the moment udārāḥ sarva evaite gets dropped. If a reader takes 7.18 as 'the wise is identified with Krishna; the others are lesser,' they have read the verse with one hand. Krishna explicitly names all four as noble FIRST, then identifies the wise. Engineering layers that disparage the incident-engineer, the design-review-seeker, or the career-driven IC have crossed into the failure mode the chapter thesis warns against most explicitly.",
+    "counter_example": "When a senior engineering culture forms around 'be the wise one' as a status game — when promotion criteria implicitly grade ICs on whether they 'love the work for its own sake' — the verse has been weaponised. Krishna's identification of the wise with his own Self is metaphysical, and is paired with the explicit equal-nobility claim. A culture grading on 'wisdom' has kept the second clause and discarded the first.",
+    "implication": "When drafting performance reviews, promo packets, or staffing decisions, hold both clauses simultaneously. All four kinds of engineers are noble; the wise is the one whose substrate-internalisation has become so complete the practitioner IS the discipline embodied. Both moves at once. Drop either and you have inverted the chapter's most direct two-handed instruction.",
+    "quotable_line": "All four are noble; the wise is my very Self. Both clauses, held simultaneously — that is what the chapter most directly forbids you from flattening.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.18 is the chapter's most explicit two-handed instruction — udārāḥ sarva evaite + jñānī tv ātmaiva me matam. Chapter thesis demands MAXIMUM RIGOR. v0 preserves both clauses simultaneously, with the falsifiability and counter-example explicitly identifying the failure mode of dropping the first clause. Concrete scenario continues the office-hours arc into a quarterly review where the principal explicitly writes the two-handed message to her manager. Tags: operator-system-coupling, team-state, team-culture. HIGH confidence, NOT stretched — this is the chapter's strongest defense against flattening, and the engineering analog can carry the structural force at narrow scope.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

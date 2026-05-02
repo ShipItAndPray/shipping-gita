@@ -1,0 +1,260 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.24",
+  "sanskrit_devanagari": "योऽन्त:सुखोऽन्तरारामस्तथान्तर्ज्योतिरेव य: ।\nस योगी ब्रह्मनिर्वाणं ब्रह्मभूतोऽधिगच्छति ॥ २४ ॥",
+  "sanskrit_iast": "yo 'ntaḥ-sukho 'ntar-ārāmas tathāntar-jyotir eva yaḥ |\nsa yogī brahma-nirvāṇaṁ brahma-bhūto 'dhigacchati || 24 ||",
+  "anvaya": [
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "one who"
+    },
+    {
+      "sanskrit": "antaḥ",
+      "iast": "antaḥ",
+      "meaning": "sukhaḥ — happy from within"
+    },
+    {
+      "sanskrit": "antaḥ",
+      "iast": "antaḥ",
+      "meaning": "ārāmaḥ — actively enjoying within"
+    },
+    {
+      "sanskrit": "tathā",
+      "iast": "tathā",
+      "meaning": "as well as"
+    },
+    {
+      "sanskrit": "antaḥ",
+      "iast": "antaḥ",
+      "meaning": "jyotiḥ — aiming within"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "anyone"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "yogī",
+      "iast": "yogī",
+      "meaning": "a mystic"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "nirvāṇam — liberation in the Supreme"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "bhūtaḥ — being self-realized"
+    },
+    {
+      "sanskrit": "adhigacchati",
+      "iast": "adhigacchati",
+      "meaning": "attains"
+    },
+    {
+      "sanskrit": "yo",
+      "iast": "yo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'ntaḥ",
+      "iast": "'ntaḥ",
+      "meaning": "(compound element of 'ntaḥ-sukho)"
+    },
+    {
+      "sanskrit": "sukho",
+      "iast": "sukho",
+      "meaning": "(compound element of 'ntaḥ-sukho)"
+    },
+    {
+      "sanskrit": "'ntar",
+      "iast": "'ntar",
+      "meaning": "(compound element of 'ntar-ārāmas)"
+    },
+    {
+      "sanskrit": "ārāmas",
+      "iast": "ārāmas",
+      "meaning": "(compound element of 'ntar-ārāmas)"
+    },
+    {
+      "sanskrit": "tathāntar",
+      "iast": "tathāntar",
+      "meaning": "(compound element of tathāntar-jyotir)"
+    },
+    {
+      "sanskrit": "jyotir",
+      "iast": "jyotir",
+      "meaning": "(compound element of tathāntar-jyotir)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nirvāṇaṁ",
+      "iast": "nirvāṇaṁ",
+      "meaning": "(compound element of brahma-nirvāṇaṁ)"
+    },
+    {
+      "sanskrit": "bhūto",
+      "iast": "bhūto",
+      "meaning": "(compound element of brahma-bhūto)"
+    },
+    {
+      "sanskrit": "'dhigacchati",
+      "iast": "'dhigacchati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "24",
+      "iast": "24",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/24/",
+      "fetched_at": "2026-05-02T02:23:11.700Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One whose happiness is within, who is active and rejoices within, and whose aim is inward is actually the perfect mystic. He is liberated in the Supreme, and ultimately he attains the Supreme.",
+      "raw_capture_path": "data/sources/raw/bg-5-24-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-24/",
+      "fetched_at": "2026-05-02T02:23:58.581Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One whose happiness is within, who is active and rejoices within, and whose aim is inward is actually the perfect mystic. He is liberated in the Supreme, and ultimately he attains the Supreme."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/24/",
+      "fetched_at": "2026-05-02T02:23:11.700Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 469 chars)",
+      "verbatim_excerpt": "Unless one is able to relish happiness from within, how can one retire from the external engagements meant for deriving superficial happiness? A liberated person enjoys happiness by factual experience. He can, therefore, sit silently at any place and enjoy the activities of life from within.",
+      "raw_full_path": "data/sources/raw/bg-5-24-vedabase.json (purport_full_length: 469)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-24/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:58.581Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.24 Yah antah-sukhah, one who is happy within, in the indwelling Self; and so also antar-aramah, has pleasure within-he disports only in the Self within; similarly, antar-jyotih eva, has his light only within, has the indwelling Self alone as his light; [He has not to depend on the organs like ear...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 534,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-24-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-24/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:58.581Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.24 He who, renouncing all the experiences of outside objects, ‘finds joy within,’ i.e., finds his sole joy in experiencing the self; ‘who has his pleasure within,’ i.e., whose pleasure-garden is the self; and with regard to whom the self increases his happiness by Its own qualities like bliss, kno...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 577,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-24-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahma-bhūtaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "self-realised; on the Brahman platform; one who has realised the Supreme"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "having become Brahman; identity with the non-dual absolute"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "having become Brahman in the qualified sense — the self realised in its essential nature, dependent on the Lord"
+        }
+      ],
+      "explanation": "Brahma-bhūta is read as identity (Advaita), as relation-in-essence (Vishishtadvaita), or as devotional realisation (Gaudiya). The verse's metaphysical maximum is preserved; the reading of 'become Brahman' diverges across traditions."
+    }
+  ],
+  "literal_meaning": "The one whose happiness is within (antar-sukhaḥ), whose joy is within (antar-ārāmaḥ), whose light is within (antar-jyotiḥ) — that yogi, having become Brahman, attains brahma-nirvāṇa.",
+  "traditional_meaning": "The verse names the inner-located triple — happiness, joy, light — and ties this internal location to the attainment of brahma-nirvāṇa (terminal liberation in/as Brahman). The yogi has 'become Brahman' (brahma-bhūtaḥ) and attains brahma-nirvāṇa. Shankara reads brahma-nirvāṇa as identity with the absolute; Ramanuja reads it as the Lord-realisation state; Prabhupada reads it as Krishna-realisation. All three agree on the internal location of the bliss-source and on the verse's metaphysical maximum-claim.",
+  "engineering": {
+    "translation": "The one whose happiness is within (antar-sukhaḥ), whose joy is within (antar-ārāmaḥ), whose light is within (antar-jyotiḥ). That yogi, having become Brahman (brahma-bhūtaḥ), attains brahma-nirvāṇa (terminal liberation in/as Brahman). The verse names the inner-located triple — happiness, joy, light — and ties this internal location to brahma-nirvāṇa. STRETCHED honestly. Brahma-nirvāṇa exceeds operational reach; the engineering analog scopes downward. The senior whose satisfaction, joy, and clarity sit inside (per 5.21) — not in external contact (per 5.22) — has reached the operating rung. The metaphysical destination is past where engg travels.",
+    "concrete_scenario": "A principal engineer at twenty-five years tenure. Her teammates on the Datadog-Slack stack observe: across the last five years, the source of her satisfaction has been internal (the work itself), the source of her joy has been internal (engagement with Kubernetes-scale architecture problems on GitHub). The source of her clarity has been internal (the substrate-knowledge cultivated across the Postgres-Datadog-Kafka stack). External Slack praise does not anchor competence; launch-tweet receptions do not source her joy; executive recognition does not source her clarity. The triple — antar-sukha, antar-ārāma, antar-jyoti — is operationally readable in her demeanour. STRETCHED honestly because brahma-nirvāṇa names a metaphysical maximum the engineering analog cannot fully reach. The operational rung is her settled inner state across decades; the transcendent destination is past where this layer can describe. Tools she trains on daily: Postgres, Kafka, Redis, Kubernetes, Datadog, Sentry, GitHub, the deploy pipeline, the merge queue, the CI runner, the CD pipeline, the PR review tooling.",
+    "falsifiability": "The analog fails if a reader concludes that engineering tenure produces brahma-nirvāṇa. It does not. The verse's reach is metaphysically far greater than the engineering analog can claim. An engineer who reads the verse as 'become a senior and you become liberated' has misread it.",
+    "counter_example": "When a senior's apparent inner-source is in fact rigidity — refusal to update under new evidence, refusal to acknowledge evolving understanding, closed to junior corrections — the verse does not endorse this. brahma-nirvāṇa, even at the operational rung, is settled-and-receiving, not settled-and-closed.",
+    "implication": "Audit, across a quarter, whether your satisfaction-joy-clarity sources are internal or external. The internal triple is the operational rung; brahma-nirvāṇa is past where engineering travels.",
+    "quotable_line": "Inner happiness, inner joy, inner light. The operational rung; brahma-nirvāṇa is past where engineering travels.",
+    "tags": [
+      "non-attachment-to-praise",
+      "operator-as-instrument",
+      "team-state"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

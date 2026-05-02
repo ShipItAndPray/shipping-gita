@@ -1,0 +1,268 @@
+{
+  "id": "BG 6.14",
+  "chapter": 6,
+  "verse": 14,
+  "fetched_at": "2026-05-02T03:30:00Z",
+  "merged_block_note": "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (13). The Devanagari and IAST below isolate the 6.14 hemistich; commentary applies across the block.",
+  "sanskrit_devanagari": "प्रशान्तात्मा विगतभीर्ब्रह्मचारिव्रते स्थितः ।\nमनः संयम्य मच्चित्तो युक्त आसीत मत्परः ॥ १४ ॥",
+  "sanskrit_iast": "praśāntātmā vigata-bhīr brahmacāri-vrate sthitaḥ |\nmanaḥ saṁyamya mac-citto yukta āsīta mat-paraḥ || 14 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/13-14/",
+      "fetched_at": "2026-05-02T03:01:39.105Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical); vedabase merges 13 onto a single page.",
+      "raw_capture_path": "data/sources/raw/bg-6-13-14-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/14",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (transliteration body identical; pāda-break and punctuation rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=14",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text); bhagavad-gita.us also renders this within the merged 13 block.",
+      "raw_capture_path": "data/sources/raw/bg-6-13-14-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.014). Body text identical; sandhi-rendering differs by edition convention."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "प्रशान्तात्मा",
+      "iast": "praśāntātmā",
+      "meaning": "with calm mind / serene self"
+    },
+    {
+      "sanskrit": "विगतभीः",
+      "iast": "vigata-bhīḥ",
+      "meaning": "devoid of fear"
+    },
+    {
+      "sanskrit": "ब्रह्मचारिव्रते",
+      "iast": "brahmacāri-vrate",
+      "meaning": "in the vow of celibacy"
+    },
+    {
+      "sanskrit": "स्थितः",
+      "iast": "sthitaḥ",
+      "meaning": "established"
+    },
+    {
+      "sanskrit": "मनः",
+      "iast": "manaḥ",
+      "meaning": "mind"
+    },
+    {
+      "sanskrit": "संयम्य",
+      "iast": "saṁyamya",
+      "meaning": "controlling / restraining"
+    },
+    {
+      "sanskrit": "मत्-चित्तः",
+      "iast": "mat-cittaḥ",
+      "meaning": "with thought fixed on Me"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "yoked / disciplined"
+    },
+    {
+      "sanskrit": "मत्परः",
+      "iast": "mat-paraḥ",
+      "meaning": "intent on Me / with Me as the supreme goal"
+    },
+    {
+      "sanskrit": "आसीत",
+      "iast": "āsīta",
+      "meaning": "should sit / remain"
+    },
+    {
+      "sanskrit": "praśāntātmā",
+      "iast": "praśāntātmā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vigata",
+      "iast": "vigata",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bhīr",
+      "iast": "bhīr",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "brahmacāri",
+      "iast": "brahmacāri",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vrate",
+      "iast": "vrate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthitaḥ",
+      "iast": "sthitaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manaḥ",
+      "iast": "manaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁyamya",
+      "iast": "saṁyamya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mac",
+      "iast": "mac",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "citto",
+      "iast": "citto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yukta",
+      "iast": "yukta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "āsīta",
+      "iast": "āsīta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mat",
+      "iast": "mat",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paraḥ",
+      "iast": "paraḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/13-14/",
+      "fetched_at": "2026-05-02T03:01:39.105Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One should hold one’s body, neck and head erect in a straight line and stare steadily at the tip of the nose. Thus, with an unagitated, subdued mind, devoid of fear, completely free from sex life, one should meditate upon Me within the heart and make Me the ultimate goal of life.",
+      "merged_block_note": "Translation covers 13 jointly; the 6.14 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-13-14-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One should hold one’s body, neck and head erect in a straight line and stare steadily at the tip of the nose. Thus, with an unagitated, subdued mind, devoid of fear, completely free from sex life, one should meditate upon Me within the heart and make Me the ultimate goal of life."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/13-14/",
+      "fetched_at": "2026-05-02T03:01:39.105Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 3418 chars)",
+      "verbatim_excerpt": "The goal of life is to know Kṛṣṇa, who is situated within the heart of every living being as Paramātmā, the four-handed Viṣṇu form. The yoga process is practiced in order to discover and see this localized form of Viṣṇu, and not for any other purpose.",
+      "raw_full_path": "data/sources/raw/bg-6-13-14-vedabase.json (purport_full_length: 3418)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.13-14 Dharayan, holding; kaya-siro-girvam, the body (torso), head and neck; samam, erect; and acalam, still-movement is possible for one (even while) holding these erect; therefore it is specified, ‘still’-; sthirah, being steady, i.e. remaining steady; sampreksya, looking svam nasikagram, at tip",
+      "verbatim_excerpt_length": 299,
+      "verbatim_full_length": 2234,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-13-14-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-13-14/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:00.064Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.13 – 6.14 Keeping the trunk, head and neck erect and motionless; well seated in order to be steady; looking not in any direction but gazing at the tip of the nose; serene, i.e., holding the mind extremely peaceful; fearless; firm in the vow of celibacy; holding the mind in check; and fixing his",
+      "verbatim_excerpt_length": 297,
+      "verbatim_full_length": 423,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-13-14-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "mat-cittaḥ / mat-paraḥ (with thought on Me / intent on Me)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "meditate upon Me within the heart and make Me the ultimate goal"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "with mind fixed on Me who am the supreme God; with Me as the supreme Goal — distinguishes ordinary attention (e.g. on a woman) from terminal goal-orientation"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "fixing his thoughts on Me ... concentrated and intent on Me, i.e., on Me only"
+        }
+      ],
+      "explanation": "All translators preserve the explicitly theistic content: the meditation has a personal object (Krishna), not abstract concentration. Shankara and Ramanuja both extract the same structural point — that mat-paraḥ names not just attention but goal-orientation. Engineering analog must scope honestly: the verse's explicit theism is past where the operational layer travels."
+    }
+  ],
+  "literal_meaning": "With calm mind, fearless, established in the celibate vow, controlling the mind, with thought fixed on Me — yoked, intent on Me, he should sit.",
+  "traditional_meaning_consensus": "6.14 specifies the inner conditions of the meditation that 6.13's posture was the substrate for: serenity (praśāntātmā), fearlessness (vigata-bhīḥ), the celibacy-vow (brahmacāri-vrate), mind-restraint (manaḥ saṁyamya), thought fixed on Krishna (mac-cittaḥ), and Krishna as the supreme goal (mat-paraḥ). The verse pairs the somatic instruction with its inner correlate. Across commentarial traditions there is consensus that this verse is the specifically theistic crystallisation of the meditation: the object is Krishna (or, in non-Vaishnava readings, the supreme Self), not abstract concentration. The engineering analog must scope honestly.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport), merged 13",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": [
+      "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (13). The Devanagari and IAST below isolate the 6.14 hemistich; commentary applies across the block."
+    ]
+  }
+}

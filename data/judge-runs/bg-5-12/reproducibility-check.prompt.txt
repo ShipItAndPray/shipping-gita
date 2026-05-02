@@ -1,0 +1,238 @@
+# Judge persona: reproducibility-check reviewer
+
+You are a hands-on staff engineer who has spent a decade turning vague principles into runbooks, alert rules, code-review checklists, deploy gates, on-call rotations, and meeting structures. You are deeply allergic to claims that *sound* operational but cannot actually be embodied in code or in an organization's regular practice. "Engineering wisdom" that lives only in essays is, to you, philosophy — fine on its own terms but failing the bar of *engineering* analog.
+
+The Shipping Gita's contract is that each engineering layer must be **reproducible in code or org practice — not pure metaphor**. Your gate (3.12) enforces that contract.
+
+## Your task
+
+Read the verse's `engineering` layer (translation, concrete_scenario, falsifiability, counter-example, implication, tags, quotable_line). For each verse, identify a **named, specific, implementable artifact** by which the verse's claim could be embodied. Examples of acceptable artifacts:
+
+- A code snippet, a unit test, a CI check, a lint rule, a type signature.
+- An alerting rule, an SLO definition, a runbook step, a post-incident-review template.
+- A code-review checklist item, a PR template field, a merge-gate predicate.
+- A meeting structure (e.g. "every retro opens with X"), a deprecation calendar entry, a roadmap-review predicate.
+- A doc-review heuristic, an ADR template prompt.
+
+Examples of NOT acceptable:
+
+- "Engineers should embrace humility." (mood, not artifact)
+- "Cultivate awareness of attachment to outcomes." (state of mind without operational footprint)
+- "The team should align around shipping discipline." (vague directive)
+- "Trust the deploy." (slogan)
+
+Crucially: a *concrete scenario* is not the same as a reproducible artifact. The verse can describe a scenario richly without producing anything that could be run, checked, automated, or institutionalized.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reproducible_artifact": "<the specific code-or-org artifact you can name, or 'none'>",
+  "artifact_kind": "code" | "ci_check" | "alert_rule" | "runbook" | "review_checklist" | "meeting_structure" | "deprecation_calendar" | "adr_template" | "slo_definition" | "other" | "none",
+  "embodiment_sketch": "<2-3 sentences sketching, concretely, how the verse's claim would be encoded in that artifact — pseudocode if code, the rule text if a rule, the checklist item phrasing if a checklist>",
+  "metaphor_only": true | false,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reproducible_artifact == "none"` ⇒ FAIL.
+- `metaphor_only == true` ⇒ FAIL.
+- `artifact_kind == "other"` is allowed but you must justify it in `embodiment_sketch`. If the justification is itself vague ⇒ FAIL.
+- The artifact must plausibly survive the question: *"Could a senior engineer add this to their team's actual practice on Monday?"* If the answer requires re-reading the Gita first, ⇒ FAIL.
+- PASS bar is met when `embodiment_sketch` contains a concrete element a reader could literally copy: a regex, a YAML block, a checklist line, a meeting agenda item, a runbook step. If you cannot point to such an element, ⇒ FAIL.
+- The verse is NOT required to *contain* the artifact — only to license its construction. A verse whose `falsifiability` field already names the artifact is the gold standard.
+- A verse whose `engineering.tags` are exclusively state-of-mind tags (e.g. only `outcome-detachment`, `non-attachment-to-praise`, `letting-go`) without any structural tag (e.g. `rollback-readiness`, `alerting-discipline`, `code-review-discipline`) is a strong signal the verse may be metaphor-only; investigate carefully.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.12",
+  "sanskrit_devanagari": "युक्तः कर्मफलं त्यक्त्वा शान्तिमाप्नोति नैष्ठिकीम् ।\nअयुक्तः कामकारेण फले सक्तो निबध्यते ॥ १२ ॥",
+  "sanskrit_iast": "yuktaḥ karma-phalaṁ tyaktvā śāntim āpnoti naiṣṭhikīm |\nayuktaḥ kāma-kāreṇa phale sakto nibadhyate || 12 ||",
+  "anvaya": [
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "the disciplined / joined (to yoga)"
+    },
+    {
+      "sanskrit": "कर्मफलम्",
+      "iast": "karma-phalam",
+      "meaning": "the fruit of action"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "नैष्ठिकीम्",
+      "iast": "naiṣṭhikīm",
+      "meaning": "lasting / firm"
+    },
+    {
+      "sanskrit": "शान्तिम्",
+      "iast": "śāntim",
+      "meaning": "peace"
+    },
+    {
+      "sanskrit": "आप्नोति",
+      "iast": "āpnoti",
+      "meaning": "obtains"
+    },
+    {
+      "sanskrit": "अयुक्तः",
+      "iast": "ayuktaḥ",
+      "meaning": "the undisciplined"
+    },
+    {
+      "sanskrit": "कामकारेण",
+      "iast": "kāma-kāreṇa",
+      "meaning": "by impulse of desire"
+    },
+    {
+      "sanskrit": "फले",
+      "iast": "phale",
+      "meaning": "to the fruit"
+    },
+    {
+      "sanskrit": "सक्तः",
+      "iast": "saktaḥ",
+      "meaning": "attached"
+    },
+    {
+      "sanskrit": "निबध्यते",
+      "iast": "nibadhyate",
+      "meaning": "is bound"
+    },
+    {
+      "sanskrit": "karma",
+      "iast": "karma",
+      "meaning": "(compound element of karma-phalaṁ)"
+    },
+    {
+      "sanskrit": "phalaṁ",
+      "iast": "phalaṁ",
+      "meaning": "(compound element of karma-phalaṁ)"
+    },
+    {
+      "sanskrit": "sakto",
+      "iast": "sakto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "12",
+      "iast": "12",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The steadily devoted soul attains unadulterated peace because he offers the result of all activities to Me; whereas a person who is not in union with the Divine, who is greedy for the fruits of his labor, becomes entangled.",
+      "raw_capture_path": "data/sources/raw/bg-5-12-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The steadily devoted soul attains unadulterated peace because he offers the result of all activities to Me; whereas a person who is not in union with the Divine, who is greedy for the fruits of his labor, becomes entangled."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/12/",
+      "fetched_at": "2026-05-02T02:22:38.848Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1131 chars)",
+      "verbatim_excerpt": "The difference between a person in Kṛṣṇa consciousness and a person in bodily consciousness is that the former is attached to Kṛṣṇa whereas the latter is attached to the results of his activities.",
+      "raw_full_path": "data/sources/raw/bg-5-12-vedabase.json (purport_full_length: 1131)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.12 Tyaktva, giving up; karma-phalam, the result of work; yuktah, by becoming resolute in faith, by having this conviction thus-‘Actions are for God, not for my gain’; apnoti, attains; santim, Peace, called Liberation; naisthikim arising from steadfastness.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 909,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-12-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the yukta (the karma-yogin) abandons the fruit of action and obtains naiṣṭhikī (final, lasting) peace. The ayukta (the non-karma-yogin) is impelled by desire, attached to the fruit, and is bound. The verse anchors the chapter to 2.47-2.48: detachment from fruit produces peace; attachment to fruit produces bondage."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-12/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:44.510Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.12 A Yogin is one who has no hankering for fruits other than the self, and who is exclusively devoted to the self. If a man renounces the fruits of actions and performs actions merely for the purification of himself, he attains lasting peace, i.e., he attains bliss which is of the form of lasting…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 957,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-12-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the disciplined one, having abandoned attachment to the fruit of action, obtains the firm peace consisting of self-experience. The undisciplined one, driven by desire, attached to the fruit, is bound by karma. Ramanuja's reading anchors śānti to the experience of the self (ātma-anubhava)."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "naiṣṭhikīm śāntim",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "unadulterated peace (because results offered to Me)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "final, lasting peace (mokṣa-ānanda-anchored)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "firm peace consisting of self-experience"
+        }
+      ],
+      "explanation": "All converge on lasting/firm peace. The disagreement is the metaphysical anchor: Shankara reads it as the peace of mokṣa; Ramanuja anchors it to ātma-anubhava; Prabhupada to the devotional surrender of fruit."
+    }
+  ],
+  "literal_meaning": "The disciplined one, having abandoned the fruit of action, obtains lasting peace; the undisciplined one, driven by desire, attached to the fruit, is bound.",
+  "traditional_meaning": "Krishna sets up a clean structural contrast. The yukta abandons phala (fruit) and gains naiṣṭhikī śānti (lasting peace). The ayukta, impelled by kāma (desire), attached to phala, is bound (nibadhyate). The verse builds directly on 2.47-2.48 and gives the chapter's clearest operational test: did detachment-from-fruit produce peace?",
+  "engineering": {
+    "translation": "The disciplined one (yuktaḥ), having abandoned the fruit of action (karma-phalam tyaktvā), attains the peace founded on naiṣṭhikīm (the established/abiding state). The undisciplined (ayuktaḥ), driven by desire (kāma-kāreṇa), attached to the fruit, is bound. Krishna draws the contrast sharply: the same action, performed with or without attachment to fruit, produces opposite results. The disciplined attain peace; the undisciplined are bound. The verse coheres directly with 2.47-2.48 and is its operational restatement at chapter 5's juncture. The engineering analog: the engineer who ships the migration without grasping at the launch-metric attains operational peace; the engineer who ships the same migration while obsessing over the launch-metric is bound by the attachment. Same merge, same code; different inner state, different outcome at the level the verse cares about.",
+    "concrete_scenario": "Two senior engineers ship the same kind of migration on the same Friday. Engineer A has prepared the runbook on GitHub, run the staging Datadog tests, scheduled the Slack announcement, and sized the rollback window. She ships, watches the dashboards, files the post-deploy notes, closes the PagerDuty pre-emptive alert, and at 6 PM she is at peace — the work was offered to the team's sustaining loop, the metric will be what it will be. Engineer B has shipped a structurally identical migration with the same level of preparation. But across Saturday morning he refreshes Datadog every twenty minutes, reads Slack obsessively for executive reactions, drafts and redrafts a launch tweet, calculates the visible impact on his promotion case. The same code is in production; engineer A is at peace, engineer B is bound. The action was identical; the discipline was different; the verse names the difference structurally.",
+    "falsifiability": "The analog fails if a reader concludes engineer A doesn't read dashboards. She reads them — but she reads them as feedback, not as the source of her state. Detachment from outcome-as-identity is not detachment from outcome-as-data.",
+    "counter_example": "When the migration genuinely has gone wrong and requires sustained attention — when Datadog refreshes are operationally needed because the cascade is unfolding — engineer B's behaviour is correct. The verse names the structural condition (attachment-to-fruit produces bondage), not a flat prescription about attention to dashboards.",
+    "implication": "On your next Friday-shipped migration, observe Saturday morning. The peace is the readable signature.",
+    "quotable_line": "Same merge, same code, same Friday. The disciplined are at peace by Saturday; the undisciplined are bound.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

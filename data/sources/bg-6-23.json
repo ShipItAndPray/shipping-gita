@@ -1,0 +1,258 @@
+{
+  "id": "BG 6.23",
+  "chapter": 6,
+  "verse": 23,
+  "fetched_at": "2026-05-02T03:30:00Z",
+  "merged_block_note": "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (20-23). The Devanagari and IAST below isolate the 6.23 hemistich; commentary applies across the block.",
+  "sanskrit_devanagari": "तं विद्याद्दुःखसंयोगवियोगं योगसंज्ञितम् ।\nस निश्चयेन योक्तव्यो योगोऽनिर्विण्णचेतसा ॥ २३ ॥",
+  "sanskrit_iast": "taṁ vidyād duḥkha-saṁyoga-viyogaṁ yoga-saṁjñitam |\nsa niścayena yoktavyo yogo 'nirviṇṇa-cetasā || 23 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical); vedabase merges 20-23 onto a single page.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/23",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (transliteration body identical; pāda-break and punctuation rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=23",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text); bhagavad-gita.us also renders this within the merged 20-23 block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.023). Body text identical; sandhi-rendering differs by edition convention."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "तम्",
+      "iast": "tam",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "दुःख-संयोग-वियोगम्",
+      "iast": "duḥkha-saṁyoga-viyogam",
+      "meaning": "severance of union with sorrow"
+    },
+    {
+      "sanskrit": "योगसंज्ञितम्",
+      "iast": "yoga-saṁjñitam",
+      "meaning": "known by the term yoga"
+    },
+    {
+      "sanskrit": "विद्यात्",
+      "iast": "vidyāt",
+      "meaning": "one should know"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "योगः",
+      "iast": "yogaḥ",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "निश्चयेन",
+      "iast": "niścayena",
+      "meaning": "with determination"
+    },
+    {
+      "sanskrit": "अनिर्विण्ण-चेतसा",
+      "iast": "anirviṇṇa-cetasā",
+      "meaning": "with mind unwearied / undespondent"
+    },
+    {
+      "sanskrit": "योक्तव्यः",
+      "iast": "yoktavyaḥ",
+      "meaning": "should be practised"
+    },
+    {
+      "sanskrit": "taṁ",
+      "iast": "taṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vidyād",
+      "iast": "vidyād",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duḥkha",
+      "iast": "duḥkha",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁyoga",
+      "iast": "saṁyoga",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "viyogaṁ",
+      "iast": "viyogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga",
+      "iast": "yoga",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "saṁjñitam",
+      "iast": "saṁjñitam",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "niścayena",
+      "iast": "niścayena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoktavyo",
+      "iast": "yoktavyo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogo",
+      "iast": "yogo",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "'nirviṇṇa",
+      "iast": "'nirviṇṇa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cetasā",
+      "iast": "cetasā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
+      "merged_block_note": "Translation covers 20-23 jointly; the 6.23 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5406 chars)",
+      "verbatim_excerpt": "By practice of yoga one becomes gradually detached from material concepts. This is the primary characteristic of the yoga principle. And after this, one becomes situated in trance, or samādhi, which means that the yogī realizes the Supersoul through transcendental mind and intelligence, without any",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-vedabase.json (purport_full_length: 5406)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 Yatra, at the time when; cittam, the mind; niruddham, restrained, entirely prevented from wandering; uparamate, gets withdrawn; yoga-sevaya, through the practice of Yoga; ca, and; yatra eva, just when, at the very moment when; pasyan, by seeing, by experiencing; atmanam, the Self, which by",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1079,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 – 6.23 Where, through the practice of Yoga, the mind, which is subdued everywhere by such practice, ‘rejoices’, i.e., rejoices in surpassing felicity; and where, perceiving through Yoga ‘the self (Atman)’ by ‘the mind (Atman)’ one is delighted by the self and indifferent to all other objects;",
+      "verbatim_excerpt_length": 298,
+      "verbatim_full_length": 1141,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "duḥkha-saṁyoga-viyoga (severance from union with sorrow)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "actual freedom from all miseries arising from material contact"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "yoga is named the severance from union with sorrow; to be practised with determination, with mind unwearied"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "disunion from all union with pain, i.e., the opposite of union with pain, is called by the term Yoga; practised with zestful exaltation"
+        }
+      ],
+      "explanation": "The verse defines yoga negatively — as the severance from sorrow's union. Both classical readings preserve this and emphasize that the practice itself requires anirviṇṇa-cetas, mind unwearied. Engineering analog at narrow scope: the disposition that is not unmade by sorrow."
+    }
+  ],
+  "literal_meaning": "Let one know that severance of union with sorrow as designated by the term yoga; that yoga should be practised with determination, with a mind unwearied.",
+  "traditional_meaning_consensus": "6.23 closes the 6.20-23 block. The state described — duḥkha-saṁyoga-viyoga, the severance from union with sorrow — is what the term 'yoga' names. It is to be practised (yoktavyaḥ) with determination (niścayena) and with a mind unwearied (anirviṇṇa-cetasā). Ramanuja: 'this Yoga must be practised with the determination of its nature as such from the beginning with a mind free from despondency, i.e., with zestful exaltation.' The verse is the chapter's first explicit definition of yoga as severance from sorrow. Engineering analog is STRETCHED at metaphysical scope; the operational rung is the disposition that is not unmade by sorrow.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport), merged 20-23",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": [
+      "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (20-23). The Devanagari and IAST below isolate the 6.23 hemistich; commentary applies across the block."
+    ]
+  }
+}

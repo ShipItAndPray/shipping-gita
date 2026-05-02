@@ -1,0 +1,37 @@
+{
+  "id": "BG 5.1",
+  "chapter": 5,
+  "verse": 1,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna presses for a verdict. Across chapters 3 and 4 the senior teacher has praised both the renunciation of action and the discipline of acting; the student has heard contradiction and demands one answer. The voice is dialectical, sharp, fully entitled — Arjuna has earned the right to ask. In engineering: the IC has heard the senior architect commend deep refactor work AND commend shipping the small migration today; the contradictions feel structural; the IC asks decisively which actually is preferable in practice. The question is load-bearing. The student is not whining; they are asking the question the prior chapters have made unavoidable. The teacher's answer at 5.2 will preserve both halves — the symmetry at the level of destination, the asymmetry at the level of practice — and the answer is intelligible only because the question was asked sharply.",
+    "concrete_scenario": "A senior IC at a payments company sits with her staff engineer in a 1:1. She has been reading chapters 3 and 4 of the team's design-doc playbook. Chapter 3 of the playbook says: senior engineers must continue to merge code, run on-call, attend post-mortems on Datadog. Chapter 4 says: the deepest engineering work is action-in-inaction — sometimes the most valuable thing you do is silently change how a meeting unfolds, not write code. She has held both for a week. Now she asks: 'Concretely — should I take the GitHub migration ticket on the queue this sprint, or should I spend the sprint reading and shaping the architecture review for the Postgres-vector-DB decision?' The staff engineer recognises the question is not naive — it is the question that arises from having actually read both chapters carefully. The student has earned the verdict.",
+    "falsifiability": "The analog fails if a reader treats Arjuna's question as a sign of confusion or weakness. The verse names the dialectical opening; the question is sharp, the questioner has standing. An engineering manager who reads this as 'juniors get confused' has misread it; only the engineer who has done the work of chapters 3 and 4 reaches this question.",
+    "counter_example": "When a junior engineer asks the same question without having absorbed the prior chapters' content — when the question is rooted in not-having-done-the-work — the verse does not apply. Krishna answers because Arjuna has earned the right; the senior teacher who answers prematurely has not respected the staging. The verse is the opening of an exchange, not the licence for any question.",
+    "implication": "Identify the question on your team that has accumulated through prior earned-doing — not the rhetorical question, the structurally-unavoidable one — and treat it with the seriousness Krishna gives Arjuna's. Do not wave it off. Do not flatten the binary the questioner has surfaced.",
+    "quotable_line": "The student who has actually done the prior chapters earns the right to ask: which of these two, decisively?",
+    "tags": [
+      "decision-paralysis",
+      "engineer-paralysis",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 5.1 engineering layer drafted from triangulated source pack. Anchored to chapter-5 thesis: equivalence-of-paths-with-karma-yoga-preference, decoupled identity, sama-darśana, internal-bliss-source, brahma-nirvāṇa-as-operational-rung-with-honest-STRETCHED. Cross-references to chapters 2-4 preserved.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

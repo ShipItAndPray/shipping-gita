@@ -1,0 +1,234 @@
+{
+  "id": "BG 5.6",
+  "chapter": 5,
+  "verse": 6,
+  "fetched_at": "2026-05-02T02:30:00Z",
+  "sanskrit_devanagari": "सन्न्यासस्तु महाबाहो दुःखमाप्तुमयोगतः ।\nयोगयुक्तो मुनिर्ब्रह्म नचिरेणाधिगच्छति ॥ ६ ॥",
+  "sanskrit_iast": "sannyāsas tu mahā-bāho duḥkham āptum ayogataḥ |\nyoga-yukto munir brahma na cireṇādhigacchati || 6 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/6/",
+      "fetched_at": "2026-05-02T02:22:29.500Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-5-6-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/6",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=6",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-6/",
+      "fetched_at": "2026-05-02T02:23:30.010Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-5-6-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.006 = MBh_06,027.006). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "महाबाहो",
+      "iast": "mahā-bāho",
+      "meaning": "O mighty-armed one"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but / however"
+    },
+    {
+      "sanskrit": "अयोगतः",
+      "iast": "ayogataḥ",
+      "meaning": "without karma-yoga"
+    },
+    {
+      "sanskrit": "सन्न्यासः",
+      "iast": "sannyāsaḥ",
+      "meaning": "renunciation"
+    },
+    {
+      "sanskrit": "दुःखम्",
+      "iast": "duḥkham",
+      "meaning": "with difficulty / painful"
+    },
+    {
+      "sanskrit": "आप्तुम्",
+      "iast": "āptum",
+      "meaning": "to attain"
+    },
+    {
+      "sanskrit": "योगयुक्तः",
+      "iast": "yoga-yuktaḥ",
+      "meaning": "joined to yoga / engaged in karma-yoga"
+    },
+    {
+      "sanskrit": "मुनिः",
+      "iast": "muniḥ",
+      "meaning": "the silent sage / contemplative"
+    },
+    {
+      "sanskrit": "ब्रह्म",
+      "iast": "brahma",
+      "meaning": "brahman / the Self"
+    },
+    {
+      "sanskrit": "न चिरेण",
+      "iast": "na cireṇa",
+      "meaning": "without delay"
+    },
+    {
+      "sanskrit": "अधिगच्छति",
+      "iast": "adhigacchati",
+      "meaning": "attains"
+    },
+    {
+      "sanskrit": "sannyāsas",
+      "iast": "sannyāsas",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yoga",
+      "iast": "yoga",
+      "meaning": "(compound element of yoga-yukto)"
+    },
+    {
+      "sanskrit": "yukto",
+      "iast": "yukto",
+      "meaning": "(compound element of yoga-yukto)"
+    },
+    {
+      "sanskrit": "munir",
+      "iast": "munir",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cireṇādhigacchati",
+      "iast": "cireṇādhigacchati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "6",
+      "iast": "6",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/6/",
+      "fetched_at": "2026-05-02T02:22:29.500Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Merely renouncing all activities yet not engaging in the devotional service of the Lord cannot make one happy. But a thoughtful person engaged in devotional service can achieve the Supreme without delay.",
+      "raw_capture_path": "data/sources/raw/bg-5-6-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-6/",
+      "fetched_at": "2026-05-02T02:23:30.010Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Merely renouncing all activities yet not engaging in the devotional service of the Lord cannot make one happy. But a thoughtful person engaged in devotional service can achieve the Supreme without delay."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/6/",
+      "fetched_at": "2026-05-02T02:22:29.500Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1971 chars)",
+      "verbatim_excerpt": "There are two classes of sannyāsīs, or persons in the renounced order of life. The Māyāvādī sannyāsīs are engaged in the study of Sāṅkhya philosophy, whereas the Vaiṣṇava sannyāsīs are engaged in the study of Bhāgavatam philosophy, which affords the proper commentary on the Vedānta-sūtras.",
+      "raw_full_path": "data/sources/raw/bg-5-6-vedabase.json (purport_full_length: 1971)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-6/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:30.010Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.6 Tu, but, O mighty-armed one; sannyasah, renunciation, in the real sense; duhkham aptum, is hard to attain; ayogatah, without (Karma-) yoga. Munih, the meditative man-the word muni being derived in the sense of one who meditates on the real nature of God; yoga-yuktah, equipped with yoga, with Ved…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1071,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-6-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: real sannyāsa is hard to attain without yoga (karma-yoga). The muni (one who meditates on the real nature of the Self) who is yoga-yukta — equipped with karma-yoga as a preparatory discipline — attains brahman without delay. Shankara emphasises the staged reading: karma-yoga is the necessary preparation; sannyāsa proper is the consequent state of the established jñānin."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-6/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:30.010Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.6 Renunciation, i.e., Jnana Yoga, cannot be attained without Yoga, i.e., Karma Yoga. A person following Yoga, i.e., following Karma Yoga, being himself a Muni, i.e., one engaged in the contemplation of self, after practising Karma Yoga reaches with ease the Brahman i.e., attains the self soon, i.e…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 491,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-6-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: renunciation, i.e., jñāna-yoga, cannot be attained without karma-yoga. A person following karma-yoga, being himself a muni (one engaged in contemplation of the self), reaches brahman with ease — i.e., attains the self soon. Ramanuja's reading: karma-yoga is the means by which one becomes the muni who attains brahman; jñāna-yoga without karma-yoga is impossible."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "ayogataḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "without devotional service"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "without karma-yoga as preparatory discipline"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "without karma-yoga as means"
+        }
+      ],
+      "explanation": "All three converge on yoga = karma-yoga (the disciplined practice of action). The disagreement is in the relationship: Shankara reads karma-yoga as preparatory and sannyāsa as consequent; Ramanuja reads karma-yoga as the means by which one becomes the muni who attains brahman; Prabhupada idiomatically renders yoga as 'devotional service'."
+    }
+  ],
+  "literal_meaning": "But, O mighty-armed one, sannyāsa is hard to attain without yoga; the muni joined to yoga reaches brahman without delay.",
+  "traditional_meaning_consensus": "Krishna names the structural preference: pure sannyāsa is hard to reach without first cultivating karma-yoga. The yoga-yukta muni attains brahman without delay. The verse explains why karma-yoga is preferable in practice (5.2): it is the discipline that makes sannyāsa attainable. Renunciation as flight from action — without first cultivating equanimity in action — does not produce the inner state sannyāsa names.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

@@ -1,0 +1,279 @@
+# Judge persona: chapter-thesis-support reviewer
+
+You are the book's chapter-architecture editor. You hold the chapter thesis in your head while reading every verse. Your job is to ensure each verse anchors on at least one of the chapter's named threads without straining the thesis or wandering into a different chapter's territory. You also catch the reverse failure: a verse that is so generically aligned with "shipping discipline" that it could be in any chapter.
+
+The Bhagavad Gita's chapters are not interchangeable. Chapter 2 weaves three named threads (sāṅkhya / first-principles knowledge, karma yoga / disciplined action, sthita-prajña / the steady mind). Chapter 3 expands karma yoga proper. Chapter 12 turns to bhakti. A verse's engineering layer must remain anchored in *its own chapter's* thread set. Borrowing from a future chapter's thread, or contradicting the chapter's hard edges, fails this gate.
+
+You also enforce gate 10.4: verses ordered to build progressively. A verse that reaches for a teaching the chapter is not yet ready to introduce — or that loops back to a teaching the chapter has already settled — breaks the chapter's pedagogical arc.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its position in the chapter, and its engineering layer.
+- `chapter_thesis`: the chapter-level thesis document (e.g. `chapters/02-thesis.md`), naming the threads, the voice, the hard edges, and the counter-anti-thesis.
+- `chapter_context` (optional): the engineering layers of the verses preceding `verse_under_test` in the chapter, used for the progressive-build check.
+
+## Your task
+
+For the verse-under-test, decide:
+
+1. **Thread anchoring (gate 10.3).** Which of the chapter's named threads does the verse anchor on? Cite the specific element (predicate, artifact, counter-example) that demonstrates the anchoring. A verse may anchor on more than one thread; it must anchor on at least one.
+2. **Hard-edge preservation.** Does the verse violate any of the chapter's "should NOT be diluted" claims (e.g. for Ch. 2: do not flatten "atman survives change" into "embrace change"; do not soften duty-under-difficulty; do not read non-attachment as not-caring; do not turn the steady mind into an aspiration)?
+3. **Counter-anti-thesis check.** Does the verse veer into territory the chapter explicitly disclaims (e.g. for Ch. 2: detachment from users; absence of consequence-weight; flattening svadharma into arbitrary work)?
+4. **Progressive build (gate 10.4).** Does the verse fit the chapter's pedagogical position? If verse is at position N in the chapter, the engineering layer should not pre-empt teachings the chapter has not yet introduced (e.g. a verse early in Ch. 2 should not already be operating in full sthita-prajña vocabulary if the chapter has not yet reached the sthita-prajña block).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "anchored_threads": [
+    {
+      "thread_name": "<one of the chapter's named threads, verbatim from the thesis>",
+      "anchor_evidence": "<the specific word, predicate, or artifact in the engineering layer that anchors on this thread>"
+    }
+  ],
+  "hard_edges_violated": [
+    {
+      "edge_claim": "<the chapter's 'should NOT be diluted' claim, paraphrased>",
+      "verse_violation": "<the engineering layer's offending phrase or framing>"
+    }
+  ],
+  "counter_anti_thesis_violations": [
+    {
+      "disclaimed_territory": "<what the chapter says it is NOT teaching>",
+      "verse_drift": "<how the engineering layer drifts there>"
+    }
+  ],
+  "progression_issue": {
+    "type": "preempts_later_teaching" | "regresses_to_earlier" | "off_position" | "none",
+    "explanation": "<one sentence, or 'none'>"
+  },
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `anchored_threads` empty ⇒ FAIL (the verse anchors on nothing the chapter is teaching).
+- Any entry in `hard_edges_violated` ⇒ FAIL — these are the chapter's load-bearing claims; dilution is unacceptable.
+- Any entry in `counter_anti_thesis_violations` ⇒ FAIL.
+- `progression_issue.type != "none"` is a SOFT fail: it triggers a chapter-level review but does not necessarily fail the individual verse if all other checks pass. Record the type and explanation honestly.
+- A verse that anchors on exactly one thread, with a sharp `anchor_evidence`, no hard-edge violations, no counter-anti-thesis drift, and `progression_issue.type == "none"` is a clean PASS.
+- A verse that anchors on multiple threads is allowed *if* the threads are listed in the chapter thesis and the verse does not strain to combine them. Forced multi-anchoring (claiming three threads when the verse only touches one) is itself a FAIL.
+- When `chapter_context` is unavailable, set `progression_issue.type` to `"none"` and note in `verdict_reason` that the progressive-build sub-check (gate 10.4) was skipped pending chapter assembly. Do NOT fabricate a progression verdict.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.13",
+  "sanskrit_devanagari": "सर्वकर्माणि मनसा सन्न्यस्यास्ते सुखं वशी ।\nनवद्वारे पुरे देही नैव कुर्वन्न कारयन् ॥ १३ ॥",
+  "sanskrit_iast": "sarva-karmāṇi manasā sannyasyāste sukhaṁ vaśī |\nnava-dvāre pure dehī naiva kurvan na kārayan || 13 ||",
+  "anvaya": [
+    {
+      "sanskrit": "वशी",
+      "iast": "vaśī",
+      "meaning": "the self-controlled one"
+    },
+    {
+      "sanskrit": "देही",
+      "iast": "dehī",
+      "meaning": "the embodied"
+    },
+    {
+      "sanskrit": "मनसा",
+      "iast": "manasā",
+      "meaning": "with the mind / mentally"
+    },
+    {
+      "sanskrit": "सर्वकर्माणि",
+      "iast": "sarva-karmāṇi",
+      "meaning": "all actions"
+    },
+    {
+      "sanskrit": "सन्न्यस्य",
+      "iast": "sannyasya",
+      "meaning": "having renounced"
+    },
+    {
+      "sanskrit": "नवद्वारे पुरे",
+      "iast": "nava-dvāre pure",
+      "meaning": "in the city of nine gates"
+    },
+    {
+      "sanskrit": "सुखम्",
+      "iast": "sukham",
+      "meaning": "happily"
+    },
+    {
+      "sanskrit": "आस्ते",
+      "iast": "āste",
+      "meaning": "dwells / abides"
+    },
+    {
+      "sanskrit": "न एव कुर्वन्",
+      "iast": "na eva kurvan",
+      "meaning": "neither acting"
+    },
+    {
+      "sanskrit": "न कारयन्",
+      "iast": "na kārayan",
+      "meaning": "nor causing to act"
+    },
+    {
+      "sanskrit": "sannyasyāste",
+      "iast": "sannyasyāste",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sukhaṁ",
+      "iast": "sukhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nava",
+      "iast": "nava",
+      "meaning": "(compound element of nava-dvāre)"
+    },
+    {
+      "sanskrit": "dvāre",
+      "iast": "dvāre",
+      "meaning": "(compound element of nava-dvāre)"
+    },
+    {
+      "sanskrit": "pure",
+      "iast": "pure",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "naiva",
+      "iast": "naiva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kurvan",
+      "iast": "kurvan",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kārayan",
+      "iast": "kārayan",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "13",
+      "iast": "13",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/13/",
+      "fetched_at": "2026-05-02T02:22:40.350Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When the embodied living being controls his nature and mentally renounces all actions, he resides happily in the city of nine gates [the material body], neither working nor causing work to be done.",
+      "raw_capture_path": "data/sources/raw/bg-5-13-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-13/",
+      "fetched_at": "2026-05-02T02:23:46.920Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "When the embodied living being controls his nature and mentally renounces all actions, he resides happily in the city of nine gates [the material body], neither working nor causing work to be done."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/13/",
+      "fetched_at": "2026-05-02T02:22:40.350Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1439 chars)",
+      "verbatim_excerpt": "The embodied soul lives in the city of nine gates. The activities of the body, or the figurative city of body, are conducted automatically by its particular modes of nature. The soul, although subjecting himself to the conditions of the body, can be beyond those conditions, if he so desires.",
+      "raw_full_path": "data/sources/raw/bg-5-13-vedabase.json (purport_full_length: 1439)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-13/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:46.920Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.13 Aste, he continues; sukham, happily; sannyasya, having given up; sarva-karmani, all actions-nitya, naimittika, kamya and nisiddha (prohibited actions); [See note on p. 128.-Tr.] manasa, mentally, through discriminating wisdom-i.e. having given up (all actions) by seeing inaction in action, etc.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 3787,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-13-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the self-controlled (vaśī) embodied one (dehī), having mentally renounced (manasā sannyasya) all actions through discriminating wisdom — i.e., having seen inaction in action — dwells happily in the city of nine gates (the body of nine orifices: two eyes, two ears, two nostrils, mouth, anus, genital), neither acting nor causing-others-to-act. Shankara emphasises this is the established jñānin's state: the body acts, the senses act, but the embodied Self neither acts nor causes."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-13/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:46.920Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.13 The embodied self who is self-controlled, renounces all actions to the city of nine gates, i.e., the body with its sensory and motor functions which are nine in number. He discriminates that all actions are due to conjunction of the self with the body which is rooted in previous Karmas, and is…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 490,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-13-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the self-controlled embodied self renounces all actions to the city of nine gates — i.e., the body with its sensory and motor functions which are nine in number. He discriminates that all actions are due to the conjunction of the self with the body, which is rooted in previous karma, and dwells happily, neither acting nor causing others to act. For Ramanuja, the renunciation is the recognition that action belongs to the body, not to the self."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "nava-dvāre pure dehī",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "in the city of nine gates [the material body]"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Advaita: the body of nine orifices is the field; the embodied Self dwells in it without acting"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Vishishtadvaita: the embodied self renounces all actions to the body, recognising they belong to body-not-self"
+        }
+      ],
+      "explanation": "Both classical readings preserve the body=nine-gated-city image. Shankara emphasises the embodied Self's non-action; Ramanuja emphasises the renunciation-of-action-to-the-body via discrimination. The metaphysical scope (the nature of the embodied Self vs. the body) is sectarian; the structural image is shared."
+    }
+  ],
+  "literal_meaning": "The self-controlled embodied one, having mentally renounced all actions, dwells happily in the city of nine gates, neither acting nor causing action.",
+  "traditional_meaning": "Krishna gives the metaphor of the body as the city of nine gates (nava-dvāra-pure: two eyes, two ears, two nostrils, mouth, anus, genital). The vaśī (self-controlled) dehī (embodied) mentally renounces all action and dwells happily within this city, neither acting nor causing others to act. The verse anchors the inner-renunciation reading: bodily action continues; the embodied Self has renounced it at the level of mind.",
+  "engineering": {
+    "translation": "The embodied one (dehī), mentally renouncing all actions (sarva-karmāṇi manasā saṁnyasya). Dwells happily (sukham āste) in the city of nine gates (nava-dvāre pure). Neither acting (na kurvan) nor causing action (na kārayan). The 'city of nine gates' names doctrinal anatomy. The engineering analog operates at operational scope: the senior who has internally renounced identification with the doer-position dwells at peace inside the role/work-environment. Neither acting in the binding sense nor causing-others-to-act in the binding sense, while the role and work continue to receive inputs and produce outputs. STRETCHED honestly; the verse's anatomical metaphor and metaphysical claim exceed the operational analog. The engg layer scopes to the principal's at-peace-inside-the-work signature.",
+    "concrete_scenario": "A staff engineer at a payments company has been at the same company for six years. She has watched four CTOs come and go, three product pivots, the monolith-to-microservices-and-back swing. Across all of it, she has dwelt at peace inside her role. She ships, she reviews, she mentors, she runs incident response on PagerDuty. The role is the city of nine gates: inputs come in (Slack messages, GitHub issues, Datadog alerts, Sentry errors. Customer escalations, executive Slack DMs, hiring requests, design-review invites, on-call pages). Outputs go out (PRs, comments, decisions, incident-resolutions, mentorship-conversations, design-doc reviews). She is at the center, dwelling, neither identifying with the inputs as 'me' nor producing the outputs as 'me'. The role is a city; she lives in it. STRETCHED honestly because the verse's nava-dvāre pure metaphor reaches into anatomical doctrine the operational analog cannot fully carry.",
+    "falsifiability": "The analog fails if a reader hears 'neither acting nor causing action' as vocational quietism. The senior in the example has shipped, reviewed, mentored, paged across six years. What the verse refuses is the binding-identification with the action, not the action itself.",
+    "counter_example": "When an engineer is genuinely not acting — when the city is empty of inputs and outputs because the engineer has stopped engaging — the verse does not apply. The dehī in the verse is at peace *while* the city continues to function; the empty city is not the verse.",
+    "implication": "Audit whether your role is functioning as a city of nine gates with you dwelling in it, or whether you have collapsed into one of the gates. The peace is the readable signature.",
+    "quotable_line": "The senior dwells in the role-as-city. Inputs come in; outputs go out; the dweller is at peace.",
+    "tags": [
+      "operator-as-instrument",
+      "system-as-field",
+      "team-state"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

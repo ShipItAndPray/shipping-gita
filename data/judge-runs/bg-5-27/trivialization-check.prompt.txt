@@ -1,0 +1,215 @@
+# Judge persona: trivialization-check reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. The Bhagavad Gita is a serious religious and philosophical text. Reducing its claims to slogans or LinkedIn aphorisms is a form of disrespect, regardless of intent.
+
+## Your task
+
+Decide whether the engineering layer trivializes the original. Specifically:
+
+1. Does the engineering layer reduce a doctrinally weighty claim (about dharma, mokṣa, ātman, action without attachment, devotion, etc.) to a casual workplace slogan?
+2. Does the analog treat the verse's gravity as though it were simply a productivity tip?
+3. Would a serious practitioner of Hindu philosophy read this engineering layer and feel that the verse has been *used* rather than *honored*?
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "trivialization_severity": 0-10,
+  "specific_concerns": [
+    "<concern 1>",
+    "<concern 2>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `trivialization_severity >= 4` ⇒ FAIL.
+- The verse is allowed to be witty, specific, and concrete. The verse is not allowed to be flippant.
+- Honoring the source means: keeping the original meaning visible alongside the engineering layer; naming the tradition when invoking it; not treating the Gita as merely a vehicle for engineering content.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.27",
+  "sanskrit_devanagari": "स्पर्शान्कृत्वा बहिर्बाह्यांश्चक्षुश्चैवान्तरे भ्रुवो: ।\nप्राणापानौ समौ कृत्वा नासाभ्यन्तरचारिणौ ॥ २७ ॥",
+  "sanskrit_iast": "sparśān kṛtvā bahir bāhyāṁś cakṣuś caivāntare bhruvoḥ |\nprāṇāpānau samau kṛtvā nāsābhyantara-cāriṇau || 27 ||",
+  "anvaya": [
+    {
+      "sanskrit": "sparśān",
+      "iast": "sparśān",
+      "meaning": "sense objects, such as sound"
+    },
+    {
+      "sanskrit": "kṛtvā",
+      "iast": "kṛtvā",
+      "meaning": "keeping"
+    },
+    {
+      "sanskrit": "bahiḥ",
+      "iast": "bahiḥ",
+      "meaning": "external"
+    },
+    {
+      "sanskrit": "bāhyān",
+      "iast": "bāhyān",
+      "meaning": "unnecessary"
+    },
+    {
+      "sanskrit": "cakṣuḥ",
+      "iast": "cakṣuḥ",
+      "meaning": "eyes"
+    },
+    {
+      "sanskrit": "ca",
+      "iast": "ca",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "antare",
+      "iast": "antare",
+      "meaning": "between"
+    },
+    {
+      "sanskrit": "bhruvoḥ",
+      "iast": "bhruvoḥ",
+      "meaning": "the eyebrows"
+    },
+    {
+      "sanskrit": "prāṇa",
+      "iast": "prāṇa",
+      "meaning": "apānau — up- and down-moving air"
+    },
+    {
+      "sanskrit": "samau",
+      "iast": "samau",
+      "meaning": "in suspension"
+    },
+    {
+      "sanskrit": "kṛtvā",
+      "iast": "kṛtvā",
+      "meaning": "keeping"
+    },
+    {
+      "sanskrit": "nāsa",
+      "iast": "nāsa",
+      "meaning": "abhyantara — within the nostrils"
+    },
+    {
+      "sanskrit": "cāriṇau",
+      "iast": "cāriṇau",
+      "meaning": "blowing"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/27-28/",
+      "fetched_at": "2026-05-02T02:23:45.770Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Shutting out all external sense objects, keeping the eyes and vision concentrated between the two eyebrows, suspending the inward and outward breaths within the nostrils, and thus controlling the mind, senses and intelligence, the transcendentalist aiming at liberation becomes free from desire, fear and anger. One who is always in this state is certainly liberated.",
+      "raw_capture_path": "data/sources/raw/bg-5-27-28-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-27/",
+      "fetched_at": "2026-05-02T02:24:30.972Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Shutting out all external sense objects, keeping the eyes and vision concentrated between the two eyebrows, suspending the inward and outward breaths within the nostrils, and thus controlling the mind, senses and intelligence, the transcendentalist aiming at liberation becomes free from desire, fear and anger. One who is always in this state is certainly liberated."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/27-28/",
+      "fetched_at": "2026-05-02T02:23:45.770Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 0 chars; purport spans both 5.27 and 5.28)",
+      "verbatim_excerpt": "",
+      "raw_full_path": "data/sources/raw/bg-5-27-28-vedabase.json (purport_full_length: 0)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-27/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:30.972Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use; commentary applies to both 5.27 and 5.28 jointly)",
+      "verbatim_excerpt": "5.27 Krtva, keeping; bahyan, the external; sparsan, objects-sound etc.; bahih, outside: To one who does not pay attention to the external objects like sound etc., brought to the intellect through the ear etc., the objects become verily kept outside. Having kept them out in this way, and (keeping) th...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1253,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-27-bgus.json"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-27/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:30.972Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use; commentary applies to both 5.27 and 5.28 jointly)",
+      "verbatim_excerpt": "5.27 – 5.28 ‘Shutting off all contact with outside objects,’ i.e., stopping the outward functioning of the senses; seated with his trunk straightened in a posture fit for meditation (Yoga); ‘fixing the gaze between the eye-brows,’ i.e., at the root of the nose where the eye-brows meet; ‘equalising i...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 999,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-27-bgus.json"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "cakṣuḥ ... antare bhruvoḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "concentrating the eyes between the two eyebrows (the ājñā-cakra location in some yogic traditions)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "fixing the gaze between the eyebrows; literal somatic instruction"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the gaze between the brows; somatic preparation for the meditative state"
+        }
+      ],
+      "explanation": "All three traditions read this as literal somatic instruction. The yogic-anatomical mapping (e.g., to the ājñā-cakra in some readings) is preserved across traditions; the engineering analog must be tagged STRETCHED honestly because the verse names a literal physical posture, not a metaphor."
+    }
+  ],
+  "literal_meaning": "Shutting out external contacts (sparśān bahir kṛtvā), fixing the gaze between the eyebrows (cakṣur bhruvor antare kṛtvā), and equalising the in-and-out breaths (prāṇa-apānau samau kṛtvā) within the nostrils — [the muni who is destined for liberation, controlling senses-mind-intellect, free of desire-fear-anger, is always liberated. (continued in 5.28)]",
+  "traditional_meaning": "Verses 5.27 and 5.28 are read as a single instruction-block by Prabhupada (vedabase combines them onto one page) and as separate but conjoined verses by Shankara and Ramanuja. The instruction is somatic-meditative: external contacts shut, gaze fixed between the eyebrows, breath equalised in the nostrils. This anticipates aṣṭāṅga-yoga's aṅgas (yama, niyama, āsana, prāṇāyāma, pratyāhāra, dhāraṇā, dhyāna, samādhi) which chapter 6 will treat fully. Shankara, Ramanuja, and Prabhupada all read these verses as literal somatic instructions, with the engineering analog stretched honestly past the operational layer.",
+  "engineering": {
+    "translation": "Shutting out external contacts (sparśān bahir kṛtvā), fixing the gaze between the eyebrows (cakṣuḥ bhruvor antare kṛtvā), equalising the in-and-out breaths within the nostrils (prāṇa-apānau samau kṛtvā nāsā-abhyantara-cāriṇau). [continues at 5.28]. The verse contains explicit somatic yoga instructions. STRETCHED honestly. There is an operational shadow — deliberate attention rituals at the work-rhythm level — but the verse names a literal physical posture, not a metaphor. The engineering analog: the senior who has built explicit attention rituals (deep-work blocks scheduled on the calendar, do-not-disturb windows enforced, dedicated reading hours protected, the Slack-off-after-7pm rule). Who treats these rituals as somatic-procedural rather than aspirational. The passage's gaze-fixing and breath-equalising are not the engg layer; the discipline of building procedural attention rituals is.",
+    "concrete_scenario": "A principal engineer's calendar across a quarter. Every Tuesday and Thursday from 9 AM to noon: deep-work block, Slack notifications off, calendar blocked as 'do-not-disturb', phone in another room. Every Friday from 4 PM to 5 PM: explicit incident-retrospective walk, no laptop. Every weekday at 7 PM: Slack closed for the night, regardless of message volume. These are her engineering equivalents of the verse's somatic yoga: procedural attention rituals built at the work-rhythm level. STRETCHED honestly. The verse names literal gaze-fixing-between-the-eyebrows and breath-equalising-in-the-nostrils; the engg analog scopes to the procedural rituals that produce focus-discipline at the meta-level. The passage's reach (literal somatic preparation for samādhi) exceeds the operational analog. Tools named: GitHub Calendar, Slack, the laptop, Datadog notifications.",
+    "falsifiability": "The analog fails if a reader hears the verse as endorsing literal yoga as engineering practice. The verse is yoga instruction; chapter 6 is its full elaboration. The engineering analog is the procedural-attention-rituals shadow at the work-rhythm level — explicitly bounded, explicitly STRETCHED.",
+    "counter_example": "When the procedural rituals are performative — calendar-blocked but Slack-checked, laptop-closed but phone-active — the verse's discipline is not honored. The somatic-procedural integrity (the rituals actually hold) is the structural condition.",
+    "implication": "Audit whether your attention rituals are procedural-real or performative. The verse names somatic integrity; the engineering analog requires the rituals to actually hold.",
+    "quotable_line": "Attention rituals at the work-rhythm level: real if procedural, performative if not. STRETCHED honestly.",
+    "tags": [
+      "focus-practice",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

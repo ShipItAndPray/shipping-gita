@@ -1,0 +1,37 @@
+{
+  "id": "BG 5.20",
+  "chapter": 5,
+  "verse": 20,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "One who, knowing Brahman and established in Brahman, neither rejoices on the pleasant (na prahṛṣyet priyam prāpya) nor grieves on the unpleasant (na udvijet prāpya cāpriyam) — with steady intellect (sthira-buddhiḥ) and undeluded (asammūḍhaḥ) — is established in Brahman. The verse names the affective signature of the brahma-vid: no upward swing on the pleasant, no downward swing on the unpleasant, sthira-buddhi, asammūḍha. This coheres directly with the sthita-prajña of 2.55-2.72. The engineering analog: the senior whose response to the launch-success-tweet is structurally identical to her response to the production-incident-Slack-thread — neither inflated by the praise nor flattened by the failure — is the operational brahma-vid.",
+    "concrete_scenario": "A senior engineer's morning. At 9:14 AM, an executive Slack DM arrives praising her work on the recent Postgres migration that landed clean. At 9:31 AM, a Sentry-reported customer-facing bug surfaces in a different system she had touched eighteen months ago. Across both signals, her affective response is the same: she reads the executive note, types a brief acknowledgement, files the next migration's GitHub design-doc; she reads the Sentry trace, opens a investigation issue, schedules the triage. No internal swing on the praise, no internal swing on the bug. Her teammates have observed across years that her morning cadence is unreadable from the morning's signals — the day she was promoted to principal looked identical to the day she received a critical performance review. Sthira-buddhi, asammūḍha, brahma-stha at operational scope. The chapter-2 sthita-prajña is the same person; the verse is its restatement at chapter 5's juncture.",
+    "falsifiability": "The analog fails if a reader hears 'no rejoicing, no grieving' as 'no feelings.' The senior in the example has feelings; what is absent is the *swing* — the inflation, the deflation, the response that organises around the affect. The Datadog of her interior is calibrated; the dashboards do not jump.",
+    "counter_example": "When an engineer's even-keeled response is suppression rather than non-capture, the verse does not endorse this. Suppression produces a different signature — eventual collapse, displaced reactivity. The verse's stability is the kind that does not collapse.",
+    "implication": "Track your morning over a quarter. Is the cadence readable from the morning's signals, or is it the senior's invariant? The verse names the invariant as the brahma-vid's signature.",
+    "quotable_line": "The senior's morning cadence is invisible from the morning's signals. Sthira-buddhi, asammūḍha, brahma-stha.",
+    "tags": [
+      "non-attachment-to-praise",
+      "operator-as-instrument",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 5.20 engineering layer drafted from triangulated source pack. Anchored to chapter-5 thesis: equivalence-of-paths-with-karma-yoga-preference, decoupled identity, sama-darśana, internal-bliss-source, brahma-nirvāṇa-as-operational-rung-with-honest-STRETCHED. Cross-references to chapters 2-4 preserved.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

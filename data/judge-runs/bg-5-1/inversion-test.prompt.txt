@@ -1,0 +1,279 @@
+# Judge persona: inversion-test reviewer
+
+You will receive **only the engineering layer** of a verse — its translation, concrete scenario, falsifiability, counter-example, implication, quotable line, and tags. You will NOT see the Sanskrit or the traditional meaning.
+
+## Your task
+
+From the engineering layer alone, identify which Bhagavad Gita verse it most likely adapts. Provide your top three candidates with a brief justification for each.
+
+## Output format (strict JSON)
+
+```json
+{
+  "top_candidates": [
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" },
+    { "verse_id": "BG X.Y", "confidence": 0.0-1.0, "reasoning": "<one sentence>" }
+  ]
+}
+```
+
+## Calibration (run by the eval harness, not by you)
+
+The eval harness compares your top three with the actual source verse:
+
+- If the actual source is in your top three ⇒ PASS for that verse.
+- If not ⇒ FAIL — the engineering analog was not specific enough to be reverse-identified.
+
+Do not see the actual source. Do not guess. Identify based on what the engineering analog actually anchors on.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.1",
+  "sanskrit_devanagari": "अर्जुन उवाच\nसन्न्यासं कर्मणां कृष्ण पुनर्योगं च शंससि ।\nयच्छ्रेय एतयोरेकं तन्मे ब्रूहि सुनिश्चितम् ॥ १ ॥",
+  "sanskrit_iast": "arjuna uvāca\nsannyāsaṁ karmaṇāṁ kṛṣṇa punar yogaṁ ca śaṁsasi |\nyac chreya etayor ekaṁ tan me brūhi su-niścitam || 1 ||",
+  "anvaya": [
+    {
+      "sanskrit": "अर्जुनः उवाच",
+      "iast": "arjunaḥ uvāca",
+      "meaning": "Arjuna said"
+    },
+    {
+      "sanskrit": "कृष्ण",
+      "iast": "kṛṣṇa",
+      "meaning": "O Kṛṣṇa"
+    },
+    {
+      "sanskrit": "कर्मणाम्",
+      "iast": "karmaṇām",
+      "meaning": "of actions"
+    },
+    {
+      "sanskrit": "सन्न्यासम्",
+      "iast": "sannyāsam",
+      "meaning": "renunciation"
+    },
+    {
+      "sanskrit": "पुनः",
+      "iast": "punaḥ",
+      "meaning": "again"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga (karma-yoga)"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "शंससि",
+      "iast": "śaṁsasi",
+      "meaning": "you praise / commend"
+    },
+    {
+      "sanskrit": "एतयोः",
+      "iast": "etayoḥ",
+      "meaning": "of these two"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "one"
+    },
+    {
+      "sanskrit": "यत् श्रेयः",
+      "iast": "yat śreyaḥ",
+      "meaning": "which is more beneficial"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "मे",
+      "iast": "me",
+      "meaning": "to me"
+    },
+    {
+      "sanskrit": "सुनिश्चितम्",
+      "iast": "su-niścitam",
+      "meaning": "decisively / definitely"
+    },
+    {
+      "sanskrit": "ब्रूहि",
+      "iast": "brūhi",
+      "meaning": "tell"
+    },
+    {
+      "sanskrit": "arjuna",
+      "iast": "arjuna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "uvāca",
+      "iast": "uvāca",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sannyāsaṁ",
+      "iast": "sannyāsaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karmaṇāṁ",
+      "iast": "karmaṇāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "punar",
+      "iast": "punar",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogaṁ",
+      "iast": "yogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yac",
+      "iast": "yac",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "chreya",
+      "iast": "chreya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "etayor",
+      "iast": "etayor",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ekaṁ",
+      "iast": "ekaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tan",
+      "iast": "tan",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "1",
+      "iast": "1",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/1/",
+      "fetched_at": "2026-05-02T02:22:21.146Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Kṛṣṇa, first of all You ask me to renounce work, and then again You recommend work with devotion. Now will You kindly tell me definitely which of the two is more beneficial?",
+      "raw_capture_path": "data/sources/raw/bg-5-1-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-1/",
+      "fetched_at": "2026-05-02T02:23:18.241Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Arjuna said: O Krishna, first of all You ask me to renounce work, and then again You recommend work with devotion. Now will You kindly tell me definitely which of the two is more beneficial?"
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/1/",
+      "fetched_at": "2026-05-02T02:22:21.146Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1592 chars)",
+      "verbatim_excerpt": "In this Fifth Chapter of the Bhagavad-gītā, the Lord says that work in devotional service is better than dry mental speculation. Devotional service is easier than the latter because, being transcendental in nature, it frees one from reaction.",
+      "raw_full_path": "data/sources/raw/bg-5-1-vedabase.json (purport_full_length: 1592)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-1/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:18.241Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.1 (O Krsna,) samsasi, You praise, i.e. speak of; sannyasam, renunciation; karmanam, of actions, of performance of various kinds of rites enjoined by the scriptures; punah ca, and again; You praise yogam, yoga, the obligatory performance of those very rites! Therefore I have a doubt as to which is…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1001,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-1-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara reads 5.1 as Arjuna voicing a doubt born of apparently contradictory teaching: in earlier chapters Krishna has praised both renunciation of action (sannyāsa of karmas, in chapter 2 and 3.4) and the obligatory performance of action (karma-yoga, 3.8 etc.). Arjuna asks for one of the two to be definitely commended as the better, given they look opposed. Shankara emphasises that the question is sincere — it is not a hostile challenge but a request from the student who has earned the right to a verdict."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-1/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:18.241Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.1 Arjuna said — ‘You praise the renunciation of actions, i.e., Jnana Yoga at one time, and next Karma Yoga’. This is what is objected to: In the second chapter, you have said that Karma Yoga alone should be practised first by an aspirant for release; and that the vision of the self should be achie…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 847,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-1-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja groups 5.1 as Arjuna's objection: 'You praise the renunciation of action, i.e., jñāna-yoga, at one time, and karma-yoga at another.' He notes Arjuna's earlier confusion (in 3.1-3.2) and his current pressing question — these two are means independent of each other in Vishishtadvaita's reading; Arjuna is asking which is the *uniquely* better path for him, not whether both are valid in principle."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "yoga (in this context)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "work in devotion / devotional service (Gaudiya emphasis)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "karma-yoga, the obligatory performance of scripturally enjoined action"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "karma-yoga as one of two independent means alongside jñāna-yoga"
+        }
+      ],
+      "explanation": "Prabhupada's 'work in devotion' reflects the Gaudiya rendering of yoga as bhakti-tinged karma-yoga; Shankara reads yoga here narrowly as obligatory karma performed without attachment (yoga as viparyaya of sannyāsa); Ramanuja reads it as karma-yoga, one of two soteriological paths, with the second being jñāna-yoga (which he then identifies with sannyāsa here)."
+    }
+  ],
+  "literal_meaning": "Arjuna said: O Krishna, you praise the renunciation of actions, and again you praise yoga (karma-yoga). Tell me decisively: which one of these two is more beneficial?",
+  "traditional_meaning": "Arjuna opens chapter 5 with a sharp question. Having heard Krishna praise both sannyāsa (in chapter 3 verses on the path of jñāna-niṣṭhā) and karma-yoga (in chapter 3.8 and elsewhere), he experiences the teaching as containing two recommendations that can look mutually exclusive, and asks for a decisive verdict. The verse opens the chapter dialectically — the student presses the teacher for one answer over the other, having earned the right to do so by chapter 4's accumulated trust.",
+  "engineering": {
+    "translation": "Arjuna presses for a verdict. Across chapters 3 and 4 the senior teacher has praised both the renunciation of action and the discipline of acting; the student has heard contradiction and demands one answer. The voice is dialectical, sharp, fully entitled — Arjuna has earned the right to ask. In engineering: the IC has heard the senior architect commend deep refactor work AND commend shipping the small migration today; the contradictions feel structural; the IC asks decisively which actually is preferable in practice. The question is load-bearing. The student is not whining; they are asking the question the prior chapters have made unavoidable. The teacher's answer at 5.2 will preserve both halves — the symmetry at the level of destination, the asymmetry at the level of practice — and the answer is intelligible only because the question was asked sharply.",
+    "concrete_scenario": "A senior IC at a payments company sits with her staff engineer in a 1:1. She has been reading chapters 3 and 4 of the team's design-doc playbook. Chapter 3 of the playbook says: senior engineers must continue to merge code, run on-call, attend post-mortems on Datadog. Chapter 4 says: the deepest engineering work is action-in-inaction — sometimes the most valuable thing you do is silently change how a meeting unfolds, not write code. She has held both for a week. Now she asks: 'Concretely — should I take the GitHub migration ticket on the queue this sprint, or should I spend the sprint reading and shaping the architecture review for the Postgres-vector-DB decision?' The staff engineer recognises the question is not naive — it is the question that arises from having actually read both chapters carefully. The student has earned the verdict.",
+    "falsifiability": "The analog fails if a reader treats Arjuna's question as a sign of confusion or weakness. The verse names the dialectical opening; the question is sharp, the questioner has standing. An engineering manager who reads this as 'juniors get confused' has misread it; only the engineer who has done the work of chapters 3 and 4 reaches this question.",
+    "counter_example": "When a junior engineer asks the same question without having absorbed the prior chapters' content — when the question is rooted in not-having-done-the-work — the verse does not apply. Krishna answers because Arjuna has earned the right; the senior teacher who answers prematurely has not respected the staging. The verse is the opening of an exchange, not the licence for any question.",
+    "implication": "Identify the question on your team that has accumulated through prior earned-doing — not the rhetorical question, the structurally-unavoidable one — and treat it with the seriousness Krishna gives Arjuna's. Do not wave it off. Do not flatten the binary the questioner has surfaced.",
+    "quotable_line": "The student who has actually done the prior chapters earns the right to ask: which of these two, decisively?",
+    "tags": [
+      "decision-paralysis",
+      "engineer-paralysis",
+      "knowledge-action-integration"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

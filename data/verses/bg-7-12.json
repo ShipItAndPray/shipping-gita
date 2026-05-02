@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.12",
+  "chapter": 7,
+  "verse": 12,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "System states — the sattvic clarity of a calm release week, the rajasic churn of an incident-heavy sprint, the tamasic decay of an unmaintained microservice — all surface from the same operational substrate. The structural claim that follows is the asymmetry: the substrate generates the states, the states exist inside it, but the substrate is not captured by any. Krishna's metaphysical claim is much wider (he is not subject to the guṇas; the guṇas are subject to him); the engineering shadow operates at narrow scope. A senior who has held one Postgres-backed pipeline across calm Friday deploys and through Sentry-paging crises recognises the three states as variations inside one operational frame. STRETCHED honestly: identifying Krishna as the substrate-beyond-states reaches far past any analog of senior-level substrate-knowledge. What survives at narrow scope: states arise from the substrate, abide in it, but do not exhaust it.",
+    "concrete_scenario": "A staff engineer holds a payments microservice across thirty-six months. Month four shipped clean — sattvic clarity; the runbook fit on one Notion page, Datadog dashboards were green, pages rare. Month sixteen entered rajasic churn: three SEV-2 incidents per week as transaction volume outpaced the original sharding plan, the Slack on-call channel lit nightly, the team patched frantically. Month twenty-eight slid into tamasic decay: seasoned ICs rotated off, runbooks went stale, alerts were silenced as noise, GitHub PRs accumulated 'TODO: revisit later' comments. Today she leads a redesign. She does not confuse any state with the underlying substrate — the customer-facing invariant (authorize a charge, return a ledger entry) survived all three. Her pre-incident calm, her crisis response, her debt-paydown sequencing — recognisably the same operator across all three. The states are in her career-long substrate-knowledge; the substrate is not exhausted by any one. Krishna's metaphysical asymmetry (the guṇas are in him, he is not in them) outruns this analog; what survives is the structural pattern.",
+    "falsifiability": "The analog collapses if read as 'good engineers float above guṇa-states.' Krishna is metaphysically beyond; humans are not. A senior who claims dispassionate transcendence of incident-pressure or decay-fatigue has usually substituted posture for actual substrate-knowledge. Honest reading: the senior has been inside the states (has been paged at 02:00, has watched her own service rot), but the states are not the whole substrate — the substrate is what holds across them.",
+    "counter_example": "When an operator claiming to be 'beyond the guṇas' is in fact disengaged — refusing to feel the weight of an outage, refusing ownership of the decay phase of a service they themselves architected — the analog has inverted. Krishna's non-subjection is structural; engineering disengagement is dereliction. Reading a Sentry alert and shrugging is not what the verse points toward.",
+    "implication": "Map your current service against the three states. Sattvic (rare; requires sustained investment), rajasic (the default through growth phases), tamasic (the default through neglect). Each is real and worth naming. The engineering substrate — the durable customer-need the system actually serves, the operator-knowledge holding it across phases — sits one level above. The verse points there at narrow scope; the metaphysical reach is preserved upstream.",
+    "quotable_line": "States arise from the substrate; the substrate is not captured by any. The verse names an asymmetry the senior recognises across the lifecycle.",
+    "tags": [
+      "three-gunas",
+      "operator-system-coupling",
+      "guna-classification"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.12 is the gunas-from-me-but-I-am-beyond claim — chapter thesis explicitly tags this STRETCHED. Engineering analog operates at the structural-asymmetry level (states arise from substrate; substrate not captured by any), with explicit scope-honesty about the metaphysical reach. Concrete scenario uses a 36-month payments service lifecycle (sattvic month-4 → rajasic month-16 → tamasic month-28) to show one operator across all three states. Falsifiability explicitly guards against the 'engineers float above states' misread. Counter-example guards against confusing non-subjection with non-engagement. STRETCHED, MEDIUM confidence per chapter thesis.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

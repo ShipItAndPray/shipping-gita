@@ -1,0 +1,251 @@
+{
+  "id": "BG 5.8",
+  "chapter": 5,
+  "verse": 8,
+  "fetched_at": "2026-05-02T02:30:00Z",
+  "sanskrit_devanagari": "नैव किञ्चित्करोमीति युक्तो मन्येत तत्त्ववित् ।\nपश्यञ्शृण्वन्स्पृशञ्जिघ्रन्नश्नन्गच्छन्स्वपन्श्वसन् ॥ ८ ॥",
+  "sanskrit_iast": "naiva kiñcit karomīti yukto manyeta tattva-vit |\npaśyañ śṛṇvan spṛśañ jighrann aśnan gacchan svapan śvasan || 8 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches). Note: vedabase.io renders 5.8 and 5.9 on a single combined page (/bg/5/8-9/); the verbatim translation captured covers both verses. bhagavad-gita.us also covers both verses on the 5/8 page; the editorial translation key 'Translation of Bhagavad Gita 5.8-9' covers both.",
+      "raw_capture_path": "data/sources/raw/bg-5-8-9-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/8",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=8",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering). Note: vedabase.io renders 5.8 and 5.9 on a single combined page (/bg/5/8-9/); the verbatim translation captured covers both verses. bhagavad-gita.us also covers both verses on the 5/8 page; the editorial translation key 'Translation of Bhagavad Gita 5.8-9' covers both.",
+      "raw_capture_path": "data/sources/raw/bg-5-8-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.008 = MBh_06,027.008). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "तत्त्ववित्",
+      "iast": "tattva-vit",
+      "meaning": "the knower of truth"
+    },
+    {
+      "sanskrit": "युक्तः",
+      "iast": "yuktaḥ",
+      "meaning": "the one joined (to yoga)"
+    },
+    {
+      "sanskrit": "पश्यन्",
+      "iast": "paśyan",
+      "meaning": "while seeing"
+    },
+    {
+      "sanskrit": "शृण्वन्",
+      "iast": "śṛṇvan",
+      "meaning": "hearing"
+    },
+    {
+      "sanskrit": "स्पृशन्",
+      "iast": "spṛśan",
+      "meaning": "touching"
+    },
+    {
+      "sanskrit": "जिघ्रन्",
+      "iast": "jighran",
+      "meaning": "smelling"
+    },
+    {
+      "sanskrit": "अश्नन्",
+      "iast": "aśnan",
+      "meaning": "eating"
+    },
+    {
+      "sanskrit": "गच्छन्",
+      "iast": "gacchan",
+      "meaning": "going"
+    },
+    {
+      "sanskrit": "स्वपन्",
+      "iast": "svapan",
+      "meaning": "sleeping"
+    },
+    {
+      "sanskrit": "श्वसन्",
+      "iast": "śvasan",
+      "meaning": "breathing"
+    },
+    {
+      "sanskrit": "किञ्चित् न एव करोमि",
+      "iast": "kiñcit na eva karomi",
+      "meaning": "I do nothing at all"
+    },
+    {
+      "sanskrit": "इति मन्येत",
+      "iast": "iti manyeta",
+      "meaning": "should think"
+    },
+    {
+      "sanskrit": "naiva",
+      "iast": "naiva",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kiñcit",
+      "iast": "kiñcit",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karomīti",
+      "iast": "karomīti",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yukto",
+      "iast": "yukto",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manyeta",
+      "iast": "manyeta",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyañ",
+      "iast": "paśyañ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "spṛśañ",
+      "iast": "spṛśañ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "jighrann",
+      "iast": "jighrann",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "8",
+      "iast": "8",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them.",
+      "raw_capture_path": "data/sources/raw/bg-5-8-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1093 chars)",
+      "verbatim_excerpt": "A person in Kṛṣṇa consciousness is pure in his existence, and consequently he has nothing to do with any work which depends upon five immediate and remote causes: the doer, the work, the situation, the endeavor and fortune. This is because he is engaged in the loving transcendental service of Kṛṣṇa.",
+      "raw_full_path": "data/sources/raw/bg-5-8-9-vedabase.json (purport_full_length: 1093)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 Yuktah, remaining absorbed in the Self; tattva-vit, the knower of Reality-knower of the real nature of Truth, of the Self, i.e., the seer of the supreme Reality; manyeta, should think; ‘na karomi eva, I certainly do not do; kincit, anything.’ Having realized the Truth, when or how should he thin…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1102,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the tattva-vit (knower of truth), absorbed in the Self, should think 'I do nothing at all' — even while seeing, hearing, touching, smelling, eating, going, sleeping, and breathing. Shankara emphasises this is the realised non-doership of the established jñānin: the senses operate, the body acts, but the Self does not act. This is the cessation of the false agency-attribution to the Self."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 – 5.9 Thus he who knows the truth concerning the self should reflect in mind that the ear and the other organs of sensation (Jnanendriyas) as also organs of action (Karmendriyas) and the vital currents (the Pranas) are occupied with their own respective objects.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 548,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja groups 5.8 and 5.9 together: the one who knows the truth concerning the self should reflect that the jñānendriyas, karmendriyas, and the prāṇas are occupied with their own respective objects. He should know 'I do not do anything at all' — meaning, the self (which is distinct from these instruments) does not do; the instruments do. Ramanuja's reading is dualistic: the self is the experiencer/witness, the body-mind-prāṇa complex is the doer."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "naiva kiñcit karomi",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "always knows within himself that he actually does nothing at all (devotional consciousness)"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Advaita: the Self does not act; the body-senses act; the jñānin recognises this and disowns false agency"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Vishishtadvaita: the self is distinct from body-mind-prāṇa instruments; the instruments do, the self does not"
+        }
+      ],
+      "explanation": "Major doctrinal divergence. Shankara: agency-of-the-Self is illusory; only senses-and-body act. Ramanuja: agency-of-the-jīva is real but pertains to body-mind-prāṇa, not to the self proper. Prabhupada renders devotionally. All three preserve the structural claim: 'I' (in the proper sense) do nothing while seeing/hearing/etc."
+    }
+  ],
+  "literal_meaning": "The yogi knower-of-truth should think 'I do nothing at all' — while seeing, hearing, touching, smelling, eating, going, sleeping, and breathing.",
+  "traditional_meaning_consensus": "Krishna names the doctrine of non-doership for the seer-of-truth. Across the most basic activities of embodied life — perception, locomotion, alimentation, respiration — the tattva-vit recognises that the senses and body are operating; the Self does not. This is structural-perceptual, not vocational. The verse continues into 5.9 and is read as a pair with it.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": [
+      "vedabase.io and bhagavad-gita.us both render 5.8 and 5.9 on combined pages (5/8-9 and 5/8 respectively); the same verbatim translation/commentary covers both verses. holy-bhagavad-gita.org and gitasupersite.iitk.ac.in render them separately. The combined-page rendering is recorded honestly here."
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.17",
+  "chapter": 7,
+  "verse": 17,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Of the four kinds of engineers who approach the senior, the wise — in love with the work itself, ever-yoked to substrate-discipline, exclusively devoted to it — is preeminent. Why? Because the wise approaches without ulterior aim. Not for help during a Sentry-firing incident; not for understanding as a terminal goal; not for promo, sponsorship, visibility. The wise comes because the practice itself has produced orientation toward substrate, and that orientation is its own reward. Krishna names mutual dearness: substrate-discipline is exceedingly dear to this engineer, and this engineer is dear to Krishna (here: to the substrate a senior holds, to the team's discipline). The verse names preeminence inside the typology, not negation of the other three. 7.16 already established sukṛtinaḥ for all four; 7.18 will re-affirm udārāḥ sarva evaite. Two-handed instruction: the wise is preeminent AND afflicted, knowledge-seeker, prosperity-seeker remain noble.",
+    "concrete_scenario": "Continuing Wednesday office hours: of four engineers who arrived this quarter, Priya — who dropped by not with any request but to talk about a Postgres pgvector paper connecting to a search-team problem — is the one the principal recognises as preeminent within the typology. Not because Priya outranks Ramon, Aisha, or Marcus on technical skill. Each excels at what they do. The preeminence is structural: Priya's approach was nitya-yuktaḥ (she has held this orientation for years, not just one quarter), eka-bhaktiḥ (she came not for triage on a GitHub incident, not for design-review answers, not seeking sponsorship, but because the practice itself produced the conversation). The principal feels mutual dearness — talking with Priya brings something the other three exchanges did not. Critical guard: she does NOT downgrade the other three. Ramon's incident work is real engineering; Aisha's design questions sharpen substrate; Marcus's promo arc is a legitimate trajectory. All four remain sukṛtinaḥ. Two-handed instruction preserved: within-typology preeminence, never exclusion.",
+    "falsifiability": "The analog fails the moment preeminence is read as exclusion. If a reader takes 7.17 as 'the wise is the only engineer worth caring about,' they have flattened the chapter's two-handed instruction. The verse names within-typology preference; it does not negate nobility for the other three. Diagnostic: ask whether your reading produces care for the incident-paged engineer, design-review-seeker, promo-cycle IC. If yes, preserved; if no, inverted.",
+    "counter_example": "When 'mutual dearness with substrate' is used to grow a senior clique excluding those arriving in incident, design review, or promo cycle — when the wise alone receive a senior's real attention — the verse has been read backwards. Krishna's preference is not a license to neglect the rest. A senior attending only the wise renders her team unstaffable for incidents, architecture work, and career trajectories, which is engineering malpractice.",
+    "implication": "When you notice yourself enjoying one engineer's conversation more than another's — the one who comes not for help, not for understanding as a terminal goal, not for advancement, but because of the practice itself — recognise the structural preference the verse names. Do not collapse it into a hierarchy that downgrades the rest. Within-typology preeminence stands AND afflicted, knowledge-seeker, prosperity-seeker remain noble.",
+    "quotable_line": "The wise is preeminent within the typology; the other three remain noble. Both moves at once — that is the chapter's two-handed instruction.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "deep-work"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: 7.17 introduces preeminence — chapter thesis demands MAXIMUM RIGOR on the two-handed instruction (preeminence + all-four-noble preserved simultaneously). v0 explicitly preserves both moves: the verse names within-typology preference, not exclusion of the other three. Concrete scenario continues from 7.16 (the same principal's Wednesday office hours, same four engineers — Ramon, Aisha, Marcus, Priya) and shows the principal recognising Priya as preeminent without downgrading the others. Falsifiability and counter-example both explicitly guard against the flattening. Tags: operator-system-coupling, team-state, deep-work. HIGH confidence, NOT stretched.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 83,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,209 @@
+{
+  "id": "BG 5.10",
+  "chapter": 5,
+  "verse": 10,
+  "fetched_at": "2026-05-02T02:30:00Z",
+  "sanskrit_devanagari": "ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः ।\nलिप्यते न स पापेन पद्मपत्रमिवाम्भसा ॥ १० ॥",
+  "sanskrit_iast": "brahmaṇy ādhāya karmāṇi saṅgaṁ tyaktvā karoti yaḥ |\nlipyate na sa pāpena padma-patram ivāmbhasā || 10 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/10/",
+      "fetched_at": "2026-05-02T02:22:35.566Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-5-10-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/10",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=10",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-5-10-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.010 = MBh_06,027.010). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "ब्रह्मणि",
+      "iast": "brahmaṇi",
+      "meaning": "in brahman"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "आधाय",
+      "iast": "ādhāya",
+      "meaning": "having placed / surrendered"
+    },
+    {
+      "sanskrit": "सङ्गम्",
+      "iast": "saṅgam",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "करोति",
+      "iast": "karoti",
+      "meaning": "acts"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "पापेन",
+      "iast": "pāpena",
+      "meaning": "by sin"
+    },
+    {
+      "sanskrit": "न लिप्यते",
+      "iast": "na lipyate",
+      "meaning": "is not stained"
+    },
+    {
+      "sanskrit": "अम्भसा",
+      "iast": "ambhasā",
+      "meaning": "by water"
+    },
+    {
+      "sanskrit": "पद्मपत्रम्",
+      "iast": "padma-patram",
+      "meaning": "lotus leaf"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "as / like"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/10/",
+      "fetched_at": "2026-05-02T02:22:35.566Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who performs his duty without attachment, surrendering the results unto the Supreme Lord, is unaffected by sinful action, as the lotus leaf is untouched by water.",
+      "raw_capture_path": "data/sources/raw/bg-5-10-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who performs his duty without attachment, surrendering the results unto the Supreme Lord, is unaffected by sinful action, as the lotus leaf is untouched by water."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/10/",
+      "fetched_at": "2026-05-02T02:22:35.566Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1573 chars)",
+      "verbatim_excerpt": "Here brahmaṇi means in Kṛṣṇa consciousness. The material world is a sum total manifestation of the three modes of material nature, technically called the pradhāna. The Vedic hymns sarvaṁ hy etad brahma (Māṇḍūkya Upaniṣad 2), tasmād etad brahma nāma rūpam annaṁ ca jāyate (Muṇḍaka Upaniṣad 1.1.9), and…",
+      "raw_full_path": "data/sources/raw/bg-5-10-vedabase.json (purport_full_length: 1573)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.10 On the other hand, again, one who is ignorant of the Truth and is engaged in Karma-yoga, yah, who; karoti, acts; adhaya, by dedicating, by surrendering; all karmani, actions; brahmani, to Brahman, to God; with the idea, ‘I am working for Him, as a servant does everything for his master’, and ty…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 631,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-10-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the karma-yogin who surrenders all actions to brahman (with the attitude 'I act for Him as a servant for the master') and abandons attachment is not stained by sin — as the lotus leaf is not stained by water. Shankara emphasises that this is the karma-yogin's path: surrender of agency to brahman plus abandonment of attachment yields non-staining."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.10 On the other hand, again, one who is ignorant of the Truth and is engaged in Karma-yoga, yah, who; karoti, acts; adhaya, by dedicating, by surrendering; all karmani, actions; brahmani, to Brahman, to God; with the idea, ‘I am working for Him, as a servant does everything for his master’, and ty…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 631,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-10-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the one who places action in brahman (i.e., dedicates action to the Lord), abandons attachment, and acts, is not stained by pāpa as the lotus leaf is not stained by water. For Ramanuja brahmaṇi ādhāya is read as dedication-to-the-Lord; the karma-yogin's action becomes worship and does not bind."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "brahmaṇi ādhāya",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "surrendering the results unto the Supreme Lord"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "surrendering action to brahman with the servant-master attitude"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "dedicating action to the Lord (action becomes worship)"
+        }
+      ],
+      "explanation": "Sectarian reading varies. Shankara reads brahman impersonally (the absolute) but allows the servant-master devotional attitude; Ramanuja reads the Lord (Vishnu/Narayana) personally; Prabhupada renders devotionally. All preserve the structural claim: the orientation of action toward brahman (or the Lord) and the abandonment of attachment together produce non-staining."
+    }
+  ],
+  "literal_meaning": "The one who, having placed actions in brahman and abandoned attachment, acts — he is not stained by sin, as the lotus leaf is not stained by water.",
+  "traditional_meaning_consensus": "Krishna gives the lotus-leaf metaphor for the karma-yogin's relation to action. Two prerequisites: placing action in brahman (offering / surrender) and abandoning saṅga (attachment). With both, the karma-yogin acts but is not stained by sin. The metaphor is structural: the lotus leaf sits in water — full surface contact — and is not penetrated by it. This is the mature form of the action-without-bondage thread (cf. 3.9, 4.20, 5.7).",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

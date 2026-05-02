@@ -1,0 +1,264 @@
+{
+  "id": "BG 5.5",
+  "chapter": 5,
+  "verse": 5,
+  "fetched_at": "2026-05-02T02:30:00Z",
+  "sanskrit_devanagari": "यत्साङ्ख्यैः प्राप्यते स्थानं तद्योगैरपि गम्यते ।\nएकं साङ्ख्यं च योगं च यः पश्यति स पश्यति ॥ ५ ॥",
+  "sanskrit_iast": "yat sāṅkhyaiḥ prāpyate sthānaṁ tad yogair api gamyate |\nekaṁ sāṅkhyaṁ ca yogaṁ ca yaḥ paśyati sa paśyati || 5 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-5-5-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/5/verse/5",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=5&field_nsutra_value=5",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical; uses no diacritics in 'Sanskrit Shloka Without Transliteration Marks' rendering).",
+      "raw_capture_path": "data/sources/raw/bg-5-5-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_05.005 = MBh_06,027.005). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "यत् स्थानम्",
+      "iast": "yat sthānam",
+      "meaning": "which place / state"
+    },
+    {
+      "sanskrit": "साङ्ख्यैः",
+      "iast": "sāṅkhyaiḥ",
+      "meaning": "by the sāṅkhyas (followers of jñāna-yoga)"
+    },
+    {
+      "sanskrit": "प्राप्यते",
+      "iast": "prāpyate",
+      "meaning": "is reached"
+    },
+    {
+      "sanskrit": "तत्",
+      "iast": "tat",
+      "meaning": "that"
+    },
+    {
+      "sanskrit": "योगैः",
+      "iast": "yogaiḥ",
+      "meaning": "by the yogis (followers of karma-yoga)"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "गम्यते",
+      "iast": "gamyate",
+      "meaning": "is reached"
+    },
+    {
+      "sanskrit": "साङ्ख्यम्",
+      "iast": "sāṅkhyam",
+      "meaning": "sāṅkhya"
+    },
+    {
+      "sanskrit": "योगम्",
+      "iast": "yogam",
+      "meaning": "yoga"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "as one"
+    },
+    {
+      "sanskrit": "यः पश्यति",
+      "iast": "yaḥ paśyati",
+      "meaning": "who sees"
+    },
+    {
+      "sanskrit": "सः पश्यति",
+      "iast": "saḥ paśyati",
+      "meaning": "he (truly) sees"
+    },
+    {
+      "sanskrit": "yat",
+      "iast": "yat",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthānaṁ",
+      "iast": "sthānaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tad",
+      "iast": "tad",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogair",
+      "iast": "yogair",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "ekaṁ",
+      "iast": "ekaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sāṅkhyaṁ",
+      "iast": "sāṅkhyaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yogaṁ",
+      "iast": "yogaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yaḥ",
+      "iast": "yaḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "paśyati",
+      "iast": "paśyati",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sa",
+      "iast": "sa",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "5",
+      "iast": "5",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows that the position reached by means of analytical study can also be attained by devotional service, and who therefore sees analytical study and devotional service to be on the same level, sees things as they are.",
+      "raw_capture_path": "data/sources/raw/bg-5-5-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who knows that the position reached by means of analytical study can also be attained by devotional service, and who therefore sees analytical study and devotional service to be on the same level, sees things as they are."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/5/",
+      "fetched_at": "2026-05-02T02:22:27.519Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1026 chars)",
+      "verbatim_excerpt": "The real purpose of philosophical research is to find the ultimate goal of life. Since the ultimate goal of life is self-realization, there is no difference between the conclusions reached by the two processes.",
+      "raw_full_path": "data/sources/raw/bg-5-5-vedabase.json (purport_full_length: 1026)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.5 Sthanam, the State called Liberation; yat prapyate, that is reached; sankhyaih, by the Sankhyas, by the monks steadfast in Knowledge; tat prapyate, that is reached; yogaih, by the yogis; api, as well.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1364,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-5-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the place (sthāna, i.e., liberation) reached by the sāṅkhyas is the same place reached by the yogis. The one who sees sāṅkhya and yoga as one (in their fruit) sees rightly. Shankara's reading preserves the convergence at the destination while distinguishing the practices."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-5/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:27.680Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.5 The fruit in the form of the vision of the self which is attained by the Sankhyans (i.e.) Jnana Yogins, the same is attained alone by those who are Karma Yogins. He alone is wise who sees that Sankhya and the Yoga are one and the same because of their having the same result.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 373,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-5-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the state attained by the followers of jñāna-yoga is also reached by the followers of karma-yoga. The one who sees both paths as one sees correctly. For Ramanuja the unity is in the soteriological function — both are means to the self's release."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "ekaṁ sāṅkhyaṁ ca yogaṁ ca yaḥ paśyati",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sees analytical study and devotional service to be on the same level"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "sees the two paths as converging in their fruit (oneness of destination)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "sees the two paths as one in soteriological function"
+        }
+      ],
+      "explanation": "All converge on 'oneness'. Shankara confines the oneness to fruit; Ramanuja extends it to function; Prabhupada renders idiomatically as 'same level'. None of the three flatten the two paths into mere identity at the level of practice — the practices remain distinct."
+    }
+  ],
+  "literal_meaning": "That state which is reached by the sāṅkhyas is reached also by the yogis. The one who sees sāṅkhya and yoga as one — he sees.",
+  "traditional_meaning_consensus": "Krishna repeats and strengthens 5.4. The sthāna (state, place) reached by jñāna-yogis is the same sthāna reached by karma-yogis. To see them as one is to see correctly. The verse closes the equivalence argument that began at 5.2.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

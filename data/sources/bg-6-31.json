@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.31",
+  "chapter": 6,
+  "verse": 31,
+  "fetched_at": "2026-05-02T02:28:25.789Z",
+  "sanskrit_devanagari": "सर्वभूतस्थितं यो मां भजत्येकत्वमास्थित: ।सर्वथा वर्तमानोऽपि स योगी मयि वर्तते ॥ ३१ ॥",
+  "sanskrit_iast": "sarva-bhūta-sthitaṁ yo māṁbhajaty ekatvam āsthitaḥsarvathā vartamāno ’pisa yogī mayi vartate",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/31/",
+      "fetched_at": "2026-05-02T02:25:25.822Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-31-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/31",
+      "fetched_at": "2026-05-02T02:25:25.822Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=31",
+      "fetched_at": "2026-05-02T02:25:25.822Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-31/",
+      "fetched_at": "2026-05-02T02:26:10.363Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-31-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:25.822Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.031). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/31/",
+      "fetched_at": "2026-05-02T02:25:25.822Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a yogī, who engages in the worshipful service of the Supersoul, knowing that I and the Supersoul are one, remains always in Me in all circumstances.",
+      "raw_capture_path": "data/sources/raw/bg-6-31-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-31/",
+      "fetched_at": "2026-05-02T02:26:10.363Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a yogi, who engages in the worshipful service of the Supersoul, knowing that I and the Supersoul are one, remains always in Me in all circumstances."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/31/",
+      "fetched_at": "2026-05-02T02:25:25.822Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 2042 chars)",
+      "verbatim_excerpt": "A yogī who is practicing meditation on the Supersoul sees within himself the plenary portion of Kṛṣṇa as Viṣṇu – with four hands, holding conchshell, wheel, club and lotus flower. The yogī should know that Viṣṇu is not different from Kṛṣṇa. Kṛṣṇa in this form of Supersoul is situated in everyone’s heart.",
+      "raw_full_path": "data/sources/raw/bg-6-31-vedabase.json (purport_full_length: 2042)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-31/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:10.363Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.31 This being so, i.e. after reiterating (in the first line of the present verse) the idea of full realization contained in the previous verse, the result of that (realization), viz Liberation, is being spoken of (in the second line): The yogi, the man of full realization; vartate, exist",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 500,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-31-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-31/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:10.363Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.31 (iii) The Yogin who, fixed in the state of Yoga in oneness because he has the same form of uncontracted knowledge (as Myself), worships Me steadfastly by renouncing the differences of the Prakrti (i.e., of the body) — then that Yogin, even while coming out of Yoga, howsoever he may li",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 524,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-31-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

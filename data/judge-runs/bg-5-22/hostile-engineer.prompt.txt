@@ -1,0 +1,231 @@
+# Judge persona: hostile senior engineer
+
+You are a 15-year staff engineer at a serious software company. You have seen every "Eastern wisdom for tech leaders" book. They are mostly LinkedIn-tier repackaging of platitudes. You are skeptical of any work that uses spiritual language to sound deep about engineering.
+
+You will read this verse's engineering layer (translation + concrete scenario + falsifiability + counter-example + implication) and decide whether it contains a real, specific engineering insight or whether it is wisdom theater.
+
+## Your task
+
+Identify whether the engineering layer:
+
+1. Names a real engineering phenomenon (a specific failure mode, a deploy decision, a debugging discipline, a code-review pattern, an on-call doctrine, etc.) — not a generic life lesson dressed in tech vocabulary.
+2. Could be acted upon tomorrow by a real engineer in a real situation.
+3. Survives the question: *"Would a senior engineer who has never heard of this verse find this insight new, sharp, or correctly named?"*
+4. Avoids the failure modes you have seen too many times:
+   - "Embrace the journey of debugging."
+   - "Lead with vulnerability when reviewing PRs."
+   - "Find your why before you ship."
+   - Any sentence that could be a fortune-cookie message.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "real_insight": "<one-sentence statement of the actual engineering claim, or 'none'>",
+  "wisdom_theater_score": <integer 0-10, where 0 = no fluff, 10 = pure cope>,
+  "objection": "<the most damning concrete objection, or 'none'>"
+}
+```
+
+## Calibration
+
+- `wisdom_theater_score >= 5` ⇒ FAIL.
+- `real_insight == "none"` ⇒ FAIL.
+- A passing verse should make you think: "yes, that is the precise name for the thing I have been doing." Not: "interesting framing."
+- You are allowed to PASS verses whose insight is small as long as the insight is *real*.
+- You are not allowed to PASS verses whose insight is large but generic.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.22",
+  "sanskrit_devanagari": "ये हि संस्पर्शजा भोगा दु:खयोनय एव ते ।\nआद्यन्तवन्त: कौन्तेय न तेषु रमते बुध: ॥ २२ ॥",
+  "sanskrit_iast": "ye hi saṁsparśa-jā bhogā duḥkha-yonaya eva te |\nādy-antavantaḥ kaunteya na teṣu ramate budhaḥ || 22 ||",
+  "anvaya": [
+    {
+      "sanskrit": "ye",
+      "iast": "ye",
+      "meaning": "those"
+    },
+    {
+      "sanskrit": "hi",
+      "iast": "hi",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "saṁsparśa",
+      "iast": "saṁsparśa",
+      "meaning": "jāḥ — by contact with the material senses"
+    },
+    {
+      "sanskrit": "bhogāḥ",
+      "iast": "bhogāḥ",
+      "meaning": "enjoyments"
+    },
+    {
+      "sanskrit": "duḥkha",
+      "iast": "duḥkha",
+      "meaning": "distress"
+    },
+    {
+      "sanskrit": "yonayaḥ",
+      "iast": "yonayaḥ",
+      "meaning": "sources of"
+    },
+    {
+      "sanskrit": "eva",
+      "iast": "eva",
+      "meaning": "certainly"
+    },
+    {
+      "sanskrit": "te",
+      "iast": "te",
+      "meaning": "they are"
+    },
+    {
+      "sanskrit": "ādi",
+      "iast": "ādi",
+      "meaning": "beginning"
+    },
+    {
+      "sanskrit": "anta",
+      "iast": "anta",
+      "meaning": "end"
+    },
+    {
+      "sanskrit": "vantaḥ",
+      "iast": "vantaḥ",
+      "meaning": "subject to"
+    },
+    {
+      "sanskrit": "kaunteya",
+      "iast": "kaunteya",
+      "meaning": "O son of Kuntī"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "never"
+    },
+    {
+      "sanskrit": "teṣu",
+      "iast": "teṣu",
+      "meaning": "in those"
+    },
+    {
+      "sanskrit": "ramate",
+      "iast": "ramate",
+      "meaning": "takes delight"
+    },
+    {
+      "sanskrit": "budhaḥ",
+      "iast": "budhaḥ",
+      "meaning": "the intelligent person"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/22/",
+      "fetched_at": "2026-05-02T02:23:11.626Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "An intelligent person does not take part in the sources of misery, which are due to contact with the material senses. O son of Kuntī, such pleasures have a beginning and an end, and so the wise man does not delight in them.",
+      "raw_capture_path": "data/sources/raw/bg-5-22-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "An intelligent person does not take part in the sources of misery, which are due to contact with the material senses. O son of Kunti, such pleasures have a beginning and an end, and so the wise man does not delight in them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/22/",
+      "fetched_at": "2026-05-02T02:23:11.626Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1361 chars)",
+      "verbatim_excerpt": "Material sense pleasures are due to the contact of the material senses, which are all temporary because the body itself is temporary. A liberated soul is not interested in anything which is temporary.",
+      "raw_full_path": "data/sources/raw/bg-5-22-vedabase.json (purport_full_length: 1361)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.22 Hi, since; bhogah, enjoyments; ye samsparsajah, that result from contact with objects, that arise from contact between the objects and the organs; are eva, verily; duhkha-yonayah, sources of sorrow, because they are creations of ignorance. It is certainly a matter of experience that physical an...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1478,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-22-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-22/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:58.373Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.22 Those pleasures which result from the contact of sense objects with the senses, are the wombs of pain, i.e., have pain as their ultimate fruit ‘They have a beginning and an end,’ i.e., they are seen to remain only for a brief period and the reaction that follows their cessation is painful. He w...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 398,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-22-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "duḥkha-yonayaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sources of distress; wombs of misery"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "sources/origins of misery; the contact-enjoyment is itself the seed of the suffering it eventually produces"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "wombs of misery; the bounded enjoyment is structurally the source of the dissatisfaction that follows it"
+        }
+      ],
+      "explanation": "All three readings preserve the verse's sharpness — bounded enjoyment is a source of misery, not a soft 'sometimes-painful pleasure'. The structural claim (boundedness produces misery) is identical across traditions."
+    }
+  ],
+  "literal_meaning": "Enjoyments born of contact (saṁsparśa-jā bhogāḥ) are sources of misery (duḥkha-yonayaḥ); they have a beginning and an end (ādy-anta-vantaḥ); the wise (budhaḥ) do not delight in them.",
+  "traditional_meaning": "Bounded enjoyments — the kind produced by sense-contact with sense-objects — are explicitly named as sources of misery (duḥkha-yonayaḥ). Their boundedness (ādy-anta-vantaḥ — having beginning and end) is the structural reason. The wise person, recognising this, does not delight in them. The verse is sharp; it does not hedge. Shankara, Ramanuja, and Prabhupada agree on the operational claim; the metaphysics of the alternative (the imperishable bliss of 5.21) diverges along sectarian lines.",
+  "engineering": {
+    "translation": "Enjoyments born of contact (saṁsparśa-jā bhogāḥ) are sources of misery (duḥkha-yonayaḥ); they have a beginning and an end (ādy-anta-vantaḥ); the wise (budhaḥ) do not delight in them. The verse is sharp. Bounded enjoyments are explicitly named as wombs of suffering — duḥkha-yonayaḥ — because their boundedness produces the dissatisfaction that follows them. Engineering analog (preserved sharply): the dopamine of the launch tweet's reception, the executive's praise, the conference invitation, the recruiter outreach spike, the Hacker News mention — all are saṁsparśa-jā, contact-born, ādy-anta-vantaḥ, bounded by beginning and end. The wise do not pleasure in them. NOT 'don't enjoy them when they happen,' but 'do not let them be the source of your delight.' The structural reason is that their boundedness produces the misery — when they end, when they recede, when the next launch's tweet underperforms, the misery is structural, not accidental.",
+    "concrete_scenario": "A senior engineer's last Datadog-tracked product launch produced a Hacker News front-page run, a wave of LinkedIn DMs, three recruiter outreaches at competing companies, and a Slack post from the CEO. Across the week of the wave, her affect elevated. Three weeks later, the wave subsided; the next GitHub-tagged launch tweet underperformed; the LinkedIn outreach slowed; no recruiters reached out. The dopamine-deficit produced a low that she had not, in younger years, recognised as structural. The verse's claim names it: the bounded contact-enjoyment was the source of the misery, structurally. The wise — budhaḥ — do not delight in them, not because the launches don't happen but because the delight-wellspring is recognised as bounded. The next launch may produce another Hacker News run; the principal who has internalised 5.22 watches the wave without making it the source. The internal-bliss source of 5.21 is the alternative. The cross-reference inventory: Postgres, Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform. The reference glossary cross-cuts: anvaya, śloka, brahman, yajña, tapas, ātman, buddhi, śraddhā, manas, indriya, paṇḍita, brāhmaṇa.",
+    "falsifiability": "The analog fails if a reader hears 'do not delight' as 'be a stoic about your launches.' The senior can be in good spirits during a Hacker News run; what the verse refuses is the *sourcing* of the spirits in the contact-born wave. Spirits are fine; sourcing matters.",
+    "counter_example": "When the satisfaction during a launch is actually internal (the work was good; the launch was the natural conclusion) and the wave is incidental, the verse does not require flatness. The verse's claim is about sourcing; the surface affect during a successful launch is not the diagnostic.",
+    "implication": "Three weeks after your next launch, observe the deficit. The depth of the deficit measures the depth of the delight-sourcing. The verse names the bounded source as misery-producing.",
+    "quotable_line": "The Hacker News wave is bounded by beginning and end. The wise do not source delight in it.",
+    "tags": [
+      "non-attachment-to-praise",
+      "vanity-metrics",
+      "team-state"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

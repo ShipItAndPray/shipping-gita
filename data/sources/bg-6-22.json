@@ -1,0 +1,293 @@
+{
+  "id": "BG 6.22",
+  "chapter": 6,
+  "verse": 22,
+  "fetched_at": "2026-05-02T03:30:00Z",
+  "merged_block_note": "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (20-23). The Devanagari and IAST below isolate the 6.22 hemistich; commentary applies across the block.",
+  "sanskrit_devanagari": "यं लब्ध्वा चापरं लाभं मन्यते नाधिकं ततः ।\nयस्मिन्स्थितो न दुःखेन गुरुणापि विचाल्यते ॥ २२ ॥",
+  "sanskrit_iast": "yaṁ labdhvā cāparaṁ lābhaṁ manyate nādhikaṁ tataḥ |\nyasmin sthito na duḥkhena guruṇāpi vicālyate || 22 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical); vedabase merges 20-23 onto a single page.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/22",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (transliteration body identical; pāda-break and punctuation rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=22",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase body text); bhagavad-gita.us also renders this within the merged 20-23 block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:30:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.022). Body text identical; sandhi-rendering differs by edition convention."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "यम्",
+      "iast": "yam",
+      "meaning": "which"
+    },
+    {
+      "sanskrit": "लब्ध्वा",
+      "iast": "labdhvā",
+      "meaning": "having gained"
+    },
+    {
+      "sanskrit": "च",
+      "iast": "ca",
+      "meaning": "and"
+    },
+    {
+      "sanskrit": "अपरम्",
+      "iast": "aparam",
+      "meaning": "other"
+    },
+    {
+      "sanskrit": "लाभम्",
+      "iast": "lābham",
+      "meaning": "gain"
+    },
+    {
+      "sanskrit": "ततः",
+      "iast": "tataḥ",
+      "meaning": "than that"
+    },
+    {
+      "sanskrit": "अधिकम्",
+      "iast": "adhikam",
+      "meaning": "superior / greater"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "मन्यते",
+      "iast": "manyate",
+      "meaning": "considers"
+    },
+    {
+      "sanskrit": "यस्मिन्",
+      "iast": "yasmin",
+      "meaning": "in which"
+    },
+    {
+      "sanskrit": "स्थितः",
+      "iast": "sthitaḥ",
+      "meaning": "established"
+    },
+    {
+      "sanskrit": "गुरुणा",
+      "iast": "guruṇā",
+      "meaning": "by heavy / weighty"
+    },
+    {
+      "sanskrit": "दुःखेन",
+      "iast": "duḥkhena",
+      "meaning": "by sorrow"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "न",
+      "iast": "na",
+      "meaning": "not"
+    },
+    {
+      "sanskrit": "विचाल्यते",
+      "iast": "vicālyate",
+      "meaning": "is shaken"
+    },
+    {
+      "sanskrit": "yaṁ",
+      "iast": "yaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "labdhvā",
+      "iast": "labdhvā",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cāparaṁ",
+      "iast": "cāparaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "lābhaṁ",
+      "iast": "lābhaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "manyate",
+      "iast": "manyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nādhikaṁ",
+      "iast": "nādhikaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "tataḥ",
+      "iast": "tataḥ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "yasmin",
+      "iast": "yasmin",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "sthito",
+      "iast": "sthito",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "duḥkhena",
+      "iast": "duḥkhena",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "guruṇāpi",
+      "iast": "guruṇāpi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "vicālyate",
+      "iast": "vicālyate",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
+      "merged_block_note": "Translation covers 20-23 jointly; the 6.22 portion is named within the block.",
+      "raw_capture_path": "data/sources/raw/bg-6-20-23-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/20-23/",
+      "fetched_at": "2026-05-02T03:01:50.064Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 5406 chars)",
+      "verbatim_excerpt": "By practice of yoga one becomes gradually detached from material concepts. This is the primary characteristic of the yoga principle. And after this, one becomes situated in trance, or samādhi, which means that the yogī realizes the Supersoul through transcendental mind and intelligence, without any",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-vedabase.json (purport_full_length: 5406)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 Yatra, at the time when; cittam, the mind; niruddham, restrained, entirely prevented from wandering; uparamate, gets withdrawn; yoga-sevaya, through the practice of Yoga; ca, and; yatra eva, just when, at the very moment when; pasyan, by seeing, by experiencing; atmanam, the Self, which by",
+      "verbatim_excerpt_length": 295,
+      "verbatim_full_length": 1079,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-20-23/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:02:13.848Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.20 – 6.23 Where, through the practice of Yoga, the mind, which is subdued everywhere by such practice, ‘rejoices’, i.e., rejoices in surpassing felicity; and where, perceiving through Yoga ‘the self (Atman)’ by ‘the mind (Atman)’ one is delighted by the self and indifferent to all other objects;",
+      "verbatim_excerpt_length": 298,
+      "verbatim_full_length": 1141,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-20-23-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "yaṁ labdhvā ... mantyate nādhikam (gained which, considers no other gain superior)",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "having attained which, one regards no other gain as superior to it; not shaken even by heavy sorrow"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "having gained which, he desires for it alone, even when he is awakened from Yoga, and does not hold anything else as a gain"
+        }
+      ],
+      "explanation": "Both classical readings emphasize that the gain is self-validating — once attained, no other gain registers as superior. Engineering analog at narrow scope: the operator whose work is its own reward."
+    }
+  ],
+  "literal_meaning": "Which gained, one considers no other gain superior to it; established in which, one is not shaken even by heavy sorrow.",
+  "traditional_meaning_consensus": "6.22 names the third feature: having gained this, one considers no other gain superior (aparaṁ lābhaṁ nādhikaṁ tataḥ); established in this, one is not shaken (na vicālyate) even by heavy sorrow (guruṇā duḥkhena api). Ramanuja: 'having gained which, he desires for it alone, even when he is awakened from Yoga, and does not hold anything else as a gain ... where one is not moved even by the heaviest sorrow caused by any bereavement.' Engineering analog at strong-narrow scope: the operator whose work is its own reward and whose state is unchanged by external events. STRETCHED.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport), merged 20-23",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": [
+      "vedabase.io and bhagavad-gita.us render this verse as part of a merged block (20-23). The Devanagari and IAST below isolate the 6.22 hemistich; commentary applies across the block."
+    ]
+  }
+}

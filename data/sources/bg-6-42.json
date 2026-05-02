@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.42",
+  "chapter": 6,
+  "verse": 42,
+  "fetched_at": "2026-05-02T02:28:27.514Z",
+  "sanskrit_devanagari": "अथवा योगिनामेव कुले भवति धीमताम् ।एतद्धि दुर्लभतरं लोके जन्म यदीदृशम् ॥ ४२ ॥",
+  "sanskrit_iast": "atha vā yoginām evakule bhavati dhīmatāmetad dhi durlabha-taraṁloke janma yad īdṛśam",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/42/",
+      "fetched_at": "2026-05-02T02:25:42.529Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-42-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/42",
+      "fetched_at": "2026-05-02T02:25:42.529Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=42",
+      "fetched_at": "2026-05-02T02:25:42.529Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-42/",
+      "fetched_at": "2026-05-02T02:26:36.295Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-42-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:42.529Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.042). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/42/",
+      "fetched_at": "2026-05-02T02:25:42.529Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Or [if unsuccessful after long practice of yoga] he takes his birth in a family of transcendentalists who are surely great in wisdom. Certainly, such a birth is rare in this world.",
+      "raw_capture_path": "data/sources/raw/bg-6-42-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-42/",
+      "fetched_at": "2026-05-02T02:26:36.295Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Or [if unsuccessful after long practice of yoga] he takes his birth in a family of transcendentalists who are surely great in wisdom. Certainly, such a birth is rare in this world."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/42/",
+      "fetched_at": "2026-05-02T02:25:42.529Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1034 chars)",
+      "verbatim_excerpt": "Birth in a family of yogīs or transcendentalists – those with great wisdom – is praised herein because the child born in such a family receives a spiritual impetus from the very beginning of his life. It is especially the case in the ācārya or gosvāmī families.",
+      "raw_full_path": "data/sources/raw/bg-6-42-vedabase.json (purport_full_length: 1034)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-42/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:26:36.295Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.42 Athava, or; bhavati, he is born; kule, in the family; dhimatam, of wise; yoginam, yogis; eva, only, who are poor-which is different from the family of the prosperous. Etat janma, such a birth; yat idrsam, as is of this kind-a birth that is in the family of poor yogis, in a family as d",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 416,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-42-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-42/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:26:36.295Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.42 If one swerves from the right path at an advanced stage of Yoga, he will be born in a family of wise Yogins who practise Yoga and are themselves capable of teaching Yoga. Thus, these two types of birth — one in the family of those who are fit to practise Yoga and the other in that of ",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 458,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-42-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

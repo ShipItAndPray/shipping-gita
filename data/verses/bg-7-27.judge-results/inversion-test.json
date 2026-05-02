@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog→verse inversion top-3 includes source",
+      "objection": "Inversion test for 7.27: given the engineering analog (\"Like-the-stack and dislike-the-stack, like-the-coworker and dislike-the-coworker — these dualities c…\"), a reverse-mapper trying to identify the source verse from the project's verse-pool would surface 7.27 in the top-3 candidates. The structural claim and the named tools (specific to this verse's scenario) jointly fingerprint the source. This verse is sharp and operationally robust (per chapter-7 thesis: STRONG operational analog)."
+    }
+  ],
+  "notes": "Inversion test for 7.27: structural claim + scenario fingerprint reproduces the source verse in top-3. PASS."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "BG 6.10",
+  "chapter": 6,
+  "verse": 10,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna pivots from disposition to practice. The yogi is to constantly yoke the self — in solitude (rahasi), alone (ekākī), with controlled mind and body (yata-cittātmā), without expectations (nirāśīr), without possessions (aparigrahaḥ). The verse opens the meditation-practice block. The four conditions are preconditions for the somatic instruction that follows. The engineering analog is approximate. The literal verse names solitude (no other person physically present), aloneness (no inner companion, no mental retinue), strict mind-body control, freedom from expectations, freedom from possessions — preconditions for a multi-hour seated meditation. The engineering analog at operational scope: the senior's deep-work setup. A workspace with the door closed; a phone in another room; a pre-decided two-hour block; no Slack open; no ambient browser tabs. Approximate, not identical. The verse's full somatic specificity exceeds what an engineering analog can preserve. Honest STRETCHED tag here: the literal aparigrahaḥ (no possessions) is not the engineering deep-work context; what the analog preserves is the structural commitment to the precondition-stack.",
+    "concrete_scenario": "A staff engineer at an LLM-tooling startup blocks Tuesday and Thursday mornings on her calendar. Tuesday at 9:00 AM she walks into a small home office, closes the door, sets her phone face-down on the kitchen counter outside, opens her laptop with no browser tabs except the design-doc draft and the codebase, and begins. The next two hours are unbroken. No Slack, no email, no ambient chat. She is in solitude in the operational sense (door closed, no person interrupting); alone in the partial sense (her own attention focused, no rehearsal-loop running); mind-body controlled (the chair is decent, the back is upright, the breath is settled into the rhythm of the work); free from expectations about how the design doc will be received (no rehearsal of the executive Slack); not in physical aparigraha (she still owns the apartment, the laptop, the savings account) but operationally in the engineering analog — the workspace contains nothing else for the next two hours. The block is the verse's analog at engineering scope. Honest naming: this is not the verse's literal practice. The yogi of 6.10 is in physical solitude in a forest hut; the engineer is in operational solitude in a closed-door home office. The structural commitment is preserved; the somatic specificity is not.",
+    "falsifiability": "The analog fails if a reader claims engineering deep-work IS the verse's practice. It is not. The verse names a literal yogic practice; the engineering analog is approximate. Anyone who concludes the verse endorses 'work-from-home productivity' has flattened it. The verse's full reach (constant yoking of self, multi-hour meditation, the trans-life arc that culminates in 6.45) exceeds operational deep-work entirely.",
+    "counter_example": "When the work genuinely requires collaboration — a design review, an active incident, pair-programming on a hard problem — the verse does not require solitude. Krishna's instruction is for the practice of yoga, not for all engineering work. An engineer who reads 6.10 as license to refuse collaboration has misapplied it.",
+    "implication": "Set up the operational analog of the four preconditions. A pre-decided block; no phone; no Slack; no ambient tabs. Run the analog twice a week, sustained over a year. The verse's operational rung is reachable; its full scope is not.",
+    "quotable_line": "The engineering deep-work block is the verse's analog, not its full practice — the somatic specificity exceeds operational reach.",
+    "tags": [
+      "deep-work",
+      "focus-practice",
+      "scope-discipline",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:09:08.629Z",
+      "mutation": "v0 generation: BG 6.10 engineering layer drafted from triangulated source pack with anchoring to chapters/06-thesis.md. Chapter 6 — opens meditation-block. STRETCHED for somatic-specificity gap.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

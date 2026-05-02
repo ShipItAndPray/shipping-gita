@@ -1,0 +1,33 @@
+{
+  "id": "BG 7.4",
+  "chapter": 7,
+  "verse": 4,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the lower (aparā) prakṛti as the eightfold material substrate: earth, water, fire, air, space, mind, intellect, ego. The list is structural. The engineering layer does NOT force element-by-element mapping (earth-as-storage, water-as-data-flow, fire-as-compute) — that is forced cleverness. What survives the metaphysics into operational scope is the structural insight that there is a visible-artifact prakṛti — the material of the system — and the verse names its parts. In an engineering domain, the visible artifact has its own eightfold-ish list: the storage layer, the network layer, the compute layer, the language and runtime, the deploy substrate, the orchestration layer, the architectural decisions, the surface API. The list will vary by stack; what does not vary is that the visible artifact is composite, named in parts, and not the whole story. Verse 7.5 will name what the whole story is.",
+    "concrete_scenario": "An architecture review at the company is about to begin. The deck has eight slides, one per layer: Postgres for storage, the gRPC mesh for service-to-service, the Kafka pipeline for events, the Node and Rust runtimes for compute, Kubernetes for orchestration, the Terraform-managed AWS substrate for deploy, the API gateway for the surface, the team-org diagram for the human layer. New staff engineer Priya, looking at the deck, says: this is the visible artifact. What is missing? The senior, Maya, nods: the artifact list is necessary and the meeting needs it, but the eight layers do not yet name what holds them together. We will get to that next slide. The verse 7.4 frame is exactly this moment: the eight elements are real and named, and the chapter has more to say. The aparā list is not the whole; it is the half that 7.5 will complete.",
+    "falsifiability": "The analog fails if a reader force-fits each Sanskrit element to a specific stack layer (earth=disk, water=network, fire=CPU). The verse's list is metaphysical and the engineering layer does not have one-to-one correspondence; the chapter thesis explicitly warns against this forced cleverness. The structural distinction (visible artifact is composite, named in parts) survives; the eight specific elements do not map cleanly.",
+    "counter_example": "When the org genuinely has a different visible-artifact ontology — say, a 12-layer or 5-layer architecture — the eightfold framing is irrelevant. The verse's structural claim (the visible has parts, the parts have names) carries; the specific count does not.",
+    "implication": "When you list the visible-artifact layers of your system, finish the list. Then ask the next question: what holds these together? That question is 7.5's, not 7.4's; but you cannot ask it without first having the 7.4 list complete.",
+    "quotable_line": "The visible artifact has named parts; the named parts are not the whole story.",
+    "tags": ["first-principles", "architectural-invariant", "full-system-view"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T04:05:00Z",
+      "mutation": "v0 generation: per chapter thesis, drafted with explicit refusal of element-by-element mapping (Shankara warns this is not Sāṅkhya Pradhāna; engineering layer must not force earth=storage). Tagged STRETCHED: the verse's eightfold metaphysical list does not have one-to-one operational mapping. Confidence MEDIUM. Engineering analog scoped to: the visible artifact is composite, has named parts, but is not the whole — sets up 7.5. Concrete scenario uses architecture review with named characters Priya and Maya, eight specific stack layers (Postgres, gRPC, Kafka, Node/Rust, Kubernetes, Terraform/AWS, API gateway, team-org). Counter-example acknowledges different stack ontologies are equally valid.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

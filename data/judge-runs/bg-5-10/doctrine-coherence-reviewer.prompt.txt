@@ -1,0 +1,253 @@
+# Judge persona: doctrine-coherence reviewer
+
+You are the corpus's doctrinal continuity editor. You read the book holistically, not verse by verse. Your concern is two failure modes that only become visible across multiple verses:
+
+1. **Same-tag drift (gate 6.1).** Verses sharing a controlled-vocabulary tag (e.g. all verses tagged `karma-yoga` / `outcome-detachment` / `rollback-readiness`) must teach a consistent doctrine. If two verses both tagged `outcome-detachment` argue for incompatible operator stances — one says "stop reading dashboards," the other says "watch dashboards but accept the number" — the corpus contradicts itself, and the tag is doing harm rather than good.
+2. **Cross-reference dishonesty (gate 6.5).** When a verse cites another verse via `cross_references[]`, the cited verse must actually support the citing claim. A verse that says "see BG 18.66 for the corrective on duty-as-terminal" must be making a claim that BG 18.66 actually corrects or qualifies — not merely a claim that mentions duty.
+
+These are not stylistic concerns. They are doctrinal-integrity concerns. A book whose tags drift and whose cross-references are decorative is a book the reader cannot trust.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id, its tags, its engineering layer, and its declared `cross_references[]`.
+- `same_tag_verses`: for each tag on the verse-under-test, up to 5 other verses in the corpus that share the tag, with their engineering layers.
+- `cross_referenced_verses`: for each entry in `cross_references[]`, the cited verse's engineering layer and the citing claim that licenses the reference.
+
+## Your task
+
+### Part A: same-tag doctrine consistency (gate 6.1)
+
+For each tag on the verse-under-test, compare the verse's stance to the stances of the other verses sharing that tag. Identify:
+
+- Direct contradictions (verse says X under tag T; another verse says ¬X under tag T).
+- Subtle drift (verse uses tag T to mean something materially different from how the other verses use it).
+- Tag misuse (the tag does not actually fit the verse's claim, even if the verse is internally consistent).
+
+### Part B: cross-reference integrity (gate 6.5)
+
+For each cross-reference, check:
+
+- The cited verse exists (the runner verifies existence; you verify *support*).
+- The cited verse actually makes a claim that supports, qualifies, corrects, or extends the citing claim — not merely a topically related claim.
+- The citing claim is honest about the relationship (e.g. "see BG 5.3 for the corrective" must mean BG 5.3 actually corrects, not just relates).
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "same_tag_issues": [
+    {
+      "tag": "<tag name from controlled vocabulary>",
+      "conflicting_verse_id": "<BG X.Y>",
+      "issue_type": "direct_contradiction" | "subtle_drift" | "tag_misuse",
+      "this_verse_stance": "<one sentence>",
+      "other_verse_stance": "<one sentence>",
+      "doctrinal_axis": "<one sentence naming what is in conflict>"
+    }
+  ],
+  "cross_reference_issues": [
+    {
+      "cited_verse_id": "<BG X.Y>",
+      "citing_claim": "<verbatim or paraphrase of the claim that licenses the reference>",
+      "issue_type": "no_support" | "topical_only" | "miscast_relationship" | "wrong_direction",
+      "explanation": "<one sentence>"
+    }
+  ],
+  "tag_coherence_score": <integer 0-10, where 10 = every tag is used identically across the corpus>,
+  "cross_reference_integrity_score": <integer 0-10, where 10 = every cross-reference does load-bearing work>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- Any entry in `same_tag_issues` of type `direct_contradiction` ⇒ FAIL — the corpus cannot contradict itself under the same tag.
+- Two or more `subtle_drift` entries on a single tag ⇒ FAIL — the tag has lost its meaning.
+- Any entry in `cross_reference_issues` of type `no_support` or `wrong_direction` ⇒ FAIL — a dishonest cross-reference is worse than no cross-reference.
+- `tag_coherence_score <= 5` ⇒ FAIL even absent specific entries; the verse is using its tags in a corpus-incompatible way.
+- `cross_reference_integrity_score <= 5` ⇒ FAIL.
+- A verse with empty `cross_references[]` is fine — set `cross_reference_integrity_score` to `null` and explain in `verdict_reason`.
+- A verse whose `same_tag_verses` input is empty for all tags (e.g. earliest verse on these tags) ⇒ PASS for Part A by vacuous-truth, with `tag_coherence_score: null`. The corpus-level re-run at corpus-completion time is the authoritative pass for gate 6.1.
+- The `controlled_tag_vocabulary` in `eval/gates.json` is canonical. A tag not on that list is itself a violation, but that violation belongs to gate 5.8 (deterministic), not to your gate; ignore it here.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.10",
+  "sanskrit_devanagari": "ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः ।\nलिप्यते न स पापेन पद्मपत्रमिवाम्भसा ॥ १० ॥",
+  "sanskrit_iast": "brahmaṇy ādhāya karmāṇi saṅgaṁ tyaktvā karoti yaḥ |\nlipyate na sa pāpena padma-patram ivāmbhasā || 10 ||",
+  "anvaya": [
+    {
+      "sanskrit": "यः",
+      "iast": "yaḥ",
+      "meaning": "who"
+    },
+    {
+      "sanskrit": "ब्रह्मणि",
+      "iast": "brahmaṇi",
+      "meaning": "in brahman"
+    },
+    {
+      "sanskrit": "कर्माणि",
+      "iast": "karmāṇi",
+      "meaning": "actions"
+    },
+    {
+      "sanskrit": "आधाय",
+      "iast": "ādhāya",
+      "meaning": "having placed / surrendered"
+    },
+    {
+      "sanskrit": "सङ्गम्",
+      "iast": "saṅgam",
+      "meaning": "attachment"
+    },
+    {
+      "sanskrit": "त्यक्त्वा",
+      "iast": "tyaktvā",
+      "meaning": "having abandoned"
+    },
+    {
+      "sanskrit": "करोति",
+      "iast": "karoti",
+      "meaning": "acts"
+    },
+    {
+      "sanskrit": "सः",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "पापेन",
+      "iast": "pāpena",
+      "meaning": "by sin"
+    },
+    {
+      "sanskrit": "न लिप्यते",
+      "iast": "na lipyate",
+      "meaning": "is not stained"
+    },
+    {
+      "sanskrit": "अम्भसा",
+      "iast": "ambhasā",
+      "meaning": "by water"
+    },
+    {
+      "sanskrit": "पद्मपत्रम्",
+      "iast": "padma-patram",
+      "meaning": "lotus leaf"
+    },
+    {
+      "sanskrit": "इव",
+      "iast": "iva",
+      "meaning": "as / like"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/10/",
+      "fetched_at": "2026-05-02T02:22:35.566Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who performs his duty without attachment, surrendering the results unto the Supreme Lord, is unaffected by sinful action, as the lotus leaf is untouched by water.",
+      "raw_capture_path": "data/sources/raw/bg-5-10-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "One who performs his duty without attachment, surrendering the results unto the Supreme Lord, is unaffected by sinful action, as the lotus leaf is untouched by water."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/10/",
+      "fetched_at": "2026-05-02T02:22:35.566Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1573 chars)",
+      "verbatim_excerpt": "Here brahmaṇi means in Kṛṣṇa consciousness. The material world is a sum total manifestation of the three modes of material nature, technically called the pradhāna. The Vedic hymns sarvaṁ hy etad brahma (Māṇḍūkya Upaniṣad 2), tasmād etad brahma nāma rūpam annaṁ ca jāyate (Muṇḍaka Upaniṣad 1.1.9), and…",
+      "raw_full_path": "data/sources/raw/bg-5-10-vedabase.json (purport_full_length: 1573)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.10 On the other hand, again, one who is ignorant of the Truth and is engaged in Karma-yoga, yah, who; karoti, acts; adhaya, by dedicating, by surrendering; all karmani, actions; brahmani, to Brahman, to God; with the idea, ‘I am working for Him, as a servant does everything for his master’, and ty…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 631,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-10-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the karma-yogin who surrenders all actions to brahman (with the attitude 'I act for Him as a servant for the master') and abandons attachment is not stained by sin — as the lotus leaf is not stained by water. Shankara emphasises that this is the karma-yogin's path: surrender of agency to brahman plus abandonment of attachment yields non-staining."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-10/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:39.238Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.10 On the other hand, again, one who is ignorant of the Truth and is engaged in Karma-yoga, yah, who; karoti, acts; adhaya, by dedicating, by surrendering; all karmani, actions; brahmani, to Brahman, to God; with the idea, ‘I am working for Him, as a servant does everything for his master’, and ty…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 631,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-10-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the one who places action in brahman (i.e., dedicates action to the Lord), abandons attachment, and acts, is not stained by pāpa as the lotus leaf is not stained by water. For Ramanuja brahmaṇi ādhāya is read as dedication-to-the-Lord; the karma-yogin's action becomes worship and does not bind."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahmaṇi ādhāya",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "surrendering the results unto the Supreme Lord"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "surrendering action to brahman with the servant-master attitude"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "dedicating action to the Lord (action becomes worship)"
+        }
+      ],
+      "explanation": "Sectarian reading varies. Shankara reads brahman impersonally (the absolute) but allows the servant-master devotional attitude; Ramanuja reads the Lord (Vishnu/Narayana) personally; Prabhupada renders devotionally. All preserve the structural claim: the orientation of action toward brahman (or the Lord) and the abandonment of attachment together produce non-staining."
+    }
+  ],
+  "literal_meaning": "The one who, having placed actions in brahman and abandoned attachment, acts — he is not stained by sin, as the lotus leaf is not stained by water.",
+  "traditional_meaning": "Krishna gives the lotus-leaf metaphor for the karma-yogin's relation to action. Two prerequisites: placing action in brahman (offering / surrender) and abandoning saṅga (attachment). With both, the karma-yogin acts but is not stained by sin. The metaphor is structural: the lotus leaf sits in water — full surface contact — and is not penetrated by it. This is the mature form of the action-without-bondage thread (cf. 3.9, 4.20, 5.7).",
+  "engineering": {
+    "translation": "The one who, placing actions in Brahman (brahmaṇi ādhāya karmāṇi) and abandoning attachment, acts — that one is not stained by sin, like a lotus leaf (padma-patram) by water (ambhasā). The lotus-leaf simile is the chapter's most precise image. The leaf sits in the water, surrounded by it, and is not penetrated by it. The engineering analog at the operational layer: the senior who ships migrations daily — full surface contact with practical reality, the database, the pipeline, the team's politics — without being penetrated by any of it as identity. The brahmaṇi ādhāya is metaphysically loaded; the operational shadow is the yajña-frame from chapter 3 (action performed for the sustaining loop, not for self-credit). STRETCHED honestly where the verse's metaphysical scope exceeds the operating analog.",
+    "concrete_scenario": "A principal engineer at a fintech ships a migration every Friday for six weeks. Each migration touches Postgres production tables, requires Datadog observability, threads through the team's PagerDuty rotation, lands a GitHub PR with at least three reviewers. She maintains full surface contact with the operational reality every Friday. And: across the six weeks, she does not collapse into any of the migrations. None of them becomes her identity; none of them stains her when production traffic strains. When migration four lands clean, she is not inflated. When migration five hits a cascade and requires a 2 AM rollback, she is not deflated. The lotus-leaf signature is operational: full surface contact, no self-conception-penetration. The brahmaṇi ādhāya — she has placed the action in the team's sustaining loop, in the customer-feedback cycle, in the system rather than in her career — is the structural condition that produces the lotus-leaf state. STRETCHED tagged honestly; the metaphysical brahmaṇi exceeds the operating sustaining-loop reading. The cross-reference inventory: Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins. The reference glossary cross-cuts: anvaya, śloka, brahman, yajña, tapas, ātman, buddhi, śraddhā, manas, indriya, paṇḍita, brāhmaṇa.",
+    "falsifiability": "The analog fails if a reader hears 'lotus leaf' as 'avoid the water' — as advocating distance from the work. The lotus leaf is *in* the water, surrounded by it. What the verse names is the structural quality of contact (not penetrated), not the avoidance of contact.",
+    "counter_example": "When an engineer's lotus-leaf state is achieved by genuinely not engaging — when the lack of identity-penetration comes from the lack of contact rather than from the structural quality of contact — the verse does not endorse this. The lotus leaf is the lotus leaf because it is *in* the water; the lotus leaf in dry air is not the verse.",
+    "implication": "Audit your last three weeks. Where were you in full surface contact with operational reality? Where were you penetrated by it as identity? The discipline is full contact, no penetration.",
+    "quotable_line": "The lotus leaf sits in the water, surrounded by it, not penetrated by it. Full surface contact, no identity collapse.",
+    "tags": [
+      "operator-as-instrument",
+      "non-attachment-to-praise",
+      "yajna-as-discipline"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,33 @@
+{
+  "id": "BG 8.1",
+  "chapter": 8,
+  "verse": 1,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Arjuna opens the chapter with five Sanskrit-technical questions: what is brahma, what is adhyātma, what is karma, what is adhibhūta, what is adhidaiva. He addresses Krishna with the vocative puruṣottama. The remaining two questions of the canonical seven — adhiyajña and the manner of knowing-at-time-of-death — arrive at 8.2. The engineering layer here is STRETCHED. The verse's force lives in its specific technical Sanskrit terms, which name doctrinal substrates. They do not collapse into engineering concepts. What is recognisable to engineering is the structural shape — a senior teacher fielding a sequence of crisp definitional questions about what underlies the system. The terms themselves are not. The honest engineering layer preserves the seven-question structure as a model for senior knowledge transfer. The Sanskrit stays at source-pack level. The structure is borrowed; the terms are not substituted.",
+    "concrete_scenario": "Anjali, a principal engineer, has one week left at a payments company before her retirement closes a twenty-eight-year tenure. Her successor Devon — six years post-grad, two on the team — arrives with a Notion doc and seven written questions he refused to ask verbally without preparation. The questions land crisply. What invariant does the ledger truly guarantee, beyond what the runbooks claim? What does this system fall into when nobody watches — its svabhāva, its drift-shape? Which actions originate which classes of state? What is the perishable layer — today's Postgres schema, today's Kafka topology, today's SDK clients still pinned in customer wallets — that will be replaced across the next decade? What structural forces act from beyond the codebase: regulatory regimes, network politics, fraud-economy migrations? Who carries the daily offering that sustains the cycle? And by what channel will Anjali remain reachable after Friday? Devon does not pretend his English glosses substitute for the Sanskrit substrates the chapter names. He borrows the question-structure so nothing critical is omitted. Anjali laughs and answers: define them precisely first, then I'll teach each one.",
+    "falsifiability": "The analog fails if a reader concludes that the Sanskrit terms (adhyātma, adhibhūta, adhidaiva, adhiyajña) are translatable into engineering concepts. They are not. The verse's terms are doctrinally specific to Vedānta and Sāṅkhya cosmology; flattening them into 'the self / the body / the gods / the lord-of-sacrifice' loses what the chapter is doing. The honest tag is STRETCHED: the structure of senior-teacher fielding a sequence of crisp definitional questions is recognisable; the terms themselves resist substitution. Anyone using this verse to claim that 'adhibhūta is the codebase' has misread the chapter and trivialized doctrinally specific Sanskrit.",
+    "counter_example": "When the senior teacher does not actually have crisp answers — when the seven questions reveal that the underlying invariants were never named, or that the doctrinal structure of the system is in fact ad hoc — the verse's frame does not bless that. The verse names a teacher who has answers and is being questioned by a worthy student. If the predecessor is bluffing, the seven-question handover exposes the bluff rather than concealing it. The verse is not a template for performing senior wisdom; it is a structural opening for a teaching that the rest of the chapter delivers.",
+    "implication": "When you receive a senior handover, write down the seven questions before you sit down. When you give a senior handover, demand the questions from the receiver. The structural force of the chapter's opening is that the questions are crisp, technical, and asked with the vocative — naming the teacher specifically as the one who has the answer.",
+    "quotable_line": "Define what underlies the system before the senior leaves the room — the seven questions are the handover's spine.",
+    "tags": ["knowledge-action-integration", "operator-system-coupling", "naming"],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 8.1 opens chapter 8 with Arjuna's five (of seven) technical Sanskrit questions. Engineering layer is STRETCHED honestly per chapter thesis — the Sanskrit terms (adhyātma, adhibhūta, adhidaiva, adhiyajña) are doctrinally specific and do not map element-by-element to engineering concepts. The structural shape (senior teacher fielding crisp definitional questions about substrates) is recognisable; the terms are preserved verbatim and not substituted. Engineering analog scopes downward to the seven-question handover at career-end. Confidence MEDIUM, stretched=true. Triangulated source pack: vedabase + holy-bhagavad-gita.org + bhagavad-gita.us. Captured Prabhupada, Mukundananda, Ramanuja, Madhva commentaries; Shankara explicitly defers his bhasya to 8.2.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

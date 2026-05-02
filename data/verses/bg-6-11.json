@@ -1,0 +1,38 @@
+{
+  "id": "BG 6.11",
+  "chapter": 6,
+  "verse": 11,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna's first piece of somatic instruction. The seat. Conditions named: in a clean place (śucau deśe); a firm seat (sthiram āsanam); neither too high nor too low (na ati-ucchritaṁ na ati-nīcaṁ); prepared with cloth, deer-skin, and kuśa-grass on top, in the order from below (cailājina-kuśottaram). Both Shankara and Ramanuja read this literally; this is yogic instruction in the technical sense, anticipating Patañjali's elaboration of āsana centuries later. The engineering analog is approximate at best. What the analog can preserve is the principle: the workspace setup is non-trivial. The clean place — a tidy desk, no clutter in the eyeline. The firm seat — a chair that supports the back without strain; not too high (knees compressed) not too low (back rounded). The layered preparation — keyboard at the right height, screen at eye level, lighting from the correct side. Honest STRETCHED tag: the verse's specific cailājina-kuśa specification is yogic somatic instruction at literal scope; the engineering analog operates at the much narrower operational scope of ergonomic workspace setup. The doctrinal point that the analog preserves is that workspace conditions are part of the practice, not preliminaries to it.",
+    "concrete_scenario": "A senior engineer at a research lab spends a Saturday afternoon redoing his home workspace. He buys a Herman Miller chair (the firm, neither-too-high-nor-too-low equivalent of the verse's āsanam). He buys a sit-stand desk and locks it at the height where his elbows meet the keyboard at 90 degrees (the engineering equivalent of na ati-ucchritaṁ na ati-nīcaṁ). He sets the monitor at eye-level so his neck does not strain (the engineering analog of the body-head-neck instruction that comes in 6.13). He removes everything from his desk except the keyboard, mouse, monitor, and a single notebook (the engineering analog of śucau deśe — the clean place). He arranges the lighting so it does not glare on the screen. The setup takes four hours and costs $2,400. Three weeks later he notices that his daily focus-block is sustained for forty-five minutes longer than before; his neck does not ache by 5 PM; he is shipping more cleanly. The workspace is part of the practice. The verse's literal instruction is not what he has done; what he has done is the engineering analog at operational scope. Honest STRETCHED — the verse asks for kuśa-grass, deer-skin, and cloth; he has Herman Miller and a sit-stand desk. The structural commitment to workspace conditions as part of the practice is preserved.",
+    "falsifiability": "The analog fails if a reader concludes the verse endorses expensive ergonomic furniture as its content. It does not. The verse names a yogic seat; the engineering analog is workspace ergonomics; the structural principle is shared but the specifics differ. Anyone who reads 6.11 as a Herman Miller endorsement has flattened it.",
+    "counter_example": "When workspace conditions are obstacles the engineer cannot reasonably change — a shared open-plan office, a startup with no budget, a remote setup in a one-room apartment — the verse does not condemn the engineer. The verse is for the practitioner who can set the conditions; the chapter's later consolation (6.37-6.45) covers the practitioner who cannot.",
+    "implication": "Audit the workspace honestly against the four conditions: clean (eyeline uncluttered), firm seat (back supported, knees not compressed), middle height (elbows at 90, screen at eye-level), layered preparation (lighting, audio, ambient distraction). Set what can be set; do not pretend the conditions don't matter.",
+    "quotable_line": "The seat is part of the practice — Herman Miller is not kuśa-grass, but workspace ergonomics is the verse's operational analog.",
+    "tags": [
+      "deep-work",
+      "focus-practice",
+      "operator-as-instrument",
+      "deliberate-action"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:09:08.629Z",
+      "mutation": "v0 generation: BG 6.11 engineering layer drafted from triangulated source pack with anchoring to chapters/06-thesis.md. Chapter 6 — yogic seat instruction. STRETCHED for somatic-specificity gap.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

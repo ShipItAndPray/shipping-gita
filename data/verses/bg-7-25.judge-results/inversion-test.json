@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "issues": [
+    {
+      "severity": "minor",
+      "claim": "Analog→verse inversion top-3 includes source",
+      "objection": "Inversion test for 7.25: given the engineering analog (\"The dashboard is designed for use, not for inspection; the substrate is not concealed by malice but …\"), a reverse-mapper trying to identify the source verse from the project's verse-pool would surface 7.25 in the top-3 candidates. The structural claim and the named tools (specific to this verse's scenario) jointly fingerprint the source. The STRETCHED tag is honest for this verse: Verse claims a metaphysical concealment (yoga-māyā-samāvṛtaḥ). Engineering analog cannot inherit the metaphysical claim; operates at the operational scope of dashboards-as-designed-surfaces. Counter-example: senior gatekeeping is engineering pathology, not yoga-māyā at operational scope."
+    }
+  ],
+  "notes": "Inversion test for 7.25: structural claim + scenario fingerprint reproduces the source verse in top-3. PASS."
+}

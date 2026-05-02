@@ -1,0 +1,37 @@
+{
+  "id": "BG 7.23",
+  "chapter": 7,
+  "verse": 23,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The verse is structural and sharp: bounded targets produce bounded results. Worshippers of limited deities go to those limited deities; Krishna's devotees come to Krishna. In engineering terms: commitment to a surface-technique returns surface-results; commitment to the substrate returns substrate-results. The engineer who commits to mastering a particular framework's idioms gets a deeply skilled framework-user, with the durability of that framework. The engineer who commits to the substrate the framework rests on — the durable shape of the customer-need, the architectural invariants, the system-level reasoning — gets a practitioner whose understanding outlives any framework cycle. The verse's metaphysical reach (the deities are themselves bounded) becomes, at engineering scope, the structural observation that frameworks have bounded lifespans. STRONG operational analog.",
+    "concrete_scenario": "Two engineers, ten years apart in tenure, work on the same repo and review the same pull requests. Engineer A is a master of the current framework — Next.js 14 server components, the latest React patterns, Vercel's deploy conventions. Engineer A can merge features faster than anyone in the room and runs the CI pipeline cleanly. When Next.js 16 lands and shifts the data-fetching model, Engineer A retools for two months across a sequence of small migrations, then is back to maximum velocity. Engineer B understands what the framework is doing: where state lives, where the cache sits, what blocks the request, what runs at the edge endpoint versus the origin. Engineer B's framework-fluency is shallower; B reads documentation while A ships. But when Vercel pivots, when the team migrates the production schema to Postgres-on-Rails, B's understanding transfers cleanly. A's deep mastery of Next.js 14 has the duration of Next.js 14. B's substrate-understanding has the duration of distributed systems. Both are valuable; their fruit is differently bounded. The verse names this gradient as structural.",
+    "falsifiability": "The analog fails if a reader hears 'frameworks are worthless, only substrate matters.' The verse honours the worshipper of limited deities; their fruit is real, simply bounded. Engineer A's framework mastery is genuine value; it ships features and runs production systems. The structural claim is about the duration of the fruit, not about its existence. An engineer who reads this as a license to never learn frameworks has missed the verse.",
+    "counter_example": "When the substrate-understanding has been cultivated abstractly, without ever shipping in any concrete framework, the verse does not endorse it. Substrate-knowledge unattached to practice is not the mad-bhakta the verse names; it is its own bounded form, with no fruit at all. The verse's mad-bhakta is engaged, practising, shipping — anchored in substrate but expressed in concrete work.",
+    "implication": "Audit your own learning queue. Time spent mastering a specific framework's API is fruit-bounded by that framework's lifespan; time spent understanding what the framework abstracts is fruit-bounded by the substrate's lifespan. Both are valid; the durations differ.",
+    "quotable_line": "Surface-mastery has the duration of the surface; substrate-mastery has the duration of distributed systems.",
+    "tags": [
+      "essence-vs-implementation",
+      "long-term-thinking",
+      "first-principles"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:00:00Z",
+      "mutation": "v0 generation: STRONG operational analog. Verse claims antavat (bounded) fruit for bounded worship. Engineering layer: commitment to surface-technique returns surface-results; commitment to substrate returns substrate-results. Concrete scenario: two engineers (A surface-fluent in Next.js, B substrate-fluent in distributed systems) compared across a framework-pivot. Named: Next.js 14, React, Vercel, Astro, Rails. Counter-example carves out abstract substrate-knowledge with no concrete practice. Tags: essence-vs-implementation, long-term-thinking, first-principles.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

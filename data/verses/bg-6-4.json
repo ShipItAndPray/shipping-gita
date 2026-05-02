@@ -1,0 +1,38 @@
+{
+  "id": "BG 6.4",
+  "chapter": 6,
+  "verse": 4,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "Krishna names the diagnostic of yogārūḍha — the engineer ascended in yoga. Three marks: not attached to sense-objects (the dashboards, the vanity metrics, the launch posts, the Hacker News thread); not attached to the actions themselves (the rewrite, the on-call shift, the migration as identity); having renounced all saṅkalpas (the rehearsal-loops about reception). The verse closes the four-verse opening definition. 6.1 redefined renunciation; 6.2 anchored the cut at saṅkalpa; 6.3 staged the practice; 6.4 names the destination. The internal sequence is doctrinally complete. The verse is operational, not aspirational: Krishna names the marks by which the established yogi can be recognised — not the mood, not the self-report, but the structural detachment from the three pulls.",
+    "concrete_scenario": "A staff engineer at a cybersecurity firm is six years into a meditation-on-her-own-work practice. Her director runs through the diagnostic informally in a 1:1: 'Tell me the last three things you did that you cared about more than the dashboard.' She names three: the postgres index she added because the query was unsightly, not because the latency was load-bearing; the design doc she wrote for an internal service that no executive will ever read; the Slack-DM mentorship of a junior who is rotating off her team next week. None had a fruit she cared to track. Then the director asks: 'What did you decline last quarter?' She names a conference talk on Kubernetes operators that would have been good for her résumé and would have been bad for her week — declined cleanly. Then: 'What rehearsal-loop did you notice this morning?' She thinks. 'None today. There was one yesterday about the recruiter from Datadog.' The director nods. The three marks are present: not attached to sense-objects (the vanity-metric of the conference); not attached to actions (the postgres index was not identity-load-bearing); saṅkalpa-loops are noticed and let pass. She is yogārūḍha at the operational scope the chapter names.",
+    "falsifiability": "The analog fails if a reader uses it to claim that the engineer must feel nothing about their work. Detachment from fruit is not detachment from craft. The senior engineer who is attached to writing good code, who cares about the postgres index even though no executive will see it, is not violating 6.4. The verse cuts attachment to the reception of action, not attachment to the doing of action well.",
+    "counter_example": "When an engineer reads 6.4 as licensing them to write sloppy migrations, ship buggy releases, or skip the postmortem because 'I'm detached from outcomes' — they have inverted the verse. Detachment from fruit-craving has nothing to do with disengagement from craft. The yogārūḍha engineer ships better, not worse.",
+    "implication": "Run the three-mark diagnostic on yourself periodically. If you find that one of the three pulls has reasserted itself — sense-object, action-as-identity, saṅkalpa-loop — that is real data about where the practice has slipped. The verse is a diagnostic, not a status.",
+    "quotable_line": "Three marks of yogārūḍha: detachment from dashboards, detachment from action-as-identity, no rehearsal-loops about reception.",
+    "tags": [
+      "right-renunciation",
+      "outcome-detachment",
+      "operator-as-instrument",
+      "non-attachment-to-praise"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:09:08.629Z",
+      "mutation": "v0 generation: BG 6.4 engineering layer drafted from triangulated source pack with anchoring to chapters/06-thesis.md. Chapter 6 — three-mark diagnostic; deeply operational.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}

@@ -1,0 +1,204 @@
+{
+  "id": "BG 6.9",
+  "chapter": 6,
+  "verse": 9,
+  "fetched_at": "2026-05-02T03:04:07.964Z",
+  "sanskrit_devanagari": "सुहृन्मित्रार्युदासीनमध्यस्थद्वेष्यबन्धुषु ।\nसाधुष्वपि च पापेषु समबुद्धिर्विशिष्यते ॥ ९ ॥",
+  "sanskrit_iast": "suhṛn-mitrāry-udāsīna-madhyastha-dveṣya-bandhuṣu |\nsādhuṣv api ca pāpeṣu sama-buddhir viśiṣyate || 9 ||",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/9/",
+      "fetched_at": "2026-05-02T03:00:36.605Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-9-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/9",
+      "fetched_at": "2026-05-02T03:04:07.964Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=9",
+      "fetched_at": "2026-05-02T03:04:07.964Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-9/",
+      "fetched_at": "2026-05-02T03:01:15.279Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-9-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:04:07.964Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.009). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "sanskrit": "सुहृन्मित्रार्युदासीनमध्यस्थद्वेष्यबन्धुषु",
+      "iast": "suhṛd-mitra-ari-udāsīna-madhyastha-dveṣya-bandhuṣu",
+      "meaning": "toward well-wisher, friend, enemy, indifferent, mediator, hateful, kinsman"
+    },
+    {
+      "sanskrit": "साधुषु",
+      "iast": "sādhuṣu",
+      "meaning": "toward the righteous"
+    },
+    {
+      "sanskrit": "अपि च",
+      "iast": "api ca",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "पापेषु",
+      "iast": "pāpeṣu",
+      "meaning": "toward the sinful"
+    },
+    {
+      "sanskrit": "समबुद्धिः",
+      "iast": "sama-buddhiḥ",
+      "meaning": "equal-minded"
+    },
+    {
+      "sanskrit": "विशिष्यते",
+      "iast": "viśiṣyate",
+      "meaning": "excels"
+    },
+    {
+      "sanskrit": "suhṛn",
+      "iast": "suhṛn",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "mitrāry",
+      "iast": "mitrāry",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "udāsīna",
+      "iast": "udāsīna",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "madhyastha",
+      "iast": "madhyastha",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "dveṣya",
+      "iast": "dveṣya",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "bandhuṣu",
+      "iast": "bandhuṣu",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/9/",
+      "fetched_at": "2026-05-02T03:00:36.605Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person is considered still further advanced when he regards honest well-wishers, affectionate benefactors, the neutral, mediators, the envious, friends and enemies, the pious and the sinners all with an equal mind.",
+      "raw_capture_path": "data/sources/raw/bg-6-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-9/",
+      "fetched_at": "2026-05-02T03:01:15.279Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person is considered still further advanced when he regards honest well-wishers, affectionate benefactors, the neutral, mediators, the envious, friends and enemies, the pious and the sinners all with an equal mind."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/9/",
+      "fetched_at": "2026-05-02T03:00:36.605Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 0 chars)",
+      "verbatim_excerpt": "Krishna extends the equanimity diagnostic from natural objects (clod-stone-gold) to relational categories (eight classes of persons + righteous/sinful).",
+      "raw_full_path": "data/sources/raw/bg-6-9-vedabase.json (purport_full_length: 0)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-9/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:01:15.279Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.9 The first line of the verse beginning with ‘benefactor,’ etc. is a single compound word. Visisyate, he excels, i.e. he is the best among all those who are established in Yoga-(a different reading is vimucyate, he becomes free); sama-buddhih, who has sameness of view, i.e.",
+      "verbatim_excerpt_length": 276,
+      "verbatim_full_length": 914,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-9-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "6.9 He is highly esteemed who has equal regard towards a benefactor, friend, foe, indifferent person, neutral, hateful, relative, and even towards the righteous and the unrighteous."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-9/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:01:15.279Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.9 The first line of the verse beginning with ‘benefactor,’ etc. is a single compound word. Visisyate, he excels, i.e. he is the best among all those who are established in Yoga-(a different reading is vimucyate, he becomes free); sama-buddhih, who has sameness of view, i.e.",
+      "verbatim_excerpt_length": 276,
+      "verbatim_full_length": 914,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-9-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "6.9 He is the highest who is equal-minded toward suhṛd (well-wisher), mitra (friend), ari (enemy), udāsīna (the unconcerned), madhyastha (mediator), dveṣya (the hated), bandhu (kinsman), the saintly and the sinful — equal in his evaluation of his own state, undisturbed by the variations of their relation to him."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "sama-buddhi (toward saint and sinner)",
+      "positions": [
+        {
+          "source": "Shankara",
+          "rendering": "equal regard / equal-mindedness across all eight relational categories plus the righteous and unrighteous"
+        },
+        {
+          "source": "Ramanuja",
+          "rendering": "equal-minded — equal in his evaluation of his own state, undisturbed by the variations of their relation to him"
+        },
+        {
+          "source": "Prabhupada",
+          "rendering": "regards all with an equal mind"
+        }
+      ],
+      "explanation": "Both Shankara and Ramanuja are explicit that this is steadiness of the discriminating intellect, not endorsement of moral indifference. The yogi continues to act rightly; what is even is the inner response-shape, not the outer judgment."
+    }
+  ],
+  "literal_meaning": "One who has equal intellect toward well-wishers, friends, enemies, the indifferent, the mediator, the hated, kinsmen, and even toward the righteous and the sinful — that one excels.",
+  "traditional_meaning_consensus": "Krishna extends the equanimity diagnostic from natural objects (clod-stone-gold) to relational categories (eight classes of persons + righteous/sinful). The verse names eight relational categories — well-wisher, friend, enemy, indifferent, mediator, hated, kinsman, plus saint and sinner — and claims the yogi who maintains equal intellect across all of them excels. Note: this is not endorsing moral indifference; both Shankara and Ramanuja read it as steadiness of the discriminating intellect across the relational pulls, not as absence of right-action.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

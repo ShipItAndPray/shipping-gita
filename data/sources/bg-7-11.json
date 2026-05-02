@@ -1,0 +1,212 @@
+{
+  "id": "BG 7.11",
+  "chapter": 7,
+  "verse": 11,
+  "fetched_at": "2026-05-02T03:00:00Z",
+  "sanskrit_devanagari": "बलं बलवतां चाहं कामरागविवर्जितम् ।धर्माविरुद्धो भूतेषु कामोऽस्मि भरतर्षभ ॥ ११ ॥",
+  "sanskrit_iast": "balaṁ balavatāṁ cāhaṁkāma-rāga-vivarjitamdharmāviruddho bhūteṣukāmo 'smi bharatarṣabha",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/7/11/",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-7-11-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/7/verse/11",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (transliteration body identical to vedabase; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=7&field_nsutra_value=11",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-11/",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-7-11-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_07.011). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [
+    {
+      "iast": "balam",
+      "sanskrit": "",
+      "meaning": "strength"
+    },
+    {
+      "iast": "bala-vatām",
+      "sanskrit": "",
+      "meaning": "of the strong"
+    },
+    {
+      "iast": "ca",
+      "sanskrit": "",
+      "meaning": "and"
+    },
+    {
+      "iast": "aham",
+      "sanskrit": "",
+      "meaning": "I am"
+    },
+    {
+      "iast": "kāma",
+      "sanskrit": "",
+      "meaning": "passion"
+    },
+    {
+      "iast": "rāga",
+      "sanskrit": "",
+      "meaning": "and attachment"
+    },
+    {
+      "iast": "vivarjitam",
+      "sanskrit": "",
+      "meaning": "devoid of"
+    },
+    {
+      "iast": "dharma-aviruddhaḥ",
+      "sanskrit": "",
+      "meaning": "not against religious principles"
+    },
+    {
+      "iast": "bhūteṣu",
+      "sanskrit": "",
+      "meaning": "in all beings"
+    },
+    {
+      "iast": "kāmaḥ",
+      "sanskrit": "",
+      "meaning": "sex life"
+    },
+    {
+      "iast": "asmi",
+      "sanskrit": "",
+      "meaning": "I am"
+    },
+    {
+      "iast": "bharata-ṛṣabha",
+      "sanskrit": "",
+      "meaning": "O lord of the Bhāratas"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/7/11/",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "I am the strength of the strong, devoid of passion and desire. I am sex life which is not contrary to religious principles, O lord of the Bhāratas [Arjuna].",
+      "raw_capture_path": "data/sources/raw/bg-7-11-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-11/",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "I am the strength of the strong, devoid of passion and desire. I am sex life which is not contrary to religious principles, O lord of the Bharatas [Arjuna]."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/7/11/",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 295 chars)",
+      "verbatim_excerpt": "The strong man’s strength should be applied to protect the weak, not for personal aggression. Similarly, sex life, according to religious principles (dharma), should be for the propagation of children, not otherwise. The responsibility of parents is then to make their offspring Kṛṣṇa conscious.",
+      "raw_full_path": "data/sources/raw/bg-7-11-vedabase.json (purport_full_length: 295)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-11/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "7.11 I am the balam, strength, ability, virility; balavatam, of the strong. That strength, again, is kama-raga-vivarjitam, devoid of passion and attachment. Kamah is passion, hankering for things not at hand. Ragah is attachment, fondness for things acquired.",
+      "verbatim_excerpt_length": 259,
+      "verbatim_full_length": 753,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-7-11-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Bala (strength) of the strong is the Lord, devoid of kāma (passion, hankering for things not at hand) and rāga (attachment, fondness for things acquired). The strength meant is that necessary for bodily maintenance, not the worldly strength that produces hankering. Among creatures, the desire (kāma) Krishna is identified with is the desire that is not contrary to dharma — desires for eating, drinking, etc. for bodily maintenance."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-7-11/?cm=ramanuja",
+      "fetched_at": "2026-05-02T03:00:00Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "7.8 – 7.11 All these entities with their peculiar characteristic are born from Me alone. They depend on Me; inasmuch as they constitute My body, they exist in Me alone. Thus I alone exist while all of them are only My modes.",
+      "verbatim_excerpt_length": 224,
+      "verbatim_full_length": 224,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-7-11-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "All entities (7.8-7.11) with their characteristic properties are born from Krishna alone. They depend on him; they constitute his body and exist in him alone. Krishna alone exists; they are only his modes. The strength free from passion-and-attachment is the strength understood as the durable property running through every being."
+    }
+  ],
+  "disagreements_among_translators": [
+    {
+      "word": "kāma",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "sex life (in second hemistich); desire (in compound kāma-rāga)"
+        },
+        {
+          "source": "bhagavad-gita.us editorial",
+          "rendering": "passion (compound) / sex life (second hemistich)"
+        },
+        {
+          "source": "Shankara (per excerpt)",
+          "rendering": "kāma is hankering for things not at hand; the dharma-aviruddha kāma is desires for bodily maintenance (eating, drinking)"
+        },
+        {
+          "source": "Ramanuja (per excerpt)",
+          "rendering": "kāma as the desire-property that is among Krishna's modes"
+        },
+        {
+          "source": "Sridhara Swami (per excerpt)",
+          "rendering": "passion that is not contrary to sanātana-dharma; beneficial in marriage and procreation"
+        }
+      ],
+      "explanation": "All translators preserve kāma's double appearance in the verse: in the compound kāma-rāga-vivarjitam (the strength is free of passion-and-attachment) and as the standalone kāma at the end (the desire in beings not contrary to dharma). The dharmāviruddhaḥ qualifier is what makes the second occurrence work: Krishna is the desire only insofar as it accords with dharma. Prabhupada's 'sex life' rendering of the second kāma is interpretive (citing procreation per dharma); Shankara's reading is broader (any bodily-maintenance desire); Sridhara reads it specifically as procreative-marital. The engineering layer must respect that the verse is naming the durable property through every kind of strength and every kind of legitimate desire — not endorsing a moral hierarchy of which strengths or desires are higher."
+    }
+  ],
+  "literal_meaning": "I am the strength of the strong, free of passion-and-attachment; among beings I am the desire not contrary to dharma, O bull of the Bharatas.",
+  "traditional_meaning_consensus": "7.11 continues Krishna's 'I am the X in Y' sequence. Two parallel claims: (1) the strength of the strong, qualified by kāma-rāga-vivarjitam — the durable property of strength is identified with Krishna only when it runs free of grasping and attachment; (2) the desire in beings, qualified by dharma-aviruddhaḥ — the durable property of desire is identified with Krishna only when not contrary to dharma. Both qualifications are critical: Krishna is not identifying with all strength or all desire, but with the property that operates inside the dharmic frame. Shankara emphasizes the bodily-maintenance scope of the desire-claim; Ramanuja emphasizes the structural claim that all such properties are modes of Krishna and depend on him; both readings preserve the qualifier-bound character of the identification.",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

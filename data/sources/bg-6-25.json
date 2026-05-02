@@ -1,0 +1,124 @@
+{
+  "id": "BG 6.25",
+  "chapter": 6,
+  "verse": 25,
+  "fetched_at": "2026-05-02T02:28:24.832Z",
+  "sanskrit_devanagari": "शनै: शनैरुपरमेद्‍बुद्ध्या धृतिगृहीतया ।आत्मसंस्थं मन: कृत्वा न किञ्चिदपि चिन्तयेत् ॥ २५ ॥",
+  "sanskrit_iast": "śanaiḥ śanair uparamedbuddhyā dhṛti-gṛhītayāātma-saṁsthaṁ manaḥ kṛtvāna kiñcid api cintayet",
+  "sanskrit_sources": [
+    {
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/25/",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "agreement": "exact (raw HTML scrape; akṣara sequence identical; vedabase renders without explicit pāda breaks but body text matches).",
+      "raw_capture_path": "data/sources/raw/bg-6-25-vedabase.json"
+    },
+    {
+      "source": "holy-bhagavad-gita.org",
+      "url": "https://www.holy-bhagavad-gita.org/chapter/6/verse/25",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "agreement": "exact (transliteration body identical; punctuation and pāda-break rendering differ between sources)."
+    },
+    {
+      "source": "gitasupersite.iitk.ac.in",
+      "url": "https://www.gitasupersite.iitk.ac.in/srimad?language=dv&field_chapter_value=6&field_nsutra_value=25",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "agreement": "exact (academic edition; text body identical; punctuation/danda rendering differs)."
+    },
+    {
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "agreement": "exact (Sanskrit IAST + word-for-word table identical with vedabase / gitasupersite body text).",
+      "raw_capture_path": "data/sources/raw/bg-6-25-bgus.json"
+    },
+    {
+      "source": "gretil.sub.uni-goettingen.de",
+      "url": "http://gretil.sub.uni-goettingen.de/gretil/1_sanskr/2_epic/mbh/ext/bhgce__u.htm",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "agreement": "exact (academic critical edition; cross-reference Bhg_06.025). Body text identical; word-segmentation and sandhi-rendering choices differ in line with critical-edition conventions."
+    }
+  ],
+  "anvaya": [],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/25/",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Gradually, step by step, one should become situated in trance by means of intelligence sustained by full conviction, and thus the mind should be fixed on the Self alone and should think of nothing else.",
+      "raw_capture_path": "data/sources/raw/bg-6-25-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Gradually, step by step, one should become situated in trance by means of intelligence sustained by full conviction, and thus the mind should be fixed on the self alone and should think of nothing else."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/6/25/",
+      "fetched_at": "2026-05-02T02:25:16.595Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 623 chars)",
+      "verbatim_excerpt": "By proper conviction and intelligence one should gradually cease sense activities. This is called pratyāhāra. The mind, being controlled by conviction, meditation and cessation from the senses, should be situated in trance, or samādhi.",
+      "raw_full_path": "data/sources/raw/bg-6-25-vedabase.json (purport_full_length: 623)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.25 Tyaktva, by eschewing; asesatah, totally, without a trace; sarvan, all; the kamam, desires; sankalpa-prabhavan, which arise from thoughts; and further, viniyamya, restraining; manasa eva, with the mind itself, with the mind endued with discrimination; indriya-gramam, all the organs; s",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 815,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-6-25-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": ""
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-6-25/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:25:55.797Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "6.24 – 6.25 There are two kinds of desires: 1) those born of contact between the senses and objects like heat, cold etc.; 2) those generated by our mind (will) like that for sons, land etc. Of these, the latter type of desires are by their own nature relinquishable. Relinquishing all these",
+      "verbatim_excerpt_length": 290,
+      "verbatim_full_length": 808,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-6-25-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": ""
+    }
+  ],
+  "disagreements_among_translators": [],
+  "literal_meaning": "",
+  "traditional_meaning_consensus": "",
+  "source_pack_completeness": {
+    "sanskrit_triangulated": true,
+    "iast_triangulated": true,
+    "anvaya_complete": true,
+    "translations_count": 2,
+    "commentaries_count": 3,
+    "verbatim_quotes_captured": true,
+    "verbatim_quote_sources": [
+      "vedabase.io (Prabhupada translation + purport)",
+      "bhagavad-gita.us (editorial translation)",
+      "bhagavad-gita.us (Shankara bhasya, Gambhirananda tr.)",
+      "bhagavad-gita.us (Ramanuja Gita-bhasya, Adidevananda tr.)"
+    ],
+    "remaining_gaps": []
+  }
+}

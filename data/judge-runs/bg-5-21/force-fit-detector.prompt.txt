@@ -1,0 +1,200 @@
+# Judge persona: force-fit detector
+
+You will receive a Bhagavad Gita verse package and the engineering analog written for it. You will be given **three other random verses from a different chapter** of the Gita.
+
+## Your task
+
+Decide whether the engineering analog is *equally applicable* to any of the three random verses. If yes, the analog is not actually grounded in the source verse — it is a generic engineering platitude that has been arbitrarily attached to this verse.
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "could_apply_equally_to": ["<verse_id_1>", "<verse_id_2>"],
+  "verse_specific_anchors": [
+    "<word/concept from the source verse the analog actually anchors on>"
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- If the analog could equally describe ≥1 of the 3 random verses ⇒ FAIL.
+- The analog must demonstrably anchor on something specific to *this* verse — a word, a doctrine, a verbal pattern, a Sanskrit construction.
+- Generic engineering wisdom that floats free of the verse fails this gate even if the wisdom is true.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.21",
+  "sanskrit_devanagari": "बाह्यस्पर्शेष्वसक्तात्मा विन्दत्यात्मनि यत्सुखम् ।\nस ब्रह्मयोगयुक्तात्मा सुखमक्षयमश्न‍ुते ॥ २१ ॥",
+  "sanskrit_iast": "bāhya-sparśeṣv asaktātmā vindaty ātmani yat sukham |\nsa brahma-yoga-yuktātmā sukham akṣayam aśnute || 21 ||",
+  "anvaya": [
+    {
+      "sanskrit": "bāhya",
+      "iast": "bāhya",
+      "meaning": "sparśeṣu — in external sense pleasure"
+    },
+    {
+      "sanskrit": "asakta",
+      "iast": "asakta",
+      "meaning": "ātmā — one who is not attached"
+    },
+    {
+      "sanskrit": "vindati",
+      "iast": "vindati",
+      "meaning": "enjoys"
+    },
+    {
+      "sanskrit": "ātmani",
+      "iast": "ātmani",
+      "meaning": "in the self"
+    },
+    {
+      "sanskrit": "yat",
+      "iast": "yat",
+      "meaning": "that which"
+    },
+    {
+      "sanskrit": "sukham",
+      "iast": "sukham",
+      "meaning": "happiness"
+    },
+    {
+      "sanskrit": "saḥ",
+      "iast": "saḥ",
+      "meaning": "he"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "yoga — by concentration in Brahman"
+    },
+    {
+      "sanskrit": "yukta",
+      "iast": "yukta",
+      "meaning": "ātmā — self-connected"
+    },
+    {
+      "sanskrit": "sukham",
+      "iast": "sukham",
+      "meaning": "happiness"
+    },
+    {
+      "sanskrit": "akṣayam",
+      "iast": "akṣayam",
+      "meaning": "unlimited"
+    },
+    {
+      "sanskrit": "aśnute",
+      "iast": "aśnute",
+      "meaning": "enjoys"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/21/",
+      "fetched_at": "2026-05-02T02:23:11.672Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a liberated person is not attracted to material sense pleasure but is always in trance, enjoying the pleasure within. In this way the self-realized person enjoys unlimited happiness, for he concentrates on the Supreme.",
+      "raw_capture_path": "data/sources/raw/bg-5-21-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-21/",
+      "fetched_at": "2026-05-02T02:24:00.110Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Such a liberated person is not attracted to material sense pleasure but is always in trance, enjoying the pleasure within. In this way the self-realized person enjoys unlimited happiness, for he concentrates on the Supreme."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/21/",
+      "fetched_at": "2026-05-02T02:23:11.672Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1065 chars)",
+      "verbatim_excerpt": "Śrī Yāmunācārya, a great devotee in Kṛṣṇa consciousness, said:yad-avadhi mama cetaḥ kṛṣṇa-pādāravindenava-nava-rasa-dhāmany udyataṁ rantum āsīttad-avadhi bata nārī-saṅgame smaryamānebhavati mukha-vikāraḥ suṣṭhu niṣṭhīvanaṁ ca“Since I have been engaged in the transcendental loving service of Kṛṣṇa, realizing ever-new pl",
+      "raw_full_path": "data/sources/raw/bg-5-21-vedabase.json (purport_full_length: 1065)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-21/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:24:00.110Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.21 Asakta-atma, with his heart, internal organ, unattached, bahya-sparsesu, to external objects-sparsah means objects that are contacted, viz sound etc.; bahya-sparsah means those things which are external (bahya) and are objects of contact; that person who thus has his heart unattached, who deriv...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 893,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-21-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-21/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:24:00.110Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.21 He who finds happiness in the self within himself, his mind detached from external contact in the manner already mentioned, i.e., from experience of objects other than the self — such a person abandoning the contemplation on Prakrti or bodily experiences, has his mind engaged in the contemplati...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 486,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-21-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "brahma-yoga-yukta-ātmā",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "self yoked to the Supreme through bhakti-yoga; devotional union"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "self abiding in the non-dual Brahman through samādhi"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "self meditating on the Lord through brahma-yoga; the meditator-Lord relation produces the imperishable bliss"
+        }
+      ],
+      "explanation": "What 'brahma-yoga' refers to differs sharply: Advaita reads it as identity-meditation on impersonal Brahman; Vishishtadvaita and Gaudiya read it as relation-meditation on the personal Lord. The verse's structural claim (yoking produces imperishable bliss in contrast to bounded contact-enjoyments) is preserved."
+    }
+  ],
+  "literal_meaning": "With self unattached to external contacts, one finds happiness within the self (ātmani). Then, with the self yoked to brahman through brahma-yoga, one obtains imperishable bliss (akṣayam sukham).",
+  "traditional_meaning": "The verse establishes that bliss has an inner source — happiness in the self (ātmani sukham) — accessed by detachment from external contacts (bāhya-sparśa). Once the self is yoked to brahman through brahma-yoga, the resulting bliss is imperishable (akṣaya), in contrast to the bounded enjoyments named in 5.22. Shankara reads this as the self abiding in non-dual Brahman; Ramanuja reads it as the self meditating on the Lord and obtaining Lord-related bliss; Prabhupada reads it as devotional bliss in Krishna-consciousness. All converge on the bounded-vs-imperishable contrast.",
+  "engineering": {
+    "translation": "With self unattached to external contacts (bāhya-sparśeṣu asaktātmā), one finds happiness within the self (ātmani sukham). With the self yoked to brahman through brahma-yoga, one obtains imperishable bliss (akṣayam sukham). The verse establishes that the bliss-source is internal — happiness in the self — accessed by detachment from external contacts. Once yoked to brahman through brahma-yoga, the bliss is imperishable. The engineering analog: the senior whose satisfaction comes from the work itself — the quiet of a clean migration, the readability of a well-designed system, the engagement of a difficult problem rightly approached — has access to a non-bounded source. The praise from a manager, the launch's reception, the conference invitation are bounded contacts. STRETCHED honestly because brahma-yoga and akṣaya-sukha exceed; the operational shadow is preserved.",
+    "concrete_scenario": "A principal engineer has, across a decade, audited where her satisfaction actually comes from. She tracks: the quiet of the Tuesday-afternoon design session in which a hard architectural decision yielded; the readability of the Postgres-schema document she wrote that her successor still uses two years later; the moment in the standup when the new hire's correction landed and shifted her own thinking; the fifteen minutes after the migration shipped clean when she sat watching the Datadog latency curve hold. None of these were the conference talk, the launch tweet, the executive recognition. The internal-bliss source is operational: it sits inside the work itself, not in the work's reception. When the conference invitation arrives, she accepts or declines on the merits; the internal-bliss source is not affected. STRETCHED honestly; the brahma-yoga akṣaya-sukha reach further than the operational satisfaction-from-the-work.",
+    "falsifiability": "The analog fails if a reader hears 'happiness within' as 'be intrinsically motivated' coaching content. The verse names a structural fact about where the bliss-source sits — inside, not in external contact. This is not a motivational hack; it is an audit-result.",
+    "counter_example": "When an engineer claims internal-bliss while the satisfaction is in fact externally sourced — when the audit would reveal that praise, recognition, and external reception drive the affect — the verse does not apply. The internal source is testable by the audit; claiming it without doing the audit is performative.",
+    "implication": "Audit, across the last quarter, where your satisfaction actually came from. Internal sources versus external contacts. The verse names the imperishable as internally sourced.",
+    "quotable_line": "Satisfaction sources audited honestly. The internal sits inside the work; the external is bounded by contact.",
+    "tags": [
+      "non-attachment-to-praise",
+      "deep-work",
+      "operator-as-instrument"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

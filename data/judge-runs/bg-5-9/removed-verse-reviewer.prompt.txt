@@ -1,0 +1,215 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.9",
+  "sanskrit_devanagari": "प्रलपन्विसृजन्गृह्णन्नुन्मिषन्निमिषन्नपि ।\nइन्द्रियाणीन्द्रियार्थेषु वर्तन्त इति धारयन् ॥ ९ ॥",
+  "sanskrit_iast": "pralapan visṛjan gṛhṇann unmiṣan nimiṣann api |\nindriyāṇīndriyārtheṣu vartanta iti dhārayan || 9 ||",
+  "anvaya": [
+    {
+      "sanskrit": "प्रलपन्",
+      "iast": "pralapan",
+      "meaning": "talking"
+    },
+    {
+      "sanskrit": "विसृजन्",
+      "iast": "visṛjan",
+      "meaning": "releasing / evacuating"
+    },
+    {
+      "sanskrit": "गृह्णन्",
+      "iast": "gṛhṇan",
+      "meaning": "grasping / receiving"
+    },
+    {
+      "sanskrit": "उन्मिषन्",
+      "iast": "unmiṣan",
+      "meaning": "opening (the eyes)"
+    },
+    {
+      "sanskrit": "निमिषन्",
+      "iast": "nimiṣan",
+      "meaning": "closing (the eyes)"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "also"
+    },
+    {
+      "sanskrit": "इन्द्रियाणि",
+      "iast": "indriyāṇi",
+      "meaning": "the senses"
+    },
+    {
+      "sanskrit": "इन्द्रियार्थेषु",
+      "iast": "indriyārtheṣu",
+      "meaning": "among sense-objects"
+    },
+    {
+      "sanskrit": "वर्तन्ते",
+      "iast": "vartante",
+      "meaning": "operate / are engaged"
+    },
+    {
+      "sanskrit": "इति",
+      "iast": "iti",
+      "meaning": "thus"
+    },
+    {
+      "sanskrit": "धारयन्",
+      "iast": "dhārayan",
+      "meaning": "holding / maintaining (in mind)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them.",
+      "raw_capture_path": "data/sources/raw/bg-5-8-9-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "A person in the divine consciousness, although engaged in seeing, hearing, touching, smelling, eating, moving about, sleeping and breathing, always knows within himself that he actually does nothing at all. Because while speaking, evacuating, receiving, or opening or closing his eyes, he always knows that only the material senses are engaged with their objects and that he is aloof from them."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/8-9/",
+      "fetched_at": "2026-05-02T02:23:10.579Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1093 chars)",
+      "verbatim_excerpt": "A person in Kṛṣṇa consciousness is pure in his existence, and consequently he has nothing to do with any work which depends upon five immediate and remote causes: the doer, the work, the situation, the endeavor and fortune. This is because he is engaged in the loving transcendental service of Kṛṣṇa.",
+      "raw_full_path": "data/sources/raw/bg-5-8-9-vedabase.json (purport_full_length: 1093)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 Yuktah, remaining absorbed in the Self; tattva-vit, the knower of Reality-knower of the real nature of Truth, of the Self, i.e., the seer of the supreme Reality; manyeta, should think; ‘na karomi eva, I certainly do not do; kincit, anything.’ Having realized the Truth, when or how should he thin…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1102,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: continuing 5.8, while talking, releasing, grasping, opening and closing the eyes — the realised yogi maintains the recognition that the senses are operating among sense-objects, not the Self. The repetition of bodily/sensory verbs across 5.8-5.9 is exhaustive: the verse covers perception, action, locomotion, alimentation, respiration, speech, elimination, reception, and the finest motor activity (opening/closing eyes), to make clear the recognition is comprehensive."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-8/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:35.298Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.8 – 5.9 Thus he who knows the truth concerning the self should reflect in mind that the ear and the other organs of sensation (Jnanendriyas) as also organs of action (Karmendriyas) and the vital currents (the Pranas) are occupied with their own respective objects.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 548,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-8-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja groups 5.8-5.9 together: while talking, releasing, grasping, opening and closing the eyes, the knower-of-truth holds in mind that the senses operate among sense-objects. The self does not. The dualistic reading: the senses (jñānendriyas + karmendriyas) and prāṇas operate; the self witnesses."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "indriyāṇi indriyārtheṣu vartante iti dhārayan",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "always knows that only the material senses are engaged with their objects and that he is aloof from them"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "the realised jñānin holds the structural recognition that senses act, Self does not (Advaita non-doership)"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "the knower of truth holds in mind that the senses operate among objects (dualistic, self distinct from senses)"
+        }
+      ],
+      "explanation": "All converge on the structural claim. The disagreement is metaphysical: Shankara's Advaita reads the Self as wholly non-acting; Ramanuja's Vishishtadvaita reads the self as the experiencer-witness distinct from the body-sense-prāṇa complex. Prabhupada emphasises the devotional aloofness."
+    }
+  ],
+  "literal_meaning": "While talking, releasing, grasping, opening and closing the eyes also — knowing that 'the senses operate among sense-objects'.",
+  "traditional_meaning": "5.8-5.9 form a single doctrinal unit. The seer-of-truth, across all the activities of embodied existence, holds in mind that 'the senses operate among sense-objects' — the work proceeds via the body-sense-mind apparatus; the Self does not act. This is the Gita's most concentrated statement of the non-doership doctrine.",
+  "engineering": {
+    "translation": "Continuing the enumeration: while speaking, releasing, grasping, opening and closing the eyes — the yoked one knows: 'the senses (indriyāṇi) are operating among sense-objects (indriyārtheṣu).' The verse extends 5.8 with a second list of bodily operations and the same structural observation. The engineering analog: the senior who watches her own decision-making process — the closing of one tab, the opening of another, the typing of a comment, the release of a stuck idea — and observes the operations as movements, not as identity-events. Speaking in the standup is not 'I speak'; it is the speaking-organ producing speech among speech-objects. Grasping the keyboard is not 'I grasp'; it is the grasping-organ engaging the keyboard-object. The seer's posture is one in which the doer-position is empty across every micro-operation. STRETCHED honestly; the metaphysics exceeds the operational layer at the same point as 5.8.",
+    "concrete_scenario": "A senior engineer types a code-review comment on a contractor's PR. The comment is technically rigorous, names a missing edge-case in the Postgres transaction-isolation logic, and proposes the specific fix. She observes her hand close the GitHub-PR tab, observes her hand open the Datadog-monitoring tab, observes her hand reach for the coffee cup. Across forty seconds of typing-then-cup-grasping the operations have happened; the doer-position has been empty. She has not been the comment-typer, the tab-opener, the cup-grasper. The seer's posture has not slipped. This is not depersonalisation — the work is done with full skill — it is the structural observation 5.8-5.9 describe. The metaphysics reaches further than the engineering analog can carry; the engg layer scopes operationally to the decoupled-identity-during-action observation. The cross-reference inventory: Kafka, Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins.",
+    "falsifiability": "The analog fails if a reader hears the verse as endorsing a kind of distance from the work or a stoic flatness in the workplace. The passage names the seer's interior observation, not a behavioural surface. The behaviour can be lively, engaged, even passionate; the interior is decoupled. Anyone reading this as 'be a robot' has misread the verse.",
+    "counter_example": "When an engineer claims the seer-of-truth's posture without having cultivated it — when the 'doer-position is empty' is rhetorical rather than experiential — the verse does not apply. The verse names a state of the tattva-vit (knower of truth); the claim cannot be made without the prior cultivation that produces the seeing.",
+    "implication": "During your next forty-second micro-operation — typing a comment, closing a tab, drinking coffee — notice whether the doer-position is empty. The verse's claim is testable in micro-windows.",
+    "quotable_line": "Speaking, releasing, grasping, opening the eyes — the senses operate; the seer is not the operating senses.",
+    "tags": [
+      "operator-as-instrument",
+      "doership",
+      "focus-practice"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

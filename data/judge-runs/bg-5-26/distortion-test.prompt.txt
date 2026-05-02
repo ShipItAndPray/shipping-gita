@@ -1,0 +1,228 @@
+# Judge persona: distortion-test reviewer
+
+You will receive a verse's traditional meaning and its engineering layer. Your job is to decide whether the engineering layer contradicts, weakens, inverts, or silently re-scopes the traditional meaning.
+
+## Your task
+
+Compare the two and identify any:
+
+1. **Direct contradiction** — engineering says X; tradition says ¬X.
+2. **Weakening** — tradition makes a strong claim; engineering softens it to a hedged or universal claim.
+3. **Inversion** — engineering's example illustrates the *opposite* of what the verse counsels.
+4. **Silent re-scoping** — engineering applies the verse to a domain or actor the verse does not address (e.g. applying a kṣatriya-duty verse to UX design without acknowledgment).
+
+## Output format (strict JSON)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "issues": [
+    {
+      "type": "contradiction" | "weakening" | "inversion" | "silent_rescoping",
+      "tradition_claim": "<verbatim or paraphrase>",
+      "engineering_claim": "<verbatim or paraphrase>",
+      "explanation": "<one paragraph>"
+    }
+  ]
+}
+```
+
+## Calibration
+
+- Any single critical contradiction ⇒ FAIL.
+- Two or more weakenings or silent re-scopings ⇒ FAIL.
+- Mere reframing that preserves the underlying claim is not distortion. Translation across domains is allowed; distortion of the core teaching is not.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.26",
+  "sanskrit_devanagari": "कामक्रोधविमुक्तानां यतीनां यतचेतसाम् ।\nअभितो ब्रह्मनिर्वाणं वर्तते विदितात्मनाम् ॥ २६ ॥",
+  "sanskrit_iast": "kāma-krodha-vimuktānāṁ yatīnāṁ yata-cetasām |\nabhito brahma-nirvāṇaṁ vartate viditātmanām || 26 ||",
+  "anvaya": [
+    {
+      "sanskrit": "kāma",
+      "iast": "kāma",
+      "meaning": "from desires"
+    },
+    {
+      "sanskrit": "krodha",
+      "iast": "krodha",
+      "meaning": "and anger"
+    },
+    {
+      "sanskrit": "vimuktānām",
+      "iast": "vimuktānām",
+      "meaning": "of those who are liberated"
+    },
+    {
+      "sanskrit": "yatīnām",
+      "iast": "yatīnām",
+      "meaning": "of the saintly persons"
+    },
+    {
+      "sanskrit": "yata",
+      "iast": "yata",
+      "meaning": "cetasām — who have full control over the mind"
+    },
+    {
+      "sanskrit": "abhitaḥ",
+      "iast": "abhitaḥ",
+      "meaning": "assured in the near future"
+    },
+    {
+      "sanskrit": "brahma",
+      "iast": "brahma",
+      "meaning": "nirvāṇam — liberation in the Supreme"
+    },
+    {
+      "sanskrit": "vartate",
+      "iast": "vartate",
+      "meaning": "is there"
+    },
+    {
+      "sanskrit": "vidita",
+      "iast": "vidita",
+      "meaning": "ātmanām — of those who are self-realized"
+    },
+    {
+      "sanskrit": "vimuktānāṁ",
+      "iast": "vimuktānāṁ",
+      "meaning": "(compound element of kāma-krodha-vimuktānāṁ)"
+    },
+    {
+      "sanskrit": "yatīnāṁ",
+      "iast": "yatīnāṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "cetasām",
+      "iast": "cetasām",
+      "meaning": "(compound element of yata-cetasām)"
+    },
+    {
+      "sanskrit": "abhito",
+      "iast": "abhito",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "nirvāṇaṁ",
+      "iast": "nirvāṇaṁ",
+      "meaning": "(compound element of brahma-nirvāṇaṁ)"
+    },
+    {
+      "sanskrit": "viditātmanām",
+      "iast": "viditātmanām",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "26",
+      "iast": "26",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/26/",
+      "fetched_at": "2026-05-02T02:23:11.737Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are free from anger and all material desires, who are self-realized, self-disciplined and constantly endeavoring for perfection, are assured of liberation in the Supreme in the very near future.",
+      "raw_capture_path": "data/sources/raw/bg-5-26-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-26/",
+      "fetched_at": "2026-05-02T02:23:58.542Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Those who are free from anger and all material desires, who are self-realized, self-disciplined and constantly endeavoring for perfection, are assured of liberation in the Supreme in the very near future."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/26/",
+      "fetched_at": "2026-05-02T02:23:11.737Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1973 chars)",
+      "verbatim_excerpt": "Of the saintly persons who are constantly engaged in striving toward salvation, one who is in Kṛṣṇa consciousness is the best of all. The Bhāgavatam (4.22.39) confirms this fact as follows:yat-pāda-paṅkaja-palāśa-vilāsa-bhaktyākarmāśayaṁ grathitam udgrathayanti santaḥtadvan na rikta-matayo yatayo ’pi ruddha-sroto-gaṇās",
+      "raw_full_path": "data/sources/raw/bg-5-26-vedabase.json (purport_full_length: 1973)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-26/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:58.542Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.26 Yatinam, to the monks; yata-cetasam, who have control over their internal organ; kama-krodha-viyuktanam, who are free from desire and anger; vidita-atmanam, who have known the Self, i.e. who have full realization; vartate, there is; brahma-nir-vanam, absorption in Brahman, Liberation; abhitah,...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 962,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-26-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)"
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-26/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:58.542Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.26 To those who are free from desire and wrath; ‘who are wont to exert themselves’ i.e., who are practising self-control; whose ‘thought is controlled,’ i.e., whose minds are subdued; ‘who have conquered them,’ i.e., whose minds are under their control — to such persons the beatitude of the Brahma...",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 581,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-26-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)"
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "abhitaḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "very near; on all sides"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "everywhere; the state surrounds them on all sides — neither distant nor postponed"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "near, on all sides; the state is at hand for the disciplined practitioner"
+        }
+      ],
+      "explanation": "All three readings emphasise the immediacy of the state. The verse refuses the deferred-liberation reading. The metaphysical specification (what the state is) diverges along sectarian lines, but the immediacy is preserved."
+    }
+  ],
+  "literal_meaning": "For renunciates (yatīnām) freed from desire-and-anger, with subdued minds, who have realised the self — brahma-nirvāṇa is near (abhitaḥ vartate), surrounding them on all sides.",
+  "traditional_meaning": "The verse closes the sequence (5.24-5.26) with abhitaḥ — 'on all sides', 'near, surrounding'. Brahma-nirvāṇa is not far from the renunciate freed from desire-and-anger with subdued mind and self-realisation. The intimacy of the state (abhitaḥ) is structurally significant. Shankara, Ramanuja, and Prabhupada all read this as confirming the achievability of the state for the disciplined practitioner.",
+  "engineering": {
+    "translation": "For renunciates (yatīnām) freed from desire-and-anger, with subdued minds (yata-cetasām), who have realised the self — brahma-nirvāṇa is near (abhitaḥ vartate), surrounding them on all sides. The verse closes the brahma-nirvāṇa block (5.24-5.26) with abhitaḥ — 'on all sides, near, surrounding.' The state is not far; for the disciplined practitioner it is at hand. STRETCHED honestly because brahma-nirvāṇa exceeds the operational layer. The engineering analog scopes to: the senior who has cultivated the prior verses' practices — endured the kāma-krodha-udbhava (5.23), located satisfaction internally (5.21), recognised bounded enjoyments as bounded (5.22), seen with sama-darśana (5.18) — finds the settled state operationally near. The state is achievable iha eva (per 5.19) and abhitaḥ (per 5.26) — here, in this career, surrounding the senior who has done the work.",
+    "concrete_scenario": "A senior engineer at twenty years tenure. The prior chapter-5 practices are operational: she has audited delight-sources (5.21-5.22), endured Slack-message urges in real-time (5.23), reviewed across the seniority gradient with uniform tone (5.18). Three months into a Datadog-tracked year that includes a CEO change Slack-announced, a product pivot, and a staffing reduction, she observes via her own GitHub-commit log that the settled state has held. The disturbances arrived; the disturbances did not produce the swings of younger years. The state — at the operational rung — is abhitaḥ, surrounding her, not far. She does not have to attain it through a special ritual; the practices have produced it as a continuous condition. STRETCHED honestly; the brahma-nirvāṇa metaphysics exceed. The operational rung is the readable signature: the state is at-hand for the engineer who has done the prior verses' work.",
+    "falsifiability": "The analog fails if a reader hears 'near, on all sides' as 'easy.' The state is near for the practitioner who has done the prior chapters' work; for the engineer who has not, it is not near. The verse's claim is structurally conditional on the cultivation that produces it.",
+    "counter_example": "When an engineer claims the abhitaḥ state without having done the cultivation — when the settledness is asserted rather than earned — the verse does not apply. The yatīnām (renunciates), yata-cetasām (mind-subdued), viditātmanām (self-realised) clauses are structurally significant; the abhitaḥ vartate follows from them, not in their absence.",
+    "implication": "Audit whether the prior chapter-5 practices are cultivated. If yes, the state is at-hand. If no, the state is not near. The verse's claim is conditional.",
+    "quotable_line": "For the engineer who has done the work, the settled state is abhitaḥ — at hand, on all sides. STRETCHED honestly.",
+    "tags": [
+      "operator-as-instrument",
+      "team-state",
+      "long-term-thinking"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

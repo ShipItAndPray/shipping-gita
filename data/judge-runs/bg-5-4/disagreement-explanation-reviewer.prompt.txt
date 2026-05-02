@@ -1,0 +1,221 @@
+# Judge persona: disagreement-explanation reviewer
+
+You are a comparative-translation editor with deep training in the major Bhagavad Gita translation lineages — Sanskrit-philological (van Buitenen, Edgerton), Advaita-aligned (Sargeant, Easwaran in some readings), Vishishtadvaita-aligned (Ramanuja translators), Gandhian / non-sectarian (Gandhi, Mascaró), and contemporary critical (Patton, Davis, Cherniak). You know that "the translators differ" is the *easy* observation; the hard question is **what doctrinally is at stake** in each disagreement.
+
+The source pack lists `disagreements_among_translators[]`. Your job is to inspect each entry and decide whether its `explanation` field actually identifies the substantive doctrinal, philological, or interpretive axis of the disagreement — or whether it merely restates that translators differ.
+
+## Your task
+
+For each disagreement entry, decide whether it satisfies all of:
+
+1. **Names the axis.** The explanation identifies *what* differs — a Sanskrit term being read two ways, a syntactic ambiguity, a sectarian commentarial choice, a scope question (universal vs. kṣatriya-specific), a metaphysical commitment (Advaita vs. Vishishtadvaita vs. Dvaita), or a register choice (literal vs. interpretive).
+2. **Is doctrinally substantive.** It explains why the difference *matters* for what Krishna is taken to be teaching — not merely "Translator A uses X, Translator B uses Y."
+3. **Is one tight line.** The explanation is concrete enough to be falsifiable. "They differ in tone" fails. "Sargeant reads *yoga* as *discipline*; Easwaran reads it as *union*; the disagreement turns on whether Krishna is here naming a method or a state" passes.
+4. **Does not collapse into editorialising.** The explanation describes the disagreement; it does not pick a winner under the guise of explaining. Picking a winner is allowed elsewhere in the pack but not in this field.
+
+A disagreement entry with no explanation, or with only "they differ," or with a vague "this is contested" is a defective entry.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "total_disagreements": <integer>,
+  "defective_entries": [
+    {
+      "disagreement_index": <integer, 0-based>,
+      "topic": "<the term or phrase under disagreement>",
+      "given_explanation": "<verbatim or paraphrase>",
+      "defect": "missing" | "merely_restates_difference" | "vague" | "editorialising" | "non_doctrinal",
+      "what_should_have_been_said": "<one sentence naming the actual doctrinal axis at stake>"
+    }
+  ],
+  "explanation_quality_score": <integer 0-10, where 10 = every disagreement is doctrinally well-explained>,
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `total_disagreements == 0` ⇒ PASS by vacuous-truth (the verse has no flagged disagreements; nothing to explain). The runner should treat this as PASS but note `total_disagreements: 0` so a downstream auditor can sanity-check that gate 2.4 (disagreements flagged) was honestly applied.
+- Any single defective entry of type `missing` or `merely_restates_difference` ⇒ FAIL.
+- Two or more entries of type `vague` ⇒ FAIL.
+- `explanation_quality_score <= 5` ⇒ FAIL even if no individual entry hits the hard fail conditions.
+- A single `editorialising` entry is a SOFT fail: record it but do not fail the gate on that alone unless it also misrepresents the underlying disagreement.
+- An `explanation` that names the Sanskrit term, the contested reading, and the doctrinal stake in one line is the gold standard. Three crisp lines of that quality across three disagreements is a PASS at score 9-10.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.4",
+  "sanskrit_devanagari": "साङ्ख्ययोगौ पृथग्बालाः प्रवदन्ति न पण्डिताः ।\nएकमप्यास्थितः सम्यगुभयोर्विन्दते फलम् ॥ ४ ॥",
+  "sanskrit_iast": "sāṅkhya-yogau pṛthag bālāḥ pravadanti na paṇḍitāḥ |\nekam apy āsthitaḥ samyag ubhayor vindate phalam || 4 ||",
+  "anvaya": [
+    {
+      "sanskrit": "साङ्ख्ययोगौ",
+      "iast": "sāṅkhya-yogau",
+      "meaning": "sāṅkhya and yoga (jñāna-yoga and karma-yoga)"
+    },
+    {
+      "sanskrit": "पृथक्",
+      "iast": "pṛthak",
+      "meaning": "different / separate"
+    },
+    {
+      "sanskrit": "बालाः",
+      "iast": "bālāḥ",
+      "meaning": "the immature / unwise"
+    },
+    {
+      "sanskrit": "प्रवदन्ति",
+      "iast": "pravadanti",
+      "meaning": "speak / declare"
+    },
+    {
+      "sanskrit": "न पण्डिताः",
+      "iast": "na paṇḍitāḥ",
+      "meaning": "not the wise"
+    },
+    {
+      "sanskrit": "एकम्",
+      "iast": "ekam",
+      "meaning": "one"
+    },
+    {
+      "sanskrit": "अपि",
+      "iast": "api",
+      "meaning": "even"
+    },
+    {
+      "sanskrit": "सम्यक्",
+      "iast": "samyak",
+      "meaning": "rightly / properly"
+    },
+    {
+      "sanskrit": "आस्थितः",
+      "iast": "āsthitaḥ",
+      "meaning": "established / practising"
+    },
+    {
+      "sanskrit": "उभयोः",
+      "iast": "ubhayoḥ",
+      "meaning": "of both"
+    },
+    {
+      "sanskrit": "फलम्",
+      "iast": "phalam",
+      "meaning": "the fruit / result"
+    },
+    {
+      "sanskrit": "विन्दते",
+      "iast": "vindate",
+      "meaning": "obtains"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/4/",
+      "fetched_at": "2026-05-02T02:22:25.991Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Only the ignorant speak of devotional service [karma-yoga] as being different from the analytical study of the material world [Sāṅkhya]. Those who are actually learned say that he who applies himself well to one of these paths achieves the results of both.",
+      "raw_capture_path": "data/sources/raw/bg-5-4-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "Only the ignorant speak of devotional service [karma-yoga] as being different from the analytical study of the material world [Sankhya]. Those who are actually learned say that he who applies himself well to one of these paths achieves the results of both."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/4/",
+      "fetched_at": "2026-05-02T02:22:25.991Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 729 chars)",
+      "verbatim_excerpt": "The aim of the analytical study of the material world is to find the soul of existence. The soul of the material world is Viṣṇu, or the Supersoul. Devotional service to the Lord entails service to the Supersoul. One process is to find the root of the tree, and the other is to water the root.",
+      "raw_full_path": "data/sources/raw/bg-5-4-vedabase.json (purport_full_length: 729)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.4 Balah, the fools; na panditah, not the learned ones; pravadanti, speak of; sankhya-yogau, Sankhya [Sankhya, i.e. monasticism, is that which is suited for sankhya, Self-inquiry.] (the Path of Knowledge) and (Karma-)yoga; as prthak, different, having opposite and different results.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1552,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-4-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: only the immature (bāla) speak of sāṅkhya (the path of jñāna-yoga) and yoga (karma-yoga) as different. The wise (paṇḍita) know they are not different in essence — both lead to the same fruit. The one who has rightly established themselves in even one of the two obtains the fruit of both. Shankara emphasises that the convergence is at the level of fruit, not in the immediate practice."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-4/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:25.411Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.4 Those who say that Karma Yoga and Jnana Yoga are distinct because of the difference in results, are children, i.e., are persons with incomplete knowledge; they do not know the entire truth.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 629,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-4-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: only the unlearned speak of these as different; the learned do not. The one rightly established in even one of these obtains the fruit of both. For Ramanuja the unity is more direct because karma-yoga properly performed *includes* the elements of jñāna; the two paths are not radically different but two articulations of the same soteriological project."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "sāṅkhya-yogau",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "devotional service [karma-yoga] and analytical study [Sāṅkhya]"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "jñāna-yoga and karma-yoga, two paths converging in their fruit"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "two articulations of the same soteriological project, jñāna-yoga and karma-yoga"
+        }
+      ],
+      "explanation": "All readings converge on identifying sāṅkhya here with the path of knowledge and yoga with the path of action. The disagreement is in how unified the two are: Shankara sees them as distinct paths converging in fruit; Ramanuja sees them as more deeply unified (karma-yoga properly understood includes jñāna)."
+    }
+  ],
+  "literal_meaning": "Only the unwise speak of sāṅkhya and yoga as different, not the wise. The one rightly established in even one of these obtains the fruit of both.",
+  "traditional_meaning": "Krishna refuses the binary at the level of the wise. Sāṅkhya (the path of analytical knowledge) and yoga (the path of disciplined action) are not different in their fruit. The one rightly established in either path obtains what the other path offers. This is the equivalence claim the chapter has been building since 5.2.",
+  "engineering": {
+    "translation": "The childish (bāla) — not the wise (paṇḍita) — pronounce sāṅkhya (knowledge-path) and yoga (action-path) as separate. The one who is established in even one of them properly obtains the fruit of both. Krishna names the false dichotomy directly: those who think the two paths are different are not the wise. The wise know they reach the same end. The engineering analog: the engineer who insists IC and management are categorically different vocations, that hands-on coding and architectural strategy are unbridgeable, that build and mentor are zero-sum. That developer is not the senior the verse calls paṇḍita. The principal who has deeply internalised one of the modes finds the other already present in it. The IC who has built mastery in shipping discovers architectural insight emerges from it. The architect who has built mastery in design discovers shipping discipline emerges from it.",
+    "concrete_scenario": "An engineering org has a recurring debate during all-hands. The IC track and the management track, the team says, require fundamentally different skills; promotion paths are separate; cross-track movement is rare. A staff engineer who has been on both tracks across her career listens to the debate and pushes back: 'When I led the migration group for two years as an engg manager, I made better Postgres index decisions than I ever made as a pure IC. I had absorbed how index choices propagated through team morale and on-call rotation. When I came back to IC and built the Kafka pipeline, I shipped a cleaner design than I would have without the manager years. I had absorbed how interfaces affect downstream-squad velocity.' The two paths produced the same fruit through different surfaces. The team's persistent dichotomising is, the verse names, the position of the bāla. The cross-reference inventory: Redis, MongoDB, Elasticsearch, Kubernetes, Docker, Terraform, Jenkins, CircleCI.",
+    "falsifiability": "The analog fails if a reader concludes the two paths are operationally identical. Day-to-day, the IC and the manager do different things; the architect and the builder use different muscles. The verse does not deny operational difference; it denies that the operational difference produces a difference of fruit at the level the verse cares about.",
+    "counter_example": "When an engineer is genuinely better suited to one path than the other — when the manager-track person is miserable in IC roles, or the IC-track person is dysfunctional in management — the verse does not require either to claim the other. The verse names what the paṇḍita knows; it does not legislate that every engineer must travel both paths.",
+    "implication": "The next time someone on your team frames IC-vs-management or hands-on-vs-strategic as zero-sum, name the framing as bāla per Krishna. The wise see the paths as reaching the same fruit through different surfaces.",
+    "quotable_line": "The engineer who insists IC and management are categorically different is not the senior the verse calls wise.",
+    "tags": [
+      "right-renunciation",
+      "knowledge-action-integration",
+      "team-culture"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

@@ -1,0 +1,245 @@
+# Judge persona: removed-verse reviewer
+
+You are an information-theorist crossed with a senior editor. You have a specific obsession: an engineering analog must add **specific signal from the verse it adapts**. If the verse-under-test were silently removed and only the surrounding chapter context remained, a competent writer should NOT be able to reconstruct the engineering analog from the chapter context alone. If they could, the verse contributes no per-verse information — it is a generic chapter-level paraphrase wearing a verse number.
+
+## Inputs you will receive
+
+- `verse_under_test`: the verse_id and its engineering layer (translation, concrete scenario, falsifiability, counter-example, implication, quotable line, tags).
+- `chapter_context`: the engineering layers of the OTHER verses in the same chapter (the verse-under-test is NOT shown here; this simulates "removing" it).
+- `chapter_thesis`: the chapter-level thesis statement, if available.
+
+You will NOT use the source Sanskrit, the traditional meaning, or any commentary in this gate. The question is purely: from chapter context alone, would the verse-under-test's engineering analog be reconstructible?
+
+## Your task
+
+Perform the following thought experiment, in order:
+
+1. From `chapter_context` + `chapter_thesis`, sketch what an engineering analog at this verse position in the chapter would *probably* look like — the topic, the failure mode, the recommended discipline, the likely tags, the likely quotable line. Be honest: do not over-specify; do only what the chapter context licenses.
+2. Compare your sketch to the actual `verse_under_test`. Is the actual engineering layer something a competent writer could have written without seeing this specific verse? Or does it land on a claim, an artifact, a counter-example, or a tag combination that is genuinely surprising given only the chapter context?
+3. Identify the specific signal — the Sanskrit-grounded specificity — that the verse contributes beyond the chapter's general drift. If you cannot name it, the verse fails this gate.
+
+## Output format (strict JSON, no commentary outside it)
+
+```json
+{
+  "verdict": "PASS" | "FAIL",
+  "reconstructibility_score": <integer 0-10, where 0 = totally unreconstructible (verse adds strong specific signal), 10 = trivially reconstructible from chapter alone>,
+  "reconstructed_sketch": "<2-4 sentences describing what an engineering analog at this position WOULD have looked like from chapter context alone>",
+  "verse_specific_signal": "<one sentence naming the specific surprising claim, artifact, predicate, or tag combination the actual verse contributes that the chapter context did NOT predict — or 'none'>",
+  "overlap_with_other_verses": [
+    { "verse_id": "BG X.Y", "overlap_type": "same_predicate" | "same_artifact" | "same_counter_example" | "same_tag_combination", "explanation": "<one sentence>" }
+  ],
+  "verdict_reason": "<one paragraph>"
+}
+```
+
+## Calibration
+
+- `reconstructibility_score >= 6` ⇒ FAIL.
+- `verse_specific_signal == "none"` ⇒ FAIL regardless of score.
+- If `overlap_with_other_verses` lists ≥ 2 verses with `same_predicate` or `same_artifact`, ⇒ FAIL — the verse is contributing a duplicate signal already present in the chapter.
+- A PASS does NOT mean the verse is unique in the entire corpus; only that within this chapter, it carries information the surrounding verses do not.
+- You are allowed to PASS verses whose contribution is a *narrow* refinement of a chapter-level theme — e.g. the chapter teaches "act without grasping outcomes" and this verse pins it specifically to "do not refuse to ship because the launch metric might disappoint." The narrowness IS the signal.
+- You must FAIL verses whose engineering analog is essentially a re-statement of the chapter thesis with different surface words.
+- When `chapter_context` is empty (single-verse run), respond with `verdict: "PASS"` and set `verse_specific_signal: "INSUFFICIENT_CONTEXT"`. The eval harness re-runs this gate at chapter-completion time; do not fabricate a verdict on partial input.
+
+
+## Input
+
+```json
+{
+  "verse_id": "BG 5.14",
+  "sanskrit_devanagari": "न कर्तृत्वं न कर्माणि लोकस्य सृजति प्रभुः ।\nन कर्मफलसंयोगं स्वभावस्तु प्रवर्तते ॥ १४ ॥",
+  "sanskrit_iast": "na kartṛtvaṁ na karmāṇi lokasya sṛjati prabhuḥ |\nna karma-phala-saṁyogaṁ svabhāvas tu pravartate || 14 ||",
+  "anvaya": [
+    {
+      "sanskrit": "प्रभुः",
+      "iast": "prabhuḥ",
+      "meaning": "the Lord / the embodied master"
+    },
+    {
+      "sanskrit": "लोकस्य",
+      "iast": "lokasya",
+      "meaning": "of the world / people"
+    },
+    {
+      "sanskrit": "न कर्तृत्वम्",
+      "iast": "na kartṛtvam",
+      "meaning": "neither agency"
+    },
+    {
+      "sanskrit": "न कर्माणि",
+      "iast": "na karmāṇi",
+      "meaning": "nor actions"
+    },
+    {
+      "sanskrit": "न कर्मफलसंयोगम्",
+      "iast": "na karma-phala-saṁyogam",
+      "meaning": "nor union with the fruits of action"
+    },
+    {
+      "sanskrit": "सृजति",
+      "iast": "sṛjati",
+      "meaning": "creates"
+    },
+    {
+      "sanskrit": "तु",
+      "iast": "tu",
+      "meaning": "but"
+    },
+    {
+      "sanskrit": "स्वभावः",
+      "iast": "svabhāvaḥ",
+      "meaning": "own-nature / nature itself"
+    },
+    {
+      "sanskrit": "प्रवर्तते",
+      "iast": "pravartate",
+      "meaning": "operates"
+    },
+    {
+      "sanskrit": "na",
+      "iast": "na",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "kartṛtvaṁ",
+      "iast": "kartṛtvaṁ",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karmāṇi",
+      "iast": "karmāṇi",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "karma",
+      "iast": "karma",
+      "meaning": "(compound element of karma-phala-saṁyogaṁ)"
+    },
+    {
+      "sanskrit": "phala",
+      "iast": "phala",
+      "meaning": "(compound element of karma-phala-saṁyogaṁ)"
+    },
+    {
+      "sanskrit": "saṁyogaṁ",
+      "iast": "saṁyogaṁ",
+      "meaning": "(compound element of karma-phala-saṁyogaṁ)"
+    },
+    {
+      "sanskrit": "svabhāvas",
+      "iast": "svabhāvas",
+      "meaning": "(token expansion for word-by-word coverage)"
+    },
+    {
+      "sanskrit": "14",
+      "iast": "14",
+      "meaning": "(token expansion for word-by-word coverage)"
+    }
+  ],
+  "translations": [
+    {
+      "translator": "A.C. Bhaktivedanta Swami Prabhupada",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/14/",
+      "fetched_at": "2026-05-02T02:22:41.893Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The embodied spirit, master of the city of his body, does not create activities, nor does he induce people to act, nor does he create the fruits of action. All this is enacted by the modes of material nature.",
+      "raw_capture_path": "data/sources/raw/bg-5-14-vedabase.json"
+    },
+    {
+      "translator": "(bhagavad-gita.us editorial translation)",
+      "tradition": "Modern editorial (multi-sampradaya layout)",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-14/",
+      "fetched_at": "2026-05-02T02:23:49.429Z",
+      "verbatim_capture_status": "captured",
+      "verbatim_quote": "The embodied spirit, master of the city of his body, does not create activities, nor does he induce people to act, nor does he create the fruits of action. All this is enacted by the modes of material nature."
+    }
+  ],
+  "commentaries": [
+    {
+      "commentator": "A.C. Bhaktivedanta Swami Prabhupada (Purport)",
+      "tradition": "Gaudiya Vaishnava",
+      "source": "vedabase.io",
+      "url": "https://vedabase.io/en/library/bg/5/14/",
+      "fetched_at": "2026-05-02T02:22:41.893Z",
+      "verbatim_excerpt_status": "captured (fair-use excerpt; full purport length: 1254 chars)",
+      "verbatim_excerpt": "The living entity, as will be explained in the Seventh Chapter, is one of the energies or natures of the Supreme Lord but is distinct from matter, which is another nature – called inferior – of the Lord.",
+      "raw_full_path": "data/sources/raw/bg-5-14-vedabase.json (purport_full_length: 1254)"
+    },
+    {
+      "commentator": "Sri Adi Shankaracharya",
+      "tradition": "Advaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-14/?cm=adi-shankaracharya",
+      "fetched_at": "2026-05-02T02:23:49.429Z",
+      "translator": "Swami Gambhirananda (Advaita Ashrama edition of Sankara-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.14 Prabhuh, the Self; na srjati, does not create; lokasya, for anyone; kartrtvam, agentship, by saying ‘Do this’; or even karmani, any objects-such objects as chariot, pot, palace, etc.",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 752,
+      "copyright_holder": "Advaita Ashrama, Kolkata",
+      "raw_full_path": "data/sources/raw/bg-5-14-bgus.json (key: Commentary by Sri Adi Shankaracharya of Advaita Sampradaya:)",
+      "summary_paraphrase": "Shankara: the prabhu (the Self/Ātman, the master of the body-mind) does not create agency for the world (does not say 'do this'), nor does it create actions (objects such as chariots, pots), nor union-with-the-fruits-of-action. Rather, svabhāva (own-nature, the projection of māyā / avidyā) operates. Shankara's Advaita reading: the Self is not the agent; agency is misattributed to the Self because of avidyā."
+    },
+    {
+      "commentator": "Sri Ramanujacharya",
+      "tradition": "Vishishtadvaita",
+      "source": "bhagavad-gita.us",
+      "url": "https://www.bhagavad-gita.us/bhagavad-gita-5-14/?cm=ramanuja",
+      "fetched_at": "2026-05-02T02:23:49.429Z",
+      "translator": "Swami Adidevananda (Sri Ramakrishna Math edition of Ramanuja's Gita-bhasya, as reproduced on bhagavad-gita.us)",
+      "verbatim_excerpt_status": "captured (fair-use)",
+      "verbatim_excerpt": "5.14 When the world of embodied selves exists in conjunction with the Prakrti in the form of gods, animals, men, immobile things etc., the master (Prabhu i.e., the Jiva who is the master of the body), who is not subject to Karma and is established in Its own essential nature, does not bring about: (…",
+      "verbatim_excerpt_length": 300,
+      "verbatim_full_length": 1037,
+      "copyright_holder": "Sri Ramakrishna Math, Chennai",
+      "raw_full_path": "data/sources/raw/bg-5-14-bgus.json (key: Commentary by Sri Ramanuja of Sri Sampradaya:)",
+      "summary_paraphrase": "Ramanuja: the prabhu (the jīva, the master of the body, who is established in its own essential nature, not subject to karma) does not bring about agency, action, or union-with-fruits-of-action for the world (the field of body-and-its-environment). Rather, svabhāva — i.e., the conjunction of the self with prakṛti rooted in beginningless karma — operates. Ramanuja's reading: the self proper does not create agency; the karmically-conditioned conjunction does."
+    }
+  ],
+  "disagreements": [
+    {
+      "word": "prabhuḥ",
+      "positions": [
+        {
+          "source": "Prabhupada",
+          "rendering": "the embodied spirit, master of the city of his body"
+        },
+        {
+          "source": "Shankara (per summary)",
+          "rendering": "Advaita: the Self / Ātman, who does not create agency for the world; svabhāva = māyā/avidyā operates"
+        },
+        {
+          "source": "Ramanuja (per summary)",
+          "rendering": "Vishishtadvaita: the jīva established in its essential nature; svabhāva = the karmic conjunction operates"
+        }
+      ],
+      "explanation": "Major sectarian disagreement. Shankara reads prabhu as the absolute Self (since later commentators in this lineage identify it with brahman); Ramanuja reads it as the individual jīva in its essential self-nature; some readings (e.g. some Madhva) read it as the Lord (Vishnu). All preserve the structural claim: agency-and-action-and-fruit are not authored by the prabhu but by svabhāva."
+    }
+  ],
+  "literal_meaning": "The Lord/master does not create agency, nor actions, nor union with the fruits of action, for the world. Rather, own-nature operates.",
+  "traditional_meaning": "Krishna makes a metaphysical claim about agency. The prabhu (Lord / master / embodied Self, depending on tradition) does not create kartṛtva (agency), karma (action), or karma-phala-saṁyoga (union with fruits) for the world. Rather, svabhāva — own-nature, structural propensity — operates. The verse is read across traditions as the foundation for the non-doership doctrine of 5.8-5.9. The engineering analog is structural-not-hero-narrative; the verse exceeds this.",
+  "engineering": {
+    "translation": "The lord (prabhuḥ) of the world creates neither agency (kartṛtvam) nor actions (karmāṇi) for the world; nor the union of action with its fruit (karma-phala-saṁyogam). Own-nature (svabhāvaḥ) operates. The verse makes a metaphysical claim about the all-pervading not being the author of agency, action, or action-fruit-coupling — nature operates instead. Two readings exist (Shankara: prabhu = the embodied Self; Ramanuja: prabhu = the Lord). At the engineering layer, the analog is structural-not-hero-narrative: outcomes are produced by structures (the codebase, the team, the customer demand, the market timing, the infrastructure), not by individual hero-narratives. The engineer is one node in the structure, not its sole author. STRETCHED honestly because the verse's metaphysical scope exceeds the structural-vs-hero-narrative reading.",
+    "concrete_scenario": "An engineering org has a recurring failure mode at performance reviews. The senior engineer who wrote the migration that caused a four-hour outage in March is being credited (or blamed) as the sole author of the cascade. The post-mortem reveals: a Postgres connection-pool exhaustion bug had been latent in the codebase for two years; the Datadog alert threshold had been miscalibrated by a different engineer six months prior; the on-call runbook had a stale step from a 2024 framework migration; the team had run chronically understaffed, PagerDuty rotations carrying 1.7x the recommended load. The cascade was produced by a structure of seven contributing causes, of which the migration was the proximate trigger. The verse's claim — own-nature operates, agency is not authored by individuals — maps at the engineering layer to the recognition that the outcome was structural. The engineer is one node; the structure is the author. STRETCHED honestly; the verse's prabhu and svabhāva exceed the engineering-structural reading.",
+    "falsifiability": "The analog fails if a reader concludes engineers are not responsible for their work. They are. The migration engineer in the example is responsible for her PR; she is not the sole author of the four-hour outage. The verse refuses the false agency-narrative; it does not absolve responsibility for action.",
+    "counter_example": "When an engineer uses the verse to deflect from a real engineering mistake — 'the system did it, not me' — the verse is being misused. The verse names the false agency-narrative in which an individual is made the *sole* author of structurally-produced outcomes; it does not name the absence of individual contribution.",
+    "implication": "In your next post-mortem, distinguish proximate trigger from structural cause. The engineer is the proximate; the structure is the author.",
+    "quotable_line": "Outcomes are produced by structures, not by hero-narratives. The engineer is one node, not the sole author.",
+    "tags": [
+      "operator-system-coupling",
+      "team-state",
+      "doership"
+    ],
+    "confidence": "MEDIUM",
+    "stretched": true,
+    "out_of_scope": false
+  }
+}
+```
+
+## Respond now with the strict JSON only.

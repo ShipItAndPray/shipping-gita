@@ -1,0 +1,37 @@
+{
+  "id": "BG 5.12",
+  "chapter": 5,
+  "verse": 12,
+  "schema_version": "1.0.0",
+  "eval_suite_version": "1.0.0",
+  "engineering": {
+    "translation": "The disciplined one (yuktaḥ), having abandoned the fruit of action (karma-phalam tyaktvā), attains the peace founded on naiṣṭhikīm (the established/abiding state). The undisciplined (ayuktaḥ), driven by desire (kāma-kāreṇa), attached to the fruit, is bound. Krishna draws the contrast sharply: the same action, performed with or without attachment to fruit, produces opposite results. The disciplined attain peace; the undisciplined are bound. The verse coheres directly with 2.47-2.48 and is its operational restatement at chapter 5's juncture. The engineering analog: the engineer who ships the migration without grasping at the launch-metric attains operational peace; the engineer who ships the same migration while obsessing over the launch-metric is bound by the attachment. Same merge, same code; different inner state, different outcome at the level the verse cares about.",
+    "concrete_scenario": "Two senior engineers ship the same kind of migration on the same Friday. Engineer A has prepared the runbook on GitHub, run the staging Datadog tests, scheduled the Slack announcement, and sized the rollback window. She ships, watches the dashboards, files the post-deploy notes, closes the PagerDuty pre-emptive alert, and at 6 PM she is at peace — the work was offered to the team's sustaining loop, the metric will be what it will be. Engineer B has shipped a structurally identical migration with the same level of preparation. But across Saturday morning he refreshes Datadog every twenty minutes, reads Slack obsessively for executive reactions, drafts and redrafts a launch tweet, calculates the visible impact on his promotion case. The same code is in production; engineer A is at peace, engineer B is bound. The action was identical; the discipline was different; the verse names the difference structurally.",
+    "falsifiability": "The analog fails if a reader concludes engineer A doesn't read dashboards. She reads them — but she reads them as feedback, not as the source of her state. Detachment from outcome-as-identity is not detachment from outcome-as-data.",
+    "counter_example": "When the migration genuinely has gone wrong and requires sustained attention — when Datadog refreshes are operationally needed because the cascade is unfolding — engineer B's behaviour is correct. The verse names the structural condition (attachment-to-fruit produces bondage), not a flat prescription about attention to dashboards.",
+    "implication": "On your next Friday-shipped migration, observe Saturday morning. The peace is the readable signature.",
+    "quotable_line": "Same merge, same code, same Friday. The disciplined are at peace by Saturday; the undisciplined are bound.",
+    "tags": [
+      "fruits-of-action",
+      "outcome-detachment",
+      "shipping-discipline"
+    ],
+    "confidence": "HIGH",
+    "stretched": false,
+    "out_of_scope": false
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "ts": "2026-05-02T03:30:00Z",
+      "mutation": "v0 generation: BG 5.12 engineering layer drafted from triangulated source pack. Anchored to chapter-5 thesis: equivalence-of-paths-with-karma-yoga-preference, decoupled identity, sama-darśana, internal-bliss-source, brahma-nirvāṇa-as-operational-rung-with-honest-STRETCHED. Cross-references to chapters 2-4 preserved.",
+      "failing_gates_before": [],
+      "failing_gates_after": [],
+      "prompt_version": "draft-1.0.0"
+    }
+  ],
+  "gate_results": [],
+  "total_score": 0,
+  "max_score": 84,
+  "needs_human_rescue": false
+}
